@@ -8,4 +8,4 @@ This GitHub repository contains the text for a standard in the OGC Standards Inc
 * requirements - the individual requirements of the standard
 * abstract_tests - the Abstract Test Suite comprising one test for every requirement
 
-This repository also can contain code or examples in the respective folders.
+This repository also can contain code or examples in the "code" folder.
