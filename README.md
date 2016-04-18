@@ -2,6 +2,7 @@
 
 This GitHub repository contains the text for a standard in the OGC Standards Incubator project. Text is organized as follows:
 
+* index.adoc - the index for all standard content, built from the following folders
 * standard - the main standard content
   - normative - normative text connecting the requirements to make the standard
   - informative - informative text that describes the concepts and purpose of the standard
