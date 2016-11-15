@@ -5,6 +5,7 @@
 [big]*ii.    Keywords*
 
 The following are keywords to be used by search engines and document catalogues.
+
 ogcdoc, OGC document,  <tags separated by commas>
 
 [big]*iii.   Preface*
@@ -19,6 +20,7 @@ Recipients of this document are requested to submit, with their comments, notifi
 [big]*iv.    Submitting organizations*
 
 The following organizations submitted this Document to the Open Geospatial Consortium (OGC):
+
 Organization name(s)
 
 [big]*v.     Submitters*
