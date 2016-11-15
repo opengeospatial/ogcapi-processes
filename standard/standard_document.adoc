@@ -41,7 +41,7 @@
 
 [cols = "^", frame = "none"]
 |===
-*Warning*
+|*Warning*
 |===
 
 This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard.
