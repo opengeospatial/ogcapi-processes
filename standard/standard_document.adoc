@@ -20,9 +20,9 @@
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:   <yyyy-mm-dd>
 |Publication Date:   <yyyy-mm-dd>
-|External identifier of this OGC® document: <http://www.opengis.net/doc/[{doc-type/}]{standard}/{m.n}>
+|External identifier of this OGC® document: http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}
 |Internal reference number of this OGC® document:    YY-nnnrx
-|Version: n.n.n
+|Version: n.n
 |Category: OGC® <Implementation / Abstract Specification / Best Practice>
 |Editor:   <Name(s) of Editor or Editors>
 |===
