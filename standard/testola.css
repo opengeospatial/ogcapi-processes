@@ -386,7 +386,7 @@ p aside {
 
 /* Default header styles */
 h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 {
-    font-family: "Noto Serif", "DejaVu Serif", sans-serif;
+    font-family: "Noto Serif", "DejaVu Serif", serif;
     font-weight: 300;
     font-style: normal;
     color: #000000;
@@ -403,15 +403,15 @@ h1 small, h2 small, h3 small, #toctitle small, .sidebarblock > .content > .title
 }
 
 h1 {
-    font-size: 1.125em;
+    font-size: 160%;
 }
 
 h2 {
-    font-size: 1em;
+    font-size: 160%;
 }
 
 h3, #toctitle, .sidebarblock > .content > .title {
-    font-size: 1em;
+    font-size: 140%;
 }
 
 h4 {
@@ -587,23 +587,34 @@ blockquote, blockquote p {
 
 @media only screen and (min-width: 768px) {
     h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 {
+        font-family: "Noto Serif", "DejaVu Serif", serif;
         line-height: 1.2;
+        font-weight: 300;
+        font-style: normal;
+        color: #000000;
+        text-rendering: optimizeLegibility;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+        line-height: 1.0125em;
     }
 
     h1 {
-        font-size: 2.75em;
+        font-size: 160%;
+        font-weight: bold;
     }
 
     h2 {
-        font-size: 2.3125em;
+        font-size: 160%;
+        font-weight: bold;
     }
 
     h3, #toctitle, .sidebarblock > .content > .title {
-        font-size: 1.6875em;
+        font-size: 140%;
+        font-weight: bold;
     }
 
     h4 {
-        font-size: 1.4375em;
+        font-size: 1em;
     }
 }
 
