@@ -1,5 +1,5 @@
-:Title: OGC (add title text)
-:titletext: OGC (add title text)
+:Title: OGC WPS REST/JSON Binding
+:titletext: OGC WPS REST/JSON Binding
 :doctype: book
 :encoding: utf-8
 :lang: en
@@ -23,8 +23,8 @@
 |External identifier of this OGC® document: http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}
 |Internal reference number of this OGC® document:    YY-nnnrx
 |Version: n.n
-|Category: OGC® <Implementation / Abstract Specification / Best Practice>
-|Editor:   <Name(s) of Editor or Editors>
+|Category: OGC® Implementation Specification
+|Editor:   Benjamin Pross
 |===
 
 [cols = "^", frame = "none"]
