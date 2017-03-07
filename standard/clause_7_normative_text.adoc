@@ -1,26 +1,412 @@
-== Clause containing normative material
-Paragraph
+[#clause_wps,reftext='11']
+[[Clause_WPS]]
+== WPS REST Resources
 
-=== Requirement Class A or Requirement A Example
-Paragraph – intro text for the requirement class.
+In the following sections, the resources and endpoint-URLs of the WPS REST binding are described.
 
-Use the following table for Requirements Classes.
+=== Resources to be provided by WPS
 
-include::requirements/requirements_class.adoc[]
+As there is not yet an official REST binding of the WPS available, the REST
+binding has been specified in Testbed 12. The resources that are provided by a
+WPS REST server are listed in <<table_wps_resources>> below and include the
+capabilities document of the server, the list of processes available
+(ProcessCollection and Process), jobs (running processes) and
+outputs of processes.
 
-==== Requirement 1
-Paragraph - intro text for the requirement.
+[#table_wps_resources,reftext='{table-caption} {counter:table-num}']
+.Resources provided by the WPS REST server
+[options="header"]
+|=======================
+|Resource Class         |Description                                |Acccess Path                               |Example
+|Capabilities           |The complete service metadata document.    |{WpsRESTBaseURL}                           |http://geoprocessing.demo.52north.org:8080/wps-proxy
+|ProcessCollection           |List of processes available                |{WpsRESTBaseURL}/processes                 |http://geoprocessing.demo.52north.org:8080/wps-proxy/processes
+|Process | Detailed process description of a single process |{WpsRESTBaseURL}/processes/{process-id} |http://www.maps.bob/etopo2/default/WholeWorld_CRS_84/10m/1/3/86/132.xml
+|JobCollection | List of jobs of a process  |{WpsRESTBaseURL}/processes/{processID}/jobs/{job-id} |NA
+|Job |Representation of a job (execution of a process) containing status information |{WpsRESTBaseURL}/processes/{processID}/jobs/{job-id} |NA
+|Process Output Data |Resource containing the different process outputs inline or as reference. |{WpsRESTBaseURL}/processes/{processID}/jobs/{job-id}/outputs |NA
+4+^|Notations: +
+{WpsRESTBaseURL}: The base URL of the WPS REST endpoint. +
+{process-id}: identifier of a process.  +
+{job-id}: identifier to a job.
+|=======================
 
-Use the following table for Requirements, number sequentially.
 
-include::requirements/requirement.adoc[]
+=== Operations on WPS resources
 
-Dictionary tables for requirements can be added as necessary. Modify the following example as needed.
+In general, the HTTP GET operation is used to provide access to the resources described above.
+However, in order to create a new job, the HTTP POST method is used to post a new job by sending a new job resource represented by
+an execute request to the server. This results in the operations listed in <<table_wps_operations>> below.
 
-[width="90%",options="header"]
-|===
-|Names |Definition |Data types and values |Multiplicity and use
-|name 1 |definition of name 1 |float |One or more (mandatory)
-|name 2 |definition of name 2 |character string type, not empty |Zero or one (optional)
-|name 3 |definition of name 3 |GML:: Point PropertyType |One (mandatory)
-|===
+[#table_wps_operations,reftext='{table-caption} {counter:table-num}']
+.Operations on resources provided by the WPS REST server
+[options="header"]
+|=======================
+| HTTP Operation        |Acccess Path                        | Parameters       |Description
+| GET           | {WpsRESTBaseURL}                           | NA | Retrieval of Capabilities resource
+| GET           | {WpsRESTBaseURL}/processes                 | NA | Retrieval of ProcessCollection resource
+| GET | {WpsRESTBaseURL}/processes/{process-id} | NA | Retrieval of a Process resource (process description)
+| GET | {WpsRESTBaseURL}/processes/{processID}/jobs | NA | Retrieval of list of jobs of a specific process (JobCollection)
+| GET | {WpsRESTBaseURL}/processes/{processID}/jobs/{job-id} | NA | Retrieval of a single Job resource
+| POST | {WpsRESTBaseURL}/processes/{processID}/jobs | Execute request (contained in body) | Execution of a process
+4+^| Notations: +
+{WpsRESTBaseURL}: The base URL of the WPS REST endpoint. +
+{process-id}: identifier of a process.  +
+{job-id}: identifier to a job.
+|=======================
+
+=== Associations between WPS resources
+
+As stated above in the listing of resources (<<table_wps_resources>>), the basic
+resources managed by the WPS REST server are processes, jobs, outputs and
+its corresponding collections.
+An overview on the associations between the resources is given in <<wps_resource_model>>.
+
+[#wps_resource_model,reftext='{figure-caption} {counter:figure-num}']
+.Resource model of the WPS REST server
+image::images/Figure1.png[WPS Resource Model]
+
+The Capabilities has an association to the ProcessCollection that aggregates the single Processes offered by the Web Processing Server.
+The process has an association to the collection of jobs (JobCollection) that aggregates single jobs, i.e. instances that run a certain process.
+
+=== JSON Encoding
+
+In the following, example requests and responses for the different operations and resources will be shown.
+
+.Example of HTTP GET request for retrieving JSON WPS Capabilities.
+[source]
+----
+http://tb12.dev.52north.org/wps-rest
+----
+
+.Example of WPS Capabilities encoded as JSON.
+[source,json]
+----
+{
+	"Capabilities": {
+		"ServiceIdentification": {
+			"Title": "52°North WPS 4.0.0-SNAPSHOT",
+			"Abstract": "Service based on the 52°North implementation of WPS 1.0.0",
+			"ServiceType": "WPS",
+			"ServiceTypeVersion": ["1.0.0",
+			"2.0.0"],
+			"Fees": "NONE",
+			"AccessConstraints": "NONE"
+		},
+		"ServiceProvider": {
+			"ProviderName": "52North",
+			"ProviderSite": {
+				"HRef": "http://www.52north.org/"
+			},
+			"ServiceContact": {
+				"IndividualName": "Your name",
+				"ContactInfo": {
+
+				}
+			}
+		},
+		"Contents": {
+			"ProcessSummaries": [{
+				"identifier": "testbed12.fo.DouglasPeuckerAlgorithm",
+				"title": "testbed12.fo.DouglasPeuckerAlgorithm",
+				"_processVersion": "1.0.0",
+				"_jobControlOptions": "sync-execute",
+				"_outputTransmission": "value",
+				"url": "http://tb12.dev.52north.org:80/wps-rest/processes/testbed12.fo.DouglasPeuckerAlgorithm"
+			},...
+			]
+		},
+		"_service": "WPS",
+		"_version": "2.0.0"
+	}
+}
+----
+
+The process summaries in the contents-section contain links to the process description of the respective process. The standalone list of processes can be requested as follows:
+
+.Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
+[source]
+----
+http://tb12.dev.52north.org/wps-rest/processes
+----
+
+.Example of WPS Capabilities encoded as JSON.
+[source,json]
+----
+{
+  "ProcessSummaries": [
+    {
+      "identifier": "testbed12.fo.DouglasPeuckerAlgorithm",
+      "title": "testbed12.fo.DouglasPeuckerAlgorithm",
+      "_processVersion": "1.0.0",
+      "_jobControlOptions": "sync-execute",
+      "_outputTransmission": "value",
+      "url": "http://tb12.dev.52north.org:80/wps-rest/processes/testbed12.fo.DouglasPeuckerAlgorithm"
+    },...
+    ]
+}
+----
+
+
+.Example of HTTP GET request for retrieving the process description of a process encoded in JSON. (NOTE: Request has been line-wrapped for easier reading).
+[source]
+----
+http://tb12.dev.52north.org/wps-rest/processes/
+testbed12.fo.DouglasPeuckerAlgorithm
+----
+
+.Example of WPS Capabilities encoded as JSON.(NOTE: Some inputs and formats have been left out for easier reading).
+[source,json]
+----
+{
+  "ProcessOffering": {
+    "Process": {
+      "Title": "Hootenanny Conflation Process",
+      "Identifier": "testbed12.lsa.HootenannyConflation",
+      "Input": [
+        {
+          "Title": "INPUT1",
+          "Identifier": "INPUT1",
+          "ComplexData": {
+            "Format": [
+              {
+                "_default": "true",
+                "_mimeType": "application/x-zipped-shp"
+              },...
+            ]
+          },
+          "_minOccurs": "1",
+          "_maxOccurs": "1"
+        },
+        {
+          "Title": "INPUT1_TRANSLATION",
+          "Identifier": "INPUT1_TRANSLATION",
+          "ComplexData": {
+            "Format": [
+              {
+                "_default": "true",
+                "_mimeType": "text/x-script.phyton"
+              },
+              {
+                "_default": "false",
+                "_mimeType": "text/plain"
+              }
+            ]
+          },
+          "_minOccurs": "0",
+          "_maxOccurs": "1"
+        },
+        {
+          "Title": "INPUT2",
+          "Identifier": "INPUT2",
+          "ComplexData": {
+            "Format": [
+              {
+                "_default": "true",
+                "_mimeType": "application/x-openstreetmap+xml"
+              }...
+            ]
+          },
+          "_minOccurs": "1",
+          "_maxOccurs": "1"
+        },
+        {
+          "Title": "CONFLATION_TYPE",
+          "Identifier": "CONFLATION_TYPE",
+          "LiteralData": {
+            "Format": [
+              {
+                "_default": "true",
+                "_mimeType": "text/plain"
+              },
+              {
+                "_default": "false",
+                "_mimeType": "text/xml"
+              }
+            ],
+            "LiteralDataDomain": [
+              {
+                "AnyValue": null,
+                "DataType": {
+                  "_reference": "xs:string"
+                }
+              }
+            ]
+          },
+          "_minOccurs": "0",
+          "_maxOccurs": "1"
+        },...
+      ],
+      "Output": [
+        {
+          "Title": "CONFLATION_OUTPUT",
+          "Identifier": "CONFLATION_OUTPUT",
+          "ComplexData": {
+            "Format": [
+              {
+                "_default": "true",
+                "_mimeType": "application/x-zipped-shp"
+              },...
+            ]
+          }
+        },
+        {
+          "Title": "CONFLATION_REPORT",
+          "Identifier": "CONFLATION_REPORT",
+          "ComplexData": {
+            "Format": [
+              {
+                "_default": "true",
+                "_mimeType": "text/plain"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "_processVersion": "1.0.0",
+    "_jobControlOptions": "sync-execute async-execute",
+    "_outputTransmission": "value reference",
+    "execute-url": "http://tb12.dev.52north.org:80/wps-rest/processes/testbed12.lsa.HootenannyConflation/jobs"
+  }
+}
+----
+
+.Example of HTTP GET request for getting a list of jobs of a process. (NOTE: Request has been line-wrapped for easier reading).
+[source]
+----
+http://tb12.dev.52north.org/wps-rest/processes/
+testbed12.fo.DouglasPeuckerAlgorithm/jobs
+----
+
+.Example of a list of jobs for a process encoded as JSON.
+[source,json]
+----
+{
+  "Jobs": [
+    "1317c058-cb4d-4ab4-ad21-b78e51229a17",
+    "1319d2fc-cac8-4e8d-8039-2c511f55a9d3"
+  ]
+}
+----
+
+.Example of HTTP POST request for executing a process. (NOTE: Request has been line-wrapped for easier reading).
+[source]
+----
+http://tb12.dev.52north.org/wps-rest/processes/
+testbed12.fo.DouglasPeuckerAlgorithm/jobs
+----
+
+By default, the proces will be executed asynchronously. If the process supports synchronous execution, this can be achieved by appending the following URL-parameter:
+
+.Example of HTTP POST request for synchronously executing a process. (NOTE: Request has been line-wrapped for easier reading).
+[source]
+----
+http://tb12.dev.52north.org/wps-rest/processes/
+testbed12.fo.DouglasPeuckerAlgorithm/jobs?sync-execute=true
+----
+
+.Example of WPS Execute request encoded as JSON.
+[source,json]
+----
+{
+    "Execute": {
+        "Identifier": "testbed12.lsa.HootenannyConflation",
+        "Input": [
+            {
+            "Reference": {
+                    "_mimeType": "application/x-zipped-shp",
+                    "_href": "http://geoprocessing.demo.52north.org:8080/data/Trans_RoadSegment-aoi.zip"
+            },
+            "_id": "INPUT1"
+            },
+			{
+            "Reference": {
+                    "_mimeType": "text/x-script.phyton",
+                    "_href": "http://geoprocessing.demo.52north.org:8080/data/TNM_Roads.py"
+            },
+            "_id": "INPUT1_TRANSLATION"
+            },
+			{
+            "Reference": {
+                    "_mimeType": "application/x-openstreetmap+xml",
+                    "_href": "http://geoprocessing.demo.52north.org:8080/data/sf_only_roads-aoi.osm"
+            },
+            "_id": "INPUT2"
+            }
+        ],
+        "output":[{
+            "_mimeType": "application/x-zipped-shp",
+            "_id": "CONFLATION_OUTPUT",
+            "_transmission": "reference"
+        },{
+            "_mimeType": "text/plain",
+            "_id": "CONFLATION_REPORT",
+            "_transmission": "reference"
+        }],
+        "_service": "WPS",
+        "_version": "2.0.0"
+    }
+}
+----
+
+The direct response to a asynchronously executed process is HTTP status code 201 (created) and the URL to obtain status information and finally the result. The URL will be returned in a HTTP header named __Location__. For synchronous execution, the result document will be returned after the process has finished.
+
+.Example of HTTP GET request for retrieving status information about a asynchonously executed process (NOTE: Request has been line-wrapped for easier reading).
+[source]
+----
+http://tb12.dev.52north.org/wps-rest/processes/
+testbed12.fo.DouglasPeuckerAlgorithm/jobs/
+c731d14b-1de6-499c-9317-20224e056012
+----
+
+.Example of WPS StatusInfo response encoded as JSON. The process is still running.
+[source,json]
+----
+{
+  "StatusInfo": {
+    "JobID": "c731d14b-1de6-499c-9317-20224e056012",
+    "Status": "Running",
+    "Progress": 0
+  }
+}
+----
+
+After the process has finished, the progress element will be replaced by the URL to obtain the outputs
+
+.Example of WPS StatusInfo response encoded as JSON. The process has finished.
+[source,json]
+----
+{
+  "StatusInfo": {
+    "JobID": "c731d14b-1de6-499c-9317-20224e056012",
+    "Status": "Succeeded",
+    "Output": "http://tb12.dev.52north.org/wps-rest/processes/testbed12.lsa.HootenannyConflation/jobs/c731d14b-1de6-499c-9317-20224e056012/outputs"
+  }
+}
+----
+
+.Example of WPS Result response encoded as JSON.
+[source,json]
+----
+{
+  "Result": {
+    "JobID": "c731d14b-1de6-499c-9317-20224e056012",
+    "Output": [
+      {
+        "ID": "CONFLATION_OUTPUT",
+        "Reference": {
+          "_mimeType": "application/x-zipped-shp",
+          "_href": "http://tb12.dev.52north.org:80/wps/RetrieveResultServlet?id=c731d14b-1de6-499c-9317-20224e056012CONFLATION_OUTPUT.b1172b1c-c9aa-495a-aa8b-62220ac93605"
+        }
+      },
+      {
+        "ID": "CONFLATION_REPORT",
+        "Reference": {
+          "_mimeType": "text/plain",
+          "_href": "http://tb12.dev.52north.org:80/wps/RetrieveResultServlet?id=c731d14b-1de6-499c-9317-20224e056012****CONFLATION_REPORT.220391a6-4357-44e2-b5f3-c0a0983cedae"
+        }
+      }
+    ]
+  }
+}
+----
