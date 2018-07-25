@@ -1,6 +1,9 @@
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/req/op/process-collection +
+|*Requirement {counter:req-id}* |/req/op/process-collection-success +
 
-The server SHALL support the HTTP GET operation at the path `/processes`.
+A successful execution of the operation SHALL be reported as a
+response with a HTTP status code 200.
+The content of that response SHALL be based upon the OpenAPI
+3.0 schema https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml[processCollection.yaml].
 |===

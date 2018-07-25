@@ -100,17 +100,9 @@ include::clause_4_terms_and_definitions.adoc[]
 
 include::clause_5_conventions.adoc[]
 
-include::clause_6_api.adoc[]
+include::clause_6_overview.adoc[]
 
-include::clause_7_process-collection.adoc[]
-
-include::clause_8_process.adoc[]
-
-include::clause_9_job-collection.adoc[]
-
-include::clause_10_job.adoc[]
-
-include::clause_11process-output.adoc[]
+include::clause_7_core.adoc[]
 
 <<<
 ////
