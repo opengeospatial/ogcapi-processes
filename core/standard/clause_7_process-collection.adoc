@@ -1,0 +1,70 @@
+[#clause_process-collection,reftext='11']
+[[Process-Collection]]
+== Requirements Class "Process Collection"
+
+In the following sections, the resources and endpoint-URLs of the WPS 2.0 REST/JSON binding are described.
+
+==== Operation
+
+include::requirements/op/REQ_process-collection-op.adoc[]
+
+==== Response
+
+include::requirements/op/REQ_process-collection-success.adoc[]
+
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processes.yaml[Schema for the process collection]
+[source,YAML]
+----
+  type: object
+  required:
+    - processes
+  properties:
+    processes:
+      type: array
+      items:
+        $ref: '#/components/schemas/processSummary'
+----
+
+.Landing page response document
+=================
+[source,JSON]
+----
+{
+  "links": [
+    { "href": "http://data.example.org/",
+      "rel": "self", "type": "application/json", "title": "this document" },
+    { "href": "http://data.example.org/api",
+      "rel": "service", "type": "application/openapi+json;version=3.0", "title": "the API definition" },
+    { "href": "http://data.example.org/conformance",
+      "rel": "conformance", "type": "application/json", "title": "WFS 3.0 conformance classes implemented by this server" },
+    { "href": "http://data.example.org/collections",
+      "rel": "data", "type": "application/json", "title": "Metadata about the feature collections" }
+  ]
+}
+----
+=================
+
+==== Error situations
+
+.Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
+[source]
+----
+http://hostname.org/wps-rest/processes
+----
+
+.Example of Process list encoded as JSON.
+[source,json]
+----
+{
+  "ProcessSummaries": [
+    {
+      "identifier": "ConvexHullAlgorithm",
+      "title": "Convex Hull Algorithm",
+      "processVersion": "1.0.0",
+      "jobControlOptions": "sync-execute async-execute",
+      "processDescription": "http://hostname.org/wps-rest/processes/ConvexHullAlgorithm"
+    },...
+    ]
+}
+----
+

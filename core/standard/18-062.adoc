@@ -1,14 +1,23 @@
 :Title: OGC WPS 2.0 REST/JSON Binding Extension
-:titletext: OGC WPS REST/JSON Binding Extension
+:titletext: OGC WPS 2.0 REST/JSON Binding Extension
 :doctype: book
 :encoding: utf-8
 :lang: en
 :toc:
 :toc-placement!:
 :toclevels: 3
-:numbered:
+:sectnums:
+:sectnumlevels: 4
 :sectanchors:
-:source-highlighter: coderay
+:source-highlighter: pygments
+:figure-id: 0
+:table-id: 0
+:req-id: 0
+:rec-id: 0
+:per-id: 0
+:source-highlighter: pygments
+:pygments-style: borland
+:pygments-linenums-mode: table
 
 = {title}
 
@@ -20,9 +29,9 @@
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:   <yyyy-mm-dd>
 |Publication Date:   <yyyy-mm-dd>
-|External identifier of this OGC® document: http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}
-|Internal reference number of this OGC® document:    YY-nnnrx
-|Version: 0.1
+|External identifier of this OGC® document: http://www.opengis.net/doc/IS/wps-rest/1.0
+|Internal reference number of this OGC® document:    18-062
+|Version: 1.0-draft
 |Category: OGC® Implementation Specification
 |Editor:   Benjamin Pross
 |===
@@ -35,7 +44,7 @@
 [cols = "^", frame = "none", grid = "none"]
 |===
 |*Copyright notice*
-|Copyright © <year> Open Geospatial Consortium
+|Copyright © 2018 Open Geospatial Consortium
 |To obtain additional rights of use, visit http://www.opengeospatial.org/legal/
 |===
 
@@ -50,8 +59,8 @@ Recipients of this document are invited to submit, with their comments, notifica
 
 [width = "50%", grid = "none"]
 |===
-|Document type:   	OGC® <Standard/Abstract Specification/Best Practice>
-|Document subtype:   	if applicable
+|Document type:   	OGC® Standard
+|Document subtype:   	Interface
 |Document stage:   	Draft
 |Document language: 	English
 |===
@@ -91,11 +100,17 @@ include::clause_4_terms_and_definitions.adoc[]
 
 include::clause_5_conventions.adoc[]
 
-include::clause_7_normative_text.adoc[]
+include::clause_6_api.adoc[]
 
-include::clause_8_encodings.adoc[]
+include::clause_7_process-collection.adoc[]
 
-include::clause_9_oas.adoc[]
+include::clause_8_process.adoc[]
+
+include::clause_9_job-collection.adoc[]
+
+include::clause_10_job.adoc[]
+
+include::clause_11process-output.adoc[]
 
 <<<
 ////

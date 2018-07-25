@@ -1,0 +1,97 @@
+[#clause_api,reftext='11']
+[[API]]
+== Requirements Class "API"
+
+=== API landing page
+
+==== Operation
+
+include::requirements/op/REQ_root-op.adoc[]
+
+==== Response
+
+include::requirements/op/REQ_root-success.adoc[]
+
+.link:https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/root.yaml[Schema for the landing page]
+[source,YAML]
+----
+type: object
+required:
+  - links
+properties:
+  links:
+    type: array
+    items:
+      $ref: https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/link.yaml
+----
+
+.Landing page response document
+=================
+[source,JSON]
+----
+{
+  "links": [
+    { "href": "http://data.example.org/",
+      "rel": "self", "type": "application/json", "title": "this document" },
+    { "href": "http://data.example.org/api",
+      "rel": "service", "type": "application/openapi+json;version=3.0", "title": "the API definition" },
+    { "href": "http://data.example.org/conformance",
+      "rel": "conformance", "type": "application/json", "title": "WFS 3.0 conformance classes implemented by this server" },
+    { "href": "http://data.example.org/collections",
+      "rel": "data", "type": "application/json", "title": "Metadata about the feature collections" }
+  ]
+}
+----
+=================
+
+==== Error situations
+
+=== API definition
+
+==== Operation
+
+Every WFS provides an API definition that describes the capabilities
+of the server and which can be used by developers to understand the API,
+by software clients to connect to the server, or
+by development tools to support the implementation of servers and clients.
+
+include::requirements/core/REQ_api-definition-op.adoc[]
+
+==== Response
+
+include::requirements/core/REQ_api-definition-success.adoc[]
+
+include::requirements/core/REC_api-definition-oas.adoc[]
+
+If multiple API definition formats are supported by a server, use
+content negotiation to select the desired representation.
+
+The API definition document describes the API. In other words,
+there is no need to include the `/api` operation in the API definition itself.
+
+The idea is that any WFS can be used by developers that are familiar with
+the API definition language(s) supported by the server. For example, if
+an OpenAPI definition is used, it should be possible to create a working
+client using the OpenAPI definition. The developer may need to learn a little
+bit about geometry data types, etc., but it should not be required to read
+this standard to access the data via the API.
+
+==== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+See <<http_status_codes>> for general guidance.
+
+Reqirement
+
+Operation
+
+Response
+
+URL-Example
+
+Schema
+
+Example
+
+Errors
