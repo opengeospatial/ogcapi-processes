@@ -10,5 +10,5 @@ and include at least links to the following resources:
 
 * `/api` (relation type 'service')
 * `/conformance` (relation type 'conformance')
-* `/collections` (relation type 'data')
+* `/processes` (relation type 'processes')
 |===
