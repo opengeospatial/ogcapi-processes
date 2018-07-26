@@ -26,11 +26,11 @@ Allow also features that do not belong to any collection?
 
 ==== Operation
 
-include::requirements/op/REQ_root-op.adoc[]
+include::requirements/core/REQ_root-op.adoc[]
 
 ==== Response
 
-include::requirements/op/REQ_root-success.adoc[]
+include::requirements/core/REQ_root-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/root.yaml[Schema for the landing page]
 [source,YAML]
@@ -159,8 +159,6 @@ More specific guidance is provided for each resource, where applicable.
 
 include::requirements/core/PER_additional-status-codes.adoc[]
 
-
-
 === Web caching
 
 Entity tags are a mechanism for web cache validation and for supporting conditional
@@ -205,7 +203,7 @@ Two common mechanisms to support cross-origin requests are:
 |Recommendation {counter:rec-id} |/rec/core/html +
 
 To support browsing a WPS with a web browser and to enable search engines to crawl
-and index a dataset, implementations SHOULD consider to support an HTML encoding.
+and index processes, implementations SHOULD consider to support an HTML encoding.
 |===
 
 <<overview,Clause 6 (Overview)>> includes a discussion about the recommended
@@ -220,11 +218,11 @@ TBD
 
 ==== Operation
 
-include::requirements/op/REQ_process-collection-op.adoc[]
+include::requirements/core/REQ_process-collection-op.adoc[]
 
 ==== Response
 
-include::requirements/op/REQ_process-collection-success.adoc[]
+include::requirements/core/REQ_process-collection-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml[Schema for the process collection]
 [source,YAML]
@@ -270,11 +268,11 @@ TBD
 
 ==== Operation
 
-include::requirements/op/REQ_process-op.adoc[]
+include::requirements/core/REQ_process-op.adoc[]
 
 ==== Response
 
-include::requirements/op/REQ_process-success.adoc[]
+include::requirements/core/REQ_process-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml[Schema for a process]
 [source,YAML]
@@ -380,11 +378,11 @@ TBD
 
 ==== Operation
 
-include::requirements/op/REQ_job-collection-op.adoc[]
+include::requirements/core/REQ_job-collection-op.adoc[]
 
 ==== Response
 
-include::requirements/op/REQ_job-collection-success.adoc[]
+include::requirements/core/REQ_job-collection-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobList.yaml[Schema for the job collection]
 [source,YAML]
@@ -423,11 +421,11 @@ TBD
 
 ==== Operation
 
-include::requirements/op/REQ_job-creation-op.adoc[]
+include::requirements/core/REQ_job-creation-op.adoc[]
 
 ==== Request
 
-include::requirements/op/REQ_job-creation-request.adoc[]
+include::requirements/core/REQ_job-creation-request.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml[Schema for execute]
 [source,YAML]
@@ -484,9 +482,9 @@ properties:
 
 ==== Response
 
-include::requirements/op/REQ_job-creation-success.adoc[]
+include::requirements/core/REQ_job-creation-success.adoc[]
 
-include::requirements/op/REQ_job-creation-success-header.adoc[]
+include::requirements/core/REQ_job-creation-success-header.adoc[]
 
 ==== Error situations
 
@@ -496,11 +494,11 @@ TBD
 
 ==== Operation
 
-include::requirements/op/REQ_job-op.adoc[]
+include::requirements/core/REQ_job-op.adoc[]
 
 ==== Response
 
-include::requirements/op/REQ_job-success.adoc[]
+include::requirements/core/REQ_job-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml[Schema for execute]
 [source,YAML]
@@ -549,11 +547,11 @@ TBD
 
 ==== Operation
 
-include::requirements/op/REQ_job-result-op.adoc[]
+include::requirements/core/REQ_job-result-op.adoc[]
 
 ==== Response
 
-include::requirements/op/REQ_job-result-success.adoc[]
+include::requirements/core/REQ_job-result-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml[Schema for result]
 [source,YAML]
@@ -568,15 +566,13 @@ properties:
           $ref: '#/components/schemas/outputInfo'
 ----
 
-==== Error situations
-
-.Example of HTTP GET request for retrieving a job of a process encoded as JSON.
+.Example of HTTP GET request for retrieving the result a job encoded as JSON.
 [source]
 ----
-http://hostname.org/wps-rest/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f
+http://hostname.org/wps-rest/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result
 ----
 
-.Example of a job encoded as JSON.
+.Example of a result encoded as JSON.
 [source,json]
 ----
 {
@@ -592,3 +588,6 @@ http://hostname.org/wps-rest/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3fb
   ]
 }
 ----
+
+==== Error situations
+
