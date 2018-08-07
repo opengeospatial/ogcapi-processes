@@ -5,5 +5,5 @@
 A successful execution of the operation SHALL be reported as a
 response with a HTTP status code 200.
 The content of that response SHALL be based upon the OpenAPI
-3.0 schema https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml[processCollection.yaml].
+3.0 schema https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/processCollection.yaml[processCollection.yaml].
 |===

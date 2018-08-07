@@ -199,7 +199,7 @@ include::requirements/core/REQ_process-collection-op.adoc[]
 
 include::requirements/core/REQ_process-collection-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml[Schema for the process collection]
+.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/processCollection.yaml[Schema for the process collection]
 [source,YAML]
 ----
 processSummary:
@@ -275,7 +275,7 @@ include::requirements/core/REQ_process-op.adoc[]
 
 include::requirements/core/REQ_process-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processOffering.yaml[Schema for a process offering]
+.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/processOffering.yaml[Schema for a process offering]
 [source,YAML]
 ----
 processOffering:
@@ -287,7 +287,7 @@ processOffering:
         $ref: 'process.yaml'
 ----
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml[Schema for a process]
+.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/process.yaml[Schema for a process]
 [source,YAML]
 ----
 process:
@@ -425,7 +425,7 @@ include::requirements/core/REQ_job-collection-op.adoc[]
 
 include::requirements/core/REQ_job-collection-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobList.yaml[Schema for the job collection]
+.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/jobList.yaml[Schema for the job collection]
 [source,YAML]
 ----
 jobCollection:
@@ -474,7 +474,7 @@ include::requirements/core/REQ_job-creation-op.adoc[]
 
 include::requirements/core/REQ_job-creation-request.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml[Schema for execute]
+.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/execute.yaml[Schema for execute]
 [source,YAML]
 ----
 execute:
@@ -552,7 +552,7 @@ include::requirements/core/REQ_job-op.adoc[]
 
 include::requirements/core/REQ_job-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml.yaml[Schema for status info]
+.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/statusInfo.yaml.yaml[Schema for status info]
 [source,YAML]
 ----
 statusInfo:
@@ -613,7 +613,7 @@ include::requirements/core/REQ_job-result-op.adoc[]
 
 include::requirements/core/REQ_job-result-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml[Schema for the result of a job]
+.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/result.yaml[Schema for the result of a job]
 [source,YAML]
 ----
 result:
@@ -627,7 +627,7 @@ result:
               $ref: 'outputInfo.yaml'
 ----
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/outputInfo.yaml[Schema for output info]
+.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/outputInfo.yaml[Schema for output info]
 [source,YAML]
 ----
 outputInfo:
