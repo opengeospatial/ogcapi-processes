@@ -19,9 +19,6 @@ by development tools to support the implementation of servers and clients.
 .Resources in the Core requirements class
 image::figures/PT1_FIG01.png[align="center"]
 
-CAUTION: link:https://github.com/opengeospatial/WFS_FES/issues/30[ISSUE 30] +
-Allow also features that do not belong to any collection?
-
 === Retrieve API landing page
 
 ==== Operation
@@ -32,7 +29,7 @@ include::requirements/core/REQ_root-op.adoc[]
 
 include::requirements/core/REQ_root-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/root.yaml[Schema for the landing page]
+.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/root.yaml[Schema for the landing page]
 [source,YAML]
 ----
 type: object
@@ -42,7 +39,7 @@ properties:
   links:
     type: array
     items:
-      $ref: https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/link.yaml
+      $ref: https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/link.yaml
 ----
 
 .Landing page response document
@@ -51,14 +48,14 @@ properties:
 ----
 {
   "links": [
-    { "href": "http://data.example.org/",
+    { "href": "http://processing.example.org/",
       "rel": "self", "type": "application/json", "title": "this document" },
-    { "href": "http://data.example.org/api",
+    { "href": "http://processing.example.org/api",
       "rel": "service", "type": "application/openapi+json;version=3.0", "title": "the API definition" },
-    { "href": "http://data.example.org/conformance",
-      "rel": "conformance", "type": "application/json", "title": "WFS 3.0 conformance classes implemented by this server" },
-    { "href": "http://data.example.org/collections",
-      "rel": "data", "type": "application/json", "title": "Metadata about the feature collections" }
+    { "href": "http://processing.example.org/conformance",
+      "rel": "conformance", "type": "application/json", "title": "WPS REST Binding 1.0 conformance classes implemented by this server" },
+    { "href": "http://processing.example.org/processes",
+      "rel": "processes", "type": "application/json", "title": "Metadata about the processes" }
   ]
 }
 ----
@@ -70,7 +67,7 @@ properties:
 
 ==== Operation
 
-Every WFS provides an API definition that describes the capabilities
+Every WPS provides an API definition that describes the capabilities
 of the server and which can be used by developers to understand the API,
 by software clients to connect to the server, or
 by development tools to support the implementation of servers and clients.
@@ -89,7 +86,7 @@ content negotiation to select the desired representation.
 The API definition document describes the API. In other words,
 there is no need to include the `/api` operation in the API definition itself.
 
-The idea is that any WFS can be used by developers that are familiar with
+The idea is that any WPS can be used by developers that are familiar with
 the API definition language(s) supported by the server. For example, if
 an OpenAPI definition is used, it should be possible to create a working
 client using the OpenAPI definition. The developer may need to learn a little
@@ -99,22 +96,6 @@ this standard to access the data via the API.
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
-
-See <<http_status_codes>> for general guidance.
-
-Reqirement
-
-Operation
-
-Response
-
-URL-Example
-
-Schema
-
-Example
-
-Errors
 
 === HTTP 1.1
 
@@ -206,15 +187,9 @@ To support browsing a WPS with a web browser and to enable search engines to cra
 and index processes, implementations SHOULD consider to support an HTML encoding.
 |===
 
-<<overview,Clause 6 (Overview)>> includes a discussion about the recommended
-encodings.
-
-A template for the definition of the parameter `f` in YAML according to OpenAPI 3.0 is available at
-link:https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/parameters/f.yaml[f.yaml].
-
 === Retrieve a process collection
 
-TBD
+The following section describes a method to retrieve metadata about the processes offered by the server.
 
 ==== Operation
 
@@ -227,23 +202,37 @@ include::requirements/core/REQ_process-collection-success.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml[Schema for the process collection]
 [source,YAML]
 ----
-type: object
-required:
-  - processes
-properties:
-  processes:
-    type: array
-    items:
-      $ref: '#/components/schemas/processSummary'
+processSummary:
+   allOf:
+      - $ref: 'descriptionType.yaml'
+      - type: object
+        required:
+          - version
+        properties:
+          version:
+            type: string
+          jobControlOptions:
+            type: array
+            items: 
+               $ref: 'jobControlOptions.yaml'                    
+          outputTransmission:
+            type: array
+            items: 
+               $ref: 'transmissionMode.yaml'
+          processDescriptionURL:
+            type: string
+            format: url
 ----
 
-
-==== Error situations
+[NOTE]
+====
+References to additional schemas can found in Annex TODO
+====
 
 .Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
 [source]
 ----
-http://hostname.org/wps-rest/processes
+https://processing.example.org/processes
 ----
 
 .Example of Process list encoded as JSON.
@@ -252,19 +241,31 @@ http://hostname.org/wps-rest/processes
 {
   "ProcessSummaries": [
     {
-      "identifier": "ConvexHullAlgorithm",
-      "title": "Convex Hull Algorithm",
-      "processVersion": "1.0.0",
-      "jobControlOptions": "sync-execute async-execute",
-      "processDescription": "http://hostname.org/wps-rest/processes/ConvexHullAlgorithm"
+      "id": "buffer",
+      "title": "Buffer process",
+      "abstract": "Process that buffers features",
+      "version": "1.1",
+      "jobControlOptions": [
+          "sync-execute", 
+          "async-execute"
+      ],
+      "outputTransmission": [
+        "value",
+        "reference"
+      ],
+      "processDescription": "https://processing.example.org/processes/buffer"
     },...
     ]
 }
 ----
 
+==== Error situations
+
+See <<http_status_codes>> for general guidance.
+
 === Retrieve a process
 
-TBD
+The following section describes a method to retrieve metadata about a process.
 
 ==== Operation
 
@@ -274,24 +275,58 @@ include::requirements/core/REQ_process-op.adoc[]
 
 include::requirements/core/REQ_process-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml[Schema for a process]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processOffering.yaml[Schema for a process offering]
 [source,YAML]
 ----
-type: object
-required:
-  - process
-properties:
-   process:
-      $ref: '#/components/schemas/process'
+processOffering:
+  type: object
+  required:
+    - process
+  properties:
+     process:
+        $ref: 'process.yaml'
 ----
 
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml[Schema for a process]
+[source,YAML]
+----
+process:
+    allOf:
+       - $ref: 'descriptionType.yaml'
+       - type: object
+         required:
+           - id
+         properties:
+            inputs:
+              type: array
+              items: 
+                 oneOf:
+                     - $ref: 'literalInputType.yaml'
+                     - $ref: 'complexInputType.yaml'
+                     - $ref: 'boundingBoxInputType.yaml'
+            outputs:
+              type: array
+              items: 
+                 $ref: 'outputDescription.yaml'
+            version:
+              type: string
+            jobControlOptions:
+               type: array
+               items: 
+                  $ref: 'jobControlOptions.yaml'
+            outputTransmission:
+                type: array
+                items: 
+                   $ref: 'transmissionMode.yaml'
+            executeEndpoint:
+                type: string
+                format: url
+----
 
-==== Error situations
-
-.Example of HTTP GET request for retrieving a process encoded as JSON.
+.Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
 [source]
 ----
-http://hostname.org/wps-rest/processes/buffer
+https://processing.example.org/processes/buffer
 ----
 
 .Example of a process encoded as JSON.
@@ -300,8 +335,8 @@ http://hostname.org/wps-rest/processes/buffer
 {
   "process": {
     "id": "buffer",
-    "title": "Example process",
-    "abstract": "Example process",
+    "title": "Buffer process",
+    "abstract": "Process that buffers features",
     "keywords": [
       "example",
       "process",
@@ -367,14 +402,20 @@ http://hostname.org/wps-rest/processes/buffer
       "value",
       "reference"
     ],
-    "executeEndpoint": "https://virtserver.swaggerhub.com/geoprocessing/WPS/0.01/processes/buffer"
+    "executeEndpoint": "https://processing.example.org/processes/buffer"
   }
 }
 ----
 
+==== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
+
 === Retrieve a job collection
 
-TBD
+The following section describes a method to retrieve a collection of existing jobs of a process.
 
 ==== Operation
 
@@ -387,21 +428,21 @@ include::requirements/core/REQ_job-collection-success.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobList.yaml[Schema for the job collection]
 [source,YAML]
 ----
-type: object
-properties:
+jobCollection:
+  type: object
+  required:
+    - jobs
+  properties:
     jobs:
-       type: array
-       items:
+      type: array
+        items:
           type: string
 ----
-
-
-==== Error situations
 
 .Example of HTTP GET request for retrieving the list of jobs of a process encoded as JSON.
 [source]
 ----
-http://hostname.org/wps-rest/processes/buffer/jobs
+http://processing.example.org/processes/buffer/jobs
 ----
 
 .Example of a job list encoded as JSON.
@@ -415,9 +456,15 @@ http://hostname.org/wps-rest/processes/buffer/jobs
 }
 ----
 
+==== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
+
 === Create a new job
 
-TBD
+The following section describes a method to create a new job, i.e. execute a process.
 
 ==== Operation
 
@@ -430,18 +477,19 @@ include::requirements/core/REQ_job-creation-request.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml[Schema for execute]
 [source,YAML]
 ----
-type: object
-required:
+execute:
+  type: object
+  required:
     - outputs
-properties:
+  properties:
     inputs:
-       type: array
-       items:
-            $ref: '#/components/schemas/input'
+      type: array
+      items:
+        $ref: 'input.yaml'
     outputs:
-       type: array
-       items:
-            $ref: '#/components/schemas/output'
+      type: array
+      items:
+        $ref: 'output.yaml'
 ----
 
 .Example of an execute request
@@ -488,9 +536,13 @@ include::requirements/core/REQ_job-creation-success-header.adoc[]
 
 ==== Error situations
 
+See <<http_status_codes>> for general guidance.
+
+If the the execute JSON is not valid for the process (e.g. a wrong input-id was specified), the status code of the response will be `404` (see <<status_codes>>).
+
 === Retrieve a job
 
-TBD
+The following section describes a method to retrieve information about the status of a job.
 
 ==== Operation
 
@@ -500,32 +552,33 @@ include::requirements/core/REQ_job-op.adoc[]
 
 include::requirements/core/REQ_job-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml[Schema for execute]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml.yaml[Schema for status info]
 [source,YAML]
 ----
-type: object
-required:
-    - status
-properties:
-   status:
-      type: string
-      enum:
-        - accepted
-        - running
-        - successful
-        - failed
-message:
-   type: string
-progress:
-   type: integer
-   minimum: 0
-   maximum: 100
+statusInfo:
+    type: object
+    required:
+        - status
+    properties:
+       status:
+          type: string
+          enum:
+            - accepted
+            - running
+            - successful
+            - failed
+       message:
+          type: string
+       progress:
+          type: integer
+          minimum: 0
+          maximum: 100
 ----
 
-.Example of HTTP GET request for retrieving a job of a process encoded as JSON.
+.Example of HTTP GET request for retrieving status information about a job encoded as JSON.
 [source]
 ----
-http://hostname.org/wps-rest/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f
+http://processing.example.org/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f
 ----
 
 .Example of a job encoded as JSON.
@@ -540,10 +593,17 @@ http://hostname.org/wps-rest/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3fb
 
 ==== Error situations
 
+See <<http_status_codes>> for general guidance.
+
+If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
+
+If the job with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
+
+If the execution of the process failed, 
 
 === Retrieve a job result
 
-TBD
+The following section describes a method to retrieve the result of a successful job.
 
 ==== Operation
 
@@ -553,23 +613,39 @@ include::requirements/core/REQ_job-result-op.adoc[]
 
 include::requirements/core/REQ_job-result-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml[Schema for result]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml[Schema for the result of a job]
 [source,YAML]
 ----
-type: object
-required:
-    - outputs
-properties:
-   outputs:
-       type: array
-       items:
-          $ref: '#/components/schemas/outputInfo'
+result:
+    type: object
+    required:
+        - outputs
+    properties:
+       outputs:
+           type: array
+           items:
+              $ref: 'outputInfo.yaml'
+----
+
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/outputInfo.yaml[Schema for output info]
+[source,YAML]
+----
+outputInfo:
+    type: object
+    required:
+        - id
+        - value
+    properties:
+        id:
+          type: string
+        value:
+           $ref: 'valueType.yaml'
 ----
 
 .Example of HTTP GET request for retrieving the result a job encoded as JSON.
 [source]
 ----
-http://hostname.org/wps-rest/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result
+http://processing.example.org/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result
 ----
 
 .Example of a result encoded as JSON.
@@ -583,7 +659,7 @@ http://hostname.org/wps-rest/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3fb
     },
     {
       "id": "output2",
-      "value": "http://hostname.org/wps-rest/result/7j4g5325ge"
+      "value": "http://processing.example.org/result/7j4g5325ge"
     }
   ]
 }
@@ -591,3 +667,10 @@ http://hostname.org/wps-rest/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3fb
 
 ==== Error situations
 
+See <<http_status_codes>> for general guidance.
+
+If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
+
+If the job with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
+
+If an error happens during the excecution of the process, the status code of the response will be `500` (see <<status_codes>>).
