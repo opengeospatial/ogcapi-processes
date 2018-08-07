@@ -599,11 +599,11 @@ If the process with the specified id doesn't exist on the server, the status cod
 
 If the job with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
 
-If the execution of the process failed, 
+If the execution of the process failed, the status code of the response will be `200` with the status set to `failed`.
 
 === Retrieve a job result
 
-The following section describes a method to retrieve the result of a successful job.
+The following section describes a method to retrieve the result of a job. In case the job execution failed, an exception is returned.
 
 ==== Operation
 
