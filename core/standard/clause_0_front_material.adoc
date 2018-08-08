@@ -19,8 +19,8 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 
 The following organizations submitted this Document to the Open Geospatial Consortium (OGC):
 
-52°North
-Intergraph Corporation (Hexagon Geospatial)
+* 52°North
+* Intergraph Corporation (Hexagon Geospatial)
 
 [big]*v.     Submitters*
 

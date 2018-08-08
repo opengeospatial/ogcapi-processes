@@ -540,7 +540,7 @@ See <<http_status_codes>> for general guidance.
 
 If the the execute JSON is not valid for the process (e.g. a wrong input-id was specified), the status code of the response will be `404` (see <<status_codes>>).
 
-=== Retrieve a job
+=== Retrieve status information about a job
 
 The following section describes a method to retrieve information about the status of a job.
 
@@ -673,4 +673,6 @@ If the process with the specified id doesn't exist on the server, the status cod
 
 If the job with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
 
-If an error happens during the excecution of the process, the status code of the response will be `500` (see <<status_codes>>).
+If the execution is still running, the status code of the response will be `404` (see <<status_codes>>).
+
+If an error happened during the excecution of the process, the status code of the response will be `500` (see <<status_codes>>).
