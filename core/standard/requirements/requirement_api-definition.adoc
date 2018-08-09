@@ -1,13 +1,13 @@
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/req/core/api-definition +
+|*Requirement {counter:req-id}* |/api-definition +
 
 The service SHALL provide an API definition document at the path "/api".
 |===
 
 [width="90%",cols="2,6a"]
 |===
-|Recommendation {counter:rec-id} |/rec/core/api-definition-oas +
+|Recommendation {counter:rec-id} |/api-definition-oas +
 
 If the API definition document uses the OpenAPI Specification 3.0,
 the document SHOULD conform to the

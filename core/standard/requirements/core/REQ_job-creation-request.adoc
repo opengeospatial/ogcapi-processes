@@ -1,6 +1,6 @@
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/req/core/job-creation-request +
+|*Requirement {counter:req-id}* |/core/job-creation-request +
 
 The content of a request to create a new job SHALL be based upon the OpenAPI
 3.0 schema https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/execute.yaml[execute.yaml].

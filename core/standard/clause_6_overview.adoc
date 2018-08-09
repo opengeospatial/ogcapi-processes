@@ -1,6 +1,43 @@
 [[overview]]
 == Overview
 
+=== Resources to be provided by WPS
+
+The resources that are provided by a WPS REST server are listed in <<table_wps_resources>> below and include the
+capabilities document of the server, the list of processes available
+(ProcessCollection and Process), jobs (running processes) and
+results of process executions.
+
+TODO: check chapter numbers
+
+[#table_wps_resources,reftext='{table-caption} {counter:table-num}']
+.Overview of resources, applicable HTTP methods and links to the document sections
+[cols="25,32,10,33",options="header"]
+!===
+|Resource |Path |HTTP method |Document reference
+|Landing page |`/` |GET |<<_retrieve_the_api_landing_page,7.2 API landing page>>
+|API definition |`/api` |GET |<<_retrieve_an_api_definition_2,7.3 API definition>>
+|Conformance classes |`/conformance` |GET |<<_declaration_of_conformance_classes,7.4 Declaration of conformance classes>>
+|Available processes |`/processes` |GET |<<_retrieve_a_process_collection,7.8 Retrieve a process collection>>
+|Process description |`/processes/{processID}` |GET |<<_retrieve_process_description, 7.9 Retrieve a process description>>
+|Job collection |`/processes/{processID}/jobs` |GET |<<_retrieve_a_job_collection,7.10 Retrieve a job collection>>
+|Job status info |`/processes/{processID}/jobs/{jobID}` |GET |<<_retrieve_status_information_about_a_job,7.12 Retrieve status information about a job>>
+|Job result |`/processes/{processID}/jobs/{jobID}/result` |GET |<<_retrieve_a_job_result,7.13 Retrieve a job result>>
+!===
+
+=== Operations on WPS resources
+
+In general, the HTTP GET operation is used to provide access to the resources described above.
+However, in order to create a new job, the HTTP POST method is used to crate a new job by sending an execute request to the server. The operation is listed in <<table_job_creation>> below.
+
+[#table_job_creation,reftext='{table-caption} {counter:table-num}']
+.Overview of resources, applicable HTTP methods and links to the document sections
+[cols="27,25,10,10, 28",options="header"]
+!===
+|Description |Path |HTTP method | Parameter| Document reference
+|Create a new job |`/processes/{processID}/jobs` |POST| Execute request (contained in body) |<<_create_a_new_job,7.11 Create a new job>>
+!===
+
 This standard does not mandate any encoding or format for representing features or
 feature collections. In addition to HTML as the standard encoding for Web content,
 rules for commonly used encodings for spatial data on the web are provided

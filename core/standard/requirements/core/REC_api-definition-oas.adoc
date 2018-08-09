@@ -1,6 +1,6 @@
 [width="90%",cols="2,6a"]
 |===
-|Recommendation {counter:rec-id} |/rec/core/api-definition-oas +
+|Recommendation {counter:rec-id} |/core/api-definition-oas +
 
 If the API definition document uses the OpenAPI Specification 3.0,
 the document SHOULD conform to the

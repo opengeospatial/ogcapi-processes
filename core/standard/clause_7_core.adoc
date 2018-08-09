@@ -1,25 +1,46 @@
 == Requirement Class "Core"
 
-////
-for now, normative statements are often included inline. This will be re-factored later.
-////
+The following section describes a the core requirements class.
 
 === Overview
 
 include::requirements/requirements_class_core.adoc[]
 
-TODO: Overview?
+A server that implements the WPS REST/JSON Binding provides access to processes.
 
-In addition, each server publishes a formal definition of the API (`APIDefinition`),
-which describes the capabilities of the server and which can be used by
-clients to connect to the server or
-by development tools to support the implementation of servers and clients.
+Each WPS has a single `LandingPage` (path `/`) that provides links to
+
+* the `APIDefinition` (path `/api`),
+* the `Conformance` statements (path `/conformance`),
+* the `processes` metadata (path `/processes`).
+
+The `APIDefinition` describes the capabilities of the server that can be used by
+clients to connect to the server or by development tools to support the
+implementation of servers and clients. Accessing the `APIDefinition` using
+HTTP GET returns a description of the API.
+
+Accessing the `Conformance` using HTTP GET returns a list of URIs of
+requirements classes implemented by the WPS server.
+
+The list of processes contains a summary of each process the WPS offers, including the link to a more detailed description of the process.
+
+The process description contains information about inputs and outputs and a link to the execution-endpoint for the process. 
+
+A HTTP GET request to the execution-endpoint delivers a list of completed executions (jobs). 
+
+A HTTP POST request to the execution-endpoint creates a new job. The inputs and outputs need to be passed in a JSON execute-request.
+
+The URL for accessing status information is delivered in the HTTP header `location`.
+
+After a process is finished (status = success/failed), the results/exceptions can be retrieved.
 
 [#img_core,reftext='{figure-caption} {counter:figure-num}']
 .Resources in the Core requirements class
 image::figures/PT1_FIG01.png[align="center"]
 
-=== Retrieve API landing page
+=== Retrieve the API landing page
+
+The following section describes a method to retrieve an API landing page.
 
 ==== Operation
 
@@ -39,7 +60,7 @@ properties:
   links:
     type: array
     items:
-      $ref: https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/link.yaml
+      $ref: 'link.yaml'
 ----
 
 .Landing page response document
@@ -53,7 +74,7 @@ properties:
     { "href": "http://processing.example.org/api",
       "rel": "service", "type": "application/openapi+json;version=3.0", "title": "the API definition" },
     { "href": "http://processing.example.org/conformance",
-      "rel": "conformance", "type": "application/json", "title": "WPS REST Binding 1.0 conformance classes implemented by this server" },
+      "rel": "conformance", "type": "application/json", "title": "WPS REST/JSON Binding 1.0 conformance classes implemented by this server" },
     { "href": "http://processing.example.org/processes",
       "rel": "processes", "type": "application/json", "title": "Metadata about the processes" }
   ]
@@ -63,7 +84,11 @@ properties:
 
 ==== Error situations
 
-=== Retrieve API definition
+See <<http_status_codes>> for general guidance.
+
+=== Retrieve an API definition
+
+The following section describes a method to retrieve an API definition.
 
 ==== Operation
 
@@ -97,16 +122,57 @@ this standard to access the data via the API.
 
 See <<http_status_codes>> for general guidance.
 
-=== HTTP 1.1
+=== Declaration of conformance classes
 
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/http +
+==== Operation
 
-The server SHALL conform to <<rfc2616,HTTP 1.1>>.
-|===
+To support "generic" clients for accessing Web Feature Services in general - and
+not "just" a specific API / server, the server has to declare the
+requirements classes it implements and conforms to.
 
-This includes the correct use of status codes, headers, etc.
+include::requirements/core/REQ_conformance-op.adoc[]
+
+==== Response
+
+include::requirements/core/REQ_conformance-success.adoc[]
+
+.link:https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/req-classes.yaml[Schema for the list of requirements classes]
+[source,YAML]
+----
+type: object
+required:
+  - conformsTo
+properties:
+  conformsTo:
+    type: array
+    items:
+      type: string
+----
+
+.Requirements class response document
+=================
+This example response in JSON is for a server that supports OpenAPI 3.0 for
+the API definition and HTML and GeoJSON as encodings for features.
+
+[source,JSON]
+----
+{
+  "conformsTo": [
+    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/core",
+    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/oas30",
+    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/html",
+  ]
+}
+----
+=================
+
+==== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+=== Use of HTTP 1.1
+
+include::requirements/core/REQ_http.adoc[]
 
 [[http_status_codes]]
 ==== HTTP status codes
@@ -145,14 +211,7 @@ include::requirements/core/PER_additional-status-codes.adoc[]
 Entity tags are a mechanism for web cache validation and for supporting conditional
 requests to reduce network traffic. Entity tags are specified by <<rfc2616,HTTP/1.1 (RFC 2616)>>.
 
-[[rec_etag]]
-[width="90%",cols="2,6a"]
-|===
-|Recommendation {counter:rec-id} |/rec/core/etag +
-
-The service SHOULD support entity tags and the associated headers as
-specified by HTTP/1.1.
-|===
+include::requirements/core/REC_etag.adoc[]
 
 NOTE: TODO +
 Add an example OpenAPI operation (headers, response codes). Here or in clause 9.
@@ -164,32 +223,18 @@ the webpage is by default prohibited for security reasons ("same-origin policy")
 A typical example is a web-application accessing feature data from
 multiple distributed datasets.
 
-[width="90%",cols="2,6a"]
-|===
-|Recommendation {counter:rec-id} |/rec/core/cross-origin +
-
-If the server is intended to be accessed from the browser, cross-origin
-requests SHOULD be supported. Note that support can also be added in a
-proxy layer on top of the server.
-|===
+include::requirements/core/REC_cross-origin.adoc[]
 
 Two common mechanisms to support cross-origin requests are:
 
 * link:https://en.wikipedia.org/wiki/Cross-origin_resource_sharing[Cross-origin resource sharing (CORS)]
 * link:https://en.wikipedia.org/wiki/JSONP[JSONP (JSON with padding)]
 
-[[rec_html]]
-[width="90%",cols="2,6a"]
-|===
-|Recommendation {counter:rec-id} |/rec/core/html +
-
-To support browsing a WPS with a web browser and to enable search engines to crawl
-and index processes, implementations SHOULD consider to support an HTML encoding.
-|===
+include::requirements/core/REC_html.adoc[]
 
 === Retrieve a process collection
 
-The following section describes a method to retrieve metadata about the processes offered by the server.
+The following section describes a method to retrieve the available processes offered by the server.
 
 ==== Operation
 
@@ -263,7 +308,7 @@ https://processing.example.org/processes
 
 See <<http_status_codes>> for general guidance.
 
-=== Retrieve a process
+=== Retrieve a process description
 
 The following section describes a method to retrieve metadata about a process.
 
