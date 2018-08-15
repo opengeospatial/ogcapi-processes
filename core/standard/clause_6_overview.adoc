@@ -32,20 +32,13 @@ However, in order to create a new job, the HTTP POST method is used to crate a n
 
 [#table_job_creation,reftext='{table-caption} {counter:table-num}']
 .Overview of resources, applicable HTTP methods and links to the document sections
-[cols="27,25,10,10, 28",options="header"]
+[cols="27,25,10,10,28",options="header"]
 !===
 |Description |Path |HTTP method | Parameter| Document reference
 |Create a new job |`/processes/{processID}/jobs` |POST| Execute request (contained in body) |<<_create_a_new_job,7.11 Create a new job>>
 !===
 
-This standard does not mandate any encoding or format for representing features or
-feature collections. In addition to HTML as the standard encoding for Web content,
-rules for commonly used encodings for spatial data on the web are provided
-(GeoJSON, GML).
-
-None of these encodings is mandatory and an implementation of the "Core"
-requirements class may also decide to use none of them, but to use another encoding
-instead.
+This standard uses JSON as encoding for requests and responses. The inputs and outputs of a process can have any format. The formats of are defined at the time of job creation and are fixed for the specific job.
 
 <<rec_html,Support for HTML is recommended>> as HTML is the core language of the World Wide Web.
 A server that supports HTML will support browsing the data with a web browser

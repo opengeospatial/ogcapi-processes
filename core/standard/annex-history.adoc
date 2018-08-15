@@ -8,4 +8,5 @@
 |2017-03-09 |0.1 |Benjamin Pross |all |initial version
 |2017-xx-xx |0.2 |Benjamin Pross |6 |Update REST/JSON section
 |2017-10-16 |0.3 |Stan Tillman | 1-5 |Update section 1-5
+|2018-08-15 |0.3 |Benjamin Pross | all |Restructuring, added requirements classes
 |===

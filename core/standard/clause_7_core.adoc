@@ -1,6 +1,6 @@
 == Requirement Class "Core"
 
-The following section describes a the core requirements class.
+The following section describes the core requirements class.
 
 === Overview
 
