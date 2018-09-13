@@ -126,7 +126,7 @@ See <<http_status_codes>> for general guidance.
 
 ==== Operation
 
-To support "generic" clients for accessing Web Feature Services in general - and
+To support "generic" clients for accessing Web Processing Services in general - and
 not "just" a specific API / server, the server has to declare the
 requirements classes it implements and conforms to.
 
