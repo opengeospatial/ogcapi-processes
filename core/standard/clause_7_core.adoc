@@ -247,26 +247,15 @@ include::requirements/core/REQ_process-collection-success.adoc[]
 .link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/processCollection.yaml[Schema for the process collection]
 [source,YAML]
 ----
-processSummary:
-   allOf:
-      - $ref: 'descriptionType.yaml'
-      - type: object
-        required:
-          - version
-        properties:
-          version:
-            type: string
-          jobControlOptions:
-            type: array
-            items: 
-               $ref: 'jobControlOptions.yaml'                    
-          outputTransmission:
-            type: array
-            items: 
-               $ref: 'transmissionMode.yaml'
-          processDescriptionURL:
-            type: string
-            format: url
+processCollection:
+  type: object
+  required:
+    - processes
+  properties:
+    processes:
+      type: array
+      items:
+        $ref: 'processSummary.yaml'
 ----
 
 [NOTE]
@@ -284,7 +273,7 @@ https://processing.example.org/processes
 [source,json]
 ----
 {
-  "ProcessSummaries": [
+  "processes": [
     {
       "id": "buffer",
       "title": "Buffer process",
@@ -524,8 +513,6 @@ include::requirements/core/REQ_job-creation-request.adoc[]
 ----
 execute:
   type: object
-  required:
-    - outputs
   properties:
     inputs:
       type: array
