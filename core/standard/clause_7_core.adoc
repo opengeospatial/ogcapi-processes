@@ -326,7 +326,7 @@ processOffering:
 ----
 process:
     allOf:
-       - $ref: 'descriptionType.yaml'
+       - $ref: 'processSummary.yaml'
        - type: object
          required:
            - id
@@ -334,24 +334,11 @@ process:
             inputs:
               type: array
               items: 
-                 oneOf:
-                     - $ref: 'literalInputType.yaml'
-                     - $ref: 'complexInputType.yaml'
-                     - $ref: 'boundingBoxInputType.yaml'
+                 $ref: 'inputDescription.yaml'
             outputs:
               type: array
               items: 
                  $ref: 'outputDescription.yaml'
-            version:
-              type: string
-            jobControlOptions:
-               type: array
-               items: 
-                  $ref: 'jobControlOptions.yaml'
-            outputTransmission:
-                type: array
-                items: 
-                   $ref: 'transmissionMode.yaml'
             executeEndpoint:
                 type: string
                 format: url
@@ -367,77 +354,96 @@ https://processing.example.org/processes/buffer
 [source,json]
 ----
 {
-  "process": {
-    "id": "buffer",
-    "title": "Buffer process",
-    "abstract": "Process that buffers features",
-    "keywords": [
-      "example",
-      "process",
-      "buffer"
-    ],
-    "inputs": [
-      {
-        "id": "features",
-        "title": "features",
-        "abstract": "The features to buffer",
-        "formats": [
-          {
-            "mimeType": "application/json",
-            "maximumMegabytes": 3,
-            "default": true
-          },
-          {
-            "mimeType": "application/x-zipped-shp",
-            "maximumMegabytes": 3
-          }
-        ]
-      },
-      {
-        "id": "width",
-        "title": "width",
-        "abstract": "The buffer width",
-        "formats": [
-          {
-            "mimeType": "text/plain"
-          }
-        ],
-        "literalDataDomain": {
-          "dataType": "double",
-          "valueDefinition": {
-            "defaultValue": "1000"
-          },
-          "uom": "meters"
-        }
-      }
-    ],
-    "outputs": [
-      {
-        "id": "result",
-        "title": "result",
-        "abstract": "The buffered features",
-        "formats": [
-          {
-            "mimeType": "application/json",
-            "default": true
-          },
-          {
-            "mimeType": "application/x-zipped-shp"
-          }
-        ]
-      }
-    ],
-    "version": 1.1,
-    "jobControlOptions": [
-      "sync-execute",
-      "async-execute"
-    ],
-    "outputTransmission": [
-      "value",
-      "reference"
-    ],
-    "executeEndpoint": "https://processing.example.org/processes/buffer"
-  }
+	"process": {
+		"id": "EchoProcess",
+		"title": "EchoProcess",
+		"version": "1.0.0",
+		"jobControlOptions": ["async-execute", "sync-execute"],
+		"outputTransmission": ["value", "reference"],
+		"inputs": [{
+			"id": "boundingboxInput",
+			"title": "boundingboxInput",
+			"input": {
+				"supportedCRS": [{
+					"default": true,
+					"crs": "EPSG:4326"
+				}]
+			},
+			"minOccurs": 1,
+			"maxOccurs": 1
+		},
+		{
+			"id": "literalInput",
+			"title": "literalInput",
+			"input": {
+				"literalDataDomain": {
+					"dataType": "string",
+					"valueDefinition": {
+						"anyValue": true
+					}
+				}
+			},
+			"minOccurs": 1,
+			"maxOccurs": 1
+		},
+		{
+			"id": "complexInput",
+			"title": "complexInput",
+			"input": {
+				"formats": [{
+					"default": true,
+					"mimeType": "application/xml"
+				},
+				{
+					"mimeType": "application/xml"
+				},
+				{
+					"mimeType": "text/xml"
+				}]
+			},
+			"minOccurs": 1,
+			"maxOccurs": 1
+		}],
+		"outputs": [{
+			"id": "boundingboxOutput",
+			"title": "boundingboxOutput",
+			"output": {
+				"supportedCRS": [{
+					"default": true,
+					"crs": "EPSG:4326"
+				}]
+			}
+		},
+		{
+			"id": "literalOutput",
+			"title": "literalOutput",
+			"output": {
+				"literalDataDomain": {
+					"dataType": "string",
+					"valueDefinition": {
+						"anyValue": true
+					}
+				}
+			}
+		},
+		{
+			"id": "complexOutput",
+			"title": "complexOutput",
+			"output": {
+				"formats": [{
+					"default": true,
+					"mimeType": "application/xml"
+				},
+				{
+					"mimeType": "application/xml"
+				},
+				{
+					"mimeType": "text/xml"
+				}]
+			}
+		}],
+		"executeEndpoint": "https://processing.example.org/processes/EchoProcess/jobs"
+	}
 }
 ----
 
@@ -528,35 +534,53 @@ execute:
 [source, json]
 ----
 {
-  "inputs": [
-    {
-      "id": "features",
-      "format": {
-        "mimeType": "application/json"
-	  },
-      "value": {
-	     "valueReference": "http://data.org/features.json"  
-	  }
-    },
-    {
-      "id": "width",
-      "format": {
-        "mimeType": "text/plain"
-	  },
-      "value": {
-	     "inlineValue": "2000"  
-	  }
-    }
-  ],
-  "outputs": [
-    {
-      "id": "result",
-      "format": {
-        "mimeType": "application/json"
-      },
-      "transmissionMode": "value"
-    }
-  ]
+	"inputs": [{
+		"id": "complexInput",
+		"input": {
+			"format": {
+				"mimeType": "application/xml"
+			},
+			"value": {
+				"inlineValue": "<test/>"
+			}
+		}
+	},
+	{
+		"id": "literalInput",
+		"input": {
+			"dataType": "double",
+			"value": "0.05"
+		}
+	},
+	{
+		"id": "boundingboxInput",
+		"input": {
+			"lowerCorner": "51.9 7",
+			"upperCorner": "52 7.1",
+			"crs": "EPSG:4326"
+		}
+	}],
+	"outputs": [{
+		"id": "literalOutput",
+		"format": {
+			"mimeType": "text/plain"
+		},
+		"transmissionMode": "value"
+	},
+	{
+		"id": "boundingboxOutput",
+		"format": {
+			"mimeType": "application/json"
+		},
+		"transmissionMode": "value"
+	},
+	{
+		"id": "complexOutput",
+		"format": {
+			"mimeType": "application/xml"
+		},
+		"transmissionMode": "value"
+	}]
 }
 ----
 
@@ -684,16 +708,28 @@ http://processing.example.org/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3f
 [source,json]
 ----
 {
-  "outputs": [
-    {
-      "id": "output1",
-      "value": "0.6"
-    },
-    {
-      "id": "output2",
-      "value": "http://processing.example.org/result/7j4g5325ge"
-    }
-  ]
+	"outputs": [{
+		"id": "literalOutput",
+		"value": {
+			"inlineValue": 0.05
+		}
+	},
+	{
+		"id": "boundingboxOutput",
+		"value": {
+			"inlineValue": {
+				"lowerCorner": "7.0 51.9",
+				"upperCorner": "7.1 52.0",
+				"crs": "EPSG:4326"
+			}
+		}
+	},
+	{
+		"id": "complexOutput",
+		"value": {
+			"inlineValue": "<test/>"
+		}
+	}]
 }
 ----
 
