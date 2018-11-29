@@ -1975,7 +1975,7 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">process</span>:
     <span class="key">allOf</span>:
-       - <span class="string"><span class="content">$ref: 'descriptionType.yaml'</span></span>
+       - <span class="string"><span class="content">$ref: 'processSummary.yaml'</span></span>
        - <span class="string"><span class="content">type: object</span></span>
          <span class="key">required</span>:
            - <span class="string"><span class="content">id</span></span>
@@ -1983,24 +1983,11 @@ The content of that response SHALL be based upon the OpenAPI
             <span class="key">inputs</span>:
               <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
               <span class="key">items</span>:
-                 <span class="key">oneOf</span>:
-                     - <span class="string"><span class="content">$ref: 'literalInputType.yaml'</span></span>
-                     - <span class="string"><span class="content">$ref: 'complexInputType.yaml'</span></span>
-                     - <span class="string"><span class="content">$ref: 'boundingBoxInputType.yaml'</span></span>
+                 <span class="error">$ref</span>: <span class="error">'inputDescription.yaml'</span>
             <span class="key">outputs</span>:
               <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
               <span class="key">items</span>:
                  <span class="error">$ref</span>: <span class="error">'outputDescription.yaml'</span>
-            <span class="key">version</span>:
-              <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-            <span class="key">jobControlOptions</span>:
-               <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
-               <span class="key">items</span>:
-                  <span class="error">$ref</span>: <span class="error">'jobControlOptions.yaml'</span>
-            <span class="key">outputTransmission</span>:
-                <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
-                <span class="key">items</span>:
-                   <span class="error">$ref</span>: <span class="error">'transmissionMode.yaml'</span>
             <span class="key">executeEndpoint</span>:
                 <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
                 <span class="key">format</span>: <span class="string"><span class="content">url</span></span></code></pre>
@@ -2016,77 +2003,96 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="title">Example of a process encoded as JSON.</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">process</span><span class="delimiter">&quot;</span></span>: {
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">buffer</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Buffer process</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">abstract</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Process that buffers features</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">keywords</span><span class="delimiter">&quot;</span></span>: [
-      <span class="string"><span class="delimiter">&quot;</span><span class="content">example</span><span class="delimiter">&quot;</span></span>,
-      <span class="string"><span class="delimiter">&quot;</span><span class="content">process</span><span class="delimiter">&quot;</span></span>,
-      <span class="string"><span class="delimiter">&quot;</span><span class="content">buffer</span><span class="delimiter">&quot;</span></span>
-    ],
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">inputs</span><span class="delimiter">&quot;</span></span>: [
-      {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">features</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">features</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">abstract</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">The features to buffer</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">formats</span><span class="delimiter">&quot;</span></span>: [
-          {
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>,
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">maximumMegabytes</span><span class="delimiter">&quot;</span></span>: <span class="integer">3</span>,
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
-          },
-          {
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/x-zipped-shp</span><span class="delimiter">&quot;</span></span>,
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">maximumMegabytes</span><span class="delimiter">&quot;</span></span>: <span class="integer">3</span>
-          }
-        ]
-      },
-      {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">width</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">width</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">abstract</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">The buffer width</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">formats</span><span class="delimiter">&quot;</span></span>: [
-          {
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">text/plain</span><span class="delimiter">&quot;</span></span>
-          }
-        ],
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">literalDataDomain</span><span class="delimiter">&quot;</span></span>: {
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">dataType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">double</span><span class="delimiter">&quot;</span></span>,
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">valueDefinition</span><span class="delimiter">&quot;</span></span>: {
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">defaultValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1000</span><span class="delimiter">&quot;</span></span>
-          },
-          <span class="key"><span class="delimiter">&quot;</span><span class="content">uom</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">meters</span><span class="delimiter">&quot;</span></span>
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">process</span><span class="delimiter">&quot;</span></span>: {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EchoProcess</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EchoProcess</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">version</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">jobControlOptions</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">async-execute</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">sync-execute</span><span class="delimiter">&quot;</span></span>],
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">outputTransmission</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">reference</span><span class="delimiter">&quot;</span></span>],
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">inputs</span><span class="delimiter">&quot;</span></span>: [{
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxInput</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxInput</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">supportedCRS</span><span class="delimiter">&quot;</span></span>: [{
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">crs</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EPSG:4326</span><span class="delimiter">&quot;</span></span>
+                                }]
+                        },
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">minOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">maxOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
+                },
+                {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalInput</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalInput</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">literalDataDomain</span><span class="delimiter">&quot;</span></span>: {
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">dataType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">valueDefinition</span><span class="delimiter">&quot;</span></span>: {
+                                                <span class="key"><span class="delimiter">&quot;</span><span class="content">anyValue</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
+                                        }
+                                }
+                        },
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">minOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">maxOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
+                },
+                {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexInput</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexInput</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">formats</span><span class="delimiter">&quot;</span></span>: [{
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
+                                },
+                                {
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
+                                },
+                                {
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">text/xml</span><span class="delimiter">&quot;</span></span>
+                                }]
+                        },
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">minOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">maxOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
+                }],
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">outputs</span><span class="delimiter">&quot;</span></span>: [{
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxOutput</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxOutput</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">output</span><span class="delimiter">&quot;</span></span>: {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">supportedCRS</span><span class="delimiter">&quot;</span></span>: [{
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">crs</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EPSG:4326</span><span class="delimiter">&quot;</span></span>
+                                }]
+                        }
+                },
+                {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalOutput</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalOutput</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">output</span><span class="delimiter">&quot;</span></span>: {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">literalDataDomain</span><span class="delimiter">&quot;</span></span>: {
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">dataType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">valueDefinition</span><span class="delimiter">&quot;</span></span>: {
+                                                <span class="key"><span class="delimiter">&quot;</span><span class="content">anyValue</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
+                                        }
+                                }
+                        }
+                },
+                {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexOutput</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexOutput</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">output</span><span class="delimiter">&quot;</span></span>: {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">formats</span><span class="delimiter">&quot;</span></span>: [{
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
+                                },
+                                {
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
+                                },
+                                {
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">text/xml</span><span class="delimiter">&quot;</span></span>
+                                }]
+                        }
+                }],
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">executeEndpoint</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://processing.example.org/processes/EchoProcess/jobs</span><span class="delimiter">&quot;</span></span>
         }
-      }
-    ],
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">outputs</span><span class="delimiter">&quot;</span></span>: [
-      {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">result</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">result</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">abstract</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">The buffered features</span><span class="delimiter">&quot;</span></span>,
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">formats</span><span class="delimiter">&quot;</span></span>: [
-          {
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>,
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
-          },
-          {
-            <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/x-zipped-shp</span><span class="delimiter">&quot;</span></span>
-          }
-        ]
-      }
-    ],
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">version</span><span class="delimiter">&quot;</span></span>: <span class="float">1.1</span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">jobControlOptions</span><span class="delimiter">&quot;</span></span>: [
-      <span class="string"><span class="delimiter">&quot;</span><span class="content">sync-execute</span><span class="delimiter">&quot;</span></span>,
-      <span class="string"><span class="delimiter">&quot;</span><span class="content">async-execute</span><span class="delimiter">&quot;</span></span>
-    ],
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">outputTransmission</span><span class="delimiter">&quot;</span></span>: [
-      <span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>,
-      <span class="string"><span class="delimiter">&quot;</span><span class="content">reference</span><span class="delimiter">&quot;</span></span>
-    ],
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">executeEndpoint</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://processing.example.org/processes/buffer</span><span class="delimiter">&quot;</span></span>
-  }
 }</code></pre>
 </div>
 </div>
@@ -2243,35 +2249,53 @@ The content of a request to create a new job SHALL be based upon the OpenAPI
 <div class="title">Example of an execute request</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">inputs</span><span class="delimiter">&quot;</span></span>: [
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">features</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">format</span><span class="delimiter">&quot;</span></span>: {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>
-          },
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: {
-             <span class="key"><span class="delimiter">&quot;</span><span class="content">valueReference</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://data.org/features.json</span><span class="delimiter">&quot;</span></span>
-          }
-    },
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">width</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">format</span><span class="delimiter">&quot;</span></span>: {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">text/plain</span><span class="delimiter">&quot;</span></span>
-          },
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: {
-             <span class="key"><span class="delimiter">&quot;</span><span class="content">inlineValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">2000</span><span class="delimiter">&quot;</span></span>
-          }
-    }
-  ],
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">outputs</span><span class="delimiter">&quot;</span></span>: [
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">result</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">format</span><span class="delimiter">&quot;</span></span>: {
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>
-      },
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">transmissionMode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>
-    }
-  ]
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">inputs</span><span class="delimiter">&quot;</span></span>: [{
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexInput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">format</span><span class="delimiter">&quot;</span></span>: {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
+                        },
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">inlineValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;test/&gt;</span><span class="delimiter">&quot;</span></span>
+                        }
+                }
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalInput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">dataType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">double</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">0.05</span><span class="delimiter">&quot;</span></span>
+                }
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxInput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">lowerCorner</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">51.9 7</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">upperCorner</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">52 7.1</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">crs</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EPSG:4326</span><span class="delimiter">&quot;</span></span>
+                }
+        }],
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">outputs</span><span class="delimiter">&quot;</span></span>: [{
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalOutput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">format</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">text/plain</span><span class="delimiter">&quot;</span></span>
+                },
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">transmissionMode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxOutput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">format</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>
+                },
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">transmissionMode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexOutput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">format</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
+                },
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">transmissionMode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>
+        }]
 }</code></pre>
 </div>
 </div>
@@ -2495,16 +2519,28 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="title">Example of a result encoded as JSON.</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">outputs</span><span class="delimiter">&quot;</span></span>: [
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">output1</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">0.6</span><span class="delimiter">&quot;</span></span>
-    },
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">output2</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://processing.example.org/result/7j4g5325ge</span><span class="delimiter">&quot;</span></span>
-    }
-  ]
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">outputs</span><span class="delimiter">&quot;</span></span>: [{
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalOutput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">inlineValue</span><span class="delimiter">&quot;</span></span>: <span class="float">0.05</span>
+                }
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxOutput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">inlineValue</span><span class="delimiter">&quot;</span></span>: {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">lowerCorner</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">7.0 51.9</span><span class="delimiter">&quot;</span></span>,
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">upperCorner</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">7.1 52.0</span><span class="delimiter">&quot;</span></span>,
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">crs</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EPSG:4326</span><span class="delimiter">&quot;</span></span>
+                        }
+                }
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexOutput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">inlineValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;test/&gt;</span><span class="delimiter">&quot;</span></span>
+                }
+        }]
 }</code></pre>
 </div>
 </div>
@@ -2830,7 +2866,7 @@ Ensure that there is a conformance class for each requirements class and a test 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-10 11:54:52 +02:00
+Last updated 2018-10-11 11:36:41 +02:00
 </div>
 </div>
 </body>
