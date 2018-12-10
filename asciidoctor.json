@@ -1,6 +1,6 @@
 {
         "0": {
-                "OGC_doc_number": "YY-nnnrx",
+                "OGC_doc_number": "WPS_docnumberYY-nnnrx",
                 "urn":"http://www.opengis.net/doc/IS/WPS-rest-binding",
                 "title":"OGC WPS REST/JSON Binding Extension",
                 "path":"core/standard/er.adoc",
