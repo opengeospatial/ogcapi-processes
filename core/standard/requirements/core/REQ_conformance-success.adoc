@@ -1,0 +1,10 @@
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/core/conformance-success +
+
+A successful execution of the operation SHALL be reported as a response with a
+HTTP status code `200`.
+
+The content of that response SHALL be based upon the OpenAPI 3.0 schema link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml[req-classes.yaml] and
+list all WPS REST/JSON Binding requirements classes that the server conforms to.
+|===

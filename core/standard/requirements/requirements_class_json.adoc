@@ -1,0 +1,9 @@
+[[rc_geojson]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/json
+|Target type |Web service
+|Dependency |<<rc_core,WPS REST/JSON Binding Core>>
+|Dependency |<<JSON,JSON>>
+|===

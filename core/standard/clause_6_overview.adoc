@@ -1,63 +1,47 @@
 [[overview]]
 == Overview
 
-NOTE: TODO +
-This includes also a discussion about the approach regarding OpenAPI and hypermedia controls. +
-Changes to previous versions of WFS are discussed in <<changes,Annex B>>. +
-Use of a simple example throughout the document - a WFS with a single feature collection (buildings) and three encodings GeoJSON, GML-SF0, HTML.
+=== Resources to be provided by WPS
 
-This standard does not mandate any encoding or format for representing features or
-feature collections. In addition to HTML as the standard encoding for Web content,
-rules for commonly used encodings for spatial data on the web are provided
-(GeoJSON, GML).
+The resources that are provided by a WPS REST server are listed in <<table_wps_resources>> below and include the
+capabilities document of the server, the list of processes available
+(ProcessCollection and Process), jobs (running processes) and
+results of process executions.
 
-None of these encodings is mandatory and an implementation of the "Core"
-requirements class may also decide to use none of them, but to use another encoding
-instead.
+TODO: check chapter numbers
+
+[#table_wps_resources,reftext='{table-caption} {counter:table-num}']
+.Overview of resources, applicable HTTP methods and links to the document sections
+[cols="25,32,10,33",options="header"]
+!===
+|Resource |Path |HTTP method |Document reference
+|Landing page |`/` |GET |<<_retrieve_the_api_landing_page,7.2 API landing page>>
+|API definition |`/api` |GET |<<_retrieve_an_api_definition_2,7.3 API definition>>
+|Conformance classes |`/conformance` |GET |<<_declaration_of_conformance_classes,7.4 Declaration of conformance classes>>
+|Available processes |`/processes` |GET |<<_retrieve_a_process_collection,7.8 Retrieve a process collection>>
+|Process description |`/processes/{processID}` |GET |<<_retrieve_process_description, 7.9 Retrieve a process description>>
+|Job collection |`/processes/{processID}/jobs` |GET |<<_retrieve_a_job_collection,7.10 Retrieve a job collection>>
+|Job status info |`/processes/{processID}/jobs/{jobID}` |GET |<<_retrieve_status_information_about_a_job,7.12 Retrieve status information about a job>>
+|Job result |`/processes/{processID}/jobs/{jobID}/result` |GET |<<_retrieve_a_job_result,7.13 Retrieve a job result>>
+!===
+
+=== Operations on WPS resources
+
+In general, the HTTP GET operation is used to provide access to the resources described above.
+However, in order to create a new job, the HTTP POST method is used to crate a new job by sending an execute request to the server. The operation is listed in <<table_job_creation>> below.
+
+[#table_job_creation,reftext='{table-caption} {counter:table-num}']
+.Overview of resources, applicable HTTP methods and links to the document sections
+[cols="27,25,10,10,28",options="header"]
+!===
+|Description |Path |HTTP method | Parameter| Document reference
+|Create a new job |`/processes/{processID}/jobs` |POST| Execute request (contained in body) |<<_create_a_new_job,7.11 Create a new job>>
+!===
+
+This standard uses JSON as encoding for requests and responses. The inputs and outputs of a process can have any format. The formats of are defined at the time of job creation and are fixed for the specific job.
 
 <<rec_html,Support for HTML is recommended>> as HTML is the core language of the World Wide Web.
 A server that supports HTML will support browsing the data with a web browser
-and it will enable search engines to crawl and index the dataset.
+and it will enable search engines to crawl and index the processes.
 
-GeoJSON is a commonly used format that is simple to understand and well
-supported by tools and software libraries. Since most Web developers are
-comfortable with using a JSON-based format, this version of the Web Feature
-Service standard <<rec_geojson,recommends to support GeoJSON for encoding feature data>>,
-if the feature data can be represented in GeoJSON for the intended use.
 
-Some examples for cases that are out-of-scope of GeoJSON are:
-
-* solids are used a geometries (e.g. in a 3D city model),
-* geometries include non-linear curve interpolations
-that cannot be simplified (e.g., use of arcs in authoritative geometries),
-* geometries have to be represented in a coordinate reference system that
-is not based on WGS 84 longitude/latitude (e.g. an authoritative national
-reference system),
-* features have more than one geometric property, etc.
-
-In addition to HTML and GeoJSON, a significant amount of feature data is
-available in XML-based formats, notably GML. GML supports more complex requirements
-than GeoJSON and does not have any of the limitations mentioned in the
-previous paragraph, but as a result GML also more complex to handle for both servers
-and clients. Conformance classes for GML are, therefore, included in this
-standard, but it is expected that these will typically be supported by servers
-where users are known to expect feature data in XML/GML.
-
-The recommendations for HTML and GeoJSON reflect the importance of HTML and
-the current popularity of JSON-based data formats. As the practices
-in the Web community evolve, the recommendations will likely be updated, too,
-in future versions of this standard to provide guidance.
-
-This part of WFS 3.0 does not provide any guidance on other encodings. The
-supported encodings, or more precisely the media types of the supported encodings,
-can be determined from the API definition. The desired encoding is selected
-using HTTP content negotiation.
-
-For example, if the server supports
-link:https://tools.ietf.org/html/rfc8142[GeoJSON Text Sequences],
-an encoding that is based on JSON text sequences and GeoJSON to support streaming
-by making the the data incrementally parseable, the media type `application/geo+json-seq`
-would be used.
-
-In addition, HTTP supports compression and the standard HTTP mechanisms can be
-used to reduce the size of the messages between the server and the client.
