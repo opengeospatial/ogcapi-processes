@@ -110,7 +110,7 @@ include::clause_8_encodings.adoc[]
 ////
 add or remove annexes after "A" as necessary
 ////
-include::annex-a.adoc[]
+include::annex-ats.adoc[]
 
 <<<
 ////
