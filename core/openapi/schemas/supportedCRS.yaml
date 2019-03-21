@@ -1,0 +1,8 @@
+supportedCRS:
+    type: object
+    properties:
+       crs:
+         type: string
+       default: 
+          type: boolean
+          default: false

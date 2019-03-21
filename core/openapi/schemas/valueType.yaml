@@ -1,0 +1,4 @@
+valueType:
+   oneOf:
+      - $ref: 'inlineValue.yaml'
+      - $ref: 'referenceValue.yaml'

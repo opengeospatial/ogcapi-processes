@@ -1,0 +1,13 @@
+input:
+    type: object
+    required:
+      - id
+      - input
+    properties:
+       id:
+         type: string
+       input:
+         oneOf:
+           - $ref: 'complexData.yaml'
+           - $ref: 'literalData.yaml'
+           - $ref: 'boundingBoxData.yaml'

@@ -1,0 +1,10 @@
+outputDescription:
+    allOf:
+       - $ref: 'dataDescriptionType.yaml'
+       - type: object
+         properties:
+             output:
+               oneOf:
+                  - $ref: 'complexDataType.yaml'
+                  - $ref: 'literalDataType.yaml'
+                  - $ref: 'boundingBoxDataType.yaml'

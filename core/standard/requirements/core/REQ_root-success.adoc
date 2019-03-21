@@ -5,7 +5,7 @@
 A successful execution of the operation SHALL be reported as a response with a
 HTTP status code `200`.
 
-The content of that response SHALL be based upon the OpenAPI 3.0 schema link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/root.yaml[root.yaml]
+The content of that response SHALL be based upon the OpenAPI 3.0 schema link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/root.yaml[root.yaml]
 and include at least links to the following resources:
 
 * `/api` (relation type 'service')

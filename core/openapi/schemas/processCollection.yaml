@@ -1,0 +1,9 @@
+processCollection:
+  type: object
+  required:
+    - processes
+  properties:
+    processes:
+      type: array
+      items:
+        $ref: 'processSummary.yaml'

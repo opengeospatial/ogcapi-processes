@@ -1,0 +1,13 @@
+boundingBoxData:
+    type: object
+    required:
+       - lowerCorner
+       - upperCorner
+    properties:
+       crs:
+          type: string
+          format: uri
+       lowerCorner:
+          type: string
+       upperCorner:
+          type: string

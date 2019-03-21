@@ -1,0 +1,5 @@
+inlineValue:
+   type: object
+   properties:
+      inlineValue:
+         type: object

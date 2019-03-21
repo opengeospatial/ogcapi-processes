@@ -1,0 +1,3 @@
+valuesReference:
+    type: string
+    format: uri
