@@ -1,0 +1,14 @@
+inputDescription:
+    allOf:
+       - $ref: 'dataDescriptionType.yaml'
+       - type: object
+         properties:
+             input:
+               oneOf:
+                  - $ref: 'complexDataType.yaml'
+                  - $ref: 'literalDataType.yaml'
+                  - $ref: 'boundingBoxDataType.yaml'
+             minOccurs:
+               type: integer
+             maxOccurs:
+               type: integer

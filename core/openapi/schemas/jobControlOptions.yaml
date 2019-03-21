@@ -1,0 +1,5 @@
+jobControlOptions:
+    type: string
+    enum:
+      - sync-execute
+      - async-execute

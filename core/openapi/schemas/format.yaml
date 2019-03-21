@@ -1,0 +1,11 @@
+format:
+  type: object
+  required:
+    - mimeType
+  properties:
+      mimeType:
+         type: string
+      schema:
+         type: string
+      encoding:
+         type: string

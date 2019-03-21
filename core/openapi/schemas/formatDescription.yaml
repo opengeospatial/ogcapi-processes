@@ -1,0 +1,10 @@
+formatDescription:
+    allOf:
+       - $ref: 'format.yaml'
+       - type: object
+         properties:
+             maximumMegabytes:
+                type: integer
+             default:
+                type: boolean
+                default: false

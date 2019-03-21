@@ -1,0 +1,18 @@
+statusInfo:
+    type: object
+    required:
+        - status
+    properties:
+       status:
+          type: string
+          enum:
+            - accepted
+            - running
+            - successful
+            - failed
+       message:
+          type: string
+       progress:
+          type: integer
+          minimum: 0
+          maximum: 100

@@ -1,0 +1,9 @@
+literalData:
+   type: object
+   properties:
+      value:
+         type: string
+      dataType: 
+         type: string
+      uom: 
+         type: string

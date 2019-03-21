@@ -1,0 +1,5 @@
+dataType:
+   type: object
+   properties:
+        format:
+          $ref: 'format.yaml'

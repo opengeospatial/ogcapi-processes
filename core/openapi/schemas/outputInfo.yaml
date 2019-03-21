@@ -1,0 +1,10 @@
+outputInfo:
+    type: object
+    required:
+        - id
+        - value
+    properties:
+        id:
+          type: string
+        value:
+           $ref: 'valueType.yaml'
