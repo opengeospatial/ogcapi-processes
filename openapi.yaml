@@ -1,0 +1,321 @@
+openapi: 3.0.0
+info:
+  title: The OGC Web Processing Service 2.0 REST/JSON Extension API
+  version: "0.01"
+  description: |-
+    WARNING - THIS IS WORK IN PROGRESS\
+    TODO - Add a description of the sample service.\
+    TODO - Add security elements in a separate example.\
+    TODO - Connect to a live service.
+  contact:
+    name: Open Geospatial Consortium
+    email: standards@opengeospatial.org
+    url: 'http://www.opengeospatial.org'
+  license:
+    name: CC-BY 4.0 license
+    url: 'https://creativecommons.org/licenses/by/4.0/'
+paths:
+  /:
+    get:
+      summary: the API description - this document
+      operationId: getApiDescription
+      tags:
+        - Capabilities
+      responses:
+        '200':
+          description: >-
+            The formal documentation of this API according to the OpenAPI
+            specification, version 3.0. I.e., this document.
+          content:
+            application/openapi+json;version=3.0:
+              schema:
+                type: object
+        default:
+          description: An error occured.
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+  /conformance:
+    get:
+      summary: information about standards that this API conforms to
+      description: >-
+        list all requirements classes specified in a standard (e.g., WPS REST/JSON Binding Core) that the server conforms to
+      operationId: getRequirementsClasses
+      tags:
+        - Conformance
+      responses:
+        '200':
+          description: the URIs of all requirements classes supported by the server
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+  /processes:
+    get:
+      summary: retrieve available processes
+      description: >-
+        TODO
+      operationId: getProcesses
+      tags:
+        - Processes
+      responses:
+        '200':
+          description: >-
+            Information about the available processes
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/processCollection.yaml'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+  /processes/{id}/:
+    get:
+      summary: retrieve a process description
+      operationId: getProcessDescription
+      tags:
+        - ProcessDescription
+      parameters:
+          - in: path
+            name: id
+            description: The id of a process
+            required: true
+            schema:
+              type: string
+            example: buffer
+      responses:
+        '200':
+          description: A process description.
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/processOffering.yaml'
+                example: 
+                   process:
+                     id: buffer
+                     title: Buffer process 
+                     description: Buffer process 
+                     keywords: [process, buffer]
+                     inputs: 
+                        - id: features
+                          title: features
+                          description: The features to buffer
+                          formats: 
+                             - mimeType: application/json
+                               maximumMegabytes: 3
+                               default: true
+                             - mimeType: application/x-zipped-shp
+                               maximumMegabytes: 4 
+                        - id: width
+                          title: width
+                          description: The width of the buffer
+                          formats: 
+                             - mimeType: text/plain
+                          literalDataDomain:
+                             dataType:
+                                 "double"
+                             valueDefinition:
+                                 defaultValue:
+                                    "1000"
+                             uom:
+                                "meters"
+                     outputs:
+                           - id: result
+                             title: result
+                             description: The buffered features
+                             formats: 
+                                - mimeType: application/json
+                                  default: true
+                                - mimeType: application/x-zipped-shp
+                     version: 1.1
+                     jobControlOptions: [sync-execute, async-execute]
+                     outputTransmission: [value, reference]
+                     executeEndpoint: https://virtserver.swaggerhub.com/geoprocessing/WPS/0.01/processes/buffer
+        '404':
+          description: 'The process with id {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+  /processes/{id}/jobs:
+    get:
+      summary: retrieve the list of jobs for a process.
+      operationId: getJobList
+      tags:
+        - JobList
+      parameters:
+          - in: path
+            name: id
+            description: The id of a process.
+            required: true
+            schema:
+              type: string
+      responses:
+        '200':
+          description: A list of jobs for this process.
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/jobCollection.yaml'
+        '404':
+          description: 'The process with id {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+    post: #TODO sync execute
+      summary: execute a process.
+      operationId: execute
+      tags:
+        - Execute
+      parameters:
+          - in: path
+            name: id
+            description: The id of a process.
+            required: true
+            schema:
+              type: string
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/execute.yaml'
+      responses:
+        '201':
+          description: Started execution. Created job.
+          headers:
+            Location:
+              schema:
+                  type: string
+              description: URL to check the status of the execution/job.
+        '404':
+          description: 'The process with id {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+  /processes/{id}/jobs/{jobID}:
+    get:
+      summary: retrieve the status of a job
+      operationId: getStatus
+      tags:
+        - Status
+      parameters:
+          - in: path
+            name: id
+            description: The id of a process
+            required: true
+            schema:
+              type: string
+          - in: path
+            name: jobID
+            description: The id of a job
+            required: true
+            schema:
+              type: string
+      responses:
+        '200':
+          description: The status of a job.
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/statusInfo.yaml'
+        '404':
+          description: 'The process with id {id} or the job with id {jobID} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+  /processes/{id}/jobs/{jobID}/result:
+    get:
+      summary: retrieve the result(s) of a job
+      operationId: getResult
+      tags:
+        - Result
+      parameters:
+          - in: path
+            name: id
+            description: The id of a process
+            required: true
+            schema:
+              type: string
+          - in: path
+            name: jobID
+            description: The id of a job
+            required: true
+            schema:
+              type: string
+      responses:
+        '200':
+          description: The result of a job.
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/result.yaml'
+        '404':
+          description: 'The process with id {id} or the job with id {jobID} does not exist.'
+          content:
+            application/json:
+                  schema:
+                    $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+        '500':
+          description: 'An exception happened during the execution of the job.'
+          content:
+            application/json:
+                  schema:
+                    $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                  schema:
+                    $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+tags:
+  - name: Capabilities
+    description: >-
+      Essential characteristics of this API including information about the
+      data.
+  - name: Processes
+    description: Access to processes.
+# Added by API Auto Mocking Plugin
+servers:
+# Added by API Auto Mocking Plugin
+   - description: SwaggerHub API Auto Mocking
+     url: https://virtserver.swaggerhub.com/geoprocessing/WPS/0.01
+   - url: https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master
