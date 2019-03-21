@@ -1,0 +1,9 @@
+jobCollection:
+  type: object
+  required:
+    - jobs
+  properties:
+    jobs:
+      type: array
+        items:
+          type: string

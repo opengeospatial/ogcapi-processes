@@ -1,0 +1,16 @@
+literalDataDomain:
+    type: object
+    required: 
+        - valueDefinition
+    properties:
+        dataType:
+          type: string
+        defaultValue:
+          type: string
+        valueDefinition:
+           oneOf:
+                - $ref: 'allowedValues.yaml'
+                - $ref: 'anyValue.yaml'
+                - $ref: 'valuesReference.yaml'
+        uom:
+          type: string

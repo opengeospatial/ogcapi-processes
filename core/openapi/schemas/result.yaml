@@ -1,0 +1,9 @@
+result:
+    type: object
+    required:
+        - outputs
+    properties:
+       outputs:
+           type: array
+           items:
+              $ref: 'outputInfo.yaml'

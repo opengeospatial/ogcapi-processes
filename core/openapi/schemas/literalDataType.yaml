@@ -1,0 +1,7 @@
+literalDataType:
+       type: object
+       required:
+          - literalDataDomain
+       properties:
+           literalDataDomain:
+             $ref: 'literalDataDomain.yaml'

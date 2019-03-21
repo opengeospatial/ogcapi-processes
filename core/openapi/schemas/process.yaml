@@ -1,0 +1,18 @@
+process:
+    allOf:
+       - $ref: 'processSummary.yaml'
+       - type: object
+         required:
+           - id
+         properties:
+            inputs:
+              type: array
+              items: 
+                 $ref: 'inputDescription.yaml'
+            outputs:
+              type: array
+              items: 
+                 $ref: 'outputDescription.yaml'
+            executeEndpoint:
+                type: string
+                format: url
