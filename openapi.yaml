@@ -35,7 +35,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
   /conformance:
     get:
       summary: information about standards that this API conforms to
@@ -50,13 +50,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml'
+                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/req-classes.yaml'
         default:
           description: An error occured.
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
   /processes:
     get:
       summary: retrieve available processes
@@ -72,13 +72,13 @@ paths:
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/processCollection.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml'
         default:
           description: An error occured.
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
   /processes/{id}/:
     get:
       summary: retrieve a process description
@@ -99,7 +99,7 @@ paths:
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/processOffering.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processOffering.yaml'
                 example: 
                    process:
                      id: buffer
@@ -146,13 +146,13 @@ paths:
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
         default:
           description: An error occured.
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
   /processes/{id}/jobs:
     get:
       summary: retrieve the list of jobs for a process.
@@ -172,19 +172,19 @@ paths:
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/jobCollection.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml'
         '404':
           description: 'The process with id {id} does not exist.'
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
         default:
           description: An error occured.
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
     post: #TODO sync execute
       summary: execute a process.
       operationId: execute
@@ -203,7 +203,7 @@ paths:
         content:
           application/json:
             schema:
-                $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/execute.yaml'
+                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml'
       responses:
         '201':
           description: Started execution. Created job.
@@ -217,13 +217,13 @@ paths:
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
         default:
           description: An error occured.
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
   /processes/{id}/jobs/{jobID}:
     get:
       summary: retrieve the status of a job
@@ -249,19 +249,19 @@ paths:
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/statusInfo.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml'
         '404':
           description: 'The process with id {id} or the job with id {jobID} does not exist.'
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
         default:
           description: An error occured.
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
   /processes/{id}/jobs/{jobID}/result:
     get:
       summary: retrieve the result(s) of a job
@@ -287,25 +287,25 @@ paths:
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/result.yaml'
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
         '404':
           description: 'The process with id {id} or the job with id {jobID} does not exist.'
           content:
             application/json:
                   schema:
-                    $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                    $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
         '500':
           description: 'An exception happened during the execution of the job.'
           content:
             application/json:
                   schema:
-                    $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                    $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
         default:
           description: An error occured.
           content:
             application/json:
                   schema:
-                    $ref: 'https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/exception.yaml'
+                    $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
 tags:
   - name: Capabilities
     description: >-
