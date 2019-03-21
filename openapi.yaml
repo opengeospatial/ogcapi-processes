@@ -318,4 +318,3 @@ servers:
 # Added by API Auto Mocking Plugin
    - description: SwaggerHub API Auto Mocking
      url: https://virtserver.swaggerhub.com/geoprocessing/WPS/0.01
-   - url: https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master
