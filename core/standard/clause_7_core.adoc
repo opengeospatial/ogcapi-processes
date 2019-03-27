@@ -280,7 +280,14 @@ https://processing.example.org/processes
 		"version": "1.0.0",
 		"jobControlOptions": ["async-execute", "sync-execute"],
 		"outputTransmission": ["value",	"reference"],
-		"processDescriptionURL": ""https://processing.example.org/processes/EchoProcess"
+        "links": [
+          {
+            "href": "https://processing.example.org/processes/EchoProcess",
+            "type": "application/json",
+            "rel": "self",
+            "title": "default process description"
+          }
+        ]
 	},...
     ]
 }
