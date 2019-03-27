@@ -1,0 +1,9 @@
+allowedRanges:
+  type: object
+  required:
+    - allowedRanges
+  properties:
+    allowedRanges:
+      type: array
+      items:
+        $ref: 'range.yaml'
