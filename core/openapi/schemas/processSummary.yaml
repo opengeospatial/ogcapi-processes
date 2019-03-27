@@ -18,6 +18,7 @@ processSummary:
              type: array
              items: 
                 $ref: 'transmissionMode.yaml'
-           processDescriptionURL:
-             type: string
-             format: url
+           links:
+             type: array
+             items:
+                $ref: 'link.yaml'
