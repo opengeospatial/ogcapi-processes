@@ -458,7 +458,7 @@ include::requirements/core/REQ_job-collection-op.adoc[]
 
 include::requirements/core/REQ_job-collection-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobList.yaml[Schema for the job collection]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml[Schema for the job collection]
 [source,YAML]
 ----
 jobCollection:
