@@ -1,13 +1,14 @@
 boundingBoxData:
     type: object
     required:
-       - lowerCorner
-       - upperCorner
+       - bbox
     properties:
        crs:
           type: string
           format: uri
-       lowerCorner:
-          type: string
-       upperCorner:
-          type: string
+       bbox:
+          type: array
+          minItems: 4
+          maxItems: 6
+          items:
+            type: number

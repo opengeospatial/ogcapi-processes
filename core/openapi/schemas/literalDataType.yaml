@@ -1,7 +1,7 @@
 literalDataType:
        type: object
-       required:
-          - literalDataDomain
        properties:
-           literalDataDomain:
-             $ref: 'literalDataDomain.yaml'
+         literalDataDomains:
+           type: array
+           items:
+             $ref: '#literalDataDomain.yaml'
