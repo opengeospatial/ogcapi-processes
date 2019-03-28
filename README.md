@@ -57,4 +57,9 @@ A draft of the WPS 2.0 REST/JSON Binding Extension is available:
 
 ## Contributing
 
-TBA
+The contributor understands that any contributions, if accepted by the OGC Membership, shall be incorporated into OGC Web Processing Service 2.0 REST/JSON Binding Extension standards documents and that all copyright and intellectual property shall be vested to the OGC.
+
+The WPS 2.0 Standards Working Group (SWG) is the group at OGC responsible for the stewardship of the standard, but is working to do as much work in public as possible.
+
+* [Open issues](https://github.com/opengeospatial/wps-rest-binding/issues)
+* [Copy of License Language](https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/LICENSE)
