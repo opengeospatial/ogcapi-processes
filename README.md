@@ -55,6 +55,10 @@ A draft of the WPS 2.0 REST/JSON Binding Extension is available:
 
 * [WPS 2.0 REST/JSON Binding Extension OpenAPI specification](https://app.swaggerhub.com/apis/geoprocessing/WPS/1.0-draft)
 
+Demo implementations:
+
+* [52°North](http://geoprocessing.demo.52north.org:8080/javaps/rest/)
+
 ## Contributing
 
 The contributor understands that any contributions, if accepted by the OGC Membership, shall be incorporated into OGC Web Processing Service 2.0 REST/JSON Binding Extension standards documents and that all copyright and intellectual property shall be vested to the OGC.
