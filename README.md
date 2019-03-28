@@ -53,7 +53,7 @@ A draft of the WPS 2.0 REST/JSON Binding Extension is available:
 
 * [OGC Web Processing Service 2.0 REST/JSON Binding Extension, Draft](https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/develop/docs/18-062.pdf)
 
-* [WPS 2.0 REST/JSON Binding Extension OpenAPI specification](https://app.swaggerhub.com/apis/geoprocessing/WPS/0.01)
+* [WPS 2.0 REST/JSON Binding Extension OpenAPI specification](https://app.swaggerhub.com/apis/geoprocessing/WPS/1.0-draft)
 
 ## Contributing
 
