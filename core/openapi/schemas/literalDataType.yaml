@@ -4,4 +4,4 @@ literalDataType:
          literalDataDomains:
            type: array
            items:
-             $ref: '#literalDataDomain.yaml'
+             $ref: 'literalDataDomain.yaml'
