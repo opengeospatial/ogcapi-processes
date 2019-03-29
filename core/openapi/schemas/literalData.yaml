@@ -3,7 +3,23 @@ literalData:
    properties:
       value:
          type: string
-      dataType: 
-         type: string
-      uom: 
-         type: string
+      dataType:
+        type: object
+        required:
+          - name
+        properties:
+          name:
+            type: string
+          reference:
+            type: string
+            format: uri
+      uom:
+        type: object
+        required:
+          - name
+        properties:
+          name:
+            type: string
+          reference:
+            type: string
+            format: uri

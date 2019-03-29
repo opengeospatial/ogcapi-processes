@@ -68,16 +68,30 @@ properties:
 [source,JSON]
 ----
 {
-  "links": [
-    { "href": "http://processing.example.org/",
-      "rel": "self", "type": "application/json", "title": "this document" },
-    { "href": "http://processing.example.org/api",
-      "rel": "service", "type": "application/openapi+json;version=3.0", "title": "the API definition" },
-    { "href": "http://processing.example.org/conformance",
-      "rel": "conformance", "type": "application/json", "title": "WPS REST/JSON Binding 1.0 conformance classes implemented by this server" },
-    { "href": "http://processing.example.org/processes",
-      "rel": "processes", "type": "application/json", "title": "Metadata about the processes" }
-  ]
+	"links": [{
+		"href": "http://processing.example.org/",
+		"rel": "self",
+		"type": "application/json",
+		"title": "this document"
+	},
+	{
+		"href": "http://processing.example.org/api",
+		"rel": "service",
+		"type": "application/openapi+json;version=3.0",
+		"title": "the API definition"
+	},
+	{
+		"href": "http://processing.example.org/conformance",
+		"rel": "conformance",
+		"type": "application/json",
+		"title": "WPS 2.0 REST/JSON Binding conformance classes implemented by this server"
+	},
+	{
+		"href": "http://processing.example.org/processes",
+		"rel": "processes",
+		"type": "application/json",
+		"title": "Metadata about the processes"
+	}]
 }
 ----
 =================
@@ -339,9 +353,10 @@ process:
               type: array
               items: 
                  $ref: 'outputDescription.yaml'
-            executeEndpoint:
-                type: string
-                format: url
+            links:
+              type: array
+              items:
+                 $ref: 'link.yaml'
 ----
 
 .Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
@@ -377,7 +392,9 @@ https://processing.example.org/processes/EchoProcess
 			"title": "literalInput",
 			"input": {
 				"literalDataDomain": {
-					"dataType": "string",
+                    "dataType": {
+                      "name": "double"
+                    },
 					"valueDefinition": {
 						"anyValue": true
 					}
@@ -419,7 +436,9 @@ https://processing.example.org/processes/EchoProcess
 			"title": "literalOutput",
 			"output": {
 				"literalDataDomain": {
-					"dataType": "string",
+                    "dataType": {
+                      "name": "double"
+                    },
 					"valueDefinition": {
 						"anyValue": true
 					}
@@ -442,8 +461,14 @@ https://processing.example.org/processes/EchoProcess
 				}]
 			}
 		}],
-		"executeEndpoint": "https://processing.example.org/processes/EchoProcess/jobs"
-	}
+        "links": [
+          {
+            "href": "https://processing.example.org/processes/EchoProcess/jobs",
+            "rel": "canonical",
+            "title": "Execute endpoint"
+          }
+        ]
+	    }
 }
 ----
 
@@ -548,7 +573,9 @@ execute:
 	{
 		"id": "literalInput",
 		"input": {
-			"dataType": "double",
+            "dataType": {
+              "name": "double"
+            },
 			"value": "0.05"
 		}
 	},

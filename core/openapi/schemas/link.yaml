@@ -14,3 +14,6 @@ link:
     hreflang:
       type: string
       example: en
+    title:
+      type: string
+      example: Trierer Strasse 70, 53115 Bonn

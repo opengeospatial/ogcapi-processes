@@ -13,6 +13,7 @@ process:
               type: array
               items: 
                  $ref: 'outputDescription.yaml'
-            executeEndpoint:
-                type: string
-                format: url
+            links:
+              type: array
+              items:
+                 $ref: 'link.yaml'
