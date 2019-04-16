@@ -1,5 +1,9 @@
 inlineValue:
    type: object
+   required: 
+      - inlineValue
    properties:
       inlineValue:
-         type: object
+         oneOf:
+            - type: string
+            - type: object
