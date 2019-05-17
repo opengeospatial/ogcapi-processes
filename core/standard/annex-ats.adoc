@@ -152,23 +152,6 @@ none
 ====== d) References:
 Requirement 7
 
-===== Coordinate Reference Systems
-
-====== a) Test Purpose:
-Validate that all spatial geometries provided through a $standard_name$ service are in the CRS84 spatial reference system unless otherwise requested by the client.
-
-====== b) Pre-conditions:
-none
-
-====== c) Test Method:
-
-. Do not specify a coordinate reference system in any request.  All spatial data should be in the CRS84 reference system.
-
-. Validate retrieved spatial data using the CRS84 reference system.
-
-====== d) References:
-Requirement 8
-
 ==== Retrieve the API Description
 
 ===== Landing Page Retrieval
@@ -212,7 +195,7 @@ Validate that the landing page complies with the require structure and contents.
 
 . Validate that the landing page includes a “conformance” link to the conformance class document
 
-. Validate that the landing page includes a “data” link to the $standard_name$ contents.
+. Validate that the landing page includes a “processes” link to the $standard_name$ contents.
 
 ====== d) References:
 Requirement 2
@@ -234,7 +217,7 @@ Validate that the API Definition document can be retrieved from the expected loc
 
 ====== c) Test Method:
 
-. Issue an HTTP GET request to the URL {server}/api
+. Issue an HTTP GET request to the URL {root}/api
 
 . Validate that a document was returned with a status code 200
 
@@ -366,7 +349,7 @@ Validate API definition provided through the /api path it the athoritative defin
 
 ====== c) Test Method:
 
-. Issue an HTTP GET request to the URL {server}/api
+. Issue an HTTP GET request to the URL {root}/api
  
 . Validate that a document was returned with a status code of 200
  
@@ -398,7 +381,7 @@ Requirement 5
 ===== Validate Conformance Operation Response
 
 ====== a) Test Purpose:
-Validate the Response to the Conformance Operation.
+Validate the response to the Conformance Operation.
 
 ====== b) Pre-conditions:
 
@@ -418,7 +401,7 @@ Requirement 6
 ===== Validate the Get Processes Operation
 
 ====== a) Test Purpose:
-Validate that the Get Processes Operation behaves as required
+Validate that the Get Processes Operation behaves as required.
 
 ====== b) Pre-conditions:
 
@@ -438,7 +421,7 @@ Requirement 9
 ===== Validate Get Processes Operation Response
 
 ====== a) Test Purpose:
-Validate that response to the Process Collection Operation.
+Validate the response to the Get Processes Operation.
 
 ====== b) Pre-conditions:
 
@@ -455,10 +438,10 @@ Validate that response to the Process Collection Operation.
 Requirements 10, 11, and 12
 
 [[validate_process_description]]
-===== Validate the Process Description Operation
+===== Validate the Get Process Description Operation
 
 ====== a) Test Purpose:
-Validate a Process Description document.
+Validate that the Get Process Description Operation behaves as required.
 
 ====== b) Pre-conditions:
 
@@ -479,7 +462,7 @@ Requirement 15
 ===== Validate the Process Description Operation Response
 
 ====== a) Test Purpose:
-Validate that response to the Process Description Operation.
+Validate the response to the Process Description Operation.
 
 ====== b) Pre-conditions:
 

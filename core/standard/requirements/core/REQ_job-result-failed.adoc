@@ -1,0 +1,9 @@
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/core/job-result-failed +
+
+If the operation is executed on a failed job using a valid job identifier, the response shall have HTTP status code 200.
+The content of that response SHALL be based upon the OpenAPI
+3.0 schema https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml[exception.yaml].
+TODO exception codes? e.g. invalidparameter?
+|===
