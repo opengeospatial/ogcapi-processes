@@ -1,31 +1,30 @@
-literalDataDomain:
-  allOf:
-    - oneOf:
-        - $ref: 'allowedValues.yaml'
-        - $ref: 'allowedRanges.yaml'
-        - $ref: 'anyValue.yaml'
-        - $ref: 'valuesReference.yaml'
-    - type: object
-      properties:
-        defaultValue:
-          type: string
-        dataType:
-          type: object
-          required:
-            - name
-          properties:
-            name:
-              type: string
-            reference:
-              type: string
-              format: uri
-        uom:
-          type: object
-          required:
-            - name
-          properties:
-            name:
-              type: string
-            reference:
-              type: string
-              format: uri
+type: object
+properties:
+  valueDefinition:
+      oneOf:
+        - $ref: '#/components/schemas/allowedValues'
+        - $ref: '#/components/schemas/allowedRanges'
+        - $ref: '#/components/schemas/anyValue'
+        - $ref: '#/components/schemas/valuesReference'
+  defaultValue:
+    type: string
+  dataType:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      reference:
+        type: string
+        format: uri
+  uom:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      reference:
+        type: string
+        format: uri
