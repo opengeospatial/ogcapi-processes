@@ -476,7 +476,7 @@ https://processing.example.org/processes/EchoProcess
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
+include::requirements/core/REQ_process-exception-no-such-process.adoc[]
 
 === Retrieve a job collection
 
@@ -525,7 +525,7 @@ http://processing.example.org/processes/EchoProcess/jobs
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
+If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<rc_no-such-process>>).
 
 === Create a new job
 
@@ -589,16 +589,10 @@ execute:
 	}],
 	"outputs": [{
 		"id": "literalOutput",
-		"format": {
-			"mimeType": "text/plain"
-		},
 		"transmissionMode": "value"
 	},
 	{
 		"id": "boundingboxOutput",
-		"format": {
-			"mimeType": "application/json"
-		},
 		"transmissionMode": "value"
 	},
 	{
@@ -621,7 +615,7 @@ include::requirements/core/REQ_job-creation-success-header.adoc[]
 
 See <<http_status_codes>> for general guidance.
 
-If the the execute JSON is not valid for the process (e.g. a wrong input-id was specified), the status code of the response will be `404` (see <<status_codes>>).
+If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<rc_no-such-process>>).
 
 === Retrieve status information about a job
 
@@ -656,6 +650,10 @@ statusInfo:
           type: integer
           minimum: 0
           maximum: 100
+       links:
+          type: array
+          items:
+             $ref: 'link.yaml'
 ----
 
 .Example of HTTP GET request for retrieving status information about a job encoded as JSON.
@@ -670,7 +668,15 @@ http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61
 {
   "status": "accepted",
   "message": "Process started",
-  "progress": 0
+  "progress": 0,
+  "links": [
+    {
+      "href": "http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f",
+      "rel": "self",
+      "type": "application/json",
+      "title": "this document"
+    }
+  ]
 }
 ----
 
@@ -678,11 +684,9 @@ http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
+If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<rc_no-such-process>>).
 
-If the job with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
-
-If the execution of the process failed, the status code of the response will be `200` with the status set to `failed`.
+include::requirements/core/REQ_job-exception-no-such-job.adoc[]
 
 === Retrieve a job result
 
@@ -764,10 +768,11 @@ http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
+If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<rc_no-such-process>>).
 
-If the job with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<status_codes>>).
+include::requirements/core/REQ_job-result-exception-no-such-job.adoc[]
 
-If the execution is still running, the status code of the response will be `404` (see <<status_codes>>).
+include::requirements/core/REQ_job-result-exception-result-not-ready.adoc[]
 
-If an error happened during the excecution of the process, the status code of the response will be `500` (see <<status_codes>>).
+include::requirements/core/REQ_job-result-failed.adoc[]
+

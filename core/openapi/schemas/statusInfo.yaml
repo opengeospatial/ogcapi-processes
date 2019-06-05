@@ -16,3 +16,7 @@ statusInfo:
           type: integer
           minimum: 0
           maximum: 100
+       links:
+          type: array
+          items:
+             $ref: 'link.yaml'

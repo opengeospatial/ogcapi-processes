@@ -1,5 +1,7 @@
 literalDataType:
        type: object
+       required:
+          - literalDataDomains
        properties:
          literalDataDomains:
            type: array
