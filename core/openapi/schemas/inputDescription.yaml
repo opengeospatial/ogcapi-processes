@@ -11,4 +11,8 @@ inputDescription:
              minOccurs:
                type: integer
              maxOccurs:
-               type: integer
+               oneOf:
+                  - type: integer
+                  - type: string
+                    enum:
+                      - unbounded
