@@ -2,10 +2,10 @@ type: object
 properties:
   valueDefinition:
       oneOf:
-        - $ref: '#/components/schemas/allowedValues'
-        - $ref: '#/components/schemas/allowedRanges'
-        - $ref: '#/components/schemas/anyValue'
-        - $ref: '#/components/schemas/valuesReference'
+        - $ref: 'allowedValues.yam'
+        - $ref: 'allowedRanges.yaml'
+        - $ref: 'anyValue.yaml'
+        - $ref: 'valuesReference.yaml'
   defaultValue:
     type: string
   dataType:
