@@ -6,4 +6,4 @@ jobCollection:
     jobs:
       type: array
       items:
-        type: string
+        $ref: 'jobInfo.yaml'
