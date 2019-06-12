@@ -1,0 +1,10 @@
+jobInfo:
+    type: object
+    required:
+        - id
+        - infos
+    properties:
+        id:
+          type: string
+        infos:
+          $ref: 'statusInfo.yaml'
