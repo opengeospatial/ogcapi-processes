@@ -2,7 +2,7 @@ type: object
 properties:
   valueDefinition:
       oneOf:
-        - $ref: 'allowedValues.yam'
+        - $ref: 'allowedValues.yaml'
         - $ref: 'allowedRanges.yaml'
         - $ref: 'anyValue.yaml'
         - $ref: 'valuesReference.yaml'
