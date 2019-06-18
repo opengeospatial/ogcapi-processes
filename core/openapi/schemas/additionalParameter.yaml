@@ -14,5 +14,5 @@ additionalParameter:
                - type: number
                - type: integer
                - type: array
-                  items: {}
+                 items: {}
                - type: object
