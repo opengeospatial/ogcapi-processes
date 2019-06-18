@@ -19,10 +19,10 @@ descriptionType:
                $ref: 'metadata.yaml'
         additionalParameters:
            allOf:
-              $ref: 'metadata.yaml'
-              type: object
-                 properties:
-                    parameters:
-        	       type: array
-        	       items:
-        	          $ref: 'additionalParameter.yaml'
+              - $ref: 'metadata.yaml'
+              - type: object
+                properties:
+                   parameters:
+        	            type: array
+        	            items:
+        	               $ref: 'additionalParameter.yaml'
