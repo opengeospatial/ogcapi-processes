@@ -58,6 +58,8 @@ A draft of the WPS 2.0 REST/JSON Binding Extension is available:
 Demo implementations:
 
 * [52°North](http://geoprocessing.demo.52north.org:8080/javaps/rest/)
+* [ZOO-Project](http://demo.mapmint.com/WPS2/)
+* [ZOO-Project Swagger-UI](https://demo.mapmint.com/swagger-ui/dist/)
 
 ## Contributing
 
