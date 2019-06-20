@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: The OGC Web Processing Service 2.0 REST/JSON Extension API
-  version: "0.01"
+  version: "1.0-draft"
   description: |-
     WARNING - THIS IS WORK IN PROGRESS\
     TODO - Add a description of the sample service.\
@@ -15,27 +15,25 @@ info:
     name: CC-BY 4.0 license
     url: 'https://creativecommons.org/licenses/by/4.0/'
 paths:
-  /:
+  '/':
     get:
-      summary: the API description - this document
-      operationId: getApiDescription
+      summary: landing page of this API
+      description: >-
+        The landing page provides links to the API definition, the Conformance
+        statements and the metadata about the processes offered by this service.
+      operationId: getLandingPage
       tags:
         - Capabilities
       responses:
         '200':
-          description: >-
-            The formal documentation of this API according to the OpenAPI
-            specification, version 3.0. I.e., this document.
-          content:
-            application/openapi+json;version=3.0:
-              schema:
-                type: object
-        default:
-          description: An error occured.
+          description: links to the API capabilities
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
+                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/root.yaml'
+            text/html:
+              schema:
+                type: string
   /conformance:
     get:
       summary: information about standards that this API conforms to
@@ -79,7 +77,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-  /processes/{id}/:
+  /processes/{id}:
     get:
       summary: retrieve a process description
       operationId: getProcessDescription
@@ -287,15 +285,11 @@ paths:
           content:
             application/json:
                 schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
+                    oneOf:
+                      - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
+                      - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
         '404':
           description: 'The process with id {id} or the job with id {jobID} does not exist.'
-          content:
-            application/json:
-                  schema:
-                    $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-        '500':
-          description: 'An exception happened during the execution of the job.'
           content:
             application/json:
                   schema:
@@ -318,3 +312,5 @@ servers:
 # Added by API Auto Mocking Plugin
    - description: SwaggerHub API Auto Mocking
      url: https://virtserver.swaggerhub.com/geoprocessing/WPS/0.01
+   - description: 52°North demo server
+     url: http://geoprocessing.demo.52north.org:8080/javaps/rest/
