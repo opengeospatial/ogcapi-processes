@@ -1,0 +1,5 @@
+deploymentResult:
+  type: object
+  properties:
+    processSummary:
+      $ref: 'processSummary.yaml'

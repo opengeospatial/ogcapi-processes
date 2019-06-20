@@ -1,0 +1,4 @@
+processDescriptionChoiceType:
+  oneOf:
+    - $ref: 'referenceValue.yaml'
+    - $ref: 'processOffering.yaml'

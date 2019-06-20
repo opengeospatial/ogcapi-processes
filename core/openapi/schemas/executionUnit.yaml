@@ -1,0 +1,4 @@
+executionUnit:
+  oneOf:
+    - $ref: 'referenceValue.yaml'
+    - $ref: 'unitType.yaml'

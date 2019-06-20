@@ -1,0 +1,7 @@
+unitType:
+  type: object
+  required:
+    - unit
+  properties:
+    unit:
+      type: object

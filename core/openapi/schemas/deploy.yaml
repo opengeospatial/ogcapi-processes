@@ -1,0 +1,16 @@
+deploy:
+  type: object
+  required:
+    - executionUnit
+  properties:
+    immediateDeployment:
+      type: boolean
+      default: 'true'
+    processDescription:
+      $ref: 'processDescriptionChoiceType.yaml'
+    executionUnit:
+      type: array
+      items:
+        $ref: 'executionUnit.yaml'
+    deploymentProfileName:
+      type: string

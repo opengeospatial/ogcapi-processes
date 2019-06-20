@@ -98,22 +98,22 @@ paths:
             application/json:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processOffering.yaml'
-                example: 
+                example:
                    process:
                      id: buffer
-                     title: Buffer process 
-                     description: Buffer process 
+                     title: Buffer process
+                     description: Buffer process
                      keywords: [process, buffer]
-                     inputs: 
+                     inputs:
                         - id: features
                           title: features
                           description: The features to buffer
-                          formats: 
+                          formats:
                              - mimeType: application/json
                                maximumMegabytes: 3
                                default: true
                              - mimeType: application/x-zipped-shp
-                               maximumMegabytes: 4 
+                               maximumMegabytes: 4
                         - id: width
                           title: width
                           description: The width of the buffer
@@ -127,7 +127,7 @@ paths:
                            - id: result
                              title: result
                              description: The buffered features
-                             formats: 
+                             formats:
                                 - mimeType: application/json
                                   default: true
                                 - mimeType: application/x-zipped-shp
@@ -151,6 +151,25 @@ paths:
             application/json:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
+    post:
+      summary: Deploy a process.
+      operationId: deployProcess
+      tags:
+        - Processes
+      requestBody:
+        description: Mandatory deploy request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deploy'
+      responses:
+        '200':
+          description: Process deployed.
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/deploymentResult'
   /processes/{id}/jobs:
     get:
       summary: retrieve the list of jobs for a process.
@@ -183,6 +202,26 @@ paths:
             application/json:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
+    delete:
+      summary: Undeploy a process
+      operationId: undeployProcess
+      tags:
+        - Processes
+      parameters:
+        - in: path
+          name: id
+          description: The id of a process
+          required: true
+          schema:
+            type: string
+            example: Stacker
+      responses:
+        '200':
+          description: Process undeployed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/undeploymentResult'
     post: #TODO sync execute
       summary: execute a process.
       operationId: execute
