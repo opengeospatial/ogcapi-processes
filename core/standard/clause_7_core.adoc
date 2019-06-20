@@ -582,8 +582,7 @@ execute:
 	{
 		"id": "boundingboxInput",
 		"input": {
-			"lowerCorner": "51.9 7",
-			"upperCorner": "52 7.1",
+			"bbox": [51.9, 7, 52, 7.1],
 			"crs": "EPSG:4326"
 		}
 	}],
@@ -749,8 +748,7 @@ http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61
 		"id": "boundingboxOutput",
 		"value": {
 			"inlineValue": {
-				"lowerCorner": "7.0 51.9",
-				"upperCorner": "7.1 52.0",
+			"bbox": [51.9, 7, 52, 7.1],
 				"crs": "EPSG:4326"
 			}
 		}
