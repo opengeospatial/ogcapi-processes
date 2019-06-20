@@ -21,3 +21,16 @@ descriptionType:
             type: array
             items:
               $ref: 'additionalParametersType.yaml'
+        owsContext:
+          type: object
+            properties:
+              offering:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  content:
+                    type: object
+                    properties:
+                      href:
+                        type: string
