@@ -1,7 +1,13 @@
-referenceValue:
-   type: object
-   required:
-       - href
-   properties:
-      href:
-         type: string
+reference:
+  type: object
+  required:
+    - href
+  properties:
+    href:
+      type: string
+    mimeType:
+      type: string
+    schema:
+      type: string
+    encoding:
+      type: string
