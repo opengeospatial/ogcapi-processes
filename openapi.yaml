@@ -117,16 +117,12 @@ paths:
                         - id: width
                           title: width
                           description: The width of the buffer
-                          formats: 
-                             - mimeType: text/plain
                           literalDataDomain:
                              dataType:
-                                 "double"
+                                 name: double
                              valueDefinition:
-                                 defaultValue:
-                                    "1000"
-                             uom:
-                                "meters"
+                                 defaultValue: 1000
+                             uom: meters
                      outputs:
                            - id: result
                              title: result
@@ -138,7 +134,11 @@ paths:
                      version: 1.1
                      jobControlOptions: [sync-execute, async-execute]
                      outputTransmission: [value, reference]
-                     executeEndpoint: https://virtserver.swaggerhub.com/geoprocessing/WPS/0.01/processes/buffer
+                     links:
+                        - rel: canonical
+                          href: https://virtserver.swaggerhub.com/geoprocessing/WPS/0.01/processes/buffer/jobs
+                          type: application/json
+                          title: Execute endpoint
         '404':
           description: 'The process with id {id} does not exist.'
           content:
