@@ -17,3 +17,7 @@ descriptionType:
            type: array
            items:
                $ref: 'metadata.yaml'
+        additionalParameters:
+            type: array
+            items:
+              $ref: 'additionalParametersType.yaml'

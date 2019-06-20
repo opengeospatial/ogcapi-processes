@@ -1,0 +1,9 @@
+additionalParameters:
+  type: object
+  properties:
+    role:
+      type: string
+    parameters:
+      type: array
+      items:
+        $ref: 'additionalParameter.yaml'
