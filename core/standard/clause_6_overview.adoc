@@ -28,7 +28,7 @@ TODO: check chapter numbers
 === Operations on WPS resources
 
 In general, the HTTP GET operation is used to provide access to the resources described above.
-However, in order to create a new job, the HTTP POST method is used to crate a new job by sending an execute request to the server. The operation is listed in <<table_job_creation>> below.
+However, in order to create a new job, the HTTP POST method is used to create a new job by sending an execute request to the server. The operation is listed in <<table_job_creation>> below.
 
 [#table_job_creation,reftext='{table-caption} {counter:table-num}']
 .Overview of resources, applicable HTTP methods and links to the document sections
