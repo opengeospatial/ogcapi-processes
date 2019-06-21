@@ -13,6 +13,20 @@ execute:
       type: array
       items:
         $ref: 'output.yaml'
+    callback:   # Callback URL
+      type: object
+        required:
+          - onSuccess
+        properties:
+          onSuccess:
+            type: string
+            format: uri
+          onFailure:
+            type: string
+            format: uri
+          onUpdatee:
+            type: string
+            format: uri
     mode:
       type: string
       enum:

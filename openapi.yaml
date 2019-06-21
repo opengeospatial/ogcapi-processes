@@ -241,6 +241,34 @@ paths:
           application/json:
             schema:
                 $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml'
+      callback:
+        onSuccess:
+          '{$request.body#/onSuccess}':   # refer to the passed URL
+            post:
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: "result.yaml"
+        onFailure:
+            '{$request.body#/onFailure}':   # refer to the passed URL
+              post:
+                requestBody:
+                  required: true
+                  content:
+                    application/json:
+                      schema:
+                        $ref: "result.yaml"
+        onUpdate:
+          '{$request.body#/onUpdate}':   # refer to the passed URL
+            post:
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: "statusInfo.yaml"
       responses:
         '201':
           description: Started execution. Created job.
