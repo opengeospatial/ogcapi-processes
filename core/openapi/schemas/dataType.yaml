@@ -1,4 +1,3 @@
-dataType:
    type: object
    properties:
         format:

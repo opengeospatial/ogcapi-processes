@@ -1,7 +1,7 @@
-statusInfo:
     type: object
     required:
         - status
+        - jobID
     properties:
        status:
           type: string
@@ -10,6 +10,8 @@ statusInfo:
             - running
             - successful
             - failed
+       jobID:
+          type: string
        message:
           type: string
        progress:

@@ -1,4 +1,3 @@
-referenceValue:
    type: object
    required:
        - href

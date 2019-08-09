@@ -1,4 +1,3 @@
-outputDescription:
     allOf:
        - $ref: 'dataDescriptionType.yaml'
        - type: object

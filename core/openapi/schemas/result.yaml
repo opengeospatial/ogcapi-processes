@@ -1,4 +1,3 @@
-result:
     type: object
     required:
         - outputs

@@ -1,4 +1,3 @@
-input:
     type: object
     required:
       - id
