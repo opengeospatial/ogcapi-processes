@@ -1,4 +1,3 @@
-processCollection:
   type: object
   required:
     - processes

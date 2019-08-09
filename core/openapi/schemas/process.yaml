@@ -1,4 +1,3 @@
-process:
     allOf:
        - $ref: 'processSummary.yaml'
        - type: object

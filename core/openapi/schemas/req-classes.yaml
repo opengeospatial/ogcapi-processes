@@ -1,4 +1,3 @@
-req-classes:
     type: object
     required:
       - conformsTo

@@ -1,4 +1,3 @@
-jobCollection:
   type: object
   required:
     - jobs

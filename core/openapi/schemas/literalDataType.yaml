@@ -1,4 +1,3 @@
-literalDataType:
        type: object
        required:
           - literalDataDomains

@@ -1,4 +1,3 @@
-processOffering:
   type: object
   required:
     - process

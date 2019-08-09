@@ -1,4 +1,3 @@
-statusInfo:
     type: object
     required:
         - status

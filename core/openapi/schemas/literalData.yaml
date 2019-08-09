@@ -1,4 +1,3 @@
-literalData:
    type: object
    properties:
       value:
