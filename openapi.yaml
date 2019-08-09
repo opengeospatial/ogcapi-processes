@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: The OGC Web Processing Service 2.0 REST/JSON Extension API
-  version: "1.0-draft"
+  version: "1.0-draft.2"
   description: |-
     WARNING - THIS IS WORK IN PROGRESS\
     TODO - Add a description of the sample service.\
@@ -260,7 +260,7 @@ paths:
             application/json:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-  /processes/{id}/jobs/{jobID}/result:
+  /processes/{id}/jobs/{jobID}/results:
     get:
       summary: retrieve the result(s) of a job
       operationId: getResult
