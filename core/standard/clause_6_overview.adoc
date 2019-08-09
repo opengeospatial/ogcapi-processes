@@ -22,7 +22,7 @@ TODO: check chapter numbers
 |Process description |`/processes/{processID}` |GET |<<_retrieve_process_description, 7.9 Retrieve a process description>>
 |Job collection |`/processes/{processID}/jobs` |GET |<<_retrieve_a_job_collection,7.10 Retrieve a job collection>>
 |Job status info |`/processes/{processID}/jobs/{jobID}` |GET |<<_retrieve_status_information_about_a_job,7.12 Retrieve status information about a job>>
-|Job result |`/processes/{processID}/jobs/{jobID}/result` |GET |<<_retrieve_a_job_result,7.13 Retrieve a job result>>
+|Job result |`/processes/{processID}/jobs/{jobID}/results` |GET |<<_retrieve_a_job_result,7.13 Retrieve a job result>>
 !===
 
 === Operations on WPS resources
