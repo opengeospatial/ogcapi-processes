@@ -292,6 +292,12 @@ paths:
             application/json:
                   schema:
                     $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
+        '500':
+          description: 'The job execution failed due to a internal server error.'
+          content:
+            application/json:
+                  schema:
+                    $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
         default:
           description: An error occured.
           content:
