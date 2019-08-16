@@ -285,9 +285,7 @@ paths:
           content:
             application/json:
                 schema:
-                    oneOf:
-                      - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
-                      - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
+                    $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
         '404':
           description: 'The process with id {id} or the job with id {jobID} does not exist.'
           content:
