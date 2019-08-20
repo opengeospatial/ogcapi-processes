@@ -15,7 +15,7 @@ info:
     name: CC-BY 4.0 license
     url: 'https://creativecommons.org/licenses/by/4.0/'
 paths:
-  '/':
+  /:
     get:
       summary: landing page of this API
       description: >-
