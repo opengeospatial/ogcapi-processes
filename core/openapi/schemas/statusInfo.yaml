@@ -1,8 +1,10 @@
     type: object
     required:
-        - status
         - jobID
+        - status
     properties:
+       jobID:
+          type: string
        status:
           type: string
           enum:
@@ -10,8 +12,6 @@
             - running
             - successful
             - failed
-       jobID:
-          type: string
        message:
           type: string
        progress:
