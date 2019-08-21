@@ -6,5 +6,5 @@
         type: array
         items:
           type: string
-          example: "http://www.opengis.net/spec/wps-rest/1.0/req/core"
+          example: "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/core"
     
