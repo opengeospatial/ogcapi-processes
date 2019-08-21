@@ -42,7 +42,7 @@ GET /processes/{process-id}/jobs/{job-id}
 Returns the status of a job of a process.
 
 ```
-GET /processes/{process-id}/jobs/{job-id}/result
+GET /processes/{process-id}/jobs/{job-id}/results
 ```
 
 Returns the result of a job of a process.
