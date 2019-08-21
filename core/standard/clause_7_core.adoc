@@ -53,14 +53,14 @@ include::requirements/core/REQ_root-success.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/root.yaml[Schema for the landing page]
 [source,YAML]
 ----
-type: object
-required:
-  - links
-properties:
-  links:
-    type: array
-    items:
-      $ref: 'link.yaml'
+    type: object
+    required:
+      - links
+    properties:
+      links:
+        type: array
+        items:
+          $ref: link.yaml
 ----
 
 .Landing page response document
@@ -153,14 +153,15 @@ include::requirements/core/REQ_conformance-success.adoc[]
 .link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml[Schema for the list of requirements classes]
 [source,YAML]
 ----
-type: object
-required:
-  - conformsTo
-properties:
-  conformsTo:
-    type: array
-    items:
-      type: string
+    type: object
+    required:
+      - conformsTo
+    properties:
+      conformsTo:
+        type: array
+        items:
+          type: string
+          example: "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/core"
 ----
 
 .Requirements class response document
@@ -172,9 +173,9 @@ the API definition and HTML and GeoJSON as encodings for features.
 ----
 {
   "conformsTo": [
-    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/core",
-    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/oas30",
-    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/html",
+    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/core",
+    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/oas30",
+    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/html"
   ]
 }
 ----
@@ -251,15 +252,9 @@ include::requirements/core/REQ_process-collection-success.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml[Schema for the process collection]
 [source,YAML]
 ----
-processCollection:
-  type: object
-  required:
-    - processes
-  properties:
-    processes:
-      type: array
-      items:
-        $ref: 'processSummary.yaml'
+    type: array
+    items:
+      $ref: 'processSummary.yaml'
 ----
 
 [NOTE]
@@ -276,8 +271,7 @@ https://processing.example.org/processes
 .Example of Process list encoded as JSON.
 [source,json]
 ----
-{
-  "processes": [
+[
     {
 		"id": "EchoProcess",
 		"title": "EchoProcess",
@@ -293,8 +287,7 @@ https://processing.example.org/processes
           }
         ]
 	},...
-    ]
-}
+]
 ----
 
 ==== Error situations
@@ -313,35 +306,20 @@ include::requirements/core/REQ_process-op.adoc[]
 
 include::requirements/core/REQ_process-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processOffering.yaml[Schema for a process offering]
-[source,YAML]
-----
-processOffering:
-  type: object
-  required:
-    - process
-  properties:
-     process:
-        $ref: 'process.yaml'
-----
-
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml[Schema for a process]
 [source,YAML]
 ----
-process:
     allOf:
        - $ref: 'processSummary.yaml'
        - type: object
-         required:
-           - id
          properties:
             inputs:
               type: array
-              items: 
+              items:
                  $ref: 'inputDescription.yaml'
             outputs:
               type: array
-              items: 
+              items:
                  $ref: 'outputDescription.yaml'
             links:
               type: array
@@ -359,106 +337,104 @@ https://processing.example.org/processes/EchoProcess
 [source,json]
 ----
 {
-	"process": {
-		"id": "EchoProcess",
-		"title": "EchoProcess",
-		"version": "1.0.0",
-		"jobControlOptions": ["async-execute", "sync-execute"],
-		"outputTransmission": ["value", "reference"],
-		"inputs": [{
-			"id": "boundingboxInput",
-			"title": "boundingboxInput",
-			"input": {
-				"supportedCRS": [{
-					"default": true,
-					"crs": "EPSG:4326"
-				}]
-			},
-			"minOccurs": 1,
-			"maxOccurs": 1
+	"id": "EchoProcess",
+	"title": "EchoProcess",
+	"version": "1.0.0",
+	"jobControlOptions": ["async-execute", "sync-execute"],
+	"outputTransmission": ["value", "reference"],
+	"inputs": [{
+		"id": "boundingboxInput",
+		"title": "boundingboxInput",
+		"input": {
+			"supportedCRS": [{
+				"default": true,
+				"crs": "EPSG:4326"
+			}]
 		},
-		{
-			"id": "literalInput",
-			"title": "literalInput",
-			"input": {
-				"literalDataDomain": {
-                    "dataType": {
-                      "name": "double"
-                    },
-					"valueDefinition": {
-						"anyValue": true
-					}
-				}
-			},
-			"minOccurs": 1,
-			"maxOccurs": 1
-		},
-		{
-			"id": "complexInput",
-			"title": "complexInput",
-			"input": {
-				"formats": [{
-					"default": true,
-					"mimeType": "application/xml"
-				},
-				{
-					"mimeType": "application/xml"
-				},
-				{
-					"mimeType": "text/xml"
-				}]
-			},
-			"minOccurs": 1,
-			"maxOccurs": 1
-		}],
-		"outputs": [{
-			"id": "boundingboxOutput",
-			"title": "boundingboxOutput",
-			"output": {
-				"supportedCRS": [{
-					"default": true,
-					"crs": "EPSG:4326"
-				}]
-			}
-		},
-		{
-			"id": "literalOutput",
-			"title": "literalOutput",
-			"output": {
-				"literalDataDomain": {
-                    "dataType": {
-                      "name": "double"
-                    },
-					"valueDefinition": {
-						"anyValue": true
-					}
+		"minOccurs": 1,
+		"maxOccurs": 1
+	},
+	{
+		"id": "literalInput",
+		"title": "literalInput",
+		"input": {
+			"literalDataDomain": {
+                "dataType": {
+                  "name": "double"
+                },
+				"valueDefinition": {
+					"anyValue": true
 				}
 			}
 		},
-		{
-			"id": "complexOutput",
-			"title": "complexOutput",
-			"output": {
-				"formats": [{
-					"default": true,
-					"mimeType": "application/xml"
-				},
-				{
-					"mimeType": "application/xml"
-				},
-				{
-					"mimeType": "text/xml"
-				}]
+		"minOccurs": 1,
+		"maxOccurs": 1
+	},
+	{
+		"id": "complexInput",
+		"title": "complexInput",
+		"input": {
+			"formats": [{
+				"default": true,
+				"mimeType": "application/xml"
+			},
+			{
+				"mimeType": "application/xml"
+			},
+			{
+				"mimeType": "text/xml"
+			}]
+		},
+		"minOccurs": 1,
+		"maxOccurs": 1
+	}],
+	"outputs": [{
+		"id": "boundingboxOutput",
+		"title": "boundingboxOutput",
+		"output": {
+			"supportedCRS": [{
+				"default": true,
+				"crs": "EPSG:4326"
+			}]
+		}
+	},
+	{
+		"id": "literalOutput",
+		"title": "literalOutput",
+		"output": {
+			"literalDataDomain": {
+                "dataType": {
+                  "name": "double"
+                },
+				"valueDefinition": {
+					"anyValue": true
+				}
 			}
-		}],
-        "links": [
-          {
-            "href": "https://processing.example.org/processes/EchoProcess/jobs",
-            "rel": "canonical",
-            "title": "Execute endpoint"
-          }
-        ]
-	    }
+		}
+	},
+	{
+		"id": "complexOutput",
+		"title": "complexOutput",
+		"output": {
+			"formats": [{
+				"default": true,
+				"mimeType": "application/xml"
+			},
+			{
+				"mimeType": "application/xml"
+			},
+			{
+				"mimeType": "text/xml"
+			}]
+		}
+	}],
+    "links": [
+      {
+        "href": "https://processing.example.org/processes/EchoProcess/jobs",
+        "rel": "execute",
+        "title": "Execute endpoint"
+      }
+    ]
 }
 ----
 
@@ -483,15 +459,9 @@ include::requirements/core/REQ_job-collection-success.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml[Schema for the job collection]
 [source,YAML]
 ----
-jobCollection:
-  type: object
-  required:
-    - jobs
-  properties:
-    jobs:
-      type: array
-        items:
-          type: string
+    type: array
+    items:
+      type: string
 ----
 
 .Example of HTTP GET request for retrieving the list of jobs of a process encoded as JSON.
@@ -503,12 +473,11 @@ http://processing.example.org/processes/EchoProcess/jobs
 .Example of a job list encoded as JSON.
 [source,json]
 ----
-{
-  "jobs": [
+[
     "8f5c13b9-6da2-4447-a683-69a5f364323b",
     "904358bd-a151-49f3-af74-79edf7ccb288"
-  ]
-}
+]
+
 ----
 
 ==== Error situations
@@ -532,8 +501,9 @@ include::requirements/core/REQ_job-creation-request.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml[Schema for execute]
 [source,YAML]
 ----
-execute:
   type: object
+  required:
+    - outputs
   properties:
     inputs:
       type: array
@@ -618,14 +588,16 @@ include::requirements/core/REQ_job-op.adoc[]
 
 include::requirements/core/REQ_job-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml.yaml[Schema for status info]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml[Schema for status info]
 [source,YAML]
 ----
-statusInfo:
     type: object
     required:
+        - jobID
         - status
     properties:
+       jobID:
+          type: string
        status:
           type: string
           enum:
@@ -655,6 +627,7 @@ http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61
 [source,json]
 ----
 {
+  "jobID" : "81574318-1eb1-4d7c-af61-4b3fbcf33c4f",
   "status": "accepted",
   "message": "Process started",
   "progress": 0,
@@ -692,21 +665,14 @@ include::requirements/core/REQ_job-result-success.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml[Schema for the result of a job]
 [source,YAML]
 ----
-result:
-    type: object
-    required:
-        - outputs
-    properties:
-       outputs:
-           type: array
-           items:
-              $ref: 'outputInfo.yaml'
+    type: array
+    items:
+       $ref: 'outputInfo.yaml'
 ----
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/outputInfo.yaml[Schema for output info]
 [source,YAML]
 ----
-outputInfo:
     type: object
     required:
         - id
@@ -727,9 +693,9 @@ http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61
 .Example of a result encoded as JSON.
 [source,json]
 ----
-{
-	"outputs": [{
-		"id": "literalOutput",
+[
+   {
+	"id": "literalOutput",
 		"value": {
 			"inlineValue": 0.05
 		}
@@ -748,8 +714,8 @@ http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61
 		"value": {
 			"inlineValue": "<test/>"
 		}
-	}]
-}
+	}
+]
 ----
 
 ==== Error situations
