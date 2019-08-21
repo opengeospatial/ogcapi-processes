@@ -543,7 +543,7 @@ table.CodeRay td.code>pre{padding:0}
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Internal reference number of this OGC® document:    18-062</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 1.0-draft</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 1.0-draft.2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Category: OGC® Implementation Specification</p></td>
@@ -702,49 +702,48 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#http_status_codes">7.5.1. HTTP status codes</a></li>
 </ul>
 </li>
-<li><a href="#_web_caching">7.6. Web caching</a></li>
-<li><a href="#_support_for_cross_origin_requests">7.7. Support for cross-origin requests</a></li>
-<li><a href="#_retrieve_a_process_collection">7.8. Retrieve a process collection</a>
+<li><a href="#_support_for_cross_origin_requests">7.6. Support for cross-origin requests</a></li>
+<li><a href="#_retrieve_a_process_collection">7.7. Retrieve a process collection</a>
 <ul class="sectlevel3">
-<li><a href="#_operation_4">7.8.1. Operation</a></li>
-<li><a href="#_response_4">7.8.2. Response</a></li>
-<li><a href="#_error_situations_4">7.8.3. Error situations</a></li>
+<li><a href="#_operation_4">7.7.1. Operation</a></li>
+<li><a href="#_response_4">7.7.2. Response</a></li>
+<li><a href="#_error_situations_4">7.7.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#_retrieve_a_process_description">7.9. Retrieve a process description</a>
+<li><a href="#_retrieve_a_process_description">7.8. Retrieve a process description</a>
 <ul class="sectlevel3">
-<li><a href="#_operation_5">7.9.1. Operation</a></li>
-<li><a href="#_response_5">7.9.2. Response</a></li>
-<li><a href="#_error_situations_5">7.9.3. Error situations</a></li>
+<li><a href="#_operation_5">7.8.1. Operation</a></li>
+<li><a href="#_response_5">7.8.2. Response</a></li>
+<li><a href="#_error_situations_5">7.8.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#_retrieve_a_job_collection">7.10. Retrieve a job collection</a>
+<li><a href="#_retrieve_a_job_collection">7.9. Retrieve a job collection</a>
 <ul class="sectlevel3">
-<li><a href="#_operation_6">7.10.1. Operation</a></li>
-<li><a href="#_response_6">7.10.2. Response</a></li>
-<li><a href="#_error_situations_6">7.10.3. Error situations</a></li>
+<li><a href="#_operation_6">7.9.1. Operation</a></li>
+<li><a href="#_response_6">7.9.2. Response</a></li>
+<li><a href="#_error_situations_6">7.9.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#_create_a_new_job">7.11. Create a new job</a>
+<li><a href="#_create_a_new_job">7.10. Create a new job</a>
 <ul class="sectlevel3">
-<li><a href="#_operation_7">7.11.1. Operation</a></li>
-<li><a href="#_request">7.11.2. Request</a></li>
-<li><a href="#_response_7">7.11.3. Response</a></li>
-<li><a href="#_error_situations_7">7.11.4. Error situations</a></li>
+<li><a href="#_operation_7">7.10.1. Operation</a></li>
+<li><a href="#_request">7.10.2. Request</a></li>
+<li><a href="#_response_7">7.10.3. Response</a></li>
+<li><a href="#_error_situations_7">7.10.4. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#_retrieve_status_information_about_a_job">7.12. Retrieve status information about a job</a>
+<li><a href="#_retrieve_status_information_about_a_job">7.11. Retrieve status information about a job</a>
 <ul class="sectlevel3">
-<li><a href="#_operation_8">7.12.1. Operation</a></li>
-<li><a href="#_response_8">7.12.2. Response</a></li>
-<li><a href="#_error_situations_8">7.12.3. Error situations</a></li>
+<li><a href="#_operation_8">7.11.1. Operation</a></li>
+<li><a href="#_response_8">7.11.2. Response</a></li>
+<li><a href="#_error_situations_8">7.11.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#_retrieve_a_job_result">7.13. Retrieve a job result</a>
+<li><a href="#_retrieve_a_job_result">7.12. Retrieve a job result</a>
 <ul class="sectlevel3">
-<li><a href="#_operation_9">7.13.1. Operation</a></li>
-<li><a href="#_response_9">7.13.2. Response</a></li>
-<li><a href="#_error_situations_9">7.13.3. Error situations</a></li>
+<li><a href="#_operation_9">7.12.1. Operation</a></li>
+<li><a href="#_response_9">7.12.2. Response</a></li>
+<li><a href="#_error_situations_9">7.12.3. Error situations</a></li>
 </ul>
 </li>
 </ul>
@@ -756,12 +755,35 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_requirement_class_html">8.3. Requirement Class "HTML"</a></li>
 </ul>
 </li>
-<li><a href="#_conformance_class_abstract_test_suite_normative">Annex A: Conformance Class Abstract Test Suite (Normative)</a>
+<li><a href="#_requirements_class_openapi_3_0">9. Requirements class "OpenAPI 3.0"</a>
 <ul class="sectlevel2">
-<li><a href="#_conformance_class_a">A.1. Conformance Class A</a>
+<li><a href="#_basic_requirements">9.1. Basic requirements</a></li>
+<li><a href="#_complete_definition">9.2. Complete definition</a></li>
+<li><a href="#exceptions">9.3. Exceptions</a></li>
+<li><a href="#security">9.4. Security</a></li>
+</ul>
+</li>
+<li><a href="#mediatypes">10. Media Types</a></li>
+<li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
+<ul class="sectlevel2">
+<li><a href="#_overview_3">A.1. Overview</a></li>
+<li><a href="#_conventions_2">A.2. Conventions</a>
 <ul class="sectlevel3">
-<li><a href="#_requirement_1">A.1.1. Requirement 1</a></li>
-<li><a href="#_requirement_2">A.1.2. Requirement 2</a></li>
+<li><a href="#_path_templates">A.2.1. Path Templates</a></li>
+<li><a href="#_api_description_document">A.2.2. API Description Document</a></li>
+<li><a href="#_resource_encodings">A.2.3. Resource Encodings</a></li>
+<li><a href="#_processing_security_objects">A.2.4. Processing Security Objects</a></li>
+<li><a href="#_parameters">A.2.5. Parameters</a></li>
+<li><a href="#_testable_paths">A.2.6. Testable Paths</a></li>
+</ul>
+</li>
+<li><a href="#_requirements_trace_matrix">A.3. Requirements Trace Matrix</a></li>
+<li><a href="#_abstract_test">A.4. Abstract Test</a>
+<ul class="sectlevel3">
+<li><a href="#_general_tests">A.4.1. General Tests</a></li>
+<li><a href="#_retrieve_the_api_description">A.4.2. Retrieve the API Description</a></li>
+<li><a href="#_identify_the_test_points">A.4.3. Identify the Test Points</a></li>
+<li><a href="#_processing_the_openapi_document">A.4.4. Processing the OpenAPI Document</a></li>
 </ul>
 </li>
 </ul>
@@ -1214,7 +1236,7 @@ results of process executions.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Job result</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs/{jobID}/result</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs/{jobID}/results</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#_retrieve_a_job_result">7.13 Retrieve a job result</a></p></td>
 </tr>
@@ -1395,7 +1417,7 @@ The server SHALL support the HTTP GET operation at the path <code>/</code>.</th>
 A successful execution of the operation SHALL be reported as a response with a
 HTTP status code <code>200</code>.
 
-The content of that response SHALL be based upon the OpenAPI 3.0 schema <a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/root.yaml">root.yaml</a>
+The content of that response SHALL be based upon the OpenAPI 3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/root.yaml">root.yaml</a>
 and include at least links to the following resources:
 
 * <code>/api</code> (relation type 'service')
@@ -1405,16 +1427,16 @@ and include at least links to the following resources:
 </thead>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/root.yaml">Schema for the landing page</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/root.yaml">Schema for the landing page</a></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">type</span>: <span class="string"><span class="content">object</span></span>
-<span class="key">required</span>:
-  - <span class="string"><span class="content">links</span></span>
-<span class="key">properties</span>:
-  <span class="key">links</span>:
-    <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
-    <span class="key">items</span>:
-      <span class="error">$ref</span>: <span class="error">'link.yaml'</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="YAML">    <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
+    <span class="key">required</span>:
+      - <span class="string"><span class="content">links</span></span>
+    <span class="key">properties</span>:
+      <span class="key">links</span>:
+        <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
+        <span class="key">items</span>:
+          <span class="error">$ref</span>: <span class="error">link.yaml</span></code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -1423,16 +1445,30 @@ and include at least links to the following resources:
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="JSON">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">links</span><span class="delimiter">&quot;</span></span>: [
-    { <span class="key"><span class="delimiter">&quot;</span><span class="content">href</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://processing.example.org/</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">rel</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">self</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">this document</span><span class="delimiter">&quot;</span></span> },
-    { <span class="key"><span class="delimiter">&quot;</span><span class="content">href</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://processing.example.org/api</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">rel</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">service</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/openapi+json;version=3.0</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">the API definition</span><span class="delimiter">&quot;</span></span> },
-    { <span class="key"><span class="delimiter">&quot;</span><span class="content">href</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://processing.example.org/conformance</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">rel</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">conformance</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">WPS REST/JSON Binding 1.0 conformance classes implemented by this server</span><span class="delimiter">&quot;</span></span> },
-    { <span class="key"><span class="delimiter">&quot;</span><span class="content">href</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://processing.example.org/processes</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">rel</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">processes</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>, <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Metadata about the processes</span><span class="delimiter">&quot;</span></span> }
-  ]
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">links</span><span class="delimiter">&quot;</span></span>: [{
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">href</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://processing.example.org/</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">rel</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">self</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">this document</span><span class="delimiter">&quot;</span></span>
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">href</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://processing.example.org/api</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">rel</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">service</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/openapi+json;version=3.0</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">the API definition</span><span class="delimiter">&quot;</span></span>
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">href</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://processing.example.org/conformance</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">rel</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">conformance</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">WPS 2.0 REST/JSON Binding conformance classes implemented by this server</span><span class="delimiter">&quot;</span></span>
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">href</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://processing.example.org/processes</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">rel</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">processes</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Metadata about the processes</span><span class="delimiter">&quot;</span></span>
+        }]
 }</code></pre>
 </div>
 </div>
@@ -1572,22 +1608,23 @@ The server SHALL support the HTTP GET operation at the path <code>/conformance</
 A successful execution of the operation SHALL be reported as a response with a
 HTTP status code <code>200</code>.
 
-The content of that response SHALL be based upon the OpenAPI 3.0 schema <a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml">req-classes.yaml</a> and
+The content of that response SHALL be based upon the OpenAPI 3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/req-classes.yaml">req-classes.yaml</a> and
 list all WPS REST/JSON Binding requirements classes that the server conforms to.</th>
 </tr>
 </thead>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/req-classes.yaml">Schema for the list of requirements classes</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml">Schema for the list of requirements classes</a></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">type</span>: <span class="string"><span class="content">object</span></span>
-<span class="key">required</span>:
-  - <span class="string"><span class="content">conformsTo</span></span>
-<span class="key">properties</span>:
-  <span class="key">conformsTo</span>:
-    <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
-    <span class="key">items</span>:
-      <span class="key">type</span>: <span class="string"><span class="content">string</span></span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="YAML">    <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
+    <span class="key">required</span>:
+      - <span class="string"><span class="content">conformsTo</span></span>
+    <span class="key">properties</span>:
+      <span class="key">conformsTo</span>:
+        <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
+        <span class="key">items</span>:
+          <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
+          <span class="key">example</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/core</span><span class="delimiter">&quot;</span></span></code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -1601,9 +1638,9 @@ the API definition and HTML and GeoJSON as encodings for features.</p>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="JSON">{
   <span class="key"><span class="delimiter">&quot;</span><span class="content">conformsTo</span><span class="delimiter">&quot;</span></span>: [
-    <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/core</span><span class="delimiter">&quot;</span></span>,
-    <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/oas30</span><span class="delimiter">&quot;</span></span>,
-    <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/html</span><span class="delimiter">&quot;</span></span>,
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/core</span><span class="delimiter">&quot;</span></span>,
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/oas30</span><span class="delimiter">&quot;</span></span>,
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/html</span><span class="delimiter">&quot;</span></span>
   ]
 }</code></pre>
 </div>
@@ -1669,8 +1706,8 @@ outside of the server.</p>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A successful request.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>304</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An <a href="#web_caching">entity tag was provided in the request</a> and the resource has not been changed since the previous request.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>201</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The request was successful and one or more new resources have being created.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>400</code></p></td>
@@ -1723,42 +1760,7 @@ MAY return other status codes than those listed in <a href="#status_codes">Table
 </div>
 </div>
 <div class="sect2">
-<h3 id="_web_caching"><a class="anchor" href="#_web_caching"></a>7.6. Web caching</h3>
-<div class="paragraph">
-<p>Entity tags are a mechanism for web cache validation and for supporting conditional
-requests to reduce network traffic. Entity tags are specified by <a href="#rfc2616">HTTP/1.1 (RFC 2616)</a>.</p>
-</div>
-<table id="rec_etag" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Recommendation 2</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/etag<br>
-
-The service SHOULD support entity tags and the associated headers as
-specified by HTTP/1.1.</th>
-</tr>
-</thead>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-TODO<br>
-Add an example OpenAPI operation (headers, response codes). Here or in clause 9.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_support_for_cross_origin_requests"><a class="anchor" href="#_support_for_cross_origin_requests"></a>7.7. Support for cross-origin requests</h3>
+<h3 id="_support_for_cross_origin_requests"><a class="anchor" href="#_support_for_cross_origin_requests"></a>7.6. Support for cross-origin requests</h3>
 <div class="paragraph">
 <p>To access data from a HTML page where the data is on another host than
 the webpage is by default prohibited for security reasons ("same-origin policy").
@@ -1772,7 +1774,7 @@ multiple distributed datasets.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Recommendation 3</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Recommendation 2</th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/cross-origin<br>
 
 If the server is intended to be accessed from the browser, cross-origin
@@ -1801,7 +1803,7 @@ proxy layer on top of the server.</th>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Recommendation 4</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Recommendation 3</th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/html<br>
 
 To support browsing a WPS with a web browser and to enable search engines to crawl
@@ -1811,12 +1813,12 @@ and index a dataset, implementations SHOULD consider to support an HTML encoding
 </table>
 </div>
 <div class="sect2">
-<h3 id="_retrieve_a_process_collection"><a class="anchor" href="#_retrieve_a_process_collection"></a>7.8. Retrieve a process collection</h3>
+<h3 id="_retrieve_a_process_collection"><a class="anchor" href="#_retrieve_a_process_collection"></a>7.7. Retrieve a process collection</h3>
 <div class="paragraph">
 <p>The following section describes a method to retrieve the available processes offered by the server.</p>
 </div>
 <div class="sect3">
-<h4 id="_operation_4"><a class="anchor" href="#_operation_4"></a>7.8.1. Operation</h4>
+<h4 id="_operation_4"><a class="anchor" href="#_operation_4"></a>7.7.1. Operation</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -1833,7 +1835,7 @@ The server SHALL support the HTTP GET operation at the path <code>/processes</co
 </table>
 </div>
 <div class="sect3">
-<h4 id="_response_4"><a class="anchor" href="#_response_4"></a>7.8.2. Response</h4>
+<h4 id="_response_4"><a class="anchor" href="#_response_4"></a>7.7.2. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -1847,22 +1849,16 @@ The server SHALL support the HTTP GET operation at the path <code>/processes</co
 A successful execution of the operation SHALL be reported as a
 response with a HTTP status code 200.
 The content of that response SHALL be based upon the OpenAPI
-3.0 schema <a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/processCollection.yaml">processCollection.yaml</a>.</th>
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml">processCollection.yaml</a>.</th>
 </tr>
 </thead>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/processCollection.yaml">Schema for the process collection</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml">Schema for the process collection</a></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">processCollection</span>:
-  <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
-  <span class="key">required</span>:
-    - <span class="string"><span class="content">processes</span></span>
-  <span class="key">properties</span>:
-    <span class="key">processes</span>:
-      <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
-      <span class="key">items</span>:
-        <span class="error">$ref</span>: <span class="error">'processSummary.yaml'</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="YAML">    <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
+    <span class="key">items</span>:
+      <span class="error">$ref</span>: <span class="error">'processSummary.yaml'</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1888,42 +1884,40 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title">Example of Process list encoded as JSON.</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">processes</span><span class="delimiter">&quot;</span></span>: [
+<pre class="CodeRay highlight"><code data-lang="json">[
     {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">buffer</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Buffer process</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">abstract</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Process that buffers features</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">version</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1.1</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">jobControlOptions</span><span class="delimiter">&quot;</span></span>: [
-          <span class="string"><span class="delimiter">&quot;</span><span class="content">sync-execute</span><span class="delimiter">&quot;</span></span>,
-          <span class="string"><span class="delimiter">&quot;</span><span class="content">async-execute</span><span class="delimiter">&quot;</span></span>
-      ],
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">outputTransmission</span><span class="delimiter">&quot;</span></span>: [
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>,
-        <span class="string"><span class="delimiter">&quot;</span><span class="content">reference</span><span class="delimiter">&quot;</span></span>
-      ],
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">processDescription</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://processing.example.org/processes/buffer</span><span class="delimiter">&quot;</span></span>
-    },<span class="error">.</span><span class="error">.</span><span class="error">.</span>
-    ]
-}</code></pre>
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EchoProcess</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EchoProcess</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">version</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">jobControlOptions</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">async-execute</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">sync-execute</span><span class="delimiter">&quot;</span></span>],
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">outputTransmission</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>,        <span class="string"><span class="delimiter">&quot;</span><span class="content">reference</span><span class="delimiter">&quot;</span></span>],
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">links</span><span class="delimiter">&quot;</span></span>: [
+          {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">href</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://processing.example.org/processes/EchoProcess</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">rel</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">self</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">default process description</span><span class="delimiter">&quot;</span></span>
+          }
+        ]
+        },<span class="error">.</span><span class="error">.</span><span class="error">.</span>
+]</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_error_situations_4"><a class="anchor" href="#_error_situations_4"></a>7.8.3. Error situations</h4>
+<h4 id="_error_situations_4"><a class="anchor" href="#_error_situations_4"></a>7.7.3. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_retrieve_a_process_description"><a class="anchor" href="#_retrieve_a_process_description"></a>7.9. Retrieve a process description</h3>
+<h3 id="_retrieve_a_process_description"><a class="anchor" href="#_retrieve_a_process_description"></a>7.8. Retrieve a process description</h3>
 <div class="paragraph">
 <p>The following section describes a method to retrieve metadata about a process.</p>
 </div>
 <div class="sect3">
-<h4 id="_operation_5"><a class="anchor" href="#_operation_5"></a>7.9.1. Operation</h4>
+<h4 id="_operation_5"><a class="anchor" href="#_operation_5"></a>7.8.1. Operation</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -1940,7 +1934,7 @@ The server SHALL support the HTTP GET operation at the path <code>/processes/{pr
 </table>
 </div>
 <div class="sect3">
-<h4 id="_response_5"><a class="anchor" href="#_response_5"></a>7.9.2. Response</h4>
+<h4 id="_response_5"><a class="anchor" href="#_response_5"></a>7.8.2. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -1954,31 +1948,16 @@ The server SHALL support the HTTP GET operation at the path <code>/processes/{pr
 A successful execution of the operation SHALL be reported as a
 response with a HTTP status code 200.
 The content of that response SHALL be based upon the OpenAPI
-3.0 schema <a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/processOffering.yaml">processOffering.yaml</a>.</th>
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processOffering.yaml">process.yaml</a>.</th>
 </tr>
 </thead>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/processOffering.yaml">Schema for a process offering</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml">Schema for a process</a></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">processOffering</span>:
-  <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
-  <span class="key">required</span>:
-    - <span class="string"><span class="content">process</span></span>
-  <span class="key">properties</span>:
-     <span class="key">process</span>:
-        <span class="error">$ref</span>: <span class="error">'process.yaml'</span></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/process.yaml">Schema for a process</a></div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">process</span>:
-    <span class="key">allOf</span>:
+<pre class="CodeRay highlight"><code data-lang="YAML">    <span class="key">allOf</span>:
        - <span class="string"><span class="content">$ref: 'processSummary.yaml'</span></span>
        - <span class="string"><span class="content">type: object</span></span>
-         <span class="key">required</span>:
-           - <span class="string"><span class="content">id</span></span>
          <span class="key">properties</span>:
             <span class="key">inputs</span>:
               <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
@@ -1988,133 +1967,130 @@ The content of that response SHALL be based upon the OpenAPI
               <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
               <span class="key">items</span>:
                  <span class="error">$ref</span>: <span class="error">'outputDescription.yaml'</span>
-            <span class="key">executeEndpoint</span>:
-                <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
-                <span class="key">format</span>: <span class="string"><span class="content">url</span></span></code></pre>
+            <span class="key">links</span>:
+              <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
+              <span class="key">items</span>:
+                 <span class="error">$ref</span>: <span class="error">'link.yaml'</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.</div>
 <div class="content">
-<pre class="CodeRay highlight"><code>https://processing.example.org/processes/buffer</code></pre>
+<pre class="CodeRay highlight"><code>https://processing.example.org/processes/EchoProcess</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of a process encoded as JSON.</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">process</span><span class="delimiter">&quot;</span></span>: {
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EchoProcess</span><span class="delimiter">&quot;</span></span>,
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EchoProcess</span><span class="delimiter">&quot;</span></span>,
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">version</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>,
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">jobControlOptions</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">async-execute</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">sync-execute</span><span class="delimiter">&quot;</span></span>],
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">outputTransmission</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">reference</span><span class="delimiter">&quot;</span></span>],
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">inputs</span><span class="delimiter">&quot;</span></span>: [{
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxInput</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxInput</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
-                                <span class="key"><span class="delimiter">&quot;</span><span class="content">supportedCRS</span><span class="delimiter">&quot;</span></span>: [{
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">crs</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EPSG:4326</span><span class="delimiter">&quot;</span></span>
-                                }]
-                        },
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">minOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">maxOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EchoProcess</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EchoProcess</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">version</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1.0.0</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">jobControlOptions</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">async-execute</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">sync-execute</span><span class="delimiter">&quot;</span></span>],
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">outputTransmission</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">reference</span><span class="delimiter">&quot;</span></span>],
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">inputs</span><span class="delimiter">&quot;</span></span>: [{
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxInput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxInput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">supportedCRS</span><span class="delimiter">&quot;</span></span>: [{
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">crs</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EPSG:4326</span><span class="delimiter">&quot;</span></span>
+                        }]
                 },
-                {
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalInput</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalInput</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
-                                <span class="key"><span class="delimiter">&quot;</span><span class="content">literalDataDomain</span><span class="delimiter">&quot;</span></span>: {
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">dataType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">valueDefinition</span><span class="delimiter">&quot;</span></span>: {
-                                                <span class="key"><span class="delimiter">&quot;</span><span class="content">anyValue</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
-                                        }
-                                }
-                        },
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">minOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">maxOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">minOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">maxOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalInput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalInput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">literalDataDomain</span><span class="delimiter">&quot;</span></span>: {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">dataType</span><span class="delimiter">&quot;</span></span>: {
+                  <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">double</span><span class="delimiter">&quot;</span></span>
                 },
-                {
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexInput</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexInput</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
-                                <span class="key"><span class="delimiter">&quot;</span><span class="content">formats</span><span class="delimiter">&quot;</span></span>: [{
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
-                                },
-                                {
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
-                                },
-                                {
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">text/xml</span><span class="delimiter">&quot;</span></span>
-                                }]
-                        },
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">minOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">maxOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
-                }],
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">outputs</span><span class="delimiter">&quot;</span></span>: [{
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxOutput</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxOutput</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">output</span><span class="delimiter">&quot;</span></span>: {
-                                <span class="key"><span class="delimiter">&quot;</span><span class="content">supportedCRS</span><span class="delimiter">&quot;</span></span>: [{
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">crs</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EPSG:4326</span><span class="delimiter">&quot;</span></span>
-                                }]
-                        }
-                },
-                {
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalOutput</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalOutput</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">output</span><span class="delimiter">&quot;</span></span>: {
-                                <span class="key"><span class="delimiter">&quot;</span><span class="content">literalDataDomain</span><span class="delimiter">&quot;</span></span>: {
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">dataType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">valueDefinition</span><span class="delimiter">&quot;</span></span>: {
-                                                <span class="key"><span class="delimiter">&quot;</span><span class="content">anyValue</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
-                                        }
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">valueDefinition</span><span class="delimiter">&quot;</span></span>: {
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">anyValue</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
                                 }
                         }
                 },
-                {
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexOutput</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexOutput</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">output</span><span class="delimiter">&quot;</span></span>: {
-                                <span class="key"><span class="delimiter">&quot;</span><span class="content">formats</span><span class="delimiter">&quot;</span></span>: [{
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
-                                },
-                                {
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
-                                },
-                                {
-                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">text/xml</span><span class="delimiter">&quot;</span></span>
-                                }]
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">minOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">maxOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexInput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexInput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">formats</span><span class="delimiter">&quot;</span></span>: [{
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
+                        },
+                        {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
+                        },
+                        {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">text/xml</span><span class="delimiter">&quot;</span></span>
+                        }]
+                },
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">minOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">maxOccurs</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
+        }],
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">outputs</span><span class="delimiter">&quot;</span></span>: [{
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxOutput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxOutput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">output</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">supportedCRS</span><span class="delimiter">&quot;</span></span>: [{
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">crs</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EPSG:4326</span><span class="delimiter">&quot;</span></span>
+                        }]
+                }
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalOutput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalOutput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">output</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">literalDataDomain</span><span class="delimiter">&quot;</span></span>: {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">dataType</span><span class="delimiter">&quot;</span></span>: {
+                  <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">double</span><span class="delimiter">&quot;</span></span>
+                },
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">valueDefinition</span><span class="delimiter">&quot;</span></span>: {
+                                        <span class="key"><span class="delimiter">&quot;</span><span class="content">anyValue</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
+                                }
                         }
-                }],
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">executeEndpoint</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://processing.example.org/processes/EchoProcess/jobs</span><span class="delimiter">&quot;</span></span>
-        }
+                }
+        },
+        {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexOutput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">complexOutput</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">output</span><span class="delimiter">&quot;</span></span>: {
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">formats</span><span class="delimiter">&quot;</span></span>: [{
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
+                        },
+                        {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/xml</span><span class="delimiter">&quot;</span></span>
+                        },
+                        {
+                                <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">text/xml</span><span class="delimiter">&quot;</span></span>
+                        }]
+                }
+        }],
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">links</span><span class="delimiter">&quot;</span></span>: [
+      {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">href</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://processing.example.org/processes/EchoProcess/jobs</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">rel</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">execute</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Execute endpoint</span><span class="delimiter">&quot;</span></span>
+      }
+    ]
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_error_situations_5"><a class="anchor" href="#_error_situations_5"></a>7.9.3. Error situations</h4>
+<h4 id="_error_situations_5"><a class="anchor" href="#_error_situations_5"></a>7.8.3. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
-<div class="paragraph">
-<p>If the process with the specified id doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#status_codes">Table 3</a>).</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_retrieve_a_job_collection"><a class="anchor" href="#_retrieve_a_job_collection"></a>7.10. Retrieve a job collection</h3>
-<div class="paragraph">
-<p>The following section describes a method to retrieve a collection of existing jobs of a process.</p>
-</div>
-<div class="sect3">
-<h4 id="_operation_6"><a class="anchor" href="#_operation_6"></a>7.10.1. Operation</h4>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rc_no-such-process" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2122,15 +2098,24 @@ The content of that response SHALL be based upon the OpenAPI
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 12</strong></th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-collection<br>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/process-exception/no-such-process<br>
 
-The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}/jobs</code>.</th>
+If the operation is executed using an invalid process identifier, the response shall have HTTP status code 404.
+The content of that response SHALL be based upon the OpenAPI
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml">exception.yaml</a>.
+The exception code of the exception shall be "NoSuchProcess".</th>
 </tr>
 </thead>
 </table>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_retrieve_a_job_collection"><a class="anchor" href="#_retrieve_a_job_collection"></a>7.9. Retrieve a job collection</h3>
+<div class="paragraph">
+<p>The following section describes a method to retrieve a collection of existing jobs of a process.</p>
+</div>
 <div class="sect3">
-<h4 id="_response_6"><a class="anchor" href="#_response_6"></a>7.10.2. Response</h4>
+<h4 id="_operation_6"><a class="anchor" href="#_operation_6"></a>7.9.1. Operation</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2139,64 +2124,15 @@ The server SHALL support the HTTP GET operation at the path <code>/processes/{pr
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 13</strong></th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-collection-success<br>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-collection<br>
 
-A successful execution of the operation SHALL be reported as a
-response with a HTTP status code 200.
-The content of that response SHALL be based upon the OpenAPI
-3.0 schema <a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/jobList.yaml">jobList.yaml</a>.</th>
+The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}/jobs</code>.</th>
 </tr>
 </thead>
 </table>
-<div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/jobList.yaml">Schema for the job collection</a></div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">jobCollection</span>:
-  <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
-  <span class="key">required</span>:
-    - <span class="string"><span class="content">jobs</span></span>
-  <span class="key">properties</span>:
-    <span class="key">jobs</span>:
-      <span class="key">type</span>: <span class="string"><span class="content">array</span><span class="content">
-        items:
-          type: string</span></span></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example of HTTP GET request for retrieving the list of jobs of a process encoded as JSON.</div>
-<div class="content">
-<pre class="CodeRay highlight"><code>http://processing.example.org/processes/buffer/jobs</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example of a job list encoded as JSON.</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">jobs</span><span class="delimiter">&quot;</span></span>: [
-    <span class="string"><span class="delimiter">&quot;</span><span class="content">8f5c13b9-6da2-4447-a683-69a5f364323b</span><span class="delimiter">&quot;</span></span>,
-    <span class="string"><span class="delimiter">&quot;</span><span class="content">904358bd-a151-49f3-af74-79edf7ccb288</span><span class="delimiter">&quot;</span></span>
-  ]
-}</code></pre>
-</div>
-</div>
 </div>
 <div class="sect3">
-<h4 id="_error_situations_6"><a class="anchor" href="#_error_situations_6"></a>7.10.3. Error situations</h4>
-<div class="paragraph">
-<p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
-</div>
-<div class="paragraph">
-<p>If the process with the specified id doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#status_codes">Table 3</a>).</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_create_a_new_job"><a class="anchor" href="#_create_a_new_job"></a>7.11. Create a new job</h3>
-<div class="paragraph">
-<p>The following section describes a method to create a new job, i.e. execute a process.</p>
-</div>
-<div class="sect3">
-<h4 id="_operation_7"><a class="anchor" href="#_operation_7"></a>7.11.1. Operation</h4>
+<h4 id="_response_6"><a class="anchor" href="#_response_6"></a>7.9.2. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2205,15 +2141,56 @@ The content of that response SHALL be based upon the OpenAPI
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 14</strong></th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-creation<br>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-collection-success<br>
 
-The server SHALL support the HTTP POST operation at the path <code>/processes/{processID}/jobs</code>.</th>
+A successful execution of the operation SHALL be reported as a
+response with a HTTP status code 200.
+The content of that response SHALL be based upon the OpenAPI
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml">jobCollection.yaml</a>.</th>
 </tr>
 </thead>
 </table>
+<div class="listingblock">
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml">Schema for the job collection</a></div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="YAML">    <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
+    <span class="key">items</span>:
+      <span class="key">type</span>: <span class="string"><span class="content">string</span></span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example of HTTP GET request for retrieving the list of jobs of a process encoded as JSON.</div>
+<div class="content">
+<pre class="CodeRay highlight"><code>http://processing.example.org/processes/EchoProcess/jobs</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example of a job list encoded as JSON.</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">[
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">8f5c13b9-6da2-4447-a683-69a5f364323b</span><span class="delimiter">&quot;</span></span>,
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">904358bd-a151-49f3-af74-79edf7ccb288</span><span class="delimiter">&quot;</span></span>
+]</code></pre>
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_request"><a class="anchor" href="#_request"></a>7.11.2. Request</h4>
+<h4 id="_error_situations_6"><a class="anchor" href="#_error_situations_6"></a>7.9.3. Error situations</h4>
+<div class="paragraph">
+<p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
+</div>
+<div class="paragraph">
+<p>If the process with the specified identifier doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#rc_no-such-process">[rc_no-such-process]</a>).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_a_new_job"><a class="anchor" href="#_create_a_new_job"></a>7.10. Create a new job</h3>
+<div class="paragraph">
+<p>The following section describes a method to create a new job, i.e. execute a process.</p>
+</div>
+<div class="sect3">
+<h4 id="_operation_7"><a class="anchor" href="#_operation_7"></a>7.10.1. Operation</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2222,18 +2199,36 @@ The server SHALL support the HTTP POST operation at the path <code>/processes/{p
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 15</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-creation<br>
+
+The server SHALL support the HTTP POST operation at the path <code>/processes/{processID}/jobs</code>.</th>
+</tr>
+</thead>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_request"><a class="anchor" href="#_request"></a>7.10.2. Request</h4>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 16</strong></th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-creation-request<br>
 
 The content of a request to create a new job SHALL be based upon the OpenAPI
-3.0 schema <a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/execute.yaml">execute.yaml</a>.</th>
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml">execute.yaml</a>.</th>
 </tr>
 </thead>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/execute.yaml">Schema for execute</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml">Schema for execute</a></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">execute</span>:
-  <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
+<pre class="CodeRay highlight"><code data-lang="YAML">  <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
+  <span class="key">required</span>:
+    - <span class="string"><span class="content">outputs</span></span>
   <span class="key">properties</span>:
     <span class="key">inputs</span>:
       <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
@@ -2263,30 +2258,25 @@ The content of a request to create a new job SHALL be based upon the OpenAPI
         {
                 <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalInput</span><span class="delimiter">&quot;</span></span>,
                 <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">dataType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">double</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">dataType</span><span class="delimiter">&quot;</span></span>: {
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">double</span><span class="delimiter">&quot;</span></span>
+            },
                         <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">0.05</span><span class="delimiter">&quot;</span></span>
                 }
         },
         {
                 <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxInput</span><span class="delimiter">&quot;</span></span>,
                 <span class="key"><span class="delimiter">&quot;</span><span class="content">input</span><span class="delimiter">&quot;</span></span>: {
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">lowerCorner</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">51.9 7</span><span class="delimiter">&quot;</span></span>,
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">upperCorner</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">52 7.1</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">bbox</span><span class="delimiter">&quot;</span></span>: [<span class="float">51.9</span>, <span class="integer">7</span>, <span class="integer">52</span>, <span class="float">7.1</span>],
                         <span class="key"><span class="delimiter">&quot;</span><span class="content">crs</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EPSG:4326</span><span class="delimiter">&quot;</span></span>
                 }
         }],
         <span class="key"><span class="delimiter">&quot;</span><span class="content">outputs</span><span class="delimiter">&quot;</span></span>: [{
                 <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalOutput</span><span class="delimiter">&quot;</span></span>,
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">format</span><span class="delimiter">&quot;</span></span>: {
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">text/plain</span><span class="delimiter">&quot;</span></span>
-                },
                 <span class="key"><span class="delimiter">&quot;</span><span class="content">transmissionMode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>
         },
         {
                 <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxOutput</span><span class="delimiter">&quot;</span></span>,
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">format</span><span class="delimiter">&quot;</span></span>: {
-                        <span class="key"><span class="delimiter">&quot;</span><span class="content">mimeType</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>
-                },
                 <span class="key"><span class="delimiter">&quot;</span><span class="content">transmissionMode</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>
         },
         {
@@ -2301,7 +2291,7 @@ The content of a request to create a new job SHALL be based upon the OpenAPI
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_7"><a class="anchor" href="#_response_7"></a>7.11.3. Response</h4>
+<h4 id="_response_7"><a class="anchor" href="#_response_7"></a>7.10.3. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2309,7 +2299,7 @@ The content of a request to create a new job SHALL be based upon the OpenAPI
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 16</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 17</strong></th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-creation-success<br>
 
 A successful execution of the operation SHALL be reported as a
@@ -2324,7 +2314,7 @@ response with a HTTP status code 201.</th>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 17</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 18</strong></th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-creation-success-header<br>
 
 The 201 response of the operation SHALL return a HTTP header named 'Location' which contains a link to the newly created job.</th>
@@ -2333,39 +2323,22 @@ The 201 response of the operation SHALL return a HTTP header named 'Location' wh
 </table>
 </div>
 <div class="sect3">
-<h4 id="_error_situations_7"><a class="anchor" href="#_error_situations_7"></a>7.11.4. Error situations</h4>
+<h4 id="_error_situations_7"><a class="anchor" href="#_error_situations_7"></a>7.10.4. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
 <div class="paragraph">
-<p>If the the execute JSON is not valid for the process (e.g. a wrong input-id was specified), the status code of the response will be <code>404</code> (see <a href="#status_codes">Table 3</a>).</p>
+<p>If the process with the specified identifier doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#rc_no-such-process">[rc_no-such-process]</a>).</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_retrieve_status_information_about_a_job"><a class="anchor" href="#_retrieve_status_information_about_a_job"></a>7.12. Retrieve status information about a job</h3>
+<h3 id="_retrieve_status_information_about_a_job"><a class="anchor" href="#_retrieve_status_information_about_a_job"></a>7.11. Retrieve status information about a job</h3>
 <div class="paragraph">
 <p>The following section describes a method to retrieve information about the status of a job.</p>
 </div>
 <div class="sect3">
-<h4 id="_operation_8"><a class="anchor" href="#_operation_8"></a>7.12.1. Operation</h4>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 18</strong></th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job<br>
-
-The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}/jobs/{jobID}</code>.</th>
-</tr>
-</thead>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_response_8"><a class="anchor" href="#_response_8"></a>7.12.2. Response</h4>
+<h4 id="_operation_8"><a class="anchor" href="#_operation_8"></a>7.11.1. Operation</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2374,23 +2347,42 @@ The server SHALL support the HTTP GET operation at the path <code>/processes/{pr
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 19</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job<br>
+
+The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}/jobs/{jobID}</code>.</th>
+</tr>
+</thead>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_8"><a class="anchor" href="#_response_8"></a>7.11.2. Response</h4>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 20</strong></th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-success<br>
 
 A successful execution of the operation SHALL be reported as a
 response with a HTTP status code 200.
 The content of that response SHALL be based upon the OpenAPI
-3.0 schema <a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/statusInfo.yaml">statusInfo.yaml</a>.</th>
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>.</th>
 </tr>
 </thead>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/statusInfo.yaml.yaml">Schema for status info</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml">Schema for status info</a></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">statusInfo</span>:
-    <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
+<pre class="CodeRay highlight"><code data-lang="YAML">    <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
     <span class="key">required</span>:
+        - <span class="string"><span class="content">jobID</span></span>
         - <span class="string"><span class="content">status</span></span>
     <span class="key">properties</span>:
+       <span class="key">jobID</span>:
+          <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
        <span class="key">status</span>:
           <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
           <span class="key">enum</span>:
@@ -2403,66 +2395,47 @@ The content of that response SHALL be based upon the OpenAPI
        <span class="key">progress</span>:
           <span class="key">type</span>: <span class="string"><span class="content">integer</span></span>
           <span class="key">minimum</span>: <span class="string"><span class="content">0</span></span>
-          <span class="key">maximum</span>: <span class="string"><span class="content">100</span></span></code></pre>
+          <span class="key">maximum</span>: <span class="string"><span class="content">100</span></span>
+       <span class="key">links</span>:
+          <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
+          <span class="key">items</span>:
+             <span class="error">$ref</span>: <span class="error">'link.yaml'</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving status information about a job encoded as JSON.</div>
 <div class="content">
-<pre class="CodeRay highlight"><code>http://processing.example.org/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f</code></pre>
+<pre class="CodeRay highlight"><code>http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of a job encoded as JSON.</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">jobID</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">81574318-1eb1-4d7c-af61-4b3fbcf33c4f</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">accepted</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Process started</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">progress</span><span class="delimiter">&quot;</span></span>: <span class="integer">0</span>
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">progress</span><span class="delimiter">&quot;</span></span>: <span class="integer">0</span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">links</span><span class="delimiter">&quot;</span></span>: [
+    {
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">href</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">rel</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">self</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">this document</span><span class="delimiter">&quot;</span></span>
+    }
+  ]
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_error_situations_8"><a class="anchor" href="#_error_situations_8"></a>7.12.3. Error situations</h4>
+<h4 id="_error_situations_8"><a class="anchor" href="#_error_situations_8"></a>7.11.3. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
 <div class="paragraph">
-<p>If the process with the specified id doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#status_codes">Table 3</a>).</p>
+<p>If the process with the specified identifier doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#rc_no-such-process">[rc_no-such-process]</a>).</p>
 </div>
-<div class="paragraph">
-<p>If the job with the specified id doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#status_codes">Table 3</a>).</p>
-</div>
-<div class="paragraph">
-<p>If the execution of the process failed, the status code of the response will be <code>200</code> with the status set to <code>failed</code>.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_retrieve_a_job_result"><a class="anchor" href="#_retrieve_a_job_result"></a>7.13. Retrieve a job result</h3>
-<div class="paragraph">
-<p>The following section describes a method to retrieve the result of a job. In case the job execution failed, an exception is returned.</p>
-</div>
-<div class="sect3">
-<h4 id="_operation_9"><a class="anchor" href="#_operation_9"></a>7.13.1. Operation</h4>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 20</strong></th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-result<br>
-
-The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}/jobs/{jobID}/result</code>.</th>
-</tr>
-</thead>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_response_9"><a class="anchor" href="#_response_9"></a>7.13.2. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2471,34 +2444,70 @@ The server SHALL support the HTTP GET operation at the path <code>/processes/{pr
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 21</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-exception/no-such-job<br>
+
+If the operation is executed using an invalid job identifier, the response shall have HTTP status code 404.
+The content of that response SHALL be based upon the OpenAPI
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml">exception.yaml</a>.
+The exception code of the exception shall be "NoSuchJob".</th>
+</tr>
+</thead>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_retrieve_a_job_result"><a class="anchor" href="#_retrieve_a_job_result"></a>7.12. Retrieve a job result</h3>
+<div class="paragraph">
+<p>The following section describes a method to retrieve the result of a job. In case the job execution failed, an exception is returned.</p>
+</div>
+<div class="sect3">
+<h4 id="_operation_9"><a class="anchor" href="#_operation_9"></a>7.12.1. Operation</h4>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 22</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-result<br>
+
+The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}/jobs/{jobID}/results</code>.</th>
+</tr>
+</thead>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_9"><a class="anchor" href="#_response_9"></a>7.12.2. Response</h4>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 23</strong></th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-result-success<br>
 
 A successful execution of the operation SHALL be reported as a
 response with a HTTP status code 200.
 The content of that response SHALL be based upon the OpenAPI
-3.0 schema <a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/result.yaml">result.yaml</a>.</th>
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml">result.yaml</a>.</th>
 </tr>
 </thead>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/result.yaml">Schema for the result of a job</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml">Schema for the result of a job</a></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">result</span>:
-    <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
-    <span class="key">required</span>:
-        - <span class="string"><span class="content">outputs</span></span>
-    <span class="key">properties</span>:
-       <span class="key">outputs</span>:
-           <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
-           <span class="key">items</span>:
-              <span class="error">$ref</span>: <span class="error">'outputInfo.yaml'</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="YAML">    <span class="key">type</span>: <span class="string"><span class="content">array</span></span>
+    <span class="key">items</span>:
+       <span class="error">$ref</span>: <span class="error">'outputInfo.yaml'</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/outputInfo.yaml">Schema for output info</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/outputInfo.yaml">Schema for output info</a></div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">outputInfo</span>:
-    <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
+<pre class="CodeRay highlight"><code data-lang="YAML">    <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
     <span class="key">required</span>:
         - <span class="string"><span class="content">id</span></span>
         - <span class="string"><span class="content">value</span></span>
@@ -2512,15 +2521,15 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the result a job encoded as JSON.</div>
 <div class="content">
-<pre class="CodeRay highlight"><code>http://processing.example.org/processes/buffer/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result</code></pre>
+<pre class="CodeRay highlight"><code>http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of a result encoded as JSON.</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-        <span class="key"><span class="delimiter">&quot;</span><span class="content">outputs</span><span class="delimiter">&quot;</span></span>: [{
-                <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalOutput</span><span class="delimiter">&quot;</span></span>,
+<pre class="CodeRay highlight"><code data-lang="json">[
+   {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">literalOutput</span><span class="delimiter">&quot;</span></span>,
                 <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: {
                         <span class="key"><span class="delimiter">&quot;</span><span class="content">inlineValue</span><span class="delimiter">&quot;</span></span>: <span class="float">0.05</span>
                 }
@@ -2529,8 +2538,7 @@ The content of that response SHALL be based upon the OpenAPI
                 <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">boundingboxOutput</span><span class="delimiter">&quot;</span></span>,
                 <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: {
                         <span class="key"><span class="delimiter">&quot;</span><span class="content">inlineValue</span><span class="delimiter">&quot;</span></span>: {
-                                <span class="key"><span class="delimiter">&quot;</span><span class="content">lowerCorner</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">7.0 51.9</span><span class="delimiter">&quot;</span></span>,
-                                <span class="key"><span class="delimiter">&quot;</span><span class="content">upperCorner</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">7.1 52.0</span><span class="delimiter">&quot;</span></span>,
+                        <span class="key"><span class="delimiter">&quot;</span><span class="content">bbox</span><span class="delimiter">&quot;</span></span>: [<span class="float">51.9</span>, <span class="integer">7</span>, <span class="integer">52</span>, <span class="float">7.1</span>],
                                 <span class="key"><span class="delimiter">&quot;</span><span class="content">crs</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">EPSG:4326</span><span class="delimiter">&quot;</span></span>
                         }
                 }
@@ -2540,28 +2548,70 @@ The content of that response SHALL be based upon the OpenAPI
                 <span class="key"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>: {
                         <span class="key"><span class="delimiter">&quot;</span><span class="content">inlineValue</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">&lt;test/&gt;</span><span class="delimiter">&quot;</span></span>
                 }
-        }]
-}</code></pre>
+        }
+]</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_error_situations_9"><a class="anchor" href="#_error_situations_9"></a>7.13.3. Error situations</h4>
+<h4 id="_error_situations_9"><a class="anchor" href="#_error_situations_9"></a>7.12.3. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
 <div class="paragraph">
-<p>If the process with the specified id doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#status_codes">Table 3</a>).</p>
+<p>If the process with the specified id doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#rc_no-such-process">[rc_no-such-process]</a>).</p>
 </div>
-<div class="paragraph">
-<p>If the job with the specified id doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#status_codes">Table 3</a>).</p>
-</div>
-<div class="paragraph">
-<p>If the execution is still running, the status code of the response will be <code>404</code> (see <a href="#status_codes">Table 3</a>).</p>
-</div>
-<div class="paragraph">
-<p>If an error happened during the excecution of the process, the status code of the response will be <code>500</code> (see <a href="#status_codes">Table 3</a>).</p>
-</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 24</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-result-exception/no-such-job<br>
+
+If the operation is executed using an invalid job identifier, the response shall have HTTP status code 404.
+The content of that response SHALL be based upon the OpenAPI
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml">exception.yaml</a>.
+The exception code of the exception shall be "NoSuchJob".</th>
+</tr>
+</thead>
+</table>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 25</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-result-exception/result-not-ready<br>
+
+If the operation is executed on a running job with a valid job identifier, the response shall have HTTP status code 404.
+The content of that response SHALL be based upon the OpenAPI
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml">exception.yaml</a>.
+The exception code of the exception shall be "ResultNotReady".</th>
+</tr>
+</thead>
+</table>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 26</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/core/job-result-failed<br>
+
+If the operation is executed on a failed job using a valid job identifier, the response shall have a HTTP error code that corresponds to the reason of the failure.
+The content of that response SHALL be based upon the OpenAPI
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml">exception.yaml</a>.
+The exception code shall correspond to the reason of the failure, e.g. InvalidParameterValue for invalid input data.</th>
+</tr>
+</thead>
+</table>
 </div>
 </div>
 </div>
@@ -2632,7 +2682,7 @@ the web:</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 22</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 27</strong></th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/json/definition<br>
 
 <code>200</code>-responses of the server SHALL support the following media type:
@@ -2680,7 +2730,7 @@ the web:</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 23</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 28</strong></th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/html/definition<br>
 
 Every <code>200</code>-response of an operation of the server
@@ -2695,7 +2745,7 @@ SHALL support the media type <code>text/html</code>.</th>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 24</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 29</strong></th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/html/content<br>
 
 Every <code>200</code>-response of the server with the media type "text/html" SHALL be a
@@ -2709,57 +2759,1408 @@ in the HTML <code>&lt;body/&gt;</code>, and
 </tr>
 </thead>
 </table>
-<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conformance_class_abstract_test_suite_normative"><a class="anchor" href="#_conformance_class_abstract_test_suite_normative"></a>Annex A: Conformance Class Abstract Test Suite (Normative)</h2>
+<h2 id="_requirements_class_openapi_3_0"><a class="anchor" href="#_requirements_class_openapi_3_0"></a>9. Requirements class "OpenAPI 3.0"</h2>
 <div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Ensure that there is a conformance class for each requirements class and a test for each requirement (identified by requirement name and number)
-</td>
-</tr>
-</table>
-</div>
 <div class="sect2">
-<h3 id="_conformance_class_a"><a class="anchor" href="#_conformance_class_a"></a>A.1. Conformance Class A</h3>
-<div class="sect3">
-<h4 id="_requirement_1"><a class="anchor" href="#_requirement_1"></a>A.1.1. Requirement 1</h4>
-<table class="tableblock frame-all grid-all spread">
+<h3 id="_basic_requirements"><a class="anchor" href="#_basic_requirements"></a>9.1. Basic requirements</h3>
+<div class="paragraph">
+<p>APIs conforming to this requirements class document themselves by an <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument">OpenAPI Document</a>.</p>
+</div>
+<table id="rc_oas30" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
 </colgroup>
 <tbody>
 <tr>
-<th class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test id:</p></th>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/conf/conf-class-a/req-name-1</p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement:</p></th>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/req/req-class-a/req-name-1</p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/oas30" class="bare">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/oas30</a></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test purpose:</p></th>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Verify that&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web service</p></td>
 </tr>
 <tr>
-<th class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test method:</p></th>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Inspect&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">WPS REST JSON Binding 1.0 Core</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#OpenAPI">OpenAPI Specification 3.0.1</a></p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 30</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/req/oas30/oas-definition-1<br>
+
+The service SHALL provide an OpenAPI definition in JSON and HTML at the path
+<code>/api</code> using the media type <code>application/openapi+json;version=3.0</code>.</th>
+</tr>
+</thead>
+</table>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Caution</div>
+</td>
+<td class="content">
+<a href="https://github.com/opengeospatial/WFS_FES/issues/117">ISSUE 117</a><br>
+The OpenAPI media type has not been registered yet with IANA and will likely change. We need to update the media type after registration.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 31</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/req/oas30/oas-definition-2<br>
+
+The JSON representation SHALL conform to the
+<a href="#OpenAPI">OpenAPI Specification, version 3.0</a>.</th>
+</tr>
+</thead>
+</table>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Caution</div>
+</td>
+<td class="content">
+Related to <a href="https://github.com/opengeospatial/WFS_FES/issues/90">ISSUE 90</a><br>
+If we have a rigid path pattern there seems to be no need to add requirements for fixed operationId values. However, if the path pattern would be flexible, maybe we should require specific operationIds for selected resources?
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Two example OpenAPI documents are included in <a href="#oas30_example">Annex B</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 32</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/req/oas30/oas-impl<br>
+
+The server SHALL implement all capabilities specified in the OpenAPI
+definition.</th>
+</tr>
+</thead>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_complete_definition"><a class="anchor" href="#_complete_definition"></a>9.2. Complete definition</h3>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 33</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/req/oas30/completeness<br>
+
+The OpenAPI definition SHALL specify for each operation all
+<a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#httpCodes">HTTP Status Codes</a>
+and
+<a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject">Response Objects</a>
+that the server uses in responses.
+
+This includes the successful execution of an operation as well as all error
+situations that originate from the server.</th>
+</tr>
+</thead>
+</table>
+<div class="paragraph">
+<p>Note that APIs that, for example, are access-controlled (see <a href="#security">Security</a>), support web cache validation, CORS or that use HTTP redirection will make use of additional HTTP status codes beyond regular codes such as <code>200</code> for successful GET requests and <code>400</code>, <code>404</code> or <code>500</code> for error situations. See <a href="#http_status_codes">HTTP status codes</a>.</p>
+</div>
+<div class="paragraph">
+<p>Clients have to be prepared to receive responses not documented in the OpenAPI definition. For example, additional errors may occur in the transport layer outside of the server.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exceptions"><a class="anchor" href="#exceptions"></a>9.3. Exceptions</h3>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 34</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/req/oas30/exceptions-codes<br>
+
+For error situations that originate from the server, the API definition
+SHALL cover all applicable HTTP Status Codes.</th>
+</tr>
+</thead>
+</table>
+<div class="exampleblock">
+<div class="title">Example 3. An exception response object definition</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="YAML"><span class="key">description</span>: <span class="string"><span class="content">An error occurred.</span></span>
+<span class="key">content</span>:
+  <span class="key">application/json</span>:
+    <span class="key">schema</span>:
+      <span class="error">$ref</span>: <span class="error">https://raw.githubusercontent.com/opengeospatial/OAPI/openapi/schemas/exception.yaml</span>
+  <span class="key">text/html</span>:
+    <span class="key">schema</span>:
+      <span class="key">type</span>: <span class="string"><span class="content">string</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="security"><a class="anchor" href="#security"></a>9.4. Security</h3>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><strong>Requirement 35</strong></th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/req/oas30/security<br>
+
+For cases, where the operations of the server are access-controlled,
+the security scheme(s) SHALL be documented in the OpenAPI definition.</th>
+</tr>
+</thead>
+</table>
+<div class="paragraph">
+<p>The OpenAPI specification currently supports the following <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#security-scheme-object">security schemes</a>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>HTTP authentication,</p>
+</li>
+<li>
+<p>an API key (either as a header or as a query parameter),</p>
+</li>
+<li>
+<p>OAuth2&#8217;s common flows (implicit, password, application and access code) as defined in RFC6749, and</p>
+</li>
+<li>
+<p>OpenID Connect Discovery.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Caution</div>
+</td>
+<td class="content">
+<a href="https://github.com/opengeospatial/WFS_FES/issues/41">ISSUE 41</a><br>
+How does a client determine which security protocols/standards/etc. a server supports?
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>10. Media Types</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>JSON media types that would typically be used in a WPS that supports JSON are</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/geo+json</code> for feature collections and features, and</p>
+</li>
+<li>
+<p><code>application/json</code> for all other resources.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>XML media types that would typically occur in on OGC API that supports XML are</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/gml+xml;version=3.2</code> for any GML 3.2 feature collections and features,</p>
+</li>
+<li>
+<p><code>application/gml+xml;version=3.2;profile=http://www.opengis.net/def/profile/ogc/2.0/gml-sf0</code> for GML 3.2 feature collections and features conforming to the GML Simple Feature Level 0 profile,</p>
+</li>
+<li>
+<p><code>application/gml+xml;version=3.2;profile=http://www.opengis.net/def/profile/ogc/2.0/gml-sf2</code> for GML 3.2 feature collections and features conforming to the GML Simple Feature Level 2 profile, and</p>
+</li>
+<li>
+<p><code>application/xml</code> for all other resources.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The typical HTML media type for all "web pages" in a WPS would be <code>text/html</code>.</p>
+</div>
+<div class="paragraph">
+<p>The media type for an OpenAPI definition in JSON is <code>application/openapi+json;version=3.0</code>.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Caution</div>
+</td>
+<td class="content">
+<a href="https://github.com/opengeospatial/WFS_FES/issues/117">ISSUE 117</a><br>
+The OpenAPI media type has not been registered yet with IANA and will likely change. We need to update the media type after registration.
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_abstract_test_suite_normative"><a class="anchor" href="#_abstract_test_suite_normative"></a>Annex A: Abstract Test Suite (Normative)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview_3"><a class="anchor" href="#_overview_3"></a>A.1. Overview</h3>
+<div class="paragraph">
+<p>Compliance testing for $standard_name$ and similar standards must answer three questions:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Are the capabilities advertised through the API Description compliant with the standard?</p>
+</li>
+<li>
+<p>Does the API implement those capabilities as advertised?</p>
+</li>
+<li>
+<p>Do the resources returned by the micro-services meet the structure and content requirements of the standard?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Further complicating the issue, an API may expose resources in addition to those defined by the standard.  A test engine must be able to traverse the API description document, identify test points, and ignore resource paths which are not to be tested.  The process for identifying test points is provided in Section A.4.3.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conventions_2"><a class="anchor" href="#_conventions_2"></a>A.2. Conventions</h3>
+<div class="paragraph">
+<p>The following conventions apply to this Abstract Test Suite:</p>
+</div>
+<div class="sect3">
+<h4 id="_path_templates"><a class="anchor" href="#_path_templates"></a>A.2.1. Path Templates</h4>
+<div class="paragraph">
+<p>Path templates are used throughout these test suites.  Path templating refers to the usage of curly braces “{}” to mark a section of a URL path that can be replaced using path parameters.  The terms used to describe portions of these templates are based on the URL syntax described in RFC 3986.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>scheme: http | https</p>
+</li>
+<li>
+<p>authority: DNS name of the server with optional port number</p>
+</li>
+<li>
+<p>path: The slash delimited identifier for a resource on the server</p>
+</li>
+<li>
+<p>query: query parameters following the "?" character</p>
+</li>
+<li>
+<p>fragment: identifies an element within the resource. Preceded by the "#" character</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_api_description_document"><a class="anchor" href="#_api_description_document"></a>A.2.2. API Description Document</h4>
+<div class="paragraph">
+<p>The $standard_name$ standard does not mandate a standard format for the API Description Document.  However, some form of standard is needed if tests are to be accurately described and implemented.  Therefore, this Abstract Test Suite asserts that the API Description document is compliant with OpenAPI 3.0.  This Test Suite will be updated if and when an alternative is commonly adopted.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_resource_encodings"><a class="anchor" href="#_resource_encodings"></a>A.2.3. Resource Encodings</h4>
+<div class="paragraph">
+<p>The $standard_name$ standard does not mandate a standard encoding for resources returned by the API. Yet a compliance test requires some minimal level of expected behavior. Therefore, this Abstract Test Suite asserts that the API returns resources encoded in HTML and GeoJSON. Since no compliance test suite exists for these encodings at this time, the resources shall be presented to the test operator for human inspection.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_processing_security_objects"><a class="anchor" href="#_processing_security_objects"></a>A.2.4. Processing Security Objects</h4>
+<div class="paragraph">
+<p>OpenAPI does not provide a standard way to associate a security requirement with a single server URI.  Therefore, $standard_name$ compliance tests will have to make that association through the runtime challenge-response transaction.  At this time the role of the Security Objects should be considered advisory.</p>
+</div>
+<div class="paragraph">
+<p>Security Requirements can be defined at both the OpanAPI root level and at the Operation Object level. The following rules should be followed to understand the scope of a Security Requirement:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Security Requirements defined at the root level are the default requirements for all operations and servers.</p>
+</li>
+<li>
+<p>If Security Requirements are defined at the Operation level, then those Requirements, and not the ones defined at the OpenAPI level, shall be used with that operation.</p>
+</li>
+<li>
+<p>An empty set of Security Requirements at the Operation level indicates that there are no security requirements for that operation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note: this allows operations to opt-out of security requirements defined at the OpenAPI level.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters"><a class="anchor" href="#_parameters"></a>A.2.5. Parameters</h4>
+<div class="paragraph">
+<p>The following observations apply for $standard_name$ parameters:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>$standard_name$ does not use cookies.</p>
+</li>
+<li>
+<p>Query parameters follow common Web practice</p>
+</li>
+<li>
+<p>Header parameters are restricted to custom headers</p>
+</li>
+<li>
+<p>For path parameters, the name of the parameter must match the name of the variable in the path template in the path object</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Parameters are defined at the Path Item and Operation level.  Parameters defined at the Path Item level must apply to all operations under that Path item. These parameters may be modified at the Operation level but they may not be removed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_testable_paths"><a class="anchor" href="#_testable_paths"></a>A.2.6. Testable Paths</h4>
+<div class="paragraph">
+<p>A testable path is a path which corresponds to one of the paths defined in the $standard_name$ specification. There are three alternatives for making this determination:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The path URI matches – this is the simplest approach but may be subject to error</p>
+</li>
+<li>
+<p>Use mandatory tags in the tags field of the Operation Object</p>
+</li>
+<li>
+<p>Use standardized operation ids for the operationId field of the Operation Object</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>A testable path is validated against the rules for that path.  At a minimum that includes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Building a list of all parameters which are defined in the standard</p>
+</li>
+<li>
+<p>Validate that the mandatory parameters are present and required</p>
+</li>
+<li>
+<p>Validate type, format, etc. for each parameter in the list.</p>
+</li>
+<li>
+<p>Validate that there are no mandatory parameters which are not on the list.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_requirements_trace_matrix"><a class="anchor" href="#_requirements_trace_matrix"></a>A.3. Requirements Trace Matrix</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 1:</strong> API Landing Page Operation<br>
+  The server SHALL support the HTTP GET operation at the path /.<br>
+  Tests: A.4.2.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 2:</strong> API Landing Page Response<br>
+A successful execution of the operation SHALL be reported as a response with a HTTP status code 200. The content of that response SHALL be based upon the OpenAPI 3.0 schema root.yaml and include at least links to the following resources:<br>
+ - /api (relation type 'service')<br>
+ - /conformance (relation type 'conformance')<br>
+ - /collections (relation type 'data')<br>
+Tests: A.4.2.2<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 3:</strong> API Definition Operation<br>
+The server SHALL support the HTTP GET operation at the path /api.<br>
+Tests: A.4.2.3<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 4:</strong> API Definition Response<br>
+A successful execution of the operation SHALL be reported as a response with a HTTP status code 200. The server SHALL return an API definition document.<br>
+Tests: A.4.2.3, A.4.2.4, A.4.4.1<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5:</strong> Conformance Class Operation<br>
+The server SHALL support the HTTP GET operation at the path /conformance.<br>
+Tests: A.4.4.2<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6:</strong> Conformance Class Response<br>
+A successful execution of the operation SHALL be reported as a response with a HTTP status code 200. The content of that response SHALL be based upon the OpenAPI 3.0 schema req-classes.yaml and list all $standard_name$ requirements classes that the server conforms to.<br>
+Tests: A.4.4.3<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7:</strong> HTTP 1.1<br>
+The server SHALL conform to HTTP 1.1.<br>
+If the server supports HTTPS, the server SHALL also conform to HTTP over TLS.<br>
+Tests: A.4.1.1<br></p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_abstract_test"><a class="anchor" href="#_abstract_test"></a>A.4. Abstract Test</h3>
+<div class="paragraph">
+<p>The Test Approach used in the $standard_name$ Abstract Test Suite includes four steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Identify the test points</p>
+</li>
+<li>
+<p>Verify that API descriptions of the test points comply with the $standard_name$ standard</p>
+</li>
+<li>
+<p>Verify that the micro-services at each test point behave in accordance with the $standard_name$ standard.</p>
+</li>
+<li>
+<p>Verify that the resources returned at each test point are in accordance with the $standard_name$ standard and any referenced content standard.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Identification of test points is a new requirement with $standard_name$.  Since an API is not a Web Service, there may be RESTful endpoints advertised which are not intended to be targets of the compliance testing.  Section A.4.2 describes the process for crawling the API Description document and extracting those URLs which should be tested as well as the path(s) they should be tested with.  The concatenation of a Server URL with a path forms a test point.</p>
+</div>
+<div class="paragraph">
+<p>Section A.4.3 describes how the test points are exercised to determine compliance with the $standard_name$ standard.</p>
+</div>
 <div class="sect3">
-<h4 id="_requirement_2"><a class="anchor" href="#_requirement_2"></a>A.1.2. Requirement 2</h4>
+<h4 id="_general_tests"><a class="anchor" href="#_general_tests"></a>A.4.1. General Tests</h4>
+<div class="sect4">
+<h5 id="_http_1_1"><a class="anchor" href="#_http_1_1"></a>A.4.1.1. HTTP 1.1</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose"><a class="anchor" href="#_a_test_purpose"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate that the $standard_name$ services advertised through the API conform with HTTP 1.1.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions"><a class="anchor" href="#_b_pre_conditions"></a>b) Pre-conditions:</h6>
+<div class="paragraph">
+<p>none</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method"><a class="anchor" href="#_c_test_method"></a>c) Test Method:</h6>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All compliance tests shall be configured to use the HTTP 1.1 protocol exclusively.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references"><a class="anchor" href="#_d_references"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirement 7</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_retrieve_the_api_description"><a class="anchor" href="#_retrieve_the_api_description"></a>A.4.2. Retrieve the API Description</h4>
+<div class="sect4">
+<h5 id="_landing_page_retrieval"><a class="anchor" href="#_landing_page_retrieval"></a>A.4.2.1. Landing Page Retrieval</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_2"><a class="anchor" href="#_a_test_purpose_2"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate that a landing page can be retrieved from the expected location.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_2"><a class="anchor" href="#_b_pre_conditions_2"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>A URL to the server hosting the landing page is known.</p>
+</li>
+<li>
+<p>The test client can authenticate to the server.</p>
+</li>
+<li>
+<p>The test client has sufficient privileges to access the landing page.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_2"><a class="anchor" href="#_c_test_method_2"></a>c) Test Method:</h6>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Issue an HTTP GET request to the URL {root}/</p>
+</li>
+<li>
+<p>Validate that a document was returned with a status code 200</p>
+</li>
+<li>
+<p>Validate the contents of the returned document using test A.4.2.2</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_2"><a class="anchor" href="#_d_references_2"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirement 1</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_landing_page_validation"><a class="anchor" href="#_landing_page_validation"></a>A.4.2.2. Landing Page Validation</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_3"><a class="anchor" href="#_a_test_purpose_3"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate that the landing page complies with the require structure and contents.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_3"><a class="anchor" href="#_b_pre_conditions_3"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>The landing page has been retrieved from the server</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_3"><a class="anchor" href="#_c_test_method_3"></a>c) Test Method:</h6>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Validate the landing page against the root.yaml schema</p>
+</li>
+<li>
+<p>Validate that the landing page includes a “service” link to API Definition</p>
+</li>
+<li>
+<p>Validate that the landing page includes a “conformance” link to the conformance class document</p>
+</li>
+<li>
+<p>Validate that the landing page includes a “processes” link to the $standard_name$ contents.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_3"><a class="anchor" href="#_d_references_3"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirement 2</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_openapi_document_retrieval"><a class="anchor" href="#_openapi_document_retrieval"></a>A.4.2.3. OpenAPI Document Retrieval</h5>
+<div class="paragraph">
+<p>Note: The URI for the API definition is provided through the landing page.  However, that does not mean that the API definition resides on the same server as the landing page.  Test clients should be prepared for a $standard_name$ implementation which is distributed across multiple servers.</p>
+</div>
+<div class="sect5">
+<h6 id="_a_test_purpose_4"><a class="anchor" href="#_a_test_purpose_4"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate that the API Definition document can be retrieved from the expected location.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_4"><a class="anchor" href="#_b_pre_conditions_4"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>A URL to the server hosting the API Definition document is known.</p>
+</li>
+<li>
+<p>The test client can authenticate to the server.</p>
+</li>
+<li>
+<p>The test client has sufficient privileges to assess the API Definition document.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_4"><a class="anchor" href="#_c_test_method_4"></a>c) Test Method:</h6>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Issue an HTTP GET request to the URL {root}/api</p>
+</li>
+<li>
+<p>Validate that a document was returned with a status code 200</p>
+</li>
+<li>
+<p>Validate the contents of the returned document using test A.4.2.4</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_4"><a class="anchor" href="#_d_references_4"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirements 3 and 4</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_api_definition_validation"><a class="anchor" href="#_api_definition_validation"></a>A.4.2.4. API Definition Validation</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_5"><a class="anchor" href="#_a_test_purpose_5"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate that the API Definition page complies with the require structure and contents.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_5"><a class="anchor" href="#_b_pre_conditions_5"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>The API Definition document has been retrieved from the server</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_5"><a class="anchor" href="#_c_test_method_5"></a>c) Test Method:</h6>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Validate the API Definition document against the OpenAPI 3.0 schema</p>
+</li>
+<li>
+<p>Identify the Test Points as described in test A.4.3</p>
+</li>
+<li>
+<p>Process the API Definition document as described in test A.4.4</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_5"><a class="anchor" href="#_d_references_5"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirement 4</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_identify_the_test_points"><a class="anchor" href="#_identify_the_test_points"></a>A.4.3. Identify the Test Points</h4>
+<div class="paragraph">
+<p>Identification of the test points is a pre-condition to performing a compliance test.  Thisprocess starts with A.4.3.1.</p>
+</div>
+<div class="sect4">
+<h5 id="_identify_test_points"><a class="anchor" href="#_identify_test_points"></a>A.4.3.1. Identify Test Points:</h5>
+<div class="sect5">
+<h6 id="_a_purpose"><a class="anchor" href="#_a_purpose"></a>a) Purpose:</h6>
+<div class="paragraph">
+<p>To identify the test points associated with each Path in the OpenAPI document</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_6"><a class="anchor" href="#_b_pre_conditions_6"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>An OpenAPI document has been obtained</p>
+</li>
+<li>
+<p>A list of URLs for the servers to be included in the compliance test has been provided</p>
+</li>
+<li>
+<p>A list of the paths specified in the $standard_name$ specification</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_method"><a class="anchor" href="#_c_method"></a>c) Method:</h6>
+<div class="paragraph">
+<p>FOR EACH paths property in the OpenAPI document
+    If the path name is one of those specified in the $standard_name$ specification
+        Retrieve the Server URIs using A.4.3.2.
+        FOR EACH Server URI
+            Concatenate the Server URI with the path name to form a test point.
+            Add that test point to the list.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_6"><a class="anchor" href="#_d_references_6"></a>d) References:</h6>
+<div class="paragraph">
+<p>None</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_identify_server_uris"><a class="anchor" href="#_identify_server_uris"></a>A.4.3.2. Identify Server URIs:</h5>
+<div class="sect5">
+<h6 id="_a_purpose_2"><a class="anchor" href="#_a_purpose_2"></a>a) Purpose:</h6>
+<div class="paragraph">
+<p>To identify all server URIs applicable to an OpenAPI Operation Object</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_7"><a class="anchor" href="#_b_pre_conditions_7"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Server Objects from the root level of the OpenAPI document have been obtained</p>
+</li>
+<li>
+<p>A Path Item Object has been retrieved</p>
+</li>
+<li>
+<p>An Operation Object has been retrieved</p>
+</li>
+<li>
+<p>The Operation Object is associated with the Path Item Object</p>
+</li>
+<li>
+<p>A list of URLs for the servers to be included in the compliance test has been provided</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_method_2"><a class="anchor" href="#_c_method_2"></a>c) Method:</h6>
+<div class="paragraph">
+<p>1) Identify the Server Objects which are in-scope for this operation</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IF Server Objects are defined at the Operation level, then those and only those Server Objects apply to that Operation.</p>
+</li>
+<li>
+<p>IF Server Objects are defined at the Path Item level, then those and only those Server Objects apply to that Path Item.</p>
+</li>
+<li>
+<p>IF Server Objects are not defined at the Operation level, then the Server Objects defined for the parent Path Item apply to that Operation.</p>
+</li>
+<li>
+<p>IF Server Objects are not defined at the Path Item level, then the Server Objects defined for the root level apply to that Path.</p>
+</li>
+<li>
+<p>IF no Server Objects are defined at the root level, then the default server object is assumed as described in the OpenAPI specification.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>2) Process each Server Object using A.4.3.3.</p>
+</div>
+<div class="paragraph">
+<p>3) Delete any Server URI which does not reference a server on the list of servers to test.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_7"><a class="anchor" href="#_d_references_7"></a>d) References:</h6>
+<div class="paragraph">
+<p>None</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_process_server_object"><a class="anchor" href="#_process_server_object"></a>A.4.3.3. Process Server Object:</h5>
+<div class="sect5">
+<h6 id="_a_purpose_3"><a class="anchor" href="#_a_purpose_3"></a>a) Purpose:</h6>
+<div class="paragraph">
+<p>To expand the contents of a Server Object into a set of absolute URIs.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_8"><a class="anchor" href="#_b_pre_conditions_8"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>A Server Object has been retrieved</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_method_3"><a class="anchor" href="#_c_method_3"></a>c) Method:</h6>
+<div class="paragraph">
+<p>Processing the Server Object results in a set of absolute URIs.  This set contains all of the URIs that can be created given the URI template and variables defined in that Server Object.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If there are no variables in the URI template, then add the URI to the return set.</p>
+</li>
+<li>
+<p>For each variable in the URI template which does not have an enumerated set of valid values:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>generate a URI using the default value,</p>
+</li>
+<li>
+<p>add this URI to the return set,</p>
+</li>
+<li>
+<p>flag this URI as non-exhaustive</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For each variable in the URI template which has an enumerated set of valid values:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>generate a URI for each value in the enumerated set,</p>
+</li>
+<li>
+<p>add each generated URI to the return set.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Perform this processing in an iterative manner so that there is a unique URI for all possible combinations of enumerated and default values.</p>
+</li>
+<li>
+<p>Convert all relative URIs to absolute URIs by rooting them on the URI to the server hosting the OpenAPI document.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_8"><a class="anchor" href="#_d_references_8"></a>d) References:</h6>
+<div class="paragraph">
+<p>None</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_processing_the_openapi_document"><a class="anchor" href="#_processing_the_openapi_document"></a>A.4.4. Processing the OpenAPI Document</h4>
+<div class="sect4">
+<h5 id="_validate_api_path"><a class="anchor" href="#_validate_api_path"></a>A.4.4.1. Validate /api path</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_6"><a class="anchor" href="#_a_test_purpose_6"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate API definition provided through the /api path it the athoritative definition of this API.  Validate that this resource exists at the expected location and that it complies with the appropirate schema.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_9"><a class="anchor" href="#_b_pre_conditions_9"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>A URL to the server hosting the API definition document is known</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_6"><a class="anchor" href="#_c_test_method_6"></a>c) Test Method:</h6>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Issue an HTTP GET request to the URL {root}/api</p>
+</li>
+<li>
+<p>Validate that a document was returned with a status code of 200</p>
+</li>
+<li>
+<p>Validate the returned document against the OpenAPI 3.0 schema</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_9"><a class="anchor" href="#_d_references_9"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirement 4</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_validate_conformance_operation"><a class="anchor" href="#_validate_conformance_operation"></a>A.4.4.2. Validate Conformance Operation</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_7"><a class="anchor" href="#_a_test_purpose_7"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate that Conformance Operation behaves as required.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_10"><a class="anchor" href="#_b_pre_conditions_10"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Path = /conformance</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_7"><a class="anchor" href="#_c_test_method_7"></a>c) Test Method:</h6>
+<div class="paragraph">
+<p>DO FOR each /conformance test point</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Issue an HTTP GET request using the test point URI</p>
+</li>
+<li>
+<p>Go to test A.4.4.3.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_10"><a class="anchor" href="#_d_references_10"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirement 5</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_validate_conformance_operation_response"><a class="anchor" href="#_validate_conformance_operation_response"></a>A.4.4.3. Validate Conformance Operation Response</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_8"><a class="anchor" href="#_a_test_purpose_8"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate the response to the Conformance Operation.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_11"><a class="anchor" href="#_b_pre_conditions_11"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Path = /conformance</p>
+</li>
+<li>
+<p>A Conformance document has been retrieved</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_8"><a class="anchor" href="#_c_test_method_8"></a>c) Test Method:</h6>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Validate the retrieved document against the classes.yaml schema.</p>
+</li>
+<li>
+<p>Record all reported compliance classes and associate that list with the test point. This information will be used in latter tests.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_11"><a class="anchor" href="#_d_references_11"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirement 6</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_validate_the_get_processes_operation"><a class="anchor" href="#_validate_the_get_processes_operation"></a>A.4.4.4. Validate the Get Processes Operation</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_9"><a class="anchor" href="#_a_test_purpose_9"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate that the Get Processes Operation behaves as required.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_12"><a class="anchor" href="#_b_pre_conditions_12"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Path = /processes/</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_9"><a class="anchor" href="#_c_test_method_9"></a>c) Test Method:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Issue an HTTP GET request using the test point
+URI</p>
+</li>
+<li>
+<p>Go to test <a href="#validate_get_processes_response">Validate Get Processes Operation Response</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_12"><a class="anchor" href="#_d_references_12"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirement 9</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="validate_get_processes_response"><a class="anchor" href="#validate_get_processes_response"></a>A.4.4.5. Validate Get Processes Operation Response</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_10"><a class="anchor" href="#_a_test_purpose_10"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate the response to the Get Processes Operation.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_13"><a class="anchor" href="#_b_pre_conditions_13"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>A Process Collection document has been retrieved</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_10"><a class="anchor" href="#_c_test_method_10"></a>c) Test Method:</h6>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Validate the retrieved document against the processCollection.yaml schema.</p>
+</li>
+<li>
+<p>Validate each Process Description using test <a href="#validate_process_description">Validate the Get Process Description Operation</a></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_13"><a class="anchor" href="#_d_references_13"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirements 10, 11, and 12</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="validate_process_description"><a class="anchor" href="#validate_process_description"></a>A.4.4.6. Validate the Get Process Description Operation</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_11"><a class="anchor" href="#_a_test_purpose_11"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate that the Get Process Description Operation behaves as required.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_14"><a class="anchor" href="#_b_pre_conditions_14"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Path = /processes/</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_11"><a class="anchor" href="#_c_test_method_11"></a>c) Test Method:</h6>
+<div class="paragraph">
+<p>DO FOR each /processes/{processId} test point</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Issue an HTTP GET request using the test point URI</p>
+</li>
+<li>
+<p>Go to test <a href="#validate_process_description_response">Validate the Process Description Operation Response</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_14"><a class="anchor" href="#_d_references_14"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirement 15</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="validate_process_description_response"><a class="anchor" href="#validate_process_description_response"></a>A.4.4.7. Validate the Process Description Operation Response</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_12"><a class="anchor" href="#_a_test_purpose_12"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate the response to the Process Description Operation.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_15"><a class="anchor" href="#_b_pre_conditions_15"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>A Process Description document has been retrieved</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_12"><a class="anchor" href="#_c_test_method_12"></a>c) Test Method:</h6>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Validate the retrieved document against the processOffering.yaml schema.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_15"><a class="anchor" href="#_d_references_15"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirement 16</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_validate_the_get_jobs_operation"><a class="anchor" href="#_validate_the_get_jobs_operation"></a>A.4.4.8. Validate the Get Jobs Operation</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_13"><a class="anchor" href="#_a_test_purpose_13"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate that the Get Jobs Operation behaves as required.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_16"><a class="anchor" href="#_b_pre_conditions_16"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>A process id is provided by test <a href="#validate_get_processes_response">Validate Get Processes Operation Response</a></p>
+</li>
+<li>
+<p>Path = /processes/{processId}/jobs</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_13"><a class="anchor" href="#_c_test_method_13"></a>c) Test Method:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Issue an HTTP GET request using the test point URI</p>
+</li>
+<li>
+<p>Go to test <a href="#validate_get_jobs_response">Validate the Get Jobs Operation Response</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_16"><a class="anchor" href="#_d_references_16"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirement 17</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="validate_get_jobs_response"><a class="anchor" href="#validate_get_jobs_response"></a>A.4.4.9. Validate the Get Jobs Operation Response</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_14"><a class="anchor" href="#_a_test_purpose_14"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate the Get Jobs Operation Response.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_17"><a class="anchor" href="#_b_pre_conditions_17"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>A collection of Jobs has been retrieved</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_14"><a class="anchor" href="#_c_test_method_14"></a>c) Test Method:</h6>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Validate the structure of the response as follows:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For HTML use Human inspection</p>
+</li>
+<li>
+<p>For JSON use jobCollection.yaml</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_17"><a class="anchor" href="#_d_references_17"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirements 24, 25, 26, 27, 28 and 29</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_execute_operation"><a class="anchor" href="#_execute_operation"></a>A.4.4.10. Execute Operation</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_15"><a class="anchor" href="#_a_test_purpose_15"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate that the Execute Operation behaves as required.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_18"><a class="anchor" href="#_b_pre_conditions_18"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>A process id is provided by test <a href="#validate_get_processes_response">Validate Get Processes Operation Response</a></p>
+</li>
+<li>
+<p>Inputs are provided.</p>
+</li>
+<li>
+<p>Path = /processes/{processId}/jobs</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_15"><a class="anchor" href="#_c_test_method_15"></a>c) Test Method:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>Issue an HTTP POST request using the test point URI</p>
+</li>
+<li>
+<p>TODO: Inputs/Execute request in body</p>
+</li>
+<li>
+<p>TODO sync/async</p>
+</li>
+<li>
+<p>Go to test <a href="#validate_execute_response">Validate the Execute Operation Response</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_18"><a class="anchor" href="#_d_references_18"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirement 30</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="validate_execute_response"><a class="anchor" href="#validate_execute_response"></a>A.4.4.11. Validate the Execute Operation Response</h5>
+<div class="sect5">
+<h6 id="_a_test_purpose_16"><a class="anchor" href="#_a_test_purpose_16"></a>a) Test Purpose:</h6>
+<div class="paragraph">
+<p>Validate the Execute Operation Response.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_pre_conditions_19"><a class="anchor" href="#_b_pre_conditions_19"></a>b) Pre-conditions:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>An Execute request has been issued to the server.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_c_test_method_16"><a class="anchor" href="#_c_test_method_16"></a>c) Test Method:</h6>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Validate the structure of the response as follows:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For HTML use Human Inspection</p>
+</li>
+<li>
+<p>For JSON use statusInfo.yaml</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Validate that the following links are included in the response document:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To itself</p>
+</li>
+<li>
+<p>TODO when successful, link to result must be there</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Validate that all links include the rel and type link parameters.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_d_references_19"><a class="anchor" href="#_d_references_19"></a>d) References:</h6>
+<div class="paragraph">
+<p>Requirements 31 and 32</p>
+</div>
 <div style="page-break-after: always;"></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2866,7 +4267,7 @@ Ensure that there is a conformance class for each requirements class and a test 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-11 11:36:41 +02:00
+Last updated 2019-08-21 10:12:40 +02:00
 </div>
 </div>
 </body>
