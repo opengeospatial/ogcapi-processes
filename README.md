@@ -58,6 +58,7 @@ A draft of the WPS 2.0 REST/JSON Binding Extension is available:
 Demo implementations:
 
 * [52°North](http://geoprocessing.demo.52north.org:8080/javaps/rest/)
+* [pygeoapi](https://demo.pygeoapi.io/master)
 
 ## Contributing
 
