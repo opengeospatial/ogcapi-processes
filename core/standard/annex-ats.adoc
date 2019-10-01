@@ -44,11 +44,11 @@ The $standard_name$ standard does not mandate a standard encoding for resources 
 
 OpenAPI does not provide a standard way to associate a security requirement with a single server URI.  Therefore, $standard_name$ compliance tests will have to make that association through the runtime challenge-response transaction.  At this time the role of the Security Objects should be considered advisory.
 
-Security Requirements can be defined at both the OpanAPI root level and at the Operation Object level. The following rules should be followed to understand the scope of a Security Requirement:
+Security Requirements can be defined at both the OpenAPI root level and at the Operation Object level. The following rules should be followed to understand the scope of a Security Requirement:
 
 * The Security Requirements defined at the root level are the default requirements for all operations and servers.
 
-* If Security Requirements are defined at the Operation level, then those Requirements, and not the ones defined at the OpenAPI level, shall be used with that operation.
+* If Security Requirements are defined at the Operation level, then those Requirements (and not the ones defined at the OpenAPI level) shall be used with that operation.
 
 * An empty set of Security Requirements at the Operation level indicates that there are no security requirements for that operation.
 
@@ -140,7 +140,7 @@ Section A.4.3 describes how the test points are exercised to determine complianc
 ===== HTTP 1.1
 
 ====== a) Test Purpose:
-Validate that the $standard_name$ services advertised through the API conform with HTTP 1.1.
+Validate that the $standard_name$ services, advertised through the API, conform with HTTP 1.1.
 
 ====== b) Pre-conditions:
 none
@@ -181,7 +181,7 @@ Requirement 1
 ===== Landing Page Validation
 
 ====== a) Test Purpose:
-Validate that the landing page complies with the require structure and contents.
+Validate that the landing page complies with the required structure and contents.
 
 ====== b) Pre-conditions:
 
@@ -248,7 +248,7 @@ Requirement 4
 
 ==== Identify the Test Points
 
-Identification of the test points is a pre-condition to performing a compliance test.  Thisprocess starts with A.4.3.1.
+Identification of the test points is a pre-condition to performing a compliance test. This process starts with A.4.3.1.
 
 ===== Identify Test Points:
 
@@ -342,7 +342,7 @@ None
 ===== Validate /api path
 
 ====== a) Test Purpose:
-Validate API definition provided through the /api path it the athoritative definition of this API.  Validate that this resource exists at the expected location and that it complies with the appropirate schema. 
+Validate the API definition provided through the /api path as it the athoritative definition of this API. Validate that this resource exists at the expected location and that it complies with the appropirate schema. 
 
 ====== b) Pre-conditions:
 * A URL to the server hosting the API definition document is known
@@ -456,7 +456,7 @@ DO FOR each /processes/{processId} test point
  - Go to test <<validate_process_description_response>>
 
 ====== d) References:
-Requirement 15
+Requirement 10,11
 
 [[validate_process_description_response]]
 ===== Validate the Process Description Operation Response
