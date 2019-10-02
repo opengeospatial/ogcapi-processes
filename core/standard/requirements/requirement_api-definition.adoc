@@ -2,7 +2,7 @@
 |===
 |*Requirement {counter:req-id}* |/api-definition +
 
-The service SHALL provide an API definition document at the path "/api".
+The URIs of all API definitions referenced from the landing page SHALL support the HTTP GET method.
 |===
 
 [width="90%",cols="2,6a"]

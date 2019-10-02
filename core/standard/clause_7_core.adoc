@@ -6,9 +6,9 @@ The following section describes the core requirements class.
 
 include::requirements/requirements_class_core.adoc[]
 
-A server that implements the WPS REST/JSON Binding provides access to processes.
+A server that implements the OGC API - Processes provides access to processes.
 
-Each WPS has a single `LandingPage` (path `/`) that provides links to
+Each OGC API - Processes has a single `LandingPage` (path `/`) that provides links to
 
 * the `APIDefinition` (path `/api`),
 * the `Conformance` statements (path `/conformance`),
@@ -20,9 +20,9 @@ implementation of servers and clients. Accessing the `APIDefinition` using
 HTTP GET returns a description of the API.
 
 Accessing the `Conformance` using HTTP GET returns a list of URIs of
-requirements classes implemented by the WPS server.
+requirements classes implemented by the server.
 
-The list of processes contains a summary of each process the WPS offers, including the link to a more detailed description of the process.
+The list of processes contains a summary of each process the OGC API - Processes offers, including the link to a more detailed description of the process.
 
 The process description contains information about inputs and outputs and a link to the execution-endpoint for the process. 
 
@@ -76,7 +76,7 @@ include::requirements/core/REQ_root-success.adoc[]
 	},
 	{
 		"href": "http://processing.example.org/api",
-		"rel": "service",
+		"rel": "service-desc",
 		"type": "application/openapi+json;version=3.0",
 		"title": "the API definition"
 	},
@@ -84,7 +84,7 @@ include::requirements/core/REQ_root-success.adoc[]
 		"href": "http://processing.example.org/conformance",
 		"rel": "conformance",
 		"type": "application/json",
-		"title": "WPS 2.0 REST/JSON Binding conformance classes implemented by this server"
+		"title": "OGC API - Processes conformance classes implemented by this server"
 	},
 	{
 		"href": "http://processing.example.org/processes",
@@ -106,7 +106,7 @@ The following section describes a method to retrieve an API definition.
 
 ==== Operation
 
-Every WPS provides an API definition that describes the capabilities
+Every OGC API - Processes provides an API definition that describes the capabilities
 of the server and which can be used by developers to understand the API,
 by software clients to connect to the server, or
 by development tools to support the implementation of servers and clients.
@@ -125,7 +125,7 @@ content negotiation to select the desired representation.
 The API definition document describes the API. In other words,
 there is no need to include the `/api` operation in the API definition itself.
 
-The idea is that any WPS can be used by developers that are familiar with
+The idea is that any OGC API - Processes can be used by developers that are familiar with
 the API definition language(s) supported by the server. For example, if
 an OpenAPI definition is used, it should be possible to create a working
 client using the OpenAPI definition. The developer may need to learn a little
@@ -283,7 +283,7 @@ https://processing.example.org/processes
             "href": "https://processing.example.org/processes/EchoProcess",
             "type": "application/json",
             "rel": "self",
-            "title": "default process description"
+            "title": "process description"
           }
         ]
 	},...

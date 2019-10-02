@@ -4,7 +4,7 @@
 
 === Overview
 
-Compliance testing for $standard_name$ and similar standards must answer three questions:
+Compliance testing for OGC API - Processes and similar standards must answer three questions:
 
 .  Are the capabilities advertised through the API Description compliant with the standard?
 
@@ -34,15 +34,15 @@ Path templates are used throughout these test suites.  Path templating refers to
 
 ==== API Description Document
 
-The $standard_name$ standard does not mandate a standard format for the API Description Document.  However, some form of standard is needed if tests are to be accurately described and implemented.  Therefore, this Abstract Test Suite asserts that the API Description document is compliant with OpenAPI 3.0.  This Test Suite will be updated if and when an alternative is commonly adopted.
+The OGC API - Processes standard does not mandate a standard format for the API Description Document.  However, some form of standard is needed if tests are to be accurately described and implemented.  Therefore, this Abstract Test Suite asserts that the API Description document is compliant with OpenAPI 3.0.  This Test Suite will be updated if and when an alternative is commonly adopted.
 
 ==== Resource Encodings
 
-The $standard_name$ standard does not mandate a standard encoding for resources returned by the API. Yet a compliance test requires some minimal level of expected behavior. Therefore, this Abstract Test Suite asserts that the API returns resources encoded in HTML and GeoJSON. Since no compliance test suite exists for these encodings at this time, the resources shall be presented to the test operator for human inspection.  
+The OGC API - Processes standard does not mandate a standard encoding for resources returned by the API. Yet a compliance test requires some minimal level of expected behavior. Therefore, this Abstract Test Suite asserts that the API returns resources encoded in HTML and GeoJSON. Since no compliance test suite exists for these encodings at this time, the resources shall be presented to the test operator for human inspection.  
 
 ==== Processing Security Objects
 
-OpenAPI does not provide a standard way to associate a security requirement with a single server URI.  Therefore, $standard_name$ compliance tests will have to make that association through the runtime challenge-response transaction.  At this time the role of the Security Objects should be considered advisory.
+OpenAPI does not provide a standard way to associate a security requirement with a single server URI.  Therefore, OGC API - Processes compliance tests will have to make that association through the runtime challenge-response transaction.  At this time the role of the Security Objects should be considered advisory.
 
 Security Requirements can be defined at both the OpenAPI root level and at the Operation Object level. The following rules should be followed to understand the scope of a Security Requirement:
 
@@ -56,9 +56,9 @@ Note: this allows operations to opt-out of security requirements defined at the 
 
 ==== Parameters
 
-The following observations apply for $standard_name$ parameters:
+The following observations apply for OGC API - Processes parameters:
 
-. $standard_name$ does not use cookies.
+. OGC API - Processes does not use cookies.
 
 . Query parameters follow common Web practice
 
@@ -70,7 +70,7 @@ Parameters are defined at the Path Item and Operation level.  Parameters defined
 
 ==== Testable Paths
 
-A testable path is a path which corresponds to one of the paths defined in the $standard_name$ specification. There are three alternatives for making this determination:
+A testable path is a path which corresponds to one of the paths defined in the OGC API - Processes specification. There are three alternatives for making this determination:
 
 . The path URI matches – this is the simplest approach but may be subject to error
 
@@ -111,7 +111,7 @@ Tests: A.4.2.3, A.4.2.4, A.4.4.1 +
 The server SHALL support the HTTP GET operation at the path /conformance. +
 Tests: A.4.4.2 +
 | *Requirement 6:* Conformance Class Response +
-A successful execution of the operation SHALL be reported as a response with a HTTP status code 200. The content of that response SHALL be based upon the OpenAPI 3.0 schema req-classes.yaml and list all $standard_name$ requirements classes that the server conforms to. +
+A successful execution of the operation SHALL be reported as a response with a HTTP status code 200. The content of that response SHALL be based upon the OpenAPI 3.0 schema req-classes.yaml and list all OGC API - Processes requirements classes that the server conforms to. +
 Tests: A.4.4.3 +
 | *Requirement 7:* HTTP 1.1 +
 The server SHALL conform to HTTP 1.1. +
@@ -121,26 +121,26 @@ Tests: A.4.1.1 +
 
 === Abstract Test
 
-The Test Approach used in the $standard_name$ Abstract Test Suite includes four steps:
+The Test Approach used in the OGC API - Processes Abstract Test Suite includes four steps:
 
 . Identify the test points
 
-. Verify that API descriptions of the test points comply with the $standard_name$ standard
+. Verify that API descriptions of the test points comply with the OGC API - Processes standard
 
-. Verify that the micro-services at each test point behave in accordance with the $standard_name$ standard.
+. Verify that the micro-services at each test point behave in accordance with the OGC API - Processes standard.
 
-. Verify that the resources returned at each test point are in accordance with the $standard_name$ standard and any referenced content standard.
+. Verify that the resources returned at each test point are in accordance with the OGC API - Processes standard and any referenced content standard.
 
 Identification of test points is a new requirement with $standard_name$.  Since an API is not a Web Service, there may be RESTful endpoints advertised which are not intended to be targets of the compliance testing.  Section A.4.2 describes the process for crawling the API Description document and extracting those URLs which should be tested as well as the path(s) they should be tested with.  The concatenation of a Server URL with a path forms a test point.
 
-Section A.4.3 describes how the test points are exercised to determine compliance with the $standard_name$ standard.
+Section A.4.3 describes how the test points are exercised to determine compliance with the OGC API - Processes standard.
 
 ==== General Tests
 
 ===== HTTP 1.1
 
 ====== a) Test Purpose:
-Validate that the $standard_name$ services, advertised through the API, conform with HTTP 1.1.
+Validate that the OGC API - Processes services, advertised through the API, conform with HTTP 1.1.
 
 ====== b) Pre-conditions:
 none
@@ -195,14 +195,14 @@ Validate that the landing page complies with the required structure and contents
 
 . Validate that the landing page includes a “conformance” link to the conformance class document
 
-. Validate that the landing page includes a “processes” link to the $standard_name$ contents.
+. Validate that the landing page includes a “processes” link to the OGC API - Processes contents.
 
 ====== d) References:
 Requirement 2
 
 ===== OpenAPI Document Retrieval
 
-Note: The URI for the API definition is provided through the landing page.  However, that does not mean that the API definition resides on the same server as the landing page.  Test clients should be prepared for a $standard_name$ implementation which is distributed across multiple servers.
+Note: The URI for the API definition is provided through the landing page.  However, that does not mean that the API definition resides on the same server as the landing page.  Test clients should be prepared for a OGC API - Processes implementation which is distributed across multiple servers.
 
 ====== a) Test Purpose:
 Validate that the API Definition document can be retrieved from the expected location.
@@ -259,12 +259,12 @@ To identify the test points associated with each Path in the OpenAPI document
 
 *   An OpenAPI document has been obtained
 *   A list of URLs for the servers to be included in the compliance test has been provided
-*   A list of the paths specified in the $standard_name$ specification
+*   A list of the paths specified in the OGC API - Processes specification
 
 ====== c) Method:
 
 FOR EACH paths property in the OpenAPI document
-    If the path name is one of those specified in the $standard_name$ specification
+    If the path name is one of those specified in the OGC API - Processes specification
         Retrieve the Server URIs using A.4.3.2.
         FOR EACH Server URI
             Concatenate the Server URI with the path name to form a test point.

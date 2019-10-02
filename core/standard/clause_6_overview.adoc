@@ -1,9 +1,9 @@
 [[overview]]
 == Overview
 
-=== Resources to be provided by WPS
+=== Resources to be provided by the OGC API - Processes
 
-The resources that are provided by a WPS REST server are listed in <<table_wps_resources>> below and include the
+The resources that are provided by a server implementing the OGC API - Processes are listed in <<table_wps_resources>> below and include the
 capabilities document of the server, the list of processes available
 (ProcessCollection and Process), jobs (running processes) and
 results of process executions.
@@ -16,16 +16,15 @@ TODO: check chapter numbers
 !===
 |Resource |Path |HTTP method |Document reference
 |Landing page |`/` |GET |<<_retrieve_the_api_landing_page,7.2 API landing page>>
-|API definition |`/api` |GET |<<_retrieve_an_api_definition_2,7.3 API definition>>
 |Conformance classes |`/conformance` |GET |<<_declaration_of_conformance_classes,7.4 Declaration of conformance classes>>
-|Available processes |`/processes` |GET |<<_retrieve_a_process_collection,7.8 Retrieve a process collection>>
+|Process collection |`/processes` |GET |<<_retrieve_a_process_collection,7.8 Retrieve a process collection>>
 |Process description |`/processes/{processID}` |GET |<<_retrieve_process_description, 7.9 Retrieve a process description>>
 |Job collection |`/processes/{processID}/jobs` |GET |<<_retrieve_a_job_collection,7.10 Retrieve a job collection>>
 |Job status info |`/processes/{processID}/jobs/{jobID}` |GET |<<_retrieve_status_information_about_a_job,7.12 Retrieve status information about a job>>
-|Job result |`/processes/{processID}/jobs/{jobID}/results` |GET |<<_retrieve_a_job_result,7.13 Retrieve a job result>>
+|Job results |`/processes/{processID}/jobs/{jobID}/results` |GET |<<_retrieve_a_job_result,7.13 Retrieve job results>>
 !===
 
-=== Operations on WPS resources
+=== Operations on resources provided by the OGC API - Processes
 
 In general, the HTTP GET operation is used to provide access to the resources described above.
 However, in order to create a new job, the HTTP POST method is used to create a new job by sending an execute request to the server. The operation is listed in <<table_job_creation>> below.
