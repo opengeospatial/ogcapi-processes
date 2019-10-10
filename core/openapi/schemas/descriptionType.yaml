@@ -1,4 +1,3 @@
-descriptionType:
   type: object
   required:
        - id

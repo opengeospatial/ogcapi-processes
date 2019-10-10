@@ -1,9 +1,6 @@
-process:
     allOf:
        - $ref: 'processSummary.yaml'
        - type: object
-         required:
-           - id
          properties:
             inputs:
               type: array

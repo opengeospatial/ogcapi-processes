@@ -1,4 +1,3 @@
-complexData:
     allOf:
        - $ref: 'dataType.yaml'
        - type: object

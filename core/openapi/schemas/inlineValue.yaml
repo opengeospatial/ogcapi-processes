@@ -1,4 +1,3 @@
-inlineValue:
    type: object
    required: 
       - inlineValue

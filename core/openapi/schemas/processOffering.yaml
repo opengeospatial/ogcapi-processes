@@ -1,7 +1,0 @@
-processOffering:
-  type: object
-  required:
-    - process
-  properties:
-     process:
-        $ref: 'process.yaml'

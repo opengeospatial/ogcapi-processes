@@ -1,4 +1,3 @@
-formatDescription:
     allOf:
        - $ref: 'format.yaml'
        - type: object

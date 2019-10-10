@@ -1,4 +1,3 @@
-processSummary:
     allOf:
        - $ref: 'descriptionType.yaml'
        - type: object
@@ -21,5 +20,4 @@ processSummary:
           links:
             type: array
             items:
-               $ref: 'link.yaml'
-          
+               $ref: 'link.yaml'          

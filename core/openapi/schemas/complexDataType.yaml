@@ -1,4 +1,3 @@
-complexDataType:
       type: object
       required:
          - formats

@@ -1,4 +1,3 @@
-output:
    allOf:
       - $ref: 'dataType.yaml'
       - type: object

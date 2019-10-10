@@ -1,4 +1,3 @@
-supportedCRS:
     type: object
     properties:
        crs:

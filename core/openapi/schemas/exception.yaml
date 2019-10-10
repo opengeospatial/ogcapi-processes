@@ -1,4 +1,3 @@
-exception:
   type: object
   required:
     - code

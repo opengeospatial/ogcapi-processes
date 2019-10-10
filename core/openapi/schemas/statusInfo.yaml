@@ -1,8 +1,10 @@
-statusInfo:
     type: object
     required:
+        - jobID
         - status
     properties:
+       jobID:
+          type: string
        status:
           type: string
           enum:

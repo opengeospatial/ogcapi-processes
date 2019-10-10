@@ -1,5 +1,5 @@
-:Title: OGC WPS 2.0 REST/JSON Binding Extension
-:titletext: OGC WPS 2.0 REST/JSON Binding Extension
+:Title: OGC API - Processes
+:titletext: OGC API - Processes
 :doctype: book
 :encoding: utf-8
 :lang: en
@@ -31,7 +31,7 @@
 |Publication Date:   <yyyy-mm-dd>
 |External identifier of this OGC® document: http://www.opengis.net/doc/IS/wps-rest/1.0
 |Internal reference number of this OGC® document:    18-062
-|Version: 1.0-draft
+|Version: 1.0-draft.3
 |Category: OGC® Implementation Specification
 |Editor:   Benjamin Pross
 |===
@@ -122,6 +122,3 @@ Revision History should be the last annex before the Bibliography
 Bibliography should be the last annex
 ////
 include::annex-history.adoc[]
-
-<<<
-include::annex-bibliography.adoc[]
