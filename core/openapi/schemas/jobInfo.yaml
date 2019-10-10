@@ -2,7 +2,7 @@ jobInfo:
     type: object
     required:
         - id
-        - infos
+        - status
     properties:
         id:
           type: string

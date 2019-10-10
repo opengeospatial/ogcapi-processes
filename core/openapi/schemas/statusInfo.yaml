@@ -1,3 +1,4 @@
+statusInfo:
     type: object
     required:
         - jobID
