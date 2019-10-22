@@ -1,19 +1,18 @@
-openapi: 3.0.0
+openapi: 3.0.1
 info:
-  title: The OGC Web Processing Service 2.0 REST/JSON Extension API
-  version: "1.0-draft.2"
+  title: The OGC API - Processes
+  version: "1.0-draft.3"
   description: |-
     WARNING - THIS IS WORK IN PROGRESS\
     TODO - Add a description of the sample service.\
     TODO - Add security elements in a separate example.\
     TODO - Connect to a live service.
   contact:
-    name: Open Geospatial Consortium
-    email: standards@opengeospatial.org
-    url: 'http://www.opengeospatial.org'
+    name: Benjamin Pross
+    email: b.pross@52north.org
   license:
-    name: CC-BY 4.0 license
-    url: 'https://creativecommons.org/licenses/by/4.0/'
+    name: OGC license
+    url: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/LICENSE'
 paths:
   /:
     get:
@@ -49,12 +48,6 @@ paths:
             application/json:
               schema:
                 $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/req-classes.yaml'
-        default:
-          description: An error occured.
-          content:
-            application/json:
-              schema:
-                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
   /processes:
     get:
       summary: retrieve available processes
@@ -71,12 +64,6 @@ paths:
             application/json:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml'
-        default:
-          description: An error occured.
-          content:
-            application/json:
-              schema:
-                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
   /processes/{id}:
     get:
       summary: retrieve a process description
@@ -145,12 +132,6 @@ paths:
             application/json:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-        default:
-          description: An error occured.
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
   /processes/{id}/jobs:
     get:
       summary: retrieve the list of jobs for a process.
@@ -177,13 +158,7 @@ paths:
             application/json:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-        default:
-          description: An error occured.
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-    post: #TODO sync execute
+    post:
       summary: execute a process.
       operationId: execute
       tags:
@@ -216,12 +191,6 @@ paths:
             application/json:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-        default:
-          description: An error occured.
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
   /processes/{id}/jobs/{jobID}:
     get:
       summary: retrieve the status of a job
@@ -250,12 +219,6 @@ paths:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml'
         '404':
           description: 'The process with id {id} or the job with id {jobID} does not exist.'
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-        default:
-          description: An error occured.
           content:
             application/json:
                 schema:
@@ -294,12 +257,6 @@ paths:
                     $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
         '500':
           description: 'The job execution failed due to a internal server error.'
-          content:
-            application/json:
-                  schema:
-                    $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-        default:
-          description: An error occured.
           content:
             application/json:
                   schema:
