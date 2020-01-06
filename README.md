@@ -57,6 +57,7 @@ Demo implementations:
 
 * [52°North](http://geoprocessing.demo.52north.org:8080/javaps/rest/)
 * [pygeoapi](https://demo.pygeoapi.io/master)
+* [crim-ca/weaver](https://github.com/crim-ca/weaver)
 * [ZOO-Project](https://demo.mapmint.com/swagger-ui/dist/)
 
 ## Contributing
