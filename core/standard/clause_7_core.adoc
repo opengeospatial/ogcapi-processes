@@ -10,7 +10,7 @@ A server that implements the OGC API - Processes provides access to processes.
 
 Each OGC API - Processes has a single `LandingPage` (path `/`) that provides links to
 
-* the `APIDefinition` (path `/api`),
+* the `APIDefinition` (no fixed path),
 * the `Conformance` statements (path `/conformance`),
 * the `processes` metadata (path `/processes`).
 

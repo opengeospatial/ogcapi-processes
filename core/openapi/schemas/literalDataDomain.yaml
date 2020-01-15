@@ -3,7 +3,6 @@ properties:
   valueDefinition:
       oneOf:
         - $ref: 'allowedValues.yaml'
-        - $ref: 'allowedRanges.yaml'
         - $ref: 'anyValue.yaml'
         - $ref: 'valuesReference.yaml'
   defaultValue:
