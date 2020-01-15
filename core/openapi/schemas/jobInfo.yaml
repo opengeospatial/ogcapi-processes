@@ -1,4 +1,3 @@
-jobInfo:
     type: object
     required:
         - id
