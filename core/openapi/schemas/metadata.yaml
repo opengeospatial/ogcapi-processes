@@ -1,5 +1,7 @@
    type: object
    properties:
+      title:
+         type: string
       role:
          type: string
       href:

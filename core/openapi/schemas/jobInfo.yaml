@@ -1,0 +1,9 @@
+    type: object
+    required:
+        - id
+        - status
+    properties:
+        id:
+          type: string
+        infos:
+          $ref: 'statusInfo.yaml'
