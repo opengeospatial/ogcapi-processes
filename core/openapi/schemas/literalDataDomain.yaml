@@ -1,29 +1,29 @@
-type: object
-properties:
-  valueDefinition:
-      oneOf:
-        - $ref: 'allowedValues.yaml'
-        - $ref: 'anyValue.yaml'
-        - $ref: 'valuesReference.yaml'
-  defaultValue:
-    type: string
-  dataType:
     type: object
-    required:
-      - name
     properties:
-      name:
+      valueDefinition:
+          oneOf:
+            - $ref: 'allowedValues.yaml'
+            - $ref: 'anyValue.yaml'
+            - $ref: 'valuesReference.yaml'
+      defaultValue:
         type: string
-      reference:
-        type: string
-        format: uri
-  uom:
-    type: object
-    required:
-      - name
-    properties:
-      name:
-        type: string
-      reference:
-        type: string
-        format: uri
+      dataType:
+        type: object
+        required:
+          - name
+        properties:
+          name:
+            type: string
+          reference:
+            type: string
+            format: uri
+      uom:
+        type: object
+        required:
+          - name
+        properties:
+          name:
+            type: string
+          reference:
+            type: string
+            format: uri

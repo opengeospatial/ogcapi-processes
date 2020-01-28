@@ -1,9 +1,8 @@
-jobCollection:
-  type: object
-  required:
-    - jobs
-  properties:
-    jobs:
-      type: array
-      items:
-        $ref: 'jobInfo.yaml'
+    type: object
+    required:
+      - jobs
+    properties:
+      jobs:
+        type: array
+        items:
+          $ref: 'jobInfo.yaml'

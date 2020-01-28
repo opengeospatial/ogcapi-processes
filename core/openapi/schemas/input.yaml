@@ -10,3 +10,4 @@
            - $ref: 'complexData.yaml'
            - $ref: 'literalData.yaml'
            - $ref: 'boundingBoxData.yaml'
+           - $ref: 'input'
