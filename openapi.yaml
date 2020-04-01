@@ -178,6 +178,12 @@ paths:
             schema:
                 $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml'
       responses:
+        '200':
+          description: The result of a synchronous execution.
+          content:
+            application/json:
+                schema:
+                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
         '201':
           description: Started asynchronous execution. Created job.
           headers:
@@ -185,12 +191,6 @@ paths:
               schema:
                   type: string
               description: URL to check the status of the execution/job.
-        '200':
-          description: Started synchronous execution.
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
         '404':
           description: 'The process with id {id} does not exist.'
           content:
