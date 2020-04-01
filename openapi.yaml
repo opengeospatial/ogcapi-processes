@@ -191,6 +191,18 @@ paths:
             application/json:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
+      callbacks:
+          jobCompleted:
+            '{$request.body#/subscriber}':
+              post:
+                requestBody:
+                  content:
+                    application/json:
+                      schema:
+                        $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
+                responses:
+                  '202':
+                    description: Results received successfully
   /processes/{id}/jobs/{jobID}:
     get:
       summary: retrieve the status of a job
