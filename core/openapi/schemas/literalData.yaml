@@ -3,22 +3,6 @@
       value:
          type: string
       dataType:
-        type: object
-        required:
-          - name
-        properties:
-          name:
-            type: string
-          reference:
-            type: string
-            format: uri
+        $ref: 'nameReferenceType.yaml'
       uom:
-        type: object
-        required:
-          - name
-        properties:
-          name:
-            type: string
-          reference:
-            type: string
-            format: uri
+        $ref: 'nameReferenceType.yaml'
