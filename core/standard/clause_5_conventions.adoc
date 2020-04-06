@@ -36,17 +36,17 @@ The following <<link-relations,registered link relation types>> are used in this
 
 In addition the following link relation types are used for which no applicable registered link relation type could be identified.
 
-* **processes**: The target URI points to the collection of processes the API offers.
-
-* **process-description**: The target URI points to a specific process description.
-
-* **execute**: The target URI points to the execution endpoint of a process.
-
-* **results**: The target URI points to the results of a process.
+* **conformance**: Refers to a resource that identifies the specifications that the link's context conforms to.
 
 * **exceptions**: The target URI points to exceptions of a failed process.
 
-* **conformance**: Refers to a resource that identifies the specifications that the link's context conforms to.
+* **execute**: The target URI points to the execution endpoint of a process.
+
+* **process-description**: The target URI points to a specific process description.
+
+* **processes**: The target URI points to the collection of processes the API offers.
+
+* **results**: The target URI points to the results of a process.
 
 Each resource representation includes an array of links. Implementations are free to add additional links for all resources provided by the API. 
 
@@ -57,10 +57,10 @@ Each resource representation includes an array of links. Implementations are fre
 |API	| Application Programming Interface
 |CRS	| Coordinate Reference System
 |GML	| Geography Markup Language
-|HTTP	|Hypertext Transfer Protocol
+|HTTP	| Hypertext Transfer Protocol
 |ISO	| International Organization for Standardization
 |KVP	| Keyword Value Pair
-|MIME	|Multipurpose Internet Mail Extensions
+|MIME	| Multipurpose Internet Mail Extensions
 |OGC	| Open Geospatial Consortium
 |URI	| Universal Resource Identifier
 |URL	| Uniform Resource Locator
