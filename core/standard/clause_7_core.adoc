@@ -73,6 +73,11 @@ include::requirements/core/REQ_root-success.adoc[]
 		"rel": "self",
 		"type": "application/json",
 		"title": "this document"
+	},{
+		"href": "http://processing.example.org/",
+		"rel": "alternate",
+		"type": "text/html",
+		"title": "this document"
 	},
 	{
 		"href": "http://processing.example.org/api",
@@ -282,7 +287,7 @@ https://processing.example.org/processes
           {
             "href": "https://processing.example.org/processes/EchoProcess",
             "type": "application/json",
-            "rel": "self",
+            "rel": "process-desc",
             "title": "process description"
           }
         ]
@@ -560,7 +565,9 @@ include::requirements/core/REQ_job-creation-request.adoc[]
 			"mimeType": "application/xml"
 		},
 		"transmissionMode": "value"
-	}]
+	}],
+    "response": "document",
+    "mode": "async"
 }
 ----
 

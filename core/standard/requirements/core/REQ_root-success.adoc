@@ -8,7 +8,7 @@ HTTP status code `200`.
 The content of that response SHALL be based upon the OpenAPI 3.0 schema link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/root.yaml[root.yaml]
 and include at least links to the following resources:
 
-* `/api` (relation type 'service')
+* the API definition (relation type 'service-desc' or 'service-doc')
 * `/conformance` (relation type 'conformance')
 * `/processes` (relation type 'processes')
 |===

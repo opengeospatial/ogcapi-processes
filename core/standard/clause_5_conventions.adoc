@@ -42,7 +42,7 @@ In addition the following link relation types are used for which no applicable r
 
 * **execute**: The target URI points to the execution endpoint of a process.
 
-* **process-description**: The target URI points to a specific process description.
+* **process-desc**: The target URI points to a specific process description.
 
 * **processes**: The target URI points to the collection of processes the API offers.
 
