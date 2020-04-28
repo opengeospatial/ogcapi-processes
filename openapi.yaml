@@ -150,12 +150,7 @@ paths:
       tags:
         - Execute
       parameters:
-          - in: path
-            name: id
-            description: The id of a process.
-            required: true
-            schema:
-              type: string
+          - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml'
       requestBody:
         description: Mandatory execute request JSON
         required: true
@@ -202,18 +197,8 @@ paths:
       tags:
         - Status
       parameters:
-          - in: path
-            name: id
-            description: The id of a process
-            required: true
-            schema:
-              type: string
-          - in: path
-            name: jobID
-            description: The id of a job
-            required: true
-            schema:
-              type: string
+          - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml'
+          - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml'
       responses:
         '200':
           description: The status of a job.
@@ -234,18 +219,8 @@ paths:
       tags:
         - Result
       parameters:
-          - in: path
-            name: id
-            description: The id of a process
-            required: true
-            schema:
-              type: string
-          - in: path
-            name: jobID
-            description: The id of a job
-            required: true
-            schema:
-              type: string
+          - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml'
+          - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml'
       responses:
         '200':
           description: The result of a job.
