@@ -61,20 +61,14 @@ paths:
             application/json:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml'
-  /processes/{id}:
+  /processes/{processId}:
     get:
       summary: retrieve a process description
       operationId: getProcessDescription
       tags:
         - ProcessDescription
       parameters:
-          - in: path
-            name: id
-            description: The id of a process
-            required: true
-            schema:
-              type: string
-            example: buffer
+        - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml'
       responses:
         '200':
           description: A process description.
@@ -124,24 +118,19 @@ paths:
                           type: application/json
                           title: Execute endpoint
         '404':
-          description: 'The process with id {id} does not exist.'
+          description: 'The process with id {processId} does not exist.'
           content:
             application/json:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-  /processes/{id}/jobs:
+  /processes/{processId}/jobs:
     get:
       summary: retrieve the list of jobs for a process.
       operationId: getJobList
       tags:
         - JobList
       parameters:
-          - in: path
-            name: id
-            description: The id of a process.
-            required: true
-            schema:
-              type: string
+        - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml'
       responses:
         '200':
           description: A list of jobs for this process.
@@ -150,7 +139,7 @@ paths:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml'
         '404':
-          description: 'The process with id {id} does not exist.'
+          description: 'The process with id {processId} does not exist.'
           content:
             application/json:
                 schema:
@@ -189,7 +178,7 @@ paths:
                   type: string
               description: URL to check the status of the execution/job.
         '404':
-          description: 'The process with id {id} does not exist.'
+          description: 'The process with id {processId} does not exist.'
           content:
             application/json:
                 schema:
@@ -206,7 +195,7 @@ paths:
                 responses:
                   '202':
                     description: Results received successfully
-  /processes/{id}/jobs/{jobID}:
+  /processes/{processId}/jobs/{jobId}:
     get:
       summary: retrieve the status of a job
       operationId: getStatus
@@ -233,12 +222,12 @@ paths:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml'
         '404':
-          description: 'The process with id {id} or the job with id {jobID} does not exist.'
+          description: 'The process with id {processId} or the job with id {jobId} does not exist.'
           content:
             application/json:
                 schema:
                   $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-  /processes/{id}/jobs/{jobID}/results:
+  /processes/{processId}/jobs/{jobId}/results:
     get:
       summary: retrieve the result(s) of a job
       operationId: getResult
@@ -265,7 +254,7 @@ paths:
                 schema:
                     $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
         '404':
-          description: 'The process with id {id} or the job with id {jobID} does not exist.'
+          description: 'The process with id {processId} or the job with id {jobId} does not exist.'
           content:
             application/json:
                   schema:
