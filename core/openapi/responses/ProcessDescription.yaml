@@ -2,6 +2,6 @@ description: A process description.
 content:
   application/json:
       schema:
-        $ref: '#/components/schemas/process'
+        $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml'
       example:
-        $ref: '#/components/examples/ProcessDescription'
+        $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/examples/ProcessDescription.json'

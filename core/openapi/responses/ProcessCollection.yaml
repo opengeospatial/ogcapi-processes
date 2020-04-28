@@ -3,4 +3,4 @@ description: >-
 content:
   application/json:
       schema:
-        $ref: '#/components/schemas/processCollection'
+        $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml'

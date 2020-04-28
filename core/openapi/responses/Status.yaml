@@ -2,4 +2,4 @@ description: The status of a job.
 content:
   application/json:
       schema:
-        $ref: '#/components/schemas/statusInfo'
+        $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml'
