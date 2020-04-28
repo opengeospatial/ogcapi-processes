@@ -1,0 +1,7 @@
+description: A process description.
+content:
+  application/json:
+      schema:
+        $ref: '#/components/schemas/process'
+      example:
+        $ref: '#/components/examples/ProcessDescription'

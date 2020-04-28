@@ -1,0 +1,8 @@
+description: A server error occurred.
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/exception'
+  text/html:
+    schema:
+      type: string

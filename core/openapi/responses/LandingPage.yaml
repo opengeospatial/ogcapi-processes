@@ -1,0 +1,12 @@
+description: |-
+  The landing page provides links to the API definition
+  (link relations `service-desc` and `service-doc`),
+  the Conformance declaration (path `/conformance`,
+  link relation `conformance`), and to other resources.
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/landingPage'
+  text/html:
+    schema:
+      type: string

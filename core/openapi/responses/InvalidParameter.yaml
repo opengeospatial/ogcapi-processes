@@ -1,0 +1,8 @@
+description: A query parameter has an invalid value.
+content:
+  application/json:
+    schema:
+      $ref: '#/components/schemas/exception'
+  text/html:
+    schema:
+      type: string
