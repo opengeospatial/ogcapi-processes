@@ -44,7 +44,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/req-classes.yaml'
+                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/confClasses.yaml'
   /processes:
     get:
       summary: retrieve available processes
@@ -247,7 +247,6 @@ tags:
       data.
   - name: Processes
     description: Access to processes.
-# Added by API Auto Mocking Plugin
 servers:
 # Added by API Auto Mocking Plugin
    - description: SwaggerHub API Auto Mocking
