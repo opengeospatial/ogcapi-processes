@@ -1,0 +1,6 @@
+name: jobId
+in: path
+description: local identifier of a job
+required: true
+schema:
+    type: string
