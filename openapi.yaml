@@ -4,9 +4,6 @@ info:
   version: "1.0-draft.3"
   description: |-
     WARNING - THIS IS WORK IN PROGRESS\
-    TODO - Add a description of the sample service.\
-    TODO - Add security elements in a separate example.\
-    TODO - Connect to a live service.
   contact:
     name: Benjamin Pross
     email: b.pross@52north.org
@@ -37,7 +34,7 @@ paths:
     get:
       summary: information about standards that this API conforms to
       description: >-
-        list all requirements classes specified in a standard (e.g., WPS REST/JSON Binding Core) that the server conforms to
+        list all requirements classes specified in a standard (e.g., OGC API - Processes Part 1: Core) that the server conforms to
       operationId: getRequirementsClasses
       tags:
         - Conformance
