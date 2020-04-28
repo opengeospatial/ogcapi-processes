@@ -15,137 +15,75 @@ paths:
     get:
       summary: landing page of this API
       description: >-
-        The landing page provides links to the API definition, the Conformance
-        statements and the metadata about the processes offered by this service.
+        The landing page provides links to the API definition, the conformance
+        declaration and the metadata about the processes offered by this service.
       operationId: getLandingPage
       tags:
         - Capabilities
       responses:
-        '200':
-          description: links to the API capabilities
-          content:
-            application/json:
-              schema:
-                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingPage.yaml'
-            text/html:
-              schema:
-                type: string
+        200:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/LandingPage.yaml'
+        500:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml'
   /conformance:
     get:
       summary: information about standards that this API conforms to
       description: >-
-        list all conformance classes specified in a standard (e.g., OGC API - Processes Part 1: Core) that the server conforms to
-      operationId: getRequirementsClasses
+        Lists all requirements classes specified in the standard (e.g., OGC API - Processes
+        Part 1: Core) that the server conforms to
+      operationId: getConformanceClasses
       tags:
-        - Conformance
+        - ConformanceDeclaration
       responses:
-        '200':
-          description: the URIs of all requirements classes supported by the server
-          content:
-            application/json:
-              schema:
-                $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/confClasses.yaml'
+        200:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ConformanceDeclaration.yaml'
+        500:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml'
   /processes:
     get:
       summary: retrieve available processes
       description: >-
-        TODO
+        Lists all available processes this server offers.
       operationId: getProcesses
       tags:
-        - Processes
+        - ProcessCollection
       responses:
-        '200':
-          description: >-
-            Information about the available processes
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml'
+        200:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ProcessCollection.yaml'
   /processes/{processId}:
     get:
       summary: retrieve a process description
+      description: >-
+        Describes a process.
       operationId: getProcessDescription
       tags:
         - ProcessDescription
       parameters:
-        - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml'
+          - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml'
       responses:
-        '200':
-          description: A process description.
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml'
-                example: 
-                   process:
-                     id: buffer
-                     title: Buffer process 
-                     description: Buffer process 
-                     keywords: [process, buffer]
-                     inputs: 
-                        - id: features
-                          title: features
-                          description: The features to buffer
-                          formats: 
-                             - mimeType: application/json
-                               maximumMegabytes: 3
-                               default: true
-                             - mimeType: application/x-zipped-shp
-                               maximumMegabytes: 4 
-                        - id: width
-                          title: width
-                          description: The width of the buffer
-                          literalDataDomain:
-                             dataType:
-                                 name: double
-                             valueDefinition:
-                                 defaultValue: 1000
-                             uom: meters
-                     outputs:
-                           - id: result
-                             title: result
-                             description: The buffered features
-                             formats: 
-                                - mimeType: application/json
-                                  default: true
-                                - mimeType: application/x-zipped-shp
-                     version: 1.1
-                     jobControlOptions: [sync-execute, async-execute]
-                     outputTransmission: [value, reference]
-                     links:
-                        - rel: canonical
-                          href: https://virtserver.swaggerhub.com/geoprocessing/WPS/0.01/processes/buffer/jobs
-                          type: application/json
-                          title: Execute endpoint
-        '404':
-          description: 'The process with id {processId} does not exist.'
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
+        200:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ProcessDescription.yaml'
+        404:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml'
   /processes/{processId}/jobs:
     get:
       summary: retrieve the list of jobs for a process.
-      operationId: getJobList
+      description: >-
+        Lists available jobs of a process.
+      operationId: getJobs
       tags:
-        - JobList
+        - JobCollection
       parameters:
-        - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml'
+          - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml'
       responses:
-        '200':
-          description: A list of jobs for this process.
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml'
-        '404':
-          description: 'The process with id {processId} does not exist.'
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
+        200:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/JobCollection.yaml'
+        404:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml'
     post:
       summary: execute a process.
+      description: >-
+        Submits a new job.
       operationId: execute
       tags:
         - Execute
@@ -159,25 +97,14 @@ paths:
             schema:
                 $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml'
       responses:
-        '200':
-          description: The result of a synchronous execution.
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
-        '201':
-          description: Started asynchronous execution. Created job.
-          headers:
-            Location:
-              schema:
-                  type: string
-              description: URL to check the status of the execution/job.
-        '404':
-          description: 'The process with id {processId} does not exist.'
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
+        200:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/Results.yaml'
+        201:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ExecuteAsync.yaml'
+        404:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml'
+        500:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml'
       callbacks:
           jobCompleted:
             '{$request.body#/subscriber}':
@@ -188,11 +115,13 @@ paths:
                       schema:
                         $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
                 responses:
-                  '202':
+                  202:
                     description: Results received successfully
   /processes/{processId}/jobs/{jobId}:
     get:
       summary: retrieve the status of a job
+      description: >-
+        Shows the status of a job.
       operationId: getStatus
       tags:
         - Status
@@ -200,21 +129,17 @@ paths:
           - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml'
           - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml'
       responses:
-        '200':
-          description: The status of a job.
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml'
-        '404':
-          description: 'The process with id {processId} or the job with id {jobId} does not exist.'
-          content:
-            application/json:
-                schema:
-                  $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
+        200:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/Status.yaml'
+        404:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml'
+        500:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml'
   /processes/{processId}/jobs/{jobId}/results:
     get:
       summary: retrieve the result(s) of a job
+      description: >-
+        Lists available results of a job. In case of a failure, lists exceptions instead.
       operationId: getResult
       tags:
         - Result
@@ -222,31 +147,12 @@ paths:
           - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml'
           - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml'
       responses:
-        '200':
-          description: The result of a job.
-          content:
-            application/json:
-                schema:
-                    $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
-        '404':
-          description: 'The process with id {processId} or the job with id {jobId} does not exist.'
-          content:
-            application/json:
-                  schema:
-                    $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-        '500':
-          description: 'The job execution failed due to a internal server error.'
-          content:
-            application/json:
-                  schema:
-                    $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
-tags:
-  - name: Capabilities
-    description: >-
-      Essential characteristics of this API including information about the
-      data.
-  - name: Processes
-    description: Access to processes.
+        200:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/Results.yaml'
+        404:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml'
+        500:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml'
 servers:
 # Added by API Auto Mocking Plugin
    - description: SwaggerHub API Auto Mocking
