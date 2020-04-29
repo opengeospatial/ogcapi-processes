@@ -50,13 +50,19 @@ include::requirements/core/REQ_root-op.adoc[]
 
 include::requirements/core/REQ_root-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/root.yaml[Schema for the landing page]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingPage.yaml[Schema for the landing page]
 [source,YAML]
 ----
     type: object
     required:
       - links
     properties:
+      title:
+        type: string
+        example: Example processing server
+      description:
+        type: string
+        example: Example server implementing the OGC API - Processes 1.0
       links:
         type: array
         items:
@@ -448,48 +454,6 @@ https://processing.example.org/processes/EchoProcess
 See <<http_status_codes>> for general guidance.
 
 include::requirements/core/REQ_process-exception-no-such-process.adoc[]
-
-=== Retrieve a job collection
-
-The following section describes a method to retrieve a collection of existing jobs of a process.
-
-==== Operation
-
-include::requirements/core/REQ_job-collection-op.adoc[]
-
-==== Response
-
-include::requirements/core/REQ_job-collection-success.adoc[]
-
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml[Schema for the job collection]
-[source,YAML]
-----
-    type: array
-    items:
-      type: string
-----
-
-.Example of HTTP GET request for retrieving the list of jobs of a process encoded as JSON.
-[source]
-----
-http://processing.example.org/processes/EchoProcess/jobs
-----
-
-.Example of a job list encoded as JSON.
-[source,json]
-----
-[
-    "8f5c13b9-6da2-4447-a683-69a5f364323b",
-    "904358bd-a151-49f3-af74-79edf7ccb288"
-]
-
-----
-
-==== Error situations
-
-See <<http_status_codes>> for general guidance.
-
-If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<rc_no-such-process>>).
 
 === Create a new job
 
