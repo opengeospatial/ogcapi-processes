@@ -1,10 +1,49 @@
 == Conformance
+This standard defines six requirements / conformance classes.
+
+The standardization targets of all conformance classes are "Web APIs."
+
+The main requirements class is:
+
+* <<rc_core,Core>>.
+
+The _Core_ specifies requirements that all Web APIs have to implement.
+
+Two requirements classes depend on the _Core_ and specify representations for these resources in commonly used encodings for spatial data on the web:
+
+* <<rc_json,JSON>>, and
+
+* <<rc_html,HTML>>.
+
+The JSON encoding is mandatory.
+
+The _Core_ does not mandate any encoding or format for the formal definition of the API. One option is the OpenAPI 3.0 specification and a requirements class has been specified for OpenAPI 3.0, which depends on the _Core_:
+
+* <<rc_oas30,OpenAPI Specification 3.0>>.
+
+An implementation of the _Core_ requirements class may also decide to use other API definition representations in addition or instead of an OpenAPI 3.0 definition. Examples for alternative API definitions: OpenAPI 2.0 (Swagger), future versions of the OpenAPI specification, an OWS Common 2.0 capabilities document or WSDL.
+
+The _Core_ is intended to be a minimal useful API for the execution of processes from the geospatial domain. It is designed to map the operations of a Web Processing Service 2.0.
+
+Two additional conformance classes are specified that extend the basic functionality of a WPS:
+
+* <<rc_job-collection,Job collection>>, and
+
+* <<rc_callback,Callback>>
+
+Additional capabilities such as support for transactions, extended job monitoring, etc., may be specified in future parts of the OGC API Processes series or as vendor-specific extensions.
 
 Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
 
-In order to conform to this OGC® interface standard, a software implementation shall choose to implement:
-
-* Any one of the conformance levels specified in Annex B (normative).
-* Any one of the Distributed Computing Platform profiles specified in Annexes TBD through TBD (normative).
-
-All requirements-classes and conformance-classes described in this document are owned by the standard(s) identified.
+[#conf_class_uris,reftext='{table-caption} {counter:table-num}']
+.Conformance class URIs
+[cols="40,60",options="header"]
+!===
+|Conformance class |URI
+|<<ats_core,Core>> |http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core
+|<<ats_json,JSON>> |http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson
+|<<ats_html,HTML>> |http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/html
+|<<ats_oas30,OpenAPI Specification 3.0>> |http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30
+|<<ats_job-collection,Job collection>> |http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/gmlsf0
+|<<ats_callback,Callback>> |http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/gmlsf2
+!===
