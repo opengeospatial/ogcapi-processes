@@ -1,0 +1,31 @@
+{
+	"links": [{
+		"href": "http://processing.example.org/",
+		"rel": "self",
+		"type": "application/json",
+		"title": "this document"
+	},{
+		"href": "http://processing.example.org/",
+		"rel": "alternate",
+		"type": "text/html",
+		"title": "this document"
+	},
+	{
+		"href": "http://processing.example.org/api",
+		"rel": "service-desc",
+		"type": "application/openapi+json;version=3.0",
+		"title": "the API definition"
+	},
+	{
+		"href": "http://processing.example.org/conformance",
+		"rel": "conformance",
+		"type": "application/json",
+		"title": "OGC API - Processes conformance classes implemented by this server"
+	},
+	{
+		"href": "http://processing.example.org/processes",
+		"rel": "processes",
+		"type": "application/json",
+		"title": "Metadata about the processes"
+	}]
+}

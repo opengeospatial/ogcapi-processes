@@ -1,0 +1,11 @@
+[[rc_core]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/core
+|Target type |Web API
+|Dependency |<<rfc2616,RFC 2616 (HTTP/1.1)>>
+|Dependency |<<rfc2818,RFC 2818 (HTTP over TLS)>>
+|Dependency |<<rfc5988,RFC 5988 (Web Linking)>>
+|===
+

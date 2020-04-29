@@ -1,0 +1,7 @@
+{
+  "conformsTo": [
+    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/core",
+    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/oas30",
+    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/html"
+  ]
+}

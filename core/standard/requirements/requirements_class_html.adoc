@@ -1,9 +1,0 @@
-[[rc_html]]
-[cols="1,4",width="90%"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/html
-|Target type |Web service
-|Dependency |<<rc_core,WPS REST Binding 1.0 Core>>
-|Dependency |<<HTML5,HTML5>>
-|===

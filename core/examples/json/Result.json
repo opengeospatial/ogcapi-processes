@@ -1,0 +1,23 @@
+[
+   {
+	"id": "literalOutput",
+		"value": {
+			"inlineValue": 0.05
+		}
+	},
+	{
+		"id": "boundingboxOutput",
+		"value": {
+			"inlineValue": {
+			"bbox": [51.9, 7, 52, 7.1],
+				"crs": "EPSG:4326"
+			}
+		}
+	},
+	{
+		"id": "complexOutput",
+		"value": {
+			"inlineValue": "<test/>"
+		}
+	}
+]

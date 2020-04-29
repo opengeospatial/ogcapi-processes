@@ -4,4 +4,4 @@ content:
       schema:
         $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml'
       example:
-        $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/examples/ProcessDescription.json'
+        $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/examples/json/ProcessDescription.json'
