@@ -1,0 +1,8 @@
+description: None of the requested media types is supported at the path.
+content:
+  application/json:
+    schema:
+      $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
+  text/html:
+    schema:
+      type: string

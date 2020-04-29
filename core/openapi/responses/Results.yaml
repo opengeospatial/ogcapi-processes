@@ -1,0 +1,5 @@
+description: The results of a job.
+content:
+  application/json:
+      schema:
+        $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'

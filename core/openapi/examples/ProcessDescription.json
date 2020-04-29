@@ -1,0 +1,100 @@
+{
+	"id": "EchoProcess",
+	"title": "EchoProcess",
+	"version": "1.0.0",
+	"jobControlOptions": ["async-execute", "sync-execute"],
+	"outputTransmission": ["value", "reference"],
+	"inputs": [{
+		"id": "boundingboxInput",
+		"title": "boundingboxInput",
+		"input": {
+			"supportedCRS": [{
+				"default": true,
+				"crs": "EPSG:4326"
+			}]
+		},
+		"minOccurs": 1,
+		"maxOccurs": 1
+	},
+	{
+		"id": "literalInput",
+		"title": "literalInput",
+		"input": {
+			"literalDataDomain": {
+                "dataType": {
+                  "name": "double"
+                },
+				"valueDefinition": {
+					"anyValue": true
+				}
+			}
+		},
+		"minOccurs": 1,
+		"maxOccurs": 1
+	},
+	{
+		"id": "complexInput",
+		"title": "complexInput",
+		"input": {
+			"formats": [{
+				"default": true,
+				"mimeType": "application/xml"
+			},
+			{
+				"mimeType": "application/xml"
+			},
+			{
+				"mimeType": "text/xml"
+			}]
+		},
+		"minOccurs": 1,
+		"maxOccurs": 1
+	}],
+	"outputs": [{
+		"id": "boundingboxOutput",
+		"title": "boundingboxOutput",
+		"output": {
+			"supportedCRS": [{
+				"default": true,
+				"crs": "EPSG:4326"
+			}]
+		}
+	},
+	{
+		"id": "literalOutput",
+		"title": "literalOutput",
+		"output": {
+			"literalDataDomain": {
+                "dataType": {
+                  "name": "double"
+                },
+				"valueDefinition": {
+					"anyValue": true
+				}
+			}
+		}
+	},
+	{
+		"id": "complexOutput",
+		"title": "complexOutput",
+		"output": {
+			"formats": [{
+				"default": true,
+				"mimeType": "application/xml"
+			},
+			{
+				"mimeType": "application/xml"
+			},
+			{
+				"mimeType": "text/xml"
+			}]
+		}
+	}],
+    "links": [
+      {
+        "href": "https://processing.example.org/processes/EchoProcess/jobs",
+        "rel": "execute",
+        "title": "Execute endpoint"
+      }
+    ]
+}
