@@ -1,0 +1,10 @@
+[[ats_callback]]
+[cols="1,4",width="90%"]
+|===
+2+|*Conformance Class*
+2+|http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core
+|Target type |Web API
+|Requirements class |<<rc_core,Requirements Class "Core">>
+|===
+
+TODO
