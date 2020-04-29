@@ -24,7 +24,7 @@ Returns a detailed description of a process.
 GET /processes/{process-id}/jobs
 ```
 
-Returns the running and finished jobs for a process.
+Returns the running and finished jobs for a process (optional).
 
 ```
 POST /processes/{process-id}/jobs
@@ -49,9 +49,9 @@ Returns the result of a job of a process.
 
 A draft of the OGC API - Processes is available:
 
-* [OGC API - Processes, Draft](https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/develop/docs/18-062.pdf)
+* [OGC API - Processes, Draft PDF](https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/docs/18-062.pdf)
 
-* [OGC API - Processes, OpenAPI specification](https://app.swaggerhub.com/apis/geoprocessing/WPS/1.0-draft.2)
+* [OGC API - Processes, OpenAPI specification](https://app.swaggerhub.com/apis/geoprocessing/WPS/1.0-draft.3)
 
 Demo implementations:
 
