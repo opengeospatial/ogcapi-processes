@@ -28,7 +28,7 @@ http://processing.example.org/processes/EchoProcess/jobs
 .Example of a job list encoded as JSON.
 [source,json]
 ----
-include::openapi/examples/JobCollection.json[]
+include::examples/json/JobCollection.json[]
 ----
 
 ==== Error situations

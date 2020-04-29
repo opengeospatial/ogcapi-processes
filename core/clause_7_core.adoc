@@ -53,57 +53,14 @@ include::requirements/core/REQ_root-success.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingPage.yaml[Schema for the landing page]
 [source,YAML]
 ----
-    type: object
-    required:
-      - links
-    properties:
-      title:
-        type: string
-        example: Example processing server
-      description:
-        type: string
-        example: Example server implementing the OGC API - Processes 1.0
-      links:
-        type: array
-        items:
-          $ref: link.yaml
+include::openapi/schemas/landingPage.yaml[]
 ----
 
 .Landing page response document
 =================
 [source,JSON]
 ----
-{
-	"links": [{
-		"href": "http://processing.example.org/",
-		"rel": "self",
-		"type": "application/json",
-		"title": "this document"
-	},{
-		"href": "http://processing.example.org/",
-		"rel": "alternate",
-		"type": "text/html",
-		"title": "this document"
-	},
-	{
-		"href": "http://processing.example.org/api",
-		"rel": "service-desc",
-		"type": "application/openapi+json;version=3.0",
-		"title": "the API definition"
-	},
-	{
-		"href": "http://processing.example.org/conformance",
-		"rel": "conformance",
-		"type": "application/json",
-		"title": "OGC API - Processes conformance classes implemented by this server"
-	},
-	{
-		"href": "http://processing.example.org/processes",
-		"rel": "processes",
-		"type": "application/json",
-		"title": "Metadata about the processes"
-	}]
-}
+include::examples/json/LandingPage.json[]
 ----
 =================
 
@@ -164,31 +121,17 @@ include::requirements/core/REQ_conformance-success.adoc[]
 .link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml[Schema for the list of requirements classes]
 [source,YAML]
 ----
-    type: object
-    required:
-      - conformsTo
-    properties:
-      conformsTo:
-        type: array
-        items:
-          type: string
-          example: "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/core"
+include::openapi/schemas/confClasses.yaml[]
 ----
 
 .Requirements class response document
 =================
 This example response in JSON is for a server that supports OpenAPI 3.0 for
-the API definition and HTML and GeoJSON as encodings for features.
+the API definition and HTML and JSON as encodings.
 
 [source,JSON]
 ----
-{
-  "conformsTo": [
-    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/core",
-    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/oas30",
-    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/html"
-  ]
-}
+include::examples/json/ConfClasses.json[]
 ----
 =================
 
@@ -263,9 +206,7 @@ include::requirements/core/REQ_process-collection-success.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml[Schema for the process collection]
 [source,YAML]
 ----
-    type: array
-    items:
-      $ref: 'processSummary.yaml'
+include::openapi/schemas/processCollection.yaml[]
 ----
 
 [NOTE]
@@ -282,23 +223,7 @@ https://processing.example.org/processes
 .Example of Process list encoded as JSON.
 [source,json]
 ----
-[
-    {
-		"id": "EchoProcess",
-		"title": "EchoProcess",
-		"version": "1.0.0",
-		"jobControlOptions": ["async-execute", "sync-execute"],
-		"outputTransmission": ["value",	"reference"],
-        "links": [
-          {
-            "href": "https://processing.example.org/processes/EchoProcess",
-            "type": "application/json",
-            "rel": "process-desc",
-            "title": "process description"
-          }
-        ]
-	},...
-]
+include::examples/json/ProcessCollection.json[]
 ----
 
 ==== Error situations
@@ -320,22 +245,7 @@ include::requirements/core/REQ_process-success.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml[Schema for a process]
 [source,YAML]
 ----
-    allOf:
-       - $ref: 'processSummary.yaml'
-       - type: object
-         properties:
-            inputs:
-              type: array
-              items:
-                 $ref: 'inputDescription.yaml'
-            outputs:
-              type: array
-              items:
-                 $ref: 'outputDescription.yaml'
-            links:
-              type: array
-              items:
-                 $ref: 'link.yaml'
+include::openapi/schemas/process.yaml[]
 ----
 
 .Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
@@ -347,106 +257,7 @@ https://processing.example.org/processes/EchoProcess
 .Example of a process encoded as JSON.
 [source,json]
 ----
-{
-	"id": "EchoProcess",
-	"title": "EchoProcess",
-	"version": "1.0.0",
-	"jobControlOptions": ["async-execute", "sync-execute"],
-	"outputTransmission": ["value", "reference"],
-	"inputs": [{
-		"id": "boundingboxInput",
-		"title": "boundingboxInput",
-		"input": {
-			"supportedCRS": [{
-				"default": true,
-				"crs": "EPSG:4326"
-			}]
-		},
-		"minOccurs": 1,
-		"maxOccurs": 1
-	},
-	{
-		"id": "literalInput",
-		"title": "literalInput",
-		"input": {
-			"literalDataDomain": {
-                "dataType": {
-                  "name": "double"
-                },
-				"valueDefinition": {
-					"anyValue": true
-				}
-			}
-		},
-		"minOccurs": 1,
-		"maxOccurs": 1
-	},
-	{
-		"id": "complexInput",
-		"title": "complexInput",
-		"input": {
-			"formats": [{
-				"default": true,
-				"mimeType": "application/xml"
-			},
-			{
-				"mimeType": "application/xml"
-			},
-			{
-				"mimeType": "text/xml"
-			}]
-		},
-		"minOccurs": 1,
-		"maxOccurs": 1
-	}],
-	"outputs": [{
-		"id": "boundingboxOutput",
-		"title": "boundingboxOutput",
-		"output": {
-			"supportedCRS": [{
-				"default": true,
-				"crs": "EPSG:4326"
-			}]
-		}
-	},
-	{
-		"id": "literalOutput",
-		"title": "literalOutput",
-		"output": {
-			"literalDataDomain": {
-                "dataType": {
-                  "name": "double"
-                },
-				"valueDefinition": {
-					"anyValue": true
-				}
-			}
-		}
-	},
-	{
-		"id": "complexOutput",
-		"title": "complexOutput",
-		"output": {
-			"formats": [{
-				"default": true,
-				"mimeType": "application/xml"
-			},
-			{
-				"mimeType": "application/xml"
-			},
-			{
-				"mimeType": "text/xml"
-			}]
-		}
-	}],
-    "links": [
-      {
-        "href": "https://processing.example.org/processes/EchoProcess/jobs",
-        "rel": "execute",
-        "title": "Execute endpoint"
-      }
-    ]
-}
+include::openapi/schemas/ProcessDescription.json[]
 ----
 
 ==== Error situations
@@ -455,6 +266,7 @@ See <<http_status_codes>> for general guidance.
 
 include::requirements/core/REQ_process-exception-no-such-process.adoc[]
 
+[[sc_create_job]]
 === Create a new job
 
 The following section describes a method to create a new job, i.e. execute a process.
@@ -470,69 +282,13 @@ include::requirements/core/REQ_job-creation-request.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml[Schema for execute]
 [source,YAML]
 ----
-  type: object
-  required:
-    - outputs
-  properties:
-    inputs:
-      type: array
-      items:
-        $ref: 'input.yaml'
-    outputs:
-      type: array
-      items:
-        $ref: 'output.yaml'
+include::openapi/schemas/execute.yaml[]
 ----
 
 .Example of an execute request
 [source, json]
 ----
-{
-	"inputs": [{
-		"id": "complexInput",
-		"input": {
-			"format": {
-				"mimeType": "application/xml"
-			},
-			"value": {
-				"inlineValue": "<test/>"
-			}
-		}
-	},
-	{
-		"id": "literalInput",
-		"input": {
-            "dataType": {
-              "name": "double"
-            },
-			"value": "0.05"
-		}
-	},
-	{
-		"id": "boundingboxInput",
-		"input": {
-			"bbox": [51.9, 7, 52, 7.1],
-			"crs": "EPSG:4326"
-		}
-	}],
-	"outputs": [{
-		"id": "literalOutput",
-		"transmissionMode": "value"
-	},
-	{
-		"id": "boundingboxOutput",
-		"transmissionMode": "value"
-	},
-	{
-		"id": "complexOutput",
-		"format": {
-			"mimeType": "application/xml"
-		},
-		"transmissionMode": "value"
-	}],
-    "response": "document",
-    "mode": "async"
-}
+include::examples/json/Execute.json[]
 ----
 
 ==== Response
@@ -547,6 +303,7 @@ See <<http_status_codes>> for general guidance.
 
 If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<rc_no-such-process>>).
 
+[[sc_retrieve_status_info]]
 === Retrieve status information about a job
 
 The following section describes a method to retrieve information about the status of a job.
@@ -562,30 +319,7 @@ include::requirements/core/REQ_job-success.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml[Schema for status info]
 [source,YAML]
 ----
-    type: object
-    required:
-        - jobID
-        - status
-    properties:
-       jobID:
-          type: string
-       status:
-          type: string
-          enum:
-            - accepted
-            - running
-            - successful
-            - failed
-       message:
-          type: string
-       progress:
-          type: integer
-          minimum: 0
-          maximum: 100
-       links:
-          type: array
-          items:
-             $ref: 'link.yaml'
+include::openapi/schemas/statusInfo.yaml[]
 ----
 
 .Example of HTTP GET request for retrieving status information about a job encoded as JSON.
@@ -597,20 +331,7 @@ http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61
 .Example of a job encoded as JSON.
 [source,json]
 ----
-{
-  "jobID" : "81574318-1eb1-4d7c-af61-4b3fbcf33c4f",
-  "status": "accepted",
-  "message": "Process started",
-  "progress": 0,
-  "links": [
-    {
-      "href": "http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f",
-      "rel": "self",
-      "type": "application/json",
-      "title": "this document"
-    }
-  ]
-}
+include::examples/json/StatusInfo.json[]
 ----
 
 ==== Error situations
@@ -636,23 +357,13 @@ include::requirements/core/REQ_job-result-success.adoc[]
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml[Schema for the result of a job]
 [source,YAML]
 ----
-    type: array
-    items:
-       $ref: 'outputInfo.yaml'
+include::openapi/schemas/result.yaml[]
 ----
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/outputInfo.yaml[Schema for output info]
 [source,YAML]
 ----
-    type: object
-    required:
-        - id
-        - value
-    properties:
-        id:
-          type: string
-        value:
-           $ref: 'valueType.yaml'
+include::openapi/schemas/outputInfo.yaml[]
 ----
 
 .Example of HTTP GET request for retrieving the result a job encoded as JSON.
@@ -664,29 +375,7 @@ http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61
 .Example of a result encoded as JSON.
 [source,json]
 ----
-[
-   {
-	"id": "literalOutput",
-		"value": {
-			"inlineValue": 0.05
-		}
-	},
-	{
-		"id": "boundingboxOutput",
-		"value": {
-			"inlineValue": {
-			"bbox": [51.9, 7, 52, 7.1],
-				"crs": "EPSG:4326"
-			}
-		}
-	},
-	{
-		"id": "complexOutput",
-		"value": {
-			"inlineValue": "<test/>"
-		}
-	}
-]
+include::examples/json/Result.json[]
 ----
 
 ==== Error situations
