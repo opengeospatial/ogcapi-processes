@@ -1,11 +1,11 @@
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/core/root-success +
+|*Requirement {counter:req-id}* |/core/landingpage-success +
 
 A successful execution of the operation SHALL be reported as a response with a
 HTTP status code `200`.
 
-The content of that response SHALL be based upon the OpenAPI 3.0 schema link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/root.yaml[root.yaml]
+The content of that response SHALL be based upon the OpenAPI 3.0 schema link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingpage.yaml[landingpage.yaml]
 and include at least links to the following resources:
 
 * the API definition (relation type 'service-desc' or 'service-doc')

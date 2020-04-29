@@ -44,11 +44,11 @@ The following section describes a method to retrieve an API landing page.
 
 ==== Operation
 
-include::requirements/core/REQ_root-op.adoc[]
+include::requirements/core/REQ_landingpage-op.adoc[]
 
 ==== Response
 
-include::requirements/core/REQ_root-success.adoc[]
+include::requirements/core/REQ_landingpage-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingPage.yaml[Schema for the landing page]
 [source,YAML]
