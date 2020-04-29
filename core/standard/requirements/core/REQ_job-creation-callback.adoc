@@ -1,0 +1,6 @@
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/core/job-callback +
+
+The server SHALL support callback functions for jobs.
+|===

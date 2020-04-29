@@ -110,6 +110,10 @@ include::clause_9_oas.adoc[]
 
 include::clause_10_media_types.adoc[]
 
+include::clause_11_callbacks.adoc[]
+
+include::clause_12_job_collection.adoc[]
+
 <<<
 ////
 add or remove annexes after "A" as necessary
