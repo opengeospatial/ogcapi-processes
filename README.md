@@ -40,6 +40,12 @@ GET /processes/{process-id}/jobs/{job-id}
 Returns the status of a job of a process.
 
 ```
+DELETE /processes/{process-id}/jobs/{job-id}
+```
+
+Cancel a job execution.
+
+```
 GET /processes/{process-id}/jobs/{job-id}/results
 ```
 

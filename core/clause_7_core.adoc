@@ -346,6 +346,45 @@ If the process with the specified identifier doesn't exist on the server, the st
 
 include::requirements/core/REQ_job-exception-no-such-job.adoc[]
 
+[[sc_dismiss_job]]
+=== Dismiss a job
+
+The following section describes a method to dismiss a job.
+
+==== Operation
+
+include::requirements/core/REQ_job-op.adoc[]
+
+==== Response
+
+include::requirements/core/REQ_job-success.adoc[]
+
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml[Schema for status info]
+[source,YAML]
+----
+include::openapi/schemas/statusInfo.yaml[]
+----
+
+.Example of HTTP DELETE request for dismissing a job.
+[source]
+----
+http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f
+----
+
+.Example of a job encoded as JSON.
+[source,json]
+----
+include::examples/json/Dismiss.json[]
+----
+
+==== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<rc_no-such-process>>).
+
+include::requirements/core/REQ_job-exception-no-such-job.adoc[]
+
 [[sc_retrieve_job_results]]
 === Retrieve job results
 

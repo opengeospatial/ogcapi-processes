@@ -135,6 +135,24 @@ paths:
           $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml'
         500:
           $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml'
+  /processes/{processId}/jobs/{jobId}/dismiss:
+    put:
+      summary: cancel a job execution
+      description: >-
+        Cancel a job execution and potentially remove it from the jobs list.
+      operationId: getStatus
+      tags:
+        - Dismiss
+      parameters:
+          - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml'
+          - $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml'
+      responses:
+        200:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/Status.yaml'
+        404:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml'
+        500:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml'
   /processes/{processId}/jobs/{jobId}/results:
     get:
       summary: retrieve the result(s) of a job
