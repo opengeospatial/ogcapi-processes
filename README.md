@@ -51,6 +51,8 @@ A draft of the OGC API - Processes is available:
 
 * [OGC API - Processes, Draft PDF](https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/docs/18-062.pdf)
 
+* [OGC API - Processes, Draft HTML View](https://htmlpreview.github.io/?https://github.com/opengeospatial/wps-rest-binding/blob/master/docs/18-062.html)
+
 * [OGC API - Processes, OpenAPI specification](https://app.swaggerhub.com/apis/geoprocessing/WPS/1.0-draft.3)
 
 Demo implementations:
