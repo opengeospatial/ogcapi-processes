@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.8.dev">
+<meta name="generator" content="Asciidoctor 2.0.10">
 <title>OGC API - Processes</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -240,7 +240,7 @@ table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;pad
 pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
 pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock{margin:0 1em 1.25em 1.5em;display:table}
-.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
 .quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
 .quoteblock blockquote{margin:0;padding:0;border:0}
 .quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
@@ -257,7 +257,8 @@ pre.pygments .lineno::before{content:"";margin-right:-.125em}
 .quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
 .quoteblock.abstract{margin:0 1em 1.25em;display:block}
 .quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
-.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
 .quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
 .quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
 table.tableblock{max-width:100%;border-collapse:separate}
@@ -434,7 +435,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="book">
 <div id="header">
@@ -544,8 +544,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 <div style="page-break-after: always;"></div>
 <div class="paragraph">
-<p>
-License Agreement</p>
+<p>License Agreement</p>
 </div>
 <div class="paragraph">
 <p><span class="small">Permission is hereby granted by the Open Geospatial Consortium, ("Licensor"), free of charge and subject to the terms set forth below, to any person obtaining a copy of this Intellectual Property and any associated documentation, to deal in the Intellectual Property without restriction (except as set forth below), including without limitation the rights to implement, use, copy, modify, merge, publish, distribute, and/or sublicense copies of the Intellectual Property, and to permit persons to whom the Intellectual Property is furnished to do so, provided that all copyright notices on the intellectual property are retained intact and that each person to whom the Intellectual Property is furnished agrees to the terms of this Agreement.</span></p>
@@ -569,161 +568,168 @@ License Agreement</p>
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#truescope">1. Scope</a></li>
-<li><a href="#trueconformance">2. Conformance</a></li>
-<li><a href="#truereferences">3. References</a></li>
-<li><a href="#trueterms-and-definitions">4. Terms and Definitions</a>
+<li><a href="#_scope">1. Scope</a></li>
+<li><a href="#_conformance">2. Conformance</a></li>
+<li><a href="#_references">3. References</a></li>
+<li><a href="#_terms_and_definitions">4. Terms and Definitions</a>
 <ul class="sectlevel2">
-<li><a href="#trueprocess">4.1. Process</a></li>
-<li><a href="#trueprocess-description">4.2. Process description</a></li>
-<li><a href="#trueprocess-input">4.3. Process input</a></li>
-<li><a href="#trueprocess-output">4.4. Process output</a></li>
-<li><a href="#trueprocess-profile">4.5. Process profile</a></li>
-<li><a href="#truewps-server">4.6. WPS Server</a></li>
-<li><a href="#trueprocess-offering">4.7. Process offering</a></li>
-<li><a href="#trueprocess-execution">4.8. Process execution</a></li>
-<li><a href="#truejob">4.9. Job</a></li>
-<li><a href="#trueservice-profiles-for-wps">4.10. Service profiles for WPS</a></li>
-<li><a href="#truerest-or-restful">4.11. REST or RESTful</a></li>
-<li><a href="#truejson">4.12. JSON</a></li>
+<li><a href="#_process">4.1. Process</a></li>
+<li><a href="#_process_description">4.2. Process description</a></li>
+<li><a href="#_process_input">4.3. Process input</a></li>
+<li><a href="#_process_output">4.4. Process output</a></li>
+<li><a href="#_process_profile">4.5. Process profile</a></li>
+<li><a href="#_wps_server">4.6. WPS Server</a></li>
+<li><a href="#_process_offering">4.7. Process offering</a></li>
+<li><a href="#_process_execution">4.8. Process execution</a></li>
+<li><a href="#_job">4.9. Job</a></li>
+<li><a href="#_service_profiles_for_wps">4.10. Service profiles for WPS</a></li>
+<li><a href="#_rest_or_restful">4.11. REST or RESTful</a></li>
+<li><a href="#_json">4.12. JSON</a></li>
 </ul>
 </li>
-<li><a href="#trueconventions">5. Conventions</a>
+<li><a href="#_conventions">5. Conventions</a>
 <ul class="sectlevel2">
-<li><a href="#trueidentifiers">5.1. Identifiers</a></li>
-<li><a href="#truelink-relations">5.2. Link relations</a></li>
-<li><a href="#trueabbreviated-terms">5.3. Abbreviated Terms</a></li>
-<li><a href="#trueuse-of-the-term-process">5.4. Use of the Term "Process"</a></li>
+<li><a href="#_identifiers">5.1. Identifiers</a></li>
+<li><a href="#_link_relations">5.2. Link relations</a></li>
+<li><a href="#_abbreviated_terms">5.3. Abbreviated Terms</a></li>
+<li><a href="#_use_of_the_term_process">5.4. Use of the Term "Process"</a></li>
 </ul>
 </li>
 <li><a href="#overview">6. Overview</a>
 <ul class="sectlevel2">
-<li><a href="#trueencodings">6.1. Encodings</a></li>
+<li><a href="#_encodings">6.1. Encodings</a></li>
 </ul>
 </li>
-<li><a href="#truerequirement-class-core">7. Requirement Class "Core"</a>
+<li><a href="#_requirement_class_core">7. Requirement Class "Core"</a>
 <ul class="sectlevel2">
-<li><a href="#trueoverview">7.1. Overview</a></li>
+<li><a href="#_overview">7.1. Overview</a></li>
 <li><a href="#sc_landing_page">7.2. Retrieve the API landing page</a>
 <ul class="sectlevel3">
-<li><a href="#trueoperation">7.2.1. Operation</a></li>
-<li><a href="#trueresponse">7.2.2. Response</a></li>
-<li><a href="#trueerror-situations">7.2.3. Error situations</a></li>
+<li><a href="#_operation">7.2.1. Operation</a></li>
+<li><a href="#_response">7.2.2. Response</a></li>
+<li><a href="#_error_situations">7.2.3. Error situations</a></li>
 </ul>
 </li>
 <li><a href="#sc_api_definition">7.3. Retrieve an API definition</a>
 <ul class="sectlevel3">
-<li><a href="#trueoperation-2">7.3.1. Operation</a></li>
-<li><a href="#trueresponse-2">7.3.2. Response</a></li>
-<li><a href="#trueerror-situations-2">7.3.3. Error situations</a></li>
+<li><a href="#_operation_2">7.3.1. Operation</a></li>
+<li><a href="#_response_2">7.3.2. Response</a></li>
+<li><a href="#_error_situations_2">7.3.3. Error situations</a></li>
 </ul>
 </li>
 <li><a href="#sc_conformance_classes">7.4. Declaration of conformance classes</a>
 <ul class="sectlevel3">
-<li><a href="#trueoperation-3">7.4.1. Operation</a></li>
-<li><a href="#trueresponse-3">7.4.2. Response</a></li>
-<li><a href="#trueerror-situations-3">7.4.3. Error situations</a></li>
+<li><a href="#_operation_3">7.4.1. Operation</a></li>
+<li><a href="#_response_3">7.4.2. Response</a></li>
+<li><a href="#_error_situations_3">7.4.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#trueuse-of-http-1-1">7.5. Use of HTTP 1.1</a>
+<li><a href="#_use_of_http_1_1">7.5. Use of HTTP 1.1</a>
 <ul class="sectlevel3">
 <li><a href="#http_status_codes">7.5.1. HTTP status codes</a></li>
 </ul>
 </li>
-<li><a href="#truesupport-for-cross-origin-requests">7.6. Support for cross-origin requests</a></li>
+<li><a href="#_support_for_cross_origin_requests">7.6. Support for cross-origin requests</a></li>
 <li><a href="#sc_process_collection">7.7. Retrieve a process collection</a>
 <ul class="sectlevel3">
-<li><a href="#trueoperation-4">7.7.1. Operation</a></li>
-<li><a href="#trueresponse-4">7.7.2. Response</a></li>
-<li><a href="#trueerror-situations-4">7.7.3. Error situations</a></li>
+<li><a href="#_operation_4">7.7.1. Operation</a></li>
+<li><a href="#_response_4">7.7.2. Response</a></li>
+<li><a href="#_error_situations_4">7.7.3. Error situations</a></li>
 </ul>
 </li>
 <li><a href="#sc_process_description">7.8. Retrieve a process description</a>
 <ul class="sectlevel3">
-<li><a href="#trueoperation-5">7.8.1. Operation</a></li>
-<li><a href="#trueresponse-5">7.8.2. Response</a></li>
-<li><a href="#trueerror-situations-5">7.8.3. Error situations</a></li>
+<li><a href="#_operation_5">7.8.1. Operation</a></li>
+<li><a href="#_response_5">7.8.2. Response</a></li>
+<li><a href="#_error_situations_5">7.8.3. Error situations</a></li>
 </ul>
 </li>
 <li><a href="#sc_create_job">7.9. Create a new job</a>
 <ul class="sectlevel3">
-<li><a href="#trueoperation-6">7.9.1. Operation</a></li>
-<li><a href="#truerequest">7.9.2. Request</a></li>
-<li><a href="#trueresponse-6">7.9.3. Response</a></li>
-<li><a href="#trueerror-situations-6">7.9.4. Error situations</a></li>
+<li><a href="#_operation_6">7.9.1. Operation</a></li>
+<li><a href="#_request">7.9.2. Request</a></li>
+<li><a href="#_response_6">7.9.3. Response</a></li>
+<li><a href="#_error_situations_6">7.9.4. Error situations</a></li>
 </ul>
 </li>
 <li><a href="#sc_retrieve_status_info">7.10. Retrieve status information about a job</a>
 <ul class="sectlevel3">
-<li><a href="#trueoperation-7">7.10.1. Operation</a></li>
-<li><a href="#trueresponse-7">7.10.2. Response</a></li>
-<li><a href="#trueerror-situations-7">7.10.3. Error situations</a></li>
+<li><a href="#_operation_7">7.10.1. Operation</a></li>
+<li><a href="#_response_7">7.10.2. Response</a></li>
+<li><a href="#_error_situations_7">7.10.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#sc_retrieve_job_results">7.11. Retrieve job results</a>
+<li><a href="#sc_dismiss_job">7.11. Dismiss a job</a>
 <ul class="sectlevel3">
-<li><a href="#trueoperation-8">7.11.1. Operation</a></li>
-<li><a href="#trueresponse-8">7.11.2. Response</a></li>
-<li><a href="#trueerror-situations-8">7.11.3. Error situations</a></li>
+<li><a href="#_operation_8">7.11.1. Operation</a></li>
+<li><a href="#_response_8">7.11.2. Response</a></li>
+<li><a href="#_error_situations_8">7.11.3. Error situations</a></li>
+</ul>
+</li>
+<li><a href="#sc_retrieve_job_results">7.12. Retrieve job results</a>
+<ul class="sectlevel3">
+<li><a href="#_operation_9">7.12.1. Operation</a></li>
+<li><a href="#_response_9">7.12.2. Response</a></li>
+<li><a href="#_error_situations_9">7.12.3. Error situations</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#truerequirements-classes-for-encodings">8. Requirements classes for encodings</a>
+<li><a href="#_requirements_classes_for_encodings">8. Requirements classes for encodings</a>
 <ul class="sectlevel2">
-<li><a href="#trueoverview-2">8.1. Overview</a></li>
-<li><a href="#truerequirement-class-json">8.2. Requirement Class "JSON"</a></li>
-<li><a href="#truerequirement-class-html">8.3. Requirement Class "HTML"</a></li>
+<li><a href="#_overview_2">8.1. Overview</a></li>
+<li><a href="#_requirement_class_json">8.2. Requirement Class "JSON"</a></li>
+<li><a href="#_requirement_class_html">8.3. Requirement Class "HTML"</a></li>
 </ul>
 </li>
-<li><a href="#truerequirements-class-openapi-3-0">9. Requirements Class "OpenAPI 3.0"</a>
+<li><a href="#_requirements_class_openapi_3_0">9. Requirements Class "OpenAPI 3.0"</a>
 <ul class="sectlevel2">
-<li><a href="#truebasic-requirements">9.1. Basic requirements</a></li>
-<li><a href="#truecomplete-definition">9.2. Complete definition</a></li>
+<li><a href="#_basic_requirements">9.1. Basic requirements</a></li>
+<li><a href="#_complete_definition">9.2. Complete definition</a></li>
 <li><a href="#exceptions">9.3. Exceptions</a></li>
 <li><a href="#security">9.4. Security</a></li>
 </ul>
 </li>
 <li><a href="#Job_collection">10. Requirement Class "Job collection"</a>
-<ul class="sectlevel3">
-<li><a href="#trueoperation-9">10.1. Operation</a></li>
-<li><a href="#trueresponse-9">10.2. Response</a></li>
-<li><a href="#trueerror-situations-9">10.3. Error situations</a></li>
+<ul class="sectlevel2">
+<li><a href="#_operation_10">10.1. Operation</a></li>
+<li><a href="#_response_10">10.2. Response</a></li>
+<li><a href="#_error_situations_10">10.3. Error situations</a></li>
 </ul>
 </li>
 <li><a href="#Callbacks">11. Requirement Class "Callback"</a></li>
 <li><a href="#mediatypes">12. Media Types</a></li>
-<li><a href="#trueabstract-test-suite-normative">Annex A: Abstract Test Suite (Normative)</a>
+<li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
-<li><a href="#trueconformance-class-core">A.1. Conformance Class Core</a>
+<li><a href="#_conformance_class_core">A.1. Conformance Class Core</a>
 <ul class="sectlevel3">
-<li><a href="#truegeneral-tests">A.1.1. General Tests</a></li>
-<li><a href="#trueretrieve-the-api-description">A.1.2. Retrieve the API Description</a></li>
-<li><a href="#trueidentify-the-test-points">A.1.3. Identify the Test Points</a></li>
-<li><a href="#trueprocessing-the-openapi-document">A.1.4. Processing the OpenAPI Document</a></li>
+<li><a href="#_general_tests">A.1.1. General Tests</a></li>
+<li><a href="#_retrieve_the_api_description">A.1.2. Retrieve the API Description</a></li>
+<li><a href="#_identify_the_test_points">A.1.3. Identify the Test Points</a></li>
+<li><a href="#_processing_the_openapi_document">A.1.4. Processing the OpenAPI Document</a></li>
 </ul>
 </li>
-<li><a href="#trueconformance-class-json">A.2. Conformance Class JSON</a></li>
-<li><a href="#trueconformance-class-job-collection">A.3. Conformance Class Job collection</a></li>
-<li><a href="#trueconformance-class-callback">A.4. Conformance Class Callback</a></li>
-<li><a href="#trueconformance-class-html">A.5. Conformance Class HTML</a></li>
-<li><a href="#trueconformance-class-openapi-3-0">A.6. Conformance Class OpenAPI 3.0</a></li>
-<li><a href="#trueoverview-3">A.7. Overview</a></li>
-<li><a href="#trueconventions-2">A.8. Conventions</a>
+<li><a href="#_conformance_class_json">A.2. Conformance Class JSON</a></li>
+<li><a href="#_conformance_class_job_collection">A.3. Conformance Class Job collection</a></li>
+<li><a href="#_conformance_class_callback">A.4. Conformance Class Callback</a></li>
+<li><a href="#_conformance_class_html">A.5. Conformance Class HTML</a></li>
+<li><a href="#_conformance_class_openapi_3_0">A.6. Conformance Class OpenAPI 3.0</a></li>
+<li><a href="#_overview_3">A.7. Overview</a></li>
+<li><a href="#_conventions_2">A.8. Conventions</a>
 <ul class="sectlevel3">
-<li><a href="#truepath-templates">A.8.1. Path Templates</a></li>
-<li><a href="#trueapi-description-document">A.8.2. API Description Document</a></li>
-<li><a href="#trueresource-encodings">A.8.3. Resource Encodings</a></li>
-<li><a href="#trueprocessing-security-objects">A.8.4. Processing Security Objects</a></li>
-<li><a href="#trueparameters">A.8.5. Parameters</a></li>
-<li><a href="#truetestable-paths">A.8.6. Testable Paths</a></li>
+<li><a href="#_path_templates">A.8.1. Path Templates</a></li>
+<li><a href="#_api_description_document">A.8.2. API Description Document</a></li>
+<li><a href="#_resource_encodings">A.8.3. Resource Encodings</a></li>
+<li><a href="#_processing_security_objects">A.8.4. Processing Security Objects</a></li>
+<li><a href="#_parameters">A.8.5. Parameters</a></li>
+<li><a href="#_testable_paths">A.8.6. Testable Paths</a></li>
 </ul>
 </li>
-<li><a href="#truerequirements-trace-matrix">A.9. Requirements Trace Matrix</a></li>
-<li><a href="#trueabstract-test">A.10. Abstract Test</a></li>
+<li><a href="#_requirements_trace_matrix">A.9. Requirements Trace Matrix</a></li>
+<li><a href="#_abstract_test">A.10. Abstract Test</a></li>
 </ul>
 </li>
-<li><a href="#truerevision-history">Annex B: Revision History</a></li>
+<li><a href="#_revision_history">Annex B: Revision History</a></li>
 </ul>
 </div>
 <div style="page-break-after: always;"></div>
@@ -803,7 +809,7 @@ results of process executions.</p>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Job results</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs/{jobID}/results</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_retrieve_job_results">7.13 Retrieve job results</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_retrieve_job_results">7.14 Retrieve job results</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -836,6 +842,37 @@ However, in order to create a new job, the HTTP POST method is used to create a 
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Execute request (contained in body)</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_create_job">7.11 Create a new job</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In addition to the operations accessible through HTTP GET and POST methods, in order to cancel a job execution and/or remove traces of the job execution the DELETE method can be used.</p>
+</div>
+<table id="table_job_dismiss" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Overview of resources, applicable HTTP methods and links to the document sections</caption>
+<colgroup>
+<col style="width: 27%;">
+<col style="width: 25%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 28%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Description</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Path</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">HTTP method</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Parameter</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Document reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dismiss a job</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs/{jobID}</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DELETE</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Cancel job execution</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_dismiss_job">7.13 Dismiss a job</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -904,7 +941,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </div>
 </div>
 <div class="sect1">
-<h2 id="truescope"><a class="anchor" href="#truescope"></a>1. Scope</h2>
+<h2 id="_scope"><a class="anchor" href="#_scope"></a>1. Scope</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This document specifies a Web API that enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality. Typically, these processes combine raster, vector, and/or coverage data with well-defined algorithms to produce new raster, vector, and/or coverage information.</p>
@@ -912,7 +949,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </div>
 </div>
 <div class="sect1">
-<h2 id="trueconformance"><a class="anchor" href="#trueconformance"></a>2. Conformance</h2>
+<h2 id="_conformance"><a class="anchor" href="#_conformance"></a>2. Conformance</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This standard defines six requirements / conformance classes.</p>
@@ -985,7 +1022,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <p>Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
 </div>
 <table id="conf_class_uris" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Conformance class URIs</caption>
+<caption class="title">Table 4. Conformance class URIs</caption>
 <colgroup>
 <col style="width: 40%;">
 <col style="width: 60%;">
@@ -1026,7 +1063,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </div>
 </div>
 <div class="sect1">
-<h2 id="truereferences"><a class="anchor" href="#truereferences"></a>3. References</h2>
+<h2 id="_references"><a class="anchor" href="#_references"></a>3. References</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The following normative documents contain provisions that, through reference in this text, constitute provisions of this document. For dated references, subsequent amendments to, or revisions of, any of these publications do not apply. For undated references, the latest edition of the normative document referred to applies.</p>
@@ -1055,7 +1092,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </div>
 </div>
 <div class="sect1">
-<h2 id="trueterms-and-definitions"><a class="anchor" href="#trueterms-and-definitions"></a>4. Terms and Definitions</h2>
+<h2 id="_terms_and_definitions"><a class="anchor" href="#_terms_and_definitions"></a>4. Terms and Definitions</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r8], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
@@ -1064,7 +1101,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <p>For the purposes of this document, the following additional terms and definitions apply.</p>
 </div>
 <div class="sect2">
-<h3 id="trueprocess"><a class="anchor" href="#trueprocess"></a>4.1. Process</h3>
+<h3 id="_process"><a class="anchor" href="#_process"></a>4.1. Process</h3>
 <div class="paragraph">
 <p>A process p is a function that for each input returns a corresponding output</p>
 </div>
@@ -1078,67 +1115,67 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueprocess-description"><a class="anchor" href="#trueprocess-description"></a>4.2. Process description</h3>
+<h3 id="_process_description"><a class="anchor" href="#_process_description"></a>4.2. Process description</h3>
 <div class="paragraph">
 <p>A process description is an information model that specifies the interface of a process. A process description is used for a machine-readable description of the process itself but also provides some basic information about the process inputs and outputs.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueprocess-input"><a class="anchor" href="#trueprocess-input"></a>4.3. Process input</h3>
+<h3 id="_process_input"><a class="anchor" href="#_process_input"></a>4.3. Process input</h3>
 <div class="paragraph">
 <p>Process inputs are the arguments of a process and refer to data provided to a process. Each process input is an identifiable item.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueprocess-output"><a class="anchor" href="#trueprocess-output"></a>4.4. Process output</h3>
+<h3 id="_process_output"><a class="anchor" href="#_process_output"></a>4.4. Process output</h3>
 <div class="paragraph">
 <p>Process outputs are the results of a process and refer to data returned by a process. Each process output is an identifiable item.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueprocess-profile"><a class="anchor" href="#trueprocess-profile"></a>4.5. Process profile</h3>
+<h3 id="_process_profile"><a class="anchor" href="#_process_profile"></a>4.5. Process profile</h3>
 <div class="paragraph">
 <p>A process profile is a description of a process on an interface level. Process profiles may have different levels of abstraction and cover several aspects. On a generic level, a process profile may only refer to the provided functionality of a process, i.e. by giving a verbal or formal definition how the outputs are derived from the inputs. On a concrete level a process profile may completely define inputs and outputs including data type definitions and formats.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="truewps-server"><a class="anchor" href="#truewps-server"></a>4.6. WPS Server</h3>
+<h3 id="_wps_server"><a class="anchor" href="#_wps_server"></a>4.6. WPS Server</h3>
 <div class="paragraph">
 <p>A WPS Server is a web server that provides access to simple or complex computational processing services</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueprocess-offering"><a class="anchor" href="#trueprocess-offering"></a>4.7. Process offering</h3>
+<h3 id="_process_offering"><a class="anchor" href="#_process_offering"></a>4.7. Process offering</h3>
 <div class="paragraph">
 <p>A process offering is an identifiable process that may be executed on a particular service instance. A process offering contains a process description as well as service-specific information about the supported execution protocols (e.g. synchronous and asynchronous execution).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueprocess-execution"><a class="anchor" href="#trueprocess-execution"></a>4.8. Process execution</h3>
+<h3 id="_process_execution"><a class="anchor" href="#_process_execution"></a>4.8. Process execution</h3>
 <div class="paragraph">
 <p>The execution of a process is an action that calculates the outputs of a given process for a given set of data inputs.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="truejob"><a class="anchor" href="#truejob"></a>4.9. Job</h3>
+<h3 id="_job"><a class="anchor" href="#_job"></a>4.9. Job</h3>
 <div class="paragraph">
 <p>The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueservice-profiles-for-wps"><a class="anchor" href="#trueservice-profiles-for-wps"></a>4.10. Service profiles for WPS</h3>
+<h3 id="_service_profiles_for_wps"><a class="anchor" href="#_service_profiles_for_wps"></a>4.10. Service profiles for WPS</h3>
 <div class="paragraph">
 <p>A service profile for WPS is a conformance class that defines the general capabilities of a WPS server, by (1) specifying the supported service operations, (2) the process model, (3) the supported process execution modes, (4) the supported operation binding(s).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="truerest-or-restful"><a class="anchor" href="#truerest-or-restful"></a>4.11. REST or RESTful</h3>
+<h3 id="_rest_or_restful"><a class="anchor" href="#_rest_or_restful"></a>4.11. REST or RESTful</h3>
 <div class="paragraph">
 <p>Representational state transfer.  REST-compliant Web services allow requesting systems to access and manipulate textual representations of Web resources using a uniform and predefined set of stateless operations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="truejson"><a class="anchor" href="#truejson"></a>4.12. JSON</h3>
+<h3 id="_json"><a class="anchor" href="#_json"></a>4.12. JSON</h3>
 <div class="paragraph">
 <p>JavaScript Object Notation is a lightweight data-interchange format. It is easy for humans to read and write and it is easy for machines to parse and generate.</p>
 </div>
@@ -1146,13 +1183,13 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </div>
 </div>
 <div class="sect1">
-<h2 id="trueconventions"><a class="anchor" href="#trueconventions"></a>5. Conventions</h2>
+<h2 id="_conventions"><a class="anchor" href="#_conventions"></a>5. Conventions</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.</p>
 </div>
 <div class="sect2">
-<h3 id="trueidentifiers"><a class="anchor" href="#trueidentifiers"></a>5.1. Identifiers</h3>
+<h3 id="_identifiers"><a class="anchor" href="#_identifiers"></a>5.1. Identifiers</h3>
 <div class="paragraph">
 <p>The normative provisions in this specification are denoted by the URI</p>
 </div>
@@ -1164,7 +1201,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </div>
 </div>
 <div class="sect2">
-<h3 id="truelink-relations"><a class="anchor" href="#truelink-relations"></a>5.2. Link relations</h3>
+<h3 id="_link_relations"><a class="anchor" href="#_link_relations"></a>5.2. Link relations</h3>
 <div class="paragraph">
 <p>To express relationships between resources, <a href="#rfc8288">RFC 8288 (Web Linking)</a> is used.</p>
 </div>
@@ -1227,7 +1264,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueabbreviated-terms"><a class="anchor" href="#trueabbreviated-terms"></a>5.3. Abbreviated Terms</h3>
+<h3 id="_abbreviated_terms"><a class="anchor" href="#_abbreviated_terms"></a>5.3. Abbreviated Terms</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -1298,7 +1335,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </table>
 </div>
 <div class="sect2">
-<h3 id="trueuse-of-the-term-process"><a class="anchor" href="#trueuse-of-the-term-process"></a>5.4. Use of the Term "Process"</h3>
+<h3 id="_use_of_the_term_process"><a class="anchor" href="#_use_of_the_term_process"></a>5.4. Use of the Term "Process"</h3>
 <div class="paragraph">
 <p>The term process is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this specification uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the WPS 2.0 standard.</p>
 </div>
@@ -1322,7 +1359,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </ul>
 </div>
 <div class="sect2">
-<h3 id="trueencodings"><a class="anchor" href="#trueencodings"></a>6.1. Encodings</h3>
+<h3 id="_encodings"><a class="anchor" href="#_encodings"></a>6.1. Encodings</h3>
 <div class="paragraph">
 <p>This standard uses JSON as encoding for requests and responses. The inputs and outputs of a process can have any format. The formats of are defined at the time of job creation and are fixed for the specific job.</p>
 </div>
@@ -1335,13 +1372,13 @@ and it will enable search engines to crawl and index the processes.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="truerequirement-class-core"><a class="anchor" href="#truerequirement-class-core"></a>7. Requirement Class "Core"</h2>
+<h2 id="_requirement_class_core"><a class="anchor" href="#_requirement_class_core"></a>7. Requirement Class "Core"</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The following section describes the core requirements class.</p>
 </div>
 <div class="sect2">
-<h3 id="trueoverview"><a class="anchor" href="#trueoverview"></a>7.1. Overview</h3>
+<h3 id="_overview"><a class="anchor" href="#_overview"></a>7.1. Overview</h3>
 <table id="rc_core" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
@@ -1432,7 +1469,7 @@ requirements classes implemented by the server.</p>
 <p>The following section describes a method to retrieve an API landing page.</p>
 </div>
 <div class="sect3">
-<h4 id="trueoperation"><a class="anchor" href="#trueoperation"></a>7.2.1. Operation</h4>
+<h4 id="_operation"><a class="anchor" href="#_operation"></a>7.2.1. Operation</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -1452,7 +1489,7 @@ requirements classes implemented by the server.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="trueresponse"><a class="anchor" href="#trueresponse"></a>7.2.2. Response</h4>
+<h4 id="_response"><a class="anchor" href="#_response"></a>7.2.2. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -1491,7 +1528,7 @@ and include at least links to the following resources:</p>
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingPage.yaml">Schema for the landing page</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: object
+<pre class="pygments highlight"><code data-lang="YAML">    type: object
     required:
       - links
     properties:
@@ -1512,7 +1549,7 @@ and include at least links to the following resources:</p>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
+<pre class="pygments highlight"><code data-lang="JSON">{
 	"links": [{
 		"href": "http://processing.example.org/",
 		"rel": "self",
@@ -1549,7 +1586,7 @@ and include at least links to the following resources:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueerror-situations"><a class="anchor" href="#trueerror-situations"></a>7.2.3. Error situations</h4>
+<h4 id="_error_situations"><a class="anchor" href="#_error_situations"></a>7.2.3. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
@@ -1561,7 +1598,7 @@ and include at least links to the following resources:</p>
 <p>The following section describes a method to retrieve an API definition.</p>
 </div>
 <div class="sect3">
-<h4 id="trueoperation-2"><a class="anchor" href="#trueoperation-2"></a>7.3.1. Operation</h4>
+<h4 id="_operation_2"><a class="anchor" href="#_operation_2"></a>7.3.1. Operation</h4>
 <div class="paragraph">
 <p>Every OGC API - Processes provides an API definition that describes the capabilities
 of the server and which can be used by developers to understand the API,
@@ -1587,7 +1624,7 @@ by development tools to support the implementation of servers and clients.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="trueresponse-2"><a class="anchor" href="#trueresponse-2"></a>7.3.2. Response</h4>
+<h4 id="_response_2"><a class="anchor" href="#_response_2"></a>7.3.2. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -1646,7 +1683,7 @@ this standard to access the data via the API.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueerror-situations-2"><a class="anchor" href="#trueerror-situations-2"></a>7.3.3. Error situations</h4>
+<h4 id="_error_situations_2"><a class="anchor" href="#_error_situations_2"></a>7.3.3. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
@@ -1655,7 +1692,7 @@ this standard to access the data via the API.</p>
 <div class="sect2">
 <h3 id="sc_conformance_classes"><a class="anchor" href="#sc_conformance_classes"></a>7.4. Declaration of conformance classes</h3>
 <div class="sect3">
-<h4 id="trueoperation-3"><a class="anchor" href="#trueoperation-3"></a>7.4.1. Operation</h4>
+<h4 id="_operation_3"><a class="anchor" href="#_operation_3"></a>7.4.1. Operation</h4>
 <div class="paragraph">
 <p>To support "generic" clients for accessing Web Processing Services in general - and
 not "just" a specific API / server, the server has to declare the
@@ -1680,7 +1717,7 @@ requirements classes it implements and conforms to.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="trueresponse-3"><a class="anchor" href="#trueresponse-3"></a>7.4.2. Response</h4>
+<h4 id="_response_3"><a class="anchor" href="#_response_3"></a>7.4.2. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -1706,7 +1743,7 @@ list all OGC API - Processes requirements classes that the server conforms to.</
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml">Schema for the list of requirements classes</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: object
+<pre class="pygments highlight"><code data-lang="YAML">    type: object
     required:
       - conformsTo
     properties:
@@ -1726,7 +1763,7 @@ the API definition and HTML and JSON as encodings.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
+<pre class="pygments highlight"><code data-lang="JSON">{
   "conformsTo": [
     "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/core",
     "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/oas30",
@@ -1739,14 +1776,14 @@ the API definition and HTML and JSON as encodings.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueerror-situations-3"><a class="anchor" href="#trueerror-situations-3"></a>7.4.3. Error situations</h4>
+<h4 id="_error_situations_3"><a class="anchor" href="#_error_situations_3"></a>7.4.3. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueuse-of-http-1-1"><a class="anchor" href="#trueuse-of-http-1-1"></a>7.5. Use of HTTP 1.1</h3>
+<h3 id="_use_of_http_1_1"><a class="anchor" href="#_use_of_http_1_1"></a>7.5. Use of HTTP 1.1</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -1771,7 +1808,7 @@ the API definition and HTML and JSON as encodings.</p>
 <div class="sect3">
 <h4 id="http_status_codes"><a class="anchor" href="#http_status_codes"></a>7.5.1. HTTP status codes</h4>
 <div class="paragraph">
-<p><a href="#status_codes">Table 4</a> lists the main HTTP status codes that clients should be
+<p><a href="#status_codes">Table 5</a> lists the main HTTP status codes that clients should be
 prepared to receive.</p>
 </div>
 <div class="paragraph">
@@ -1783,7 +1820,7 @@ redirection.</p>
 outside of the server.</p>
 </div>
 <table id="status_codes" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Typical HTTP status codes</caption>
+<caption class="title">Table 5. Typical HTTP status codes</caption>
 <colgroup>
 <col style="width: 15%;">
 <col style="width: 85%;">
@@ -1849,7 +1886,7 @@ outside of the server.</p>
 </div>
 <div class="paragraph">
 <p>Servers MAY support other capabilities of the HTTP protocol and, therefore,
-MAY return other status codes than those listed in <a href="#status_codes">Table 4</a>, too.</p>
+MAY return other status codes than those listed in <a href="#status_codes">Table 5</a>, too.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1857,7 +1894,7 @@ MAY return other status codes than those listed in <a href="#status_codes">Table
 </div>
 </div>
 <div class="sect2">
-<h3 id="truesupport-for-cross-origin-requests"><a class="anchor" href="#truesupport-for-cross-origin-requests"></a>7.6. Support for cross-origin requests</h3>
+<h3 id="_support_for_cross_origin_requests"><a class="anchor" href="#_support_for_cross_origin_requests"></a>7.6. Support for cross-origin requests</h3>
 <div class="paragraph">
 <p>To access data from a HTML page where the data is on another host than
 the webpage is by default prohibited for security reasons ("same-origin policy").
@@ -1920,7 +1957,7 @@ and index a dataset, implementations SHOULD consider to support an HTML encoding
 <p>The following section describes a method to retrieve the available processes offered by the server.</p>
 </div>
 <div class="sect3">
-<h4 id="trueoperation-4"><a class="anchor" href="#trueoperation-4"></a>7.7.1. Operation</h4>
+<h4 id="_operation_4"><a class="anchor" href="#_operation_4"></a>7.7.1. Operation</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -1940,7 +1977,7 @@ and index a dataset, implementations SHOULD consider to support an HTML encoding
 </table>
 </div>
 <div class="sect3">
-<h4 id="trueresponse-4"><a class="anchor" href="#trueresponse-4"></a>7.7.2. Response</h4>
+<h4 id="_response_4"><a class="anchor" href="#_response_4"></a>7.7.2. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -1964,7 +2001,7 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml">Schema for the process collection</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: array
+<pre class="pygments highlight"><code data-lang="YAML">    type: array
     items:
       $ref: 'processSummary.yaml'</code></pre>
 </div>
@@ -1973,7 +2010,7 @@ The content of that response SHALL be based upon the OpenAPI
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<div class="title">Note</div>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -1986,13 +2023,13 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.</div>
 <div class="content">
-<pre class="highlight"><code>https://processing.example.org/processes</code></pre>
+<pre class="pygments highlight"><code>https://processing.example.org/processes</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of Process list encoded as JSON.</div>
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">[
+<pre class="pygments highlight"><code data-lang="json">[
     {
 		"id": "EchoProcess",
 		"title": "EchoProcess",
@@ -2013,7 +2050,7 @@ The content of that response SHALL be based upon the OpenAPI
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueerror-situations-4"><a class="anchor" href="#trueerror-situations-4"></a>7.7.3. Error situations</h4>
+<h4 id="_error_situations_4"><a class="anchor" href="#_error_situations_4"></a>7.7.3. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
@@ -2025,7 +2062,7 @@ The content of that response SHALL be based upon the OpenAPI
 <p>The following section describes a method to retrieve metadata about a process.</p>
 </div>
 <div class="sect3">
-<h4 id="trueoperation-5"><a class="anchor" href="#trueoperation-5"></a>7.8.1. Operation</h4>
+<h4 id="_operation_5"><a class="anchor" href="#_operation_5"></a>7.8.1. Operation</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2035,17 +2072,17 @@ The content of that response SHALL be based upon the OpenAPI
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/req/core/process<br></p>
+<p>/req/core/job<br></p>
 </div>
 <div class="paragraph">
-<p>The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}</code>.</p>
+<p>The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}/jobs/{jobID}</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="trueresponse-5"><a class="anchor" href="#trueresponse-5"></a>7.8.2. Response</h4>
+<h4 id="_response_5"><a class="anchor" href="#_response_5"></a>7.8.2. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2055,13 +2092,13 @@ The content of that response SHALL be based upon the OpenAPI
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/req/core/process-success<br></p>
+<p>/req/core/job-success<br></p>
 </div>
 <div class="paragraph">
 <p>A successful execution of the operation SHALL be reported as a
 response with a HTTP status code 200.
 The content of that response SHALL be based upon the OpenAPI
-3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml">process.yaml</a>.</p>
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2069,7 +2106,7 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml">Schema for a process</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    allOf:
+<pre class="pygments highlight"><code data-lang="YAML">    allOf:
        - $ref: 'processSummary.yaml'
        - type: object
          properties:
@@ -2090,13 +2127,13 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.</div>
 <div class="content">
-<pre class="highlight"><code>https://processing.example.org/processes/EchoProcess</code></pre>
+<pre class="pygments highlight"><code>https://processing.example.org/processes/EchoProcess</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of a process encoded as JSON.</div>
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
+<pre class="pygments highlight"><code data-lang="json">{
 	"id": "EchoProcess",
 	"title": "EchoProcess",
 	"version": "1.0.0",
@@ -2200,7 +2237,7 @@ The content of that response SHALL be based upon the OpenAPI
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueerror-situations-5"><a class="anchor" href="#trueerror-situations-5"></a>7.8.3. Error situations</h4>
+<h4 id="_error_situations_5"><a class="anchor" href="#_error_situations_5"></a>7.8.3. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
@@ -2232,7 +2269,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 <p>The following section describes a method to create a new job, i.e. execute a process.</p>
 </div>
 <div class="sect3">
-<h4 id="trueoperation-6"><a class="anchor" href="#trueoperation-6"></a>7.9.1. Operation</h4>
+<h4 id="_operation_6"><a class="anchor" href="#_operation_6"></a>7.9.1. Operation</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2252,7 +2289,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="truerequest"><a class="anchor" href="#truerequest"></a>7.9.2. Request</h4>
+<h4 id="_request"><a class="anchor" href="#_request"></a>7.9.2. Request</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2274,7 +2311,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml">Schema for execute</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">  type: object
+<pre class="pygments highlight"><code data-lang="YAML">  type: object
   required:
     - outputs
     - mode
@@ -2306,7 +2343,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 <div class="listingblock">
 <div class="title">Example of an execute request</div>
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
+<pre class="pygments highlight"><code data-lang="json">{
 	"inputs": [{
 		"id": "complexInput",
 		"input": {
@@ -2356,7 +2393,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueresponse-6"><a class="anchor" href="#trueresponse-6"></a>7.9.3. Response</h4>
+<h4 id="_response_6"><a class="anchor" href="#_response_6"></a>7.9.3. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2394,7 +2431,7 @@ response with a HTTP status code 201.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="trueerror-situations-6"><a class="anchor" href="#trueerror-situations-6"></a>7.9.4. Error situations</h4>
+<h4 id="_error_situations_6"><a class="anchor" href="#_error_situations_6"></a>7.9.4. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
@@ -2409,7 +2446,7 @@ response with a HTTP status code 201.</p>
 <p>The following section describes a method to retrieve information about the status of a job.</p>
 </div>
 <div class="sect3">
-<h4 id="trueoperation-7"><a class="anchor" href="#trueoperation-7"></a>7.10.1. Operation</h4>
+<h4 id="_operation_7"><a class="anchor" href="#_operation_7"></a>7.10.1. Operation</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2429,7 +2466,7 @@ response with a HTTP status code 201.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="trueresponse-7"><a class="anchor" href="#trueresponse-7"></a>7.10.2. Response</h4>
+<h4 id="_response_7"><a class="anchor" href="#_response_7"></a>7.10.2. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2453,7 +2490,7 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml">Schema for status info</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: object
+<pre class="pygments highlight"><code data-lang="YAML">    type: object
     required:
         - jobID
         - status
@@ -2467,6 +2504,7 @@ The content of that response SHALL be based upon the OpenAPI
             - running
             - successful
             - failed
+            - dismissed
        message:
           type: string
        progress:
@@ -2482,13 +2520,13 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving status information about a job encoded as JSON.</div>
 <div class="content">
-<pre class="highlight"><code>http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f</code></pre>
+<pre class="pygments highlight"><code>http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of a job encoded as JSON.</div>
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
+<pre class="pygments highlight"><code data-lang="json">{
   "jobID" : "81574318-1eb1-4d7c-af61-4b3fbcf33c4f",
   "status": "accepted",
   "message": "Process started",
@@ -2506,7 +2544,7 @@ The content of that response SHALL be based upon the OpenAPI
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueerror-situations-7"><a class="anchor" href="#trueerror-situations-7"></a>7.10.3. Error situations</h4>
+<h4 id="_error_situations_7"><a class="anchor" href="#_error_situations_7"></a>7.10.3. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
@@ -2536,12 +2574,12 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sc_retrieve_job_results"><a class="anchor" href="#sc_retrieve_job_results"></a>7.11. Retrieve job results</h3>
+<h3 id="sc_dismiss_job"><a class="anchor" href="#sc_dismiss_job"></a>7.11. Dismiss a job</h3>
 <div class="paragraph">
-<p>The following section describes a method to retrieve the results of a job. In case the job execution failed, an exception is returned.</p>
+<p>The following section describes a method to dismiss a job.</p>
 </div>
 <div class="sect3">
-<h4 id="trueoperation-8"><a class="anchor" href="#trueoperation-8"></a>7.11.1. Operation</h4>
+<h4 id="_operation_8"><a class="anchor" href="#_operation_8"></a>7.11.1. Operation</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2550,6 +2588,139 @@ The exception code of the exception shall be "NoSuchJob".</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>/req/core/job<br></p>
+</div>
+<div class="paragraph">
+<p>The server SHALL support the HTTP DELETE operation at the path <code>/processes/{processID}/jobs/{jobID}</code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_response_8"><a class="anchor" href="#_response_8"></a>7.11.2. Response</h4>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>/req/core/job-success<br></p>
+</div>
+<div class="paragraph">
+<p>A successful execution of the operation SHALL be reported as a
+response with a HTTP status code 200.
+The content of that response SHALL be based upon the OpenAPI
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml">statusInfo.yaml</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml">Schema for status info</a></div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="YAML">    type: object
+    required:
+        - jobID
+        - status
+    properties:
+       jobID:
+          type: string
+       status:
+          type: string
+          enum:
+            - accepted
+            - running
+            - successful
+            - failed
+            - dismissed
+       message:
+          type: string
+       progress:
+          type: integer
+          minimum: 0
+          maximum: 100
+       links:
+          type: array
+          items:
+             $ref: 'link.yaml'</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example of HTTP DELETE request for dismissing a job.</div>
+<div class="content">
+<pre class="pygments highlight"><code>http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example of a job encoded as JSON.</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json">{
+  "jobID" : "81574318-1eb1-4d7c-af61-4b3fbcf33c4f",
+  "status": "dismissed",
+  "message": "Process dismissed",
+  "progress": 56,
+  "links": [
+    {
+      "href": "http://processing.example.org/processes/EchoProcess/jobs",
+      "rel": "parent",
+      "type": "application/json",
+      "title": "The job list for the current process"
+    }
+  ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_error_situations_8"><a class="anchor" href="#_error_situations_8"></a>7.11.3. Error situations</h4>
+<div class="paragraph">
+<p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
+</div>
+<div class="paragraph">
+<p>If the process with the specified identifier doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#rc_no-such-process">[rc_no-such-process]</a>).</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>/req/core/job-exception/no-such-job<br></p>
+</div>
+<div class="paragraph">
+<p>If the operation is executed using an invalid job identifier, the response shall have HTTP status code 404.
+The content of that response SHALL be based upon the OpenAPI
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml">exception.yaml</a>.
+The exception code of the exception shall be "NoSuchJob".</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sc_retrieve_job_results"><a class="anchor" href="#sc_retrieve_job_results"></a>7.12. Retrieve job results</h3>
+<div class="paragraph">
+<p>The following section describes a method to retrieve the results of a job. In case the job execution failed, an exception is returned.</p>
+</div>
+<div class="sect3">
+<h4 id="_operation_9"><a class="anchor" href="#_operation_9"></a>7.12.1. Operation</h4>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result<br></p>
 </div>
@@ -2561,7 +2732,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="trueresponse-8"><a class="anchor" href="#trueresponse-8"></a>7.11.2. Response</h4>
+<h4 id="_response_9"><a class="anchor" href="#_response_9"></a>7.12.2. Response</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2569,7 +2740,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-success<br></p>
 </div>
@@ -2585,7 +2756,7 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml">Schema for the result of a job</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: array
+<pre class="pygments highlight"><code data-lang="YAML">    type: array
     items:
        $ref: 'outputInfo.yaml'</code></pre>
 </div>
@@ -2593,7 +2764,7 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/outputInfo.yaml">Schema for output info</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: object
+<pre class="pygments highlight"><code data-lang="YAML">    type: object
     required:
         - id
         - value
@@ -2607,13 +2778,13 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the result a job encoded as JSON.</div>
 <div class="content">
-<pre class="highlight"><code>http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result</code></pre>
+<pre class="pygments highlight"><code>http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of a result encoded as JSON.</div>
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">[
+<pre class="pygments highlight"><code data-lang="json">[
    {
 	"id": "literalOutput",
 		"value": {
@@ -2640,7 +2811,7 @@ The content of that response SHALL be based upon the OpenAPI
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueerror-situations-8"><a class="anchor" href="#trueerror-situations-8"></a>7.11.3. Error situations</h4>
+<h4 id="_error_situations_9"><a class="anchor" href="#_error_situations_9"></a>7.12.3. Error situations</h4>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
@@ -2654,7 +2825,7 @@ The content of that response SHALL be based upon the OpenAPI
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-exception/no-such-job<br></p>
 </div>
@@ -2674,7 +2845,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-exception/result-not-ready<br></p>
 </div>
@@ -2694,7 +2865,7 @@ The exception code of the exception shall be "ResultNotReady".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-failed<br></p>
 </div>
@@ -2712,10 +2883,10 @@ The exception code shall correspond to the reason of the failure, e.g. InvalidPa
 </div>
 </div>
 <div class="sect1">
-<h2 id="truerequirements-classes-for-encodings"><a class="anchor" href="#truerequirements-classes-for-encodings"></a>8. Requirements classes for encodings</h2>
+<h2 id="_requirements_classes_for_encodings"><a class="anchor" href="#_requirements_classes_for_encodings"></a>8. Requirements classes for encodings</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="trueoverview-2"><a class="anchor" href="#trueoverview-2"></a>8.1. Overview</h3>
+<h3 id="_overview_2"><a class="anchor" href="#_overview_2"></a>8.1. Overview</h3>
 <div class="paragraph">
 <p>This clause specifies four pre-defined requirements classes for encodings to be
 used in a WPS. These encodings are commonly used encodings for spatial data on
@@ -2740,7 +2911,7 @@ the web:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="truerequirement-class-json"><a class="anchor" href="#truerequirement-class-json"></a>8.2. Requirement Class "JSON"</h3>
+<h3 id="_requirement_class_json"><a class="anchor" href="#_requirement_class_json"></a>8.2. Requirement Class "JSON"</h3>
 <div class="paragraph">
 <p>This section defines the requirements class JSON.</p>
 </div>
@@ -2766,7 +2937,7 @@ the web:</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#truejson">JSON</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#_json">JSON</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -2777,7 +2948,7 @@ the web:</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/json/definition<br></p>
 </div>
@@ -2796,7 +2967,7 @@ the web:</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="truerequirement-class-html"><a class="anchor" href="#truerequirement-class-html"></a>8.3. Requirement Class "HTML"</h3>
+<h3 id="_requirement_class_html"><a class="anchor" href="#_requirement_class_html"></a>8.3. Requirement Class "HTML"</h3>
 <div class="paragraph">
 <p>This section defines the requirements class HTML.</p>
 </div>
@@ -2833,7 +3004,7 @@ the web:</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/html/definition<br></p>
 </div>
@@ -2851,7 +3022,7 @@ SHALL support the media type <code>text/html</code>.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req//html/content<br></p>
 </div>
@@ -2879,10 +3050,10 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="truerequirements-class-openapi-3-0"><a class="anchor" href="#truerequirements-class-openapi-3-0"></a>9. Requirements Class "OpenAPI 3.0"</h2>
+<h2 id="_requirements_class_openapi_3_0"><a class="anchor" href="#_requirements_class_openapi_3_0"></a>9. Requirements Class "OpenAPI 3.0"</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="truebasic-requirements"><a class="anchor" href="#truebasic-requirements"></a>9.1. Basic requirements</h3>
+<h3 id="_basic_requirements"><a class="anchor" href="#_basic_requirements"></a>9.1. Basic requirements</h3>
 <div class="paragraph">
 <p>APIs conforming to this requirements class document themselves by an <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument">OpenAPI Document</a>.</p>
 </div>
@@ -2919,7 +3090,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-1</strong></p>
 </div></div></td>
@@ -2939,7 +3110,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/oas-definition-2<br></p>
 </div>
@@ -2960,7 +3131,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/req/oas30/oas-impl<br></p>
 <p class="tableblock">The server SHALL implement all capabilities specified in the OpenAPI
 definition.</p></td>
@@ -2969,7 +3140,7 @@ definition.</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="truecomplete-definition"><a class="anchor" href="#truecomplete-definition"></a>9.2. Complete definition</h3>
+<h3 id="_complete_definition"><a class="anchor" href="#_complete_definition"></a>9.2. Complete definition</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2977,7 +3148,7 @@ definition.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/completeness<br></p>
 </div>
@@ -3011,7 +3182,7 @@ situations that originate from the server.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/exceptions-codes<br></p>
 </div>
@@ -3027,7 +3198,7 @@ SHALL cover all applicable HTTP Status Codes.</p>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">description: An error occurred.
+<pre class="pygments highlight"><code data-lang="YAML">description: An error occurred.
 content:
   application/json:
     schema:
@@ -3049,7 +3220,7 @@ content:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/security<br></p>
 </div>
@@ -3110,8 +3281,8 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="trueoperation-9"><a class="anchor" href="#trueoperation-9"></a>10.1. Operation</h4>
+<div class="sect2">
+<h3 id="_operation_10"><a class="anchor" href="#_operation_10"></a>10.1. Operation</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3119,19 +3290,19 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 37</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/req/job-collection/job-collection-op<br></p>
+<p>/req/core/process-collection<br></p>
 </div>
 <div class="paragraph">
-<p>The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}/jobs</code>.</p>
+<p>The server SHALL support the HTTP GET operation at the path <code>/processes</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="trueresponse-9"><a class="anchor" href="#trueresponse-9"></a>10.2. Response</h4>
+<div class="sect2">
+<h3 id="_response_10"><a class="anchor" href="#_response_10"></a>10.2. Response</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3139,15 +3310,15 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 38</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/req/job-collection/job-collection-success<br></p>
+<p>/req/core/process-collection-success<br></p>
 </div>
 <div class="paragraph">
 <p>A successful execution of the operation SHALL be reported as a
 response with a HTTP status code 200.
 The content of that response SHALL be based upon the OpenAPI
-3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml">jobCollection.yaml</a>.</p>
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml">processCollection.yaml</a>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3155,7 +3326,7 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml">Schema for the job collection</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: array
+<pre class="pygments highlight"><code data-lang="YAML">    type: array
     items:
       $ref: 'jobInfo.yaml'</code></pre>
 </div>
@@ -3163,13 +3334,13 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the list of jobs of a process encoded as JSON.</div>
 <div class="content">
-<pre class="highlight"><code>http://processing.example.org/processes/EchoProcess/jobs</code></pre>
+<pre class="pygments highlight"><code>http://processing.example.org/processes/EchoProcess/jobs</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of a job list encoded as JSON.</div>
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">[
+<pre class="pygments highlight"><code data-lang="json">[
 	{
 		"jobID": "8ca109b4-3b86-4a9c-a284-a6d50f91019e",
 		"status": "running",
@@ -3239,8 +3410,8 @@ The content of that response SHALL be based upon the OpenAPI
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="trueerror-situations-9"><a class="anchor" href="#trueerror-situations-9"></a>10.3. Error situations</h4>
+<div class="sect2">
+<h3 id="_error_situations_10"><a class="anchor" href="#_error_situations_10"></a>10.3. Error situations</h3>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
@@ -3285,7 +3456,7 @@ The content of that response SHALL be based upon the OpenAPI
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 39</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/callback/job-callback<br></p>
 </div>
@@ -3298,7 +3469,7 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title">Example for a callback in the execute operation</div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    callbacks:
+<pre class="pygments highlight"><code data-lang="YAML">    callbacks:
         jobCompleted:
           '{$request.body#/subscriber/successUri}':
             post:
@@ -3353,7 +3524,7 @@ The content of that response SHALL be based upon the OpenAPI
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<div class="title">Note</div>
 </td>
 <td class="content">
 The OpenAPI media types have not been registered yet with IANA and can change in the future.
@@ -3365,10 +3536,10 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect1">
-<h2 id="trueabstract-test-suite-normative"><a class="anchor" href="#trueabstract-test-suite-normative"></a>Annex A: Abstract Test Suite (Normative)</h2>
+<h2 id="_abstract_test_suite_normative"><a class="anchor" href="#_abstract_test_suite_normative"></a>Annex A: Abstract Test Suite (Normative)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="trueconformance-class-core"><a class="anchor" href="#trueconformance-class-core"></a>A.1. Conformance Class Core</h3>
+<h3 id="_conformance_class_core"><a class="anchor" href="#_conformance_class_core"></a>A.1. Conformance Class Core</h3>
 <table id="ats_core" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
@@ -3392,23 +3563,23 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="truegeneral-tests"><a class="anchor" href="#truegeneral-tests"></a>A.1.1. General Tests</h4>
+<h4 id="_general_tests"><a class="anchor" href="#_general_tests"></a>A.1.1. General Tests</h4>
 <div class="sect4">
-<h5 id="truehttp-1-1"><a class="anchor" href="#truehttp-1-1"></a>A.1.1.1. HTTP 1.1</h5>
+<h5 id="_http_1_1"><a class="anchor" href="#_http_1_1"></a>A.1.1.1. HTTP 1.1</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose"><a class="anchor" href="#truea-test-purpose"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose"><a class="anchor" href="#_a_test_purpose"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate that the OGC API - Processes services, advertised through the API, conform with HTTP 1.1.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions"><a class="anchor" href="#trueb-pre-conditions"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions"><a class="anchor" href="#_b_pre_conditions"></a>b) Pre-conditions:</h6>
 <div class="paragraph">
 <p>none</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method"><a class="anchor" href="#truec-test-method"></a>c) Test Method:</h6>
+<h6 id="_c_test_method"><a class="anchor" href="#_c_test_method"></a>c) Test Method:</h6>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3418,7 +3589,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references"><a class="anchor" href="#trued-references"></a>d) References:</h6>
+<h6 id="_d_references"><a class="anchor" href="#_d_references"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirement 7</p>
 </div>
@@ -3426,17 +3597,17 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueretrieve-the-api-description"><a class="anchor" href="#trueretrieve-the-api-description"></a>A.1.2. Retrieve the API Description</h4>
+<h4 id="_retrieve_the_api_description"><a class="anchor" href="#_retrieve_the_api_description"></a>A.1.2. Retrieve the API Description</h4>
 <div class="sect4">
-<h5 id="truelanding-page-retrieval"><a class="anchor" href="#truelanding-page-retrieval"></a>A.1.2.1. Landing Page Retrieval</h5>
+<h5 id="_landing_page_retrieval"><a class="anchor" href="#_landing_page_retrieval"></a>A.1.2.1. Landing Page Retrieval</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-2"><a class="anchor" href="#truea-test-purpose-2"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_2"><a class="anchor" href="#_a_test_purpose_2"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate that a landing page can be retrieved from the expected location.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-2"><a class="anchor" href="#trueb-pre-conditions-2"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_2"><a class="anchor" href="#_b_pre_conditions_2"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3452,7 +3623,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-2"><a class="anchor" href="#truec-test-method-2"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_2"><a class="anchor" href="#_c_test_method_2"></a>c) Test Method:</h6>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3468,22 +3639,22 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-2"><a class="anchor" href="#trued-references-2"></a>d) References:</h6>
+<h6 id="_d_references_2"><a class="anchor" href="#_d_references_2"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirement 1</p>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="truelanding-page-validation"><a class="anchor" href="#truelanding-page-validation"></a>A.1.2.2. Landing Page Validation</h5>
+<h5 id="_landing_page_validation"><a class="anchor" href="#_landing_page_validation"></a>A.1.2.2. Landing Page Validation</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-3"><a class="anchor" href="#truea-test-purpose-3"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_3"><a class="anchor" href="#_a_test_purpose_3"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate that the landing page complies with the required structure and contents.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-3"><a class="anchor" href="#trueb-pre-conditions-3"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_3"><a class="anchor" href="#_b_pre_conditions_3"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3493,7 +3664,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-3"><a class="anchor" href="#truec-test-method-3"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_3"><a class="anchor" href="#_c_test_method_3"></a>c) Test Method:</h6>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3512,25 +3683,25 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-3"><a class="anchor" href="#trued-references-3"></a>d) References:</h6>
+<h6 id="_d_references_3"><a class="anchor" href="#_d_references_3"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirement 2</p>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="trueopenapi-document-retrieval"><a class="anchor" href="#trueopenapi-document-retrieval"></a>A.1.2.3. OpenAPI Document Retrieval</h5>
+<h5 id="_openapi_document_retrieval"><a class="anchor" href="#_openapi_document_retrieval"></a>A.1.2.3. OpenAPI Document Retrieval</h5>
 <div class="paragraph">
 <p>Note: The URI for the API definition is provided through the landing page.  However, that does not mean that the API definition resides on the same server as the landing page.  Test clients should be prepared for a OGC API - Processes implementation which is distributed across multiple servers.</p>
 </div>
 <div class="sect5">
-<h6 id="truea-test-purpose-4"><a class="anchor" href="#truea-test-purpose-4"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_4"><a class="anchor" href="#_a_test_purpose_4"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate that the API Definition document can be retrieved from the expected location.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-4"><a class="anchor" href="#trueb-pre-conditions-4"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_4"><a class="anchor" href="#_b_pre_conditions_4"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3546,7 +3717,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-4"><a class="anchor" href="#truec-test-method-4"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_4"><a class="anchor" href="#_c_test_method_4"></a>c) Test Method:</h6>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3562,22 +3733,22 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-4"><a class="anchor" href="#trued-references-4"></a>d) References:</h6>
+<h6 id="_d_references_4"><a class="anchor" href="#_d_references_4"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirements 3 and 4</p>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="trueapi-definition-validation"><a class="anchor" href="#trueapi-definition-validation"></a>A.1.2.4. API Definition Validation</h5>
+<h5 id="_api_definition_validation"><a class="anchor" href="#_api_definition_validation"></a>A.1.2.4. API Definition Validation</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-5"><a class="anchor" href="#truea-test-purpose-5"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_5"><a class="anchor" href="#_a_test_purpose_5"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate that the API Definition page complies with the require structure and contents.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-5"><a class="anchor" href="#trueb-pre-conditions-5"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_5"><a class="anchor" href="#_b_pre_conditions_5"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3587,7 +3758,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-5"><a class="anchor" href="#truec-test-method-5"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_5"><a class="anchor" href="#_c_test_method_5"></a>c) Test Method:</h6>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3603,7 +3774,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-5"><a class="anchor" href="#trued-references-5"></a>d) References:</h6>
+<h6 id="_d_references_5"><a class="anchor" href="#_d_references_5"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirement 4</p>
 </div>
@@ -3611,20 +3782,20 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueidentify-the-test-points"><a class="anchor" href="#trueidentify-the-test-points"></a>A.1.3. Identify the Test Points</h4>
+<h4 id="_identify_the_test_points"><a class="anchor" href="#_identify_the_test_points"></a>A.1.3. Identify the Test Points</h4>
 <div class="paragraph">
 <p>Identification of the test points is a pre-condition to performing a compliance test. This process starts with A.4.3.1.</p>
 </div>
 <div class="sect4">
-<h5 id="trueidentify-test-points"><a class="anchor" href="#trueidentify-test-points"></a>A.1.3.1. Identify Test Points:</h5>
+<h5 id="_identify_test_points"><a class="anchor" href="#_identify_test_points"></a>A.1.3.1. Identify Test Points:</h5>
 <div class="sect5">
-<h6 id="truea-purpose"><a class="anchor" href="#truea-purpose"></a>a) Purpose:</h6>
+<h6 id="_a_purpose"><a class="anchor" href="#_a_purpose"></a>a) Purpose:</h6>
 <div class="paragraph">
 <p>To identify the test points associated with each Path in the OpenAPI document</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-6"><a class="anchor" href="#trueb-pre-conditions-6"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_6"><a class="anchor" href="#_b_pre_conditions_6"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3640,7 +3811,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-method"><a class="anchor" href="#truec-method"></a>c) Method:</h6>
+<h6 id="_c_method"><a class="anchor" href="#_c_method"></a>c) Method:</h6>
 <div class="paragraph">
 <p>FOR EACH paths property in the OpenAPI document
     If the path name is one of those specified in the OGC API - Processes specification
@@ -3651,22 +3822,22 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-6"><a class="anchor" href="#trued-references-6"></a>d) References:</h6>
+<h6 id="_d_references_6"><a class="anchor" href="#_d_references_6"></a>d) References:</h6>
 <div class="paragraph">
 <p>None</p>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="trueidentify-server-uris"><a class="anchor" href="#trueidentify-server-uris"></a>A.1.3.2. Identify Server URIs:</h5>
+<h5 id="_identify_server_uris"><a class="anchor" href="#_identify_server_uris"></a>A.1.3.2. Identify Server URIs:</h5>
 <div class="sect5">
-<h6 id="truea-purpose-2"><a class="anchor" href="#truea-purpose-2"></a>a) Purpose:</h6>
+<h6 id="_a_purpose_2"><a class="anchor" href="#_a_purpose_2"></a>a) Purpose:</h6>
 <div class="paragraph">
 <p>To identify all server URIs applicable to an OpenAPI Operation Object</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-7"><a class="anchor" href="#trueb-pre-conditions-7"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_7"><a class="anchor" href="#_b_pre_conditions_7"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3688,7 +3859,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-method-2"><a class="anchor" href="#truec-method-2"></a>c) Method:</h6>
+<h6 id="_c_method_2"><a class="anchor" href="#_c_method_2"></a>c) Method:</h6>
 <div class="paragraph">
 <p>1) Identify the Server Objects which are in-scope for this operation</p>
 </div>
@@ -3719,22 +3890,22 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-7"><a class="anchor" href="#trued-references-7"></a>d) References:</h6>
+<h6 id="_d_references_7"><a class="anchor" href="#_d_references_7"></a>d) References:</h6>
 <div class="paragraph">
 <p>None</p>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="trueprocess-server-object"><a class="anchor" href="#trueprocess-server-object"></a>A.1.3.3. Process Server Object:</h5>
+<h5 id="_process_server_object"><a class="anchor" href="#_process_server_object"></a>A.1.3.3. Process Server Object:</h5>
 <div class="sect5">
-<h6 id="truea-purpose-3"><a class="anchor" href="#truea-purpose-3"></a>a) Purpose:</h6>
+<h6 id="_a_purpose_3"><a class="anchor" href="#_a_purpose_3"></a>a) Purpose:</h6>
 <div class="paragraph">
 <p>To expand the contents of a Server Object into a set of absolute URIs.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-8"><a class="anchor" href="#trueb-pre-conditions-8"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_8"><a class="anchor" href="#_b_pre_conditions_8"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3744,7 +3915,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-method-3"><a class="anchor" href="#truec-method-3"></a>c) Method:</h6>
+<h6 id="_c_method_3"><a class="anchor" href="#_c_method_3"></a>c) Method:</h6>
 <div class="paragraph">
 <p>Processing the Server Object results in a set of absolute URIs.  This set contains all of the URIs that can be created given the URI template and variables defined in that Server Object.</p>
 </div>
@@ -3792,7 +3963,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-8"><a class="anchor" href="#trued-references-8"></a>d) References:</h6>
+<h6 id="_d_references_8"><a class="anchor" href="#_d_references_8"></a>d) References:</h6>
 <div class="paragraph">
 <p>None</p>
 </div>
@@ -3800,17 +3971,17 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueprocessing-the-openapi-document"><a class="anchor" href="#trueprocessing-the-openapi-document"></a>A.1.4. Processing the OpenAPI Document</h4>
+<h4 id="_processing_the_openapi_document"><a class="anchor" href="#_processing_the_openapi_document"></a>A.1.4. Processing the OpenAPI Document</h4>
 <div class="sect4">
-<h5 id="truevalidate-api-path"><a class="anchor" href="#truevalidate-api-path"></a>A.1.4.1. Validate /api path</h5>
+<h5 id="_validate_api_path"><a class="anchor" href="#_validate_api_path"></a>A.1.4.1. Validate /api path</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-6"><a class="anchor" href="#truea-test-purpose-6"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_6"><a class="anchor" href="#_a_test_purpose_6"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate the API definition provided through the /api path as it the athoritative definition of this API. Validate that this resource exists at the expected location and that it complies with the appropirate schema.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-9"><a class="anchor" href="#trueb-pre-conditions-9"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_9"><a class="anchor" href="#_b_pre_conditions_9"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3820,7 +3991,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-6"><a class="anchor" href="#truec-test-method-6"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_6"><a class="anchor" href="#_c_test_method_6"></a>c) Test Method:</h6>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3836,22 +4007,22 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-9"><a class="anchor" href="#trued-references-9"></a>d) References:</h6>
+<h6 id="_d_references_9"><a class="anchor" href="#_d_references_9"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirement 4</p>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="truevalidate-conformance-operation"><a class="anchor" href="#truevalidate-conformance-operation"></a>A.1.4.2. Validate Conformance Operation</h5>
+<h5 id="_validate_conformance_operation"><a class="anchor" href="#_validate_conformance_operation"></a>A.1.4.2. Validate Conformance Operation</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-7"><a class="anchor" href="#truea-test-purpose-7"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_7"><a class="anchor" href="#_a_test_purpose_7"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate that Conformance Operation behaves as required.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-10"><a class="anchor" href="#trueb-pre-conditions-10"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_10"><a class="anchor" href="#_b_pre_conditions_10"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3861,7 +4032,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-7"><a class="anchor" href="#truec-test-method-7"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_7"><a class="anchor" href="#_c_test_method_7"></a>c) Test Method:</h6>
 <div class="paragraph">
 <p>DO FOR each /conformance test point</p>
 </div>
@@ -3877,22 +4048,22 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-10"><a class="anchor" href="#trued-references-10"></a>d) References:</h6>
+<h6 id="_d_references_10"><a class="anchor" href="#_d_references_10"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirement 5</p>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="truevalidate-conformance-operation-response"><a class="anchor" href="#truevalidate-conformance-operation-response"></a>A.1.4.3. Validate Conformance Operation Response</h5>
+<h5 id="_validate_conformance_operation_response"><a class="anchor" href="#_validate_conformance_operation_response"></a>A.1.4.3. Validate Conformance Operation Response</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-8"><a class="anchor" href="#truea-test-purpose-8"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_8"><a class="anchor" href="#_a_test_purpose_8"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate the response to the Conformance Operation.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-11"><a class="anchor" href="#trueb-pre-conditions-11"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_11"><a class="anchor" href="#_b_pre_conditions_11"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3905,7 +4076,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-8"><a class="anchor" href="#truec-test-method-8"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_8"><a class="anchor" href="#_c_test_method_8"></a>c) Test Method:</h6>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3918,22 +4089,22 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-11"><a class="anchor" href="#trued-references-11"></a>d) References:</h6>
+<h6 id="_d_references_11"><a class="anchor" href="#_d_references_11"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirement 6</p>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="truevalidate-the-get-processes-operation"><a class="anchor" href="#truevalidate-the-get-processes-operation"></a>A.1.4.4. Validate the Get Processes Operation</h5>
+<h5 id="_validate_the_get_processes_operation"><a class="anchor" href="#_validate_the_get_processes_operation"></a>A.1.4.4. Validate the Get Processes Operation</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-9"><a class="anchor" href="#truea-test-purpose-9"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_9"><a class="anchor" href="#_a_test_purpose_9"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate that the Get Processes Operation behaves as required.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-12"><a class="anchor" href="#trueb-pre-conditions-12"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_12"><a class="anchor" href="#_b_pre_conditions_12"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3943,7 +4114,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-9"><a class="anchor" href="#truec-test-method-9"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_9"><a class="anchor" href="#_c_test_method_9"></a>c) Test Method:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3957,7 +4128,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-12"><a class="anchor" href="#trued-references-12"></a>d) References:</h6>
+<h6 id="_d_references_12"><a class="anchor" href="#_d_references_12"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirement 9</p>
 </div>
@@ -3966,13 +4137,13 @@ URI</p>
 <div class="sect4">
 <h5 id="validate_get_processes_response"><a class="anchor" href="#validate_get_processes_response"></a>A.1.4.5. Validate Get Processes Operation Response</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-10"><a class="anchor" href="#truea-test-purpose-10"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_10"><a class="anchor" href="#_a_test_purpose_10"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate the response to the Get Processes Operation.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-13"><a class="anchor" href="#trueb-pre-conditions-13"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_13"><a class="anchor" href="#_b_pre_conditions_13"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -3982,7 +4153,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-10"><a class="anchor" href="#truec-test-method-10"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_10"><a class="anchor" href="#_c_test_method_10"></a>c) Test Method:</h6>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3995,7 +4166,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-13"><a class="anchor" href="#trued-references-13"></a>d) References:</h6>
+<h6 id="_d_references_13"><a class="anchor" href="#_d_references_13"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirements 10, 11, and 12</p>
 </div>
@@ -4004,13 +4175,13 @@ URI</p>
 <div class="sect4">
 <h5 id="validate_process_description"><a class="anchor" href="#validate_process_description"></a>A.1.4.6. Validate the Get Process Description Operation</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-11"><a class="anchor" href="#truea-test-purpose-11"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_11"><a class="anchor" href="#_a_test_purpose_11"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate that the Get Process Description Operation behaves as required.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-14"><a class="anchor" href="#trueb-pre-conditions-14"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_14"><a class="anchor" href="#_b_pre_conditions_14"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -4020,7 +4191,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-11"><a class="anchor" href="#truec-test-method-11"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_11"><a class="anchor" href="#_c_test_method_11"></a>c) Test Method:</h6>
 <div class="paragraph">
 <p>DO FOR each /processes/{processId} test point</p>
 </div>
@@ -4036,7 +4207,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-14"><a class="anchor" href="#trued-references-14"></a>d) References:</h6>
+<h6 id="_d_references_14"><a class="anchor" href="#_d_references_14"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirement 10,11</p>
 </div>
@@ -4045,13 +4216,13 @@ URI</p>
 <div class="sect4">
 <h5 id="validate_process_description_response"><a class="anchor" href="#validate_process_description_response"></a>A.1.4.7. Validate the Process Description Operation Response</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-12"><a class="anchor" href="#truea-test-purpose-12"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_12"><a class="anchor" href="#_a_test_purpose_12"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate the response to the Process Description Operation.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-15"><a class="anchor" href="#trueb-pre-conditions-15"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_15"><a class="anchor" href="#_b_pre_conditions_15"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -4061,7 +4232,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-12"><a class="anchor" href="#truec-test-method-12"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_12"><a class="anchor" href="#_c_test_method_12"></a>c) Test Method:</h6>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4071,22 +4242,22 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-15"><a class="anchor" href="#trued-references-15"></a>d) References:</h6>
+<h6 id="_d_references_15"><a class="anchor" href="#_d_references_15"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirement 16</p>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="truevalidate-the-get-jobs-operation"><a class="anchor" href="#truevalidate-the-get-jobs-operation"></a>A.1.4.8. Validate the Get Jobs Operation</h5>
+<h5 id="_validate_the_get_jobs_operation"><a class="anchor" href="#_validate_the_get_jobs_operation"></a>A.1.4.8. Validate the Get Jobs Operation</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-13"><a class="anchor" href="#truea-test-purpose-13"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_13"><a class="anchor" href="#_a_test_purpose_13"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate that the Get Jobs Operation behaves as required.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-16"><a class="anchor" href="#trueb-pre-conditions-16"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_16"><a class="anchor" href="#_b_pre_conditions_16"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -4099,7 +4270,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-13"><a class="anchor" href="#truec-test-method-13"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_13"><a class="anchor" href="#_c_test_method_13"></a>c) Test Method:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -4112,7 +4283,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-16"><a class="anchor" href="#trued-references-16"></a>d) References:</h6>
+<h6 id="_d_references_16"><a class="anchor" href="#_d_references_16"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirement 17</p>
 </div>
@@ -4121,13 +4292,13 @@ URI</p>
 <div class="sect4">
 <h5 id="validate_get_jobs_response"><a class="anchor" href="#validate_get_jobs_response"></a>A.1.4.9. Validate the Get Jobs Operation Response</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-14"><a class="anchor" href="#truea-test-purpose-14"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_14"><a class="anchor" href="#_a_test_purpose_14"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate the Get Jobs Operation Response.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-17"><a class="anchor" href="#trueb-pre-conditions-17"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_17"><a class="anchor" href="#_b_pre_conditions_17"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -4137,7 +4308,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-14"><a class="anchor" href="#truec-test-method-14"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_14"><a class="anchor" href="#_c_test_method_14"></a>c) Test Method:</h6>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4157,22 +4328,22 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-17"><a class="anchor" href="#trued-references-17"></a>d) References:</h6>
+<h6 id="_d_references_17"><a class="anchor" href="#_d_references_17"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirements 24, 25, 26, 27, 28 and 29</p>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="trueexecute-operation"><a class="anchor" href="#trueexecute-operation"></a>A.1.4.10. Execute Operation</h5>
+<h5 id="_execute_operation"><a class="anchor" href="#_execute_operation"></a>A.1.4.10. Execute Operation</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-15"><a class="anchor" href="#truea-test-purpose-15"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_15"><a class="anchor" href="#_a_test_purpose_15"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate that the Execute Operation behaves as required.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-18"><a class="anchor" href="#trueb-pre-conditions-18"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_18"><a class="anchor" href="#_b_pre_conditions_18"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -4188,7 +4359,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-15"><a class="anchor" href="#truec-test-method-15"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_15"><a class="anchor" href="#_c_test_method_15"></a>c) Test Method:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -4207,7 +4378,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-18"><a class="anchor" href="#trued-references-18"></a>d) References:</h6>
+<h6 id="_d_references_18"><a class="anchor" href="#_d_references_18"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirement 30</p>
 </div>
@@ -4216,13 +4387,13 @@ URI</p>
 <div class="sect4">
 <h5 id="validate_execute_response"><a class="anchor" href="#validate_execute_response"></a>A.1.4.11. Validate the Execute Operation Response</h5>
 <div class="sect5">
-<h6 id="truea-test-purpose-16"><a class="anchor" href="#truea-test-purpose-16"></a>a) Test Purpose:</h6>
+<h6 id="_a_test_purpose_16"><a class="anchor" href="#_a_test_purpose_16"></a>a) Test Purpose:</h6>
 <div class="paragraph">
 <p>Validate the Execute Operation Response.</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trueb-pre-conditions-19"><a class="anchor" href="#trueb-pre-conditions-19"></a>b) Pre-conditions:</h6>
+<h6 id="_b_pre_conditions_19"><a class="anchor" href="#_b_pre_conditions_19"></a>b) Pre-conditions:</h6>
 <div class="ulist">
 <ul>
 <li>
@@ -4232,7 +4403,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="truec-test-method-16"><a class="anchor" href="#truec-test-method-16"></a>c) Test Method:</h6>
+<h6 id="_c_test_method_16"><a class="anchor" href="#_c_test_method_16"></a>c) Test Method:</h6>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4268,7 +4439,7 @@ URI</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="trued-references-19"><a class="anchor" href="#trued-references-19"></a>d) References:</h6>
+<h6 id="_d_references_19"><a class="anchor" href="#_d_references_19"></a>d) References:</h6>
 <div class="paragraph">
 <p>Requirements 31 and 32</p>
 </div>
@@ -4277,7 +4448,7 @@ URI</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueconformance-class-json"><a class="anchor" href="#trueconformance-class-json"></a>A.2. Conformance Class JSON</h3>
+<h3 id="_conformance_class_json"><a class="anchor" href="#_conformance_class_json"></a>A.2. Conformance Class JSON</h3>
 <table id="ats_json" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
@@ -4305,11 +4476,35 @@ URI</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueconformance-class-job-collection"><a class="anchor" href="#trueconformance-class-job-collection"></a>A.3. Conformance Class Job collection</h3>
-
+<h3 id="_conformance_class_job_collection"><a class="anchor" href="#_conformance_class_job_collection"></a>A.3. Conformance Class Job collection</h3>
+<table id="ats_job-collection" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements class</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Requirements Class "Core"</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>TODO</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="trueconformance-class-callback"><a class="anchor" href="#trueconformance-class-callback"></a>A.4. Conformance Class Callback</h3>
+<h3 id="_conformance_class_callback"><a class="anchor" href="#_conformance_class_callback"></a>A.4. Conformance Class Callback</h3>
 <table id="ats_callback" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
@@ -4337,7 +4532,7 @@ URI</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueconformance-class-html"><a class="anchor" href="#trueconformance-class-html"></a>A.5. Conformance Class HTML</h3>
+<h3 id="_conformance_class_html"><a class="anchor" href="#_conformance_class_html"></a>A.5. Conformance Class HTML</h3>
 <table id="ats_html" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
@@ -4366,7 +4561,7 @@ URI</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="trueconformance-class-openapi-3-0"><a class="anchor" href="#trueconformance-class-openapi-3-0"></a>A.6. Conformance Class OpenAPI 3.0</h3>
+<h3 id="_conformance_class_openapi_3_0"><a class="anchor" href="#_conformance_class_openapi_3_0"></a>A.6. Conformance Class OpenAPI 3.0</h3>
 <table id="ats_oas30" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
@@ -4608,7 +4803,7 @@ URI</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="trueoverview-3"><a class="anchor" href="#trueoverview-3"></a>A.7. Overview</h3>
+<h3 id="_overview_3"><a class="anchor" href="#_overview_3"></a>A.7. Overview</h3>
 <div class="paragraph">
 <p>Compliance testing for OGC API - Processes and similar standards must answer three questions:</p>
 </div>
@@ -4630,12 +4825,12 @@ URI</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueconventions-2"><a class="anchor" href="#trueconventions-2"></a>A.8. Conventions</h3>
+<h3 id="_conventions_2"><a class="anchor" href="#_conventions_2"></a>A.8. Conventions</h3>
 <div class="paragraph">
 <p>The following conventions apply to this Abstract Test Suite:</p>
 </div>
 <div class="sect3">
-<h4 id="truepath-templates"><a class="anchor" href="#truepath-templates"></a>A.8.1. Path Templates</h4>
+<h4 id="_path_templates"><a class="anchor" href="#_path_templates"></a>A.8.1. Path Templates</h4>
 <div class="paragraph">
 <p>Path templates are used throughout these test suites.  Path templating refers to the usage of curly braces “{}” to mark a section of a URL path that can be replaced using path parameters.  The terms used to describe portions of these templates are based on the URL syntax described in RFC 3986.</p>
 </div>
@@ -4660,19 +4855,19 @@ URI</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueapi-description-document"><a class="anchor" href="#trueapi-description-document"></a>A.8.2. API Description Document</h4>
+<h4 id="_api_description_document"><a class="anchor" href="#_api_description_document"></a>A.8.2. API Description Document</h4>
 <div class="paragraph">
 <p>The OGC API - Processes standard does not mandate a standard format for the API Description Document.  However, some form of standard is needed if tests are to be accurately described and implemented.  Therefore, this Abstract Test Suite asserts that the API Description document is compliant with OpenAPI 3.0.  This Test Suite will be updated if and when an alternative is commonly adopted.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueresource-encodings"><a class="anchor" href="#trueresource-encodings"></a>A.8.3. Resource Encodings</h4>
+<h4 id="_resource_encodings"><a class="anchor" href="#_resource_encodings"></a>A.8.3. Resource Encodings</h4>
 <div class="paragraph">
 <p>The OGC API - Processes standard does not mandate a standard encoding for resources returned by the API. Yet a compliance test requires some minimal level of expected behavior. Therefore, this Abstract Test Suite asserts that the API returns resources encoded in HTML and GeoJSON. Since no compliance test suite exists for these encodings at this time, the resources shall be presented to the test operator for human inspection.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueprocessing-security-objects"><a class="anchor" href="#trueprocessing-security-objects"></a>A.8.4. Processing Security Objects</h4>
+<h4 id="_processing_security_objects"><a class="anchor" href="#_processing_security_objects"></a>A.8.4. Processing Security Objects</h4>
 <div class="paragraph">
 <p>OpenAPI does not provide a standard way to associate a security requirement with a single server URI.  Therefore, OGC API - Processes compliance tests will have to make that association through the runtime challenge-response transaction.  At this time the role of the Security Objects should be considered advisory.</p>
 </div>
@@ -4697,7 +4892,7 @@ URI</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueparameters"><a class="anchor" href="#trueparameters"></a>A.8.5. Parameters</h4>
+<h4 id="_parameters"><a class="anchor" href="#_parameters"></a>A.8.5. Parameters</h4>
 <div class="paragraph">
 <p>The following observations apply for OGC API - Processes parameters:</p>
 </div>
@@ -4722,7 +4917,7 @@ URI</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="truetestable-paths"><a class="anchor" href="#truetestable-paths"></a>A.8.6. Testable Paths</h4>
+<h4 id="_testable_paths"><a class="anchor" href="#_testable_paths"></a>A.8.6. Testable Paths</h4>
 <div class="paragraph">
 <p>A testable path is a path which corresponds to one of the paths defined in the OGC API - Processes specification. There are three alternatives for making this determination:</p>
 </div>
@@ -4761,7 +4956,7 @@ URI</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="truerequirements-trace-matrix"><a class="anchor" href="#truerequirements-trace-matrix"></a>A.9. Requirements Trace Matrix</h3>
+<h3 id="_requirements_trace_matrix"><a class="anchor" href="#_requirements_trace_matrix"></a>A.9. Requirements Trace Matrix</h3>
 <div class="paragraph">
 <p>TODO update</p>
 </div>
@@ -4813,7 +5008,7 @@ Tests: A.4.1.1<br></p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="trueabstract-test"><a class="anchor" href="#trueabstract-test"></a>A.10. Abstract Test</h3>
+<h3 id="_abstract_test"><a class="anchor" href="#_abstract_test"></a>A.10. Abstract Test</h3>
 <div class="paragraph">
 <p>The Test Approach used in the OGC API - Processes Abstract Test Suite includes four steps:</p>
 </div>
@@ -4844,7 +5039,7 @@ Tests: A.4.1.1<br></p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="truerevision-history"><a class="anchor" href="#truerevision-history"></a>Annex B: Revision History</h2>
+<h2 id="_revision_history"><a class="anchor" href="#_revision_history"></a>Annex B: Revision History</h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -4899,7 +5094,7 @@ Tests: A.4.1.1<br></p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-30 09:52:08 +0200
+Last updated 2020-04-30 15:21:44 +0200
 </div>
 </div>
 </body>

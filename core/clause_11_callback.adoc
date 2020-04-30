@@ -5,7 +5,7 @@ This conformance class specifies a callback mechanism for completed jobs. In con
 
 include::requirements/requirements_class_callback.adoc[]
 
-include::requirements/callbacks/REQ_job-creation-callback.adoc[]
+include::requirements/callback/REQ_job-creation-callback.adoc[]
 
 .Example for a callback in the execute operation
 [source,YAML]

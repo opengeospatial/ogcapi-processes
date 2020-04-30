@@ -5,11 +5,11 @@ This requirement class specifies how to retrieve a job collection from the API.
 
 include::requirements/requirements_class_job-collection.adoc[]
 
-==== Operation
+=== Operation
 
 include::requirements/core/REQ_job-collection-op.adoc[]
 
-==== Response
+=== Response
 
 include::requirements/core/REQ_job-collection-success.adoc[]
 
@@ -31,7 +31,7 @@ http://processing.example.org/processes/EchoProcess/jobs
 include::examples/json/JobCollection.json[]
 ----
 
-==== Error situations
+=== Error situations
 
 See <<http_status_codes>> for general guidance.
 

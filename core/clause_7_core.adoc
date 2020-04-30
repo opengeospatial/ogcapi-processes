@@ -200,11 +200,11 @@ The following section describes a method to retrieve the available processes off
 
 ==== Operation
 
-include::requirements/core/REQ_process-collection-op.adoc[]
+include::requirements/core/REQ_job-collection-op.adoc[]
 
 ==== Response
 
-include::requirements/core/REQ_process-collection-success.adoc[]
+include::requirements/core/REQ_job-collection-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml[Schema for the process collection]
 [source,YAML]
@@ -240,11 +240,11 @@ The following section describes a method to retrieve metadata about a process.
 
 ==== Operation
 
-include::requirements/core/REQ_process-op.adoc[]
+include::requirements/core/REQ_job-op.adoc[]
 
 ==== Response
 
-include::requirements/core/REQ_process-success.adoc[]
+include::requirements/core/REQ_job-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml[Schema for a process]
 [source,YAML]
@@ -261,7 +261,7 @@ https://processing.example.org/processes/EchoProcess
 .Example of a process encoded as JSON.
 [source,json]
 ----
-include::openapi/schemas/ProcessDescription.json[]
+include::examples/json/ProcessDescription.json[]
 ----
 
 ==== Error situations
@@ -353,7 +353,7 @@ The following section describes a method to dismiss a job.
 
 ==== Operation
 
-include::requirements/core/REQ_job-op.adoc[]
+include::requirements/core/REQ_job-dismiss.adoc[]
 
 ==== Response
 
