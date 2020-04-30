@@ -7,12 +7,12 @@ include::requirements/requirements_class_callback.adoc[]
 
 include::requirements/callbacks/REQ_job-creation-callback.adoc[]
 
-.Schema for a callback in the execute operation
+.Example for a callback in the execute operation
 [source,YAML]
 ----
     callbacks:
         jobCompleted:
-          '{$request.body#/subscriber}':
+          '{$request.body#/subscriber/successUri}':
             post:
               requestBody:
                 content:
@@ -24,4 +24,8 @@ include::requirements/callbacks/REQ_job-creation-callback.adoc[]
                   description: Results received successfully
 ----
 
-Further guidance about how to use callbacks can be found here: 
+If the server implements this conformance class, the optional subscriber element of the execute request JSON must be used.
+
+It is possible to add multiple callbacks for getting progress updates and notifications of a successful job completion or of a failure.
+
+Further guidance about how to use callbacks can be found in the https://swagger.io/docs/specification/callbacks/[OpenAPI documentation].

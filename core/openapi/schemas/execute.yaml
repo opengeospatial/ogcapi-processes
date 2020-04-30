@@ -24,12 +24,4 @@
         - raw
         - document
     subscriber:
-      description: |-
-        Optional URI for a callback once the job has been completed.
-    
-        Support for this parameter is not required and the parameter may be
-        removed from the API definition, if conformance class **'callback'**
-        is not listed in the conformance declaration under `/conformance`.
-      type: string
-      format: uri
-      example: "https://client.example.com/notification/36d49f"
+      $ref: 'subscriber.yaml'
