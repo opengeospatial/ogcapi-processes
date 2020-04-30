@@ -107,7 +107,7 @@ paths:
           $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml'
       callbacks:
           jobCompleted:
-            '{$request.body#/subscriber}':
+            '{$request.body#/subscriber/successUri}':
               post:
                 requestBody:
                   content:
