@@ -115,7 +115,7 @@ paths:
                       schema:
                         $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml'
                 responses:
-                  202:
+                  200:
                     description: Results received successfully
   /processes/{processId}/jobs/{jobId}:
     get:
