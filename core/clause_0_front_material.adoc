@@ -2,7 +2,40 @@
 
 In many cases geospatial or location data, including data from sensors, must be processed before the information can be used effectively. The OGC Web Processing Service (WPS) Interface Standard provides a standard interface that simplifies the task of making simple or complex computational processing services accessible via web services. Such services include well-known processes found in GIS software as well as specialized processes for spatio-temporal modeling and simulation. While the OGC WPS standard was designed with spatial processing in mind, it can also be used to readily insert non-spatial processing tasks into a web services environment.
 The WPS standard provides a robust, interoperable, and versatile protocol for process execution on web services. It supports both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time consuming tasks. Moreover, the WPS standard defines a general process model that is designed to provide an interoperable description of processing functions. It is intended to support process cataloguing and discovery in a distributed environment.
+
 The OGC API - Processes builds on the WPS 2.0 standard and defines the processing standards to communicate over a RESTful protocol using JSON encodings. This API will be a newer and more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.
+
+The resources that are provided by a server implementing the OGC API - Processes are listed in <<table_wps_resources>> below and include the
+capabilities document of the server, the list of processes available
+(ProcessCollection and Process), jobs (running processes) and
+results of process executions.
+
+TODO: check chapter numbers
+
+[#table_wps_resources,reftext='{table-caption} {counter:table-num}']
+.Overview of resources, applicable HTTP methods and links to the document sections
+[cols="25,32,10,33",options="header"]
+!===
+|Resource |Path |HTTP method |Document reference
+|Landing page |`/` |GET |<<sc_landing_page,7.2 API landing page>>
+|Conformance classes |`/conformance` |GET |<<sc_conformance_classes,7.4 Declaration of conformance classes>>
+|Process collection |`/processes` |GET |<<sc_process_collection,7.8 Retrieve a process collection>>
+|Process description |`/processes/{processID}` |GET |<<sc_process_description, 7.9 Retrieve a process description>>
+|Job collection |`/processes/{processID}/jobs` |GET |<<Job_collection,7.10 Retrieve a job collection>>
+|Job status info |`/processes/{processID}/jobs/{jobID}` |GET |<<sc_retrieve_status_info,7.12 Retrieve status information about a job>>
+|Job results |`/processes/{processID}/jobs/{jobID}/results` |GET |<<sc_retrieve_job_results,7.13 Retrieve job results>>
+!===
+
+In general, the HTTP GET operation is used to provide access to the resources described above.
+However, in order to create a new job, the HTTP POST method is used to create a new job by sending an execute request to the server. The operation is listed in <<table_job_creation>> below.
+
+[#table_job_creation,reftext='{table-caption} {counter:table-num}']
+.Overview of resources, applicable HTTP methods and links to the document sections
+[cols="27,25,10,10,28",options="header"]
+!===
+|Description |Path |HTTP method | Parameter| Document reference
+|Create a new job |`/processes/{processID}/jobs` |POST| Execute request (contained in body) |<<sc_create_job,7.11 Create a new job>>
+!===
 
 [big]*ii.    Keywords*
 
