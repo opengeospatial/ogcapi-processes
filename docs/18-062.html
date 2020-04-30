@@ -598,29 +598,27 @@ License Agreement</p>
 </li>
 <li><a href="#overview">6. Overview</a>
 <ul class="sectlevel2">
-<li><a href="#trueresources-to-be-provided-by-the-ogc-api-processes">6.1. Resources to be provided by the OGC API - Processes</a></li>
-<li><a href="#trueoperations-on-resources-provided-by-the-ogc-api-processes">6.2. Operations on resources provided by the OGC API - Processes</a></li>
-<li><a href="#trueencodings">6.3. Encodings</a></li>
+<li><a href="#trueencodings">6.1. Encodings</a></li>
 </ul>
 </li>
 <li><a href="#truerequirement-class-core">7. Requirement Class "Core"</a>
 <ul class="sectlevel2">
 <li><a href="#trueoverview">7.1. Overview</a></li>
-<li><a href="#trueretrieve-the-api-landing-page">7.2. Retrieve the API landing page</a>
+<li><a href="#sc_landing_page">7.2. Retrieve the API landing page</a>
 <ul class="sectlevel3">
 <li><a href="#trueoperation">7.2.1. Operation</a></li>
 <li><a href="#trueresponse">7.2.2. Response</a></li>
 <li><a href="#trueerror-situations">7.2.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#trueretrieve-an-api-definition">7.3. Retrieve an API definition</a>
+<li><a href="#sc_api_definition">7.3. Retrieve an API definition</a>
 <ul class="sectlevel3">
 <li><a href="#trueoperation-2">7.3.1. Operation</a></li>
 <li><a href="#trueresponse-2">7.3.2. Response</a></li>
 <li><a href="#trueerror-situations-2">7.3.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#truedeclaration-of-conformance-classes">7.4. Declaration of conformance classes</a>
+<li><a href="#sc_conformance_classes">7.4. Declaration of conformance classes</a>
 <ul class="sectlevel3">
 <li><a href="#trueoperation-3">7.4.1. Operation</a></li>
 <li><a href="#trueresponse-3">7.4.2. Response</a></li>
@@ -633,14 +631,14 @@ License Agreement</p>
 </ul>
 </li>
 <li><a href="#truesupport-for-cross-origin-requests">7.6. Support for cross-origin requests</a></li>
-<li><a href="#trueretrieve-a-process-collection">7.7. Retrieve a process collection</a>
+<li><a href="#sc_process_collection">7.7. Retrieve a process collection</a>
 <ul class="sectlevel3">
 <li><a href="#trueoperation-4">7.7.1. Operation</a></li>
 <li><a href="#trueresponse-4">7.7.2. Response</a></li>
 <li><a href="#trueerror-situations-4">7.7.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#trueretrieve-a-process-description">7.8. Retrieve a process description</a>
+<li><a href="#sc_process_description">7.8. Retrieve a process description</a>
 <ul class="sectlevel3">
 <li><a href="#trueoperation-5">7.8.1. Operation</a></li>
 <li><a href="#trueresponse-5">7.8.2. Response</a></li>
@@ -662,7 +660,7 @@ License Agreement</p>
 <li><a href="#trueerror-situations-7">7.10.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#trueretrieve-a-job-result">7.11. Retrieve a job result</a>
+<li><a href="#sc_retrieve_job_results">7.11. Retrieve job results</a>
 <ul class="sectlevel3">
 <li><a href="#trueoperation-8">7.11.1. Operation</a></li>
 <li><a href="#trueresponse-8">7.11.2. Response</a></li>
@@ -734,9 +732,113 @@ License Agreement</p>
 </div>
 <div class="paragraph">
 <p>In many cases geospatial or location data, including data from sensors, must be processed before the information can be used effectively. The OGC Web Processing Service (WPS) Interface Standard provides a standard interface that simplifies the task of making simple or complex computational processing services accessible via web services. Such services include well-known processes found in GIS software as well as specialized processes for spatio-temporal modeling and simulation. While the OGC WPS standard was designed with spatial processing in mind, it can also be used to readily insert non-spatial processing tasks into a web services environment.
-The WPS standard provides a robust, interoperable, and versatile protocol for process execution on web services. It supports both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time consuming tasks. Moreover, the WPS standard defines a general process model that is designed to provide an interoperable description of processing functions. It is intended to support process cataloguing and discovery in a distributed environment.
-The OGC API - Processes builds on the WPS 2.0 standard and defines the processing standards to communicate over a RESTful protocol using JSON encodings. This API will be a newer and more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.</p>
+The WPS standard provides a robust, interoperable, and versatile protocol for process execution on web services. It supports both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time consuming tasks. Moreover, the WPS standard defines a general process model that is designed to provide an interoperable description of processing functions. It is intended to support process cataloguing and discovery in a distributed environment.</p>
 </div>
+<div class="paragraph">
+<p>The OGC API - Processes builds on the WPS 2.0 standard and defines the processing standards to communicate over a RESTful protocol using JSON encodings. This API will be a newer and more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.</p>
+</div>
+<div class="paragraph">
+<p>The resources that are provided by a server implementing the OGC API - Processes are listed in <a href="#table_wps_resources">Table 1</a> below and include the
+capabilities document of the server, the list of processes available
+(ProcessCollection and Process), jobs (running processes) and
+results of process executions.</p>
+</div>
+<div class="paragraph">
+<p>TODO: check chapter numbers</p>
+</div>
+<table id="table_wps_resources" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Overview of resources, applicable HTTP methods and links to the document sections</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 32%;">
+<col style="width: 10%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Resource</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Path</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">HTTP method</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Document reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Landing page</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_landing_page">7.2 API landing page</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance classes</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/conformance</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_conformance_classes">7.4 Declaration of conformance classes</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Process collection</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_process_collection">7.8 Retrieve a process collection</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Process description</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_process_description">7.9 Retrieve a process description</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Job collection</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#Job_collection">7.10 Retrieve a job collection</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Job status info</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs/{jobID}</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_retrieve_status_info">7.12 Retrieve status information about a job</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Job results</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs/{jobID}/results</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_retrieve_job_results">7.13 Retrieve job results</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In general, the HTTP GET operation is used to provide access to the resources described above.
+However, in order to create a new job, the HTTP POST method is used to create a new job by sending an execute request to the server. The operation is listed in <a href="#table_job_creation">Table 2</a> below.</p>
+</div>
+<table id="table_job_creation" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Overview of resources, applicable HTTP methods and links to the document sections</caption>
+<colgroup>
+<col style="width: 27%;">
+<col style="width: 25%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 28%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Description</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Path</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">HTTP method</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Parameter</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Document reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Create a new job</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Execute request (contained in body)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_create_job">7.11 Create a new job</a></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><strong class="big">ii.    Keywords</strong></p>
 </div>
@@ -883,7 +985,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <p>Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
 </div>
 <table id="conf_class_uris" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Conformance class URIs</caption>
+<caption class="title">Table 3. Conformance class URIs</caption>
 <colgroup>
 <col style="width: 40%;">
 <col style="width: 60%;">
@@ -897,27 +999,27 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core">Core</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json">JSON</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson" class="bare">http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/geojson" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/geojson</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html">HTML</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/html" class="bare">http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/html</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/html" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/html</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_oas30">OpenAPI Specification 3.0</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30" class="bare">http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/oas30" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/oas30</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_job-collection">Job collection</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/gmlsf0" class="bare">http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/gmlsf0</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/gmlsf0" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/gmlsf0</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_callback">Callback</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/gmlsf2" class="bare">http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/gmlsf2</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/gmlsf2" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/gmlsf2</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1055,22 +1157,10 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <p>The normative provisions in this specification are denoted by the URI</p>
 </div>
 <div class="paragraph">
-<p><a href="http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json" class="bare">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json</a></p>
+<p><a href="http://www.opengis.net/spec/ogcapi-processes/1.0" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0</a></p>
 </div>
 <div class="paragraph">
-<p>All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.</p>
-</div>
-<div class="paragraph">
-<p>Permissions that appear in this document are denoted by partial URIs which are relative to the following base:</p>
-</div>
-<div class="paragraph">
-<p><a href="http://www.opengis.net/spec/WPS/2.0/per/service/binding/rest-json" class="bare">http://www.opengis.net/spec/WPS/2.0/per/service/binding/rest-json</a></p>
-</div>
-<div class="paragraph">
-<p>Recommendations that appear in this document are denoted by partial URIs which are relative to the following base:</p>
-</div>
-<div class="paragraph">
-<p><a href="http://www.opengis.net/spec/WPS/2.0/rec/service/binding/rest-json" class="bare">http://www.opengis.net/spec/WPS/2.0/rec/service/binding/rest-json</a></p>
+<p>All requirements, permission, recommendations and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1218,116 +1308,21 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <div class="sect1">
 <h2 id="overview"><a class="anchor" href="#overview"></a>6. Overview</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="trueresources-to-be-provided-by-the-ogc-api-processes"><a class="anchor" href="#trueresources-to-be-provided-by-the-ogc-api-processes"></a>6.1. Resources to be provided by the OGC API - Processes</h3>
 <div class="paragraph">
-<p>The resources that are provided by a server implementing the OGC API - Processes are listed in <a href="#table_wps_resources">Table 2</a> below and include the
-capabilities document of the server, the list of processes available
-(ProcessCollection and Process), jobs (running processes) and
-results of process executions.</p>
+<p>The OGC API - Processes builds on the WPS 2.0 standard and it is modularized, meaning that there is a separation between</p>
 </div>
-<div class="paragraph">
-<p>TODO: check chapter numbers</p>
-</div>
-<table id="table_wps_resources" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Overview of resources, applicable HTTP methods and links to the document sections</caption>
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 32%;">
-<col style="width: 10%;">
-<col style="width: 33%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Resource</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Path</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">HTTP method</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Document reference</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Landing page</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#_retrieve_the_api_landing_page">7.2 API landing page</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance classes</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/conformance</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#_declaration_of_conformance_classes">7.4 Declaration of conformance classes</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Process collection</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#_retrieve_a_process_collection">7.8 Retrieve a process collection</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Process description</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#_retrieve_process_description">7.9 Retrieve a process description</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Job collection</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#_retrieve_a_job_collection">7.10 Retrieve a job collection</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Job status info</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs/{jobID}</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#_retrieve_status_information_about_a_job">7.12 Retrieve status information about a job</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Job results</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs/{jobID}/results</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#_retrieve_a_job_result">7.13 Retrieve job results</a></p></td>
-</tr>
-</tbody>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p>core requirements, that specify basic capabilities and can easily be mapped to existing OGC Web Processing Services, and</p>
+</li>
+<li>
+<p>more advanced funtionality, that was not specified in WPS 2.0.</p>
+</li>
+</ul>
 </div>
 <div class="sect2">
-<h3 id="trueoperations-on-resources-provided-by-the-ogc-api-processes"><a class="anchor" href="#trueoperations-on-resources-provided-by-the-ogc-api-processes"></a>6.2. Operations on resources provided by the OGC API - Processes</h3>
-<div class="paragraph">
-<p>In general, the HTTP GET operation is used to provide access to the resources described above.
-However, in order to create a new job, the HTTP POST method is used to create a new job by sending an execute request to the server. The operation is listed in <a href="#table_job_creation">Table 3</a> below.</p>
-</div>
-<table id="table_job_creation" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Overview of resources, applicable HTTP methods and links to the document sections</caption>
-<colgroup>
-<col style="width: 27%;">
-<col style="width: 25%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 28%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Description</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Path</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">HTTP method</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Parameter</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Document reference</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Create a new job</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">POST</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Execute request (contained in body)</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#_create_a_new_job">7.11 Create a new job</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="trueencodings"><a class="anchor" href="#trueencodings"></a>6.3. Encodings</h3>
+<h3 id="trueencodings"><a class="anchor" href="#trueencodings"></a>6.1. Encodings</h3>
 <div class="paragraph">
 <p>This standard uses JSON as encoding for requests and responses. The inputs and outputs of a process can have any format. The formats of are defined at the time of job creation and are fixed for the specific job.</p>
 </div>
@@ -1357,7 +1352,7 @@ and it will enable search engines to crawl and index the processes.</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/core" class="bare">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/core</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/req/core" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/req/core</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -1432,7 +1427,7 @@ requirements classes implemented by the server.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueretrieve-the-api-landing-page"><a class="anchor" href="#trueretrieve-the-api-landing-page"></a>7.2. Retrieve the API landing page</h3>
+<h3 id="sc_landing_page"><a class="anchor" href="#sc_landing_page"></a>7.2. Retrieve the API landing page</h3>
 <div class="paragraph">
 <p>The following section describes a method to retrieve an API landing page.</p>
 </div>
@@ -1447,7 +1442,7 @@ requirements classes implemented by the server.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/landingpage-op<br></p>
+<p>/req/core/landingpage-op<br></p>
 </div>
 <div class="paragraph">
 <p>The server SHALL support the HTTP GET operation at the path <code>/</code>.</p>
@@ -1467,7 +1462,7 @@ requirements classes implemented by the server.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/landingpage-success<br></p>
+<p>/req/core/landingpage-success<br></p>
 </div>
 <div class="paragraph">
 <p>A successful execution of the operation SHALL be reported as a response with a
@@ -1561,7 +1556,7 @@ and include at least links to the following resources:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueretrieve-an-api-definition"><a class="anchor" href="#trueretrieve-an-api-definition"></a>7.3. Retrieve an API definition</h3>
+<h3 id="sc_api_definition"><a class="anchor" href="#sc_api_definition"></a>7.3. Retrieve an API definition</h3>
 <div class="paragraph">
 <p>The following section describes a method to retrieve an API definition.</p>
 </div>
@@ -1582,7 +1577,7 @@ by development tools to support the implementation of servers and clients.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/api-definition-op<br></p>
+<p>/req/core/api-definition-op<br></p>
 </div>
 <div class="paragraph">
 <p>The server SHALL support the HTTP GET operation at the path <code>/api</code>.</p>
@@ -1602,7 +1597,7 @@ by development tools to support the implementation of servers and clients.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/api-definition-success<br></p>
+<p>/req/core/api-definition-success<br></p>
 </div>
 <div class="paragraph">
 <p>A successful execution of the operation SHALL be reported as a
@@ -1623,7 +1618,7 @@ response with a HTTP status code <code>200</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Recommendation 1</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/api-definition-oas<br></p>
+<p>/rec/core/api-definition-oas<br></p>
 </div>
 <div class="paragraph">
 <p>If the API definition document uses the OpenAPI Specification 3.0,
@@ -1658,7 +1653,7 @@ this standard to access the data via the API.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="truedeclaration-of-conformance-classes"><a class="anchor" href="#truedeclaration-of-conformance-classes"></a>7.4. Declaration of conformance classes</h3>
+<h3 id="sc_conformance_classes"><a class="anchor" href="#sc_conformance_classes"></a>7.4. Declaration of conformance classes</h3>
 <div class="sect3">
 <h4 id="trueoperation-3"><a class="anchor" href="#trueoperation-3"></a>7.4.1. Operation</h4>
 <div class="paragraph">
@@ -1675,7 +1670,7 @@ requirements classes it implements and conforms to.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/conformance-op<br></p>
+<p>/req/core/conformance-op<br></p>
 </div>
 <div class="paragraph">
 <p>The server SHALL support the HTTP GET operation at the path <code>/conformance</code>.</p>
@@ -1695,7 +1690,7 @@ requirements classes it implements and conforms to.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/conformance-success<br></p>
+<p>/req/core/conformance-success<br></p>
 </div>
 <div class="paragraph">
 <p>A successful execution of the operation SHALL be reported as a response with a
@@ -1761,7 +1756,7 @@ the API definition and HTML and JSON as encodings.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/http<br></p>
+<p>/req/core/http<br></p>
 </div>
 <div class="paragraph">
 <p>The server SHALL conform to <a href="#rfc2616">HTTP 1.1</a>.</p>
@@ -1850,7 +1845,7 @@ outside of the server.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Permission 1</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/additional-status-codes<br></p>
+<p>/rec/core/additional-status-codes<br></p>
 </div>
 <div class="paragraph">
 <p>Servers MAY support other capabilities of the HTTP protocol and, therefore,
@@ -1866,8 +1861,7 @@ MAY return other status codes than those listed in <a href="#status_codes">Table
 <div class="paragraph">
 <p>To access data from a HTML page where the data is on another host than
 the webpage is by default prohibited for security reasons ("same-origin policy").
-A typical example is a web-application accessing feature data from
-multiple distributed datasets.</p>
+A typical example is a web-application accessing processes and data from multiple servers.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1878,7 +1872,7 @@ multiple distributed datasets.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Recommendation 2</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/cross-origin<br></p>
+<p>/rec/core/cross-origin<br></p>
 </div>
 <div class="paragraph">
 <p>If the server is intended to be accessed from the browser, cross-origin
@@ -1910,7 +1904,7 @@ proxy layer on top of the server.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Recommendation 3</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/html<br></p>
+<p>/rec/core/html<br></p>
 </div>
 <div class="paragraph">
 <p>To support browsing a WPS with a web browser and to enable search engines to crawl
@@ -1921,7 +1915,7 @@ and index a dataset, implementations SHOULD consider to support an HTML encoding
 </table>
 </div>
 <div class="sect2">
-<h3 id="trueretrieve-a-process-collection"><a class="anchor" href="#trueretrieve-a-process-collection"></a>7.7. Retrieve a process collection</h3>
+<h3 id="sc_process_collection"><a class="anchor" href="#sc_process_collection"></a>7.7. Retrieve a process collection</h3>
 <div class="paragraph">
 <p>The following section describes a method to retrieve the available processes offered by the server.</p>
 </div>
@@ -1936,7 +1930,7 @@ and index a dataset, implementations SHOULD consider to support an HTML encoding
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/process-collection<br></p>
+<p>/req/core/process-collection<br></p>
 </div>
 <div class="paragraph">
 <p>The server SHALL support the HTTP GET operation at the path <code>/processes</code>.</p>
@@ -1956,7 +1950,7 @@ and index a dataset, implementations SHOULD consider to support an HTML encoding
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/process-collection-success<br></p>
+<p>/req/core/process-collection-success<br></p>
 </div>
 <div class="paragraph">
 <p>A successful execution of the operation SHALL be reported as a
@@ -2026,7 +2020,7 @@ The content of that response SHALL be based upon the OpenAPI
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueretrieve-a-process-description"><a class="anchor" href="#trueretrieve-a-process-description"></a>7.8. Retrieve a process description</h3>
+<h3 id="sc_process_description"><a class="anchor" href="#sc_process_description"></a>7.8. Retrieve a process description</h3>
 <div class="paragraph">
 <p>The following section describes a method to retrieve metadata about a process.</p>
 </div>
@@ -2041,7 +2035,7 @@ The content of that response SHALL be based upon the OpenAPI
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/process<br></p>
+<p>/req/core/process<br></p>
 </div>
 <div class="paragraph">
 <p>The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}</code>.</p>
@@ -2061,7 +2055,7 @@ The content of that response SHALL be based upon the OpenAPI
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/process-success<br></p>
+<p>/req/core/process-success<br></p>
 </div>
 <div class="paragraph">
 <p>A successful execution of the operation SHALL be reported as a
@@ -2219,7 +2213,7 @@ The content of that response SHALL be based upon the OpenAPI
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/process-exception/no-such-process<br></p>
+<p>/req/core/process-exception/no-such-process<br></p>
 </div>
 <div class="paragraph">
 <p>If the operation is executed using an invalid process identifier, the response shall have HTTP status code 404.
@@ -2248,7 +2242,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-creation<br></p>
+<p>/req/core/job-creation<br></p>
 </div>
 <div class="paragraph">
 <p>The server SHALL support the HTTP POST operation at the path <code>/processes/{processID}/jobs</code>.</p>
@@ -2268,7 +2262,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-creation-request<br></p>
+<p>/req/core/job-creation-request<br></p>
 </div>
 <div class="paragraph">
 <p>The content of a request to create a new job SHALL be based upon the OpenAPI
@@ -2306,15 +2300,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
         - raw
         - document
     subscriber:
-      description: |-
-        Optional URI for a callback once the job has been completed.
-
-        Support for this parameter is not required and the parameter may be
-        removed from the API definition, if conformance class **'callback'**
-        is not listed in the conformance declaration under `/conformance`.
-      type: string
-      format: uri
-      example: "https://client.example.com/notification/36d49f"</code></pre>
+      $ref: 'subscriber.yaml'</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -2380,7 +2366,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-creation-success<br></p>
+<p>/req/core/job-creation-success<br></p>
 </div>
 <div class="paragraph">
 <p>A successful execution of the operation SHALL be reported as a
@@ -2398,7 +2384,7 @@ response with a HTTP status code 201.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-creation-success-header<br></p>
+<p>/req/core/job-creation-success-header<br></p>
 </div>
 <div class="paragraph">
 <p>The 201 response of the operation SHALL return a HTTP header named 'Location' which contains a link to the newly created job.</p>
@@ -2433,7 +2419,7 @@ response with a HTTP status code 201.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job<br></p>
+<p>/req/core/job<br></p>
 </div>
 <div class="paragraph">
 <p>The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}/jobs/{jobID}</code>.</p>
@@ -2453,7 +2439,7 @@ response with a HTTP status code 201.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-success<br></p>
+<p>/req/core/job-success<br></p>
 </div>
 <div class="paragraph">
 <p>A successful execution of the operation SHALL be reported as a
@@ -2536,7 +2522,7 @@ The content of that response SHALL be based upon the OpenAPI
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-exception/no-such-job<br></p>
+<p>/req/core/job-exception/no-such-job<br></p>
 </div>
 <div class="paragraph">
 <p>If the operation is executed using an invalid job identifier, the response shall have HTTP status code 404.
@@ -2550,9 +2536,9 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueretrieve-a-job-result"><a class="anchor" href="#trueretrieve-a-job-result"></a>7.11. Retrieve a job result</h3>
+<h3 id="sc_retrieve_job_results"><a class="anchor" href="#sc_retrieve_job_results"></a>7.11. Retrieve job results</h3>
 <div class="paragraph">
-<p>The following section describes a method to retrieve the result of a job. In case the job execution failed, an exception is returned.</p>
+<p>The following section describes a method to retrieve the results of a job. In case the job execution failed, an exception is returned.</p>
 </div>
 <div class="sect3">
 <h4 id="trueoperation-8"><a class="anchor" href="#trueoperation-8"></a>7.11.1. Operation</h4>
@@ -2565,7 +2551,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-result<br></p>
+<p>/req/core/job-result<br></p>
 </div>
 <div class="paragraph">
 <p>The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}/jobs/{jobID}/results</code>.</p>
@@ -2585,7 +2571,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-result-success<br></p>
+<p>/req/core/job-result-success<br></p>
 </div>
 <div class="paragraph">
 <p>A successful execution of the operation SHALL be reported as a
@@ -2670,7 +2656,7 @@ The content of that response SHALL be based upon the OpenAPI
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-result-exception/no-such-job<br></p>
+<p>/req/core/job-result-exception/no-such-job<br></p>
 </div>
 <div class="paragraph">
 <p>If the operation is executed using an invalid job identifier, the response shall have HTTP status code 404.
@@ -2690,7 +2676,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-result-exception/result-not-ready<br></p>
+<p>/req/core/job-result-exception/result-not-ready<br></p>
 </div>
 <div class="paragraph">
 <p>If the operation is executed on a running job with a valid job identifier, the response shall have HTTP status code 404.
@@ -2710,7 +2696,7 @@ The exception code of the exception shall be "ResultNotReady".</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-result-failed<br></p>
+<p>/req/core/job-result-failed<br></p>
 </div>
 <div class="paragraph">
 <p>If the operation is executed on a failed job using a valid job identifier, the response shall have a HTTP error code that corresponds to the reason of the failure.
@@ -2768,7 +2754,7 @@ the web:</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/json" class="bare">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/json</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/req/json" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/req/json</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -2793,7 +2779,7 @@ the web:</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/json/definition<br></p>
+<p>/req/json/definition<br></p>
 </div>
 <div class="paragraph">
 <p><code>200</code>-responses of the server SHALL support the following media type:</p>
@@ -2824,7 +2810,7 @@ the web:</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/html" class="bare">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/html</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/req/html" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/req/html</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -2849,7 +2835,7 @@ the web:</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/html/definition<br></p>
+<p>/req/html/definition<br></p>
 </div>
 <div class="paragraph">
 <p>Every <code>200</code>-response of an operation of the server
@@ -2867,7 +2853,7 @@ SHALL support the media type <code>text/html</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/html/content<br></p>
+<p>/req//html/content<br></p>
 </div>
 <div class="paragraph">
 <p>Every <code>200</code>-response of the server with the media type "text/html" SHALL be a
@@ -2910,7 +2896,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/oas30" class="bare">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/oas30</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/req/oas30" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/req/oas30</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -3112,7 +3098,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/job-collection" class="bare">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/job-collection</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/req/job-collection" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/req/job-collection</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -3135,7 +3121,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-collection<br></p>
+<p>/req/job-collection/job-collection-op<br></p>
 </div>
 <div class="paragraph">
 <p>The server SHALL support the HTTP GET operation at the path <code>/processes/{processID}/jobs</code>.</p>
@@ -3155,7 +3141,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-collection-success<br></p>
+<p>/req/job-collection/job-collection-success<br></p>
 </div>
 <div class="paragraph">
 <p>A successful execution of the operation SHALL be reported as a
@@ -3280,7 +3266,7 @@ The content of that response SHALL be based upon the OpenAPI
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/callback" class="bare">http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/callback</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/req/callback" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/req/callback</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -3301,7 +3287,7 @@ The content of that response SHALL be based upon the OpenAPI
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/core/job-callback<br></p>
+<p>/req/callback/job-callback<br></p>
 </div>
 <div class="paragraph">
 <p>The server SHALL support callback functions for jobs.</p>
@@ -3310,11 +3296,11 @@ The content of that response SHALL be based upon the OpenAPI
 </tbody>
 </table>
 <div class="listingblock">
-<div class="title">Schema for a callback in the execute operation</div>
+<div class="title">Example for a callback in the execute operation</div>
 <div class="content">
 <pre class="highlight"><code class="language-YAML" data-lang="YAML">    callbacks:
         jobCompleted:
-          '{$request.body#/subscriber}':
+          '{$request.body#/subscriber/successUri}':
             post:
               requestBody:
                 content:
@@ -3327,7 +3313,13 @@ The content of that response SHALL be based upon the OpenAPI
 </div>
 </div>
 <div class="paragraph">
-<p>Further guidance about how to use callbacks can be found here:</p>
+<p>If the server implements this conformance class, the optional subscriber element of the execute request JSON must be used.</p>
+</div>
+<div class="paragraph">
+<p>It is possible to add multiple callbacks for getting progress updates and notifications of a successful job completion or of a failure.</p>
+</div>
+<div class="paragraph">
+<p>Further guidance about how to use callbacks can be found in the <a href="https://swagger.io/docs/specification/callbacks/">OpenAPI documentation</a>.</p>
 </div>
 </div>
 </div>
@@ -3387,7 +3379,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -4296,7 +4288,7 @@ URI</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -4328,7 +4320,7 @@ URI</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -4356,7 +4348,7 @@ URI</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/html" class="bare">http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/html</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/html" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/html</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -4385,7 +4377,7 @@ URI</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30" class="bare">http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/oas30" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/oas30</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -4907,7 +4899,7 @@ Tests: A.4.1.1<br></p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-29 15:47:33 +0200
+Last updated 2020-04-30 09:52:08 +0200
 </div>
 </div>
 </body>
