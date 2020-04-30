@@ -4,17 +4,9 @@ This sections provides details and examples for any conventions used in the docu
 === Identifiers
 The normative provisions in this specification are denoted by the URI
 
-http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json
+http://www.opengis.net/spec/ogcapi-processes/1.0
 
-All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
-
-Permissions that appear in this document are denoted by partial URIs which are relative to the following base:
-
-http://www.opengis.net/spec/WPS/2.0/per/service/binding/rest-json
-
-Recommendations that appear in this document are denoted by partial URIs which are relative to the following base:
-
-http://www.opengis.net/spec/WPS/2.0/rec/service/binding/rest-json
+All requirements, permission, recommendations and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
 
 === Link relations
 

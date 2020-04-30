@@ -182,8 +182,7 @@ include::requirements/core/PER_additional-status-codes.adoc[]
 
 To access data from a HTML page where the data is on another host than
 the webpage is by default prohibited for security reasons ("same-origin policy").
-A typical example is a web-application accessing feature data from
-multiple distributed datasets.
+A typical example is a web-application accessing processes and data from multiple servers.
 
 include::requirements/core/REC_cross-origin.adoc[]
 

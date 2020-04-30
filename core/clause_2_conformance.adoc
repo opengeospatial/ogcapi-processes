@@ -40,10 +40,10 @@ Conformance with this standard shall be checked using all the relevant tests spe
 [cols="40,60",options="header"]
 !===
 |Conformance class |URI
-|<<ats_core,Core>> |http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core
-|<<ats_json,JSON>> |http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/geojson
-|<<ats_html,HTML>> |http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/html
-|<<ats_oas30,OpenAPI Specification 3.0>> |http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/oas30
-|<<ats_job-collection,Job collection>> |http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/gmlsf0
-|<<ats_callback,Callback>> |http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/gmlsf2
+|<<ats_core,Core>> |http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core
+|<<ats_json,JSON>> |http://www.opengis.net/spec/ogcapi-processes/1.0/conf/geojson
+|<<ats_html,HTML>> |http://www.opengis.net/spec/ogcapi-processes/1.0/conf/html
+|<<ats_oas30,OpenAPI Specification 3.0>> |http://www.opengis.net/spec/ogcapi-processes/1.0/conf/oas30
+|<<ats_job-collection,Job collection>> |http://www.opengis.net/spec/ogcapi-processes/1.0/conf/gmlsf0
+|<<ats_callback,Callback>> |http://www.opengis.net/spec/ogcapi-processes/1.0/conf/gmlsf2
 !===

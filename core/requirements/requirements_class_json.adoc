@@ -2,7 +2,7 @@
 [cols="1,4",width="90%"]
 |===
 2+|*Requirements Class*
-2+|http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/json
+2+|http://www.opengis.net/spec/ogcapi-processes/1.0/req/json
 |Target type |Web API
 |Dependency |<<rc_core,OGC API - Processes Core>>
 |Dependency |<<JSON,JSON>>

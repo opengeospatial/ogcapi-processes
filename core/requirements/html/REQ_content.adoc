@@ -1,6 +1,6 @@
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/html/content +
+|*Requirement {counter:req-id}* |/req//html/content +
 
 Every `200`-response of the server with the media type "text/html" SHALL be a
 link:https://www.w3.org/TR/html5/[HTML 5 document] that includes the following

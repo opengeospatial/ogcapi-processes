@@ -1,6 +1,6 @@
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/json/definition +
+|*Requirement {counter:req-id}* |/req/json/definition +
 
 `200`-responses of the server SHALL support the following media type:
 
