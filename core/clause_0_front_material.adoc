@@ -19,11 +19,11 @@ TODO: check chapter numbers
 |Resource |Path |HTTP method |Document reference
 |Landing page |`/` |GET |<<sc_landing_page,7.2 API landing page>>
 |Conformance classes |`/conformance` |GET |<<sc_conformance_classes,7.4 Declaration of conformance classes>>
-|Process collection |`/processes` |GET |<<sc_process_collection,7.8 Retrieve a process collection>>
-|Process description |`/processes/{processID}` |GET |<<sc_process_description, 7.9 Retrieve a process description>>
-|Job collection |`/processes/{processID}/jobs` |GET |<<Job_collection,7.10 Retrieve a job collection>>
-|Job status info |`/processes/{processID}/jobs/{jobID}` |GET |<<sc_retrieve_status_info,7.12 Retrieve status information about a job>>
-|Job results |`/processes/{processID}/jobs/{jobID}/results` |GET |<<sc_retrieve_job_results,7.14 Retrieve job results>>
+|Process collection |`/processes` |GET |<<sc_process_collection,7.7 Retrieve a process collection>>
+|Process description |`/processes/{processID}` |GET |<<sc_process_description, 7.8 Retrieve a process description>>
+|Job collection |`/processes/{processID}/jobs` |GET |<<Job_collection,10. Requirement Class "Job collection">>
+|Job status info |`/processes/{processID}/jobs/{jobID}` |GET |<<sc_retrieve_status_info,7.10 Retrieve status information about a job>>
+|Job results |`/processes/{processID}/jobs/{jobID}/results` |GET |<<sc_retrieve_job_results,7.12 Retrieve job results>>
 !===
 
 In general, the HTTP GET operation is used to provide access to the resources described above.
@@ -34,17 +34,17 @@ However, in order to create a new job, the HTTP POST method is used to create a 
 [cols="27,25,10,10,28",options="header"]
 !===
 |Description |Path |HTTP method | Parameter| Document reference
-|Create a new job |`/processes/{processID}/jobs` |POST| Execute request (contained in body) |<<sc_create_job,7.11 Create a new job>>
+|Create a new job |`/processes/{processID}/jobs` |POST| Execute request (contained in body) |<<sc_create_job,7.9 Create a new job>>
 !===
 
-In addition to the operations accessible through HTTP GET and POST methods, in order to cancel a job execution and/or remove traces of the job execution the DELETE method can be used.
+In addition to the operations accessible through HTTP GET and POST methods, in order to cancel a job execution and/or remove traces of the job execution, the DELETE method can be used.
 
 [#table_job_dismiss,reftext='{table-caption} {counter:table-num}']
 .Overview of resources, applicable HTTP methods and links to the document sections
-[cols="27,25,10,10,28",options="header"]
+[cols="27,25,15,28",options="header"]
 !===
-|Description |Path |HTTP method | Parameter| Document reference
-|Dismiss a job |`/processes/{processID}/jobs/{jobID}` |DELETE| Cancel job execution |<<sc_dismiss_job,7.13 Dismiss a job>>
+|Description |Path |HTTP method | Document reference
+|Dismiss a job |`/processes/{processID}/jobs/{jobID}` |DELETE| <<sc_dismiss_job,7.11 Dismiss a job>>
 !===
 
 [big]*ii.    Keywords*

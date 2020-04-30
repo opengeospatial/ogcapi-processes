@@ -785,31 +785,31 @@ results of process executions.</p>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Process collection</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_process_collection">7.8 Retrieve a process collection</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_process_collection">7.7 Retrieve a process collection</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Process description</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_process_description">7.9 Retrieve a process description</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_process_description">7.8 Retrieve a process description</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Job collection</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#Job_collection">7.10 Retrieve a job collection</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#Job_collection">10. Requirement Class "Job collection"</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Job status info</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs/{jobID}</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_retrieve_status_info">7.12 Retrieve status information about a job</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_retrieve_status_info">7.10 Retrieve status information about a job</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Job results</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs/{jobID}/results</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_retrieve_job_results">7.14 Retrieve job results</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_retrieve_job_results">7.12 Retrieve job results</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -841,28 +841,26 @@ However, in order to create a new job, the HTTP POST method is used to create a 
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Execute request (contained in body)</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_create_job">7.11 Create a new job</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_create_job">7.9 Create a new job</a></p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>In addition to the operations accessible through HTTP GET and POST methods, in order to cancel a job execution and/or remove traces of the job execution the DELETE method can be used.</p>
+<p>In addition to the operations accessible through HTTP GET and POST methods, in order to cancel a job execution and/or remove traces of the job execution, the DELETE method can be used.</p>
 </div>
 <table id="table_job_dismiss" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 3. Overview of resources, applicable HTTP methods and links to the document sections</caption>
 <colgroup>
-<col style="width: 27%;">
-<col style="width: 25%;">
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 28%;">
+<col style="width: 28.421%;">
+<col style="width: 26.3157%;">
+<col style="width: 15.7894%;">
+<col style="width: 29.4739%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Description</th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Path</th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">HTTP method</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Parameter</th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Document reference</th>
 </tr>
 </thead>
@@ -871,8 +869,7 @@ However, in order to create a new job, the HTTP POST method is used to create a 
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dismiss a job</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs/{jobID}</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DELETE</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Cancel job execution</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_dismiss_job">7.13 Dismiss a job</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_dismiss_job">7.11 Dismiss a job</a></p></td>
 </tr>
 </tbody>
 </table>
