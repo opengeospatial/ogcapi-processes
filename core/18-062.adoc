@@ -112,7 +112,9 @@ include::clause_10_job_collection.adoc[]
 
 include::clause_11_callback.adoc[]
 
-include::clause_12_media_types.adoc[]
+include::clause_12_dismiss.adoc[]
+
+include::clause_13_media_types.adoc[]
 
 <<<
 ////
