@@ -12,6 +12,7 @@
             - running
             - successful
             - failed
+            - dismissed
        message:
           type: string
        progress:

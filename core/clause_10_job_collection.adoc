@@ -1,17 +1,17 @@
 [[Job_collection]]
-== Requirement Class "Job collection"
+== Requirements Class "Job collection"
 
 This requirement class specifies how to retrieve a job collection from the API.
 
 include::requirements/requirements_class_job-collection.adoc[]
 
-==== Operation
+=== Operation
 
-include::requirements/core/REQ_job-collection-op.adoc[]
+include::requirements/job-collection/REQ_job-collection-op.adoc[]
 
-==== Response
+=== Response
 
-include::requirements/core/REQ_job-collection-success.adoc[]
+include::requirements/job-collection/REQ_job-collection-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml[Schema for the job collection]
 [source,YAML]
@@ -31,7 +31,7 @@ http://processing.example.org/processes/EchoProcess/jobs
 include::examples/json/JobCollection.json[]
 ----
 
-==== Error situations
+=== Error situations
 
 See <<http_status_codes>> for general guidance.
 

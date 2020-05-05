@@ -1,4 +1,4 @@
-== Requirement Class "Core"
+== Requirements Class "Core"
 
 The following section describes the core requirements class.
 
@@ -261,7 +261,7 @@ https://processing.example.org/processes/EchoProcess
 .Example of a process encoded as JSON.
 [source,json]
 ----
-include::openapi/schemas/ProcessDescription.json[]
+include::examples/json/ProcessDescription.json[]
 ----
 
 ==== Error situations
