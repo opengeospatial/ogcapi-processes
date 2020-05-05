@@ -1,5 +1,5 @@
 [[Job_collection]]
-== Requirement Class "Job collection"
+== Requirements Class "Job collection"
 
 This requirement class specifies how to retrieve a job collection from the API.
 

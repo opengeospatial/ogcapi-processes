@@ -1,4 +1,4 @@
-== Requirement Class "Core"
+== Requirements Class "Core"
 
 The following section describes the core requirements class.
 

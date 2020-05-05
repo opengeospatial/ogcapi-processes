@@ -1,5 +1,5 @@
 [[Dismiss]]
-== Requirement Class "Dismiss"
+== Requirements Class "Dismiss"
 
 This requirement class specifies how to dismiss a job. Dismiss can be seen as canceling a running job or removing artifacts of a finished job.
 
@@ -11,7 +11,7 @@ include::requirements/dismiss/REQ_job-dismiss-op.adoc[]
 
 === Response
 
-include::requirements/core/REQ_job-success.adoc[]
+include::requirements/dismiss/REQ_job-dismiss-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml[Schema for status info]
 [source,YAML]
