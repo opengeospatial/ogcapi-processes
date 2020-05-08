@@ -10,18 +10,7 @@ include::requirements/callback/REQ_job-creation-callback.adoc[]
 .Example for a callback in the execute operation
 [source,YAML]
 ----
-    callbacks:
-        jobCompleted:
-          '{$request.body#/subscriber/successUri}':
-            post:
-              requestBody:
-                content:
-                  application/json:
-                    schema:
-                      $ref: '#/components/schemas/result'
-              responses:
-                '202':
-                  description: Results received successfully
+include::examples/yaml/callbacks.yaml[]
 ----
 
 If the server implements this conformance class, the optional subscriber element of the execute request JSON must be used.
