@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  title: Alternative API
+  description: This is a simple API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/bpross-52n/alternative-api/1.0.0
+  description: SwaggerHub API Auto Mocking
+paths:
+  /buffer:
+    post:
+      tags:
+      - admins
+      summary: adds an inventory item
+      description: Adds an item to the system
+      operationId: addInventory
+      requestBody:
+        description: Inventory item to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/execute'
+      responses:
+        "200":
+          description: item created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/result'
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: an existing item already exists
+components:
+  schemas:
+    execute:
+      required:
+      - input1
+      - mode
+      - response
+      type: object
+      properties:
+        input1:
+          maxItems: 10
+          minItems: 1
+          type: array
+          description: this is possible to provide the abstract in here
+          items:
+            $ref: ./valueType.yaml
+        input2:
+          type: string
+        input3:
+          type: boolean
+        input5:
+          maximum: 100
+          minimum: 1
+          type: integer
+          default: 20
+        input6:
+          type: string
+          default: test
+    result:
+      type: object
+      properties:
+        outputs:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              format: image/tiff
+            - type: string
+              format: image/png
