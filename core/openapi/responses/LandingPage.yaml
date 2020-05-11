@@ -6,7 +6,7 @@ description: |-
 content:
   application/json:
     schema:
-      $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingPage.yaml'
+      $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingPage.yaml"
   text/html:
     schema:
       type: string

@@ -8,10 +8,10 @@ description: |-
 content:
   application/json:
     schema:
-      $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/confClasses.yaml'
+      $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/confClasses.yaml"
     example:
       conformsTo:
-      - http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core
+        - http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core
   text/html:
     schema:
       type: string

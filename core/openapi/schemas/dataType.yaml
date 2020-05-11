@@ -1,4 +1,4 @@
-   type: object
-   properties:
-        format:
-          $ref: 'format.yaml'
+type: object
+properties:
+  format:
+    $ref: "format.yaml"

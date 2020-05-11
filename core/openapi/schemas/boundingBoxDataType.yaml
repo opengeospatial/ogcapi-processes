@@ -1,8 +1,8 @@
-    type: object
-    required: 
-      - supportedCRS
-    properties:
-       supportedCRS:
-          type: array
-          items:
-             $ref: 'supportedCRS.yaml'
+type: object
+required:
+   - supportedCRS
+properties:
+   supportedCRS:
+      type: array
+      items:
+         $ref: "supportedCRS.yaml"

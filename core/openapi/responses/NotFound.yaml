@@ -2,7 +2,7 @@ description: The requested URI was not found.
 content:
   application/json:
     schema:
-      $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml'
+      $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml"
   text/html:
     schema:
       type: string

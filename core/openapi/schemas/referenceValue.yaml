@@ -1,6 +1,6 @@
-   type: object
-   required:
-       - href
-   properties:
-      href:
-         type: string
+type: object
+required:
+   - href
+properties:
+   href:
+      type: string

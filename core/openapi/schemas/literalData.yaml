@@ -1,8 +1,8 @@
-   type: object
-   properties:
-      value:
-         type: string
-      dataType:
-        $ref: 'nameReferenceType.yaml'
-      uom:
-        $ref: 'nameReferenceType.yaml'
+type: object
+properties:
+   value:
+      type: string
+   dataType:
+      $ref: "nameReferenceType.yaml"
+   uom:
+      $ref: "nameReferenceType.yaml"

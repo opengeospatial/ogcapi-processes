@@ -1,17 +1,17 @@
-    allOf:
-       - $ref: 'dataDescriptionType.yaml'
-       - type: object
-         properties:
-             input:
-               oneOf:
-                  - $ref: 'complexDataType.yaml'
-                  - $ref: 'literalDataType.yaml'
-                  - $ref: 'boundingBoxDataType.yaml'
-             minOccurs:
-               type: integer
-             maxOccurs:
-               oneOf:
-                  - type: integer
-                  - type: string
-                    enum:
-                      - unbounded
+allOf:
+  - $ref: "dataDescriptionType.yaml"
+  - type: object
+    properties:
+      input:
+        oneOf:
+          - $ref: "complexDataType.yaml"
+          - $ref: "literalDataType.yaml"
+          - $ref: "boundingBoxDataType.yaml"
+      minOccurs:
+        type: integer
+      maxOccurs:
+        oneOf:
+          - type: integer
+          - type: string
+            enum:
+              - unbounded

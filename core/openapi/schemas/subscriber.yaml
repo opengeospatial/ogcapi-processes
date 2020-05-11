@@ -5,15 +5,15 @@ description: |-
   removed from the API definition, if conformance class **'callback'**
   is not listed in the conformance declaration under `/conformance`.
 type: object
-required: 
+required:
   - successUrl
 properties:
-    successUri:
-      type: string
-      format: uri
-    inProgressUri:
-      type: string
-      format: uri
-    failedUri:
-      type: string
-      format: uri
+  successUri:
+    type: string
+    format: uri
+  inProgressUri:
+    type: string
+    format: uri
+  failedUri:
+    type: string
+    format: uri

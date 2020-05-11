@@ -2,5 +2,5 @@ description: Started asynchronous execution. Created job.
 headers:
   Location:
     schema:
-        type: string
+      type: string
     description: URL to check the status of the execution/job.

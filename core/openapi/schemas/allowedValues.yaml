@@ -1,5 +1,5 @@
-    type: array
-    items:
-       oneOf:
-          - type: string
-          - $ref: 'range.yaml'
+type: array
+items:
+   oneOf:
+      - type: string
+      - $ref: "range.yaml"
