@@ -20,7 +20,7 @@ This allows server implementations to describe a process, e.g. by defining the r
 
 include::requirements/core/PER_alternative-process-paths.adoc[]
 
-This allows server implementations to specify alternative paths to processes. 
+This allows server implementations to specify alternative paths to processes and jobs. 
 
 An example of an OpenAPI document making use of the building blocks is shown in the following:
 
@@ -32,7 +32,7 @@ include::examples/yaml/alternative-api.yaml[]
 
 The goals of these additional API building blocks are:
 
-* enabling an more seamless integration of this API with other OGC API standards,
-* enabling the use of tools to auto-generate clients from the API description, and
+* enabling an more seamless integration of this API with other OGC API standards and
+* enabling the use of tools to auto-generate clients from the API description.
 
 

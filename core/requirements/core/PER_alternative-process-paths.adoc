@@ -2,5 +2,5 @@
 |===
 |Permission {counter:per-id} |/per/core/alternative-process-paths +
 
-Servers MAY support alternative paths to processes.
+Servers MAY support alternative API paths.
 |===
