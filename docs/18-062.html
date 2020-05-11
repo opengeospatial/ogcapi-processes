@@ -1468,9 +1468,6 @@ requirements classes implemented by the server.</p>
 <p>The process description contains information about inputs and outputs and a link to the execution-endpoint for the process.</p>
 </div>
 <div class="paragraph">
-<p>A HTTP GET request to the execution-endpoint delivers a list of completed executions (jobs).</p>
-</div>
-<div class="paragraph">
 <p>A HTTP POST request to the execution-endpoint creates a new job. The inputs and outputs need to be passed in a JSON execute-request.</p>
 </div>
 <div class="paragraph">
@@ -1551,20 +1548,20 @@ and include at least links to the following resources:</p>
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingPage.yaml">Schema for the landing page</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: object
-    required:
-      - links
-    properties:
-      title:
-        type: string
-        example: Example processing server
-      description:
-        type: string
-        example: Example server implementing the OGC API - Processes 1.0
-      links:
-        type: array
-        items:
-          $ref: link.yaml</code></pre>
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">type: object
+required:
+  - links
+properties:
+  title:
+    type: string
+    example: Example processing server
+  description:
+    type: string
+    example: Example server implementing the OGC API - Processes 1.0
+  links:
+    type: array
+    items:
+      $ref: link.yaml</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -1766,15 +1763,15 @@ list all OGC API - Processes requirements classes that the server conforms to.</
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml">Schema for the list of requirements classes</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: object
-    required:
-      - conformsTo
-    properties:
-      conformsTo:
-        type: array
-        items:
-          type: string
-          example: "http://www.opengis.net/spec/ogcapi_processes/1.0/req/core"</code></pre>
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">type: object
+required:
+  - conformsTo
+properties:
+  conformsTo:
+    type: array
+    items:
+      type: string
+      example: "http://www.opengis.net/spec/ogcapi_processes/1.0/req/core"</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -2024,9 +2021,9 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml">Schema for the process collection</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: array
-    items:
-      $ref: 'processSummary.yaml'</code></pre>
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">type: array
+items:
+  $ref: "processSummary.yaml"</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2129,22 +2126,22 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml">Schema for a process</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    allOf:
-       - $ref: 'processSummary.yaml'
-       - type: object
-         properties:
-            inputs:
-              type: array
-              items:
-                 $ref: 'inputDescription.yaml'
-            outputs:
-              type: array
-              items:
-                 $ref: 'outputDescription.yaml'
-            links:
-              type: array
-              items:
-                 $ref: 'link.yaml'</code></pre>
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">allOf:
+   - $ref: "processSummary.yaml"
+   - type: object
+     properties:
+        inputs:
+           type: array
+           items:
+              $ref: "inputDescription.yaml"
+        outputs:
+           type: array
+           items:
+              $ref: "outputDescription.yaml"
+        links:
+           type: array
+           items:
+              $ref: "link.yaml"</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -2334,33 +2331,33 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml">Schema for execute</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">  type: object
-  required:
-    - outputs
-    - mode
-    - response
-  properties:
-    inputs:
-      type: array
-      items:
-        $ref: 'input.yaml'
-    outputs:
-      type: array
-      items:
-        $ref: 'output.yaml'
-    mode:
-      type: string
-      enum:
-        - sync
-        - async
-        - auto
-    response:
-      type: string
-      enum:
-        - raw
-        - document
-    subscriber:
-      $ref: 'subscriber.yaml'</code></pre>
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">type: object
+required:
+  - outputs
+  - mode
+  - response
+properties:
+  inputs:
+    type: array
+    items:
+      $ref: "input.yaml"
+  outputs:
+    type: array
+    items:
+      $ref: "output.yaml"
+  mode:
+    type: string
+    enum:
+      - sync
+      - async
+      - auto
+  response:
+    type: string
+    enum:
+      - raw
+      - document
+  subscriber:
+    $ref: "subscriber.yaml"</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -2417,41 +2414,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 </div>
 <div class="sect3">
 <h4 id="trueresponse-6"><a class="anchor" href="#trueresponse-6"></a>7.9.3. Response</h4>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/req/core/job-creation-success<br></p>
-</div>
-<div class="paragraph">
-<p>A successful execution of the operation SHALL be reported as a
-response with a HTTP status code 201.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/req/core/job-creation-success-header<br></p>
-</div>
-<div class="paragraph">
-<p>The 201 response of the operation SHALL return a HTTP header named 'Location' which contains a link to the newly created job.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
+
 </div>
 <div class="sect3">
 <h4 id="trueerror-situations-6"><a class="anchor" href="#trueerror-situations-6"></a>7.9.4. Error situations</h4>
@@ -2477,7 +2440,7 @@ response with a HTTP status code 201.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job<br></p>
 </div>
@@ -2497,7 +2460,7 @@ response with a HTTP status code 201.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-success<br></p>
 </div>
@@ -2513,31 +2476,31 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml">Schema for status info</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: object
-    required:
-        - jobID
-        - status
-    properties:
-       jobID:
-          type: string
-       status:
-          type: string
-          enum:
-            - accepted
-            - running
-            - successful
-            - failed
-            - dismissed
-       message:
-          type: string
-       progress:
-          type: integer
-          minimum: 0
-          maximum: 100
-       links:
-          type: array
-          items:
-             $ref: 'link.yaml'</code></pre>
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">type: object
+required:
+   - jobID
+   - status
+properties:
+   jobID:
+      type: string
+   status:
+      type: string
+      enum:
+         - accepted
+         - running
+         - successful
+         - failed
+         - dismissed
+   message:
+      type: string
+   progress:
+      type: integer
+      minimum: 0
+      maximum: 100
+   links:
+      type: array
+      items:
+         $ref: "link.yaml"</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -2581,7 +2544,7 @@ The content of that response SHALL be based upon the OpenAPI
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-exception/no-such-job<br></p>
 </div>
@@ -2610,7 +2573,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result<br></p>
 </div>
@@ -2630,7 +2593,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-success<br></p>
 </div>
@@ -2646,23 +2609,23 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml">Schema for the result of a job</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: array
-    items:
-       $ref: 'outputInfo.yaml'</code></pre>
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">type: array
+items:
+    $ref: "outputInfo.yaml"</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/outputInfo.yaml">Schema for output info</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: object
-    required:
-        - id
-        - value
-    properties:
-        id:
-          type: string
-        value:
-           $ref: 'valueType.yaml'</code></pre>
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">type: object
+required:
+  - id
+  - value
+properties:
+  id:
+    type: string
+  value:
+    $ref: "valueType.yaml"</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -2715,7 +2678,7 @@ The content of that response SHALL be based upon the OpenAPI
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-exception/no-such-job<br></p>
 </div>
@@ -2735,7 +2698,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-exception/result-not-ready<br></p>
 </div>
@@ -2755,7 +2718,7 @@ The exception code of the exception shall be "ResultNotReady".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-failed<br></p>
 </div>
@@ -2838,7 +2801,7 @@ the web:</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/json/definition<br></p>
 </div>
@@ -2894,7 +2857,7 @@ the web:</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/html/definition<br></p>
 </div>
@@ -2912,7 +2875,7 @@ SHALL support the media type <code>text/html</code>.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req//html/content<br></p>
 </div>
@@ -2980,7 +2943,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-1</strong></p>
 </div></div></td>
@@ -3000,7 +2963,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/oas-definition-2<br></p>
 </div>
@@ -3021,7 +2984,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/req/oas30/oas-impl<br></p>
 <p class="tableblock">The server SHALL implement all capabilities specified in the OpenAPI
 definition.</p></td>
@@ -3038,7 +3001,7 @@ definition.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/completeness<br></p>
 </div>
@@ -3072,7 +3035,7 @@ situations that originate from the server.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/exceptions-codes<br></p>
 </div>
@@ -3110,7 +3073,7 @@ content:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/security<br></p>
 </div>
@@ -3180,7 +3143,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/job-collection/job-collection-op<br></p>
 </div>
@@ -3200,7 +3163,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/job-collection/job-collection-success<br></p>
 </div>
@@ -3216,9 +3179,9 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml">Schema for the job collection</a></div>
 <div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: array
-    items:
-      $ref: 'jobInfo.yaml'</code></pre>
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">type: array
+items:
+  $ref: "jobInfo.yaml"</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -3346,7 +3309,7 @@ The content of that response SHALL be based upon the OpenAPI
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/callback/job-callback<br></p>
 </div>
@@ -3421,7 +3384,7 @@ The content of that response SHALL be based upon the OpenAPI
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 37</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/dismiss/job-dismiss-op<br></p>
 </div>
@@ -3441,7 +3404,7 @@ The content of that response SHALL be based upon the OpenAPI
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 38</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/dismiss/job-dismiss-success<br></p>
 </div>
@@ -3455,43 +3418,7 @@ The content of that response SHALL be based upon the OpenAPI
 </tbody>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml">Schema for status info</a></div>
-<div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">    type: object
-    required:
-        - jobID
-        - status
-    properties:
-       jobID:
-          type: string
-       status:
-          type: string
-          enum:
-            - accepted
-            - running
-            - successful
-            - failed
-            - dismissed
-       message:
-          type: string
-       progress:
-          type: integer
-          minimum: 0
-          maximum: 100
-       links:
-          type: array
-          items:
-             $ref: 'link.yaml'</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example of HTTP DELETE request for dismissing a job.</div>
-<div class="content">
-<pre class="highlight"><code>http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example of a job encoded as JSON.</div>
+<div class="title">Example of a dismissed job encoded as JSON.</div>
 <div class="content">
 <pre class="highlight"><code class="language-json" data-lang="json">{
   "jobID" : "81574318-1eb1-4d7c-af61-4b3fbcf33c4f",
@@ -3525,7 +3452,7 @@ The content of that response SHALL be based upon the OpenAPI
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 39</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 37</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-exception/no-such-job<br></p>
 </div>
@@ -3644,13 +3571,13 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 <p>/per/core/alternative-process-paths<br></p>
 </div>
 <div class="paragraph">
-<p>Servers MAY support alternative paths to processes.</p>
+<p>Servers MAY support alternative API paths.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>This allows server implementations to specify alternative paths to processes.</p>
+<p>This allows server implementations to specify alternative paths to processes and jobs.</p>
 </div>
 <div class="paragraph">
 <p>An example of an OpenAPI document making use of the building blocks is shown in the following:</p>
@@ -3745,10 +3672,10 @@ components:
 <div class="ulist">
 <ul>
 <li>
-<p>enabling an more seamless integration of this API with other OGC API standards,</p>
+<p>enabling an more seamless integration of this API with other OGC API standards and</p>
 </li>
 <li>
-<p>enabling the use of tools to auto-generate clients from the API description, and</p>
+<p>enabling the use of tools to auto-generate clients from the API description.</p>
 </li>
 </ul>
 </div>
@@ -5321,7 +5248,7 @@ Tests: A.4.1.1<br></p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-08 17:20:00 +0200
+Last updated 2020-05-11 14:38:25 +0200
 </div>
 </div>
 </body>
