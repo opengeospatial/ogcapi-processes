@@ -13,19 +13,7 @@ include::requirements/dismiss/REQ_job-dismiss-op.adoc[]
 
 include::requirements/dismiss/REQ_job-dismiss-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml[Schema for status info]
-[source,YAML]
-----
-include::openapi/schemas/statusInfo.yaml[]
-----
-
-.Example of HTTP DELETE request for dismissing a job.
-[source]
-----
-http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f
-----
-
-.Example of a job encoded as JSON.
+.Example of a dismissed job encoded as JSON.
 [source,json]
 ----
 include::examples/json/StatusInfo-dismissed.json[]
