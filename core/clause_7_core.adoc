@@ -26,8 +26,6 @@ The list of processes contains a summary of each process the OGC API - Processes
 
 The process description contains information about inputs and outputs and a link to the execution-endpoint for the process. 
 
-A HTTP GET request to the execution-endpoint delivers a list of completed executions (jobs). 
-
 A HTTP POST request to the execution-endpoint creates a new job. The inputs and outputs need to be passed in a JSON execute-request.
 
 The URL for accessing status information is delivered in the HTTP header `location`.
