@@ -1,0 +1,20 @@
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-response-sync +
+
+An execution of the operation SHALL be reported as a
+response with a HTTP status code 200.
+
+The content of that response SHALL be based on of the following:
+
+* https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/results.yaml[results.yaml] - single or multiple outputs wrapped in a JSON array
+* https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml[exception.yaml] - in case of error
+* any - a single result requested as raw data, for example:
+
+  - binary data
+  - base64 encoded data
+  - text
+  - number
+  - boolean
+  
+|===
