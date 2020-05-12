@@ -98,7 +98,7 @@ paths:
               $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml"
       responses:
         200:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/Results.yaml"
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ExecuteSync.yaml'
         201:
           $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ExecuteAsync.yaml"
         404:
