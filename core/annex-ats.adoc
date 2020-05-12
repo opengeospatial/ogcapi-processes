@@ -18,6 +18,10 @@ include::abstract_tests/ATS_class_job-collection.adoc[]
 
 include::abstract_tests/ATS_class_callback.adoc[]
 
+=== Conformance Class Dismiss
+
+include::abstract_tests/ATS_class_dismiss.adoc[]
+
 === Conformance Class HTML
 
 include::abstract_tests/ATS_class_html.adoc[]

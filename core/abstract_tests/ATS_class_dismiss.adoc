@@ -1,8 +1,8 @@
-[[ats_callback]]
+[[ats_dismiss]]
 [cols="1,4",width="90%"]
 |===
 2+|*Conformance Class*
-2+|http://www.opengis.net/spec/ogcapi-processes/1.0/conf/callback
+2+|http://www.opengis.net/spec/ogcapi-processes/1.0/conf/dismiss
 |Target type |Web API
 |Requirements class |<<rc_core,Requirements Class "Core">>
 |===
