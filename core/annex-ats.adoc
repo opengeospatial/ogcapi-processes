@@ -41,7 +41,7 @@ Compliance testing for OGC API - Processes and similar standards must answer thr
 
 .  Do the resources returned by the micro-services meet the structure and content requirements of the standard?
 
-Further complicating the issue, an API may expose resources in addition to those defined by the standard.  A test engine must be able to traverse the API description document, identify test points, and ignore resource paths which are not to be tested.  The process for identifying test points is provided in Section A.4.3.
+Further complicating the issue, an API may expose resources in addition to those defined by the standard. A test engine must be able to traverse the API description document, identify test points, and ignore resource paths which are not to be tested.  The process for identifying test points is provided in Section A.4.3.
 
 === Conventions
 
@@ -49,7 +49,7 @@ The following conventions apply to this Abstract Test Suite:
 
 ==== Path Templates
 
-Path templates are used throughout these test suites.  Path templating refers to the usage of curly braces “{}” to mark a section of a URL path that can be replaced using path parameters.  The terms used to describe portions of these templates are based on the URL syntax described in RFC 3986.
+Path templates are used throughout these test suites. Path templating refers to the usage of curly braces “{}” to mark a section of a URL path that can be replaced using path parameters.  The terms used to describe portions of these templates are based on the URL syntax described in RFC 3986.
 
 *  scheme: http | https
 
@@ -63,15 +63,15 @@ Path templates are used throughout these test suites.  Path templating refers to
 
 ==== API Description Document
 
-The OGC API - Processes standard does not mandate a standard format for the API Description Document.  However, some form of standard is needed if tests are to be accurately described and implemented.  Therefore, this Abstract Test Suite asserts that the API Description document is compliant with OpenAPI 3.0.  This Test Suite will be updated if and when an alternative is commonly adopted.
+The OGC API - Processes standard does not mandate a standard format for the API Description Document. However, some form of standard is needed if tests are to be accurately described and implemented.  Therefore, this Abstract Test Suite asserts that the API Description document is compliant with OpenAPI 3.0. This Test Suite will be updated if and when an alternative is commonly adopted.
 
 ==== Resource Encodings
 
-The OGC API - Processes standard does not mandate a standard encoding for resources returned by the API. Yet a compliance test requires some minimal level of expected behavior. Therefore, this Abstract Test Suite asserts that the API returns resources encoded in HTML and GeoJSON. Since no compliance test suite exists for these encodings at this time, the resources shall be presented to the test operator for human inspection.  
+The OGC API - Processes standard mandates JSON as standard encoding for resources returned by the API. Therefore, this Abstract Test Suite asserts that the API returns resources encoded in JSON.
 
 ==== Processing Security Objects
 
-OpenAPI does not provide a standard way to associate a security requirement with a single server URI.  Therefore, OGC API - Processes compliance tests will have to make that association through the runtime challenge-response transaction.  At this time the role of the Security Objects should be considered advisory.
+OpenAPI does not provide a standard way to associate a security requirement with a single server URI. Therefore, OGC API - Processes compliance tests will have to make that association through the runtime challenge-response transaction.  At this time the role of the Security Objects should be considered advisory.
 
 Security Requirements can be defined at both the OpenAPI root level and at the Operation Object level. The following rules should be followed to understand the scope of a Security Requirement:
 
@@ -95,7 +95,7 @@ The following observations apply for OGC API - Processes parameters:
 
 . For path parameters, the name of the parameter must match the name of the variable in the path template in the path object
 
-Parameters are defined at the Path Item and Operation level.  Parameters defined at the Path Item level must apply to all operations under that Path item. These parameters may be modified at the Operation level but they may not be removed.
+Parameters are defined at the Path Item and Operation level. Parameters defined at the Path Item level must apply to all operations under that Path item. These parameters may be modified at the Operation level but they may not be removed.
 
 ==== Testable Paths
 
@@ -107,7 +107,7 @@ A testable path is a path which corresponds to one of the paths defined in the O
 
 . Use standardized operation ids for the operationId field of the Operation Object
 
-A testable path is validated against the rules for that path.  At a minimum that includes:
+A testable path is validated against the rules for that path. At a minimum that includes:
 
 . Building a list of all parameters which are defined in the standard
 
@@ -162,7 +162,7 @@ The Test Approach used in the OGC API - Processes Abstract Test Suite includes f
 
 . Verify that the resources returned at each test point are in accordance with the OGC API - Processes standard and any referenced content standard.
 
-Identification of test points is a new requirement with $standard_name$.  Since an API is not a Web Service, there may be RESTful endpoints advertised which are not intended to be targets of the compliance testing.  Section A.4.2 describes the process for crawling the API Description document and extracting those URLs which should be tested as well as the path(s) they should be tested with.  The concatenation of a Server URL with a path forms a test point.
+Identification of test points is a new requirement with OGC API - Processes. Since an API is not a Web Service, there may be RESTful endpoints advertised which are not intended to be targets of the compliance testing.  Section A.4.2 describes the process for crawling the API Description document and extracting those URLs which should be tested as well as the path(s) they should be tested with.  The concatenation of a Server URL with a path forms a test point.
 
 Section A.4.3 describes how the test points are exercised to determine compliance with the OGC API - Processes standard.
 

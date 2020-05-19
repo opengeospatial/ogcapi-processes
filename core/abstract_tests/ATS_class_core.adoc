@@ -74,7 +74,7 @@ Requirement 2
 
 ===== OpenAPI Document Retrieval
 
-Note: The URI for the API definition is provided through the landing page.  However, that does not mean that the API definition resides on the same server as the landing page.  Test clients should be prepared for a OGC API - Processes implementation which is distributed across multiple servers.
+Note: The URI for the API definition is provided through the landing page. However, that does not mean that the API definition resides on the same server as the landing page.  Test clients should be prepared for a OGC API - Processes implementation which is distributed across multiple servers.
 
 ====== a) Test Purpose:
 Validate that the API Definition document can be retrieved from the expected location.
@@ -190,7 +190,7 @@ To expand the contents of a Server Object into a set of absolute URIs.
 
 ====== c) Method:
 
-Processing the Server Object results in a set of absolute URIs.  This set contains all of the URIs that can be created given the URI template and variables defined in that Server Object.
+Processing the Server Object results in a set of absolute URIs. This set contains all of the URIs that can be created given the URI template and variables defined in that Server Object.
 
 . If there are no variables in the URI template, then add the URI to the return set.
 

@@ -1,5 +1,5 @@
 == Conventions
-This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
+This section provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
 
 === Identifiers
 The normative provisions in this specification are denoted by the URI
