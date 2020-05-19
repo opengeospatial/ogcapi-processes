@@ -6,13 +6,38 @@
 |===
 |Date |Release |Editor | Primary clauses modified |Description
 |2017-03-09 |0.1 |Benjamin Pross |all |initial version
-|2017-xx-xx |0.2 |Benjamin Pross |6 |Update REST/JSON section
-|2017-10-16 |0.3 |Stan Tillman | 1-5 |Update section 1-5
-|2018-08-15 |0.3 |Benjamin Pross | all |Restructuring, added requirements classes
-
-
-
-
-
-|2020-00-05 |0.3 |Gérald Fenoy | 12 |Add Requirements Class 'Dismiss'
+|2018-05-16 |0.1 |Stan Tillman | 1-5 |Update section 1-5
+|2018-07-25 |1.0-draft |Benjamin Pross | all |1.0-draft
+|2018-08-15 |1.0-draft |Benjamin Pross | all |Restructuring, added requirements classes
+|2018-11-29 |1.0-draft |Benjamin Pross | 7 |Update schemas and examples
+|2019-02-20 |1.0-draft |Benjamin Pross | 7 |Fix for #3
+|2019-03-21 |1.0-draft |Benjamin Pross | 6,7,8,9,10 |Alignment with OAPI Common, adjust schemas
+|2019-03-27 |1.0-draft |Tom Kralidis, Benjamin Pross | 6,7,8,9,10 |Fix for #7, align bbox schema to WFS
+|2019-03-28 |1.0-draft |Benjamin Pross | 7 |Formatting
+|2019-03-29 |1.0-draft |Benjamin Pross | 7 |Adjust schemas and examples
+|2019-04-16 |1.0-draft |Benjamin Pross | 7 |Adjust schemas, fix validation errors, add more data types
+|2019-06-05 |1.0-draft |Gérald Fenoy | 7 |Allow unbounded for maxOccurs, Fix issue with ValueDefinition references
+|2019-06-12 |1.0-draft |Benjamin Pross | 7 |Possible solution for #26
+|2019-06-19 |0.0-draft |Gérald Fenoy | 7 |Add additionalParameter.yaml, update metadata.yaml and, descriptionType.yaml, fix intendation
+|2019-06-20 |1.0-draft |Brad Hards | 6,7 |Fix typo noted during OGC API presentation, fix for #34
+|2019-08-09 |1.0-draft |Benjamin Pross| 7 |1.0-draft.2, use plural for results path, remove wrapper
+|2019-08-21 |1.0-draft.2 |Benjamin Pross| 7 |adjust schemas, examples and figures, remove section about web caching
+|2019-10-01 |1.0-draft.3 |Benjamin Pross| 7 |1.0-draft.3, minor edits
+|2019-10-10 |1.0-draft.3 |Gérald Fenoy, Tom Kralidis| 7 |Add implementations, Use status in place of infos in jobInfo definition
+|2019-10-22 |1.0-draft.3 |Benjamin Pross| 7 |Remove mandatory path /api, fix for #50
+|2020-01-06 |1.0-draft.3 |Francis Charette| 7 |Add implementation
+|2020-01-28 |1.0-draft.3 |Gérald Fenoy| 7 |Adjust schemas and examples
+|2020-02-03 |1.0-draft.3 |Benjamin Pross| 7 |Fix for #63
+|2020-02-18 |1.0-draft.3 |Chris Durbin| 7 |Fix for #61
+|2020-04-01 |1.0-draft.3 |Benjamin Pross| 7 |Add optional subscriber property to execute request, avoid duplication, create own type for entities with properties name and reference
+|2020-04-06 |1.0-draft.3 |Benjamin Pross| 5,7 |Abbreviate process-description link relation to process-desc, update example, alphabetical ordering of link relations
+|2020-04-09 |1.0-draft.3 |Benjamin Pross| 7 |Rename root.yaml to landingPage.yaml, add title and description to root.yaml
+|2020-04-28 |1.0-draft.3 |Benjamin Pross| 7 |Move examples, responses and parameters from core asciidoc to external files
+|2020-04-29 |1.0-draft.3 |Benjamin Pross| 11 |Add Requirements Class 'Callback'
+|2020-04-30 |1.0-draft.3 |Benjamin Pross| 6,11 |Move overview table to abstract, allow multiple URIs for callbacks
+|2020-05-05 |1.0-draft.3 |Gérald Fenoy | 12 |Add Requirements Class 'Dismiss', fix includes and section headers
+|2020-05-8 |1.0-draft.3 |Benjamin Pross | 14 |Add section with info about additional/alternative building blocks
+|2020-05-11 |1.0-draft.3 |Benjamin Pross | 12 |Move 'Job Collection' from core to separate Requirements Class
+|2020-05-12 |1.0-draft.3 |Panagiotis (Peter) A. Vretanos | N/A |Create a home for extensions to the core, initial check in of draft transactions extension, add placeholders for the quotation and billing APIs
+|2020-05-12 |1.0-draft.3 |Stan Tillman | 6,7,8,9,10 | Review
 |===
