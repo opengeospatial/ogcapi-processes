@@ -1,0 +1,22 @@
+type: object
+required:
+  - processDescription
+  - executionUnit
+  - deploymentProfile
+properties:
+  immediateDeployment:
+    type: boolean
+  processDescription:
+    $ref: "../../../../core/openapi/schemas/process.yaml"
+  executionUnit:
+    type: array
+      minItems: 1
+      items:
+        type: object
+        example:
+          type: docker
+          image: mydocker/ndvi:latest
+  deploymentProfile:
+    type: string
+    format: uri
+    example: http://www.opengis.net/profiles/eoc/dockerizedApplication

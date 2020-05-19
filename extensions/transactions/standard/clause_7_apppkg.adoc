@@ -25,29 +25,28 @@ include::requirements/ogcapppkg/REQ_schema.adoc[]
 .link:http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[Schema for the OGC Application Package]
 [source,YAML]
 ----
-    ApplicationPackage:
-      type: object
-      required:
-        - processDescription
-        - executionUnit
-        - deploymentProfile
-      properties:
-        immediateDeployment:
-          type: boolean
-        processDescription:
-          $ref: "#/components/schemas/ProcessOffering"
-        executionUnit:
-           type: array
-           minItems: 1
-           items:
-             type: object
-             example:
-               type: docker
-               image: 52north/eopad-ndvi:latest
-        deploymentProfile:
-          type: string
-          format: uri
-          example: http://www.opengis.net/profiles/eoc/dockerizedApplication
+type: object
+required:
+  - processDescription
+  - executionUnit
+  - deploymentProfile
+properties:
+  immediateDeployment:
+    type: boolean
+  processDescription:
+    $ref: "../../../../core/openapi/schemas/process.yaml"
+  executionUnit:
+    type: array
+      minItems: 1
+      items:
+        type: object
+        example:
+          type: docker
+          image: mydocker/ndvi:latest
+  deploymentProfile:
+    type: string
+    format: uri
+    example: http://www.opengis.net/profiles/eoc/dockerizedApplication
 ----
 
 ==== immediateDeployment property
