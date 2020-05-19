@@ -29,7 +29,7 @@
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:  <yyyy-mm-dd>
 |Publication Date:  <yyyy-mm-dd>
-|External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/ogcapi-features-4/1.0
+|External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/ogcapi-processes-2/1.0
 |Internal reference number of this OGC(R) document:    20-044
 |Version: link:http://docs.opengeospatial.org/DRAFTS/20-044.html[1.0.0-SNAPSHOT (Editor's draft)]
 |Latest Published Draft: n/a
