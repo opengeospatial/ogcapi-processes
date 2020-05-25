@@ -66,6 +66,9 @@ The following organizations submitted this Document to the Open Geospatial Conso
 
 * 52°North GmbH
 * Hexagon
+* CubeWerx Inc.
+* Ecere Corporation
+* Terradue Srl
 
 [big]*v.     Submitters*
 
@@ -73,6 +76,9 @@ All questions regarding this submission should be directed to the editor or the 
 
 |=======================
 |*Name* | *Representing* | *OGC Member*
-|Benjamin Pross | 52°North GmbH | Yes
+|Benjamin Pross _(editor)_ | 52°North GmbH | Yes
 |Stan Tillman|Hexagon| Yes
+|Panagiotis (Peter) A. Vretanos|CubeWerx Inc.| Yes
+|Jérôme St-Louis|Ecere Corporation| Yes
+|Pedro Gonçalves|Terradue Srl| Yes
 |=======================
