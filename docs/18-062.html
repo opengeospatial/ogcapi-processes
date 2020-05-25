@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.8.dev">
-<title>OGC API - Processes</title>
+<title>OGC API - Processes - Part 1: Core</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book">
 <div id="header">
-<h1>OGC API - Processes</h1>
+<h1>OGC API - Processes - Part 1: Core</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -487,7 +487,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">OGC API - Processes</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">OGC API - Processes - Part 1: Core</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -714,21 +714,22 @@ License Agreement</p>
 <li><a href="#trueconformance-class-json">A.2. Conformance Class JSON</a></li>
 <li><a href="#trueconformance-class-job-collection">A.3. Conformance Class Job collection</a></li>
 <li><a href="#trueconformance-class-callback">A.4. Conformance Class Callback</a></li>
-<li><a href="#trueconformance-class-html">A.5. Conformance Class HTML</a></li>
-<li><a href="#trueconformance-class-openapi-3-0">A.6. Conformance Class OpenAPI 3.0</a></li>
-<li><a href="#trueoverview-3">A.7. Overview</a></li>
-<li><a href="#trueconventions-2">A.8. Conventions</a>
+<li><a href="#trueconformance-class-dismiss">A.5. Conformance Class Dismiss</a></li>
+<li><a href="#trueconformance-class-html">A.6. Conformance Class HTML</a></li>
+<li><a href="#trueconformance-class-openapi-3-0">A.7. Conformance Class OpenAPI 3.0</a></li>
+<li><a href="#trueoverview-3">A.8. Overview</a></li>
+<li><a href="#trueconventions-2">A.9. Conventions</a>
 <ul class="sectlevel3">
-<li><a href="#truepath-templates">A.8.1. Path Templates</a></li>
-<li><a href="#trueapi-description-document">A.8.2. API Description Document</a></li>
-<li><a href="#trueresource-encodings">A.8.3. Resource Encodings</a></li>
-<li><a href="#trueprocessing-security-objects">A.8.4. Processing Security Objects</a></li>
-<li><a href="#trueparameters">A.8.5. Parameters</a></li>
-<li><a href="#truetestable-paths">A.8.6. Testable Paths</a></li>
+<li><a href="#truepath-templates">A.9.1. Path Templates</a></li>
+<li><a href="#trueapi-description-document">A.9.2. API Description Document</a></li>
+<li><a href="#trueresource-encodings">A.9.3. Resource Encodings</a></li>
+<li><a href="#trueprocessing-security-objects">A.9.4. Processing Security Objects</a></li>
+<li><a href="#trueparameters">A.9.5. Parameters</a></li>
+<li><a href="#truetestable-paths">A.9.6. Testable Paths</a></li>
 </ul>
 </li>
-<li><a href="#truerequirements-trace-matrix">A.9. Requirements Trace Matrix</a></li>
-<li><a href="#trueabstract-test">A.10. Abstract Test</a></li>
+<li><a href="#truerequirements-trace-matrix">A.10. Requirements Trace Matrix</a></li>
+<li><a href="#trueabstract-test">A.11. Abstract Test</a></li>
 </ul>
 </li>
 <li><a href="#truerevision-history">Annex B: Revision History</a></li>
@@ -739,8 +740,8 @@ License Agreement</p>
 <p><strong class="big">i.     Abstract</strong></p>
 </div>
 <div class="paragraph">
-<p>In many cases geospatial or location data, including data from sensors, must be processed before the information can be used effectively. The OGC Web Processing Service (WPS) Interface Standard provides a standard interface that simplifies the task of making simple or complex computational processing services accessible via web services. Such services include well-known processes found in GIS software as well as specialized processes for spatio-temporal modeling and simulation. While the OGC WPS standard was designed with spatial processing in mind, it can also be used to readily insert non-spatial processing tasks into a web services environment.
-The WPS standard provides a robust, interoperable, and versatile protocol for process execution on web services. It supports both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time consuming tasks. Moreover, the WPS standard defines a general process model that is designed to provide an interoperable description of processing functions. It is intended to support process cataloguing and discovery in a distributed environment.</p>
+<p>In many cases geospatial or location data, including data from sensors, must be processed before the information can be used effectively. The OGC Web Processing Service (WPS) Interface Standard provided a standard interface that simplifies the task of making simple or complex computational processing services accessible via web services. Such services include well-known processes found in GIS software as well as specialized processes for spatio-temporal modeling and simulation. While the OGC WPS standard was designed with spatial processing in mind, it could also be used to readily insert non-spatial processing tasks into a web services environment.
+The WPS standard provided a robust, interoperable, and versatile protocol for process execution on web services. It supports both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time-consuming tasks. Moreover, the WPS standard defines a general process model that is designed to provide an interoperable description of processing functions. It is intended to support process cataloguing and discovery in a distributed environment.</p>
 </div>
 <div class="paragraph">
 <p>The OGC API - Processes builds on the WPS 2.0 standard and defines the processing standards to communicate over a RESTful protocol using JSON encodings. This API will be a newer and more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.</p>
@@ -897,7 +898,7 @@ However, in order to create a new job, the HTTP POST method is used to create a 
 <p>The following are keywords to be used by search engines and document catalogues.</p>
 </div>
 <div class="paragraph">
-<p>geoprocessing, ogcdoc, OGC document, processes, WPS, REST, JSON</p>
+<p>ogcdoc, OGC document, OGC API, Geospatial API, processes, Web Processing Service, WPS, JSON, HTML, geoprocessing, API, OpenAPI, HTML</p>
 </div>
 <div class="paragraph">
 <p><strong class="big">iii.   Preface</strong></p>
@@ -958,7 +959,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <h2 id="truescope"><a class="anchor" href="#truescope"></a>1. Scope</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document specifies a Web API that enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality. Typically, these processes combine raster, vector, and/or coverage data with well-defined algorithms to produce new raster, vector, and/or coverage information.</p>
+<p>This document specifies a Web API that enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality. Typically, these processes combine raster, vector, coverage and/or point cloud data with well-defined algorithms to produce new raster, vector, coverage and/or point cloud information.</p>
 </div>
 </div>
 </div>
@@ -985,7 +986,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <p>The <em>Core</em> specifies requirements that all Web APIs have to implement.</p>
 </div>
 <div class="paragraph">
-<p>Two requirements classes depend on the <em>Core</em> and specify representations for these resources in commonly used encodings for spatial data on the web:</p>
+<p>Two requirements classes depend on the <em>Core</em> and specify representations for the resources specfied in the <em>Core</em>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1017,7 +1018,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <p>The <em>Core</em> is intended to be a minimal useful API for the execution of processes from the geospatial domain. It is designed to map the operations of a Web Processing Service 2.0.</p>
 </div>
 <div class="paragraph">
-<p>Three additional conformance classes are specified that extend the basic functionality of a WPS:</p>
+<p>Three additional conformance classes are specified that extend the basic functionality of an API:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1033,7 +1034,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </ul>
 </div>
 <div class="paragraph">
-<p>Additional capabilities such as support for transactions, extended job monitoring, etc., may be specified in future parts of the OGC API Processes series or as vendor-specific extensions.</p>
+<p>Additional capabilities such as support for transactions, extended job monitoring, etc., may be specified in future parts of the OGC API - Processes series or as vendor-specific extensions.</p>
 </div>
 <div class="paragraph">
 <p>Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
@@ -1057,7 +1058,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json">JSON</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/geojson" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/geojson</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/json" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/json</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html">HTML</a></p></td>
@@ -1069,11 +1070,15 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_job-collection">Job collection</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/gmlsf0" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/gmlsf0</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/job-collection" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/job-collection</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_callback">Callback</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/gmlsf2" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/gmlsf2</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/callback" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/callback</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_dismiss">Dismiss</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/dismiss" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/dismiss</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1203,7 +1208,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <h2 id="trueconventions"><a class="anchor" href="#trueconventions"></a>5. Conventions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.</p>
+<p>This section provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.</p>
 </div>
 <div class="sect2">
 <h3 id="trueidentifiers"><a class="anchor" href="#trueidentifiers"></a>5.1. Identifiers</h3>
@@ -2414,7 +2419,103 @@ properties:
 </div>
 <div class="sect3">
 <h4 id="trueresponse-6"><a class="anchor" href="#trueresponse-6"></a>7.9.3. Response</h4>
-
+<div class="paragraph">
+<p>The execution of a process can be done synchronously or asynchronously.</p>
+</div>
+<div class="paragraph">
+<p>In case of asynchrounous execution, the two requirements below apply:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>/req/core/job-creation-success-async<br></p>
+</div>
+<div class="paragraph">
+<p>A successful execution of the operation SHALL be reported as a
+response with a HTTP status code 201.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>/req/core/job-creation-success-header-async<br></p>
+</div>
+<div class="paragraph">
+<p>The 201 response of the operation SHALL return a HTTP header named 'Location' which contains a link to the newly created job.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For synchronous execution, the following requirement applies:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>/req/core/job-creation-response-sync<br></p>
+</div>
+<div class="paragraph">
+<p>An execution of the operation SHALL be reported as a
+response with a HTTP status code 200.</p>
+</div>
+<div class="paragraph">
+<p>The content of that response SHALL be based on of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/results.yaml">results.yaml</a> - single or multiple outputs wrapped in a JSON array</p>
+</li>
+<li>
+<p><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml">exception.yaml</a> - in case of error</p>
+</li>
+<li>
+<p>any - a single result requested as raw data, for example:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>binary data</p>
+</li>
+<li>
+<p>base64 encoded data</p>
+</li>
+<li>
+<p>text</p>
+</li>
+<li>
+<p>number</p>
+</li>
+<li>
+<p>boolean</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="trueerror-situations-6"><a class="anchor" href="#trueerror-situations-6"></a>7.9.4. Error situations</h4>
@@ -2440,7 +2541,7 @@ properties:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job<br></p>
 </div>
@@ -2460,7 +2561,7 @@ properties:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-success<br></p>
 </div>
@@ -2544,7 +2645,7 @@ properties:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-exception/no-such-job<br></p>
 </div>
@@ -2573,7 +2674,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result<br></p>
 </div>
@@ -2593,7 +2694,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-success<br></p>
 </div>
@@ -2678,7 +2779,7 @@ properties:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-exception/no-such-job<br></p>
 </div>
@@ -2698,7 +2799,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-exception/result-not-ready<br></p>
 </div>
@@ -2718,7 +2819,7 @@ The exception code of the exception shall be "ResultNotReady".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-failed<br></p>
 </div>
@@ -2801,7 +2902,7 @@ the web:</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/json/definition<br></p>
 </div>
@@ -2857,7 +2958,7 @@ the web:</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/html/definition<br></p>
 </div>
@@ -2875,7 +2976,7 @@ SHALL support the media type <code>text/html</code>.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req//html/content<br></p>
 </div>
@@ -2943,7 +3044,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-1</strong></p>
 </div></div></td>
@@ -2963,7 +3064,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/oas-definition-2<br></p>
 </div>
@@ -2984,7 +3085,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/req/oas30/oas-impl<br></p>
 <p class="tableblock">The server SHALL implement all capabilities specified in the OpenAPI
 definition.</p></td>
@@ -3001,7 +3102,7 @@ definition.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/completeness<br></p>
 </div>
@@ -3035,7 +3136,7 @@ situations that originate from the server.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/exceptions-codes<br></p>
 </div>
@@ -3073,7 +3174,7 @@ content:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/security<br></p>
 </div>
@@ -3143,7 +3244,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/job-collection/job-collection-op<br></p>
 </div>
@@ -3163,7 +3264,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/job-collection/job-collection-success<br></p>
 </div>
@@ -3309,7 +3410,7 @@ items:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 37</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/callback/job-callback<br></p>
 </div>
@@ -3384,7 +3485,7 @@ items:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 38</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/dismiss/job-dismiss-op<br></p>
 </div>
@@ -3404,7 +3505,7 @@ items:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 39</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/dismiss/job-dismiss-success<br></p>
 </div>
@@ -3452,7 +3553,7 @@ The content of that response SHALL be based upon the OpenAPI
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 37</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 40</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-exception/no-such-job<br></p>
 </div>
@@ -3534,7 +3635,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 <p>This workflow is useful for generic client that are implemented against the JSON schemas and paths specified in this document. They can communicate with any server implementing the OGC API - Processes. There may be limitations regarding the handling of input and output formats, however.</p>
 </div>
 <div class="paragraph">
-<p>The approach approach describe above requires implementors of clients to have knowledge about the standard.</p>
+<p>The approach describe above requires implementors of clients to have knowledge about the standard.</p>
 </div>
 <div class="paragraph">
 <p>As an alternative that could make it easier for implementors that are not familiar with OGC (API) standards, deviations from strictly following the schemas and paths specified in this standard are permitted.</p>
@@ -3839,7 +3940,7 @@ components:
 <div class="sect4">
 <h5 id="trueopenapi-document-retrieval"><a class="anchor" href="#trueopenapi-document-retrieval"></a>A.1.2.3. OpenAPI Document Retrieval</h5>
 <div class="paragraph">
-<p>Note: The URI for the API definition is provided through the landing page.  However, that does not mean that the API definition resides on the same server as the landing page.  Test clients should be prepared for a OGC API - Processes implementation which is distributed across multiple servers.</p>
+<p>Note: The URI for the API definition is provided through the landing page. However, that does not mean that the API definition resides on the same server as the landing page.  Test clients should be prepared for a OGC API - Processes implementation which is distributed across multiple servers.</p>
 </div>
 <div class="sect5">
 <h6 id="truea-test-purpose-4"><a class="anchor" href="#truea-test-purpose-4"></a>a) Test Purpose:</h6>
@@ -4064,7 +4165,7 @@ components:
 <div class="sect5">
 <h6 id="truec-method-3"><a class="anchor" href="#truec-method-3"></a>c) Method:</h6>
 <div class="paragraph">
-<p>Processing the Server Object results in a set of absolute URIs.  This set contains all of the URIs that can be created given the URI template and variables defined in that Server Object.</p>
+<p>Processing the Server Object results in a set of absolute URIs. This set contains all of the URIs that can be created given the URI template and variables defined in that Server Object.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4606,7 +4707,7 @@ URI</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/json" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/json</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -4634,7 +4735,7 @@ URI</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/job-collection" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/job-collection</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -4662,7 +4763,7 @@ URI</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/callback" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/callback</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -4679,7 +4780,35 @@ URI</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueconformance-class-html"><a class="anchor" href="#trueconformance-class-html"></a>A.5. Conformance Class HTML</h3>
+<h3 id="trueconformance-class-dismiss"><a class="anchor" href="#trueconformance-class-dismiss"></a>A.5. Conformance Class Dismiss</h3>
+<table id="ats_dismiss" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes/1.0/conf/dismiss" class="bare">http://www.opengis.net/spec/ogcapi-processes/1.0/conf/dismiss</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements class</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Requirements Class "Core"</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>TODO</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueconformance-class-html"><a class="anchor" href="#trueconformance-class-html"></a>A.6. Conformance Class HTML</h3>
 <table id="ats_html" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
@@ -4708,7 +4837,7 @@ URI</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="trueconformance-class-openapi-3-0"><a class="anchor" href="#trueconformance-class-openapi-3-0"></a>A.6. Conformance Class OpenAPI 3.0</h3>
+<h3 id="trueconformance-class-openapi-3-0"><a class="anchor" href="#trueconformance-class-openapi-3-0"></a>A.7. Conformance Class OpenAPI 3.0</h3>
 <table id="ats_oas30" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
@@ -4950,7 +5079,7 @@ URI</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="trueoverview-3"><a class="anchor" href="#trueoverview-3"></a>A.7. Overview</h3>
+<h3 id="trueoverview-3"><a class="anchor" href="#trueoverview-3"></a>A.8. Overview</h3>
 <div class="paragraph">
 <p>Compliance testing for OGC API - Processes and similar standards must answer three questions:</p>
 </div>
@@ -4968,18 +5097,18 @@ URI</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Further complicating the issue, an API may expose resources in addition to those defined by the standard.  A test engine must be able to traverse the API description document, identify test points, and ignore resource paths which are not to be tested.  The process for identifying test points is provided in Section A.4.3.</p>
+<p>Further complicating the issue, an API may expose resources in addition to those defined by the standard. A test engine must be able to traverse the API description document, identify test points, and ignore resource paths which are not to be tested.  The process for identifying test points is provided in Section A.4.3.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueconventions-2"><a class="anchor" href="#trueconventions-2"></a>A.8. Conventions</h3>
+<h3 id="trueconventions-2"><a class="anchor" href="#trueconventions-2"></a>A.9. Conventions</h3>
 <div class="paragraph">
 <p>The following conventions apply to this Abstract Test Suite:</p>
 </div>
 <div class="sect3">
-<h4 id="truepath-templates"><a class="anchor" href="#truepath-templates"></a>A.8.1. Path Templates</h4>
+<h4 id="truepath-templates"><a class="anchor" href="#truepath-templates"></a>A.9.1. Path Templates</h4>
 <div class="paragraph">
-<p>Path templates are used throughout these test suites.  Path templating refers to the usage of curly braces “{}” to mark a section of a URL path that can be replaced using path parameters.  The terms used to describe portions of these templates are based on the URL syntax described in RFC 3986.</p>
+<p>Path templates are used throughout these test suites. Path templating refers to the usage of curly braces “{}” to mark a section of a URL path that can be replaced using path parameters.  The terms used to describe portions of these templates are based on the URL syntax described in RFC 3986.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -5002,21 +5131,21 @@ URI</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueapi-description-document"><a class="anchor" href="#trueapi-description-document"></a>A.8.2. API Description Document</h4>
+<h4 id="trueapi-description-document"><a class="anchor" href="#trueapi-description-document"></a>A.9.2. API Description Document</h4>
 <div class="paragraph">
-<p>The OGC API - Processes standard does not mandate a standard format for the API Description Document.  However, some form of standard is needed if tests are to be accurately described and implemented.  Therefore, this Abstract Test Suite asserts that the API Description document is compliant with OpenAPI 3.0.  This Test Suite will be updated if and when an alternative is commonly adopted.</p>
+<p>The OGC API - Processes standard does not mandate a standard format for the API Description Document. However, some form of standard is needed if tests are to be accurately described and implemented.  Therefore, this Abstract Test Suite asserts that the API Description document is compliant with OpenAPI 3.0. This Test Suite will be updated if and when an alternative is commonly adopted.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueresource-encodings"><a class="anchor" href="#trueresource-encodings"></a>A.8.3. Resource Encodings</h4>
+<h4 id="trueresource-encodings"><a class="anchor" href="#trueresource-encodings"></a>A.9.3. Resource Encodings</h4>
 <div class="paragraph">
-<p>The OGC API - Processes standard does not mandate a standard encoding for resources returned by the API. Yet a compliance test requires some minimal level of expected behavior. Therefore, this Abstract Test Suite asserts that the API returns resources encoded in HTML and GeoJSON. Since no compliance test suite exists for these encodings at this time, the resources shall be presented to the test operator for human inspection.</p>
+<p>The OGC API - Processes standard mandates JSON as standard encoding for resources returned by the API. Therefore, this Abstract Test Suite asserts that the API returns resources encoded in JSON.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueprocessing-security-objects"><a class="anchor" href="#trueprocessing-security-objects"></a>A.8.4. Processing Security Objects</h4>
+<h4 id="trueprocessing-security-objects"><a class="anchor" href="#trueprocessing-security-objects"></a>A.9.4. Processing Security Objects</h4>
 <div class="paragraph">
-<p>OpenAPI does not provide a standard way to associate a security requirement with a single server URI.  Therefore, OGC API - Processes compliance tests will have to make that association through the runtime challenge-response transaction.  At this time the role of the Security Objects should be considered advisory.</p>
+<p>OpenAPI does not provide a standard way to associate a security requirement with a single server URI. Therefore, OGC API - Processes compliance tests will have to make that association through the runtime challenge-response transaction.  At this time the role of the Security Objects should be considered advisory.</p>
 </div>
 <div class="paragraph">
 <p>Security Requirements can be defined at both the OpenAPI root level and at the Operation Object level. The following rules should be followed to understand the scope of a Security Requirement:</p>
@@ -5039,7 +5168,7 @@ URI</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="trueparameters"><a class="anchor" href="#trueparameters"></a>A.8.5. Parameters</h4>
+<h4 id="trueparameters"><a class="anchor" href="#trueparameters"></a>A.9.5. Parameters</h4>
 <div class="paragraph">
 <p>The following observations apply for OGC API - Processes parameters:</p>
 </div>
@@ -5060,11 +5189,11 @@ URI</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Parameters are defined at the Path Item and Operation level.  Parameters defined at the Path Item level must apply to all operations under that Path item. These parameters may be modified at the Operation level but they may not be removed.</p>
+<p>Parameters are defined at the Path Item and Operation level. Parameters defined at the Path Item level must apply to all operations under that Path item. These parameters may be modified at the Operation level but they may not be removed.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="truetestable-paths"><a class="anchor" href="#truetestable-paths"></a>A.8.6. Testable Paths</h4>
+<h4 id="truetestable-paths"><a class="anchor" href="#truetestable-paths"></a>A.9.6. Testable Paths</h4>
 <div class="paragraph">
 <p>A testable path is a path which corresponds to one of the paths defined in the OGC API - Processes specification. There are three alternatives for making this determination:</p>
 </div>
@@ -5082,7 +5211,7 @@ URI</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>A testable path is validated against the rules for that path.  At a minimum that includes:</p>
+<p>A testable path is validated against the rules for that path. At a minimum that includes:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -5103,7 +5232,7 @@ URI</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="truerequirements-trace-matrix"><a class="anchor" href="#truerequirements-trace-matrix"></a>A.9. Requirements Trace Matrix</h3>
+<h3 id="truerequirements-trace-matrix"><a class="anchor" href="#truerequirements-trace-matrix"></a>A.10. Requirements Trace Matrix</h3>
 <div class="paragraph">
 <p>TODO update</p>
 </div>
@@ -5155,7 +5284,7 @@ Tests: A.4.1.1<br></p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="trueabstract-test"><a class="anchor" href="#trueabstract-test"></a>A.10. Abstract Test</h3>
+<h3 id="trueabstract-test"><a class="anchor" href="#trueabstract-test"></a>A.11. Abstract Test</h3>
 <div class="paragraph">
 <p>The Test Approach used in the OGC API - Processes Abstract Test Suite includes four steps:</p>
 </div>
@@ -5176,7 +5305,7 @@ Tests: A.4.1.1<br></p></td>
 </ol>
 </div>
 <div class="paragraph">
-<p>Identification of test points is a new requirement with $standard_name$.  Since an API is not a Web Service, there may be RESTful endpoints advertised which are not intended to be targets of the compliance testing.  Section A.4.2 describes the process for crawling the API Description document and extracting those URLs which should be tested as well as the path(s) they should be tested with.  The concatenation of a Server URL with a path forms a test point.</p>
+<p>Identification of test points is a new requirement with OGC API - Processes. Since an API is not a Web Service, there may be RESTful endpoints advertised which are not intended to be targets of the compliance testing.  Section A.4.2 describes the process for crawling the API Description document and extracting those URLs which should be tested as well as the path(s) they should be tested with.  The concatenation of a Server URL with a path forms a test point.</p>
 </div>
 <div class="paragraph">
 <p>Section A.4.3 describes how the test points are exercised to determine compliance with the OGC API - Processes standard.</p>
@@ -5214,32 +5343,242 @@ Tests: A.4.1.1<br></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">initial version</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2017-xx-xx</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0.2</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Update REST/JSON section</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2017-10-16</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2018-05-16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0.1</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Stan Tillman</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1-5</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Update section 1-5</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2018-07-25</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">all</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2018-08-15</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">all</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Restructuring, added requirements classes</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-00-05</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2018-11-29</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Update schemas and examples</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-02-20</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Fix for #3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-03-21</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6,7,8,9,10</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Alignment with OAPI Common, adjust schemas</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-03-27</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Tom Kralidis, Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6,7,8,9,10</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Fix for #7, align bbox schema to WFS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-03-28</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Formatting</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-03-29</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Adjust schemas and examples</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-04-16</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Adjust schemas, fix validation errors, add more data types</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-06-05</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Gérald Fenoy</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Allow unbounded for maxOccurs, Fix issue with ValueDefinition references</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-06-12</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Possible solution for #26</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-06-19</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">0.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Gérald Fenoy</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Add additionalParameter.yaml, update metadata.yaml and, descriptionType.yaml, fix intendation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-06-20</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Brad Hards</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6,7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Fix typo noted during OGC API presentation, fix for #34</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-08-09</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.2, use plural for results path, remove wrapper</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-08-21</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.2</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">adjust schemas, examples and figures, remove section about web caching</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-10-01</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3, minor edits</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-10-10</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Gérald Fenoy, Tom Kralidis</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Add implementations, Use status in place of infos in jobInfo definition</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2019-10-22</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Remove mandatory path /api, fix for #50</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-01-06</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Francis Charette</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Add implementation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-01-28</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Gérald Fenoy</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Adjust schemas and examples</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-02-03</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Fix for #63</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-02-18</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Chris Durbin</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Fix for #61</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-04-01</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Add optional subscriber property to execute request, avoid duplication, create own type for entities with properties name and reference</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-04-06</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">5,7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Abbreviate process-description link relation to process-desc, update example, alphabetical ordering of link relations</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-04-09</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Rename root.yaml to landingPage.yaml, add title and description to root.yaml</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-04-28</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Move examples, responses and parameters from core asciidoc to external files</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-04-29</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Add Requirements Class 'Callback'</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-04-30</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6,11</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Move overview table to abstract, allow multiple URIs for callbacks</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-05-05</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Gérald Fenoy</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">12</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Add Requirements Class 'Dismiss'</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Add Requirements Class 'Dismiss', fix includes and section headers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-05-8</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">14</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Add section with info about additional/alternative building blocks</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-05-11</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Move 'Job Collection' from core to separate Requirements Class</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-05-12</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Panagiotis (Peter) A. Vretanos</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Create a home for extensions to the core, initial check in of draft transactions extension, add placeholders for the quotation and billing APIs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-05-12</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Stan Tillman</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6,7,8,9,10</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Review</p></td>
 </tr>
 </tbody>
 </table>
@@ -5248,7 +5587,7 @@ Tests: A.4.1.1<br></p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-11 14:38:25 +0200
+Last updated 2020-05-25 14:14:19 +0200
 </div>
 </div>
 </body>
