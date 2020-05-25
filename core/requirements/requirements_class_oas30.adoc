@@ -2,7 +2,7 @@
 [cols="1,4",width="90%"]
 |===
 2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-processes/1.0/req/oas30
+2+|http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/oas30
 |Target type |Web service
 |Dependency |<<rc_core,OGC API - Processes 1.0 Core>>
 |Dependency |<<OpenAPI,OpenAPI Specification 3.0.1>>
