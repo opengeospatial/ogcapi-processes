@@ -1,5 +1,5 @@
-:Title: OGC API - Processes
-:titletext: OGC API - Processes
+:Title: OGC API - Processes - Part 1: Core
+:titletext: OGC API - Processes - Part 1: Core
 :doctype: book
 :encoding: utf-8
 :lang: en
