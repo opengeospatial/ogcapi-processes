@@ -69,6 +69,7 @@ The following organizations submitted this Document to the Open Geospatial Conso
 * CubeWerx Inc.
 * Ecere Corporation
 * Terradue Srl
+* GeoLabs
 
 [big]*v.     Submitters*
 
@@ -81,4 +82,6 @@ All questions regarding this submission should be directed to the editor or the 
 |Panagiotis (Peter) A. Vretanos|CubeWerx Inc.| Yes
 |Jérôme Jacovella-St-Louis|Ecere Corporation| Yes
 |Pedro Gonçalves|Terradue Srl| Yes
+|Gérald Fenoy|GeoLabs| No
+|
 |=======================
