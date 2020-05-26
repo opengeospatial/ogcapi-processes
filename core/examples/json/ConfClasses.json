@@ -1,7 +1,8 @@
 {
   "conformsTo": [
-    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/core",
-    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/oas30",
-    "http://www.opengis.net/spec/WPS/2.0/req/service/binding/rest-json/1.0/html"
+    "http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core",
+    "http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json",
+    "http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html",
+    "http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30"
   ]
 }
