@@ -79,6 +79,6 @@ All questions regarding this submission should be directed to the editor or the 
 |Benjamin Pross _(editor)_ | 52°North GmbH | Yes
 |Stan Tillman|Hexagon| Yes
 |Panagiotis (Peter) A. Vretanos|CubeWerx Inc.| Yes
-|Jérôme St-Louis|Ecere Corporation| Yes
+|Jérôme Jacovella-St-Louis|Ecere Corporation| Yes
 |Pedro Gonçalves|Terradue Srl| Yes
 |=======================
