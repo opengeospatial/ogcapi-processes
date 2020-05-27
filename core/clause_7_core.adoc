@@ -277,7 +277,7 @@ The following section describes a method to create a new job, i.e. execute a pro
 
 include::requirements/core/REQ_job-creation-op.adoc[]
 
-==== Request
+==== Request body
 
 include::requirements/core/REQ_job-creation-request.adoc[]
 
@@ -287,6 +287,10 @@ include::requirements/core/REQ_job-creation-request.adoc[]
 include::openapi/schemas/execute.yaml[]
 ----
 
+The creation of a job can be done synchronously or asynchronously. 
+
+include::requirements/core/REQ_job-creation-mode.adoc[]
+
 .Example of an execute request
 [source, json]
 ----
@@ -295,9 +299,7 @@ include::examples/json/Execute.json[]
 
 ==== Response
 
-The execution of a process can be done synchronously or asynchronously.
-
-In case of asynchrounous execution, the two requirements below apply:
+In case of asynchrounous execution, the requirements below apply:
 
 include::requirements/core/REQ_job-creation-success-async.adoc[]
 
