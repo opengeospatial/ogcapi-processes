@@ -305,7 +305,7 @@ include::requirements/core/REQ_job-creation-success-async-header.adoc[]
 
 For synchronous execution, the following requirement applies:
 
-include::requirements/core/REQ_job-creation-response-sync.adoc[]
+include::requirements/core/REQ_job-creation-success-sync.adoc[]
 
 ==== Error situations
 
