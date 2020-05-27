@@ -198,3 +198,5 @@ The following people support this proposal and are committed to the Charter and 
 .	Convener(s)
 
 {authors}
+
+NOTE: This template is based on the Charter of the OGC API - Styles SWG
