@@ -1,5 +1,5 @@
-:authors: FirstName1 LastName1,FirstName2 LastName2
-:authors_email: a@a.com, b@b.com
+:authors: Benjamin Pross
+:authors_email: TBA
 :date: YYYY-MM-DD
 :title: OGC API - Processes
 :swgname: OGC API - Processes
@@ -186,12 +186,12 @@ The following people support this proposal and are committed to the Charter and 
 [cols=",",width="75%",options="header",align="center"]
 |===
 |Name| Organization
-|FirstName1 LastName1 | OrganizationName1
-|FirstName2 LastName2 | OrganizationName2
-|FirstName3 LastName3 | OrganizationName3
-|FirstName4 LastName4 | OrganizationName4
+|Benjamin Pross | 52 North
+|Stan Tillman | Hexagon
+|Panagiotis (Peter) A. Vretanos | CubeWerx
+|Sam Meek | Helyx
+|Gérald Fenoy | Individual Member
 |===
-
 
 
 [loweralpha, start=5]
