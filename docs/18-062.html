@@ -648,7 +648,7 @@ License Agreement</p>
 <li><a href="#sc_create_job">7.9. Create a new job</a>
 <ul class="sectlevel3">
 <li><a href="#trueoperation-6">7.9.1. Operation</a></li>
-<li><a href="#truerequest">7.9.2. Request</a></li>
+<li><a href="#truerequest-body">7.9.2. Request body</a></li>
 <li><a href="#trueresponse-6">7.9.3. Response</a></li>
 <li><a href="#trueerror-situations-6">7.9.4. Error situations</a></li>
 </ul>
@@ -933,6 +933,9 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <li>
 <p>GeoLabs</p>
 </li>
+<li>
+<p>European Space Agency (ESA)</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -982,6 +985,11 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Gérald Fenoy</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GeoLabs</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Cristiano Lopes</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">European Space Agency (ESA)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Yes</p></td>
 </tr>
 </tbody>
 </table>
@@ -2347,7 +2355,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="truerequest"><a class="anchor" href="#truerequest"></a>7.9.2. Request</h4>
+<h4 id="truerequest-body"><a class="anchor" href="#truerequest-body"></a>7.9.2. Request body</h4>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2398,6 +2406,41 @@ properties:
     $ref: "subscriber.yaml"</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>The creation of a job can be done synchronously or asynchronously.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>/req/core/job-creation-mode<br></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>To create a job asynchronously, the "mode" attribute of the execute request body SHALL be set to "async".</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>To create a job synchronously, the "mode" attribute of the execute request body SHALL be set to "sync".</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>To let the server decide the execution mode, the "mode" attribute of the execute request body SHALL be set to "auto".</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="listingblock">
 <div class="title">Example of an execute request</div>
 <div class="content">
@@ -2453,10 +2496,7 @@ properties:
 <div class="sect3">
 <h4 id="trueresponse-6"><a class="anchor" href="#trueresponse-6"></a>7.9.3. Response</h4>
 <div class="paragraph">
-<p>The execution of a process can be done synchronously or asynchronously.</p>
-</div>
-<div class="paragraph">
-<p>In case of asynchrounous execution, the two requirements below apply:</p>
+<p>In case of asynchrounous execution, the requirements below apply:</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2465,7 +2505,7 @@ properties:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-creation-success-async<br></p>
 </div>
@@ -2483,7 +2523,7 @@ response with a HTTP status code 201.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-creation-success-header-async<br></p>
 </div>
@@ -2503,48 +2543,29 @@ response with a HTTP status code 201.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/req/core/job-creation-response-sync<br></p>
-</div>
-<div class="paragraph">
-<p>An execution of the operation SHALL be reported as a
+<p>/req/core/job-creation-success-sync</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A successful execution of the operation SHALL be reported as a
 response with a HTTP status code 200.</p>
-</div>
-<div class="paragraph">
-<p>The content of that response SHALL be based on of the following:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/results.yaml">results.yaml</a> - single or multiple outputs wrapped in a JSON array</p>
-</li>
-<li>
-<p><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml">exception.yaml</a> - in case of error</p>
-</li>
-<li>
-<p>any - a single result requested as raw data, for example:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>binary data</p>
-</li>
-<li>
-<p>base64 encoded data</p>
-</li>
-<li>
-<p>text</p>
-</li>
-<li>
-<p>number</p>
-</li>
-<li>
-<p>boolean</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the "response" attribute of the execute request was set to "document", the content of the response SHALL be based upon the OpenAPI
+3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/results.yaml">results.yaml</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the "response" attribute of the execute request was set to "raw", the content of the response SHALL only include the one output selected by the execute request body.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2574,7 +2595,7 @@ response with a HTTP status code 200.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job<br></p>
 </div>
@@ -2594,7 +2615,7 @@ response with a HTTP status code 200.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-success<br></p>
 </div>
@@ -2678,7 +2699,7 @@ properties:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-exception/no-such-job<br></p>
 </div>
@@ -2707,7 +2728,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result<br></p>
 </div>
@@ -2727,7 +2748,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-success<br></p>
 </div>
@@ -2812,7 +2833,7 @@ properties:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-exception/no-such-job<br></p>
 </div>
@@ -2832,7 +2853,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-exception/result-not-ready<br></p>
 </div>
@@ -2852,7 +2873,7 @@ The exception code of the exception shall be "ResultNotReady".</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-result-failed<br></p>
 </div>
@@ -2935,7 +2956,7 @@ the web:</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/json/definition<br></p>
 </div>
@@ -2991,7 +3012,7 @@ the web:</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/html/definition<br></p>
 </div>
@@ -3009,7 +3030,7 @@ SHALL support the media type <code>text/html</code>.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req//html/content<br></p>
 </div>
@@ -3077,7 +3098,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-1</strong></p>
 </div></div></td>
@@ -3097,7 +3118,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/oas-definition-2<br></p>
 </div>
@@ -3118,7 +3139,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/req/oas30/oas-impl<br></p>
 <p class="tableblock">The server SHALL implement all capabilities specified in the OpenAPI
 definition.</p></td>
@@ -3135,7 +3156,7 @@ definition.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/completeness<br></p>
 </div>
@@ -3169,7 +3190,7 @@ situations that originate from the server.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/exceptions-codes<br></p>
 </div>
@@ -3207,7 +3228,7 @@ content:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/security<br></p>
 </div>
@@ -3277,7 +3298,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/job-collection/job-collection-op<br></p>
 </div>
@@ -3297,7 +3318,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 37</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/job-collection/job-collection-success<br></p>
 </div>
@@ -3443,7 +3464,7 @@ items:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 37</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 38</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/callback/job-callback<br></p>
 </div>
@@ -3518,7 +3539,7 @@ items:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 38</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 39</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/dismiss/job-dismiss-op<br></p>
 </div>
@@ -3538,7 +3559,7 @@ items:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 39</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 40</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/dismiss/job-dismiss-success<br></p>
 </div>
@@ -3586,7 +3607,7 @@ The content of that response SHALL be based upon the OpenAPI
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 40</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 41</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-exception/no-such-job<br></p>
 </div>
@@ -5620,7 +5641,7 @@ Tests: A.4.1.1<br></p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-26 15:27:18 +0200
+Last updated 2020-05-29 14:27:30 +0200
 </div>
 </div>
 </body>
