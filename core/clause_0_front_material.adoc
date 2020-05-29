@@ -70,6 +70,7 @@ The following organizations submitted this Document to the Open Geospatial Conso
 * Ecere Corporation
 * Terradue Srl
 * GeoLabs
+* European Space Agency (ESA)
 
 [big]*v.     Submitters*
 
@@ -83,5 +84,6 @@ All questions regarding this submission should be directed to the editor or the 
 |Jérôme Jacovella-St-Louis|Ecere Corporation| Yes
 |Pedro Gonçalves|Terradue Srl| Yes
 |Gérald Fenoy|GeoLabs| No
+|Cristiano Lopes|European Space Agency (ESA)| Yes
 |
 |=======================
