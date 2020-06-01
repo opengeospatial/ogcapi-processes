@@ -669,38 +669,44 @@ License Agreement</p>
 </li>
 </ul>
 </li>
-<li><a href="#truerequirements-classes-for-encodings">8. Requirements classes for encodings</a>
+<li><a href="#rc_ogc-process-description">8. Requirements Class "OGC Process Description"</a>
 <ul class="sectlevel2">
 <li><a href="#trueoverview-2">8.1. Overview</a></li>
-<li><a href="#truerequirement-class-json">8.2. Requirement Class "JSON"</a></li>
-<li><a href="#truerequirement-class-html">8.3. Requirement Class "HTML"</a></li>
+<li><a href="#trueogc-process-description">8.2. OGC process description</a></li>
 </ul>
 </li>
-<li><a href="#truerequirements-class-openapi-3-0">9. Requirements Class "OpenAPI 3.0"</a>
+<li><a href="#truerequirements-classes-for-encodings">9. Requirements classes for encodings</a>
 <ul class="sectlevel2">
-<li><a href="#truebasic-requirements">9.1. Basic requirements</a></li>
-<li><a href="#truecomplete-definition">9.2. Complete definition</a></li>
-<li><a href="#exceptions">9.3. Exceptions</a></li>
-<li><a href="#security">9.4. Security</a></li>
+<li><a href="#trueoverview-3">9.1. Overview</a></li>
+<li><a href="#truerequirement-class-json">9.2. Requirement Class "JSON"</a></li>
+<li><a href="#truerequirement-class-html">9.3. Requirement Class "HTML"</a></li>
 </ul>
 </li>
-<li><a href="#Job_collection">10. Requirements Class "Job collection"</a>
+<li><a href="#truerequirements-class-openapi-3-0">10. Requirements Class "OpenAPI 3.0"</a>
 <ul class="sectlevel2">
-<li><a href="#trueoperation-9">10.1. Operation</a></li>
-<li><a href="#trueresponse-9">10.2. Response</a></li>
-<li><a href="#trueerror-situations-9">10.3. Error situations</a></li>
+<li><a href="#truebasic-requirements">10.1. Basic requirements</a></li>
+<li><a href="#truecomplete-definition">10.2. Complete definition</a></li>
+<li><a href="#exceptions">10.3. Exceptions</a></li>
+<li><a href="#security">10.4. Security</a></li>
 </ul>
 </li>
-<li><a href="#Callbacks">11. Requirements Class "Callback"</a></li>
-<li><a href="#Dismiss">12. Requirements Class "Dismiss"</a>
+<li><a href="#Job_collection">11. Requirements Class "Job collection"</a>
 <ul class="sectlevel2">
-<li><a href="#trueoperation-10">12.1. Operation</a></li>
-<li><a href="#trueresponse-10">12.2. Response</a></li>
-<li><a href="#trueerror-situations-10">12.3. Error situations</a></li>
+<li><a href="#trueoperation-9">11.1. Operation</a></li>
+<li><a href="#trueresponse-9">11.2. Response</a></li>
+<li><a href="#trueerror-situations-9">11.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#mediatypes">13. Media Types</a></li>
-<li><a href="#additional-api-building-blocks">14. Additional API Building Blocks</a></li>
+<li><a href="#Callbacks">12. Requirements Class "Callback"</a></li>
+<li><a href="#Dismiss">13. Requirements Class "Dismiss"</a>
+<ul class="sectlevel2">
+<li><a href="#trueoperation-10">13.1. Operation</a></li>
+<li><a href="#trueresponse-10">13.2. Response</a></li>
+<li><a href="#trueerror-situations-10">13.3. Error situations</a></li>
+</ul>
+</li>
+<li><a href="#mediatypes">14. Media Types</a></li>
+<li><a href="#additional-api-building-blocks">15. Additional API Building Blocks</a></li>
 <li><a href="#trueabstract-test-suite-normative">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
 <li><a href="#trueconformance-class-core">A.1. Conformance Class Core</a>
@@ -717,7 +723,7 @@ License Agreement</p>
 <li><a href="#trueconformance-class-dismiss">A.5. Conformance Class Dismiss</a></li>
 <li><a href="#trueconformance-class-html">A.6. Conformance Class HTML</a></li>
 <li><a href="#trueconformance-class-openapi-3-0">A.7. Conformance Class OpenAPI 3.0</a></li>
-<li><a href="#trueoverview-3">A.8. Overview</a></li>
+<li><a href="#trueoverview-4">A.8. Overview</a></li>
 <li><a href="#trueconventions-2">A.9. Conventions</a>
 <ul class="sectlevel3">
 <li><a href="#truepath-templates">A.9.1. Path Templates</a></li>
@@ -936,6 +942,9 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <li>
 <p>European Space Agency (ESA)</p>
 </li>
+<li>
+<p>Spacebel</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -991,6 +1000,11 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">European Space Agency (ESA)</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Yes</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Christophe Noel</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Spacebel</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Yes</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1026,7 +1040,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <p>The <em>Core</em> specifies requirements that all Web APIs have to implement.</p>
 </div>
 <div class="paragraph">
-<p>Two requirements classes depend on the <em>Core</em> and specify representations for the resources specfied in the <em>Core</em>:</p>
+<p>Two requirements classes depend on the <em>Core</em> and specify representations for the resources specified in the <em>Core</em>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1056,6 +1070,22 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 </div>
 <div class="paragraph">
 <p>The <em>Core</em> is intended to be a minimal useful API for the execution of processes from the geospatial domain. It is designed to map the operations of a Web Processing Service 2.0.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Core</em> does not mandate the use of any specific process description to
+specify the interface of a process.  Instead this standard defines and
+recommends the use of the following conformance class:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#rc_ogc-process-description">OGC Process Description</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>which defines an information model, encoded in JSON, that may be used to
+specify the interface of a process.</p>
 </div>
 <div class="paragraph">
 <p>Three additional conformance classes are specified that extend the basic functionality of an API:</p>
@@ -1095,6 +1125,10 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core">Core</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_ogc-process-description">OGC Process Description</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description" class="bare">http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json">JSON</a></p></td>
@@ -1916,7 +1950,7 @@ outside of the server.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>403</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server understood the request, but is refusing to fulfill it. While status code <code>401</code> indicates missing or bad authentication, status code <code>403</code> indicates that authentication is not the issue, but the client is not authorised to perform the requested operation on the resource.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server understood the request, but is refusing to fulfill it. While status code <code>401</code> indicates missing or bad authentication, status code <code>403</code> indicates that authentication is not the issue, but the client is not authorized to perform the requested operation on the resource.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>404</code></p></td>
@@ -2159,148 +2193,44 @@ items:
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/process-success<br></p>
-</div>
-<div class="paragraph">
-<p>A successful execution of the operation SHALL be reported as a
-response with a HTTP status code 200.
-The content of that response SHALL be based upon the OpenAPI
-3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml">process.yaml</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The content of the response SHALL be a process description.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
-<div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml">Schema for a process</a></div>
-<div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">allOf:
-   - $ref: "processSummary.yaml"
-   - type: object
-     properties:
-        inputs:
-           type: array
-           items:
-              $ref: "inputDescription.yaml"
-        outputs:
-           type: array
-           items:
-              $ref: "outputDescription.yaml"
-        links:
-           type: array
-           items:
-              $ref: "link.yaml"</code></pre>
+<div class="paragraph">
+<p>The <a href="#rc_core">Core</a> does not mandate the use of a specific process description
+to specify the interface of a process.  That said, the <a href="#rc_core">Core</a>
+requirements class makes the following recommendation:</p>
 </div>
+<table id="rec_core_ogc-process-description" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>/rec/core/ogc-process-description<br></p>
 </div>
-<div class="listingblock">
-<div class="title">Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.</div>
-<div class="content">
-<pre class="highlight"><code>https://processing.example.org/processes/EchoProcess</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Example of a process encoded as JSON.</div>
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-	"id": "EchoProcess",
-	"title": "EchoProcess",
-	"version": "1.0.0",
-	"jobControlOptions": ["async-execute", "sync-execute"],
-	"outputTransmission": ["value", "reference"],
-	"inputs": [{
-		"id": "boundingboxInput",
-		"title": "boundingboxInput",
-		"input": {
-			"supportedCRS": [{
-				"default": true,
-				"crs": "EPSG:4326"
-			}]
-		},
-		"minOccurs": 1,
-		"maxOccurs": 1
-	},
-	{
-		"id": "literalInput",
-		"title": "literalInput",
-		"input": {
-			"literalDataDomain": {
-                "dataType": {
-                  "name": "double"
-                },
-				"valueDefinition": {
-					"anyValue": true
-				}
-			}
-		},
-		"minOccurs": 1,
-		"maxOccurs": 1
-	},
-	{
-		"id": "complexInput",
-		"title": "complexInput",
-		"input": {
-			"formats": [{
-				"default": true,
-				"mimeType": "application/xml"
-			},
-			{
-				"mimeType": "application/xml"
-			},
-			{
-				"mimeType": "text/xml"
-			}]
-		},
-		"minOccurs": 1,
-		"maxOccurs": 1
-	}],
-	"outputs": [{
-		"id": "boundingboxOutput",
-		"title": "boundingboxOutput",
-		"output": {
-			"supportedCRS": [{
-				"default": true,
-				"crs": "EPSG:4326"
-			}]
-		}
-	},
-	{
-		"id": "literalOutput",
-		"title": "literalOutput",
-		"output": {
-			"literalDataDomain": {
-                "dataType": {
-                  "name": "double"
-                },
-				"valueDefinition": {
-					"anyValue": true
-				}
-			}
-		}
-	},
-	{
-		"id": "complexOutput",
-		"title": "complexOutput",
-		"output": {
-			"formats": [{
-				"default": true,
-				"mimeType": "application/xml"
-			},
-			{
-				"mimeType": "application/xml"
-			},
-			{
-				"mimeType": "text/xml"
-			}]
-		}
-	}],
-    "links": [
-      {
-        "href": "https://processing.example.org/processes/EchoProcess/jobs",
-        "rel": "execute",
-        "title": "Execute endpoint"
-      }
-    ]
-}</code></pre>
-</div>
-</div>
+<div class="paragraph">
+<p>Implementations SHOULD consider supporting the <a href="#ogc_process_description">OGC process description</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="trueerror-situations-5"><a class="anchor" href="#trueerror-situations-5"></a>7.8.3. Error situations</h4>
@@ -2496,7 +2426,7 @@ properties:
 <div class="sect3">
 <h4 id="trueresponse-6"><a class="anchor" href="#trueresponse-6"></a>7.9.3. Response</h4>
 <div class="paragraph">
-<p>In case of asynchrounous execution, the requirements below apply:</p>
+<p>In case of asynchronous execution, the requirements below apply:</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2891,10 +2821,250 @@ The exception code shall correspond to the reason of the failure, e.g. InvalidPa
 </div>
 </div>
 <div class="sect1">
-<h2 id="truerequirements-classes-for-encodings"><a class="anchor" href="#truerequirements-classes-for-encodings"></a>8. Requirements classes for encodings</h2>
+<h2 id="rc_ogc-process-description"><a class="anchor" href="#rc_ogc-process-description"></a>8. Requirements Class "OGC Process Description"</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The following section describes the <code>OGC Process Description</code> requirements
+class.</p>
+</div>
 <div class="sect2">
 <h3 id="trueoverview-2"><a class="anchor" href="#trueoverview-2"></a>8.1. Overview</h3>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description" class="bare">http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">OGC API - Processes Core</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#truejson">JSON</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the <a href="http://docs.opengeospatial.org/is/14-065/14-065.html">OGC WPS 2.0.2 Interface Standard</a> and as such provides a bridge from legacy implementations into the OGC API Framework.</p>
+</div>
+<div class="paragraph">
+<p>The process description allows the following information to be specified:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An identifier for the process</p>
+</li>
+<li>
+<p>Descriptive metadata about the process;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>a title</p>
+</li>
+<li>
+<p>a narrative description of the process</p>
+</li>
+<li>
+<p>keywords that can be associated with the process</p>
+</li>
+<li>
+<p>references to additional metadata</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>A description of each process input</p>
+</li>
+<li>
+<p>A description of each process output</p>
+</li>
+<li>
+<p>A job control specification that indicates whether the process can be invoked synchronously, asynchronously, or either.</p>
+</li>
+<li>
+<p>An output transmission specification that indicates how the results of a process are retrieved; either by value or by reference</p>
+</li>
+<li>
+<p>A section for additional parameters that are intended for communities of use to extend the process description as required</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This clause defines a JSON-encoding of the OGC process description.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueogc-process-description"><a class="anchor" href="#trueogc-process-description"></a>8.2. OGC process description</h3>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>/req/ogc-process-description/json-encoding<br></p>
+</div>
+<div class="paragraph">
+<p>A JSON-encoded OGC process description shall validate against the OpenAPI 3.0 schema: <a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml">process.yaml</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml">Schema for a process (process.yaml)</a></div>
+<div class="content">
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">allOf:
+   - $ref: "processSummary.yaml"
+   - type: object
+     properties:
+        inputs:
+           type: array
+           items:
+              $ref: "inputDescription.yaml"
+        outputs:
+           type: array
+           items:
+              $ref: "outputDescription.yaml"
+        links:
+           type: array
+           items:
+              $ref: "link.yaml"</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.</div>
+<div class="content">
+<pre class="highlight"><code>https://processing.example.org/processes/EchoProcess</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example of a process encoded as JSON.</div>
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+	"id": "EchoProcess",
+	"title": "EchoProcess",
+	"version": "1.0.0",
+	"jobControlOptions": ["async-execute", "sync-execute"],
+	"outputTransmission": ["value", "reference"],
+	"inputs": [{
+		"id": "boundingboxInput",
+		"title": "boundingboxInput",
+		"input": {
+			"supportedCRS": [{
+				"default": true,
+				"crs": "EPSG:4326"
+			}]
+		},
+		"minOccurs": 1,
+		"maxOccurs": 1
+	},
+	{
+		"id": "literalInput",
+		"title": "literalInput",
+		"input": {
+			"literalDataDomain": {
+                "dataType": {
+                  "name": "double"
+                },
+				"valueDefinition": {
+					"anyValue": true
+				}
+			}
+		},
+		"minOccurs": 1,
+		"maxOccurs": 1
+	},
+	{
+		"id": "complexInput",
+		"title": "complexInput",
+		"input": {
+			"formats": [{
+				"default": true,
+				"mimeType": "application/xml"
+			},
+			{
+				"mimeType": "application/xml"
+			},
+			{
+				"mimeType": "text/xml"
+			}]
+		},
+		"minOccurs": 1,
+		"maxOccurs": 1
+	}],
+	"outputs": [{
+		"id": "boundingboxOutput",
+		"title": "boundingboxOutput",
+		"output": {
+			"supportedCRS": [{
+				"default": true,
+				"crs": "EPSG:4326"
+			}]
+		}
+	},
+	{
+		"id": "literalOutput",
+		"title": "literalOutput",
+		"output": {
+			"literalDataDomain": {
+                "dataType": {
+                  "name": "double"
+                },
+				"valueDefinition": {
+					"anyValue": true
+				}
+			}
+		}
+	},
+	{
+		"id": "complexOutput",
+		"title": "complexOutput",
+		"output": {
+			"formats": [{
+				"default": true,
+				"mimeType": "application/xml"
+			},
+			{
+				"mimeType": "application/xml"
+			},
+			{
+				"mimeType": "text/xml"
+			}]
+		}
+	}],
+    "links": [
+      {
+        "href": "https://processing.example.org/processes/EchoProcess/jobs",
+        "rel": "execute",
+        "title": "Execute endpoint"
+      }
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truerequirements-classes-for-encodings"><a class="anchor" href="#truerequirements-classes-for-encodings"></a>9. Requirements classes for encodings</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="trueoverview-3"><a class="anchor" href="#trueoverview-3"></a>9.1. Overview</h3>
 <div class="paragraph">
 <p>This clause specifies four pre-defined requirements classes for encodings to be
 used in a WPS. These encodings are commonly used encodings for spatial data on
@@ -2919,7 +3089,7 @@ the web:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="truerequirement-class-json"><a class="anchor" href="#truerequirement-class-json"></a>8.2. Requirement Class "JSON"</h3>
+<h3 id="truerequirement-class-json"><a class="anchor" href="#truerequirement-class-json"></a>9.2. Requirement Class "JSON"</h3>
 <div class="paragraph">
 <p>This section defines the requirements class JSON.</p>
 </div>
@@ -2956,7 +3126,7 @@ the web:</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/json/definition<br></p>
 </div>
@@ -2975,7 +3145,7 @@ the web:</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="truerequirement-class-html"><a class="anchor" href="#truerequirement-class-html"></a>8.3. Requirement Class "HTML"</h3>
+<h3 id="truerequirement-class-html"><a class="anchor" href="#truerequirement-class-html"></a>9.3. Requirement Class "HTML"</h3>
 <div class="paragraph">
 <p>This section defines the requirements class HTML.</p>
 </div>
@@ -3012,7 +3182,7 @@ the web:</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/html/definition<br></p>
 </div>
@@ -3030,7 +3200,7 @@ SHALL support the media type <code>text/html</code>.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req//html/content<br></p>
 </div>
@@ -3058,10 +3228,10 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="truerequirements-class-openapi-3-0"><a class="anchor" href="#truerequirements-class-openapi-3-0"></a>9. Requirements Class "OpenAPI 3.0"</h2>
+<h2 id="truerequirements-class-openapi-3-0"><a class="anchor" href="#truerequirements-class-openapi-3-0"></a>10. Requirements Class "OpenAPI 3.0"</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="truebasic-requirements"><a class="anchor" href="#truebasic-requirements"></a>9.1. Basic requirements</h3>
+<h3 id="truebasic-requirements"><a class="anchor" href="#truebasic-requirements"></a>10.1. Basic requirements</h3>
 <div class="paragraph">
 <p>APIs conforming to this requirements class document themselves by an <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument">OpenAPI Document</a>.</p>
 </div>
@@ -3098,7 +3268,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-1</strong></p>
 </div></div></td>
@@ -3118,7 +3288,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/oas-definition-2<br></p>
 </div>
@@ -3139,7 +3309,7 @@ in the HTML <code>&lt;body/&gt;</code>, and</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/req/oas30/oas-impl<br></p>
 <p class="tableblock">The server SHALL implement all capabilities specified in the OpenAPI
 definition.</p></td>
@@ -3148,7 +3318,7 @@ definition.</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="truecomplete-definition"><a class="anchor" href="#truecomplete-definition"></a>9.2. Complete definition</h3>
+<h3 id="truecomplete-definition"><a class="anchor" href="#truecomplete-definition"></a>10.2. Complete definition</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3156,7 +3326,7 @@ definition.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/completeness<br></p>
 </div>
@@ -3182,7 +3352,7 @@ situations that originate from the server.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exceptions"><a class="anchor" href="#exceptions"></a>9.3. Exceptions</h3>
+<h3 id="exceptions"><a class="anchor" href="#exceptions"></a>10.3. Exceptions</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3190,7 +3360,7 @@ situations that originate from the server.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/exceptions-codes<br></p>
 </div>
@@ -3220,7 +3390,7 @@ content:
 </div>
 </div>
 <div class="sect2">
-<h3 id="security"><a class="anchor" href="#security"></a>9.4. Security</h3>
+<h3 id="security"><a class="anchor" href="#security"></a>10.4. Security</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3228,7 +3398,7 @@ content:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/oas30/security<br></p>
 </div>
@@ -3262,7 +3432,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Job_collection"><a class="anchor" href="#Job_collection"></a>10. Requirements Class "Job collection"</h2>
+<h2 id="Job_collection"><a class="anchor" href="#Job_collection"></a>11. Requirements Class "Job collection"</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This requirement class specifies how to retrieve a job collection from the API.</p>
@@ -3290,7 +3460,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="trueoperation-9"><a class="anchor" href="#trueoperation-9"></a>10.1. Operation</h3>
+<h3 id="trueoperation-9"><a class="anchor" href="#trueoperation-9"></a>11.1. Operation</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3298,7 +3468,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 37</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/job-collection/job-collection-op<br></p>
 </div>
@@ -3310,7 +3480,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="trueresponse-9"><a class="anchor" href="#trueresponse-9"></a>10.2. Response</h3>
+<h3 id="trueresponse-9"><a class="anchor" href="#trueresponse-9"></a>11.2. Response</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3318,7 +3488,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 37</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 38</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/job-collection/job-collection-success<br></p>
 </div>
@@ -3419,7 +3589,7 @@ items:
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueerror-situations-9"><a class="anchor" href="#trueerror-situations-9"></a>10.3. Error situations</h3>
+<h3 id="trueerror-situations-9"><a class="anchor" href="#trueerror-situations-9"></a>11.3. Error situations</h3>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
@@ -3430,7 +3600,7 @@ items:
 </div>
 </div>
 <div class="sect1">
-<h2 id="Callbacks"><a class="anchor" href="#Callbacks"></a>11. Requirements Class "Callback"</h2>
+<h2 id="Callbacks"><a class="anchor" href="#Callbacks"></a>12. Requirements Class "Callback"</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This conformance class specifies a callback mechanism for completed jobs. In contrast to the pull-based mechanism specified in <a href="#sc_create_job">Create a new job</a> and <a href="#sc_retrieve_status_info">Retrieve status information about a job</a>, this conformance class specifies a push-based mechanism, where a subscriber-URL is passed to the API in the execute request. After the job is completed, the result response is sent to the specified URL.</p>
@@ -3464,7 +3634,7 @@ items:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 38</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 39</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/callback/job-callback<br></p>
 </div>
@@ -3503,7 +3673,7 @@ items:
 </div>
 </div>
 <div class="sect1">
-<h2 id="Dismiss"><a class="anchor" href="#Dismiss"></a>12. Requirements Class "Dismiss"</h2>
+<h2 id="Dismiss"><a class="anchor" href="#Dismiss"></a>13. Requirements Class "Dismiss"</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This requirement class specifies how to dismiss a job. Dismiss can be seen as canceling a running job or removing artifacts of a finished job.</p>
@@ -3531,7 +3701,7 @@ items:
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="trueoperation-10"><a class="anchor" href="#trueoperation-10"></a>12.1. Operation</h3>
+<h3 id="trueoperation-10"><a class="anchor" href="#trueoperation-10"></a>13.1. Operation</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3539,7 +3709,7 @@ items:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 39</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 40</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/dismiss/job-dismiss-op<br></p>
 </div>
@@ -3551,7 +3721,7 @@ items:
 </table>
 </div>
 <div class="sect2">
-<h3 id="trueresponse-10"><a class="anchor" href="#trueresponse-10"></a>12.2. Response</h3>
+<h3 id="trueresponse-10"><a class="anchor" href="#trueresponse-10"></a>13.2. Response</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3559,7 +3729,7 @@ items:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 40</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 41</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/dismiss/job-dismiss-success<br></p>
 </div>
@@ -3593,7 +3763,7 @@ The content of that response SHALL be based upon the OpenAPI
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueerror-situations-10"><a class="anchor" href="#trueerror-situations-10"></a>12.3. Error situations</h3>
+<h3 id="trueerror-situations-10"><a class="anchor" href="#trueerror-situations-10"></a>13.3. Error situations</h3>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
@@ -3607,7 +3777,7 @@ The content of that response SHALL be based upon the OpenAPI
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 41</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 42</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/req/core/job-exception/no-such-job<br></p>
 </div>
@@ -3624,7 +3794,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>13. Media Types</h2>
+<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>14. Media Types</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>JSON media types that would typically be used in a server that supports JSON are:</p>
@@ -3664,7 +3834,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect1">
-<h2 id="additional-api-building-blocks"><a class="anchor" href="#additional-api-building-blocks"></a>14. Additional API Building Blocks</h2>
+<h2 id="additional-api-building-blocks"><a class="anchor" href="#additional-api-building-blocks"></a>15. Additional API Building Blocks</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The core requirements classes of this standard are designed for the following workflow:</p>
@@ -5133,7 +5303,7 @@ URI</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="trueoverview-3"><a class="anchor" href="#trueoverview-3"></a>A.8. Overview</h3>
+<h3 id="trueoverview-4"><a class="anchor" href="#trueoverview-4"></a>A.8. Overview</h3>
 <div class="paragraph">
 <p>Compliance testing for OGC API - Processes and similar standards must answer three questions:</p>
 </div>
@@ -5634,6 +5804,13 @@ Tests: A.4.1.1<br></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6,7,8,9,10</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Review</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-05-20</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Panagiotis (Peter) A. Vretanos</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2,7</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Separate the OGC process description into its own conformance class.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -5641,7 +5818,7 @@ Tests: A.4.1.1<br></p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-29 14:27:30 +0200
+Last updated 2020-06-01 11:32:27 +0200
 </div>
 </div>
 </body>
