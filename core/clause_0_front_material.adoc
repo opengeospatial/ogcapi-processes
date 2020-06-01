@@ -71,6 +71,7 @@ The following organizations submitted this Document to the Open Geospatial Conso
 * Terradue Srl
 * GeoLabs
 * European Space Agency (ESA)
+* Spacebel
 
 [big]*v.     Submitters*
 
@@ -85,5 +86,5 @@ All questions regarding this submission should be directed to the editor or the 
 |Pedro Gonçalves|Terradue Srl| Yes
 |Gérald Fenoy|GeoLabs| No
 |Cristiano Lopes|European Space Agency (ESA)| Yes
-|
+|Christophe Noel | Spacebel | Yes
 |=======================
