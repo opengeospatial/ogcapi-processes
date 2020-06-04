@@ -325,27 +325,10 @@ DO FOR each /processes/{processId} test point
 
  - Issue an HTTP GET request using the test point URI
 
- - Go to test <<validate_process_description_response>>
+ - Go to test <<validate_ogc-process-description_json>>
 
 ====== d) References:
 Requirement 10,11
-
-[[validate_process_description_response]]
-===== Validate the Process Description Operation Response
-
-====== a) Test Purpose:
-Validate the response to the Process Description Operation.
-
-====== b) Pre-conditions:
-
-* A Process Description document has been retrieved
-
-====== c) Test Method:
-
-. Validate the retrieved document against the processOffering.yaml schema.
-
-====== d) References:
-Requirement 16
 
 ===== Validate the Get Jobs Operation
 
