@@ -1,9 +1,9 @@
 openapi: 3.0.2
 info:
   title: The OGC API - Processes
-  version: "1.0-draft.3"
+  version: "1.0-draft.4"
   description: |-
-    WARNING - THIS IS WORK IN PROGRESS\
+    WARNING - THIS IS WORK IN PROGRESS
   contact:
     name: Benjamin Pross
     email: b.pross@52north.org
