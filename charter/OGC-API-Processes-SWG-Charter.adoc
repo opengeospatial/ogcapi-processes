@@ -29,7 +29,7 @@
 
 To: OGC members & interested parties
 
-A new OGC Standards Working Group (SWG) is being formed. The OGC members listed below have proposed the "{swgname} SWG". The SWG proposal provided in this document meets the requirements of the OGC Technical Committee (TC) Policies and Procedures.
+The OGC members listed below have proposed the re-chartering of the Web Processing Service (WPS) Standards Working Group (SWG) as the "{swgname} SWG". The SWG proposal provided in this document meets the requirements of the OGC Technical Committee (TC) Policies and Procedures.
 The SWG name, statement of purpose, scope, list of deliverables, audience, and language specified in the proposal will constitute the SWG’s official charter. Technical discussions may occur no sooner than the SWG’s first meeting.
 This SWG will operate under the OGC IPR Policy. The eligibility requirements for becoming a participant in the SWG at the first meeting (see details below) are that:
 
@@ -49,15 +49,18 @@ Please feel free to forward this announcement to any other appropriate lists. Th
 
 The purpose of this Standards Working Group is to:
 
-•	Develop and maintain an {swgname} core standard.
-•	Develop and maintain extensions of the {swgname} standard as identified in section 4 (Scope).
+*	Develop and maintain an {swgname} core standard.
+*	Develop and maintain extensions of the {swgname} standard as identified in section 4 (Scope).
+*	Maintain the WPS standard.
 
 The formal proposed name of the new multi-part standard is "{swgname}". The short name “{shortname}” may also be used to refer to this effort in the charter and work products.
 
 
 === Business Value Proposition
 
-TBA
+In April 2019, Gartner https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g[projected] that the worldwide public cloud services market would grow from $182.4 billion in 2018 to total $331.2 billion by 2022. OGC API - Processes, like its predecessor (WPS), offers a way through which computational processes can be deployed and offered as services within Cloud Computing environments. Such capabilities has been demonstrated in OGC initiatives such as http://docs.opengeospatial.org/per/18-049r1.html[Testbed-14] and the http://docs.opengeospatial.org/per/19-040.html[Routing Pilot Pilot]. In addition to the growth in the Cloud Computing market, the https://www.marketsandmarkets.com/Market-Reports/cloud-microservices-market-60685450.html[growth] is the microservices market is also expected to provide opportunities for OGC API - Processes.
+
+OGC API - Processes will offer organizations the opportunity to web-enable geospatial software libraries and utilities that, up until now, had only been available as standalone desktop products. Use of OpenAPI in OGC API - Processes will enable the wider API-developer community to integrate geospatial capabilities into their solutions with greater ease. 
 
 === Scope of Work
 
@@ -102,7 +105,7 @@ The basic resources described in {swgname} are {resources}. The {shortname} desc
 
 ==== Specific Contribution of Existing Work as a Starting Point
 
-The starting point for the work will be the draft document that is currently on the proposed SWG's repository ({githubrepo}). This charter recognises the prior work done by the {base_swg}. Upon approval of this Charter, responsibility for {swgname} shall be transferred to the proposed {swgname} SWG.
+The starting point for the work will be the draft document that is currently on the proposed SWG's repository ({githubrepo}). This charter recognises the prior work done by the {base_swg}. Upon approval of this Charter, the {base_swg} will be renamed to the {swgname} SWG and responsibility for {swgname} shall be transferred to the proposed {swgname} SWG. 
 
 The work shall also be informed by the following specifications and by recommendations found in:
 
