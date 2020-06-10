@@ -58,38 +58,37 @@ The formal proposed name of the new multi-part standard is "{swgname}". The shor
 
 === Business Value Proposition
 
-In April 2019, Gartner https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g[projected] that the worldwide public cloud services market would grow from $182.4 billion in 2018 to total $331.2 billion by 2022. OGC API - Processes, like its predecessor (WPS), offers a way through which computational processes can be deployed and offered as services within Cloud Computing environments. Such capabilities has been demonstrated in OGC initiatives such as http://docs.opengeospatial.org/per/18-049r1.html[Testbed-14] and the http://docs.opengeospatial.org/per/19-040.html[Routing Pilot Pilot]. In addition to the growth in the Cloud Computing market, the https://www.marketsandmarkets.com/Market-Reports/cloud-microservices-market-60685450.html[growth] is the microservices market is also expected to provide opportunities for OGC API - Processes.
+In April 2019, Gartner https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g[projected] that the worldwide public cloud services market would grow from $182.4 billion in 2018 to total $331.2 billion by 2022. OGC API - Processes, like its predecessor (WPS), provides a standardized mechanism so that computational geospatial processes can be deployed and offered as services within Cloud Computing environments. Such capabilities have been demonstrated in OGC initiatives such as http://docs.opengeospatial.org/per/18-049r1.html[Testbed-14] and the http://docs.opengeospatial.org/per/19-040.html[Routing Pilot Pilot]. In addition to the growth in the Cloud Computing market, the https://www.marketsandmarkets.com/Market-Reports/cloud-microservices-market-60685450.html[growth] in the microservices market is also expected to provide opportunities for OGC API - Processes.
 
 OGC API - Processes will offer organizations the opportunity to web-enable geospatial software libraries and utilities that, up until now, had only been available as standalone desktop products. Use of OpenAPI in OGC API - Processes will enable the wider API-developer community to integrate geospatial capabilities into their solutions with greater ease. 
 
 === Scope of Work
 
-OpenAPI frameworks have helped make describing and sharing API definitions more suitable for interoperability standardization. The concept of a {shortname} was demonstrated in various OGC Innovation Program initiatives.
+In the OGC, the use of OpenAPI has provided a standard framework for describing and sharing API definitions. The concept of a {shortname} was demonstrated in various OGC Innovation Program initiatives.
 
-The {swgname} SWG will build on those preliminary efforts to more fully develop and document a {shortname} candidate standard that will provide a modernized, common, and consistent interface to services that aligns with the current architecture of the Web and the
-Spatial Data on the Web Best Practices (https://www.w3.org/TR/sdw-bp/).
+The {swgname} SWG will build on those preliminary efforts to more fully develop and document a {shortname} candidate standard that will provide a web based, common, and consistent interface to services that aligns with the current architecture of the Web and the https://www.w3.org/TR/sdw-bp/[W3C Spatial Data on the Web Best Practices].
 
-The {swgname} SWG will develop a {shortname} candidate standard which is informed by emerging OGC API best practices and prior API standards examples (e.g., OGC API - Features) to define core API functions of GET, PUT, PATCH, POST, DELETE applied to {resources} as resources. The {shortname} will also document metadata requirements for {resources} to enhance discovery and execution of {resources}.
+The {swgname} SWG will develop a {shortname} candidate standard which is informed by emerging OGC API best practices and prior API standards work (e.g., OGC API - Features) to define core API functions of GET, PUT, PATCH, POST, DELETE applied to {resources} as resources. The {shortname} will also document metadata requirements for {resources} to enhance discovery and execution of {resources}.
 
-* Architecture: The {swgname} standard will specify an implementation specification aligned with prior work in OGC for {resources} and Web APIs. The proposed standard will define API building blocks for {resources} in Web API. {swgname} will be consistent with HTTP and HTTPS.
+* Architecture: The {swgname} standard will specify an implementation standard aligned with prior work in the OGC for {resources} and Web APIs. The proposed standard will define API building blocks for {resources} in Web API. {swgname} will be consistent with HTTP and HTTPS.
 
-*	Encodings: The first version of the {shortname} will support JSON and HTML as encodings for descriptions of {resource} resources in the API. No encoding will be mandatory and other encodings may be used as well. The HTTP focus is designed to support the use of multiple formats and defines rules about how servers can return the encoding that the client can best handle (“content negotiation”).
+*	Encodings: The first version of the {shortname} will support JSON and HTML as encodings for descriptions of {resource} resources in the API. No encoding will be specified as mandatory and other encodings may be used as well. The HTTP focus is designed to support the use of multiple formats and defines rules about how servers can return the encoding that the client can best handle (“content negotiation”).
 
-* Information model: The {shortname} standard will conform to OpenAPI models and OGC API best practices. The conceptual models will consider recommendations from recent and current OGC Innovation Program initiatives such as Testbeds, Pilots, Sprint and others.
+* Information model: The {shortname} standard will be defined using OpenAPI 3.0 and OGC API best practices. The information model will consider recommendations from recent and current OGC Innovation Program initiatives such as Testbeds, Pilots, Sprints and others.
 
 * Modularization: {swgname} - Part 1: Core will define a basic set of capabilities organized in multiple conformance classes building on each other. The minimal conformance class will specify a simple interface to access metadata about {resources} that is sufficient for interfaces to perform web functions with the {resources}. Additional conformance classes will define additional capabilities based on the requirements and requirements classes defined in the core to meet the needs of use cases that require such capabilities.
 
-* Reuse: The use of unique {shortname} resources or components will be minimized and, where available, existing industry-standards or patterns that are commonly used by developers will be used instead. The most important example for this is the use of an OpenAPI definition instead of OGC-specific "Capabilities" documents and the use of OGC API - Common components to the maximum extent practicable.
+* Reuse: The use of unique {shortname} resources or components will be minimized and, where available, existing industry-standards or patterns that are commonly used by developers will be used instead. The most important example for this is the use of an OpenAPI definition instead of OGC-specific "Capabilities" documents. The {shortname} will also use OGC API - Common components to the maximum extent practicable.
 
 Extensions may be proposed and addressed in revisions to this charter. The primary goal of the {shortname} SWG is to develop the core of "{swgname}" as quickly as possible and work on extensions after that, driven by community interest. An important aspect is to ensure that implementing the standard will lead to efficient implementations, happy developers of both server and client components, and satisfied users of such components.
 
 
 Before finalizing parts of the future versions of the "{swgname}", completion of goals should be verified:
 
-*	Working implementations of all capabilities must be available and tested; and
+*	Working implementations of all capabilities must be available and tested.
 *	Implementation feedback must be taken into account.
 
-A consequence of this verification is that the period between the availability of what is considered a mature draft and the finalization of the candidate standard may be longer than in the past, depending on the availability of evidence about the suitability of the candidate standard based on implementations. Developers should be encouraged as early as possible to implement the draft API specification and provide feedback. An aspect of this is public access to drafts from the beginning. To this end, the SWG intends to use a public GitHub repository in the development of this standard as this is the environment many developers are familiar with and use on a daily basis.
+A consequence of this verification is that the period between the availability of what is considered a mature draft and the finalization of the candidate standard may be longer than in the past, depending on the availability of evidence about the suitability of the candidate standard based on implementations. Developers should be encouraged as early as possible to implement the draft API specification and provide feedback. An aspect of this is providing public access to drafts from the beginning. To this end, the SWG intends to use a public GitHub repository in the development of this standard as this is the environment many developers are familiar with and use on a daily basis.
 
 ==== Statement of relationship of planned work to the current OGC standards baseline
 
@@ -97,7 +96,7 @@ This proposed standard is intended to be a major component of the OGC API framew
 
 ==== What is Out of Scope?
 
-Standards are important for interoperability. At the same time, it is important that standards only state requirements that are important for a significantly large group of users. Proposals for new parts of {swgname} or change requests to existing parts must identify the user group that will benefit from the proposal and for each proposed conformance class; otherwise the proposal will be considered out-of-scope.
+Standards are important for interoperability. At the same time, it is important that standards only state requirements that are important for a significantly large group of users. Proposals for new parts of {swgname} or change requests to existing parts must identify the user group that will benefit from the proposal and for each proposed conformance class. Otherwise the proposal will be considered out-of-scope.
 
 {swgname} is envisioned to be a modular, multi-part standard. Extensions and profiles not identified as in scope in the previous section will require a revision to the SWG charter prior to commencement of work. If a community has a need to develop a profile, the profile should be specified and governed by that community.
 
@@ -133,7 +132,7 @@ The following deliverables will result from the work of this SWG:
 
 *	A final version of the "{swgname} - Part 1: Core" document for submission to the TC;
 *	Identification of at least three prototype implementations of the core based on the standard — although more would be preferred; and
-*	Zero or more additional parts as time and community interest permits.
+*	Zero or more additional extensions as time and community interest permits.
 
 Part 1 will cover basic capabilities to GET, PUT, PATCH, POST, and DELETE {resources} and define {resource} metadata. Capabilities for richer {resource} interfaces or extension for unique geospatial resource considerations will be specified in additional parts.
 
