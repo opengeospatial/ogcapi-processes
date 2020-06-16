@@ -188,7 +188,7 @@ The following people support this proposal and are committed to the Charter and 
 [cols=",",width="75%",options="header",align="center"]
 |===
 |Name| Organization
-|Benjamin Pross | 52 North
+|Benjamin Pross | 52°North GmbH
 |Stan Tillman | Hexagon
 |Panagiotis (Peter) A. Vretanos | CubeWerx
 |Sam Meek | Helyx
