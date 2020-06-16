@@ -193,6 +193,8 @@ The following people support this proposal and are committed to the Charter and 
 |Panagiotis (Peter) A. Vretanos | CubeWerx
 |Sam Meek | Helyx
 |Gérald Fenoy | Individual Member
+|Pedro Gonçalves|Terradue Srl
+|Jérôme Jacovella-St-Louis|Ecere Corporation
 |===
 
 
