@@ -1,0 +1,132 @@
+openapi: 3.0.2
+info:
+  title: 'OGC API - Processes - Part 2: Transactions'
+  version: '1.0.0'
+  description: |-
+    This is an example Open API definition for a transactional API that
+    conforms to part 2 of the OGC API - Processes suite of standards.
+  context:
+    name: Acme Corporation
+    email: info@example.org
+    url: 'http://example.org/'
+  license:
+    name: CC-BY 4.0 license
+    url: 'https://creativecommons.org/licenses/by/4.0/'
+servers:
+  - url: 'https://data.example.org/'
+    description: Production server
+  - url: 'https://dev.example.org/'
+    description: Development server
+tags:
+  - name: Transactions
+    description: |-
+      essential characteristics of the transactional API for OGC API - Processes- Part 2: Transactions
+  - name: Application Package
+    description: |-
+      content of a POST or PUT that describes the interface of the process to add to the API
+paths:
+  '/processes':
+    post:
+      tags:
+        - Transactional
+      operationId: deployProcess
+      summary: Deploys a process
+      description: Adds a new process to the API.
+      requestBody:
+        description: 'The request body contains a description of the process to deploy.  Part 2 does not mandate a specific process description language or schema but this example uses the recommended OGC Application Package schema.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ogcapppkg'
+      responses:
+        '201':
+          description: process created
+          content:
+            application/json:
+              schema:
+                $ref: https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processSummary.yaml
+        '400':
+          $ref: '#/components/responses/InvalidOrUnsupportedProcess'
+        '409':
+          $ref: '#/components/responses/ProcessAlreadyExists'
+        default:
+          $ref: '#/components/responses/InternalServerError'
+
+  '/processes/{id}':
+    parameters:
+      - in: path
+        name: id
+        description: The process identifier
+        required: true
+        schema:
+          type: string
+          example: buffer
+    put:
+      tags:
+        - Transactional
+      operationId: updateProcess
+      summary: Updates a process
+      description: Updates an existing process.
+      requestBody:
+        description: The application package to deploy.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ogcapppkg'
+      responses:
+        '204':
+          description: The process was updated.
+        '400':
+          $ref: '#/components/responses/InvalidOrUnsupportedProcess'
+        '404':
+          $ref: '#/components/responses/ProcessNotFound'
+        default:
+          $ref: '#/components/responses/InternalServerError'
+
+    delete:
+      tags:
+        - Transactional
+      operationId: undeployProcess
+      summary: Undeploy a process.
+      description: Remove a process from the API.
+      responses:
+        '204':
+          description: The process was deleted.
+        '400':
+          $ref: '#/components/responses/InvalidOrUnsupportedProcess'
+        '404':
+          $ref: '#/components/responses/ProcessNotFound'
+        default:
+          $ref: '#/components/responses/InternalServerError'
+
+components:
+  responses:
+    ProcessNotFound:
+      description: 'the process with the identifier {id} does not exist'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Exception'
+    InvalidOrUnsupportedProcess:
+      description: 'the description of the process is invalid or unsupported'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Exception'
+    ProcessAlreadyExists:
+      description: 'the process with the identifier {id} already exists'
+      content:
+        application/json:
+          schema:
+            $ref: https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml
+    InternalServerError:
+      description: an internal server error occurred
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Exception'
+  schemas:
+    Exception:
+      $ref: https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml
+    ogcapppkg:
+      $ref: https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/extensions/transactions/openapi/schemas/ogcapppkg.yaml
