@@ -6,6 +6,10 @@
 
 include::abstract_tests/ATS_class_core.adoc[]
 
+=== Conformance Class OGC Process Description
+
+include::abstract_tests/ATS_class_ogc-process-description.adoc[]
+
 === Conformance Class JSON
 
 include::abstract_tests/ATS_class_json.adoc[]

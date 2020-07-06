@@ -1,0 +1,49 @@
+[[rc_ogc-process-description]]
+== Requirements Class "OGC Process Description"
+
+The following section describes the `OGC Process Description` requirements
+class.
+
+=== Overview
+
+include::requirements/requirements_class_ogc-process-description.adoc[]
+
+The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the http://docs.opengeospatial.org/is/14-065/14-065.html[OGC WPS 2.0.2 Interface Standard] and as such provides a bridge from legacy implementations into the OGC API Framework.
+
+The process description allows the following information to be specified:
+
+* An identifier for the process
+* Descriptive metadata about the process;
+** a title
+** a narrative description of the process
+** keywords that can be associated with the process
+** references to additional metadata
+* A description of each process input
+* A description of each process output
+* A job control specification that indicates whether the process can be invoked synchronously, asynchronously, or either.
+* An output transmission specification that indicates how the results of a process are retrieved; either by value or by reference
+* A section for additional parameters that are intended for communities of use to extend the process description as required
+
+This clause defines a JSON-encoding of the OGC process description.
+
+=== OGC process description
+
+include::requirements/ogc-process-description/REQ_json-encoding.adoc[]
+
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml[Schema for a process (process.yaml)]
+[source,YAML]
+----
+include::openapi/schemas/process.yaml[]
+----
+
+.Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
+[source]
+----
+https://processing.example.org/processes/EchoProcess
+----
+
+.Example of a process encoded as JSON.
+[source,json]
+----
+include::examples/json/ProcessDescription.json[]
+----

@@ -7,7 +7,7 @@ properties:
   immediateDeployment:
     type: boolean
   processDescription:
-    $ref: "../../../../core/openapi/schemas/process.yaml"
+    $ref: https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml
   executionUnit:
     type: array
       minItems: 1
