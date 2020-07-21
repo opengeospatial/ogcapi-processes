@@ -14,9 +14,9 @@ include::abstract_tests/ATS_class_ogc-process-description.adoc[]
 
 include::abstract_tests/ATS_class_json.adoc[]
 
-=== Conformance Class Job collection
+=== Conformance Class Job list
 
-include::abstract_tests/ATS_class_job-collection.adoc[]
+include::abstract_tests/ATS_class_job-list.adoc[]
 
 === Conformance Class Callback
 
@@ -134,7 +134,7 @@ TODO update
 A successful execution of the operation SHALL be reported as a response with a HTTP status code 200. The content of that response SHALL be based upon the OpenAPI 3.0 schema root.yaml and include at least links to the following resources: +
  - /api (relation type 'service') +
  - /conformance (relation type 'conformance') +
- - /collections (relation type 'data') +
+ - /lists (relation type 'data') +
 Tests: A.4.2.2 +
 | *Requirement 3:* API Definition Operation +
 The server SHALL support the HTTP GET operation at the path /api. +
