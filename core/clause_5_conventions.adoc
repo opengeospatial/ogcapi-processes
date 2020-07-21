@@ -40,7 +40,7 @@ In addition the following link relation types are used for which no applicable r
 
 * **process-desc**: The target URI points to a specific process description.
 
-* **processes**: The target URI points to the collection of processes the API offers.
+* **processes**: The target URI points to the list of processes the API offers.
 
 * **results**: The target URI points to the results of a process.
 

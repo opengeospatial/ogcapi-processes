@@ -297,11 +297,11 @@ Validate the response to the Get Processes Operation.
 
 ====== b) Pre-conditions:
 
-* A Process Collection document has been retrieved
+* A Process List document has been retrieved
 
 ====== c) Test Method:
 
-. Validate the retrieved document against the processCollection.yaml schema.
+. Validate the retrieved document against the processList.yaml schema.
 
 . Validate each Process Description using test <<validate_process_description>>
 
@@ -358,7 +358,7 @@ Validate the Get Jobs Operation Response.
 
 ====== b) Pre-conditions:
 
-* A collection of Jobs has been retrieved
+* A list of Jobs has been retrieved
 
 ====== c) Test Method:
 
@@ -366,7 +366,7 @@ Validate the Get Jobs Operation Response.
 
     - For HTML use Human inspection
 
-    - For JSON use jobCollection.yaml
+    - For JSON use jobList.yaml
 
 ====== d) References:
 Requirements 24, 25, 26, 27, 28 and 29

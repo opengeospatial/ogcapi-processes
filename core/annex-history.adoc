@@ -37,7 +37,7 @@
 |2020-04-30 |1.0-draft.3 |Benjamin Pross| 6,11 |Move overview table to abstract, allow multiple URIs for callbacks
 |2020-05-05 |1.0-draft.3 |Gérald Fenoy | 12 |Add Requirements Class 'Dismiss', fix includes and section headers
 |2020-05-8 |1.0-draft.3 |Benjamin Pross | 14 |Add section with info about additional/alternative building blocks
-|2020-05-11 |1.0-draft.3 |Benjamin Pross | 12 |Move 'Job Collection' from core to separate Requirements Class
+|2020-05-11 |1.0-draft.3 |Benjamin Pross | 12 |Move 'Job List' from core to separate Requirements Class
 |2020-05-12 |1.0-draft.3 |Panagiotis (Peter) A. Vretanos | N/A |Create a home for extensions to the core, initial check in of draft transactions extension, add placeholders for the quotation and billing APIs
 |2020-05-12 |1.0-draft.3 |Stan Tillman | 6,7,8,9,10 | Review
 |2020-05-20 |1.0-draft.3 |Panagiotis (Peter) A. Vretanos| 2,7 | Separate the OGC process description into its own conformance class.

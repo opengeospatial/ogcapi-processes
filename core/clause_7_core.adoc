@@ -191,23 +191,23 @@ Two common mechanisms to support cross-origin requests are:
 
 include::requirements/core/REC_html.adoc[]
 
-[[sc_process_collection]]
-=== Retrieve a process collection
+[[sc_process_list]]
+=== Retrieve a process list
 
 The following section describes a method to retrieve the available processes offered by the server.
 
 ==== Operation
 
-include::requirements/core/REQ_process-collection-op.adoc[]
+include::requirements/core/REQ_process-list-op.adoc[]
 
 ==== Response
 
-include::requirements/core/REQ_process-collection-success.adoc[]
+include::requirements/core/REQ_process-list-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml[Schema for the process collection]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processList.yaml[Schema for the process list]
 [source,YAML]
 ----
-include::openapi/schemas/processCollection.yaml[]
+include::openapi/schemas/processList.yaml[]
 ----
 
 [NOTE]
@@ -224,7 +224,7 @@ https://processing.example.org/processes
 .Example of Process list encoded as JSON.
 [source,json]
 ----
-include::examples/json/ProcessCollection.json[]
+include::examples/json/ProcessList.json[]
 ----
 
 ==== Error situations

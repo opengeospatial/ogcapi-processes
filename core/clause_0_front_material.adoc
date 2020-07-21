@@ -7,7 +7,7 @@ The OGC API - Processes builds on the WPS 2.0 standard and defines the processin
 
 The resources that are provided by a server implementing the OGC API - Processes are listed in <<table_wps_resources>> below and include the
 capabilities document of the server, the list of processes available
-(ProcessCollection and Process), jobs (running processes) and
+(Process list and Process description), jobs (running processes) and
 results of process executions.
 
 TODO: check chapter numbers
@@ -19,7 +19,7 @@ TODO: check chapter numbers
 |Resource |Path |HTTP method | Parameter| Document reference
 |Landing page |`/` |GET| N/A | <<sc_landing_page,7.2 API landing page>>
 |Conformance classes |`/conformance` |GET| N/A | <<sc_conformance_classes,7.4 Declaration of conformance classes>>
-|Process collection |`/processes` |GET | N/A | <<sc_process_collection,7.7 Retrieve a process collection>>
+|Process list |`/processes` |GET | N/A | <<sc_process_list,7.7 Retrieve a process list>>
 |Process description |`/processes/{processID}` |GET | processID (in path) | <<sc_process_description, 7.8 Retrieve a process description>>
 |Job status info |`/processes/{processID}/jobs/{jobID}` |GET | processID, jobID (in path) |<<sc_retrieve_status_info,7.10 Retrieve status information about a job>>
 |Job results |`/processes/{processID}/jobs/{jobID}/results` |GET | processID, jobID (in path) |<<sc_retrieve_job_results,7.11 Retrieve job results>>
@@ -29,14 +29,14 @@ TODO: check chapter numbers
 In general, the HTTP GET operation is used to provide access to the resources described above.
 However, in order to create a new job, the HTTP POST method is used to create a new job by sending an execute request to the server. 
 
-Additionally, a collection of jobs for a specific process can be requested. 
+Additionally, a list of jobs for a specific process can be requested. 
 
-[#table_job_collection,reftext='{table-caption} {counter:table-num}']
-.Requirements class 'Job collection' - Overview of resources, applicable HTTP methods and links to the document sections
+[#table_job_list,reftext='{table-caption} {counter:table-num}']
+.Requirements class 'Job list' - Overview of resources, applicable HTTP methods and links to the document sections
 [cols="27,25,10,10,28",options="header"]
 !===
 |Resource |Path |HTTP method | Parameter| Document reference
-|Job collection |`/processes/{processID}/jobs` |GET | processID (in path) |<<Job_collection,10 Requirements Class "Job collection">>
+|Job list |`/processes/{processID}/jobs` |GET | processID (in path) |<<Job_list,10 Requirements Class "Job list">>
 !===
 
 As a further addition to the operations accessible through HTTP GET and POST methods, in order to cancel a job execution and/or remove traces of the job execution the DELETE method can be used.
