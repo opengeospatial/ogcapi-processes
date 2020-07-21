@@ -5,7 +5,7 @@
 [width="90%",options="header"]
 |===
 |Date |Release |Editor | Primary clauses modified |Description
-|2017-03-09 |0.1 |Benjamin Pross |all |initial version
+|2017-03-07 |0.1 |Benjamin Pross |all |initial version
 |2018-05-16 |0.1 |Stan Tillman | 1-5 |Update section 1-5
 |2018-07-25 |1.0-draft |Benjamin Pross | all |1.0-draft
 |2018-08-15 |1.0-draft |Benjamin Pross | all |Restructuring, added requirements classes

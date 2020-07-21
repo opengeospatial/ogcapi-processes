@@ -4,8 +4,7 @@
 The OGC API - Processes builds on the WPS 2.0 standard and it is modularized, meaning that there is a separation between 
  
  * core requirements, that specify basic capabilities and can easily be mapped to existing OGC Web Processing Services, and
- * more advanced funtionality, that was not specified in WPS 2.0. 
-
+ * more advanced functionality, that was not specified in WPS 2.0.
 
 
 === Encodings
