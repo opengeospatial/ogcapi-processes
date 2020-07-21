@@ -19,7 +19,7 @@ clients to connect to the server or by development tools to support the
 implementation of servers and clients. Accessing the `APIDefinition` using
 HTTP GET returns a description of the API.
 
-Accessing the `Conformance` using HTTP GET returns a list of URIs of
+Accessing `Conformance` using HTTP GET returns a list of URIs of
 requirements classes implemented by the server.
 
 The list of processes contains a summary of each process the OGC API - Processes offers, including the link to a more detailed description of the process.
@@ -97,8 +97,8 @@ The idea is that any OGC API - Processes can be used by developers that are fami
 the API definition language(s) supported by the server. For example, if
 an OpenAPI definition is used, it should be possible to create a working
 client using the OpenAPI definition. The developer may need to learn a little
-bit about geometry data types, etc., but it should not be required to read
-this standard to access the data via the API.
+bit about geospatial data types, etc., but it should not be required to read
+this standard to access the processes and results via the API.
 
 ==== Error situations
 
@@ -178,9 +178,7 @@ include::requirements/core/PER_additional-status-codes.adoc[]
 
 === Support for cross-origin requests
 
-To access data from a HTML page where the data is on another host than
-the webpage is by default prohibited for security reasons ("same-origin policy").
-A typical example is a web-application accessing processes and data from multiple servers.
+Access to content from a HTML page is by default prohibited for security reasons, if the content is located on another host than the webpage ("same-origin policy"). A typical example is a web-application accessing processes and data from multiple servers.
 
 include::requirements/core/REC_cross-origin.adoc[]
 
