@@ -7,11 +7,17 @@ OGC 06-121r9, OGC Web Service Common Specification, version 2.0
 
 OGC 08-131r3 – The Specification Model – A Standard for Modular Specifications
 
-IETF RFC 4646: Tags for Identifying Languages
+IETF RFC 2616. Hypertext Transfer Protocol - HTTP/1.1. http://tools.ietf.org/html/rfc2616
 
-IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax
+IETF RFC 2617. HTTP Authentication: Basic and Digest Access Authentication. https://tools.ietf.org/html/rfc2617
 
-ISO 8601:2004, Data elements and interchange formats – Information interchange – Representation of dates and times
+IETF RFC 2246. Transport Layer Security. http://tools.ietf.org/html/rfc2246
 
-XML Schema Part 2: Datatypes Second Edition, W3C Recommendation 28 October 2004.
+IETF RFC 2818. HTTP Over TLS. http://tools.ietf.org/html/rfc2818
+
+IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax. https://tools.ietf.org/html/rfc3986
+
+IETF RFC 4646: Tags for Identifying Languages. https://tools.ietf.org/html/rfc4646
+
+IETF RFC 6749: The OAuth 2.0 Authorization Framework. https://tools.ietf.org/html/rfc6749
 
