@@ -25,6 +25,7 @@ include::requirements/requirements_class_json.adoc[]
 
 include::requirements/json/REQ_definition.adoc[]
 
+[[sc_requirements_class_html]]
 === Requirement Class "HTML"
 
 This section defines the requirements class HTML.

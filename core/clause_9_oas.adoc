@@ -1,3 +1,4 @@
+[[requirements-class-openapi_3_0-clause]]
 == Requirements Class "OpenAPI 3.0"
 
 === Basic requirements

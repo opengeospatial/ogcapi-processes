@@ -36,6 +36,20 @@ After a process is finished (status = success/failed), the results/exceptions ca
 .Resources in the Core requirements class
 image::figures/PT1_FIG01.png[align="center"]
 
+The OGC API - Processes standard is build upon the OGC API-Common standard. <<mapping-to-common>> Identifies the API-Common Requirements Classes which are applicable to each section of this standard.
+
+[#mapping-to-common,reftext='{table-caption} {counter:table-num}']
+.Mapping API - Processes Sections to API-Common Requirements Classes
+[width="90%",cols="2,6"]
+|====
+^|*API - Processes Section* ^|*API-Common Requirements Class*
+|<<sc_landing_page,API Landing Page>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
+|<<sc_api_definition,API Definition>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
+|<<sc_conformance_classes,Declaration of Conformance Classes>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
+|<<requirements-class-openapi_3_0-clause,OpenAPI 3.0>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/oas30
+|<<sc_requirements_class_html,HTML>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/html
+|====
+
 [[sc_landing_page]]
 === Retrieve the API landing page
 

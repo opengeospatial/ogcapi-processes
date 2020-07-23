@@ -5,5 +5,6 @@
 2+|http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/html
 |Target type |Web API
 |Dependency |<<rc_core,OGC API - Processes Core>>
+|Dependency |http://www.opengis.net/spec/ogcapi_common/1.0/req/html[API - Common HTML]
 |Dependency |<<HTML5,HTML5>>
 |===
