@@ -1,3 +1,4 @@
+[[req_html_definition]]
 [width="90%",cols="2,6a"]
 |===
 |*Requirement {counter:req-id}* |/req/html/definition +

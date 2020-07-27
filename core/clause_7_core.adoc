@@ -85,7 +85,7 @@ include::requirements/core/REQ_api-definition-op.adoc[]
 
 include::requirements/core/REQ_api-definition-success.adoc[]
 
-include::requirements/core/REC_api-definition-oas.adoc[]
+include::recommendations/core/REC_api-definition-oas.adoc[]
 
 If multiple API definition formats are supported by a server, use
 content negotiation to select the desired representation.
@@ -174,7 +174,7 @@ outside of the server.
 
 More specific guidance is provided for each resource, where applicable.
 
-include::requirements/core/PER_additional-status-codes.adoc[]
+include::recommendations/core/PER_additional-status-codes.adoc[]
 
 === Support for cross-origin requests
 
@@ -182,14 +182,14 @@ To access data from a HTML page where the data is on another host than
 the webpage is by default prohibited for security reasons ("same-origin policy").
 A typical example is a web-application accessing processes and data from multiple servers.
 
-include::requirements/core/REC_cross-origin.adoc[]
+include::recommendations/core/REC_cross-origin.adoc[]
 
 Two common mechanisms to support cross-origin requests are:
 
 * link:https://en.wikipedia.org/wiki/Cross-origin_resource_sharing[Cross-origin resource sharing (CORS)]
 * link:https://en.wikipedia.org/wiki/JSONP[JSONP (JSON with padding)]
 
-include::requirements/core/REC_html.adoc[]
+include::recommendations/core/REC_html.adoc[]
 
 [[sc_process_collection]]
 === Retrieve a process collection
@@ -301,7 +301,7 @@ include::requirements/core/REQ_job-creation-success-sync.adoc[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<rc_no-such-process>>).
+If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).
 
 [[sc_retrieve_status_info]]
 === Retrieve status information about a job
@@ -338,11 +338,11 @@ include::examples/json/StatusInfo.json[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<rc_no-such-process>>).
+If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).
 
 include::requirements/core/REQ_job-exception-no-such-job.adoc[]
 
-[[sc_retrieve_job_results]]
+[[rc_retrieve_job_results]]
 === Retrieve job results
 
 The following section describes a method to retrieve the results of a job. In case the job execution failed, an exception is returned.
@@ -383,7 +383,7 @@ include::examples/json/Result.json[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<rc_no-such-process>>).
+If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).
 
 include::requirements/core/REQ_job-result-exception-no-such-job.adoc[]
 

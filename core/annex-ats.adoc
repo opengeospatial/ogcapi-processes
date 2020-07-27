@@ -14,6 +14,14 @@ include::abstract_tests/ATS_class_ogc-process-description.adoc[]
 
 include::abstract_tests/ATS_class_json.adoc[]
 
+=== Conformance Class HTML
+
+include::abstract_tests/ATS_class_html.adoc[]
+
+=== Conformance Class OpenAPI 3.0
+
+include::abstract_tests/ATS_class_oas30.adoc[]
+
 === Conformance Class Job collection
 
 include::abstract_tests/ATS_class_job-collection.adoc[]
@@ -25,15 +33,6 @@ include::abstract_tests/ATS_class_callback.adoc[]
 === Conformance Class Dismiss
 
 include::abstract_tests/ATS_class_dismiss.adoc[]
-
-=== Conformance Class HTML
-
-include::abstract_tests/ATS_class_html.adoc[]
-
-=== Conformance Class OpenAPI 3.0
-
-include::abstract_tests/ATS_class_oas30.adoc[]
-
 
 === Overview
 
