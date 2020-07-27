@@ -106,6 +106,8 @@ include::clause_7_core.adoc[]
 
 include::clause_7a_ogc-process-description.adoc[]
 
+include::clause_7b_security-considerations.adoc[]
+
 include::clause_8_encodings.adoc[]
 
 include::clause_9_oas.adoc[]

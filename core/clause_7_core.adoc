@@ -230,7 +230,8 @@ References to additional schemas can found in Annex TODO
 .Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
 [source]
 ----
-https://processing.example.org/processes
+GET /processes HTTP/1.1
+Host: processing.example.org
 ----
 
 .Example of Process list encoded as JSON.
@@ -337,7 +338,8 @@ include::openapi/schemas/statusInfo.yaml[]
 .Example of HTTP GET request for retrieving status information about a job encoded as JSON.
 [source]
 ----
-http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f
+GET /processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f HTTP/1.1
+Host: processing.example.org
 ----
 
 .Example of a job encoded as JSON.
@@ -382,7 +384,8 @@ include::openapi/schemas/outputInfo.yaml[]
 .Example of HTTP GET request for retrieving the result a job encoded as JSON.
 [source]
 ----
-http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result
+GET /processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result HTTP/1.1
+Host: processing.example.org
 ----
 
 .Example of a result encoded as JSON.
