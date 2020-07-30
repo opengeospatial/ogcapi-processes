@@ -29,21 +29,21 @@ Requirements class "Dismiss"
 === Security related HTTP Status Codes
 
 ==== Authentication
-The HTTP 1.1 protocol (IETF RFC 2616) supports the use of HTTP authentication via the HTTP status code 401: Unauthorized. 
+The HTTP 1.1 protocol (<<rfc2616, RFC 2616>>) supports the use of HTTP authentication via the HTTP status code 401: Unauthorized. 
 
-==== Access Control
-Access Control is supported by the HTTP protocol through the status code 403: Forbidden.
+==== Access control
+Access control is supported by the HTTP protocol through the status code 403: Forbidden.
 
 === Security related HTTP Headers
 
 As per IETF RFC 2616, the **Authorization** request-header should be used to send credentials to the API. If the client application tries to perform a CRUD (create, read, update, delete) operation on a protected resource with no or wrong credentials, the server will answer with HTTP status code 401 along with a **WWW-Authenticate** response-header containing at least one challenge applicable to the target resource.
 
 === OAuth 2.0 and OpenID Connect 1.0
-OAuth 2.0 (IETF RFC 6749) is a widely used authorization protocol that enables resource protection for Web-APIs. On top of OAuth 2.0 sits OpenID Connect 1.0, which allows different client applications to verify the identity of a user.
+OAuth 2.0 (<<rfc6749, RFC 6749>>) is a widely used authorization protocol that enables resource protection for Web-APIs. On top of OAuth 2.0 sits OpenID Connect 1.0, which allows different client applications to verify the identity of a user.
 
 ==== OAuth 2.0 Bearer Token
 
-Access tokens contain credentials and are used to identify a user and to grant access to protected resources. Bearer Tokens are the predominant type of access token used with OAuth 2.0.footnote:[<https://oauth.net/2/bearer-tokens/>] TODO direct citation
+Access tokens contain credentials and are used to identify a user and to grant access to protected resources. Bearer Tokens are the predominant type of access token used with OAuth 2.0footnote:[<https://oauth.net/2/bearer-tokens/>].
 
 The Bearer Token needs to be sent to the server using the **Authorization** header, for example:
 ----
@@ -54,4 +54,20 @@ Authorization: Bearer eyJhbGciOiJSUz...
 
 ==== Claims and scopes
 
-In OpenID Connect, claims are key/value pairs that contain information about a user. A typical example of a claim is "name":"John Doe". Scopes are tied to claims and are used to specify what access privileges are being requested.footnote:[TODO direct citation from https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1]. Custom claims can be created to serve the needs of a Web-API.
+In OpenID Connect, claims are key/value pairs that contain information about a user. A typical example of a claim is "name":"John Doe". Scopes are tied to claims and are used to specify what access privileges are being requested.footnote:[https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1]. Custom claims can be created to serve the needs of a Web-API.
+
+=== Validation
+
+The OGC API - Processes specifies the execute operation using the HTTP POST method, which will be used as example for requests that contain content. The same guidance applies when using different HTTP methods like PUT, which can also contain content. 
+
+==== Validation of incoming Content-types
+
+When sending POST requests, the client will specify the *Content-Type* header of the request content. The server should always check that the *Content-Type* header and the actual request content are of the same type. If there is no *Content-Type* header or the Content-Type is unexpected, the request should be rejected.
+
+==== Input validation
+
+After the Content-Type was checked, the received content of POST requests itself should be validated. Incorrect input validation can lead to injection attacks, memory leakage, and compromised systemsfootnote:[https://www.whitehatsec.com/glossary/content/input-validation].
+
+=== Request rate limitation
+
+To prevent distributed denial of service (DDoS) attacks or other misuse of the API, the number of requests in a given time can be limited. When the limit is exceeded, the HTTP error code 429 (too many requests) should be returned and access tokens could be blocked temporarily.
