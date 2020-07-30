@@ -610,17 +610,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_terms_and_definitions">4. Terms and Definitions</a>
 <ul class="sectlevel2">
 <li><a href="#_process">4.1. Process</a></li>
-<li><a href="#_process_description">4.2. Process description</a></li>
-<li><a href="#_process_input">4.3. Process input</a></li>
-<li><a href="#_process_output">4.4. Process output</a></li>
-<li><a href="#_process_profile">4.5. Process profile</a></li>
-<li><a href="#_wps_server">4.6. WPS Server</a></li>
+<li><a href="#_job">4.2. Job</a></li>
+<li><a href="#_json">4.3. JSON</a></li>
+<li><a href="#_process_description">4.4. Process description</a></li>
+<li><a href="#_process_execution">4.5. Process execution</a></li>
+<li><a href="#_process_input">4.6. Process input</a></li>
 <li><a href="#_process_offering">4.7. Process offering</a></li>
-<li><a href="#_process_execution">4.8. Process execution</a></li>
-<li><a href="#_job">4.9. Job</a></li>
-<li><a href="#_service_profiles_for_wps">4.10. Service profiles for WPS</a></li>
-<li><a href="#_rest_or_restful">4.11. REST or RESTful</a></li>
-<li><a href="#_json">4.12. JSON</a></li>
+<li><a href="#_process_output">4.8. Process output</a></li>
+<li><a href="#_process_profile">4.9. Process profile</a></li>
+<li><a href="#_rest_or_restful">4.10. REST or RESTful</a></li>
+<li><a href="#_service_profiles_for_wps">4.11. Service profiles for WPS</a></li>
+<li><a href="#_wps_server">4.12. WPS Server</a></li>
 </ul>
 </li>
 <li><a href="#_conventions">5. Conventions</a>
@@ -629,6 +629,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_link_relations">5.2. Link relations</a></li>
 <li><a href="#_abbreviated_terms">5.3. Abbreviated Terms</a></li>
 <li><a href="#_use_of_the_term_process">5.4. Use of the Term "Process"</a></li>
+<li><a href="#_use_of_https">5.5. Use of HTTPS</a></li>
+<li><a href="#_http_uris">5.6. HTTP URIs</a></li>
 </ul>
 </li>
 <li><a href="#overview">6. Overview</a>
@@ -710,38 +712,62 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_ogc_process_description">8.2. OGC process description</a></li>
 </ul>
 </li>
-<li><a href="#_requirements_classes_for_encodings">9. Requirements classes for encodings</a>
+<li><a href="#sc_security_considerations">9. Security Considerations</a>
 <ul class="sectlevel2">
-<li><a href="#_overview_3">9.1. Overview</a></li>
-<li><a href="#_requirement_class_json">9.2. Requirement Class "JSON"</a></li>
-<li><a href="#_requirement_class_html">9.3. Requirement Class "HTML"</a></li>
+<li><a href="#_security_related_http_status_codes">9.1. Security related HTTP Status Codes</a>
+<ul class="sectlevel3">
+<li><a href="#_authentication">9.1.1. Authentication</a></li>
+<li><a href="#_access_control">9.1.2. Access control</a></li>
 </ul>
 </li>
-<li><a href="#_requirements_class_openapi_3_0">10. Requirements Class "OpenAPI 3.0"</a>
-<ul class="sectlevel2">
-<li><a href="#_basic_requirements">10.1. Basic requirements</a></li>
-<li><a href="#_complete_definition">10.2. Complete definition</a></li>
-<li><a href="#exceptions">10.3. Exceptions</a></li>
-<li><a href="#security">10.4. Security</a></li>
+<li><a href="#_security_related_http_headers">9.2. Security related HTTP Headers</a></li>
+<li><a href="#_oauth_2_0_and_openid_connect_1_0">9.3. OAuth 2.0 and OpenID Connect 1.0</a>
+<ul class="sectlevel3">
+<li><a href="#_oauth_2_0_bearer_token">9.3.1. OAuth 2.0 Bearer Token</a></li>
+<li><a href="#_claims_and_scopes">9.3.2. Claims and scopes</a></li>
 </ul>
 </li>
-<li><a href="#Job_list">11. Requirements Class "Job list"</a>
-<ul class="sectlevel2">
-<li><a href="#_operation_9">11.1. Operation</a></li>
-<li><a href="#_response_9">11.2. Response</a></li>
-<li><a href="#_error_situations_9">11.3. Error situations</a></li>
+<li><a href="#_validation">9.4. Validation</a>
+<ul class="sectlevel3">
+<li><a href="#_validation_of_incoming_content_types">9.4.1. Validation of incoming Content-types</a></li>
+<li><a href="#_input_validation">9.4.2. Input validation</a></li>
 </ul>
 </li>
-<li><a href="#Callbacks">12. Requirements Class "Callback"</a></li>
-<li><a href="#Dismiss">13. Requirements Class "Dismiss"</a>
-<ul class="sectlevel2">
-<li><a href="#_operation_10">13.1. Operation</a></li>
-<li><a href="#_response_10">13.2. Response</a></li>
-<li><a href="#_error_situations_10">13.3. Error situations</a></li>
+<li><a href="#_request_rate_limitation">9.5. Request rate limitation</a></li>
 </ul>
 </li>
-<li><a href="#mediatypes">14. Media Types</a></li>
-<li><a href="#additional-api-building-blocks">15. Additional API Building Blocks</a></li>
+<li><a href="#_requirements_classes_for_encodings">10. Requirements classes for encodings</a>
+<ul class="sectlevel2">
+<li><a href="#_overview_3">10.1. Overview</a></li>
+<li><a href="#_requirement_class_json">10.2. Requirement Class "JSON"</a></li>
+<li><a href="#sc_requirements_class_html">10.3. Requirement Class "HTML"</a></li>
+</ul>
+</li>
+<li><a href="#requirements-class-openapi_3_0-clause">11. Requirements Class "OpenAPI 3.0"</a>
+<ul class="sectlevel2">
+<li><a href="#_basic_requirements">11.1. Basic requirements</a></li>
+<li><a href="#_complete_definition">11.2. Complete definition</a></li>
+<li><a href="#exceptions">11.3. Exceptions</a></li>
+<li><a href="#security">11.4. Security</a></li>
+</ul>
+</li>
+<li><a href="#Job_list">12. Requirements Class "Job list"</a>
+<ul class="sectlevel2">
+<li><a href="#_operation_9">12.1. Operation</a></li>
+<li><a href="#_response_9">12.2. Response</a></li>
+<li><a href="#_error_situations_9">12.3. Error situations</a></li>
+</ul>
+</li>
+<li><a href="#Callbacks">13. Requirements Class "Callback"</a></li>
+<li><a href="#Dismiss">14. Requirements Class "Dismiss"</a>
+<ul class="sectlevel2">
+<li><a href="#_operation_10">14.1. Operation</a></li>
+<li><a href="#_response_10">14.2. Response</a></li>
+<li><a href="#_error_situations_10">14.3. Error situations</a></li>
+</ul>
+</li>
+<li><a href="#mediatypes">15. Media Types</a></li>
+<li><a href="#additional-api-building-blocks">16. Additional API Building Blocks</a></li>
 <li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
 <li><a href="#_conformance_class_core">A.1. Conformance Class Core</a>
@@ -786,22 +812,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong class="big">i.     Abstract</strong></p>
 </div>
 <div class="paragraph">
-<p>In many cases geospatial or location data, including data from sensors, must be processed before the information can be used effectively. The OGC Web Processing Service (WPS) Interface Standard provided a standard interface that simplifies the task of making simple or complex computational processing services accessible via web services. Such services include well-known processes found in GIS software as well as specialized processes for spatio-temporal modeling and simulation. While the OGC WPS standard was designed with spatial processing in mind, it could also be used to readily insert non-spatial processing tasks into a web services environment.
-The WPS standard provided a robust, interoperable, and versatile protocol for process execution on web services. It supports both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time-consuming tasks. Moreover, the WPS standard defines a general process model that is designed to provide an interoperable description of processing functions. It is intended to support process cataloguing and discovery in a distributed environment.</p>
+<p>In many cases geospatial or location data, including data from sensors, must be processed before the information can be effectively used. The OGC Web Processing Service (WPS) Interface Standard provides a standard interface that simplifies the task of making simple or complex computational geospatial processing services accessible via web services. Such services include well-known processes found in GIS software as well as specialized processes for spatio-temporal modeling and simulation. While the OGC WPS standard was designed with spatial processing in mind, the standard could also be used to readily insert non-spatial processing tasks into a web services environment.
+The WPS standard provides a robust, interoperable, and versatile protocol for process execution on web services. WPS supports both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time-consuming tasks. Moreover, the WPS standard defines a general process model that is designed to provide an interoperable description of processing functions. It is intended to support process cataloguing and discovery in a distributed environment.</p>
 </div>
 <div class="paragraph">
-<p>The OGC API - Processes builds on the WPS 2.0 standard and defines the processing standards to communicate over a RESTful protocol using JSON encodings. This API will be a newer and more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.</p>
+<p>The OGC API - Processes API builds on the WPS 2.0 standard and defines the processing standards to communicate over a RESTful protocol using JSON encodings. This API is a newer and more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.</p>
 </div>
 <div class="paragraph">
-<p>The resources that are provided by a server implementing the OGC API - Processes are listed in <a href="#table_wps_resources">[table_wps_resources]</a> below and include the
+<p>The resources that are provided by a server implementing the OGC API - Processes are listed in <a href="#table_core_resources">Table 1</a> below and include the
 capabilities document of the server, the list of processes available
 (Process list and Process description), jobs (running processes) and
 results of process executions.</p>
 </div>
-<div class="paragraph">
-<p>TODO: check chapter numbers</p>
-</div>
-<table id="table_job_creation" class="tableblock frame-all grid-all spread">
+<table id="table_core_resources" class="tableblock frame-all grid-all spread">
 <caption class="title">Table 1. Requirements class 'Core' - Overview of core resources, applicable HTTP methods and links to the document sections</caption>
 <colgroup>
 <col style="width: 27%;">
@@ -902,7 +925,7 @@ However, in order to create a new job, the HTTP POST method is used to create a 
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">processID (in path)</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#Job_list">10 Requirements Class "Job list"</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#Job_list">11 Requirements Class "Job list"</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -933,7 +956,7 @@ However, in order to create a new job, the HTTP POST method is used to create a 
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/processes/{processID}/jobs/{jobID}</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">processID, jobID (in path)</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#Dismiss">12 Requirements Class "Dismiss"</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#Dismiss">13 Requirements Class "Dismiss"</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -950,8 +973,8 @@ However, in order to create a new job, the HTTP POST method is used to create a 
 <p><strong class="big">iii.   Preface</strong></p>
 </div>
 <div class="paragraph">
-<p>This API is a continuation of WPS 2.0, a standard for web-based processing of geospatial data. It defines how the interfaces for WPS 2.0 operations should be constructed and interpreted using a REST based protocol with JSON encoding.
-Within the current version of WPS 2.0, bindings are defined for HTTP/POST using XML encodings and HTTP/GET using KVP encodings. Also in the current WPS 2.0 standard, a core conceptual model is provided that may be used to specify a WPS in different architectures such as REST or SOAP. Therefore, this API is a natural fit to what is already defined in the standard.</p>
+<p>The Processing API is a continuation of WPS 2.0, a standard for web-based processing of geospatial data. The Processing API defines how the interfaces for WPS 2.0 operations should be constructed and interpreted using a REST based protocol with JSON encoding.
+Within the current version of WPS 2.0, bindings are defined for HTTP/POST using XML encodings and HTTP/GET using KVP encodings. Also in the current WPS 2.0 standard, a core conceptual model is provided that may be used to specify a WPS in different architectures such as REST or SOAP. Therefore, the Processing API is a natural fit to what is already defined in the standard.</p>
 </div>
 <div class="paragraph">
 <p><strong class="big">iv.    Submitting organizations</strong></p>
@@ -1040,7 +1063,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <h2 id="_scope"><a class="anchor" href="#_scope"></a>1. Scope</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document specifies a Web API that enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality. Typically, these processes combine raster, vector, coverage and/or point cloud data with well-defined algorithms to produce new raster, vector, coverage and/or point cloud information.</p>
+<p>This OGC Standard specifies a Web API that enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality. Typically, these processes combine raster, vector, coverage and/or point cloud data with well-defined algorithms to produce new raster, vector, coverage and/or point cloud information.</p>
 </div>
 </div>
 </div>
@@ -1201,16 +1224,28 @@ specify the interface of a process.</p>
 <p>OGC 08-131r3 – The Specification Model – A Standard for Modular Specifications</p>
 </div>
 <div class="paragraph">
-<p>IETF RFC 4646: Tags for Identifying Languages</p>
+<p><a id="rfc2616"></a> IETF RFC 2616. Hypertext Transfer Protocol - HTTP/1.1. <a href="http://tools.ietf.org/html/rfc2616" class="bare">http://tools.ietf.org/html/rfc2616</a></p>
 </div>
 <div class="paragraph">
-<p>IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax</p>
+<p><a id="rfc2617"></a> IETF RFC 2617. HTTP Authentication: Basic and Digest Access Authentication. <a href="https://tools.ietf.org/html/rfc2617" class="bare">https://tools.ietf.org/html/rfc2617</a></p>
 </div>
 <div class="paragraph">
-<p>ISO 8601:2004, Data elements and interchange formats – Information interchange – Representation of dates and times</p>
+<p><a id="rfc2246"></a> IETF RFC 2246. Transport Layer Security. <a href="http://tools.ietf.org/html/rfc2246" class="bare">http://tools.ietf.org/html/rfc2246</a></p>
 </div>
 <div class="paragraph">
-<p>XML Schema Part 2: Datatypes Second Edition, W3C Recommendation 28 October 2004.</p>
+<p><a id="rfc2818"></a> IETF RFC 2818. HTTP Over TLS. <a href="http://tools.ietf.org/html/rfc2818" class="bare">http://tools.ietf.org/html/rfc2818</a></p>
+</div>
+<div class="paragraph">
+<p><a id="rfc3986"></a> IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax. <a href="https://tools.ietf.org/html/rfc3986" class="bare">https://tools.ietf.org/html/rfc3986</a></p>
+</div>
+<div class="paragraph">
+<p><a id="rfc4646"></a> IETF RFC 4646: Tags for Identifying Languages. <a href="https://tools.ietf.org/html/rfc4646" class="bare">https://tools.ietf.org/html/rfc4646</a></p>
+</div>
+<div class="paragraph">
+<p><a id="rfc6749"></a> IETF RFC 6749: The OAuth 2.0 Authorization Framework. <a href="https://tools.ietf.org/html/rfc6749" class="bare">https://tools.ietf.org/html/rfc6749</a></p>
+</div>
+<div class="paragraph">
+<p><a id="rfc8288"></a> IETF RFC 8288: Web Linking <a href="https://tools.ietf.org/html/rfc8288" class="bare">https://tools.ietf.org/html/rfc8288</a></p>
 </div>
 </div>
 </div>
@@ -1218,7 +1253,7 @@ specify the interface of a process.</p>
 <h2 id="_terms_and_definitions"><a class="anchor" href="#_terms_and_definitions"></a>4. Terms and Definitions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r8], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
+<p>This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r9], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
 </div>
 <div class="paragraph">
 <p>For the purposes of this document, the following additional terms and definitions apply.</p>
@@ -1238,33 +1273,33 @@ specify the interface of a process.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_process_description"><a class="anchor" href="#_process_description"></a>4.2. Process description</h3>
+<h3 id="_job"><a class="anchor" href="#_job"></a>4.2. Job</h3>
+<div class="paragraph">
+<p>The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_json"><a class="anchor" href="#_json"></a>4.3. JSON</h3>
+<div class="paragraph">
+<p>JavaScript Object Notation is a lightweight data-interchange format. JSON is easy for humans to read and write and it is easy for machines to parse and generate.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_process_description"><a class="anchor" href="#_process_description"></a>4.4. Process description</h3>
 <div class="paragraph">
 <p>A process description is an information model that specifies the interface of a process. A process description is used for a machine-readable description of the process itself but also provides some basic information about the process inputs and outputs.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_process_input"><a class="anchor" href="#_process_input"></a>4.3. Process input</h3>
+<h3 id="_process_execution"><a class="anchor" href="#_process_execution"></a>4.5. Process execution</h3>
+<div class="paragraph">
+<p>The execution of a process is an action that calculates the outputs of a given process for a given set of data inputs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_process_input"><a class="anchor" href="#_process_input"></a>4.6. Process input</h3>
 <div class="paragraph">
 <p>Process inputs are the arguments of a process and refer to data provided to a process. Each process input is an identifiable item.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_process_output"><a class="anchor" href="#_process_output"></a>4.4. Process output</h3>
-<div class="paragraph">
-<p>Process outputs are the results of a process and refer to data returned by a process. Each process output is an identifiable item.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_process_profile"><a class="anchor" href="#_process_profile"></a>4.5. Process profile</h3>
-<div class="paragraph">
-<p>A process profile is a description of a process on an interface level. Process profiles may have different levels of abstraction and cover several aspects. On a generic level, a process profile may only refer to the provided functionality of a process, i.e. by giving a verbal or formal definition how the outputs are derived from the inputs. On a concrete level a process profile may completely define inputs and outputs including data type definitions and formats.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_wps_server"><a class="anchor" href="#_wps_server"></a>4.6. WPS Server</h3>
-<div class="paragraph">
-<p>A WPS Server is a web server that provides access to simple or complex computational processing services</p>
 </div>
 </div>
 <div class="sect2">
@@ -1274,33 +1309,33 @@ specify the interface of a process.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_process_execution"><a class="anchor" href="#_process_execution"></a>4.8. Process execution</h3>
+<h3 id="_process_output"><a class="anchor" href="#_process_output"></a>4.8. Process output</h3>
 <div class="paragraph">
-<p>The execution of a process is an action that calculates the outputs of a given process for a given set of data inputs.</p>
+<p>Process outputs are the results of a process and refer to data returned by a process. Each process output is an identifiable item.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_job"><a class="anchor" href="#_job"></a>4.9. Job</h3>
+<h3 id="_process_profile"><a class="anchor" href="#_process_profile"></a>4.9. Process profile</h3>
 <div class="paragraph">
-<p>The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.</p>
+<p>A process profile is a description of a process on an interface level. Process profiles may have different levels of abstraction and cover several aspects. On a generic level, a process profile may only refer to the provided functionality of a process, i.e. by giving a verbal or formal definition how the outputs are derived from the inputs. On a concrete level a process profile may completely define inputs and outputs including data type definitions and formats.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_service_profiles_for_wps"><a class="anchor" href="#_service_profiles_for_wps"></a>4.10. Service profiles for WPS</h3>
-<div class="paragraph">
-<p>A service profile for WPS is a conformance class that defines the general capabilities of a WPS server, by (1) specifying the supported service operations, (2) the process model, (3) the supported process execution modes, (4) the supported operation binding(s).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_rest_or_restful"><a class="anchor" href="#_rest_or_restful"></a>4.11. REST or RESTful</h3>
+<h3 id="_rest_or_restful"><a class="anchor" href="#_rest_or_restful"></a>4.10. REST or RESTful</h3>
 <div class="paragraph">
 <p>Representational state transfer.  REST-compliant Web services allow requesting systems to access and manipulate textual representations of Web resources using a uniform and predefined set of stateless operations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_json"><a class="anchor" href="#_json"></a>4.12. JSON</h3>
+<h3 id="_service_profiles_for_wps"><a class="anchor" href="#_service_profiles_for_wps"></a>4.11. Service profiles for WPS</h3>
 <div class="paragraph">
-<p>JavaScript Object Notation is a lightweight data-interchange format. It is easy for humans to read and write and it is easy for machines to parse and generate.</p>
+<p>A service profile for WPS is a conformance class that defines the general capabilities of a WPS server, by (1) specifying the supported service operations, (2) the process model, (3) the supported process execution modes, (4) the supported operation binding(s).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_wps_server"><a class="anchor" href="#_wps_server"></a>4.12. WPS Server</h3>
+<div class="paragraph">
+<p>A WPS Server is a web server that provides access to simple or complex computational processing services.</p>
 </div>
 </div>
 </div>
@@ -1334,13 +1369,10 @@ specify the interface of a process.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>alternate</strong>: Refers to a substitute for this context.</p>
+<p><strong>alternate</strong>: Refers to a substitute for the link&#8217;s context.</p>
 </li>
 <li>
-<p><strong>license</strong>: Refers to a license associated with this context.</p>
-</li>
-<li>
-<p><strong>self</strong>: Conveys an identifier for the link&#8217;s context.</p>
+<p><strong>license</strong>: Refers to a license associated with the link&#8217;s context.</p>
 </li>
 <li>
 <p><strong>service-desc</strong>: Identifies service description for the context that is primarily intended for consumption by machines.</p>
@@ -1356,10 +1388,13 @@ specify the interface of a process.</p>
 <p><strong>service-doc</strong>: Identifies service documentation for the context that is primarily intended for human consumption.</p>
 </li>
 <li>
-<p><strong>up</strong>: Refers to a parent document in a hierarchy of documents.</p>
+<p><strong>self</strong>: Conveys an identifier for the link&#8217;s context.</p>
 </li>
 <li>
 <p><strong>status</strong>: 	Identifies a resource that represents the context&#8217;s status.</p>
+</li>
+<li>
+<p><strong>up</strong>: Refers to a parent document in a hierarchy of documents.</p>
 </li>
 </ul>
 </div>
@@ -1425,6 +1460,10 @@ specify the interface of a process.</p>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">International Organization for Standardization</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JavaScript Object Notation</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">KVP</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Keyword Value Pair</p></td>
 </tr>
@@ -1435,6 +1474,10 @@ specify the interface of a process.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Open Geospatial Consortium</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">REST</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Representational State Transfer</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">URI</p></td>
@@ -1452,14 +1495,6 @@ specify the interface of a process.</p>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">XML</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Extensible Markup Language</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">REST</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Representational State Transfer</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JavaScript Object Notation</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -1469,33 +1504,48 @@ specify the interface of a process.</p>
 <p>The term process is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this specification uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the WPS 2.0 standard.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_use_of_https"><a class="anchor" href="#_use_of_https"></a>5.5. Use of HTTPS</h3>
+<div class="paragraph">
+<p>For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. It is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <a href="#rfc2818">HTTPS</a>, not <a href="#rfc2616">HTTP</a>.</p>
+</div>
+<div class="paragraph">
+<p>OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities which are not in common use could be an impediment to interoperability.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_http_uris"><a class="anchor" href="#_http_uris"></a>5.6. HTTP URIs</h3>
+<div class="paragraph">
+<p>This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <a href="#rfc2616">HTTP</a> and <a href="#rfc3986">URI Syntax</a> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <a href="#rfc3986">RFC 3986 (URI Syntax)</a> for details.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="anchor" href="#overview"></a>6. Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The OGC API - Processes builds on the WPS 2.0 standard and it is modularized, meaning that there is a separation between</p>
+<p>The OGC API - Processes builds on the WPS 2.0 standard and is modularized, meaning that there is a separation between</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>core requirements, that specify basic capabilities and can easily be mapped to existing OGC Web Processing Services, and</p>
+<p>Core requirements, that specify basic capabilities and can easily be mapped to existing OGC Web Processing Services;</p>
 </li>
 <li>
-<p>more advanced functionality, that was not specified in WPS 2.0.</p>
+<p>More advanced functionality, that was not specified in WPS 2.0.</p>
 </li>
 </ul>
 </div>
 <div class="sect2">
 <h3 id="_encodings"><a class="anchor" href="#_encodings"></a>6.1. Encodings</h3>
 <div class="paragraph">
-<p>This standard uses JSON as encoding for requests and responses. The inputs and outputs of a process can have any format. The formats of are defined at the time of job creation and are fixed for the specific job.</p>
+<p>This standard uses JSON as the encoding for requests and responses. The inputs and outputs of a process can be any format. The formats of are defined at the time of job creation and are fixed for the specific job.</p>
 </div>
 <div class="paragraph">
 <p><a href="#rec_html">Support for HTML is recommended</a> as HTML is the core language of the World Wide Web.
 A server that supports HTML will support browsing with a web browser
-and it will enable search engines to crawl and index the processes.</p>
+and will enable search engines to crawl and index the processes.</p>
 </div>
 </div>
 </div>
@@ -1526,6 +1576,10 @@ and it will enable search engines to crawl and index the processes.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core">API - Common Core</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc2616">RFC 2616 (HTTP/1.1)</a></p></td>
 </tr>
 <tr>
@@ -1534,7 +1588,7 @@ and it will enable search engines to crawl and index the processes.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc5988">RFC 5988 (Web Linking)</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc5988">RFC 8288 (Web Linking)</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1564,7 +1618,7 @@ implementation of servers and clients. Accessing the <code>APIDefinition</code> 
 HTTP GET returns a description of the API.</p>
 </div>
 <div class="paragraph">
-<p>Accessing the <code>Conformance</code> using HTTP GET returns a list of URIs of
+<p>Accessing <code>Conformance</code> using HTTP GET returns a list of URIs of
 requirements classes implemented by the server.</p>
 </div>
 <div class="paragraph">
@@ -1588,6 +1642,42 @@ requirements classes implemented by the server.</p>
 </div>
 <div class="title">Figure 1. Resources in the Core requirements class</div>
 </div>
+<div class="paragraph">
+<p>The OGC API - Processes standard is build upon the OGC API-Common standard. <a href="#mapping-to-common">Table 5</a> Identifies the API-Common Requirements Classes which are applicable to each section of this standard.</p>
+</div>
+<table id="mapping-to-common" class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Table 5. Mapping API - Processes Sections to API-Common Requirements Classes</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>API - Processes Section</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>API-Common Requirements Class</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_landing_page">API Landing Page</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core" class="bare">http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_api_definition">API Definition</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core" class="bare">http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_conformance_classes">Declaration of Conformance Classes</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core" class="bare">http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#requirements-class-openapi_3_0-clause">OpenAPI 3.0</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common-1/1.0/req/oas30" class="bare">http://www.opengis.net/spec/ogcapi_common-1/1.0/req/oas30</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sc_requirements_class_html">HTML</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common-1/1.0/req/html" class="bare">http://www.opengis.net/spec/ogcapi_common-1/1.0/req/html</a></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="sc_landing_page"><a class="anchor" href="#sc_landing_page"></a>7.2. Retrieve the API landing page</h3>
@@ -1778,8 +1868,8 @@ there is no need to include the <code>/api</code> operation in the API definitio
 the API definition language(s) supported by the server. For example, if
 an OpenAPI definition is used, it should be possible to create a working
 client using the OpenAPI definition. The developer may need to learn a little
-bit about geometry data types, etc., but it should not be required to read
-this standard to access the data via the API.</p>
+bit about geospatial data types, etc., but it should not be required to read
+this standard to access the processes and results via the API.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1898,7 +1988,7 @@ If the server supports HTTPS, the server SHALL also conform to
 <div class="sect3">
 <h4 id="http_status_codes"><a class="anchor" href="#http_status_codes"></a>7.5.1. HTTP status codes</h4>
 <div class="paragraph">
-<p><a href="#status_codes">Table 5</a> lists the main HTTP status codes that clients should be
+<p><a href="#status_codes">Table 6</a> lists the main HTTP status codes that clients should be
 prepared to receive.</p>
 </div>
 <div class="paragraph">
@@ -1910,7 +2000,7 @@ redirection.</p>
 outside of the server.</p>
 </div>
 <table id="status_codes" class="tableblock frame-all grid-all spread">
-<caption class="title">Table 5. Typical HTTP status codes</caption>
+<caption class="title">Table 6. Typical HTTP status codes</caption>
 <colgroup>
 <col style="width: 15%;">
 <col style="width: 85%;">
@@ -1955,6 +2045,10 @@ outside of the server.</p>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The <code>Accept</code> header submitted in the request did not support any of the media types supported by the server for the requested resource.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>429</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The user has sent too many requests in a given amount of time ("rate limiting").</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>500</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An internal error occurred in the server.</p></td>
 </tr>
@@ -1974,7 +2068,7 @@ outside of the server.</p>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">/per/core/additional-status-codes<br>
 
 Servers MAY support other capabilities of the HTTP protocol and, therefore,
-MAY return other status codes than those listed in <a href="#status_codes">Table 5</a>, too.</th>
+MAY return other status codes than those listed in <a href="#status_codes">Table 6</a>, too.</th>
 </tr>
 </thead>
 </table>
@@ -1983,9 +2077,7 @@ MAY return other status codes than those listed in <a href="#status_codes">Table
 <div class="sect2">
 <h3 id="_support_for_cross_origin_requests"><a class="anchor" href="#_support_for_cross_origin_requests"></a>7.6. Support for cross-origin requests</h3>
 <div class="paragraph">
-<p>To access data from a HTML page where the data is on another host than
-the webpage is by default prohibited for security reasons ("same-origin policy").
-A typical example is a web-application accessing processes and data from multiple servers.</p>
+<p>Access to content from a HTML page is by default prohibited for security reasons, if the content is located on another host than the webpage ("same-origin policy"). A typical example is a web-application accessing processes and data from multiple servers.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2098,7 +2190,8 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code>https://processing.example.org/processes</code></pre>
+<pre class="pygments highlight"><code>GET /processes HTTP/1.1
+Host: processing.example.org</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -2539,7 +2632,8 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving status information about a job encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code>http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f</code></pre>
+<pre class="pygments highlight"><code>GET /processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f HTTP/1.1
+Host: processing.example.org</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -2655,7 +2749,8 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the result a job encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code>http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result</code></pre>
+<pre class="pygments highlight"><code>GET /processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result HTTP/1.1
+Host: processing.example.org</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -2988,10 +3083,146 @@ A JSON-encoded OGC process description shall validate against the OpenAPI 3.0 sc
 </div>
 </div>
 <div class="sect1">
-<h2 id="_requirements_classes_for_encodings"><a class="anchor" href="#_requirements_classes_for_encodings"></a>9. Requirements classes for encodings</h2>
+<h2 id="sc_security_considerations"><a class="anchor" href="#sc_security_considerations"></a>9. Security Considerations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The OGC API - Processes specifies a Web API that enables the execution of computing processes, the retrieval of metadata describing their purpose and functionality and the retrieval of the results of the process execution.</p>
+</div>
+<div class="paragraph">
+<p>Access control should be considered for the following resources the API specifies:</p>
+</div>
+<div class="paragraph">
+<p>Requirements class "Core":</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Process description</p>
+</li>
+<li>
+<p>Process list</p>
+</li>
+<li>
+<p>Job status info</p>
+</li>
+<li>
+<p>Job result</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Requirements class "Job list"</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Job list</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following API operations modify resources and therefore require special attention:</p>
+</div>
+<div class="paragraph">
+<p>Requirements class "Core":</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Execute, HTTP POST</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Requirements class "Dismiss"</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dismiss, HTTP DELETE</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_security_related_http_status_codes"><a class="anchor" href="#_security_related_http_status_codes"></a>9.1. Security related HTTP Status Codes</h3>
+<div class="sect3">
+<h4 id="_authentication"><a class="anchor" href="#_authentication"></a>9.1.1. Authentication</h4>
+<div class="paragraph">
+<p>The HTTP 1.1 protocol (<a href="#rfc2616">RFC 2616</a>) supports the use of HTTP authentication via the HTTP status code 401: Unauthorized.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_access_control"><a class="anchor" href="#_access_control"></a>9.1.2. Access control</h4>
+<div class="paragraph">
+<p>Access control is supported by the HTTP protocol through the status code 403: Forbidden.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_security_related_http_headers"><a class="anchor" href="#_security_related_http_headers"></a>9.2. Security related HTTP Headers</h3>
+<div class="paragraph">
+<p>As per IETF RFC 2616, the <strong>Authorization</strong> request-header should be used to send credentials to the API. If the client application tries to perform a CRUD (create, read, update, delete) operation on a protected resource with no or wrong credentials, the server will answer with HTTP status code 401 along with a <strong>WWW-Authenticate</strong> response-header containing at least one challenge applicable to the target resource.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_oauth_2_0_and_openid_connect_1_0"><a class="anchor" href="#_oauth_2_0_and_openid_connect_1_0"></a>9.3. OAuth 2.0 and OpenID Connect 1.0</h3>
+<div class="paragraph">
+<p>OAuth 2.0 (<a href="#rfc6749">RFC 6749</a>) is a widely used authorization protocol that enables resource protection for Web-APIs. On top of OAuth 2.0 sits OpenID Connect 1.0, which allows different client applications to verify the identity of a user.</p>
+</div>
+<div class="sect3">
+<h4 id="_oauth_2_0_bearer_token"><a class="anchor" href="#_oauth_2_0_bearer_token"></a>9.3.1. OAuth 2.0 Bearer Token</h4>
+<div class="paragraph">
+<p>Access tokens contain credentials and are used to identify a user and to grant access to protected resources. Bearer Tokens are the predominant type of access token used with OAuth 2.0<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup>.</p>
+</div>
+<div class="paragraph">
+<p>The Bearer Token needs to be sent to the server using the <strong>Authorization</strong> header, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>GET /processes/EchoProcess HTTP/1.1
+Host: processing.example.org
+Authorization: Bearer eyJhbGciOiJSUz...</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_claims_and_scopes"><a class="anchor" href="#_claims_and_scopes"></a>9.3.2. Claims and scopes</h4>
+<div class="paragraph">
+<p>In OpenID Connect, claims are key/value pairs that contain information about a user. A typical example of a claim is "name":"John Doe". Scopes are tied to claims and are used to specify what access privileges are being requested.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnote_2" title="View footnote.">2</a>]</sup>. Custom claims can be created to serve the needs of a Web-API.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_validation"><a class="anchor" href="#_validation"></a>9.4. Validation</h3>
+<div class="paragraph">
+<p>The OGC API - Processes specifies the execute operation using the HTTP POST method, which will be used as example for requests that contain content. The same guidance applies when using different HTTP methods like PUT, which can also contain content.</p>
+</div>
+<div class="sect3">
+<h4 id="_validation_of_incoming_content_types"><a class="anchor" href="#_validation_of_incoming_content_types"></a>9.4.1. Validation of incoming Content-types</h4>
+<div class="paragraph">
+<p>When sending POST requests, the client will specify the <strong>Content-Type</strong> header of the request content. The server should always check that the <strong>Content-Type</strong> header and the actual request content are of the same type. If there is no <strong>Content-Type</strong> header or the Content-Type is unexpected, the request should be rejected.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_input_validation"><a class="anchor" href="#_input_validation"></a>9.4.2. Input validation</h4>
+<div class="paragraph">
+<p>After the Content-Type was checked, the received content of POST requests itself should be validated. Incorrect input validation can lead to injection attacks, memory leakage, and compromised systems<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnote_3" title="View footnote.">3</a>]</sup>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_request_rate_limitation"><a class="anchor" href="#_request_rate_limitation"></a>9.5. Request rate limitation</h3>
+<div class="paragraph">
+<p>To prevent distributed denial of service (DDoS) attacks or other misuse of the API, the number of requests in a given time can be limited. When the limit is exceeded, the HTTP error code 429 (too many requests) should be returned and access tokens could be blocked temporarily.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_requirements_classes_for_encodings"><a class="anchor" href="#_requirements_classes_for_encodings"></a>10. Requirements classes for encodings</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_overview_3"><a class="anchor" href="#_overview_3"></a>9.1. Overview</h3>
+<h3 id="_overview_3"><a class="anchor" href="#_overview_3"></a>10.1. Overview</h3>
 <div class="paragraph">
 <p>This clause specifies two pre-defined requirements classes for encodings to be
 used with the OGC API Processes.</p>
@@ -3015,7 +3246,7 @@ used with the OGC API Processes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_requirement_class_json"><a class="anchor" href="#_requirement_class_json"></a>9.2. Requirement Class "JSON"</h3>
+<h3 id="_requirement_class_json"><a class="anchor" href="#_requirement_class_json"></a>10.2. Requirement Class "JSON"</h3>
 <div class="paragraph">
 <p>This section defines the requirements class JSON.</p>
 </div>
@@ -3063,7 +3294,7 @@ used with the OGC API Processes.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_requirement_class_html"><a class="anchor" href="#_requirement_class_html"></a>9.3. Requirement Class "HTML"</h3>
+<h3 id="sc_requirements_class_html"><a class="anchor" href="#sc_requirements_class_html"></a>10.3. Requirement Class "HTML"</h3>
 <div class="paragraph">
 <p>This section defines the requirements class HTML.</p>
 </div>
@@ -3086,6 +3317,10 @@ used with the OGC API Processes.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">OGC API - Processes Core</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common/1.0/req/html">API - Common HTML</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -3133,12 +3368,12 @@ in the HTML <code>&lt;body/&gt;</code>, and
 </div>
 </div>
 <div class="sect1">
-<h2 id="_requirements_class_openapi_3_0"><a class="anchor" href="#_requirements_class_openapi_3_0"></a>10. Requirements Class "OpenAPI 3.0"</h2>
+<h2 id="requirements-class-openapi_3_0-clause"><a class="anchor" href="#requirements-class-openapi_3_0-clause"></a>11. Requirements Class "OpenAPI 3.0"</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_basic_requirements"><a class="anchor" href="#_basic_requirements"></a>10.1. Basic requirements</h3>
+<h3 id="_basic_requirements"><a class="anchor" href="#_basic_requirements"></a>11.1. Basic requirements</h3>
 <div class="paragraph">
-<p>APIs conforming to this requirements class document themselves by an <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument">OpenAPI Document</a>.</p>
+<p>APIs conforming to this requirements class are documented as an <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument">OpenAPI Document</a>.</p>
 </div>
 <table id="rc_oas30" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3159,6 +3394,10 @@ in the HTML <code>&lt;body/&gt;</code>, and
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">OGC API - Processes 1.0 Core</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common-1/1.0/req/oas30">API - Common OpenAPI 3.0</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -3221,7 +3460,7 @@ definition.</th>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_complete_definition"><a class="anchor" href="#_complete_definition"></a>10.2. Complete definition</h3>
+<h3 id="_complete_definition"><a class="anchor" href="#_complete_definition"></a>11.2. Complete definition</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3251,7 +3490,7 @@ situations that originate from the server.</th>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exceptions"><a class="anchor" href="#exceptions"></a>10.3. Exceptions</h3>
+<h3 id="exceptions"><a class="anchor" href="#exceptions"></a>11.3. Exceptions</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3286,7 +3525,7 @@ SHALL cover all applicable HTTP Status Codes.</th>
 </div>
 </div>
 <div class="sect2">
-<h3 id="security"><a class="anchor" href="#security"></a>10.4. Security</h3>
+<h3 id="security"><a class="anchor" href="#security"></a>11.4. Security</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3325,7 +3564,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</th>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Job_list"><a class="anchor" href="#Job_list"></a>11. Requirements Class "Job list"</h2>
+<h2 id="Job_list"><a class="anchor" href="#Job_list"></a>12. Requirements Class "Job list"</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This requirement class specifies how to retrieve a job list from the API.</p>
@@ -3353,7 +3592,7 @@ the security scheme(s) SHALL be documented in the OpenAPI definition.</th>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="_operation_9"><a class="anchor" href="#_operation_9"></a>11.1. Operation</h3>
+<h3 id="_operation_9"><a class="anchor" href="#_operation_9"></a>12.1. Operation</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3370,7 +3609,7 @@ The server SHALL support the HTTP GET operation at the path <code>/processes/{pr
 </table>
 </div>
 <div class="sect2">
-<h3 id="_response_9"><a class="anchor" href="#_response_9"></a>11.2. Response</h3>
+<h3 id="_response_9"><a class="anchor" href="#_response_9"></a>12.2. Response</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3476,7 +3715,7 @@ The content of that response SHALL be based upon the OpenAPI
 </div>
 </div>
 <div class="sect2">
-<h3 id="_error_situations_9"><a class="anchor" href="#_error_situations_9"></a>11.3. Error situations</h3>
+<h3 id="_error_situations_9"><a class="anchor" href="#_error_situations_9"></a>12.3. Error situations</h3>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
@@ -3487,7 +3726,7 @@ The content of that response SHALL be based upon the OpenAPI
 </div>
 </div>
 <div class="sect1">
-<h2 id="Callbacks"><a class="anchor" href="#Callbacks"></a>12. Requirements Class "Callback"</h2>
+<h2 id="Callbacks"><a class="anchor" href="#Callbacks"></a>13. Requirements Class "Callback"</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This conformance class specifies a callback mechanism for completed jobs. In contrast to the pull-based mechanism specified in <a href="#sc_create_job">Create a new job</a> and <a href="#sc_retrieve_status_info">Retrieve status information about a job</a>, this conformance class specifies a push-based mechanism, where a subscriber-URL is passed to the API in the execute request. After the job is completed, the result response is sent to the specified URL.</p>
@@ -3557,7 +3796,7 @@ The server SHALL support callback functions for jobs.</th>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Dismiss"><a class="anchor" href="#Dismiss"></a>13. Requirements Class "Dismiss"</h2>
+<h2 id="Dismiss"><a class="anchor" href="#Dismiss"></a>14. Requirements Class "Dismiss"</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This requirement class specifies how to dismiss a job. Dismiss can be seen as canceling a running job or removing artifacts of a finished job.</p>
@@ -3585,7 +3824,7 @@ The server SHALL support callback functions for jobs.</th>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="_operation_10"><a class="anchor" href="#_operation_10"></a>13.1. Operation</h3>
+<h3 id="_operation_10"><a class="anchor" href="#_operation_10"></a>14.1. Operation</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3602,7 +3841,7 @@ The server SHALL support the HTTP DELETE operation at the path <code>/processes/
 </table>
 </div>
 <div class="sect2">
-<h3 id="_response_10"><a class="anchor" href="#_response_10"></a>13.2. Response</h3>
+<h3 id="_response_10"><a class="anchor" href="#_response_10"></a>14.2. Response</h3>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3641,7 +3880,7 @@ The content of that response SHALL be based upon the OpenAPI
 </div>
 </div>
 <div class="sect2">
-<h3 id="_error_situations_10"><a class="anchor" href="#_error_situations_10"></a>13.3. Error situations</h3>
+<h3 id="_error_situations_10"><a class="anchor" href="#_error_situations_10"></a>14.3. Error situations</h3>
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
@@ -3669,7 +3908,7 @@ The exception code of the exception shall be "NoSuchJob".</th>
 </div>
 </div>
 <div class="sect1">
-<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>14. Media Types</h2>
+<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>15. Media Types</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>JSON media types that would typically be used in a server that supports JSON are:</p>
@@ -3709,7 +3948,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 </div>
 <div class="sect1">
-<h2 id="additional-api-building-blocks"><a class="anchor" href="#additional-api-building-blocks"></a>15. Additional API Building Blocks</h2>
+<h2 id="additional-api-building-blocks"><a class="anchor" href="#additional-api-building-blocks"></a>16. Additional API Building Blocks</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The core requirements classes of this standard are designed for the following workflow:</p>
@@ -3731,13 +3970,13 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </ol>
 </div>
 <div class="paragraph">
-<p>This workflow is useful for generic client that are implemented against the JSON schemas and paths specified in this document. They can communicate with any server implementing the OGC API - Processes. There may be limitations regarding the handling of input and output formats, however.</p>
+<p>This workflow is useful for generic client that are implemented against the JSON schemas and paths specified in this standard. Generic clients can communicate with any server implementing the OGC API - Processes. However, here may be limitations regarding the handling of input and output formats.</p>
 </div>
 <div class="paragraph">
-<p>The approach describe above requires implementors of clients to have knowledge about the standard.</p>
+<p>The approach describe above requires implementers of clients to have knowledge about the standard.</p>
 </div>
 <div class="paragraph">
-<p>As an alternative that could make it easier for implementors that are not familiar with OGC (API) standards, deviations from strictly following the schemas and paths specified in this standard are permitted.</p>
+<p>An alternative that could make it easier for implementers that are not familiar with OGC (API) standards is permitting deviations from strictly following the schemas and paths specified in this standard.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3754,7 +3993,7 @@ Servers MAY support alternative means of describing the inputs and outputs of a 
 </thead>
 </table>
 <div class="paragraph">
-<p>This allows server implementations to describe a process, e.g. by defining the request and response body of a POST request to a process endpoint.</p>
+<p>This permission allows server implementations to describe a process, such as by defining the request and response body of a POST request to a process endpoint.</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3771,83 +4010,68 @@ Servers MAY support alternative API paths.</th>
 </thead>
 </table>
 <div class="paragraph">
-<p>This allows server implementations to specify alternative paths to processes and jobs.</p>
+<p>This permission allows server implementations to specify alternative paths to processes and jobs.</p>
 </div>
 <div class="paragraph">
 <p>An example of an OpenAPI document making use of the building blocks is shown in the following:</p>
 </div>
-<div class="paragraph">
-<p>TODO: update example</p>
-</div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="YAML"><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">openapi</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">3.0.0</span>
+<pre class="pygments highlight"><code data-lang="YAML"><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">openapi</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">3.0.2</span>
 <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">info</span><span class="tok-p tok-p-Indicator">:</span>
-  <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">title</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Alternative API</span>
-  <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">description</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">This is a simple API</span>
+  <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">title</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Alternative OGC API - Processes</span>
+  <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">description</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">This is an alternative OGC API - Processes</span>
   <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">contact</span><span class="tok-p tok-p-Indicator">:</span>
     <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">email</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">you@your-company.com</span>
   <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">license</span><span class="tok-p tok-p-Indicator">:</span>
     <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Apache 2.0</span>
     <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">url</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">http://www.apache.org/licenses/LICENSE-2.0.html</span>
   <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">version</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">1.0.0</span>
-<span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">servers</span><span class="tok-p tok-p-Indicator">:</span>
-<span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">url</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">https://virtserver.swaggerhub.com/bpross-52n/alternative-api/1.0.0</span>
-  <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">description</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">SwaggerHub API Auto Mocking</span>
 <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">paths</span><span class="tok-p tok-p-Indicator">:</span>
   <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">/buffer</span><span class="tok-p tok-p-Indicator">:</span>
     <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">post</span><span class="tok-p tok-p-Indicator">:</span>
-      <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">tags</span><span class="tok-p tok-p-Indicator">:</span>
-      <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">admins</span>
-      <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">summary</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">adds an inventory item</span>
-      <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">description</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Adds an item to the system</span>
-      <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">operationId</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">addInventory</span>
+      <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">summary</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">execute buffer process</span>
+      <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">operationId</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">executeBuffer</span>
       <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">requestBody</span><span class="tok-p tok-p-Indicator">:</span>
-        <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">description</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Inventory item to add</span>
+        <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">description</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">buffer inputs</span>
         <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">content</span><span class="tok-p tok-p-Indicator">:</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">application/json</span><span class="tok-p tok-p-Indicator">:</span>
             <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">schema</span><span class="tok-p tok-p-Indicator">:</span>
-              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">$ref</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-s">&#39;#/components/schemas/execute&#39;</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">$ref</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-s">&#39;#/components/schemas/bufferExecute&#39;</span>
       <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">responses</span><span class="tok-p tok-p-Indicator">:</span>
         <span class="tok-s">&quot;200&quot;</span><span class="tok-p tok-p-Indicator">:</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">description</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">item created</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">description</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">buffer created</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">content</span><span class="tok-p tok-p-Indicator">:</span>
             <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">application/json</span><span class="tok-p tok-p-Indicator">:</span>
               <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">schema</span><span class="tok-p tok-p-Indicator">:</span>
-                <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">$ref</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-s">&#39;#/components/schemas/result&#39;</span>
+                <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">$ref</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-s">&#39;#/components/schemas/bufferResult&#39;</span>
         <span class="tok-s">&quot;400&quot;</span><span class="tok-p tok-p-Indicator">:</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">description</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">invalid input, object invalid</span>
-        <span class="tok-s">&quot;409&quot;</span><span class="tok-p tok-p-Indicator">:</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">description</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">an existing item already exists</span>
+          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">description</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">invalid input</span>
 <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">components</span><span class="tok-p tok-p-Indicator">:</span>
   <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">schemas</span><span class="tok-p tok-p-Indicator">:</span>
-    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">execute</span><span class="tok-p tok-p-Indicator">:</span>
+    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">bufferExecute</span><span class="tok-p tok-p-Indicator">:</span>
       <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">required</span><span class="tok-p tok-p-Indicator">:</span>
-      <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">input1</span>
-      <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">mode</span>
-      <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">response</span>
+      <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">data</span>
+      <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">width</span>
       <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">object</span>
       <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">properties</span><span class="tok-p tok-p-Indicator">:</span>
-        <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">input1</span><span class="tok-p tok-p-Indicator">:</span>
+        <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">data</span><span class="tok-p tok-p-Indicator">:</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">maxItems</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">10</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">minItems</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">1</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">array</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">description</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">this is possible to provide the abstract in here</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">items</span><span class="tok-p tok-p-Indicator">:</span>
-            <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">$ref</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">./valueType.yaml</span>
-        <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">input2</span><span class="tok-p tok-p-Indicator">:</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">string</span>
-        <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">input3</span><span class="tok-p tok-p-Indicator">:</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">boolean</span>
-        <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">input5</span><span class="tok-p tok-p-Indicator">:</span>
+            <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">oneOf</span><span class="tok-p tok-p-Indicator">:</span>
+            <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">string</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">format</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">application/geo+json</span>
+            <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">string</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">format</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">application/gml+xml</span>
+        <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">width</span><span class="tok-p tok-p-Indicator">:</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">maximum</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">100</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">minimum</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">1</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">integer</span>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">default</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">20</span>
-        <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">input6</span><span class="tok-p tok-p-Indicator">:</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">string</span>
-          <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">default</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">test</span>
-    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">result</span><span class="tok-p tok-p-Indicator">:</span>
+    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">bufferResult</span><span class="tok-p tok-p-Indicator">:</span>
       <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">object</span>
       <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">properties</span><span class="tok-p tok-p-Indicator">:</span>
         <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">outputs</span><span class="tok-p tok-p-Indicator">:</span>
@@ -3855,9 +4079,9 @@ Servers MAY support alternative API paths.</th>
           <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">items</span><span class="tok-p tok-p-Indicator">:</span>
             <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">oneOf</span><span class="tok-p tok-p-Indicator">:</span>
             <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">string</span>
-              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">format</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">image/tiff</span>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">format</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">application/geo+json</span>
             <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">string</span>
-              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">format</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">image/png</span></code></pre>
+              <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">format</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">application/gml+xml</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5713,9 +5937,21 @@ Tests: A.4.1.1<br></p></td>
 </div>
 </div>
 </div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnote_1">
+<a href="#_footnoteref_1">1</a>. <a href="https://oauth.net/2/bearer-tokens/" class="bare">https://oauth.net/2/bearer-tokens/</a>
+</div>
+<div class="footnote" id="_footnote_2">
+<a href="#_footnoteref_2">2</a>. <a href="https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1" class="bare">https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1</a>
+</div>
+<div class="footnote" id="_footnote_3">
+<a href="#_footnoteref_3">3</a>. <a href="https://www.whitehatsec.com/glossary/content/input-validation" class="bare">https://www.whitehatsec.com/glossary/content/input-validation</a>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-21 08:10:02 PDT
+Last updated 2020-07-30 14:55:44 PDT
 </div>
 </div>
 </body>
