@@ -1,132 +1,235 @@
 openapi: 3.0.2
 info:
-  title: 'OGC API - Processes - Part 2: Transactions'
-  version: '1.0.0'
+  title: "OGC API - Processes - Part 2: Transactions"
+  version: "1.0.0"
   description: |-
-    This is an example Open API definition for a transactional API that
-    conforms to part 2 of the OGC API - Processes suite of standards.
-  context:
-    name: Acme Corporation
-    email: info@example.org
-    url: 'http://example.org/'
+    WARNING - THIS IS WORK IN PROGRESS
+    This document extends the OpenAPI definition from OGC API - Processes - Part 1: Core to add transactional capabilities.
+  contact:
+    name: Panagiotis (Peter) A. Vretanos
+    email: pvretano@cubewerx.com
   license:
-    name: CC-BY 4.0 license
-    url: 'https://creativecommons.org/licenses/by/4.0/'
+    name: OGC license
+    url: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/LICENSE"
 servers:
-  - url: 'https://data.example.org/'
-    description: Production server
-  - url: 'https://dev.example.org/'
-    description: Development server
-tags:
-  - name: Transactions
-    description: |-
-      essential characteristics of the transactional API for OGC API - Processes- Part 2: Transactions
-  - name: Application Package
-    description: |-
-      content of a POST or PUT that describes the interface of the process to add to the API
+  - description: Mock server
+    url: https://www.someserver.com/wps
 paths:
-  '/processes':
+  /:
+    get:
+      summary: landing page of this API
+      description: >-
+        The landing page provides links to the API definition, the conformance
+        declaration and the metadata about the processes offered by this service.
+      operationId: getLandingPage
+      tags:
+        - Capabilities
+      responses:
+        200:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/LandingPage.yaml"
+        500:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
+  /conformance:
+    get:
+      summary: information about standards that this API conforms to
+      description: >-
+        Lists all requirements classes specified in the standard (e.g., OGC API - Processes
+        Part 1: Core) that the server conforms to
+      operationId: getConformanceClasses
+      tags:
+        - ConformanceDeclaration
+      responses:
+        200:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ConformanceDeclaration.yaml"
+        500:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
+  /processes:
+    get:
+      summary: retrieve available processes
+      description: >-
+        Lists all available processes this server offers.
+      operationId: getProcesses
+      tags:
+        - ProcessCollection
+      responses:
+        200:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ProcessCollection.yaml"
     post:
-      tags:
-        - Transactional
-      operationId: deployProcess
-      summary: Deploys a process
+      summary: Deploys a new process
       description: Adds a new process to the API.
+      operationId: deployProcess
+      tags:
+        - Deploy Process
       requestBody:
-        description: 'The request body contains a description of the process to deploy.  Part 2 does not mandate a specific process description language or schema but this example uses the recommended OGC Application Package schema.'
+        description: The request body contains a description of the process to deploy.  Part 2 does not mandate a specific process description language or schema but this example uses the recommended OGC Application Package schema.
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ogcapppkg'
+              $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/extensions/transactions/openapi/schemas/ogcapppkg.yaml"
       responses:
-        '201':
-          description: process created
-          content:
-            application/json:
-              schema:
-                $ref: https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processSummary.yaml
-        '400':
-          $ref: '#/components/responses/InvalidOrUnsupportedProcess'
-        '409':
-          $ref: '#/components/responses/ProcessAlreadyExists'
-        default:
-          $ref: '#/components/responses/InternalServerError'
-
-  '/processes/{id}':
-    parameters:
-      - in: path
-        name: id
-        description: The process identifier
-        required: true
-        schema:
-          type: string
-          example: buffer
+        201:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processSummary.yaml"
+        400:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/NotSupported.yaml"
+        409:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/extensions/transactions/openapi/schemas/responses/DuplicateProcess.yaml"
+        500:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/ServerError.yaml"
+  /processes/{processId}:
+    get:
+      summary: retrieve a process description
+      description: >-
+        Describes a process.
+      operationId: getProcessDescription
+      tags:
+        - ProcessDescription
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+      responses:
+        200:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ProcessDescription.yaml"
+        404:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
     put:
-      tags:
-        - Transactional
+      summary: update process
+      description: Updates a previously deployed process.
       operationId: updateProcess
-      summary: Updates a process
-      description: Updates an existing process.
+      tags:
+        - Replace Process 
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
       requestBody:
-        description: The application package to deploy.
+        description: The request body contains a description of the process to replace the existing process.  Part 2 does not mandate a specific process description language or schema but this example uses the recommended OGC Application Package schema.
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ogcapppkg'
+              $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/extensions/transactions/openapi/schemas/ogcapppkg.yaml"
       responses:
-        '204':
+        204:
           description: The process was updated.
-        '400':
-          $ref: '#/components/responses/InvalidOrUnsupportedProcess'
-        '404':
-          $ref: '#/components/responses/ProcessNotFound'
-        default:
-          $ref: '#/components/responses/InternalServerError'
-
+        400:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/NotSupported.yaml"
+        404:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
+        500:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/ServerError.yaml"
     delete:
-      tags:
-        - Transactional
+      summary: undeploy process
+      description: Remove a previously deployed processes from the API.
       operationId: undeployProcess
-      summary: Undeploy a process.
-      description: Remove a process from the API.
+      tags:
+        - Undeploy Process
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
       responses:
-        '204':
+        204:
           description: The process was deleted.
-        '400':
-          $ref: '#/components/responses/InvalidOrUnsupportedProcess'
-        '404':
-          $ref: '#/components/responses/ProcessNotFound'
-        default:
-          $ref: '#/components/responses/InternalServerError'
-
-components:
-  responses:
-    ProcessNotFound:
-      description: 'the process with the identifier {id} does not exist'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Exception'
-    InvalidOrUnsupportedProcess:
-      description: 'the description of the process is invalid or unsupported'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Exception'
-    ProcessAlreadyExists:
-      description: 'the process with the identifier {id} already exists'
-      content:
-        application/json:
-          schema:
-            $ref: https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml
-    InternalServerError:
-      description: an internal server error occurred
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Exception'
-  schemas:
-    Exception:
-      $ref: https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml
-    ogcapppkg:
-      $ref: https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/extensions/transactions/openapi/schemas/ogcapppkg.yaml
+        404:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
+        500:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/ServerError.yaml"
+  /processes/{processId}/jobs:
+    get:
+      summary: retrieve the list of jobs for a process.
+      description: >-
+        Lists available jobs of a process.
+      operationId: getJobs
+      tags:
+        - JobCollection
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+      responses:
+        200:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/JobCollection.yaml"
+        404:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
+    post:
+      summary: execute a process.
+      description: >-
+        Submits a new job.
+      operationId: execute
+      tags:
+        - Execute
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml"
+      responses:
+        200:
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ExecuteSync.yaml'
+        201:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ExecuteAsync.yaml"
+        404:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
+        500:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
+      callbacks:
+        jobCompleted:
+          "{$request.body#/subscriber/successUri}":
+            post:
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml"
+              responses:
+                200:
+                  description: Results received successfully
+  /processes/{processId}/jobs/{jobId}:
+    get:
+      summary: retrieve the status of a job
+      description: >-
+        Shows the status of a job.
+      operationId: getStatus
+      tags:
+        - Status
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml"
+      responses:
+        200:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/Status.yaml"
+        404:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
+        500:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
+    delete:
+      summary: cancel a job execution, remove a finished job
+      description: >-
+        Cancel a job execution and remove it from the jobs list.
+      operationId: dismiss
+      tags:
+        - Dismiss
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml"
+      responses:
+        200:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/Status.yaml"
+        404:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
+        500:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
+  /processes/{processId}/jobs/{jobId}/results:
+    get:
+      summary: retrieve the result(s) of a job
+      description: >-
+        Lists available results of a job. In case of a failure, lists exceptions instead.
+      operationId: getResult
+      tags:
+        - Result
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml"
+      responses:
+        200:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/Results.yaml"
+        404:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
+        500:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
