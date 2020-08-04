@@ -1,8 +1,9 @@
+[[requirements-class-openapi_3_0-clause]]
 == Requirements Class "OpenAPI 3.0"
 
 === Basic requirements
 
-APIs conforming to this requirements class document themselves by an link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument[OpenAPI Document].
+APIs conforming to this requirements class are documented as an link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument[OpenAPI Document].
 
 include::requirements/requirements_class_oas30.adoc[]
 

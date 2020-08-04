@@ -1,5 +1,0 @@
-description: A collection of jobs for this process.
-content:
-  application/json:
-    schema:
-      $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml"

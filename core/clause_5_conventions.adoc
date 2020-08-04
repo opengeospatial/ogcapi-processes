@@ -14,11 +14,9 @@ To express relationships between resources, <<rfc8288,RFC 8288 (Web Linking)>> i
 
 The following <<link-relations,registered link relation types>> are used in this document.
 
-* **alternate**: Refers to a substitute for this context.
+* **alternate**: Refers to a substitute for the link's context.
 
-* **license**: Refers to a license associated with this context.
-
-* **self**: Conveys an identifier for the link's context.
+* **license**: Refers to a license associated with the link's context.
 
 * **service-desc**: Identifies service description for the context that is primarily intended for consumption by machines.
 
@@ -26,9 +24,11 @@ The following <<link-relations,registered link relation types>> are used in this
 
 * **service-doc**: Identifies service documentation for the context that is primarily intended for human consumption.
 
-* **up**: Refers to a parent document in a hierarchy of documents.
+* **self**: Conveys an identifier for the link's context.
 
 * **status**: 	Identifies a resource that represents the context's status.
+
+* **up**: Refers to a parent document in a hierarchy of documents.
 
 In addition the following link relation types are used for which no applicable registered link relation type could be identified.
 
@@ -40,7 +40,7 @@ In addition the following link relation types are used for which no applicable r
 
 * **process-desc**: The target URI points to a specific process description.
 
-* **processes**: The target URI points to the collection of processes the API offers.
+* **processes**: The target URI points to the list of processes the API offers.
 
 * **results**: The target URI points to the results of a process.
 
@@ -55,15 +55,15 @@ Each resource representation includes an array of links. Implementations are fre
 |GML	| Geography Markup Language
 |HTTP	| Hypertext Transfer Protocol
 |ISO	| International Organization for Standardization
+|JSON	| JavaScript Object Notation
 |KVP	| Keyword Value Pair
 |MIME	| Multipurpose Internet Mail Extensions
 |OGC	| Open Geospatial Consortium
+|REST	| Representational State Transfer
 |URI	| Universal Resource Identifier
 |URL	| Uniform Resource Locator
 |WPS	| Web Processing Service
 |XML	| Extensible Markup Language
-|REST	| Representational State Transfer
-|JSON	| JavaScript Object Notation
 |=======================
 
 === Use of the Term "Process"

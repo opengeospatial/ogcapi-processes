@@ -1,6 +1,0 @@
-description: >-
-  Information about the available processes
-content:
-  application/json:
-    schema:
-      $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml"
