@@ -3,6 +3,10 @@
 This GitHub repository contains the OGC API - Processes for processing geospatial information on the web. It focuses on a simple RESTful core specified
 as reusable [OpenAPI](http://openapis.org) components with responses in JSON and HTML.
 
+[OGC API standards](https://ogcapi.ogc.org) define modular API building blocks to spatially enable Web APIs
+in a consistent way. [OpenAPI](http://openapis.org) is used to define the reusable
+API building blocks.
+
 ## Overview
 
 The OGC API - Processes enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality.
