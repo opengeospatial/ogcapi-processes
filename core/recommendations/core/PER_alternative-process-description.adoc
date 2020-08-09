@@ -1,3 +1,4 @@
+[[per_core_alternative-process-description]]
 [width="90%",cols="2,6a"]
 |===
 |Permission {counter:per-id} |/per/core/alternative-process-description +

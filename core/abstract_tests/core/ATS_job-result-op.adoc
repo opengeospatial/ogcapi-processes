@@ -1,0 +1,11 @@
+[[ats_core_job-result-op]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/core/job-result*
+^|Test Purpose |Validate that the results of a job can be retrieved.
+^|Requirement |<<req_core_job-result,/req/core/job-result>>
+^|Test Method |. Create a job as per <<ats_core_job-creation-op,/req/core/job-creation-op>> and note the {jobID} assigned to the job.
+. Issue an HTTP GET request to the URL '/processes/{processID}/jobs/{jobID}/results'.
+. Validate that the document was returned with a status code 200.
+. Validate the contents of the returned document using the test <<ats_job-result-success,/req/core/job-result-success>>.
+|===

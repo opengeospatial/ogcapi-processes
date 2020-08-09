@@ -1,3 +1,4 @@
+[[req_core_job-creation-request]]
 [width="90%",cols="2,6a"]
 |===
 |*Requirement {counter:req-id}* |/req/core/job-creation-request +
