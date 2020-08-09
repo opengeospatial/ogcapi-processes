@@ -1,4 +1,3 @@
-[[rc_ogc-process-description]]
 == Requirements Class "OGC Process Description"
 
 The following section describes the `OGC Process Description` requirements

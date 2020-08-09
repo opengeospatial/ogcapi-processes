@@ -1,3 +1,4 @@
+[[req_core_api-definition-success]]
 [width="90%",cols="2,6a"]
 |===
 |*Requirement {counter:req-id}* |/req/core/api-definition-success +

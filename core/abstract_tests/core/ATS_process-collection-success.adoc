@@ -1,0 +1,20 @@
+[[ats_core_process-collection-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/core/process-collection-success*
+^|Test Purpose |Validate that the process collection content complies with the required structure and contents.
+^|Requirement |<<req_core_process-collection-success,/req/core/process-collection-success>>
+^|Test Method |. Validate that a document was returned with an HTTP status code of 200.
+. Validate the process collection content for all supported media types using the resources and tests identified in <<process-collection-schema>>
+|===
+
+The process collection may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.
+
+[[process-collection-schema]]
+.Schema and Tests for Collections content
+[width="90%",cols="3",options="header"]
+|===
+|Format |Schema Document |Test ID
+|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/processCollection.yaml[processCollection.yaml] |<<ats_html_content,/conf/html/content>>
+|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/processCollection.yaml[processCollection.yaml] |<<ats_json_content,/conf/json/content>>
+|===

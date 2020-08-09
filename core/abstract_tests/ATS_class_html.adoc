@@ -8,3 +8,6 @@
 |Dependency |<<ats_core,Conformance Class 'Core'>>
 |===
 
+include::html/ATS_content.adoc[]
+
+include::html/ATS_definition.adoc[]

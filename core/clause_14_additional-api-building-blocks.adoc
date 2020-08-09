@@ -14,11 +14,11 @@ The approach describe above requires implementers of clients to have knowledge a
 
 An alternative that could make it easier for implementers that are not familiar with OGC (API) standards is permitting deviations from strictly following the schemas and paths specified in this standard.
 
-include::requirements/core/PER_alternative-process-description.adoc[]
+include::recommendations/core/PER_alternative-process-description.adoc[]
 
 This permission allows server implementations to describe a process, such as by defining the request and response body of a POST request to a process endpoint.
 
-include::requirements/core/PER_alternative-process-paths.adoc[]
+include::recommendations/core/PER_alternative-process-paths.adoc[]
 
 This permission allows server implementations to specify alternative paths to processes and jobs. 
 

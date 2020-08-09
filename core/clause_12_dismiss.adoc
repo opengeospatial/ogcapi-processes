@@ -23,6 +23,7 @@ include::examples/json/StatusInfo-dismissed.json[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<rc_no-such-process>>).
+If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).
 
-include::requirements/core/REQ_job-exception-no-such-job.adoc[]
+If the job with the specified identifier doesn't exist, the status code of the 
+response will be `404` (see <<req_core_job-exception-no-such-job>>).
