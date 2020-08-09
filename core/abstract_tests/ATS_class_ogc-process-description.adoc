@@ -7,22 +7,4 @@
 |Requirements class |<<rc_ogc-process-description,Requirements Class "OGC Process Description">>
 |===
 
-==== Validate the OGC Process Description 
-
-[[validate_ogc-process-description_json]]
-===== Validate the JSON-encoded OGC Process Description 
-
-====== a) Test Purpose:
-Validate the JSON-encoded OGC Process Description document.
-
-====== b) Pre-conditions:
-
-* The OGC Process Description document has been retrieved encoded in JSON.
-
-====== c) Test Method:
-
-. Validate the retrieved document against the  https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml[process.yaml] schema.
-
-====== d) References:
-Requirement <<json_ogc-process-description,JSON OGC Process Description>>
-
+include::ogc-process-description/ATS_json-encoding.adoc[]

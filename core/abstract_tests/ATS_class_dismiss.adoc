@@ -7,4 +7,6 @@
 |Requirements class |<<rc_core,Requirements Class "Core">>
 |===
 
-TODO
+include::dismiss/ATS_job-dismiss-op.adoc[]
+
+include::dismiss/ATS_job-dismiss-success.adoc[]

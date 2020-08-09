@@ -1,4 +1,4 @@
-[[json_ogc-process-description]]
+[[req_ogc-process-description_json-encoding]]
 [width="90%",cols="2,6a"]
 |===
 |*Requirement {counter:req-id}* |/req/ogc-process-description/json-encoding +
