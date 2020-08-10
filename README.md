@@ -77,3 +77,6 @@ The WPS 2.0 Standards Working Group (SWG) is the group at OGC responsible for th
 
 * [Open issues](https://github.com/opengeospatial/wps-rest-binding/issues)
 * [Copy of License Language](https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/LICENSE)
+
+Pull Requests from contributors are welcomed. However, please note that by sending a Pull Request or Commit to this GitHub repository, you are agreeing to the terms in the Observer Agreement https://portal.ogc.org/files/?artifact_id=92169
+
