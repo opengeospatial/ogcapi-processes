@@ -19,7 +19,5 @@ OGC 08-131r3 – The Specification Model – A Standard for Modular Specificatio
 
 [[rfc4646]] IETF RFC 4646: Tags for Identifying Languages. https://tools.ietf.org/html/rfc4646
 
-[[rfc6749]] IETF RFC 6749: The OAuth 2.0 Authorization Framework. https://tools.ietf.org/html/rfc6749
-
 [[rfc8288]] IETF RFC 8288: Web Linking https://tools.ietf.org/html/rfc8288
 
