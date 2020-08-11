@@ -26,35 +26,8 @@ Requirements class "Dismiss"
 
 * Dismiss, HTTP DELETE
 
-=== Security related HTTP Status Codes
+This standard specifies operations that are safe, meaning that they do not modify resources. The execute operation uses HTTP POST to create new processing jobs (executions). This HTTP method is not safe, as it creates new resources, which 
 
-==== Authentication
-The HTTP 1.1 protocol (<<rfc2616, RFC 2616>>) supports the use of HTTP authentication via the HTTP status code 401: Unauthorized. 
-
-==== Access control
-Access control is supported by the HTTP protocol through the status code 403: Forbidden.
-
-=== Security related HTTP Headers
-
-As per IETF RFC 2616, the **Authorization** request-header should be used to send credentials to the API. If the client application tries to perform a CRUD (create, read, update, delete) operation on a protected resource with no or wrong credentials, the server will answer with HTTP status code 401 along with a **WWW-Authenticate** response-header containing at least one challenge applicable to the target resource.
-
-=== OAuth 2.0 and OpenID Connect 1.0
-OAuth 2.0 (<<rfc6749, RFC 6749>>) is a widely used authorization protocol that enables resource protection for Web-APIs. On top of OAuth 2.0 sits OpenID Connect 1.0, which allows different client applications to verify the identity of a user.
-
-==== OAuth 2.0 Bearer Token
-
-Access tokens contain credentials and are used to identify a user and to grant access to protected resources. Bearer Tokens are the predominant type of access token used with OAuth 2.0footnote:[<https://oauth.net/2/bearer-tokens/>].
-
-The Bearer Token needs to be sent to the server using the **Authorization** header, for example:
-----
-GET /processes/EchoProcess HTTP/1.1
-Host: processing.example.org
-Authorization: Bearer eyJhbGciOiJSUz...
-----
-
-==== Claims and scopes
-
-In OpenID Connect, claims are key/value pairs that contain information about a user. A typical example of a claim is "name":"John Doe". Scopes are tied to claims and are used to specify what access privileges are being requested.footnote:[https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1]. Custom claims can be created to serve the needs of a Web-API.
 
 === Validation
 
