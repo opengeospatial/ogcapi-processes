@@ -11,7 +11,7 @@ capabilities document of the server, the list of processes available
 results of process executions.
 
 [#table_core_resources,reftext='{table-caption} {counter:table-num}']
-.Requirements class 'Core' - Overview of core resources, applicable HTTP methods and links to the document sections
+.Requirements class 'Core' - Overview of resources, applicable HTTP methods and links to the document sections
 [cols="27,25,10,10,28",options="header"]
 !===
 |Resource |Path |HTTP method | Parameter| Document reference
