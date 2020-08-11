@@ -1,0 +1,20 @@
+[[ats_core_job-creation-success-sync]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-success-sync*
+^|Test Purpose |Validate the result of a job that has been created using the `sync` execution mode.
+^|Requirement |<<req_core_job-creation-success-sync,/req/core/job-creation-success-sync>>
+^|Test Method |. Validate that result of the job was returned with a status code 200.
+. Validate the content of the result using the resource and tests identified in <<sync-success-response>>.
+|===
+
+The type of response a job generates is determined by the value of the `response` attribute.  The value of the `response` attribute may be `document` or `raw`.  The following table identified the applicable test to check based on the value of the `response` attribute.
+
+[[sync-success-response]]
+.Schema and Tests for the Response of a Synchronously Executed Job
+[width="90%",cols="3",options="header"]
+|===
+|Response Type |Schema |Test ID
+|document |https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/results.yaml[results.yaml] |<<ats_core_job-result-success,/req/core/job-result-success>>
+|raw | N/A |<<ats_job-creation-success-sync-raw>>
+|===

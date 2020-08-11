@@ -7,4 +7,4 @@
 |Requirements class |<<rc_core,Requirements Class "Core">>
 |===
 
-TODO
+include::callback/ATS_job-creation-callback.adoc[]

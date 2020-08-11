@@ -1,0 +1,9 @@
+[[ats_job-collection_job-collection-op]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/job-collection/job-collection-op*
+^|Test Purpose |Validate that information about jobs can be retrieved from the expected location.
+^|Requirement |<<req_job-collection_job-collection-op,/req/job-collection/job-collection-op>>
+^|Test Method |. Issue an HTTP GET request to the URL /processes/{processID}/jobs.
+. Validate the contents of the returned document using test <<ats_job-collection_job-collection-success,/req/job-collection/job-collection-success>>.
+|===
