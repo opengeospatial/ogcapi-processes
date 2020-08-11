@@ -26,21 +26,44 @@ Requirements class "Dismiss"
 
 * Dismiss, HTTP DELETE
 
-This standard specifies operations that are safe, meaning that they do not modify resources. The execute operation uses HTTP POST to create new processing jobs (executions). This HTTP method is not safe, as it creates new resources, which 
+=== Information returned by safe operations
 
+This standard specifies operations that are safe, meaning that they do not modify resources. However, the information that is returned by the following operations could be used to exploit the API.
 
-=== Validation
+[#table_core_operations_security,reftext='{table-caption} {counter:table-num}']
+.Requirements class 'Core' - Overview of core operations and returned sensitive information
+[cols="20,30,10,40",options="header"]
+!===
+|Resource |Path |HTTP method | Information delivered
+|Landing page |`/` |GET| General information about the service, links to other endpoints 
+|Conformance classes |`/conformance` |GET| List of conformance classes 
+|Process list |`/processes` |GET | Process identifiers, links to process descriptions
+|Process description |`/processes/{processID}` |GET | Information about a process, e.g. inputs/outputs
+|Job status info |`/processes/{processID}/jobs/{jobID}` |GET | Status info, links to results or exceptions
+|Job results |`/processes/{processID}/jobs/{jobID}/results` |GET | Job results
+!===
 
-The OGC API - Processes specifies the execute operation using the HTTP POST method, which will be used as example for requests that contain content. The same guidance applies when using different HTTP methods like PUT, which can also contain content. 
+The process list contains process identifiers and links to the respective process descriptions.
 
-==== Validation of incoming Content-types
+The process description contains all necessary information needed to execute a process. This information can be used to send an JSON execute request to the API that will pass initial sanity checks, for example checks for the correct input/output identifiers. 
 
-When sending POST requests, the client will specify the *Content-Type* header of the request content. The server should always check that the *Content-Type* header and the actual request content are of the same type. If there is no *Content-Type* header or the Content-Type is unexpected, the request should be rejected.
+The job status info contains not only status information, but for finished (successful / failed) processes also links to results / exceptions. The results of a process execution will deserve protection as well as the exceptions that could contain hints about why the execution has failed.
 
-==== Input validation
+[#table_job_list_operation_security,reftext='{table-caption} {counter:table-num}']
+.Requirements class 'Job List' - Overview of operations and returned sensitive information
+[cols="20,30,10,40",options="header"]
+!===
+|Resource |Path |HTTP method | Information delivered
+|Job list |`/processes/{processID}/jobs` |GET | List of job status information, links to results or exceptions
+!===
 
-After the Content-Type was checked, the received content of POST requests itself should be validated. Incorrect input validation can lead to injection attacks, memory leakage, and compromised systemsfootnote:[https://www.whitehatsec.com/glossary/content/input-validation].
+The retrieval of the job list of a process returns the job ids and links to the respective job status.
 
-=== Request rate limitation
+=== Unsafe operations
 
-To prevent distributed denial of service (DDoS) attacks or other misuse of the API, the number of requests in a given time can be limited. When the limit is exceeded, the HTTP error code 429 (too many requests) should be returned and access tokens could be blocked temporarily.
+The execute operation uses HTTP POST to create new processing jobs (executions). The HTTP Post method is not safe, as it creates new resources, which poses the following threats:
+
+* Malicious inputs can be provided. Either inline in the execute request JSON or referenced
+* The processing can use considerable resources, for example computing time
+
+The dismiss extension uses the HTTP Delete method and can be used to (1) cancel a running job and (2) remove artifacts of a finished job. Both usages pose security related issues. The cancellation of a running job is wasting the resources that the job has used until it was cancelled. The same goes for the removal of results of a (successfully) finished job. The dismiss operation is idempotent, as it must be called on a specific job identifier. Continued dismiss requests result in a HTTP 404 error code. The dismiss operation is not safe, as the state of job resources is altered.
