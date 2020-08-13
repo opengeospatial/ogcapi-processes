@@ -222,11 +222,6 @@ include::requirements/core/REQ_process-list-success.adoc[]
 include::openapi/schemas/processList.yaml[]
 ----
 
-[NOTE]
-====
-References to additional schemas can found in Annex TODO
-====
-
 .Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
 [source]
 ----
