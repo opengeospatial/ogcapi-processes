@@ -11,8 +11,6 @@ include::requirements/oas30/REQ_oas-definition-1.adoc[]
 
 include::requirements/oas30/REQ_oas-definition-2.adoc[]
 
-TODO check if additional text is needed, e.g. for the additional process descriptions
-
 include::requirements/oas30/REQ_oas-impl.adoc[]
 
 === Complete definition
