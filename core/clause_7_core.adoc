@@ -349,7 +349,7 @@ If the process with the specified identifier doesn't exist on the server, the st
 
 include::requirements/core/REQ_job-exception-no-such-job.adoc[]
 
-[[rc_retrieve_job_results]]
+[[sc_retrieve_job_results]]
 === Retrieve job results
 
 The following section describes a method to retrieve the results of a job. In case the job execution failed, an exception is returned.
