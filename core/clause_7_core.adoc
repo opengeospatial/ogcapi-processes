@@ -183,6 +183,7 @@ outside of the server.
 |`404` |The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
 |`405` |The request method is not supported. For example, a POST request was submitted, but the resource only supports GET requests.
 |`406` |The `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+|`410` |The target resource is no longer available at the origin server.
 |`429` |The user has sent too many requests in a given amount of time ("rate limiting").
 |`500` |An internal error occurred in the server.
 !===
