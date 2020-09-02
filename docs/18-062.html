@@ -697,7 +697,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_error_situations_7">7.10.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#rc_retrieve_job_results">7.11. Retrieve job results</a>
+<li><a href="#sc_retrieve_job_results">7.11. Retrieve job results</a>
 <ul class="sectlevel3">
 <li><a href="#_operation_8">7.11.1. Operation</a></li>
 <li><a href="#_response_8">7.11.2. Response</a></li>
@@ -714,13 +714,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#sc_security_considerations">9. Security Considerations</a>
 <ul class="sectlevel2">
-<li><a href="#_information_returned_by_operations_using_safe_http_methods">9.1. Information returned by operations using safe HTTP methods</a></li>
-<li><a href="#_operations_using_unsafe_http_methods">9.2. Operations using unsafe HTTP methods</a>
-<ul class="sectlevel3">
-<li><a href="#sec_cons_execute">9.2.1. Execute</a></li>
-<li><a href="#sec_cons_dismiss">9.2.2. Dismiss</a></li>
-</ul>
-</li>
+<li><a href="#_operations_using_http_get">9.1. Operations using HTTP GET</a></li>
+<li><a href="#sec_cons_execute">9.2. Execute operation</a></li>
+<li><a href="#sec_cons_dismiss">9.3. Dismiss operation</a></li>
 </ul>
 </li>
 <li><a href="#_requirements_classes_for_encodings">10. Requirements classes for encodings</a>
@@ -1213,6 +1209,9 @@ specify the interface of a process.</p>
 </div>
 <div class="paragraph">
 <p><a id="rfc4646"></a> IETF RFC 4646: Tags for Identifying Languages. <a href="https://tools.ietf.org/html/rfc4646" class="bare">https://tools.ietf.org/html/rfc4646</a></p>
+</div>
+<div class="paragraph">
+<p><a id="rfc7231"></a> IETF RFC 7231: Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content. <a href="https://tools.ietf.org/html/rfc7231" class="bare">https://tools.ietf.org/html/rfc7231</a></p>
 </div>
 <div class="paragraph">
 <p><a id="rfc8288"></a> IETF RFC 8288: Web Linking <a href="https://tools.ietf.org/html/rfc8288" class="bare">https://tools.ietf.org/html/rfc8288</a></p>
@@ -2021,6 +2020,10 @@ outside of the server.</p>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The <code>Accept</code> header submitted in the request did not support any of the media types supported by the server for the requested resource.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>410</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The target resource is no longer available at the origin server.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>429</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The user has sent too many requests in a given amount of time ("rate limiting").</p></td>
 </tr>
@@ -2148,20 +2151,6 @@ The content of that response SHALL be based upon the OpenAPI
 <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">items</span><span class="tok-p tok-p-Indicator">:</span>
   <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">$ref</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-s">&quot;processSummary.yaml&quot;</span></code></pre>
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>References to additional schemas can found in Annex TODO</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.</div>
@@ -2660,7 +2649,7 @@ The exception code of the exception shall be "NoSuchJob".</th>
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_retrieve_job_results"><a class="anchor" href="#rc_retrieve_job_results"></a>7.11. Retrieve job results</h3>
+<h3 id="sc_retrieve_job_results"><a class="anchor" href="#sc_retrieve_job_results"></a>7.11. Retrieve job results</h3>
 <div class="paragraph">
 <p>The following section describes a method to retrieve the results of a job. In case the job execution failed, an exception is returned.</p>
 </div>
@@ -3090,8 +3079,8 @@ A JSON-encoded OGC process description shall validate against the OpenAPI 3.0 sc
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">HTTP Method</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Idempotent</th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Safe</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Idempotent</th>
 </tr>
 </thead>
 <tbody>
@@ -3107,14 +3096,14 @@ A JSON-encoded OGC process description shall validate against the OpenAPI 3.0 sc
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DELETE</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">yes</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">no</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3" style="background-color: #FFFFFF;"><p class="tableblock">Source <a href="#rfc7231">RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</a></p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Note that there is discussion whether the DELETE method is idempotent. This is discussed in section <a href="#sec_cons_dismiss">Dismiss</a>.</p>
-</div>
 <div class="paragraph">
 <p>The following resources can be retrieved using the safe HTTP GET method and can contain sensible information:</p>
 </div>
@@ -3171,7 +3160,7 @@ A JSON-encoded OGC process description shall validate against the OpenAPI 3.0 sc
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_information_returned_by_operations_using_safe_http_methods"><a class="anchor" href="#_information_returned_by_operations_using_safe_http_methods"></a>9.1. Information returned by operations using safe HTTP methods</h3>
+<h3 id="_operations_using_http_get"><a class="anchor" href="#_operations_using_http_get"></a>9.1. Operations using HTTP GET</h3>
 <div class="paragraph">
 <p>Most of the operations defined in this standard are use the safe HTTP GET method. However, the resources that are returned by these operations contain information that could be used to exploit the API. <a href="#table_core_safe_operations_security">Table 8</a> gives an overview of the resources specified in this standard and what kind of information they contain.</p>
 </div>
@@ -3245,7 +3234,7 @@ A JSON-encoded OGC process description shall validate against the OpenAPI 3.0 sc
 <p>The process list contains process identifiers and links to the respective process descriptions.</p>
 </li>
 <li>
-<p>The process description contains all necessary information needed to execute a process. This information can be used to send an JSON execute request to the API that will pass initial sanity checks, for example checks for the correct input/output identifiers. If this barrier is taken by an attacker, issues as discussed in section <a href="#sec_cons_execute">Execute</a> can occur.</p>
+<p>The process description contains all necessary information needed to execute a process. This information can be used to send an JSON execute request to the API that will pass initial sanity checks, for example checks for the correct input/output identifiers. If this barrier is taken by an attacker, issues as discussed in section <a href="#sec_cons_execute">Execute operation</a> can occur.</p>
 </li>
 <li>
 <p>The job status info contains not only status information, but for finished processes also links to results / exceptions. The results of a process execution are a valuable resource as well as the exceptions that could contain hints about why the execution has failed.</p>
@@ -3282,9 +3271,7 @@ A JSON-encoded OGC process description shall validate against the OpenAPI 3.0 sc
 </div>
 </div>
 <div class="sect2">
-<h3 id="_operations_using_unsafe_http_methods"><a class="anchor" href="#_operations_using_unsafe_http_methods"></a>9.2. Operations using unsafe HTTP methods</h3>
-<div class="sect3">
-<h4 id="sec_cons_execute"><a class="anchor" href="#sec_cons_execute"></a>9.2.1. Execute</h4>
+<h3 id="sec_cons_execute"><a class="anchor" href="#sec_cons_execute"></a>9.2. Execute operation</h3>
 <div class="paragraph">
 <p>The execute operation uses HTTP POST to create new processing jobs (process executions). As discussed above, the HTTP POST method is not safe and it poses the following threats if misused:</p>
 </div>
@@ -3327,8 +3314,8 @@ A JSON-encoded OGC process description shall validate against the OpenAPI 3.0 sc
 <p>The ids that are used for new jobs and that are returned in the status info document should be created in a non-guessable way, for example using UUIDs. This will prevent random attempts to get job status information, results / exceptions or even cancel jobs / delete job artifacts.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="sec_cons_dismiss"><a class="anchor" href="#sec_cons_dismiss"></a>9.2.2. Dismiss</h4>
+<div class="sect2">
+<h3 id="sec_cons_dismiss"><a class="anchor" href="#sec_cons_dismiss"></a>9.3. Dismiss operation</h3>
 <div class="paragraph">
 <p>The optional dismiss extension uses the HTTP DELETE method and can be used to</p>
 </div>
@@ -3343,8 +3330,7 @@ A JSON-encoded OGC process description shall validate against the OpenAPI 3.0 sc
 </ul>
 </div>
 <div class="paragraph">
-<p>Both usages pose security related issues. The cancellation of a running job (if not done on purpose) is wasting the resources that the job has used until it was canceled. The same goes for the unwanted removal of artifacts of a finished job. If the dismiss extension is implemented, access control for the operation should be considered. The dismiss operation is idempotent, as it is specified by this standard to be called using a specific job identifier. The first dismiss request to that identifier will result in a HTTP 200 status code. Continued dismiss requests using the same identifier result in a HTTP 404 error code, but nothing else is changed on the server. A successful dismiss request returns a status info document containing the job identifier and the status "dismissed". This status info document has no further security implications.</p>
-</div>
+<p>Both usages pose security related issues. The cancellation of a running job (if not done on purpose) is wasting the resources that the job has used until it was canceled. The same goes for the unwanted removal of artifacts of a finished job. If the dismiss extension is implemented, access control for the operation should be considered. The dismiss operation is idempotent, as it is specified by this standard to be called using a specific job identifier. The first dismiss request to that identifier will result in a HTTP 200 (OK) status code. Continued dismiss requests using the same identifier result in a HTTP 410 (Gone) error code, but nothing else is changed on the server. A successful dismiss request returns a status info document containing the job identifier and the status "dismissed". This status info document has no further security implications.</p>
 </div>
 </div>
 </div>
@@ -3571,9 +3557,6 @@ The JSON representation SHALL conform to the
 </tr>
 </thead>
 </table>
-<div class="paragraph">
-<p>TODO check if additional text is needed, e.g. for the additional process descriptions</p>
-</div>
 <table id="req_oas30_oas-impl" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -6855,6 +6838,55 @@ s/exception.yaml[exception.yaml]</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2,7</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Separate the OGC process description into its own conformance class.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-07-21</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2,6,10, Annex A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Editorial fixes, incorporated comments from Carl Reed, updated example</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-07-23</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7,10,11</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Add dependency to API Common</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-07-27</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Add security considerations section</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-07-30</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7,9</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Add section about HTTP and HTTPS, fix links to RFCs, add additional guidance to security considerations section</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-08-10</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Panagiotis (Peter) A. Vretanos</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">all</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Add ATS, adjust links throughout the document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-08-13</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Work on security considerations section</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-09-02</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1.0-draft.4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Benjamin Pross</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Incorporated further comments from Andreas Matheus</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -6862,7 +6894,7 @@ s/exception.yaml[exception.yaml]</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-10 23:52:29 PDT
+Last updated 2020-09-02 06:22:25 PDT
 </div>
 </div>
 </body>
