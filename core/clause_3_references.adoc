@@ -19,5 +19,7 @@ OGC 08-131r3 – The Specification Model – A Standard for Modular Specificatio
 
 [[rfc4646]] IETF RFC 4646: Tags for Identifying Languages. https://tools.ietf.org/html/rfc4646
 
+[[rfc7231]] IETF RFC 7231: Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content. https://tools.ietf.org/html/rfc7231
+
 [[rfc8288]] IETF RFC 8288: Web Linking https://tools.ietf.org/html/rfc8288
 

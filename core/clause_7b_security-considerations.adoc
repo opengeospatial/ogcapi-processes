@@ -14,13 +14,12 @@ HTTP methods can be classified as
 .Classification of HTTP methods
 [cols="30, 30, 30",options="header"]
 !===
-|HTTP Method|	Idempotent|	Safe
-|GET	    |yes	        |yes
-|POST	    |no	            |no
-|DELETE	    |yes	        |no
+|HTTP Method  |Safe |Idempotent
+|GET	      |yes  |yes	      
+|POST	      |no   |no	          
+|DELETE	      |no   |yes
+3+|Source <<rfc7231,RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content>>
 !===
-
-Note that there is discussion whether the DELETE method is idempotent. This is discussed in section <<sec_cons_dismiss>>.
 
 The following resources can be retrieved using the safe HTTP GET method and can contain sensible information:
 
@@ -45,7 +44,7 @@ Requirements class "Dismiss"
 
 * Dismiss, HTTP DELETE
 
-=== Information returned by operations using safe HTTP methods
+=== Operations using HTTP GET
 
 Most of the operations defined in this standard are use the safe HTTP GET method. However, the resources that are returned by these operations contain information that could be used to exploit the API. <<table_core_safe_operations_security>> gives an overview of the resources specified in this standard and what kind of information they contain.
 
@@ -84,10 +83,8 @@ The resources and contained information in more detail:
 
 The retrieval of the job list of a process returns the job ids and links to the respective job status.
 
-=== Operations using unsafe HTTP methods
-
 [[sec_cons_execute]]
-==== Execute
+=== Execute operation
 
 The execute operation uses HTTP POST to create new processing jobs (process executions). As discussed above, the HTTP POST method is not safe and it poses the following threats if misused:
 
@@ -105,11 +102,11 @@ The execute operation uses HTTP POST to create new processing jobs (process exec
 The ids that are used for new jobs and that are returned in the status info document should be created in a non-guessable way, for example using UUIDs. This will prevent random attempts to get job status information, results / exceptions or even cancel jobs / delete job artifacts.
 
 [[sec_cons_dismiss]]
-==== Dismiss
+=== Dismiss operation
 
 The optional dismiss extension uses the HTTP DELETE method and can be used to 
 
 * cancel a running job, and 
 * remove artifacts of a finished job. 
 
-Both usages pose security related issues. The cancellation of a running job (if not done on purpose) is wasting the resources that the job has used until it was canceled. The same goes for the unwanted removal of artifacts of a finished job. If the dismiss extension is implemented, access control for the operation should be considered. The dismiss operation is idempotent, as it is specified by this standard to be called using a specific job identifier. The first dismiss request to that identifier will result in a HTTP 200 status code. Continued dismiss requests using the same identifier result in a HTTP 404 error code, but nothing else is changed on the server. A successful dismiss request returns a status info document containing the job identifier and the status "dismissed". This status info document has no further security implications.
+Both usages pose security related issues. The cancellation of a running job (if not done on purpose) is wasting the resources that the job has used until it was canceled. The same goes for the unwanted removal of artifacts of a finished job. If the dismiss extension is implemented, access control for the operation should be considered. The dismiss operation is idempotent, as it is specified by this standard to be called using a specific job identifier. The first dismiss request to that identifier will result in a HTTP 200 (OK) status code. Continued dismiss requests using the same identifier result in a HTTP 410 (Gone) error code, but nothing else is changed on the server. A successful dismiss request returns a status info document containing the job identifier and the status "dismissed". This status info document has no further security implications.
