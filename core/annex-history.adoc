@@ -41,4 +41,11 @@
 |2020-05-12 |1.0-draft.3 |Panagiotis (Peter) A. Vretanos | N/A |Create a home for extensions to the core, initial check in of draft transactions extension, add placeholders for the quotation and billing APIs
 |2020-05-12 |1.0-draft.3 |Stan Tillman | 6,7,8,9,10 | Review
 |2020-05-20 |1.0-draft.3 |Panagiotis (Peter) A. Vretanos| 2,7 | Separate the OGC process description into its own conformance class.
+|2020-07-21 |1.0-draft.4 |Benjamin Pross| 2,6,10, Annex A |Editorial fixes, incorporated comments from Carl Reed, updated example
+|2020-07-23 |1.0-draft.4 |Benjamin Pross| 7,10,11 |Add dependency to API Common
+|2020-07-27 |1.0-draft.4 |Benjamin Pross| 9 |Add security considerations section
+|2020-07-30 |1.0-draft.4 |Benjamin Pross| 7,9 |Add section about HTTP and HTTPS, fix links to RFCs, add additional guidance to security considerations section
+|2020-08-10 |1.0-draft.4 |Panagiotis (Peter) A. Vretanos| all |Add ATS, adjust links throughout the document
+|2020-08-13 |1.0-draft.4 |Benjamin Pross| 9 |Work on security considerations section
+|2020-09-02 |1.0-draft.4 |Benjamin Pross| 9 |Incorporated further comments from Andreas Matheus
 |===
