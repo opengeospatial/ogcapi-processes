@@ -106,7 +106,7 @@ paths:
         500:
           $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
       callbacks:
-        jobCompleted:
+        jobSuccess:
           "{$request.body#/subscriber/successUri}":
             post:
               requestBody:
@@ -114,6 +114,17 @@ paths:
                   application/json:
                     schema:
                       $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml"
+              responses:
+                200:
+                  description: Results received successfully
+        jobFailure:
+          "{$request.body#/subscriber/failureUri}":
+            post:
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml"
               responses:
                 200:
                   description: Results received successfully
