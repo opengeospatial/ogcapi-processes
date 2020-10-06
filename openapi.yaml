@@ -46,10 +46,10 @@ paths:
         Lists all available processes this server offers.
       operationId: getProcesses
       tags:
-        - ProcessCollection
+        - ProcessList
       responses:
         200:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ProcessCollection.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ProcessList.yaml"
   /processes/{processId}:
     get:
       summary: retrieve a process description
@@ -72,12 +72,12 @@ paths:
         Lists available jobs of a process.
       operationId: getJobs
       tags:
-        - JobCollection
+        - JobList
       parameters:
         - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
       responses:
         200:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/JobCollection.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/JobList.yaml"
         404:
           $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
     post:
@@ -106,7 +106,7 @@ paths:
         500:
           $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
       callbacks:
-        jobSuccess:
+        jobCompleted:
           "{$request.body#/subscriber/successUri}":
             post:
               requestBody:
@@ -114,17 +114,6 @@ paths:
                   application/json:
                     schema:
                       $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml"
-              responses:
-                200:
-                  description: Results received successfully
-        jobFailure:
-          "{$request.body#/subscriber/failureUri}":
-            post:
-              requestBody:
-                content:
-                  application/json:
-                    schema:
-                      $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml"
               responses:
                 200:
                   description: Results received successfully
