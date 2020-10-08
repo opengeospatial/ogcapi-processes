@@ -10,9 +10,9 @@ A server that implements the OGC API - Processes provides access to processes.
 
 Each OGC API - Processes has a single `LandingPage` (path `/`) that provides links to
 
-* the `APIDefinition` (no fixed path),
-* the `Conformance` statements (path `/conformance`),
-* the `processes` metadata (path `/processes`).
+* The `APIDefinition` (no fixed path),
+* The `Conformance` statements (path `/conformance`),
+* The `processes` metadata (path `/processes`).
 
 The `APIDefinition` describes the capabilities of the server that can be used by
 clients to connect to the server or by development tools to support the
@@ -36,7 +36,7 @@ After a process is finished (status = success/failed), the results/exceptions ca
 .Resources in the Core requirements class
 image::figures/PT1_FIG01.png[align="center"]
 
-The OGC API - Processes standard is build upon the OGC API-Common standard. <<mapping-to-common>> Identifies the API-Common Requirements Classes which are applicable to each section of this standard.
+The OGC API - Processes standard utilizes elements of <draft> the OGC API-Common standard. <<mapping-to-common>> Identifies the API-Common Requirements Classes which are applicable to each section of this standard.
 
 [#mapping-to-common,reftext='{table-caption} {counter:table-num}']
 .Mapping API - Processes Sections to API-Common Requirements Classes
@@ -63,7 +63,7 @@ include::requirements/core/REQ_landingpage-op.adoc[]
 
 include::requirements/core/REQ_landingpage-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingPage.yaml[Schema for the landing page]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingPage.yaml[The following is the schema for the landing page]
 [source,YAML]
 ----
 include::openapi/schemas/landingPage.yaml[]
@@ -89,7 +89,7 @@ The following section describes a method to retrieve an API definition.
 ==== Operation
 
 Every OGC API - Processes provides an API definition that describes the capabilities
-of the server and which can be used by developers to understand the API,
+of the server. This definition is used by developers to understand the API,
 by software clients to connect to the server, or
 by development tools to support the implementation of servers and clients.
 
@@ -133,7 +133,7 @@ include::requirements/core/REQ_conformance-op.adoc[]
 
 include::requirements/core/REQ_conformance-success.adoc[]
 
-.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml[Schema for the list of requirements classes]
+.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml[The following is the schema for the list of requirements classes]
 [source,YAML]
 ----
 include::openapi/schemas/confClasses.yaml[]
@@ -194,7 +194,7 @@ include::recommendations/core/PER_additional-status-codes.adoc[]
 
 === Support for cross-origin requests
 
-Access to content from a HTML page is by default prohibited for security reasons, if the content is located on another host than the webpage ("same-origin policy"). A typical example is a web-application accessing processes and data from multiple servers.
+Access to content from a HTML page is by default prohibited for security reasons if the content is located on another host than the webpage ("same-origin policy"). A typical example is a web-application accessing processes and data from multiple servers.
 
 include::recommendations/core/REC_cross-origin.adoc[]
 
@@ -218,7 +218,7 @@ include::requirements/core/REQ_process-list-op.adoc[]
 
 include::requirements/core/REQ_process-list-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processList.yaml[Schema for the process list]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processList.yaml[The following is the schema for the process list]
 [source,YAML]
 ----
 include::openapi/schemas/processList.yaml[]
@@ -231,7 +231,7 @@ GET /processes HTTP/1.1
 Host: processing.example.org
 ----
 
-.Example of Process list encoded as JSON.
+.The following is an example of Process list encoded as JSON.
 [source,json]
 ----
 include::examples/json/ProcessList.json[]
@@ -244,7 +244,7 @@ See <<http_status_codes>> for general guidance.
 [[sc_process_description]]
 === Retrieve a process description
 
-The following section describes a method to retrieve metadata about a process.
+The following section describes a method for retrieving metadata about a process.
 
 ==== Operation
 
@@ -269,7 +269,7 @@ include::requirements/core/REQ_process-exception-no-such-process.adoc[]
 [[sc_create_job]]
 === Create a new job
 
-The following section describes a method to create a new job, i.e. execute a process.
+The following section describes the requirements to create a new job, i.e. execute a process.
 
 ==== Operation
 
@@ -279,17 +279,17 @@ include::requirements/core/REQ_job-creation-op.adoc[]
 
 include::requirements/core/REQ_job-creation-request.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml[Schema for execute]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml[The following is the schema for execute]
 [source,YAML]
 ----
 include::openapi/schemas/execute.yaml[]
 ----
 
-The creation of a job can be done synchronously or asynchronously. 
+A process can be either synchronous or asynchronous. 
 
 include::requirements/core/REQ_job-creation-mode.adoc[]
 
-.Example of an execute request
+.The following is an example of an execute request
 [source, json]
 ----
 include::examples/json/Execute.json[]
@@ -297,13 +297,13 @@ include::examples/json/Execute.json[]
 
 ==== Response
 
-In case of asynchronous execution, the requirements below apply:
+In the case of asynchronous execution, the requirements below apply:
 
 include::requirements/core/REQ_job-creation-success-async.adoc[]
 
 include::requirements/core/REQ_job-creation-success-async-header.adoc[]
 
-For synchronous execution, the following requirement applies:
+For a synchronous execution, the following requirement applies:
 
 include::requirements/core/REQ_job-creation-success-sync.adoc[]
 
@@ -311,12 +311,12 @@ include::requirements/core/REQ_job-creation-success-sync.adoc[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).
+If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process>>).
 
 [[sc_retrieve_status_info]]
 === Retrieve status information about a job
 
-The following section describes a method to retrieve information about the status of a job.
+The following section describes the requirements to create a method to retrieve information about the status of a job.
 
 ==== Operation
 
@@ -326,20 +326,20 @@ include::requirements/core/REQ_job-op.adoc[]
 
 include::requirements/core/REQ_job-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml[Schema for status info]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml[The following is the schema for status info]
 [source,YAML]
 ----
 include::openapi/schemas/statusInfo.yaml[]
 ----
 
-.Example of HTTP GET request for retrieving status information about a job encoded as JSON.
+.The following is an example of HTTP GET request for retrieving status information about a job encoded as JSON.
 [source]
 ----
 GET /processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f HTTP/1.1
 Host: processing.example.org
 ----
 
-.Example of a job encoded as JSON.
+.The following is an example of a job encoded as JSON.
 [source,json]
 ----
 include::examples/json/StatusInfo.json[]
@@ -349,14 +349,14 @@ include::examples/json/StatusInfo.json[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).
+If the process with the specified identifier doesn't exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process>>).
 
 include::requirements/core/REQ_job-exception-no-such-job.adoc[]
 
 [[sc_retrieve_job_results]]
 === Retrieve job results
 
-The following section describes a method to retrieve the results of a job. In case the job execution failed, an exception is returned.
+The following section describes the requirements to create a method to retrieve the results of a job. In case the job execution failed, an exception is returned.
 
 ==== Operation
 
@@ -366,26 +366,26 @@ include::requirements/core/REQ_job-result-op.adoc[]
 
 include::requirements/core/REQ_job-result-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml[Schema for the result of a job]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml[The following is the schema for the result of a job]
 [source,YAML]
 ----
 include::openapi/schemas/result.yaml[]
 ----
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/outputInfo.yaml[Schema for output info]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/outputInfo.yaml[The following is the schema for output info]
 [source,YAML]
 ----
 include::openapi/schemas/outputInfo.yaml[]
 ----
 
-.Example of HTTP GET request for retrieving the result a job encoded as JSON.
+.The following is an example of HTTP GET request for retrieving the result a job encoded as JSON.
 [source]
 ----
 GET /processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result HTTP/1.1
 Host: processing.example.org
 ----
 
-.Example of a result encoded as JSON.
+.The following is an example of a result encoded as JSON.
 [source,json]
 ----
 include::examples/json/Result.json[]
@@ -395,7 +395,7 @@ include::examples/json/Result.json[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).
+If the process with the specified id does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process>>).
 
 include::requirements/core/REQ_job-result-exception-no-such-job.adoc[]
 

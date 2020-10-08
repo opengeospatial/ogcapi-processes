@@ -17,13 +17,13 @@ Two requirements classes depend on the _Core_ and specify representations for th
 
 The JSON encoding is mandatory.
 
-The _Core_ does not mandate any encoding or format for the formal definition of the API. One option is the OpenAPI 3.0 specification and a requirements class has been specified for OpenAPI 3.0, which depends on the _Core_:
+The _Core_ does not mandate any encoding or format for the formal definition of the API. OpenAPI 3.0 specification is one option for defining the Processing API. As such a requirements class has been specified for OpenAPI 3.0, which depends on the requirements class _Core_:
 
 * <<rc_oas30,OpenAPI Specification 3.0>>.
 
 An implementation of the _Core_ requirements class may also decide to use other API definition representations in addition or instead of an OpenAPI 3.0 definition. Examples for alternative API definitions: OpenAPI 2.0 (Swagger), future versions of the OpenAPI specification, an OWS Common 2.0 capabilities document or WSDL.
 
-The _Core_ is intended to be a minimal useful API for the execution of processes from the geospatial domain. It is designed to map the operations of a Web Processing Service 2.0.
+The _Core_ is intended to be a minimal useful API for the execution of processes in the geospatial domain. The Core is designed to map the operations of a Web Processing Service 2.0 instance.
 
 The _Core_ does not mandate the use of any specific process description to
 specify the interface of a process. Instead this standard defines and
@@ -31,7 +31,7 @@ recommends the use of the following conformance class:
 
 * <<rc_ogc-process-description,OGC Process Description>>
 
-which defines an information model, encoded in JSON, that may be used to
+This class defines an information model, encoded in JSON, which may be used to
 specify the interface of a process.
 
 Three additional conformance classes are specified that extend the basic functionality of an API:
