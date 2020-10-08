@@ -31,11 +31,11 @@ include::core/ATS_http.adoc[]
 
 ==== Processes /processes
 
-===== Process collection
+===== Process list
 
-include::core/ATS_process-collection-op.adoc[]
+include::core/ATS_process-list-op.adoc[]
 
-include::core/ATS_process-collection-success.adoc[]
+include::core/ATS_process-list-success.adoc[]
 
 ===== Process description /processes/{processID}
 

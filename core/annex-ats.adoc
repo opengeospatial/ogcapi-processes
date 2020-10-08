@@ -26,7 +26,7 @@ include::abstract_tests/ATS_class_html.adoc[]
 
 include::abstract_tests/ATS_class_oas30.adoc[]
 
-=== Conformance Class Job collection
+=== Conformance Class Job list
 
 include::abstract_tests/ATS_class_job-list.adoc[]
 
