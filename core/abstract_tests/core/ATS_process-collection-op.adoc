@@ -1,9 +1,0 @@
-[[ats_core_process-collection]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/process-collection*
-^|Test Purpose |Validate that information about the processes can be retrieved from the expected location.
-^|Requirement |<<req_core_process-collection,/req/core/process-collection>>
-^|Test Method |. Issue an HTTP GET request to the URL {root}/processes
-. Validate the contents of the returned document using test <<ats_core_process-collection-success,/req/core/process-collection-success>>.
-|===

@@ -1,4 +1,4 @@
-[[req_core_process-collection-success]]
+[[req_core_process-list-success]]
 [width="90%",cols="2,6a"]
 |===
 |*Requirement {counter:req-id}* |/req/job-list/job-list-success +

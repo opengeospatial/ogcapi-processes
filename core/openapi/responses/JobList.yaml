@@ -1,4 +1,4 @@
-description: A collection of jobs for this process.
+description: A list of jobs for this process.
 content:
   application/json:
     schema:

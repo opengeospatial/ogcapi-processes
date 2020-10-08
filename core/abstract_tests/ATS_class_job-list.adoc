@@ -7,6 +7,6 @@
 |Requirements class |<<rc_core,Requirements Class "Core">>
 |===
 
-include::job-collection/ATS_job-collection-op.adoc[]
+include::job-list/ATS_job-list-op.adoc[]
 
-include::job-collection/ATS_job-collection-success.adoc[]
+include::job-list/ATS_job-list-success.adoc[]
