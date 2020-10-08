@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: The OGC API - Processes
-  version: "1.0-draft.4"
+  version: 1.0-draft.5
   description: |-
     WARNING - THIS IS WORK IN PROGRESS
   contact:
@@ -41,7 +41,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
   /processes:
     get:
-      summary: retrieve available processes
+      summary: retrieve the list of available processes
       description: >-
         Lists all available processes this server offers.
       operationId: getProcesses
