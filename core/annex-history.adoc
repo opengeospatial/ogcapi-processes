@@ -48,4 +48,5 @@
 |2020-08-10 |1.0-draft.4 |Panagiotis (Peter) A. Vretanos| all |Add ATS, adjust links throughout the document
 |2020-08-13 |1.0-draft.4 |Benjamin Pross| 9 |Work on security considerations section
 |2020-09-02 |1.0-draft.4 |Benjamin Pross| 9 |Incorporated further comments from Andreas Matheus
+|2020-10-08 |1.0-draft.5 |Benjamin Pross| All |Incorporated further comments from Carl Reed
 |===
