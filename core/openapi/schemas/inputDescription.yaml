@@ -10,8 +10,4 @@ allOf:
       minOccurs:
         type: integer
       maxOccurs:
-        oneOf:
-          - type: integer
-          - type: string
-            enum:
-              - unbounded
+        type: integer
