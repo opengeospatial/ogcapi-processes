@@ -13,8 +13,7 @@
 				"crs": "EPSG:4326"
 			}]
 		},
-		"minOccurs": 1,
-		"maxOccurs": 1
+		"minOccurs": 1
 	},
 	{
 		"id": "literalInput",
@@ -48,7 +47,7 @@
 			}]
 		},
 		"minOccurs": 1,
-		"maxOccurs": 1
+		"maxOccurs": 2
 	}],
 	"outputs": [{
 		"id": "boundingboxOutput",
