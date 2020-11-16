@@ -7,7 +7,6 @@ properties:
     type: string
   input:
     oneOf:
-      - $ref: "complexData.yaml"
-      - $ref: "literalData.yaml"
+      - $ref: "inlineOrRefData.yaml"
       - $ref: "boundingBoxData.yaml"
       - $ref: "input.yaml"

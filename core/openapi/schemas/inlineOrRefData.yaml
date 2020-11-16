@@ -1,0 +1,19 @@
+type: object
+properties:
+  dataType:
+     $ref: "nameReferenceType.yaml"
+  uom:
+     $ref: "nameReferenceType.yaml"
+  format:
+     $ref: "format.yaml"
+  href:
+    type: string
+  value:
+    oneOf:
+       - type: string
+       - type: number
+       - type: boolean
+       - type: object
+oneOf:
+ - required: [href]
+ - required: [value]
