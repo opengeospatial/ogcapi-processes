@@ -7,3 +7,5 @@ properties:
     type: string
   value:
     $ref: "valueType.yaml"
+  format:
+    $ref: "#/components/schemas/format"
