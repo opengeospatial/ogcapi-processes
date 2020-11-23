@@ -3,6 +3,6 @@
 |===
 |Recommendation {counter:rec-id} |/rec/core/html +
 
-To support browsing a WPS with a web browser and to enable search engines to crawl
-and index a dataset, implementations SHOULD consider to support an HTML encoding.
+To support browsing an OGC API - Processes with a web browser and to enable search engines to crawl
+and index a process, implementations SHOULD consider to support an HTML encoding.
 |===
