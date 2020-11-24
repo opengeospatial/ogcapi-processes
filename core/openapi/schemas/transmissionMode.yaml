@@ -1,4 +1,4 @@
-    type: string
-    enum:
-      - value
-      - reference
+type: string
+enum:
+  - value
+  - reference

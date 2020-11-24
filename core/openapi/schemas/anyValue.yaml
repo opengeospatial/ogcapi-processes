@@ -1,5 +1,5 @@
-    type : object
-    properties:
-       anyValue:
-          type: boolean
-          default: true
+type: object
+properties:
+   anyValue:
+      type: boolean
+      default: true

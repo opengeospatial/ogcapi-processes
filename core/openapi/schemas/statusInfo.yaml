@@ -1,25 +1,25 @@
-    type: object
-    required:
-        - jobID
-        - status
-    properties:
-       jobID:
-          type: string
-       status:
-          type: string
-          enum:
-            - accepted
-            - running
-            - successful
-            - failed
-            - dismissed
-       message:
-          type: string
-       progress:
-          type: integer
-          minimum: 0
-          maximum: 100
-       links:
-          type: array
-          items:
-             $ref: 'link.yaml'
+type: object
+required:
+   - jobID
+   - status
+properties:
+   jobID:
+      type: string
+   status:
+      type: string
+      enum:
+         - accepted
+         - running
+         - successful
+         - failed
+         - dismissed
+   message:
+      type: string
+   progress:
+      type: integer
+      minimum: 0
+      maximum: 100
+   links:
+      type: array
+      items:
+         $ref: "link.yaml"

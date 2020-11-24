@@ -1,19 +1,18 @@
 [[overview]]
 == Overview
 
-The OGC API - Processes builds on the WPS 2.0 standard and it is modularized, meaning that there is a separation between 
+The OGC API - Processes builds on the WPS 2.0 standard and is modularized, meaning that there is a separation between 
  
- * core requirements, that specify basic capabilities and can easily be mapped to existing OGC Web Processing Services, and
- * more advanced funtionality, that was not specified in WPS 2.0. 
-
+ * Core requirements, that specify basic capabilities and can easily be mapped to existing OGC Web Processing Services;
+ * More advanced functionality, that was not specified in WPS 2.0.
 
 
 === Encodings
 
-This standard uses JSON as encoding for requests and responses. The inputs and outputs of a process can have any format. The formats of are defined at the time of job creation and are fixed for the specific job.
+This standard uses JSON as the encoding for requests and responses. The inputs and outputs of a process can be any format. The formats of are defined at the time of job creation and are fixed for the specific job.
 
 <<rec_html,Support for HTML is recommended>> as HTML is the core language of the World Wide Web.
 A server that supports HTML will support browsing with a web browser
-and it will enable search engines to crawl and index the processes.
+and will enable search engines to crawl and index the processes.
 
 

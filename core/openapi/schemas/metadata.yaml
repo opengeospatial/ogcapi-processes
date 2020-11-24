@@ -1,8 +1,8 @@
-   type: object
-   properties:
-      title:
-         type: string
-      role:
-         type: string
-      href:
-         type: string
+type: object
+properties:
+   title:
+      type: string
+   role:
+      type: string
+   href:
+      type: string

@@ -3,16 +3,20 @@
 This GitHub repository contains the OGC API - Processes for processing geospatial information on the web. It focuses on a simple RESTful core specified
 as reusable [OpenAPI](http://openapis.org) components with responses in JSON and HTML.
 
+[OGC API standards](https://ogcapi.ogc.org) define modular API building blocks to spatially enable Web APIs
+in a consistent way. [OpenAPI](http://openapis.org) is used to define the reusable
+API building blocks.
+
 ## Overview
 
-The OGC API - Processes enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality. 
+The OGC API - Processes enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality.
 Typically, these processes combine raster, vector, and/or coverage data with well-defined algorithms to produce new raster, vector, and/or coverage information.
 
 ```
 GET /processes
 ```
 
-Lists the processes this API offers. 
+Lists the processes this API offers.
 
 ```
 GET /processes/{process-id}
@@ -59,14 +63,11 @@ A draft of the OGC API - Processes is available:
 
 * [OGC API - Processes, Draft HTML View](https://htmlpreview.github.io/?https://github.com/opengeospatial/wps-rest-binding/blob/master/docs/18-062.html)
 
-* [OGC API - Processes, OpenAPI specification](https://app.swaggerhub.com/apis/geoprocessing/WPS/1.0-draft.3)
+* [OGC API - Processes, OpenAPI specification](https://app.swaggerhub.com/apis/geoprocessing/WPS/1.0-draft.4)
 
-Demo implementations:
+Several implementations of the draft standard exist:
 
-* [52°North](http://geoprocessing.demo.52north.org:8080/javaps/rest/)
-* [pygeoapi](https://demo.pygeoapi.io/master)
-* [crim-ca/weaver](https://github.com/crim-ca/weaver)
-* [ZOO-Project](https://demo.mapmint.com/swagger-ui/dist/)
+[Implementations of the draft specification / demo services](./implementations.adoc)
 
 ## Contributing
 
@@ -76,3 +77,6 @@ The WPS 2.0 Standards Working Group (SWG) is the group at OGC responsible for th
 
 * [Open issues](https://github.com/opengeospatial/wps-rest-binding/issues)
 * [Copy of License Language](https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/LICENSE)
+
+Pull Requests from contributors are welcomed. However, please note that by sending a Pull Request or Commit to this GitHub repository, you are agreeing to the terms in the Observer Agreement https://portal.ogc.org/files/?artifact_id=92169
+

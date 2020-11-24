@@ -1,4 +1,4 @@
-    type: string
-    enum:
-      - sync-execute
-      - async-execute
+type: string
+enum:
+  - sync-execute
+  - async-execute

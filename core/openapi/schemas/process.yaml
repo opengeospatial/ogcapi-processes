@@ -1,16 +1,16 @@
-    allOf:
-       - $ref: 'processSummary.yaml'
-       - type: object
-         properties:
-            inputs:
-              type: array
-              items: 
-                 $ref: 'inputDescription.yaml'
-            outputs:
-              type: array
-              items: 
-                 $ref: 'outputDescription.yaml'
-            links:
-              type: array
-              items:
-                 $ref: 'link.yaml'
+allOf:
+   - $ref: "processSummary.yaml"
+   - type: object
+     properties:
+        inputs:
+           type: array
+           items:
+              $ref: "inputDescription.yaml"
+        outputs:
+           type: array
+           items:
+              $ref: "outputDescription.yaml"
+        links:
+           type: array
+           items:
+              $ref: "link.yaml"

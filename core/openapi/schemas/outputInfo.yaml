@@ -1,9 +1,11 @@
-    type: object
-    required:
-        - id
-        - value
-    properties:
-        id:
-          type: string
-        value:
-           $ref: 'valueType.yaml'
+type: object
+required:
+  - id
+  - value
+properties:
+  id:
+    type: string
+  value:
+    $ref: "valueType.yaml"
+  format:
+    $ref: "#/components/schemas/format"

@@ -1,62 +1,62 @@
 [big]*i.     Abstract*
 
-In many cases geospatial or location data, including data from sensors, must be processed before the information can be used effectively. The OGC Web Processing Service (WPS) Interface Standard provides a standard interface that simplifies the task of making simple or complex computational processing services accessible via web services. Such services include well-known processes found in GIS software as well as specialized processes for spatio-temporal modeling and simulation. While the OGC WPS standard was designed with spatial processing in mind, it can also be used to readily insert non-spatial processing tasks into a web services environment.
-The WPS standard provides a robust, interoperable, and versatile protocol for process execution on web services. It supports both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time consuming tasks. Moreover, the WPS standard defines a general process model that is designed to provide an interoperable description of processing functions. It is intended to support process cataloguing and discovery in a distributed environment.
+In many cases geospatial or location data, including data from sensors, must be processed before the information can be effectively used. The OGC Web Processing Service (WPS) Interface Standard provides a standard interface that simplifies the task of making simple or complex computational geospatial processing services accessible via web services. Such services include well-known processes found in GIS software as well as specialized processes for spatio-temporal modeling and simulation. While the OGC WPS standard was designed with spatial processing in mind, the standard could also be used to readily insert non-spatial processing tasks into a web services environment.
+The WPS standard provides a robust, interoperable, and versatile protocol for process execution on web services. WPS supports both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time-consuming tasks. Moreover, the WPS standard defines a general process model that is designed to provide an interoperable description of processing functions. It is intended to support process cataloguing and discovery in a distributed environment.
 
-The OGC API - Processes builds on the WPS 2.0 standard and defines the processing standards to communicate over a RESTful protocol using JSON encodings. This API will be a newer and more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.
+The OGC API - Processes API builds on the WPS 2.0 standard and defines the processing standards to communicate over a RESTful protocol using JSON encodings. This API is a newer and more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.
 
-The resources that are provided by a server implementing the OGC API - Processes are listed in <<table_wps_resources>> below and include the
+The resources that are provided by a server implementing the OGC API - Processes are listed in <<table_core_resources>> below and include the
 capabilities document of the server, the list of processes available
-(ProcessCollection and Process), jobs (running processes) and
+(Process list and Process description), jobs (running processes) and
 results of process executions.
 
-TODO: check chapter numbers
-
-[#table_wps_resources,reftext='{table-caption} {counter:table-num}']
-.Overview of resources, applicable HTTP methods and links to the document sections
-[cols="25,32,10,33",options="header"]
+[#table_core_resources,reftext='{table-caption} {counter:table-num}']
+.Requirements class 'Core' - Overview of resources, applicable HTTP methods and links to the document sections
+[cols="27,25,10,10,28",options="header"]
 !===
-|Resource |Path |HTTP method |Document reference
-|Landing page |`/` |GET |<<sc_landing_page,7.2 API landing page>>
-|Conformance classes |`/conformance` |GET |<<sc_conformance_classes,7.4 Declaration of conformance classes>>
-|Process collection |`/processes` |GET |<<sc_process_collection,7.7 Retrieve a process collection>>
-|Process description |`/processes/{processID}` |GET |<<sc_process_description, 7.8 Retrieve a process description>>
-|Job collection |`/processes/{processID}/jobs` |GET |<<Job_collection,10. Requirement Class "Job collection">>
-|Job status info |`/processes/{processID}/jobs/{jobID}` |GET |<<sc_retrieve_status_info,7.10 Retrieve status information about a job>>
-|Job results |`/processes/{processID}/jobs/{jobID}/results` |GET |<<sc_retrieve_job_results,7.12 Retrieve job results>>
+|Resource |Path |HTTP method | Parameter| Document reference
+|Landing page |`/` |GET| N/A | <<sc_landing_page,7.2 API landing page>>
+|Conformance classes |`/conformance` |GET| N/A | <<sc_conformance_classes,7.4 Declaration of conformance classes>>
+|Process list |`/processes` |GET | N/A | <<sc_process_list,7.7 Retrieve a process list>>
+|Process description |`/processes/{processID}` |GET | processID (in path) | <<sc_process_description, 7.8 Retrieve a process description>>
+|Job status info |`/processes/{processID}/jobs/{jobID}` |GET | processID, jobID (in path) |<<sc_retrieve_status_info,7.10 Retrieve status information about a job>>
+|Job results |`/processes/{processID}/jobs/{jobID}/results` |GET | processID, jobID (in path) |<<sc_retrieve_job_results,7.11 Retrieve job results>>
+|Job status info or results |`/processes/{processID}/jobs` |POST| processID (in path), Execute request (contained in body) |<<sc_create_job,7.9 Create a new job>>
 !===
 
 In general, the HTTP GET operation is used to provide access to the resources described above.
-However, in order to create a new job, the HTTP POST method is used to create a new job by sending an execute request to the server. The operation is listed in <<table_job_creation>> below.
+However, in order to create a new job, the HTTP POST method is used to create a new job by sending an execute request to the server. 
 
-[#table_job_creation,reftext='{table-caption} {counter:table-num}']
-.Overview of resources, applicable HTTP methods and links to the document sections
+Additionally, a list of jobs for a specific process can be requested. 
+
+[#table_job_list,reftext='{table-caption} {counter:table-num}']
+.Requirements class 'Job list' - Overview of resources, applicable HTTP methods and links to the document sections
 [cols="27,25,10,10,28",options="header"]
 !===
-|Description |Path |HTTP method | Parameter| Document reference
-|Create a new job |`/processes/{processID}/jobs` |POST| Execute request (contained in body) |<<sc_create_job,7.9 Create a new job>>
+|Resource |Path |HTTP method | Parameter| Document reference
+|Job list |`/processes/{processID}/jobs` |GET | processID (in path) |<<Job_list,11 Requirements Class "Job list">>
 !===
 
-In addition to the operations accessible through HTTP GET and POST methods, in order to cancel a job execution and/or remove traces of the job execution, the DELETE method can be used.
+As a further addition to the operations accessible through HTTP GET and POST methods, in order to cancel a job execution and/or remove traces of the job execution the DELETE method can be used.
 
 [#table_job_dismiss,reftext='{table-caption} {counter:table-num}']
-.Overview of resources, applicable HTTP methods and links to the document sections
-[cols="27,25,15,28",options="header"]
+.Requirements class 'Dismiss' - Overview of resources, applicable HTTP methods and links to the document sections
+[cols="27,25,10,10,28",options="header"]
 !===
-|Description |Path |HTTP method | Document reference
-|Dismiss a job |`/processes/{processID}/jobs/{jobID}` |DELETE| <<sc_dismiss_job,7.11 Dismiss a job>>
+|Resource |Path |HTTP method | Parameter| Document reference
+|Job status info |`/processes/{processID}/jobs/{jobID}` |DELETE| processID, jobID (in path) | <<Dismiss,13 Requirements Class "Dismiss">>
 !===
 
 [big]*ii.    Keywords*
 
 The following are keywords to be used by search engines and document catalogues.
 
-geoprocessing, ogcdoc, OGC document, processes, WPS, REST, JSON
+ogcdoc, OGC document, OGC API, Geospatial API, processes, Web Processing Service, WPS, JSON, HTML, geoprocessing, API, OpenAPI, HTML
 
 [big]*iii.   Preface*
 
-This API is a continuation of WPS 2.0, a standard for web-based processing of geospatial data. It defines how the interfaces for WPS 2.0 operations should be constructed and interpreted using a REST based protocol with JSON encoding.
-Within the current version of WPS 2.0, bindings are defined for HTTP/POST using XML encodings and HTTP/GET using KVP encodings. Also in the current WPS 2.0 standard, a core conceptual model is provided that may be used to specify a WPS in different architectures such as REST or SOAP. Therefore, this API is a natural fit to what is already defined in the standard.
+The Processing API is a continuation of WPS 2.0, a standard for web-based processing of geospatial data. The Processing API defines how the interfaces for WPS 2.0 operations should be constructed and interpreted using a REST based protocol with JSON encoding.
+Within the current version of WPS 2.0, bindings are defined for HTTP/POST using XML encodings and HTTP/GET using KVP encodings. Also in the current WPS 2.0 standard, a core conceptual model is provided that may be used to specify a WPS in different architectures such as REST or SOAP. Therefore, the Processing API is a natural fit to what is already defined in the standard.
 
 [big]*iv.    Submitting organizations*
 
@@ -64,13 +64,24 @@ The following organizations submitted this Document to the Open Geospatial Conso
 
 * 52°North GmbH
 * Hexagon
+* CubeWerx Inc.
+* Ecere Corporation
+* Terradue Srl
+* European Space Agency (ESA)
+* Spacebel
 
 [big]*v.     Submitters*
 
 All questions regarding this submission should be directed to the editor or the submitters:
 
 |=======================
-|*Name* | *Representing* | *OGC Member*
-|Benjamin Pross | 52°North GmbH | Yes
-|Stan Tillman|Hexagon| Yes
+|*Name* | *Representing* 
+|Benjamin Pross _(editor)_ | 52°North GmbH
+|Stan Tillman|Hexagon
+|Panagiotis (Peter) A. Vretanos|CubeWerx Inc.
+|Jérôme Jacovella-St-Louis|Ecere Corporation
+|Pedro Gonçalves|Terradue Srl
+|Gérald Fenoy| Gérald Fenoy (Individual Member)
+|Cristiano Lopes|European Space Agency (ESA)
+|Christophe Noel | Spacebel 
 |=======================

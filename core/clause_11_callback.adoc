@@ -1,5 +1,5 @@
 [[Callbacks]]
-== Requirement Class "Callback"
+== Requirements Class "Callback"
 
 This conformance class specifies a callback mechanism for completed jobs. In contrast to the pull-based mechanism specified in <<sc_create_job>> and <<sc_retrieve_status_info>>, this conformance class specifies a push-based mechanism, where a subscriber-URL is passed to the API in the execute request. After the job is completed, the result response is sent to the specified URL.
 
@@ -10,18 +10,7 @@ include::requirements/callback/REQ_job-creation-callback.adoc[]
 .Example for a callback in the execute operation
 [source,YAML]
 ----
-    callbacks:
-        jobCompleted:
-          '{$request.body#/subscriber/successUri}':
-            post:
-              requestBody:
-                content:
-                  application/json:
-                    schema:
-                      $ref: '#/components/schemas/result'
-              responses:
-                '202':
-                  description: Results received successfully
+include::examples/yaml/callbacks.yaml[]
 ----
 
 If the server implements this conformance class, the optional subscriber element of the execute request JSON must be used.

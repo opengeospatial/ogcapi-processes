@@ -1,0 +1,38 @@
+[[Job_list]]
+== Requirements Class "Job list"
+
+This requirement class specifies how to retrieve a job list from the API.
+
+include::requirements/requirements_class_job-list.adoc[]
+
+=== Operation
+
+include::requirements/job-list/REQ_job-list-op.adoc[]
+
+=== Response
+
+include::requirements/job-list/REQ_job-list-success.adoc[]
+
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobList.yaml[Schema for the job list]
+[source,YAML]
+----
+include::openapi/schemas/jobList.yaml[]
+----
+
+.Example of HTTP GET request for retrieving the list of jobs of a process encoded as JSON.
+[source]
+----
+http://processing.example.org/processes/EchoProcess/jobs
+----
+
+.Example of a job list encoded as JSON.
+[source,json]
+----
+include::examples/json/JobList.json[]
+----
+
+=== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).

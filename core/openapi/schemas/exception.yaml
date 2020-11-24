@@ -1,8 +1,8 @@
-  type: object
-  required:
-    - code
-  properties:
-    code:
-      type: string
-    description:
-      type: string
+type: object
+required:
+  - code
+properties:
+  code:
+    type: string
+  description:
+    type: string

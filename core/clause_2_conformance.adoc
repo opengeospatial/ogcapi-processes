@@ -1,5 +1,5 @@
 == Conformance
-This standard defines six requirements / conformance classes.
+This standard defines seven requirements / conformance classes.
 
 The standardization targets of all conformance classes are "Web APIs."
 
@@ -9,7 +9,7 @@ The main requirements class is:
 
 The _Core_ specifies requirements that all Web APIs have to implement.
 
-Two requirements classes depend on the _Core_ and specify representations for these resources in commonly used encodings for spatial data on the web:
+Two requirements classes depend on the _Core_ and specify representations for the resources specified in the _Core_:
 
 * <<rc_json,JSON>>, and
 
@@ -25,13 +25,24 @@ An implementation of the _Core_ requirements class may also decide to use other 
 
 The _Core_ is intended to be a minimal useful API for the execution of processes from the geospatial domain. It is designed to map the operations of a Web Processing Service 2.0.
 
-Two additional conformance classes are specified that extend the basic functionality of a WPS:
+The _Core_ does not mandate the use of any specific process description to
+specify the interface of a process. Instead this standard defines and
+recommends the use of the following conformance class:
 
-* <<rc_job-collection,Job collection>>, and
+* <<rc_ogc-process-description,OGC Process Description>>
 
-* <<rc_callback,Callback>>
+which defines an information model, encoded in JSON, that may be used to
+specify the interface of a process.
 
-Additional capabilities such as support for transactions, extended job monitoring, etc., may be specified in future parts of the OGC API Processes series or as vendor-specific extensions.
+Three additional conformance classes are specified that extend the basic functionality of an API:
+
+* <<rc_job-list,Job list>>, and
+
+* <<rc_callback,Callback>>, and
+
+* <<rc_dismiss,Dismiss>>.
+
+Additional capabilities such as support for transactions, extended job monitoring, etc., may be specified in future parts of the OGC API - Processes series or as vendor-specific extensions.
 
 Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
 
@@ -40,10 +51,12 @@ Conformance with this standard shall be checked using all the relevant tests spe
 [cols="40,60",options="header"]
 !===
 |Conformance class |URI
-|<<ats_core,Core>> |http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core
-|<<ats_json,JSON>> |http://www.opengis.net/spec/ogcapi-processes/1.0/conf/geojson
-|<<ats_html,HTML>> |http://www.opengis.net/spec/ogcapi-processes/1.0/conf/html
-|<<ats_oas30,OpenAPI Specification 3.0>> |http://www.opengis.net/spec/ogcapi-processes/1.0/conf/oas30
-|<<ats_job-collection,Job collection>> |http://www.opengis.net/spec/ogcapi-processes/1.0/conf/gmlsf0
-|<<ats_callback,Callback>> |http://www.opengis.net/spec/ogcapi-processes/1.0/conf/gmlsf2
+|<<ats_core,Core>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
+|<<ats_ogc-process-description,OGC Process Description>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description
+|<<ats_json,JSON>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json
+|<<ats_html,HTML>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html
+|<<ats_oas30,OpenAPI Specification 3.0>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30
+|<<ats_job-list,Job list>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list
+|<<ats_callback,Callback>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback
+|<<ats_dismiss,Dismiss>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
 !===

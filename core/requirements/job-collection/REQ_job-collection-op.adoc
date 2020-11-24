@@ -1,6 +1,0 @@
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/job-collection/job-collection-op +
-
-The server SHALL support the HTTP GET operation at the path `/processes/{processID}/jobs`.
-|===

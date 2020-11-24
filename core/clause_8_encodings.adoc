@@ -6,9 +6,8 @@ for now, normative statements are often included inline. This will be re-factore
 
 === Overview
 
-This clause specifies four pre-defined requirements classes for encodings to be
-used in a WPS. These encodings are commonly used encodings for spatial data on
-the web:
+This clause specifies two pre-defined requirements classes for encodings to be
+used with the OGC API Processes.
 
 * <<rec_json,JSON>>
 * <<rc_html,HTML>>
@@ -26,6 +25,7 @@ include::requirements/requirements_class_json.adoc[]
 
 include::requirements/json/REQ_definition.adoc[]
 
+[[sc_requirements_class_html]]
 === Requirement Class "HTML"
 
 This section defines the requirements class HTML.

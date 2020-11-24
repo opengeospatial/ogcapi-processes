@@ -1,9 +1,0 @@
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/job-collection/job-collection-success +
-
-A successful execution of the operation SHALL be reported as a
-response with a HTTP status code 200.
-The content of that response SHALL be based upon the OpenAPI
-3.0 schema https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobCollection.yaml[jobCollection.yaml].
-|===
