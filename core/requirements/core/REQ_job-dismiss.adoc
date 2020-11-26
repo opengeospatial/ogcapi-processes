@@ -1,6 +1,0 @@
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/job +
-
-The server SHALL support the HTTP DELETE operation at the path `/processes/{processID}/jobs/{jobID}`.
-|===
