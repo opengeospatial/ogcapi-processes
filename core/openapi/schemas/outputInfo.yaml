@@ -8,4 +8,4 @@ properties:
   value:
     $ref: "valueType.yaml"
   format:
-    $ref: "#/components/schemas/format"
+    $ref: "format.yaml"
