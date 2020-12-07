@@ -1,0 +1,49 @@
+{
+    "outputs": {
+        "literalOutput": {
+            "value": {
+                "value": 0.05
+            }
+        },
+        "complexOutput": {
+            "value": {
+                "value": "<test/>"
+            }
+        },
+        "complexOutputList": [
+            {
+                "format": {
+                    "mimeType": "application/xml"
+                },
+                "value": "<test/>"
+            },
+            {
+                "format": {
+                    "mimeType": "application/json"
+                },
+                "value": {
+                    "type": "Feature",
+                    "geometry": [
+                        [
+                            11,
+                            22
+                        ],
+                        [
+                            11.5,
+                            22
+                        ]
+                    ]
+                }
+            }
+        ],
+        "boundingboxOutput": {
+            "bbox": [
+                51.9,
+                7.0,
+                52.0,
+                7.1
+            ],
+            "crs": "EPSG:4326"
+        }
+    }
+}

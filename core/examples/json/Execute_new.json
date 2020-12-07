@@ -1,0 +1,68 @@
+{
+	"inputs": {
+		"data": {
+			"format": {
+				"mimeType": "application/xml",
+				"encoding": "UTF-8"
+			},
+			"value": "<test/>"
+		},
+		"data2": {
+			"format": {
+				"mimeType": "text/plain"
+			},
+			"href": "http://data.org/txt"
+		},
+		"data3": [
+			{
+				"format": {
+					"mimeType": "application/xml"
+				},
+				"href": "http://data.org/xml"
+			},
+			{
+				"format": {
+					"mimeType": "application/json"
+				},
+				"href": "http://data.org/json"
+			}
+		],
+		"width": {
+			"dataType": {
+				"name": "double"
+			},
+            "uom": {
+              "name": "degrees"
+            },
+			"value": "0.05"
+		},
+		"area-of-interest": {
+			"bbox": [
+				51.9,
+				7,
+				52,
+				7.1
+			],
+			"crs": "EPSG:4326"
+		}
+	},
+	"outputs": [
+		{
+			"id": "literalOutput",
+			"transmissionMode": "value"
+		},
+		{
+			"id": "boundingboxOutput",
+			"transmissionMode": "value"
+		},
+		{
+			"id": "complexOutput",
+			"format": {
+				"mimeType": "application/xml"
+			},
+			"transmissionMode": "value"
+		}
+	],
+	"response": "document",
+	"mode": "async"
+}
