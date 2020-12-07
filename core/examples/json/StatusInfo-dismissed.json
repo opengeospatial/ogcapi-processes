@@ -5,10 +5,10 @@
   "progress": 56,
   "links": [
     {
-      "href": "http://processing.example.org/processes/EchoProcess/jobs",
+      "href": "http://processing.example.org/jobs",
       "rel": "up",
       "type": "application/json",
-      "title": "The job list for the current process"
+      "title": "The job list of this server"
     }
   ]
 }

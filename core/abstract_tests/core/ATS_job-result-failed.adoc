@@ -6,7 +6,7 @@
 ^|Requirement |<<req_core_job-result-failed,/req/core/job-result-failed>>
 ^|Test Method |. Create a job as per <<atd_core_job-creation-op,/req/core/job-creation-op>> but arrange a priori that the job will fail; note the {jobID} assigned to the job.
 . Ensure that the failed job will not result in an HTTP error code of 404.
-. Issue an HTTP GET request to the URL '/processes/{processID}/jobs/{jobID}/results'.
+. Issue an HTTP GET request to the URL '/jobs/{jobID}/results'.
 . Validate that the document was returned with a HTTP error code (4XX or 5XX).
 . Validate that the document contains an exception code that corresponds to the reason the job failed (e.g. InvalidParameterValue for invalid input data).
 . Validate the document for all supported media types using the resources and tests identified in <<job-result-failed-schema>>
