@@ -1,9 +1,12 @@
 type: object
 required:
+  - id
   - outputs
   - mode
   - response
 properties:
+  id:
+    type: string
   inputs:
     type: array
     items:

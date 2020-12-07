@@ -1,4 +1,5 @@
 {
+    "id": "EchoProcess",
 	"inputs": [{
 		"id": "complexInput",
 		"input": {
