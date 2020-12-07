@@ -1,10 +1,11 @@
 {
 	"inputs": [
 		{
-			"id": "complexInput",
+			"id": "data",
 			"input": {
 				"format": {
-					"mimeType": "application/xml"
+					"mimeType": "application/xml",
+					"encoding": "UTF-8"
 				},
 				"value": {
 					"inlineValue": "<test/>"
@@ -12,18 +13,40 @@
 			}
 		},
 		{
-			"id": "complexInput",
+			"id": "data",
+			"input": {
+				"format": {
+					"mimeType": "application/json"
+				},
+				"value": {
+					"inlineValue": {
+						"type": "Feature",
+						"geometry": [
+							[
+								11,
+								22
+							],
+							[
+								11.5,
+								22
+							]
+						]
+					}
+				}
+			}
+		},		
+		{
+			"id": "data",
 			"input": {
 				"format": {
 					"mimeType": "application/xml"
 				},
 				"value": {
-					"inlineValue": "<test/>"
+					"href": "http://data.org/xml"
 				}
 			}
-		},
-		{
-			"id": "literalInput",
+		},{
+			"id": "width",
 			"input": {
 				"dataType": {
 					"name": "double"
@@ -31,11 +54,11 @@
 				"uom": {
 					"name": "degrees"
 				},
-				"value": "0.05"
+				"value": 0.05
 			}
 		},
 		{
-			"id": "boundingboxInput",
+			"id": "area-of-interest",
 			"input": {
 				"bbox": [
 					51.9,

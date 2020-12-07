@@ -1,42 +1,51 @@
 {
-	"inputs": {
-		"data": {
+	"inputs": [
+		{
+			"id": "data",
 			"format": {
 				"mimeType": "application/xml",
 				"encoding": "UTF-8"
 			},
 			"value": "<test/>"
 		},
-		"data2": {
+		{
+			"id": "data",
 			"format": {
-				"mimeType": "text/plain"
+				"mimeType": "application/json"
 			},
-			"href": "http://data.org/txt"
-		},
-		"data3": [
-			{
-				"format": {
-					"mimeType": "application/xml"
-				},
-				"href": "http://data.org/xml"
-			},
-			{
-				"format": {
-					"mimeType": "application/json"
-				},
-				"href": "http://data.org/json"
+			"value": {
+				"type": "Feature",
+				"geometry": [
+					[
+						11,
+						22
+					],
+					[
+						11.5,
+						22
+					]
+				]
 			}
-		],
-		"width": {
+		},
+		{
+			"id": "data",
+			"format": {
+				"mimeType": "application/xml"
+			},
+			"href": "http://data.org/xml"
+		},
+		{
+			"id": "width",
 			"dataType": {
 				"name": "double"
 			},
-            "uom": {
-              "name": "degrees"
-            },
-			"value": "0.05"
+			"uom": {
+				"name": "degrees"
+			},
+			"value": 0.05
 		},
-		"area-of-interest": {
+		{
+			"id": "area-of-interest",
 			"bbox": [
 				51.9,
 				7,
@@ -45,7 +54,7 @@
 			],
 			"crs": "EPSG:4326"
 		}
-	},
+	],
 	"outputs": [
 		{
 			"id": "literalOutput",
