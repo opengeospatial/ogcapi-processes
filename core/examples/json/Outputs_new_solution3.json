@@ -1,14 +1,10 @@
 {
     "outputs": {
         "literalOutput": {
-            "value": {
-                "value": 0.05
-            }
+            "value": 0.05
         },
         "complexOutput": {
-            "value": {
-                "value": "<test/>"
-            }
+            "value": "<test/>"
         },
         "complexOutputList": [
             {
