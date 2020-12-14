@@ -1,9 +1,8 @@
-type: object
-required:
-  - id
-  - value
-properties:
-  id:
-    type: string
-  value:
-    $ref: "valueType.yaml"
+allOf:
+   - $ref: "inlineOrRefData.yaml"
+   - type: object
+     required:
+        - id
+     properties:
+        - id:
+            type: string
