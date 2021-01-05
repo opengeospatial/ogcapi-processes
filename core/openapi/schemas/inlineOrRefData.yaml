@@ -8,6 +8,7 @@ properties:
     $ref: "format.yaml"
   href:
     type: string
+    format: uri
   value:
     oneOf:
       - type: string
