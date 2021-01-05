@@ -1,13 +1,11 @@
-type: object
-required:
-  - id
-  - input
-properties:
-  id:
-    type: string
-  input:
-    oneOf:
-      - $ref: "complexData.yaml"
-      - $ref: "literalData.yaml"
-      - $ref: "boundingBoxData.yaml"
-      - $ref: "input.yaml"
+additionalProperties:
+  oneOf:
+    - $ref: "inlineOrRefData.yaml"
+    - $ref: "boundingBoxData.yaml"
+    - $ref: "input.yaml"
+    - type: array
+      items:
+        oneOf:
+          - $ref: "inlineOrRefData.yaml"
+          - $ref: "boundingBoxData.yaml"
+          - $ref: "input.yaml"

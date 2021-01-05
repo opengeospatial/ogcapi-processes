@@ -1,11 +1,9 @@
-type: object
-required:
-  - id
-  - value
-properties:
-  id:
-    type: string
-  value:
-    $ref: "valueType.yaml"
-  format:
-    $ref: "format.yaml"
+additionalProperties:
+  oneOf:
+    - $ref: "inlineOrRefData.yaml"
+    - $ref: "boundingBoxData.yaml"
+    - type: array
+      items:
+        oneOf:
+          - $ref: "inlineOrRefData.yaml"
+          - $ref: "boundingBoxData.yaml"

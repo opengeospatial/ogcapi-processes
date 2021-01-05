@@ -1,8 +1,7 @@
-allOf:
-   - $ref: "dataType.yaml"
-   - type: object
-     properties:
-        id:
-           type: string
-        transmissionMode:
-           $ref: "transmissionMode.yaml"
+additionalProperties:
+   allOf:
+      - type: object
+        properties:
+           format:
+              $ref: "format.yaml"
+      - $ref: "transmissionMode.yaml"
