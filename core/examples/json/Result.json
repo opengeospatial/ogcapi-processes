@@ -1,23 +1,39 @@
-[
-   {
-	"id": "literalOutput",
+{
+	"literalOutputId": {
+		"dataType": {
+			"name": "double"
+		},
+		"value": 0.05
+	},
+	"boundingboxOutputId": {
 		"value": {
-			"inlineValue": 0.05
+			"bbox": [
+				51.9,
+				7,
+				52,
+				7.1
+			],
+			"crs": "EPSG:4326"
 		}
 	},
-	{
-		"id": "boundingboxOutput",
-		"value": {
-			"inlineValue": {
-			"bbox": [51.9, 7, 52, 7.1],
-				"crs": "EPSG:4326"
-			}
-		}
+	"complexOutputId": {
+		"format": {
+			"mimeType": "application/xml"
+		},
+		"value": "<test/>"
 	},
-	{
-		"id": "complexOutput",
-		"value": {
-			"inlineValue": "<test/>"
+	"complexOutputsId": [
+		{
+			"format": {
+				"mimeType": "text/plain"
+			},
+			"href": "https://processing.example.org/outputdata/faf7c1b6-3c47-4bab-a8a0-9ba9fce5378b.txt"
+		},
+		{
+			"format": {
+				"mimeType": "text/plain"
+			},
+			"href": "https://processing.example.org/outputdata/ae8eeda3-d408-4852-b442-de7d0b2d8c48.txt"
 		}
-	}
-]
+	]
+}
