@@ -13,6 +13,7 @@ Each OGC API - Processes has a single `LandingPage` (path `/`) that provides lin
 * the `APIDefinition` (no fixed path),
 * the `Conformance` statements (path `/conformance`),
 * the `processes` metadata (path `/processes`).
+* the `execute` endpoint (path `/jobs`).
 
 The `APIDefinition` describes the capabilities of the server that can be used by
 clients to connect to the server or by development tools to support the
