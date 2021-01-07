@@ -7,7 +7,7 @@
 		"outputTransmission": ["value",	"reference"],
         "links": [
           {
-            "href": "https://processing.example.org/processes/EchoProcess",
+            "href": "https://processing.example.org/oapi-p/processes/EchoProcess",
             "type": "application/json",
             "rel": "process-desc",
             "title": "process description"

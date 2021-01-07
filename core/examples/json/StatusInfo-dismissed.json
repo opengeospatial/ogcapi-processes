@@ -5,7 +5,7 @@
   "progress": 56,
   "links": [
     {
-      "href": "http://processing.example.org/jobs",
+      "href": "http://processing.example.org/oapi-p/jobs",
       "rel": "up",
       "type": "application/json",
       "title": "The job list of this server"
