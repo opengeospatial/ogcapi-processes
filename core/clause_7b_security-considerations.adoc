@@ -21,7 +21,7 @@ HTTP methods can be classified as
 3+|Source <<rfc7231,RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content>>
 !===
 
-The following resources can be retrieved using the safe HTTP GET method and can contain sensible information:
+The following resources can be retrieved using the safe HTTP GET method and can contain sensitive information:
 
 Requirements class "Core":
 
