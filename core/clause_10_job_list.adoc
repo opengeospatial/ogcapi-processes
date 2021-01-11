@@ -13,7 +13,7 @@ include::requirements/job-list/REQ_job-list-op.adoc[]
 
 include::requirements/job-list/REQ_job-list-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobList.yaml[Schema for the job list]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobList.yaml[Schema for the job list]
 [source,YAML]
 ----
 include::openapi/schemas/jobList.yaml[]
