@@ -396,8 +396,6 @@ include::examples/json/Result.json[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).
-
 include::requirements/core/REQ_job-result-exception-no-such-job.adoc[]
 
 include::requirements/core/REQ_job-result-exception-result-not-ready.adoc[]

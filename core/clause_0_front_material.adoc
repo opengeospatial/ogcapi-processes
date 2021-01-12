@@ -27,7 +27,7 @@ results of process executions.
 In general, the HTTP GET operation is used to provide access to the resources described above.
 However, in order to create a new job, the HTTP POST method is used to create a new job by sending an execute request to the server. 
 
-Additionally, a list of jobs for a specific process can be requested. 
+Additionally, the /jobs endpoint can be used to grant access to a list of jobs. 
 
 [#table_job_list,reftext='{table-caption} {counter:table-num}']
 .Requirements class 'Job list' - Overview of resources, applicable HTTP methods and links to the document sections
