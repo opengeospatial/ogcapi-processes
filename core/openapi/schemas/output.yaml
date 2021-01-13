@@ -1,7 +1,7 @@
 additionalProperties:
-   allOf:
-      - type: object
-        properties:
-           format:
-              $ref: "format.yaml"
-      - $ref: "transmissionMode.yaml"
+   type: object
+   properties:
+      format:
+         $ref: "format.yaml"
+      transmissionMode:
+         $ref: "transmissionMode.yaml"
