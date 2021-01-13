@@ -1,3 +1,9 @@
-type: array
-items:
-    $ref: "outputInfo.yaml"
+additionalProperties:
+    oneOf:
+        - $ref: "inlineOrRefData.yaml"
+        - $ref: "boundingBoxData.yaml"
+        - type: array
+          items:
+              oneOf:
+                  - $ref: "inlineOrRefData.yaml"
+                  - $ref: "boundingBoxData.yaml"
