@@ -7,3 +7,5 @@ allOf:
           - $ref: "complexDataType.yaml"
           - $ref: "literalDataType.yaml"
           - $ref: "boundingBoxDataType.yaml"
+      observedProperty:
+        $ref: "observedProperty.yaml"
