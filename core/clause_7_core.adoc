@@ -373,12 +373,6 @@ include::requirements/core/REQ_job-result-success.adoc[]
 include::openapi/schemas/result.yaml[]
 ----
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputInfo.yaml[Schema for output info]
-[source,YAML]
-----
-include::openapi/schemas/outputInfo.yaml[]
-----
-
 .Example of HTTP GET request for retrieving the result a job encoded as JSON.
 [source]
 ----
