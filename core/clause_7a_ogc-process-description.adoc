@@ -29,7 +29,7 @@ This clause defines a JSON-encoding of the OGC process description.
 
 include::requirements/ogc-process-description/REQ_json-encoding.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml[Schema for a process (process.yaml)]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[Schema for a process (process.yaml)]
 [source,YAML]
 ----
 include::openapi/schemas/process.yaml[]

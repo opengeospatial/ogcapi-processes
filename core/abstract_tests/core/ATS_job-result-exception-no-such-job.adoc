@@ -4,7 +4,7 @@
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/job-result-failed*
 ^|Test Purpose |Validate that the job result retrieved using an invalid job identifier complies with the require structure and contents.
 ^|Requirement |<<req_core_job-result-exception-no-such-job,/req/core/job-result-exception-no-such-job>>
-^|Test Method |. Issue an HTTP GET request to the URL '/processes/{processID}/jobs/{jobID}/results' using an invalid {jobID}.
+^|Test Method |. Issue an HTTP GET request to the URL '/jobs/{jobID}/results' using an invalid {jobID}.
 . Validate that the document was returned with a 404.
 . Validate that the document contains the exception code "NoSuchJob". 
 . Validate the document for all supported media types using the resources and tests identified in <<job-result-exception-no-such-job>>

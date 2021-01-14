@@ -1,46 +1,64 @@
 {
-	"inputs": [{
-		"id": "complexInput",
-		"input": {
+	"id": "EchoProcess",
+	"inputs": {
+		"complexInputId": {
 			"format": {
 				"mimeType": "application/xml"
 			},
-			"value": {
-				"inlineValue": "<test/>"
+			"value": "<test/>"
+		},
+		"complexInputsId": [
+			{
+				"format": {
+					"mimeType": "text/plain",
+					"encoding": "UTF-8"
+				},
+				"value": "test"
+			},
+			{
+				"format": {
+					"mimeType": "text/plain",
+					"encoding": "UTF-8"
+				},
+				"href": "https://test.data/test.txt"
 			}
-		}
-	},
-	{
-		"id": "literalInput",
-		"input": {
-            "dataType": {
-              "name": "double"
-            },
+		],
+		"literalInputId": {
+			"dataType": {
+				"name": "double"
+			},
 			"value": "0.05"
-		}
-	},
-	{
-		"id": "boundingboxInput",
-		"input": {
-			"bbox": [51.9, 7, 52, 7.1],
+		},
+		"boundingboxInputId": {
+			"bbox": [
+				51.9,
+				7,
+				52,
+				7.1
+			],
 			"crs": "EPSG:4326"
 		}
-	}],
-	"outputs": [{
-		"id": "literalOutput",
-		"transmissionMode": "value"
 	},
-	{
-		"id": "boundingboxOutput",
-		"transmissionMode": "value"
-	},
-	{
-		"id": "complexOutput",
-		"format": {
-			"mimeType": "application/xml"
+	"outputs": {
+		"literalOutputId": {
+			"transmissionMode": "value"
 		},
-		"transmissionMode": "value"
-	}],
-    "response": "document",
-    "mode": "async"
+		"boundingboxOutput": {
+			"transmissionMode": "value"
+		},
+		"complexOutputId": {
+			"format": {
+				"mimeType": "application/xml"
+			},
+			"transmissionMode": "value"
+		},
+		"complexOutputsId": {
+			"format": {
+				"mimeType": "text/plain"
+			},
+			"transmissionMode": "reference"
+		}
+	},
+	"response": "document",
+	"mode": "async"
 }
