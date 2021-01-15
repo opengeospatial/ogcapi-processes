@@ -187,6 +187,7 @@ outside of the server.
 |`410` |The target resource is no longer available at the origin server.
 |`429` |The user has sent too many requests in a given amount of time ("rate limiting").
 |`500` |An internal error occurred in the server.
+|`501` |The server does not support the functionality required to fulfill the request.
 !===
 
 More specific guidance is provided for each resource, where applicable.
