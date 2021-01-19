@@ -22,7 +22,7 @@ include::openapi/schemas/jobList.yaml[]
 .Example of HTTP GET request for retrieving the list of jobs encoded as JSON.
 [source]
 ----
-http://processing.example.org/processes/EchoProcess/jobs
+http://processing.example.org/jobs
 ----
 
 .Example of a job list encoded as JSON.
