@@ -66,10 +66,6 @@ Each resource representation includes an array of links. Implementations are fre
 |XML	| Extensible Markup Language
 |=======================
 
-=== Use of the Term "Process"
-
-The term process is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this specification uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the WPS 2.0 standard. 
-
 === Use of HTTPS
 
 For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. It is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>>, not <<rfc2616,HTTP>>.
