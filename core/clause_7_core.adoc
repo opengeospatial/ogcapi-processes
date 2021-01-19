@@ -337,7 +337,7 @@ include::openapi/schemas/statusInfo.yaml[]
 .The following is an example of HTTP GET request for retrieving status information about a job encoded as JSON.
 [source]
 ----
-GET /processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f HTTP/1.1
+GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f HTTP/1.1
 Host: processing.example.org
 ----
 
@@ -377,7 +377,7 @@ include::openapi/schemas/result.yaml[]
 .The following is an example of HTTP GET request for retrieving the result a job encoded as JSON.
 [source]
 ----
-GET /processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result HTTP/1.1
+GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result HTTP/1.1
 Host: processing.example.org
 ----
 
