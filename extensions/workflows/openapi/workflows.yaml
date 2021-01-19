@@ -1,0 +1,2020 @@
+openapi: 3.0.0
+info:
+  title: Modular OGC API Workflows
+  version: MOAW-0.2
+  description: |-
+    WARNING - THIS IS WORK IN PROGRESS\
+    Sample GNOSIS Map Server OGC API test implementation.
+
+    Project led by Ecere Corporation and supported by in-kind contributions from collaborating OGC members and research centers.
+
+    Financial support provided by GeoConnections, a national collaborative initiative led by Natural Resources Canada.  GeoConnections supports the integration and use of the Canadian Geospatial Data Infrastructure (CGDI), an on-line resource that improves the sharing, access and use of open geospatial information.
+  contact:
+    name: Open Geospatial Consortium
+    email: standards@opengeospatial.org
+    url: 'http://www.opengeospatial.org'
+  license:
+    name: CC-BY 4.0 license
+    url: 'https://creativecommons.org/licenses/by/4.0/'
+paths:
+  /:
+    get:
+      summary: Service landing page of this API
+      description: >-
+        The landing page provides links to the API definition, the Conformance
+        statements, the available processes as well as the datasets offered by this service.
+      operationId: getLandingPage
+      tags:
+        - Capabilities
+      responses:
+        '200':
+          description: links to the API capabilities
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/landingPage'
+            text/html:
+              schema:
+                type: string
+  /conformance:
+    get:
+      summary: Conformance classes
+      description: >-
+        A list of all requirements classes specified in a standard (e.g., WPS REST/JSON Binding) that this API conforms to
+        Part 1: Core) that the server conforms to
+      operationId: getRequirementsClasses
+      tags:
+        - Capabilities
+      responses:
+        '200':
+          description: the URIs of all requirements classes supported by the server
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/confClasses'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/exception'
+  /processes:
+    get:
+      summary: List available processes
+      description: >-
+        A list of all available processes.
+      operationId: getProcesses
+      tags:
+        - ProcessesInformation
+      responses:
+        '200':
+          description: >-
+            Information about the available processes
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/processList'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/exception'
+  /processes/{id}:
+    get:
+      summary: Retrieve a process description
+      operationId: getProcessDescription
+      tags:
+        - ProcessesInformation
+      parameters:
+          - in: path
+            name: id
+            description: The id of a process
+            required: true
+            schema:
+              type: string
+            examples:
+              ElevationContours:
+               value: 'ElevationContours'
+              RenderMap:
+               value: 'RenderMap'
+              CoverageProcessor:
+               value: 'CoverageProcessor'
+              WCPS:
+               value: 'wcps'
+      responses:
+        '200':
+          description: A process description.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/process'
+                example:
+                  id: RenderMap
+                  title: Maps rendering process
+                  description: RenderMap process
+                  keywords: [process, maps]
+                  inputs:
+                     - id: layers
+                       title: layers
+                       description: The layers to render on the map
+                       literalDataDomain:
+                          dataType:
+                              name: array
+                     - id: bgColor
+                       title: bgColor
+                       description: The background color of the map
+                       literalDataDomain:
+                          dataType:
+                              name: string
+                          valueDefinition:
+                              defaultValue: "000000"
+                     - id: transparent
+                       title: transparent
+                       description: Whether the map's background is transparent.
+                       literalDataDomain:
+                          dataType:
+                              name: bool
+                          valueDefinition:
+                              defaultValue: true
+                  outputs:
+                        - id: result
+                          title: result
+                          description: The rendered map
+                  version: 1.1
+                  jobControlOptions: [modular-sync, modular-deferred]
+                  links:
+                     - rel: canonical
+                       href: https://maps.ecere.com/ogcapi/processes/RenderMap
+                       type: application/json
+                       title: Modular execution endpoint
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+    post:
+      summary: Submit a workflow for deferred execution
+      description: Post a workflow to set up deferred execution of it, obtaining a temporary virtual geospatial data resource (collection) with links to resources supporting GET methods for all supported execution/output retrieval mechanisms (equivalent to the modular synchronous execution end-points supported)
+      operationId: execDeferred
+      tags:
+        - DeferredExecution
+      parameters:
+         - in: path
+           name: id
+           description: The id of a process
+           required: true
+           schema:
+             type: string
+           examples:
+             ElevationContours:
+               value: 'ElevationContours'
+             RenderMap:
+               value: 'RenderMap'
+             CoverageProcessor:
+               value: 'CoverageProcessor'
+             WCPS:
+              value: 'wcps'
+         - in: query
+           name: f
+           description: A format specifier
+           required: false
+           schema:
+             type: string
+           examples:
+             json:
+               value: json
+             econ:
+               value: econ
+             html:
+               value: html
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/execute'
+            examples:
+               elevationContours:
+                 $ref: '#/components/examples/elevationContours'
+               renderMap:
+                 $ref: '#/components/examples/renderMap'
+               nestedWorkflow:
+                 $ref: '#/components/examples/nestedWorkflow'
+               evis2:
+                 $ref: '#/components/examples/EVISentinel2'
+               evis2-wcps:
+                 $ref: '#/components/examples/EVISentinel2-WCPS'
+      responses:
+        '303':
+           description: Successful, see other for GET-accessible resource
+           headers:
+             Location:
+               schema:
+                 type: string
+               description: GET-accessible path for same result, which can also be used as a replacement to the /processes/{id} portion of the synchronous execution paths using GET, without having to re-submit (POST) the workflow.
+           content:
+             application/json:
+               schema:
+                 $ref: 'https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collectionInfo.yaml'
+             text/html:
+               schema:
+                 type: string
+                 format: binary
+        '400':
+           description: Invalid request
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '410':
+           description: Resource has expired
+           headers:
+             Cache-Control:
+               description: 410 is cachable by default, but deferred execution may come back online.
+               schema:
+                 type: string
+                 enum:
+                  - no-cache
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+  /processes/{id}/tiles:
+    post:
+      summary: Submit a workflow for tiled deferred execution
+      description: Post a workflow to set up deferred execution of it, obtaining a list of available tilesets for the results with links to resources supporting GET methods for all supportedTiles API execution/output retrieval mechanisms  (equivalent to the modular synchronous Tiles API execution end-points supported)
+      operationId: execDeferredMapTilesets
+      tags:
+        - DeferredExecution
+      parameters:
+         - in: path
+           name: id
+           description: The id of a process
+           required: true
+           schema:
+             type: string
+           examples:
+             ElevationContours:
+               value: 'ElevationContours'
+             RenderMap:
+               value: 'RenderMap'
+             CoverageProcessor:
+               value: 'CoverageProcessor'
+             WCPS:
+              value: 'wcps'
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/execute'
+            examples:
+               elevationContours:
+                 $ref: '#/components/examples/elevationContours'
+               renderMap:
+                 $ref: '#/components/examples/renderMap'
+               nestedWorkflow:
+                 $ref: '#/components/examples/nestedWorkflow'
+               evis2:
+                 $ref: '#/components/examples/EVISentinel2'
+               evis2-wcps:
+                 $ref: '#/components/examples/EVISentinel2-WCPS'
+      responses:
+        '303':
+           description: Successful, see other for GET-accessible resource
+           headers:
+             Location:
+               schema:
+                 type: string
+               description: GET-accessible path for same result, which can also be used as a replacement to the /processes/{id} portion of the synchronous execution paths using GET, without having to re-submit (POST) the workflow.
+           content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/tilesetsList'
+        '400':
+           description: Invalid request
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '410':
+           description: Resource has expired
+           headers:
+             Cache-Control:
+               description: 410 is cachable by default, but deferred execution may come back online.
+               schema:
+                 type: string
+                 enum:
+                  - no-cache
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+  /processes/{id}/tiles/{tms}:
+    post:
+      summary: Submit a workflow for tiled deferred execution for a specific Tile Matrix Set
+      description: Post a workflow to set up deferred execution of it for a specific supported TileMatrixSet, obtaining the tileset description resource with templated links to retrieve individual tiles via GET method, as well as information such as the tile limits for each tile matrix  (equivalent to the capability available thorugh the modular synchronous Tiles API execution)
+      operationId: execDeferredTileset
+      tags:
+        - DeferredExecution
+      parameters:
+         - in: path
+           name: id
+           description: The id of a process
+           required: true
+           schema:
+             type: string
+           examples:
+             ElevationContours:
+               value: 'ElevationContours'
+             RenderMap:
+               value: 'RenderMap'
+             CoverageProcessor:
+               value: 'CoverageProcessor'
+             WCPS:
+              value: 'wcps'
+         - in: path
+           name: tms
+           description: The identifier for a supported TileMatrixSet
+           required: true
+           schema:
+             type: string
+           examples:
+              GNOSIS Global Grid:
+                 value: GNOSISGlobalGrid
+              CRS84 Quad Tree:
+                 value: WorldCRS84Quad
+              Google CRS84 Quad (one tile for level 0):
+                 value: GoogleCRS84Quad
+              Convenient Degrees/Pixels:
+                 value: GlobalCRS84Pixel
+              Convenient Scale Denominators:
+                 value: GlobalCRS84Scale
+              World Mercator Quad:
+                 value: WorldMercatorWGS84Quad
+              Web Mercator Quad (spherical):
+                 value: WebMercatorQuad
+              CDB 1.x (1024px positive, overview negative):
+                 value: CDBGlobalGrid
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/execute'
+            examples:
+               elevationContours:
+                 $ref: '#/components/examples/elevationContours'
+               renderMap:
+                 $ref: '#/components/examples/renderMap'
+               nestedWorkflow:
+                 $ref: '#/components/examples/nestedWorkflow'
+               evis2:
+                 $ref: '#/components/examples/EVISentinel2'
+               evis2-wcps:
+                 $ref: '#/components/examples/EVISentinel2-WCPS'
+      responses:
+        '303':
+           description: Successful, see other for GET-accessible resource
+           headers:
+             Location:
+               schema:
+                 type: string
+               description: GET-accessible path for same result, which can also be used as a replacement to the /processes/{id} portion of the synchronous execution paths using GET, without having to re-submit (POST) the workflow.
+           content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/tileset'
+        '400':
+           description: Invalid request
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '410':
+           description: Resource has expired
+           headers:
+             Cache-Control:
+               description: 410 is cachable by default, but deferred execution may come back online.
+               schema:
+                 type: string
+                 enum:
+                  - no-cache
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+  /processes/{id}/map:
+    post:
+      summary: Submit a workflow for map deferred execution
+      description: Post a workflow to set up deferred execution of it, obtaining a link to a map resource for the results supporting GET methods for all supported Maps API execution/output retrieval mechanisms (equivalent to the modular synchronous Maps API execution end-points supported)
+      operationId: execDeferredMap
+      tags:
+        - DeferredExecution
+      parameters:
+         - in: path
+           name: id
+           description: The id of a process
+           required: true
+           schema:
+             type: string
+           examples:
+             ElevationContours:
+               value: 'ElevationContours'
+             RenderMap:
+               value: 'RenderMap'
+             CoverageProcessor:
+               value: 'CoverageProcessor'
+             WCPS:
+              value: 'wcps'
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/execute'
+            examples:
+               elevationContours:
+                 $ref: '#/components/examples/elevationContours'
+               renderMap:
+                 $ref: '#/components/examples/renderMap'
+               nestedWorkflow:
+                 $ref: '#/components/examples/nestedWorkflow'
+               evis2:
+                 $ref: '#/components/examples/EVISentinel2'
+               evis2-wcps:
+                 $ref: '#/components/examples/EVISentinel2-WCPS'
+      responses:
+        '303':
+           description: Successful, see other for GET-accessible resource
+           headers:
+             Location:
+               schema:
+                 type: string
+               description: GET-accessible path for same result, which can also be used as a replacement to the /processes/{id} portion of the synchronous execution paths using GET, without having to re-submit (POST) the workflow.
+           content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/mapsList'
+        '400':
+           description: Invalid request
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '410':
+           description: Resource has expired
+           headers:
+             Cache-Control:
+               description: 410 is cachable by default, but deferred execution may come back online.
+               schema:
+                 type: string
+                 enum:
+                  - no-cache
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+  /processes/{id}/map/default/tiles:
+    post:
+      summary: Submit a workflow for tiled map deferred execution
+      description: Post a workflow to set up deferred execution of it, obtaining a list of available map tilesets for the results with links to resources supporting GET methods for all supported combined Map Tiles API execution/output retrieval mechanisms (equivalent to the modular synchronous Map Tiles API execution end-points supported)
+      operationId: execDeferredTilesets
+      tags:
+        - DeferredExecution
+      parameters:
+         - in: path
+           name: id
+           description: The id of a process
+           required: true
+           schema:
+             type: string
+           examples:
+             ElevationContours:
+               value: 'ElevationContours'
+             RenderMap:
+               value: 'RenderMap'
+             CoverageProcessor:
+               value: 'CoverageProcessor'
+             WCPS:
+              value: 'wcps'
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/execute'
+            examples:
+               elevationContours:
+                 $ref: '#/components/examples/elevationContours'
+               renderMap:
+                 $ref: '#/components/examples/renderMap'
+               nestedWorkflow:
+                 $ref: '#/components/examples/nestedWorkflow'
+               evis2:
+                 $ref: '#/components/examples/EVISentinel2'
+               evis2-wcps:
+                 $ref: '#/components/examples/EVISentinel2-WCPS'
+      responses:
+        '303':
+           description: Successful, see other for GET-accessible resource
+           headers:
+             Location:
+               schema:
+                 type: string
+               description: GET-accessible path for same result, which can also be used as a replacement to the /processes/{id} portion of the synchronous execution paths using GET, without having to re-submit (POST) the workflow.
+           content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/tilesetsList'
+        '400':
+           description: Invalid request
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '410':
+           description: Resource has expired
+           headers:
+             Cache-Control:
+               description: 410 is cachable by default, but deferred execution may come back online.
+               schema:
+                 type: string
+                 enum:
+                  - no-cache
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+  /processes/{id}/map/default/tiles/{tms}:
+    post:
+      summary: Submit a workflow for tiled map deferred execution for a specific Tile Matrix Set
+      description: Post a workflow to set up deferred execution of it for a specific supported TileMatrixSet, obtaining the map tileset description resource with templated links to retrieve individual map tiles via GET method, as well as information such as the tile limits for each tile matrix  (equivalent to the capability available through the modular synchronous Tiles API execution)
+      operationId: execDeferredMapTileset
+      tags:
+        - DeferredExecution
+      parameters:
+         - in: path
+           name: id
+           description: The id of a process
+           required: true
+           schema:
+             type: string
+           examples:
+             ElevationContours:
+               value: 'ElevationContours'
+             RenderMap:
+               value: 'RenderMap'
+             CoverageProcessor:
+               value: 'CoverageProcessor'
+             WCPS:
+              value: 'wcps'
+         - in: path
+           name: tms
+           description: The identifier for a supported TileMatrixSet
+           required: true
+           schema:
+             type: string
+           examples:
+              GNOSIS Global Grid:
+                 value: GNOSISGlobalGrid
+              CRS84 Quad Tree:
+                 value: WorldCRS84Quad
+              Google CRS84 Quad (one tile for level 0):
+                 value: GoogleCRS84Quad
+              Convenient Degrees/Pixels:
+                 value: GlobalCRS84Pixel
+              Convenient Scale Denominators:
+                 value: GlobalCRS84Scale
+              World Mercator Quad:
+                 value: WorldMercatorWGS84Quad
+              Web Mercator Quad (spherical):
+                 value: WebMercatorQuad
+              CDB 1.x (1024px positive, overview negative):
+                 value: CDBGlobalGrid
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/execute'
+            examples:
+               elevationContours:
+                 $ref: '#/components/examples/elevationContours'
+               renderMap:
+                 $ref: '#/components/examples/renderMap'
+               nestedWorkflow:
+                 $ref: '#/components/examples/nestedWorkflow'
+               evis2:
+                 $ref: '#/components/examples/EVISentinel2'
+               evis2-wcps:
+                 $ref: '#/components/examples/EVISentinel2-WCPS'
+      responses:
+        '303':
+           description: Successful, see other for GET-accessible resource
+           headers:
+             Location:
+               schema:
+                 type: string
+               description: GET-accessible path for same result, which can also be used as a replacement to the /processes/{id} portion of the synchronous execution paths using GET, without having to re-submit (POST) the workflow.
+           content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/tileset'
+        '400':
+           description: Invalid request
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '410':
+           description: Resource has expired
+           headers:
+             Cache-Control:
+               description: 410 is cachable by default, but deferred execution may come back online.
+               schema:
+                 type: string
+                 enum:
+                  - no-cache
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+  /processes/{id}/tiles/{tms}/{tileMatrix}/{tileRow}/{tileCol}:
+    post:
+      summary: Execute and retrieve results through Tiles API
+      description: Post a workflow to synchronously retrieve data tiles using MOAW extension
+      operationId: execSyncTile
+      tags:
+        - SynchronousExecution
+      parameters:
+         - in: path
+           name: id
+           description: The id of a process
+           required: true
+           schema:
+             type: string
+           examples:
+             ElevationContours:
+               value: 'ElevationContours'
+             RenderMap:
+               value: 'RenderMap'
+             CoverageProcessor:
+               value: 'CoverageProcessor'
+             WCPS:
+              value: 'wcps'
+         - in: path
+           name: tms
+           description: The 2D Tile Matrix Set (tiling scheme) for which to retrieve a tile
+           required: true
+           schema:
+             type: string
+           examples:
+              GNOSIS Global Grid:
+                 value: GNOSISGlobalGrid
+              CRS84 Quad Tree:
+                 value: WorldCRS84Quad
+              Google CRS84 Quad (one tile for level 0):
+                 value: GoogleCRS84Quad
+              Convenient Degrees/Pixels:
+                 value: GlobalCRS84Pixel
+              Convenient Scale Denominators:
+                 value: GlobalCRS84Scale
+              World Mercator Quad:
+                 value: WorldMercatorWGS84Quad
+              Web Mercator Quad (spherical):
+                 value: WebMercatorQuad
+              CDB 1.x (1024px positive, overview negative):
+                 value: CDBGlobalGrid
+         - in: path
+           name: tileMatrix
+           description: The tile matrix (level of detail, zoom level) for which to retrieve a tile
+           required: true
+           schema:
+             type: string
+           example: "0"
+         - in: path
+           name: tileRow
+           description: The tile row in the tile matrix (counting from the top starting at 0) for which to retrieve a tile
+           required: true
+           schema:
+             type: integer
+             format: int32
+           example: 0
+         - in: path
+           name: tileCol
+           description: The tile column in the tile matrix (counting from the left starting at 0) for which to retrieve a tile
+           required: true
+           schema:
+             type: integer
+             format: int32
+           example: 0
+         - in: query
+           name: f
+           description: A format specifier
+           required: false
+           schema:
+             type: string
+           examples:
+             GeoJSON:
+               value: json
+             PNG:
+               value: png
+             JPEG:
+                value: jpg
+             Mapbox Vector Tile:
+                value: mvt
+             GeoTIFF:
+                value: tif
+             GNOSIS Map Tile:
+               value: gmt
+
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/execute'
+            examples:
+               elevationContours:
+                 $ref: '#/components/examples/elevationContours'
+               renderMap:
+                 $ref: '#/components/examples/renderMap'
+               nestedWorkflow:
+                 $ref: '#/components/examples/nestedWorkflow'
+               evis2:
+                 $ref: '#/components/examples/EVISentinel2'
+               evis2-wcps:
+                 $ref: '#/components/examples/EVISentinel2-WCPS'
+      responses:
+        '200':
+           description: Successfully executed workflow and retrieved map
+           content:
+             application/geo+json:
+               schema:
+                 type: string
+                 format: binary
+                 # $ref: 'https://github.com/opengeospatial/ogcapi-features/blob/master/core/openapi/schemas/featureCollectionGeoJSON.yaml'
+             image/png:
+               schema:
+                 type: string
+                 format: binary
+             image/jpg:
+               schema:
+                 type: string
+                 format: binary
+             image/tiff; application=geotiff:
+               schema:
+                 type: string
+                 format: binary
+             application/vnd.mapbox-vector-tile:
+               schema:
+                 type: string
+                 format: binary
+             application/vnd.gnosis-map-tile:
+               schema:
+                 type: string
+                 format: binary
+             text/mapml:
+               schema:
+                 type: string
+                 format: binary
+
+        '400':
+           description: Invalid request
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+  /processes/{id}/coverage:
+    post:
+      summary: Execute and retrieve results through Coverages API
+      description: Post a workflow to synchronously retrieve coverage data using MOAW extension
+      operationId: execSyncCoverage
+      tags:
+        - SynchronousExecution
+      parameters:
+         - in: path
+           name: id
+           description: The id of a process
+           required: true
+           schema:
+             type: string
+           examples:
+             CoverageProcessor:
+               value: CoverageProcessor
+             WCPS:
+               value: wcps
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/execute'
+            examples:
+                EVISentinel2:
+                   $ref: "#/components/examples/EVISentinel2"
+                EVISentinel2-WCPS:
+                   $ref: "#/components/examples/EVISentinel2-WCPS"
+      responses:
+        '200':
+           description: Successfully executed workflow and retrieved map
+           content:
+             image/tiff; application=geotiff:
+               schema:
+                 type: string
+                 format: binary
+             image/png:
+               schema:
+                 type: string
+                 format: binary
+        '400':
+           description: Invalid request
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+  /processes/{id}/map/default:
+    post:
+      summary: Execute and retrieve results through Maps API
+      description: Post a workflow to synchronously retrieve map using the MOAW extension
+      operationId: execSyncMap
+      tags:
+        - SynchronousExecution
+      parameters:
+         - in: path
+           name: id
+           description: The id of a process
+           required: true
+           schema:
+             type: string
+           examples:
+             ElevationContours:
+               value: 'ElevationContours'
+             RenderMap:
+               value: 'RenderMap'
+             CoverageProcessor:
+               value: 'CoverageProcessor'
+             WCPS:
+              value: 'wcps'
+         - in: query
+           name: f
+           description: A format specifier
+           required: false
+           schema:
+             type: string
+           examples:
+             PNG:
+               value: png
+             JPEG:
+                value: jpg
+             GeoTIFF:
+                value: tif
+         - in: query
+           name: bbox
+           style: form
+           explode: false
+           description: The bounding box for which to request a map, with 4 coordinates (west longitude, south latitude, east longitude, north latitude)
+           required: false
+           schema:
+             type: array
+             minItems: 4
+             maxItems: 4 # Should 2D maps also support 6 numbers?
+             items:
+               type: number
+             example:
+              - 30
+              - 20
+              - 40
+              - 30
+         - in: query
+           name: width
+           description: The width of the map to request
+           required: false
+           schema:
+             type: number
+           example: 800
+         - in: query
+           name: height
+           description: The height of the map to request
+           required: false
+           schema:
+             type: number
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/execute'
+            examples:
+               elevationContours:
+                 $ref: '#/components/examples/elevationContours'
+               renderMap:
+                 $ref: '#/components/examples/renderMap'
+               nestedWorkflow:
+                 $ref: '#/components/examples/nestedWorkflow'
+               evis2:
+                 $ref: '#/components/examples/EVISentinel2'
+               evis2-wcps:
+                 $ref: '#/components/examples/EVISentinel2-WCPS'
+      responses:
+        '200':
+           description: Successfully executed workflow and retrieved map
+           content:
+             image/png:
+               schema:
+                 type: string
+                 format: binary
+             image/jpg:
+               schema:
+                 type: string
+                 format: binary
+             image/tiff; application=geotiff:
+               schema:
+                 type: string
+                 format: binary
+        '400':
+           description: Invalid request
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+  /processes/{id}/map/default/tiles/{tms}/{tileMatrix}/{tileRow}/{tileCol}:
+    post:
+      summary: Execute and retrieve results through combined Maps & Tiles API
+      description: Post a workflow to synchronously retrieve map tiles using MOAW extension
+      operationId: execSyncMapTile
+      tags:
+        - SynchronousExecution
+      parameters:
+         - in: path
+           name: id
+           description: The id of a process
+           required: true
+           schema:
+             type: string
+           examples:
+             ElevationContours:
+               value: 'ElevationContours'
+             RenderMap:
+               value: 'RenderMap'
+             CoverageProcessor:
+               value: 'CoverageProcessor'
+             WCPS:
+              value: 'wcps'
+         - in: path
+           name: tms
+           description: The 2D Tile Matrix Set (tiling scheme) for which to retrieve a tile
+           required: true
+           schema:
+             type: string
+           examples:
+              GNOSIS Global Grid:
+                 value: GNOSISGlobalGrid
+              CRS84 Quad Tree:
+                 value: WorldCRS84Quad
+              Google CRS84 Quad (one tile for level 0):
+                 value: GoogleCRS84Quad
+              Convenient Degrees/Pixels:
+                 value: GlobalCRS84Pixel
+              Convenient Scale Denominators:
+                 value: GlobalCRS84Scale
+              World Mercator Quad:
+                 value: WorldMercatorWGS84Quad
+              Web Mercator Quad (spherical):
+                 value: WebMercatorQuad
+              CDB 1.x (1024px positive, overview negative):
+                 value: CDBGlobalGrid
+         - in: path
+           name: tileMatrix
+           description: The tile matrix (level of detail, zoom level) for which to retrieve a tile
+           required: true
+           schema:
+             type: string
+           example: "0"
+         - in: path
+           name: tileRow
+           description: The tile row in the tile matrix (counting from the top starting at 0) for which to retrieve a tile
+           required: true
+           schema:
+             type: integer
+             format: int32
+           example: 0
+         - in: path
+           name: tileCol
+           description: The tile column in the tile matrix (counting from the left starting at 0) for which to retrieve a tile
+           required: true
+           schema:
+             type: integer
+             format: int32
+           example: 0
+         - in: query
+           name: f
+           description: A format specifier
+           required: false
+           schema:
+             type: string
+           examples:
+             PNG:
+               value: png
+             JPEG:
+                value: jpg
+             GeoTIFF:
+                value: tif
+             GNOSIS Map Tile:
+               value: gmt
+
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/execute'
+            examples:
+               elevationContours:
+                 $ref: '#/components/examples/elevationContours'
+               renderMap:
+                 $ref: '#/components/examples/renderMap'
+               nestedWorkflow:
+                 $ref: '#/components/examples/nestedWorkflow'
+               evis2:
+                 $ref: '#/components/examples/EVISentinel2'
+               evis2-wcps:
+                 $ref: '#/components/examples/EVISentinel2-WCPS'
+      responses:
+        '200':
+           description: Successfully executed workflow and retrieved map
+           content:
+             image/png:
+               schema:
+                 type: string
+                 format: binary
+             image/jpg:
+               schema:
+                 type: string
+                 format: binary
+             image/tiff; application=geotiff:
+               schema:
+                 type: string
+                 format: binary
+             application/vnd.gnosis.map-tile:
+               schema:
+                 type: string
+                 format: binary
+
+        '400':
+           description: Invalid request
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+  /processes/{id}/items:
+    post:
+      summary: Execute and retrieve results through Features API
+      description: Post a workflow to synchronously retrieve items using MOAW extension
+      operationId: execSyncItems
+      tags:
+        - SynchronousExecution
+      parameters:
+         - in: path
+           name: id
+           description: The id of a process
+           required: true
+           schema:
+             type: string
+           example: ElevationContours
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/execute'
+            examples:
+               elevationContours:
+                 $ref: '#/components/examples/elevationContours'
+      responses:
+        '200':
+           description: Successfully executed workflow and retrieved map
+           content:
+             application/geo+json:
+               schema:
+                 type: string
+                 format: binary
+
+                 # $ref: 'https://github.com/opengeospatial/ogcapi-features/blob/master/core/openapi/schemas/featureCollectionGeoJSON.yaml'
+        '400':
+           description: Invalid request
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+  /processes/{id}/items/{itemId}:
+    post:
+      summary: Execute and retrieve a single feature through Features API
+      description: Post a workflow to synchronously retrieve a single item using MOAW extension
+      operationId: execSyncOneItem
+      tags:
+        - SynchronousExecution
+      parameters:
+         - in: path
+           name: id
+           description: The id of the process
+           required: true
+           schema:
+             type: string
+           example: ElevationContours
+         - in: path
+           name: itemId
+           description: The id of the item to retrieve
+           required: true
+           schema:
+             type: string
+           example: 17
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/execute'
+            examples:
+               elevationContours:
+                 $ref: '#/components/examples/elevationContours'
+      responses:
+        '200':
+           description: Successfully executed workflow and retrieved map
+           content:
+             application/geo+json:
+               schema:
+                 type: string
+                 format: binary
+        '400':
+           description: Invalid request
+           content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        '404':
+          description: 'The process {id} does not exist.'
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+        default:
+          description: An error occured.
+          content:
+            application/json:
+                schema:
+                  $ref: '#/components/schemas/exception'
+components:
+    examples:
+      renderMap:
+        summary: A sample RenderMap execution
+        value:
+          id: SampleRenderMapExecution
+          process: 'https://maps.ecere.com/ogcapi/processes/RenderMap'
+          inputs:
+            - id: transparent
+              value: false
+            - id: bgColor
+              value: "002040"
+            - id: layers
+              list:
+                - collection: 'https://maps.ecere.com/ogcapi/collections/NaturalEarth:physical:bathymetry'
+                - collection: 'https://maps.ecere.com/ogcapi/collections/SRTM_ViewFinderPanorama'
+      elevationContours:
+        summary: Generate contours from elevation data
+        value:
+          id: SampleElevationContoursExecution
+          process: 'https://maps.ecere.com/ogcapi/processes/ElevationContours'
+          inputs:
+          - id: data
+            collection: 'https://maps.ecere.com/ogcapi/collections/SRTM_ViewFinderPanorama'
+          - id: distance
+            value: 1000
+      nestedWorkflow:
+        summary: Example workflow with nested processing
+        value:
+          id: SampleNestedWorkflow
+          process: 'https://maps.ecere.com/processes/RenderMap'
+          inputs:
+           - id: transparent
+             value: false
+           - id: layers
+             list:
+             - collection: 'https://maps.ecere.com/ogcapi/collections/NaturalEarth:physical:bathymetry'
+             - collection: 'https://maps.ecere.com/ogcapi/collections/SRTM_ViewFinderPanorama'
+             - process: 'https://maps.ecere.com/ogcapi/processes/ElevationContours'
+               inputs:
+               - id: data
+                 collection: 'https://maps.ecere.com/ogcapi/collections/SRTM_ViewFinderPanorama'
+               - id: distance
+                 value: 500
+      EVISentinel2:
+         summary: Enhanced Vegetation Index on sentinel-2 using theoretical CPL
+         description: This workflow calculates an Enhanced Vegetation Index on sentinel-2 data using a theoretical Coverage Processing Language.
+         value:
+           id: EVISentinel2
+           process: 'http://maps.ecere.com/ogcapi/processes/CoverageProcessor'
+           inputs:
+           - id: data
+             collection: 'http://rasdaman.org/ogcapi/collections/sentinel-2'
+           - id: code
+             value: 'double BLUE = data[bands:''B02''], RED = data[bands:''B04''], NIR = data[bands:''B08'']; return min[time](2.5 * (NIR - RED) / (1 + NIR + 6*RED + -7.5*BLUE));'
+      EVISentinel2-WCPS:
+        summary: EVI S2 - Attempt at integrating WCPS
+        description: This is an attempt at parameterizing WCPS in a way that simple text substitution could enable its use as part of Modular OGC API Workflows.
+        value:
+          id: EVISentinel2-WCPS
+          process: 'http://maps.ecere.com/ogcapi/processes/wcps'
+          inputs:
+          - id: data
+            collection: 'http://rasdaman.org/ogcapi/collections/sentinel-2'
+          - id: code
+            value: >
+              for $c in ({data})
+                let $blue := $c.b02, $red = $c.b04, $nir = $c.b08
+                return
+                  encode(
+                    scale(
+                      extend(
+                        condense min over $c time({timeRange}) values
+                          2.5 * ($nir - $red) / (1 + $nir + 6 * $red + -7.5 * $blue),
+                        { Lat({latRange}, Long({longRange}) }
+                      ),
+                      { Long:"CRS:1"(0:{right}), Lat:"CRS:1"(0:{bottom}) }
+                    ),
+                    {format}
+                  )
+    schemas:
+        additionalParameter:
+          type: object
+          required:
+             - name
+             - value
+          properties:
+             name:
+                type: string
+             value:
+                type: array
+                items:
+                   oneOf:
+                      - type: string
+                      - type: number
+                      - type: integer
+                      - type: array
+                        items: {}
+                      - type: object
+        allowedValues:
+          type: array
+          items:
+             oneOf:
+                - type: string
+                - $ref: "#/components/schemas/range"
+        anyValue:
+          type: object
+          properties:
+             anyValue:
+                type: boolean
+                default: true
+        boundingBoxData:
+          type: object
+          required:
+             - bbox
+          properties:
+             crs:
+                type: string
+                format: uri
+             bbox:
+                type: array
+                minItems: 4
+                maxItems: 6
+                items:
+                   type: number
+        boundingBoxDataType:
+          type: object
+          required:
+             - supportedCRS
+          properties:
+             supportedCRS:
+                type: array
+                items:
+                   $ref: "#/components/schemas/supportedCRS"
+        complexDataType:
+          type: object
+          required:
+             - formats
+          properties:
+             formats:
+                type: array
+                items:
+                   $ref: "#/components/schemas/formatDescription"
+        confClasses:
+          type: object
+          required:
+            - conformsTo
+          properties:
+            conformsTo:
+              type: array
+              items:
+                type: string
+                example: "http://www.opengis.net/spec/ogcapi_processes/1.0/req/core"
+        dataDescriptionType:
+          allOf:
+             - $ref: "#/components/schemas/descriptionType"
+             - type: object
+               required:
+                  - id
+        descriptionType:
+          type: object
+          required:
+            - id
+          properties:
+            id:
+              type: string
+            title:
+              type: string
+            description:
+              type: string
+            keywords:
+              type: array
+              items:
+                type: string
+            metadata:
+              type: array
+              items:
+                $ref: "#/components/schemas/metadata"
+            additionalParameters:
+              allOf:
+                - $ref: "#/components/schemas/metadata"
+                - type: object
+                  properties:
+                    parameters:
+                      type: array
+                      items:
+                        $ref: "#/components/schemas/additionalParameter"
+        exception:
+          type: object
+          required:
+            - code
+          properties:
+            code:
+              type: string
+            description:
+              type: string
+        execute:
+          type: object
+          properties:
+            id:
+              type: string
+            process:
+              type: string
+            inputs:
+              type: array
+              items:
+                $ref: "#/components/schemas/input"
+        format:
+          type: object
+          required:
+             - mediaType
+          properties:
+             mimeType:
+                type: string
+             schema:
+                type: string
+             encoding:
+                type: string
+        formatDescription:
+          allOf:
+             - $ref: "#/components/schemas/format"
+             - type: object
+               properties:
+                  maximumMegabytes:
+                     type: integer
+                  default:
+                     type: boolean
+                     default: false
+        collectionInput:
+          type: object
+          required:
+            - collection
+          properties:
+            collection:
+              type: string
+        processInput:
+          type: object
+          required:
+            - process
+          properties:
+            process:
+              type: string
+            inputs:
+              type: array
+              items:
+                $ref: "#/components/schemas/input"
+        chainedInput: # To allow using a workflow as a process by using an input coming in to the process at this point in the workflow.
+          type: object
+          required:
+            - input
+          properties:
+            input:
+              type: string
+        listInput:
+          type: object
+          required:
+            - list
+          properties:
+            list:
+              type: array
+              items:
+                $ref: "#/components/schemas/input"
+        input:
+          type: object
+          required:
+            - id
+          properties:
+            id:
+              type: string
+            useWith:
+              type: object
+          anyOf:
+           - $ref: "#/components/schemas/inlineOrRefData"
+           - $ref: "#/components/schemas/boundingBoxData"
+           # - $ref: "#/components/schemas/input" # Why can this be itself? -- This would be handled as listInput
+           - $ref: "#/components/schemas/collectionInput"
+           - $ref: "#/components/schemas/processInput"
+           - $ref: "#/components/schemas/chainedInput" # To allow using a workflow as a process by using an input coming in to the process at this point in the workflow.
+           - $ref: "#/components/schemas/listInput"
+        inputDescription:
+          allOf:
+            - $ref: "#/components/schemas/dataDescriptionType"
+            - type: object
+              properties:
+                input:
+                  oneOf:
+                    - $ref: "#/components/schemas/complexDataType"
+                    - $ref: "#/components/schemas/literalDataType"
+                    - $ref: "#/components/schemas/boundingBoxDataType"
+                minOccurs:
+                  type: integer
+                maxOccurs:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                      enum:
+                        - unbounded
+        jobControlOptions:
+          type: string
+          enum:
+            - modular-deferred
+            - modular-sync
+        landingPage:
+          type: object
+          required:
+            - links
+          properties:
+            title:
+              type: string
+              example: Example processing server
+            description:
+              type: string
+              example: Example server implementing the OGC API - Processes 1.0
+            links:
+              type: array
+              items:
+                $ref: "#/components/schemas/link"
+        link:
+          type: object
+          required:
+            - href
+          properties:
+            href:
+              type: string
+            rel:
+              type: string
+              example: service
+            type:
+              type: string
+              example: application/json
+            hreflang:
+              type: string
+              example: en
+            title:
+              type: string
+        inlineOrRefData:
+          type: object
+          properties:
+            dataType:
+               $ref: "#/components/schemas/nameReferenceType"
+            uom:
+               $ref: "#/components/schemas/nameReferenceType"
+            format:
+               $ref: "#/components/schemas/format"
+            href:
+              type: string
+            value:
+              oneOf:
+                 - type: string
+                 - type: number
+                 - type: boolean
+                 - type: object
+          oneOf:
+           - required: [href]
+           - required: [value]
+        literalDataDomain:
+          type: object
+          properties:
+            valueDefinition:
+              oneOf:
+                - $ref: "#/components/schemas/allowedValues"
+                - $ref: "#/components/schemas/anyValue"
+                - $ref: "#/components/schemas/valuesReference"
+            defaultValue:
+              type: string
+            dataType:
+              $ref: "#/components/schemas/nameReferenceType"
+            uom:
+              $ref: "#/components/schemas/nameReferenceType"
+        literalDataType:
+          type: object
+          required:
+            - literalDataDomains
+          properties:
+            literalDataDomains:
+              type: array
+              items:
+                $ref: "#/components/schemas/literalDataDomain"
+        metadata:
+          type: object
+          properties:
+             title:
+                type: string
+             role:
+                type: string
+             href:
+                type: string
+        nameReferenceType:
+          type: object
+          required:
+            - name
+          properties:
+            name:
+              type: string
+            reference:
+              type: string
+              format: uri
+        outputDescription:
+          allOf:
+            - $ref: "#/components/schemas/dataDescriptionType"
+            - type: object
+              properties:
+                output:
+                  oneOf:
+                    - $ref: "#/components/schemas/complexDataType"
+                    - $ref: "#/components/schemas/literalDataType"
+                    - $ref: "#/components/schemas/boundingBoxDataType"
+        process:
+          allOf:
+             - $ref: "#/components/schemas/processSummary"
+             - type: object
+               properties:
+                  inputs:
+                     type: array
+                     items:
+                        $ref: "#/components/schemas/inputDescription"
+                  outputs:
+                     type: array
+                     items:
+                        $ref: "#/components/schemas/outputDescription"
+                  links:
+                     type: array
+                     items:
+                        $ref: "#/components/schemas/link"
+        processList:
+          type: array
+          items:
+            $ref: "#/components/schemas/processSummary"
+        processSummary:
+          allOf:
+            - $ref: "#/components/schemas/descriptionType"
+            - type: object
+              required:
+                - id
+                - version
+              properties:
+                id:
+                  type: string
+                version:
+                  type: string
+                jobControlOptions:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/jobControlOptions"
+                outputTransmission:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/transmissionMode"
+                links:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/link"
+        range:
+          type: object
+          properties:
+             minimumValue:
+                type: string
+             maximumValue:
+                type: string
+             spacing:
+                type: string
+             rangeClosure:
+                type: string
+                enum:
+                   - closed
+                   - open
+                   - open-closed
+                   - closed-open
+        supportedCRS:
+          type: object
+          properties:
+            crs:
+              type: string
+            default:
+              type: boolean
+              default: false
+        transmissionMode:
+          type: string
+          enum:
+            - value
+            - reference
+        valuesReference:
+          type: string
+          format: uri
+        tilesetsList:
+          description: A list of tilesets available through the Tiles API for one or more data type, style and Tile Matrix Set, as well as potentially links to other related tilesets for the same data (e.g. of different dataType and style) available.
+          type: object
+          properties:
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            tilesets:
+              type: array
+              items:
+                $ref: '#/components/schemas/tileset'
+        mapsList:
+          description: A list of maps available in one or more style
+          type: object
+          properties:
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            styles:
+              type: array
+              items:
+                $ref: '#/components/schemas/mapStyle'
+            crs:
+              type: array
+              items:
+                type: string
+            maxWidth:
+              type: integer
+            maxHeight:
+              type: integer
+            extent:
+              $ref: '#/components/schemas/extent'
+        tileset:
+          description: A resource describing a tileset available
+          type: object
+          required:
+           - links
+           - dataType
+          properties:
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+              description: Links including templates for the actual tiles using the {tileMatrix}, {tileRow} and {tileCol} parameters.
+            tileMatrixSetURI:
+              type: string
+              description: A URI identifying the TileMatrixSet for this tileset. This is required if the TileMatrixSet is defined by the 2D Tile Matrix Set standard.
+              example: 'http://www.opengis.net/def/tilematrixset/OGC/1.0/GNOSISGlobalGrid'
+            tileMatrixSetDefinition:
+              type: string
+              description: A link to a definition of a custom TileMatrixSet, per the schemas defined in the 2D Tile Matrix Set standard. This is required for a custom TileMatrixSet, which depend on the Tiles API custom TMS extension.
+              example: 'https://maps.ecere.com/ogcapi/tileMatrixSets/GNOSISGlobalGrid'
+            dataType:
+              type: string
+              enum: [values, vector, image]
+              description: The type of data for this tileset (raw coverage values, vector features data, rendered map tiles / (A)RGB imagery ready for visualization)
+            style:
+              type: string
+              description: The style for this tileset
+            tileMatrixSetLimits:
+              type: array
+              items:
+                $ref: '#/components/schemas/tileMatrixSetLimit'
+              description: The limits for the tile matrix set, to be included only in the individual tileset resources.
+            vector_layers:
+              type: array
+              items:
+                $ref: '#/components/schemas/vectorLayer'
+              description: A list and description of available vector data layers for the tileset, including the list of fields.
+        mapStyle:
+          description: A resource describing an available map style
+          type: object
+          properties:
+            id:
+               type: string
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+        tileMatrixSetLimit:
+          description: A resource describing the limit for a particular tile matrix.
+          type: object
+          properties:
+            tileMatrix:
+              type: string
+            minTileRow:
+              type: integer
+            maxTileRow:
+              type: integer
+            minTileCol:
+              type: integer
+            maxTileCol:
+              type: integer
+        vectorLayer:
+          type: object
+          properties:
+            id:
+              type: string
+            description:
+              type: string
+            minzoom:
+              type: integer
+            maxzoom:
+              type: integer
+            geometry_type:
+              type: string
+              enum: [point, line, polygon]
+            fields:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+              description: A list of fields as a dictionary, field id mapping to type of [string, integer, number]. We may wish to review this to add field descriptions as well.
+        extent:
+          description: |-
+            The extent of the features in the collection. In the Core only spatial and temporal
+            extents are specified. Extensions may add additional members to represent other
+            extents, for example, thermal or pressure ranges.
+          type: object
+          properties:
+            spatial:
+              description: |-
+                The spatial extent of the features in the collection.
+              type: object
+              properties:
+                bbox:
+                  description: |-
+                    One or more bounding boxes that describe the spatial extent of the dataset.
+                    In the Core only a single bounding box is supported. Extensions may support
+                    additional areas. If multiple areas are provided, the union of the bounding
+                    boxes describes the spatial extent.
+                  type: array
+                  minItems: 1
+                  items:
+                    description: |-
+                      West, south, east, north edges of the bounding box. The coordinates
+                      are in the coordinate reference system specified in `crs`. By default
+                      this is WGS 84 longitude/latitude.
+                    type: array
+                    minItems: 4
+                    maxItems: 6
+                    items:
+                      type: number
+                    example:
+                      - -180
+                      - -90
+                      - 180
+                      - 90
+                crs:
+                  description: |-
+                    Coordinate reference system of the coordinates in the spatial extent
+                    (property `bbox`). The default reference system is WGS 84 longitude/latitude.
+                    In the Core this is the only supported coordinate reference system.
+                    Extensions may support additional coordinate reference systems and add
+                    additional enum values.
+                  type: string
+                  enum:
+                    - 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'
+                  default: 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'
+            temporal:
+              description: |-
+                The temporal extent of the features in the collection.
+              type: object
+              properties:
+                interval:
+                  description: |-
+                    One or more time intervals that describe the temporal extent of the dataset.
+                    The value `null` is supported and indicates an open time intervall.
+                    In the Core only a single time interval is supported. Extensions may support
+                    multiple intervals. If multiple intervals are provided, the union of the
+                    intervals describes the temporal extent.
+                  type: array
+                  minItems: 1
+                  items:
+                    description: |-
+                      Begin and end times of the time interval. The timestamps
+                      are in the coordinate reference system specified in `trs`. By default
+                      this is the Gregorian calendar.
+                    type: array
+                    minItems: 2
+                    maxItems: 2
+                    items:
+                      type: string
+                      format: date-time
+                      nullable: true
+                    example:
+                      - '2011-11-11T12:22:11Z'
+                      - null
+                trs:
+                  description: |-
+                    Coordinate reference system of the coordinates in the temporal extent
+                    (property `interval`). The default reference system is the Gregorian calendar.
+                    In the Core this is the only supported temporal reference system.
+                    Extensions may support additional temporal reference systems and add
+                    additional enum values.
+                  type: string
+                  enum:
+                    - 'http://www.opengis.net/def/uom/ISO-8601/0/Gregorian'
+                  default: 'http://www.opengis.net/def/uom/ISO-8601/0/Gregorian'
+tags:
+  - name: Capabilities
+    description: Starting point and conformance of this API
+  - name: ProcessesInformation
+    description: Listing and describing processes
+  - name: DeferredExecution
+    description: Setting up a workflow for deferred execution
+  - name: SynchronousExecution
+    description: Submitting a workflow for immediate execution and retrieving results
+# Added by API Auto Mocking Plugin
+servers:
+# Added by API Auto Mocking Plugin
+   - description: Test server
+     url: https://maps.ecere.com/ogcapi
+   - description: SwaggerHub API Auto Mocking
+     url: https://virtserver.swaggerhub.com/jerstlouis/MOAW/MOAW-0.1

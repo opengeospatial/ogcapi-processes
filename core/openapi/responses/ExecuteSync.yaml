@@ -1,19 +1,18 @@
-ExecuteSync:
-  description: Result of a synchronous execution.
-  content:
-    /*:
-      schema:
-        oneOf:
-          - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml"
-          - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml"
-          - type: object
-          - type: string
-            format: binary
-            description: Single binary data output.
-          - type: string
-            format: byte
-            description: Single data output encoded in base64.
-          - type: string
-            description: Text-based single data output.
-          - type: number
-          - type: boolean
+description: Result of a synchronous execution.
+content:
+  /*:
+    schema:
+      oneOf:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml"
+        - type: object
+        - type: string
+          format: binary
+          description: Single binary data output.
+        - type: string
+          format: byte
+          description: Single data output encoded in base64.
+        - type: string
+          description: Text-based single data output.
+        - type: number
+        - type: boolean
