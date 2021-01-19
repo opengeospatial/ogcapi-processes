@@ -64,7 +64,7 @@ include::requirements/core/REQ_landingpage-op.adoc[]
 
 include::requirements/core/REQ_landingpage-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml[Schema for the landing page]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml[The following is the schema for the landing page]
 [source,YAML]
 ----
 include::openapi/schemas/landingPage.yaml[]
@@ -220,7 +220,7 @@ include::requirements/core/REQ_process-list-op.adoc[]
 
 include::requirements/core/REQ_process-list-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml[Schema for the process list]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml[The following is the schema for the process list]
 [source,YAML]
 ----
 include::openapi/schemas/processList.yaml[]
@@ -281,7 +281,7 @@ include::requirements/core/REQ_job-creation-op.adoc[]
 
 include::requirements/core/REQ_job-creation-request.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[Schema for execute]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[The following is the schema for execute]
 [source,YAML]
 ----
 include::openapi/schemas/execute.yaml[]
@@ -328,7 +328,7 @@ include::requirements/core/REQ_job-op.adoc[]
 
 include::requirements/core/REQ_job-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[Schema for status info]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[The following is the schema for status info]
 [source,YAML]
 ----
 include::openapi/schemas/statusInfo.yaml[]
@@ -368,7 +368,7 @@ include::requirements/core/REQ_job-result-op.adoc[]
 
 include::requirements/core/REQ_job-result-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml[Schema for the result of a job]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml[The following is the schema for the result of a job]
 [source,YAML]
 ----
 include::openapi/schemas/result.yaml[]
