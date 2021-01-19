@@ -5,7 +5,7 @@
 ^|Test Purpose |Validate that the job result retrieved for an incomplete job complies with the require structure and contents.
 ^|Requirement |<<req_core_job-result-exception-result-not-ready,/req/core/job-result-exception-result-not-ready>>
 ^|Test Method |. Create a job as per <<ats_core_job-creation-op,/req/core/job-creation-op>> and note the {jobID} assigned to the job; ensure that the job is long-running.
-. Issue an HTTP GET request to the URL '/processes/{processID}/jobs/{jobID}/results' before the job completes execution.
+. Issue an HTTP GET request to the URL '/jobs/{jobID}/results' before the job completes execution.
 . Validate that the document was returned with a 404.
 . Validate that the document contains the exception code "ResultNotReady". 
 . Validate the document for all supported media types using the resources and tests identified in <<job-result-exception-result-not-ready>>

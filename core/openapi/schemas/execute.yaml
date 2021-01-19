@@ -1,16 +1,15 @@
 type: object
 required:
+  - id
   - outputs
   - mode
   - response
 properties:
+  id:
+    type: string
   inputs:
-    type: array
-    items:
       $ref: "input.yaml"
   outputs:
-    type: array
-    items:
       $ref: "output.yaml"
   mode:
     type: string

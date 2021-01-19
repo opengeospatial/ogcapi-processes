@@ -1,5 +1,5 @@
 allOf:
-  - $ref: "dataDescriptionType.yaml"
+  - $ref: "descriptionType.yaml"
   - type: object
     properties:
       input:
@@ -15,3 +15,5 @@ allOf:
           - type: string
             enum:
               - unbounded
+      observedProperty:
+        $ref: "observedProperty.yaml"

@@ -19,22 +19,22 @@ results of process executions.
 |Conformance classes |`/conformance` |GET| N/A | <<sc_conformance_classes,7.4 Declaration of conformance classes>>
 |Process list |`/processes` |GET | N/A | <<sc_process_list,7.7 Retrieve a process list>>
 |Process description |`/processes/{processID}` |GET | processID (in path) | <<sc_process_description, 7.8 Retrieve a process description>>
-|Job status info |`/processes/{processID}/jobs/{jobID}` |GET | processID, jobID (in path) |<<sc_retrieve_status_info,7.10 Retrieve status information about a job>>
-|Job results |`/processes/{processID}/jobs/{jobID}/results` |GET | processID, jobID (in path) |<<sc_retrieve_job_results,7.11 Retrieve job results>>
-|Job status info or results |`/processes/{processID}/jobs` |POST| processID (in path), Execute request (contained in body) |<<sc_create_job,7.9 Create a new job>>
+|Job status info |`/jobs/{jobID}` |GET | jobID (in path) |<<sc_retrieve_status_info,7.10 Retrieve status information about a job>>
+|Job results |`/jobs/{jobID}/results` |GET |  jobID (in path) |<<sc_retrieve_job_results,7.11 Retrieve job results>>
+|Job status info or results |`/jobs` |POST| Execute request (contained in body) |<<sc_create_job,7.9 Create a new job>>
 !===
 
 In general, the HTTP GET operation is used to provide access to the resources described above.
 However, in order to create a new job, the HTTP POST method is used to create a new job by sending an execute request to the server. 
 
-Additionally, a list of jobs for a specific process can be requested. 
+Additionally, the /jobs endpoint can be used to grant access to a list of jobs. 
 
 [#table_job_list,reftext='{table-caption} {counter:table-num}']
 .Requirements class 'Job list' - Overview of resources, applicable HTTP methods and links to the document sections
 [cols="27,25,10,10,28",options="header"]
 !===
 |Resource |Path |HTTP method | Parameter| Document reference
-|Job list |`/processes/{processID}/jobs` |GET | processID (in path) |<<Job_list,11 Requirements Class "Job list">>
+|Job list |`/jobs` |GET | processID (in path) |<<Job_list,11 Requirements Class "Job list">>
 !===
 
 As a further addition to the operations accessible through HTTP GET and POST methods, in order to cancel a job execution and/or remove traces of the job execution the DELETE method can be used.
@@ -44,7 +44,7 @@ As a further addition to the operations accessible through HTTP GET and POST met
 [cols="27,25,10,10,28",options="header"]
 !===
 |Resource |Path |HTTP method | Parameter| Document reference
-|Job status info |`/processes/{processID}/jobs/{jobID}` |DELETE| processID, jobID (in path) | <<Dismiss,13 Requirements Class "Dismiss">>
+|Job status info |`/jobs/{jobID}` |DELETE| jobID (in path) | <<Dismiss,13 Requirements Class "Dismiss">>
 !===
 
 [big]*ii.    Keywords*

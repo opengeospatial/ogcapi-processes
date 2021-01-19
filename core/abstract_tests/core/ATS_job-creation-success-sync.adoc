@@ -15,6 +15,6 @@ The type of response a job generates is determined by the value of the `response
 [width="90%",cols="3",options="header"]
 |===
 |Response Type |Schema |Test ID
-|document |https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/results.yaml[results.yaml] |<<ats_core_job-result-success,/req/core/job-result-success>>
+|document |https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] |<<ats_core_job-result-success,/req/core/job-result-success>>
 |raw | N/A |<<ats_job-creation-success-sync-raw>>
 |===

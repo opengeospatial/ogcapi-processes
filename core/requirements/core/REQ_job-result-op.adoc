@@ -3,5 +3,5 @@
 |===
 |*Requirement {counter:req-id}* |/req/core/job-result +
 
-The server SHALL support the HTTP GET operation at the path `/processes/{processID}/jobs/{jobID}/results`.
+The server SHALL support the HTTP GET operation at the path `/jobs/{jobID}/results`.
 |===

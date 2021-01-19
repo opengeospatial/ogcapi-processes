@@ -49,7 +49,7 @@ include::core/ATS_process-exception-no-such-process.adoc[]
 
 ==== Jobs
 
-===== Job creation /processes/{processID}/jobs
+===== Job creation /jobs
 
 include::core/ATS_job-creation-op.adoc[]
 
@@ -65,7 +65,7 @@ include::core/ATS_job-creation-success-sync.adoc[]
 
 include::core/ATS_job-creation-success-sync-raw.adoc[]
 
-===== Job status /processes/{processID}/jobs/{jobID}
+===== Job status /jobs/{jobID}
 
 include::core/ATS_job-op.adoc[]
 
@@ -73,7 +73,7 @@ include::core/ATS_job-success.adoc[]
 
 include::core/ATS_job-exception-no-such-job.adoc[]
 
-===== Job results /processes/{processID}/jobs/{jobID}/results
+===== Job results /jobs/{jobID}/results
 
 include::core/ATS_job-result-op.adoc[]
 

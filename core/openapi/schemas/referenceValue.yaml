@@ -1,6 +1,0 @@
-type: object
-required:
-   - href
-properties:
-   href:
-      type: string

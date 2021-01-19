@@ -3,5 +3,5 @@
 |===
 |*Requirement {counter:req-id}* |/req/core/job-creation-op +
 
-The server SHALL support the HTTP POST operation at the path `/processes/{processID}/jobs`.
+The server SHALL support the HTTP POST operation at the path `/jobs`.
 |===

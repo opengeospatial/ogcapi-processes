@@ -13,6 +13,7 @@ Each OGC API - Processes has a single `LandingPage` (path `/`) that provides lin
 * the `APIDefinition` (no fixed path),
 * the `Conformance` statements (path `/conformance`),
 * the `processes` metadata (path `/processes`).
+* the `execute` endpoint (path `/jobs`).
 
 The `APIDefinition` describes the capabilities of the server that can be used by
 clients to connect to the server or by development tools to support the
@@ -63,7 +64,7 @@ include::requirements/core/REQ_landingpage-op.adoc[]
 
 include::requirements/core/REQ_landingpage-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingPage.yaml[Schema for the landing page]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml[Schema for the landing page]
 [source,YAML]
 ----
 include::openapi/schemas/landingPage.yaml[]
@@ -186,6 +187,7 @@ outside of the server.
 |`410` |The target resource is no longer available at the origin server.
 |`429` |The user has sent too many requests in a given amount of time ("rate limiting").
 |`500` |An internal error occurred in the server.
+|`501` |The server does not support the functionality required to fulfill the request.
 !===
 
 More specific guidance is provided for each resource, where applicable.
@@ -220,7 +222,7 @@ include::requirements/core/REQ_process-list-op.adoc[]
 
 include::requirements/core/REQ_process-list-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processList.yaml[Schema for the process list]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml[Schema for the process list]
 [source,YAML]
 ----
 include::openapi/schemas/processList.yaml[]
@@ -281,7 +283,7 @@ include::requirements/core/REQ_job-creation-op.adoc[]
 
 include::requirements/core/REQ_job-creation-request.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml[Schema for execute]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[Schema for execute]
 [source,YAML]
 ----
 include::openapi/schemas/execute.yaml[]
@@ -328,7 +330,7 @@ include::requirements/core/REQ_job-op.adoc[]
 
 include::requirements/core/REQ_job-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml[Schema for status info]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[Schema for status info]
 [source,YAML]
 ----
 include::openapi/schemas/statusInfo.yaml[]
@@ -368,16 +370,10 @@ include::requirements/core/REQ_job-result-op.adoc[]
 
 include::requirements/core/REQ_job-result-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml[Schema for the result of a job]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml[Schema for the result of a job]
 [source,YAML]
 ----
 include::openapi/schemas/result.yaml[]
-----
-
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/outputInfo.yaml[Schema for output info]
-[source,YAML]
-----
-include::openapi/schemas/outputInfo.yaml[]
 ----
 
 .Example of HTTP GET request for retrieving the result a job encoded as JSON.
@@ -396,8 +392,6 @@ include::examples/json/Result.json[]
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
-
-If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).
 
 include::requirements/core/REQ_job-result-exception-no-such-job.adoc[]
 

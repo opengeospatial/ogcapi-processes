@@ -2,7 +2,7 @@ description: The method is not allowed at the path.
 content:
   application/json:
     schema:
-      $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml"
+      $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml"
   text/html:
     schema:
       type: string
