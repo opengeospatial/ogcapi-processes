@@ -73,8 +73,6 @@ paths:
       operationId: getJobs
       tags:
         - JobList
-      parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/processId.yaml"
       responses:
         200:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/JobList.yaml"
@@ -87,8 +85,6 @@ paths:
       operationId: execute
       tags:
         - Execute
-      parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/processId.yaml"
       requestBody:
         description: Mandatory execute request JSON
         required: true
@@ -126,7 +122,6 @@ paths:
       tags:
         - Status
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/processId.yaml"
         - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobId.yaml"
       responses:
         200:
@@ -143,7 +138,6 @@ paths:
       tags:
         - Dismiss
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/processId.yaml"
         - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobId.yaml"
       responses:
         200:
@@ -161,7 +155,6 @@ paths:
       tags:
         - Result
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/processId.yaml"
         - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobId.yaml"
       responses:
         200:
