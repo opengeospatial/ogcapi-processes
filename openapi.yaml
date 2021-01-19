@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: The OGC API - Processes
-  version: 1.0-draft.5
+  version: 1.0-draft.6-SNAPSHOT
   description: |-
     WARNING - THIS IS WORK IN PROGRESS
   contact:
@@ -65,11 +65,11 @@ paths:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ProcessDescription.yaml"
         404:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
-  /processes/{processId}/jobs:
+  /jobs:
     get:
       summary: retrieve the list of jobs for a process.
       description: >-
-        Lists available jobs of a process.
+        Lists available jobs.
       operationId: getJobs
       tags:
         - JobList
@@ -117,7 +117,7 @@ paths:
               responses:
                 200:
                   description: Results received successfully
-  /processes/{processId}/jobs/{jobId}:
+  /jobs/{jobId}:
     get:
       summary: retrieve the status of a job
       description: >-
@@ -152,7 +152,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
         500:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ServerError.yaml"
-  /processes/{processId}/jobs/{jobId}/results:
+  /jobs/{jobId}/results:
     get:
       summary: retrieve the result(s) of a job
       description: >-
