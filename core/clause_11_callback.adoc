@@ -13,7 +13,7 @@ include::requirements/callback/REQ_job-creation-callback.adoc[]
 include::examples/yaml/callbacks.yaml[]
 ----
 
-If the server implements this conformance class, the optional subscriber element of the execute request JSON must be used.
+If the server implements this conformance class, the optional subscriber element of the execute request JSON SHALL be used.
 
 Adding multiple callbacks is possible for getting progress updates and notifications of the success or failure of a job completion.
 
