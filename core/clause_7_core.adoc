@@ -315,7 +315,7 @@ include::requirements/core/REQ_job-creation-success-sync.adoc[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).
+If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process,/req/core/process-exception/no-such-process>>).
 
 [[sc_retrieve_status_info]]
 === Retrieve status information about a job
@@ -353,7 +353,7 @@ include::examples/json/StatusInfo.json[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).
+If the process with the specified identifier doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process,/req/core/process-exception/no-such-process>>).
 
 include::requirements/core/REQ_job-exception-no-such-job.adoc[]
 
