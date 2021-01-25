@@ -227,6 +227,12 @@ include::requirements/core/REQ_process-list-success.adoc[]
 ----
 include::openapi/schemas/processList.yaml[]
 ----
+[[schema-processSummary]]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processSummary.yaml[The following is the schema for the process summary]
+[source,YAML]
+----
+include::openapi/schemas/processSummary.yaml[]
+----
 
 .Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
 [source]
@@ -375,7 +381,7 @@ include::requirements/core/REQ_job-result-success.adoc[]
 ----
 include::openapi/schemas/result.yaml[]
 ----
-It is basically a map using the respective id of the output as key. The value of the output can be returned as inline value or as reference. 
+The schema defines a map using the respective id of the output as key. The value of the output can be returned as inline value or as reference. 
 
 .The following is an example of HTTP GET request for retrieving the result a job encoded as JSON. 
 [source]

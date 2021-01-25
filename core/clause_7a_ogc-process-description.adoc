@@ -35,6 +35,8 @@ include::requirements/ogc-process-description/REQ_json-encoding.adoc[]
 include::openapi/schemas/process.yaml[]
 ----
 
+The schema imports the elements from the <<schema-processSummary, process summary>> and specifies two arrays for input and output descriptions.
+
 .The following is an example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
 [source]
 ----
