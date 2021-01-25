@@ -59,11 +59,11 @@ Returns the result of a job of a process.
 
 A draft of the OGC API - Processes is available:
 
-* [OGC API - Processes, Draft PDF](https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/docs/18-062.pdf)
+* [OGC API - Processes, Draft PDF](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/docs/18-062.pdf)
 
-* [OGC API - Processes, Draft HTML View](https://htmlpreview.github.io/?https://github.com/opengeospatial/wps-rest-binding/blob/master/docs/18-062.html)
+* [OGC API - Processes, Draft HTML View](https://htmlpreview.github.io/?https://github.com/opengeospatial/ogcapi-processes/blob/master/docs/18-062.html)
 
-* [OGC API - Processes, OpenAPI specification](https://app.swaggerhub.com/apis/geoprocessing/WPS/1.0-draft.4)
+* [OGC API - Processes, OpenAPI specification](https://app.swaggerhub.com/apis/geoprocessing/WPS/1.0-draft.5)
 
 Several implementations of the draft standard exist:
 
@@ -73,10 +73,10 @@ Several implementations of the draft standard exist:
 
 The contributor understands that any contributions, if accepted by the OGC Membership, shall be incorporated into OGC API - Processes standards documents and that all copyright and intellectual property shall be vested to the OGC.
 
-The WPS 2.0 Standards Working Group (SWG) is the group at OGC responsible for the stewardship of the standard, but is working to do as much work in public as possible.
+The OGC API - Processes Standards Working Group (SWG) is the group at OGC responsible for the stewardship of the standard, but is working to do as much work in public as possible.
 
-* [Open issues](https://github.com/opengeospatial/wps-rest-binding/issues)
-* [Copy of License Language](https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/LICENSE)
+* [Open issues](https://github.com/opengeospatial/ogcapi-processes/issues)
+* [Copy of License Language](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/LICENSE)
 
 Pull Requests from contributors are welcomed. However, please note that by sending a Pull Request or Commit to this GitHub repository, you are agreeing to the terms in the Observer Agreement https://portal.ogc.org/files/?artifact_id=92169
 
