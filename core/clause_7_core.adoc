@@ -196,7 +196,7 @@ include::recommendations/core/PER_additional-status-codes.adoc[]
 
 === Support for cross-origin requests
 
-Access to content from a HTML page is by default prohibited for security reasons if the content is located on another host than the webpage ("same-origin policy"). A typical example is a web-application accessing processes and data from multiple servers.
+Access to content from a HTML page is by default prohibited for security reasons if the content is located on another host than the webpage ("same-origin policy"). Cross-origin resource sharing is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. A typical example is a web-application accessing processes and data from multiple servers.
 
 include::recommendations/core/REC_cross-origin.adoc[]
 
