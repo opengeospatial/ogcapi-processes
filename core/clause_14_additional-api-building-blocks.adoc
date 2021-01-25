@@ -12,7 +12,11 @@ This workflow is useful for generic client that are implemented against the JSON
  
 The approach described above requires implementers of clients to have knowledge about the standard.
 
-An alternative approach that could make implementation easier for those that are not familiar with OGC (API) standards is permitting deviations from strictly following the schemas and paths specified in this standard.
+An alternative approach that could make implementation easier for those that are not familiar with OGC (API) standards is permitting alternatives to the process description and the paths to processes and jobs. The following permissions do not affect the requirements
+ 
+ * <<req_core_process-op, /req/core/process-op>>,
+ * <<req_core_process-success, /req/core/process-success>>, and
+ * <<req_core_job, /req/core/job>>.
 
 include::recommendations/core/PER_alternative-process-description.adoc[]
 
