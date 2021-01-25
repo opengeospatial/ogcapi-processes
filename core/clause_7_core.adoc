@@ -375,8 +375,9 @@ include::requirements/core/REQ_job-result-success.adoc[]
 ----
 include::openapi/schemas/result.yaml[]
 ----
+It is basically a map using the respective id of the output as key. The value of the output can be returned as inline value or as reference. 
 
-.The following is an example of HTTP GET request for retrieving the result a job encoded as JSON.
+.The following is an example of HTTP GET request for retrieving the result a job encoded as JSON. 
 [source]
 ----
 GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result HTTP/1.1
