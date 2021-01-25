@@ -7,9 +7,7 @@ The WPS standard provides a robust, interoperable, and versatile protocol for pr
 
 This API is a newer and more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.
 
-The resources that are provided by a server implementing the OGC API - Processes are listed in <<table_core_resources>> below and include the
-capabilities document of the server, the list of processes available
-(Process list and Process description), jobs (running processes) and
+The resources that are provided by a server implementing the OGC API - Processes are listed in <<table_core_resources>> below and include information about the server, the list of available processes (Process list and Process description), jobs (running processes) and
 results of process executions.
 
 [#table_core_resources,reftext='{table-caption} {counter:table-num}']
