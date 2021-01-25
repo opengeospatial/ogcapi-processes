@@ -336,6 +336,7 @@ include::requirements/core/REQ_job-op.adoc[]
 
 include::requirements/core/REQ_job-success.adoc[]
 
+[[schema-statusInfo]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[The following is the schema for status info]
 [source,YAML]
 ----

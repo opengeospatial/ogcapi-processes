@@ -19,6 +19,8 @@ include::requirements/job-list/REQ_job-list-success.adoc[]
 include::openapi/schemas/jobList.yaml[]
 ----
 
+The schema defines an array of <<schema-statusInfo,status info elements>>.
+
 .The following is an example of an HTTP GET request for retrieving a list of jobs encoded as JSON.
 [source]
 ----
