@@ -1,8 +1,8 @@
 type: object
 required:
-   - mimeType
+   - mediaType
 properties:
-   mimeType:
+   mediaType:
       type: string
    schema:
       type: string

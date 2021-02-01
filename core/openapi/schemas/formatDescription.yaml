@@ -3,7 +3,7 @@ allOf:
    - type: object
      properties:
         maximumMegabytes:
-           type: integer
+           type: number
         default:
            type: boolean
            default: false
