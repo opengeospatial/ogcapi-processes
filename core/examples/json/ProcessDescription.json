@@ -38,13 +38,13 @@
 		"input": {
 			"formats": [{
 				"default": true,
-				"mimeType": "application/xml"
+				"mediaType": "application/xml"
 			},
 			{
-				"mimeType": "application/xml"
+				"mediaType": "application/xml"
 			},
 			{
-				"mimeType": "text/xml"
+				"mediaType": "text/xml"
 			}]
 		},
 		"minOccurs": 1,
@@ -80,13 +80,13 @@
 		"output": {
 			"formats": [{
 				"default": true,
-				"mimeType": "application/xml"
+				"mediaType": "application/xml"
 			},
 			{
-				"mimeType": "application/xml"
+				"mediaType": "application/xml"
 			},
 			{
-				"mimeType": "text/xml"
+				"mediaType": "text/xml"
 			}]
 		}
 	}],

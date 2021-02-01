@@ -11,6 +11,8 @@ A process p is a function that for each input returns a corresponding output
 
 where X denotes the domain of arguments x and Y denotes the co-domain of values y. Within this specification, process arguments are referred to as process inputs and result values are referred to as process outputs. Processes that have no process inputs represent value generators that deliver constant or random process outputs.
 
+The term process is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this specification uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the WPS 2.0 standard. 
+
 === Job
 
 The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.
@@ -39,20 +41,9 @@ A process offering is an identifiable process that may be executed on a particul
 
 Process outputs are the results of a process and refer to data returned by a process. Each process output is an identifiable item.
 
-=== Process profile
-
-A process profile is a description of a process on an interface level. Process profiles may have different levels of abstraction and cover several aspects. On a generic level, a process profile may only refer to the provided functionality of a process, i.e. by giving a verbal or formal definition how the outputs are derived from the inputs. On a concrete level a process profile may completely define inputs and outputs including data type definitions and formats.
-
 === REST or RESTful
 
 Representational state transfer.  REST-compliant Web services allow requesting systems to access and manipulate textual representations of Web resources using a uniform and predefined set of stateless operations.
 
-=== Service profiles for WPS
-
-A service profile for WPS is a conformance class that defines the general capabilities of a WPS server, by (1) specifying the supported service operations, (2) the process model, (3) the supported process execution modes, (4) the supported operation binding(s).
-
-=== WPS Server
-
-A WPS Server is a web server that provides access to simple or complex computational processing services.
 
 
