@@ -21,29 +21,29 @@ GET /processes/{process-id}
 Returns a detailed description of a process.
 
 ```
-GET /processes/{process-id}/jobs
+GET /jobs
 ```
 
 Returns the running and finished jobs for a process (optional).
 
 ```
-POST /processes/{process-id}/jobs
+POST /jobs
 ```
 Executes a process, i.e. creates a new job. Inputs and outputs will have to be specified in a JSON document that needs to be send in the POST body.
 
 ```
-GET /processes/{process-id}/jobs/{job-id}
+GET /jobs/{job-id}
 ```
 
 Returns the status of a job of a process.
 
 ```
-DELETE /processes/{process-id}/jobs/{job-id}
+DELETE /jobs/{job-id}
 ```
 
 Cancel a job execution.
 
 ```
-GET /processes/{process-id}/jobs/{job-id}/results
+GET /jobs/{job-id}/results
 ```
 Returns the result of a job of a process.
