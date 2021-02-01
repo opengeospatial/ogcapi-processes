@@ -18,20 +18,20 @@
 	},
 	"complexOutputId": {
 		"format": {
-			"mimeType": "application/xml"
+			"mediaType": "application/xml"
 		},
 		"value": "<test/>"
 	},
 	"complexOutputsId": [
 		{
 			"format": {
-				"mimeType": "text/plain"
+				"mediaType": "text/plain"
 			},
 			"href": "https://processing.example.org/outputdata/faf7c1b6-3c47-4bab-a8a0-9ba9fce5378b.txt"
 		},
 		{
 			"format": {
-				"mimeType": "text/plain"
+				"mediaType": "text/plain"
 			},
 			"href": "https://processing.example.org/outputdata/ae8eeda3-d408-4852-b442-de7d0b2d8c48.txt"
 		}
