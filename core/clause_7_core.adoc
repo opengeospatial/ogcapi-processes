@@ -105,6 +105,17 @@ include::recommendations/core/REC_api-definition-oas.adoc[]
 If multiple API definition formats are supported by a server, use
 content negotiation to select the desired representation.
 
+[NOTE]
+=====================================================================
+Two common approaches are:
+
+* an additional path for each encoding of each resource (this can be expressed,
+for example, using format specific suffixes like ".html");
+
+* an additional query parameter (for example, "accept" or "f") that overrides
+the Accept header of the HTTP request.
+=====================================================================
+
 The API definition document describes the API. In other words,
 there is no need to include the `/api` operation in the API definition itself.
 
