@@ -114,6 +114,7 @@ for example, using format specific suffixes like ".html");
 
 * an additional query parameter (for example, "accept" or "f") that overrides
 the Accept header of the HTTP request.
+
 =====================================================================
 
 The API definition document describes the API. In other words,
@@ -135,7 +136,7 @@ See <<http_status_codes>> for general guidance.
 
 ==== Operation
 
-To support "generic" clients for accessing Web Processing Services in general - and
+To support "generic" clients for accessing servers implemeting OGC API - Processes in general - and
 not "just" a specific API / server, the server has to declare the
 requirements classes it implements and conforms to.
 
