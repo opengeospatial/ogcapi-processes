@@ -124,6 +124,8 @@ paths:
       parameters:
         - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobId.yaml"
       responses:
+        200:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/Status.yaml"
         404:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
         500:
@@ -155,6 +157,8 @@ paths:
       parameters:
         - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobId.yaml"
       responses:
+        200:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/Results.yaml"
         404:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
         500:
