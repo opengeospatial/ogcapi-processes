@@ -54,7 +54,7 @@ The OGC API - Processes standard utilizes elements of <draft> the OGC API-Common
 [[sc_landing_page]]
 === Retrieve the API landing page
 
-The following section describes a method to retrieve an API landing page.
+The following section defines the requirements to retrieve an API landing page.
 
 ==== Operation
 
@@ -85,7 +85,7 @@ See <<http_status_codes>> for general guidance.
 [[sc_api_definition]]
 === Retrieve an API definition
 
-The following section describes a method to retrieve an API definition.
+The following section defines the requirements to retrieve an API definition.
 
 ==== Operation
 
@@ -224,7 +224,7 @@ include::recommendations/core/REC_html.adoc[]
 [[sc_process_list]]
 === Retrieve a process list
 
-The following section describes a method to retrieve the available processes offered by the server.
+The following section defines the requirements to retrieve the available processes offered by the server.
 
 ==== Operation
 
@@ -266,7 +266,7 @@ See <<http_status_codes>> for general guidance.
 [[sc_process_description]]
 === Retrieve a process description
 
-The following section describes a method for retrieving metadata about a process.
+The following section defines the requirements to retrieve metadata about a process.
 
 ==== Operation
 
@@ -338,7 +338,7 @@ If the process with the specified identifier does not exist on the server, the s
 [[sc_retrieve_status_info]]
 === Retrieve status information about a job
 
-The following section describes the requirements to create a method to retrieve information about the status of a job.
+The following section describes the requirements to retrieve information about the status of a job.
 
 ==== Operation
 
@@ -379,7 +379,7 @@ include::requirements/core/REQ_job-exception-no-such-job.adoc[]
 [[sc_retrieve_job_results]]
 === Retrieve job results
 
-The following section describes the requirements to create a method to retrieve the results of a job. In case the job execution failed, an exception is returned.
+The following section describes the requirements to retrieve the results of a job. In case the job execution failed, an exception is returned.
 
 ==== Operation
 
