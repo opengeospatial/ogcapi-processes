@@ -13,13 +13,14 @@ Each OGC API - Processes has a single `LandingPage` (path `/`) that provides lin
 * the `APIDefinition` (no fixed path),
 * the `Conformance` statements (path `/conformance`),
 * the `processes` metadata (path `/processes`).
+* the `execute` endpoint (path `/jobs`).
 
 The `APIDefinition` describes the capabilities of the server that can be used by
 clients to connect to the server or by development tools to support the
 implementation of servers and clients. Accessing the `APIDefinition` using
 HTTP GET returns a description of the API.
 
-Accessing the `Conformance` using HTTP GET returns a list of URIs of
+Accessing `Conformance` using HTTP GET returns a list of URIs of
 requirements classes implemented by the server.
 
 The list of processes contains a summary of each process the OGC API - Processes offers, including the link to a more detailed description of the process.
@@ -36,6 +37,20 @@ After a process is finished (status = success/failed), the results/exceptions ca
 .Resources in the Core requirements class
 image::figures/PT1_FIG01.png[align="center"]
 
+The OGC API - Processes standard is build upon the OGC API-Common standard. <<mapping-to-common>> Identifies the API-Common Requirements Classes which are applicable to each section of this standard.
+
+[#mapping-to-common,reftext='{table-caption} {counter:table-num}']
+.Mapping API - Processes Sections to API-Common Requirements Classes
+[width="90%",cols="2,6"]
+|====
+^|*API - Processes Section* ^|*API-Common Requirements Class*
+|<<sc_landing_page,API Landing Page>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
+|<<sc_api_definition,API Definition>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
+|<<sc_conformance_classes,Declaration of Conformance Classes>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
+|<<requirements-class-openapi_3_0-clause,OpenAPI 3.0>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/oas30
+|<<sc_requirements_class_html,HTML>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/html
+|====
+
 [[sc_landing_page]]
 === Retrieve the API landing page
 
@@ -49,7 +64,7 @@ include::requirements/core/REQ_landingpage-op.adoc[]
 
 include::requirements/core/REQ_landingpage-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/landingPage.yaml[Schema for the landing page]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml[Schema for the landing page]
 [source,YAML]
 ----
 include::openapi/schemas/landingPage.yaml[]
@@ -97,8 +112,8 @@ The idea is that any OGC API - Processes can be used by developers that are fami
 the API definition language(s) supported by the server. For example, if
 an OpenAPI definition is used, it should be possible to create a working
 client using the OpenAPI definition. The developer may need to learn a little
-bit about geometry data types, etc., but it should not be required to read
-this standard to access the data via the API.
+bit about geospatial data types, etc., but it should not be required to read
+this standard to access the processes and results via the API.
 
 ==== Error situations
 
@@ -169,7 +184,10 @@ outside of the server.
 |`404` |The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
 |`405` |The request method is not supported. For example, a POST request was submitted, but the resource only supports GET requests.
 |`406` |The `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+|`410` |The target resource is no longer available at the origin server.
+|`429` |The user has sent too many requests in a given amount of time ("rate limiting").
 |`500` |An internal error occurred in the server.
+|`501` |The server does not support the functionality required to fulfill the request.
 !===
 
 More specific guidance is provided for each resource, where applicable.
@@ -178,9 +196,7 @@ include::recommendations/core/PER_additional-status-codes.adoc[]
 
 === Support for cross-origin requests
 
-To access data from a HTML page where the data is on another host than
-the webpage is by default prohibited for security reasons ("same-origin policy").
-A typical example is a web-application accessing processes and data from multiple servers.
+Access to content from a HTML page is by default prohibited for security reasons, if the content is located on another host than the webpage ("same-origin policy"). A typical example is a web-application accessing processes and data from multiple servers.
 
 include::recommendations/core/REC_cross-origin.adoc[]
 
@@ -189,42 +205,40 @@ Two common mechanisms to support cross-origin requests are:
 * link:https://en.wikipedia.org/wiki/Cross-origin_resource_sharing[Cross-origin resource sharing (CORS)]
 * link:https://en.wikipedia.org/wiki/JSONP[JSONP (JSON with padding)]
 
+include::recommendations/core/REC_access-control-expose-headers.adoc[]
+
 include::recommendations/core/REC_html.adoc[]
 
-[[sc_process_collection]]
-=== Retrieve a process collection
+[[sc_process_list]]
+=== Retrieve a process list
 
 The following section describes a method to retrieve the available processes offered by the server.
 
 ==== Operation
 
-include::requirements/core/REQ_process-collection-op.adoc[]
+include::requirements/core/REQ_process-list-op.adoc[]
 
 ==== Response
 
-include::requirements/core/REQ_process-collection-success.adoc[]
+include::requirements/core/REQ_process-list-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/processCollection.yaml[Schema for the process collection]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml[Schema for the process list]
 [source,YAML]
 ----
-include::openapi/schemas/processCollection.yaml[]
+include::openapi/schemas/processList.yaml[]
 ----
-
-[NOTE]
-====
-References to additional schemas can found in Annex TODO
-====
 
 .Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
 [source]
 ----
-https://processing.example.org/processes
+GET /processes HTTP/1.1
+Host: processing.example.org
 ----
 
 .Example of Process list encoded as JSON.
 [source,json]
 ----
-include::examples/json/ProcessCollection.json[]
+include::examples/json/ProcessList.json[]
 ----
 
 ==== Error situations
@@ -269,7 +283,7 @@ include::requirements/core/REQ_job-creation-op.adoc[]
 
 include::requirements/core/REQ_job-creation-request.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml[Schema for execute]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[Schema for execute]
 [source,YAML]
 ----
 include::openapi/schemas/execute.yaml[]
@@ -316,7 +330,7 @@ include::requirements/core/REQ_job-op.adoc[]
 
 include::requirements/core/REQ_job-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/statusInfo.yaml[Schema for status info]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[Schema for status info]
 [source,YAML]
 ----
 include::openapi/schemas/statusInfo.yaml[]
@@ -325,7 +339,8 @@ include::openapi/schemas/statusInfo.yaml[]
 .Example of HTTP GET request for retrieving status information about a job encoded as JSON.
 [source]
 ----
-http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f
+GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f HTTP/1.1
+Host: processing.example.org
 ----
 
 .Example of a job encoded as JSON.
@@ -342,7 +357,7 @@ If the process with the specified identifier doesn't exist on the server, the st
 
 include::requirements/core/REQ_job-exception-no-such-job.adoc[]
 
-[[rc_retrieve_job_results]]
+[[sc_retrieve_job_results]]
 === Retrieve job results
 
 The following section describes a method to retrieve the results of a job. In case the job execution failed, an exception is returned.
@@ -355,22 +370,17 @@ include::requirements/core/REQ_job-result-op.adoc[]
 
 include::requirements/core/REQ_job-result-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml[Schema for the result of a job]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml[Schema for the result of a job]
 [source,YAML]
 ----
 include::openapi/schemas/result.yaml[]
 ----
 
-.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/outputInfo.yaml[Schema for output info]
-[source,YAML]
-----
-include::openapi/schemas/outputInfo.yaml[]
-----
-
 .Example of HTTP GET request for retrieving the result a job encoded as JSON.
 [source]
 ----
-http://processing.example.org/processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result
+GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result HTTP/1.1
+Host: processing.example.org
 ----
 
 .Example of a result encoded as JSON.
@@ -382,8 +392,6 @@ include::examples/json/Result.json[]
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
-
-If the process with the specified id doesn't exist on the server, the status code of the response will be `404` (see <<req_core_no-such-process>>).
 
 include::requirements/core/REQ_job-result-exception-no-such-job.adoc[]
 

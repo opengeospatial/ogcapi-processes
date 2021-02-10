@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: The OGC API - Processes
-  version: "1.0-draft.4"
+  version: 1.0-draft.6-SNAPSHOT
   description: |-
     WARNING - THIS IS WORK IN PROGRESS
   contact:
@@ -9,7 +9,7 @@ info:
     email: b.pross@52north.org
   license:
     name: OGC license
-    url: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/LICENSE"
+    url: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/LICENSE"
 paths:
   /:
     get:
@@ -22,9 +22,9 @@ paths:
         - Capabilities
       responses:
         200:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/LandingPage.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/LandingPage.yaml"
         500:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ServerError.yaml"
   /conformance:
     get:
       summary: information about standards that this API conforms to
@@ -36,20 +36,20 @@ paths:
         - ConformanceDeclaration
       responses:
         200:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ConformanceDeclaration.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ConformanceDeclaration.yaml"
         500:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ServerError.yaml"
   /processes:
     get:
-      summary: retrieve available processes
+      summary: retrieve the list of available processes
       description: >-
         Lists all available processes this server offers.
       operationId: getProcesses
       tags:
-        - ProcessCollection
+        - ProcessList
       responses:
         200:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ProcessCollection.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ProcessList.yaml"
   /processes/{processId}:
     get:
       summary: retrieve a process description
@@ -59,27 +59,25 @@ paths:
       tags:
         - ProcessDescription
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/processId.yaml"
       responses:
         200:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ProcessDescription.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ProcessDescription.yaml"
         404:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
-  /processes/{processId}/jobs:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
+  /jobs:
     get:
       summary: retrieve the list of jobs for a process.
       description: >-
-        Lists available jobs of a process.
+        Lists available jobs.
       operationId: getJobs
       tags:
-        - JobCollection
-      parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - JobList
       responses:
         200:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/JobCollection.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/JobList.yaml"
         404:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
     post:
       summary: execute a process.
       description: >-
@@ -87,24 +85,22 @@ paths:
       operationId: execute
       tags:
         - Execute
-      parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
       requestBody:
         description: Mandatory execute request JSON
         required: true
         content:
           application/json:
             schema:
-              $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/execute.yaml"
+              $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml"
       responses:
         200:
-          $ref: 'https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ExecuteSync.yaml'
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ExecuteSync.yaml'
         201:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ExecuteAsync.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ExecuteAsync.yaml"
         404:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
         500:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ServerError.yaml"
       callbacks:
         jobCompleted:
           "{$request.body#/subscriber/successUri}":
@@ -113,11 +109,11 @@ paths:
                 content:
                   application/json:
                     schema:
-                      $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/result.yaml"
+                      $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml"
               responses:
                 200:
                   description: Results received successfully
-  /processes/{processId}/jobs/{jobId}:
+  /jobs/{jobId}:
     get:
       summary: retrieve the status of a job
       description: >-
@@ -126,15 +122,14 @@ paths:
       tags:
         - Status
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobId.yaml"
       responses:
         200:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/Status.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/Status.yaml"
         404:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
         500:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ServerError.yaml"
     delete:
       summary: cancel a job execution, remove a finished job
       description: >-
@@ -143,16 +138,15 @@ paths:
       tags:
         - Dismiss
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobId.yaml"
       responses:
         200:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/Status.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/Status.yaml"
         404:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
         500:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
-  /processes/{processId}/jobs/{jobId}/results:
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ServerError.yaml"
+  /jobs/{jobId}/results:
     get:
       summary: retrieve the result(s) of a job
       description: >-
@@ -161,15 +155,14 @@ paths:
       tags:
         - Result
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobId.yaml"
       responses:
         200:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/Results.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/Results.yaml"
         404:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
         500:
-          $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ServerError.yaml"
 servers:
   # Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking

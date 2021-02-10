@@ -26,7 +26,7 @@ An implementation of the _Core_ requirements class may also decide to use other 
 The _Core_ is intended to be a minimal useful API for the execution of processes from the geospatial domain. It is designed to map the operations of a Web Processing Service 2.0.
 
 The _Core_ does not mandate the use of any specific process description to
-specify the interface of a process.  Instead this standard defines and
+specify the interface of a process. Instead this standard defines and
 recommends the use of the following conformance class:
 
 * <<rc_ogc-process-description,OGC Process Description>>
@@ -36,7 +36,7 @@ specify the interface of a process.
 
 Three additional conformance classes are specified that extend the basic functionality of an API:
 
-* <<rc_job-collection,Job collection>>, and
+* <<rc_job-list,Job list>>, and
 
 * <<rc_callback,Callback>>, and
 
@@ -56,7 +56,7 @@ Conformance with this standard shall be checked using all the relevant tests spe
 |<<ats_json,JSON>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json
 |<<ats_html,HTML>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html
 |<<ats_oas30,OpenAPI Specification 3.0>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30
-|<<ats_job-collection,Job collection>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-collection
+|<<ats_job-list,Job list>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list
 |<<ats_callback,Callback>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback
 |<<ats_dismiss,Dismiss>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
 !===

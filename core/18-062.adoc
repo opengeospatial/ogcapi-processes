@@ -31,7 +31,7 @@
 |Publication Date:   <yyyy-mm-dd>
 |External identifier of this OGC® document: http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0
 |Internal reference number of this OGC® document:    18-062
-|Version: 1.0-draft.4
+|Version: 1.0-draft.6-SNAPSHOT
 |Category: OGC® Implementation Specification
 |Editor:   Benjamin Pross
 |===
@@ -106,11 +106,13 @@ include::clause_7_core.adoc[]
 
 include::clause_7a_ogc-process-description.adoc[]
 
+include::clause_7b_security-considerations.adoc[]
+
 include::clause_8_encodings.adoc[]
 
 include::clause_9_oas.adoc[]
 
-include::clause_10_job_collection.adoc[]
+include::clause_10_job_list.adoc[]
 
 include::clause_11_callback.adoc[]
 

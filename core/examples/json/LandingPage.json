@@ -1,31 +1,42 @@
 {
 	"links": [{
-		"href": "http://processing.example.org/",
+		"href": "http://processing.example.org/oapi-p?f=application/json",
 		"rel": "self",
 		"type": "application/json",
-		"title": "this document"
+		"title": "This document"
 	},{
-		"href": "http://processing.example.org/",
+		"href": "http://processing.example.org/oapi-p?f=text/html",
 		"rel": "alternate",
 		"type": "text/html",
-		"title": "this document"
+		"title": "This document as HTML"
 	},
 	{
-		"href": "http://processing.example.org/api",
+		"href": "http://processing.example.org/oapi-p/api?f=application/json",
 		"rel": "service-desc",
-		"type": "application/openapi+json;version=3.0",
-		"title": "the API definition"
+		"type": "application/json",
+		"title": "API definition for this endpoint as JSON"
 	},
 	{
-		"href": "http://processing.example.org/conformance",
+		"href": "http://processing.example.org/oapi-p/api?f=text/html",
+		"rel": "service-desc",
+		"type": "text/html",
+		"title": "API definition for this endpoint as HTML"
+	},
+	{
+		"href": "http://processing.example.org/oapi-p/conformance",
 		"rel": "conformance",
 		"type": "application/json",
 		"title": "OGC API - Processes conformance classes implemented by this server"
 	},
 	{
-		"href": "http://processing.example.org/processes",
+		"href": "http://processing.example.org/oapi-p/processes",
 		"rel": "processes",
 		"type": "application/json",
 		"title": "Metadata about the processes"
+	},
+	{
+		"href": "http://processing.example.org/oapi-p/jobs",
+		"rel": "execute",
+		"title": "The Execute endpoint"
 	}]
 }

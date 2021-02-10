@@ -1,16 +1,16 @@
 {
         "0": {
-                "OGC_doc_number": "WPS_docnumberYY-nnnrx",
-                "urn":"http://www.opengis.net/doc/IS/WPS-rest-binding",
-                "title":"OGC WPS REST/JSON Binding Extension",
-                "path":"core/standard/er.adoc",
+                "OGC_doc_number": "18-062",
+                "urn":"http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0",
+                "title":"OGC API - Processes - Part 1: Core",
+                "path":"core/18-062.adoc",
                 "options": ["--trace"],
                 "a":[
-                        "data-uri",
+                        "data-uri",						
+                        "stylesdir=./resources/stylesheets",
                         "dot=/usr/bin/dot"
                 ],
                 "r":[
-                        "asciidoctor-bibtex",
                         "asciidoctor-diagram"
                 ]
         }

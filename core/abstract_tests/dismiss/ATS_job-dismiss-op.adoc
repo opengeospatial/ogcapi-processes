@@ -5,6 +5,6 @@
 ^|Test Purpose |Validate that a running job can be dismissed.
 ^|Requirement |<<req_dismiss_job-dismiss-op,/req/dismiss/job-dismiss-op>>
 ^|Test Method |. Create an asynchronous job as per test <<ats_core_job-creation-op>>; not the job identifier, {jobID}, assigned to the job.
-. Issue an HTTP DELETE operation to the URL '/processes/{processID}/jobs/{jobID}'.
+. Issue an HTTP DELETE operation to the URL '/jobs/{jobID}'.
 . Validate the contents of the returned document using test <<ats_dismiss_job-dismiss-success,/req/dismiss/job-dismiss-success>>.
 |===

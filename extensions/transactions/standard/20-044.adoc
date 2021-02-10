@@ -34,7 +34,7 @@
 |Version: link:http://docs.opengeospatial.org/DRAFTS/20-044.html[1.0.0-SNAPSHOT (Editor's draft)]
 |Latest Published Draft: n/a
 |Category: OGC(R) Implementation Specification
-|Editors: TBD
+|Editors: Panagiotis (Peter) A. Vretanos
 |===
 
 [cols = "^", frame = "none"]

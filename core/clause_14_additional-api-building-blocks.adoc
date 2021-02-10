@@ -8,23 +8,22 @@ The core requirements classes of this standard are designed for the following wo
 . Create an execute JSON request (based on the description) and send it to the server via POST
 . Process the status info and/or results
 
-This workflow is useful for generic client that are implemented against the JSON schemas and paths specified in this document. They can communicate with any server implementing the OGC API - Processes. There may be limitations regarding the handling of input and output formats, however. 
+This workflow is useful for generic client that are implemented against the JSON schemas and paths specified in this standard. Generic clients can communicate with any server implementing the OGC API - Processes. However, here may be limitations regarding the handling of input and output formats. 
  
-The approach describe above requires implementors of clients to have knowledge about the standard.
+The approach describe above requires implementers of clients to have knowledge about the standard.
 
-As an alternative that could make it easier for implementors that are not familiar with OGC (API) standards, deviations from strictly following the schemas and paths specified in this standard are permitted.
+An alternative that could make it easier for implementers that are not familiar with OGC (API) standards is permitting deviations from strictly following the schemas and paths specified in this standard.
 
 include::recommendations/core/PER_alternative-process-description.adoc[]
 
-This allows server implementations to describe a process, e.g. by defining the request and response body of a POST request to a process endpoint.
+This permission allows server implementations to describe a process, such as by defining the request and response body of a POST request to a process endpoint.
 
 include::recommendations/core/PER_alternative-process-paths.adoc[]
 
-This allows server implementations to specify alternative paths to processes and jobs. 
+This permission allows server implementations to specify alternative paths to processes and jobs. 
 
 An example of an OpenAPI document making use of the building blocks is shown in the following:
 
-TODO: update example
 [source,YAML]
 ----
 include::examples/yaml/alternative-api.yaml[]

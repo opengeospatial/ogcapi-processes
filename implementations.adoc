@@ -1,0 +1,45 @@
+== Implementations
+
+=== Services
+
+[#table_implementation,reftext='{table-caption} {counter:table-num}']
+.Service implementations
+[cols=",,",width="75%",options="header",align="center"]
+|===
+|Implementation | Type | Contact
+
+| http://geoprocessing.demo.52north.org:8080/javaps/rest/[52°North]
+| OGC API - Processes
+| https://github.com/bpross-52n[Benjamin Pross]
+
+| https://demo.pygeoapi.io/master[pygeoapi]
+| OGC API - Processes
+| https://github.com/tomkralidis[Tom Kralidis]
+
+
+| https://github.com/crim-ca/weaver[crim-ca/weaver]
+| OGC API - Processes
+| https://github.com/fmigneault[Francis Charette Migneault]
+
+| https://demo.mapmint.com/swagger-ui/dist/[ZOO-Project]
+| OGC API - Processes
+| https://github.com/gfenoy[Gérald Fenoy]
+
+| TBA
+| TBA
+| TBA
+|===
+
+
+=== Clients
+
+[#table_implementation,reftext='{table-caption} {counter:table-num}']
+.Client implementations
+[cols=",,",width="75%",options="header",align="center"]
+|===
+|Implementation | Type | Contact
+
+| TBA
+| TBA
+| TBA
+|===
