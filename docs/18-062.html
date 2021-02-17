@@ -437,6 +437,65 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre { line-height: 125%; }
+td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
+td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+pre.pygments .hll { background-color: #ffffcc }
+pre.pygments { background: #ffffff; }
+pre.pygments .tok-c { color: #008800; font-style: italic } /* Comment */
+pre.pygments .tok-err { color: #a61717; background-color: #e3d2d2 } /* Error */
+pre.pygments .tok-k { color: #000080; font-weight: bold } /* Keyword */
+pre.pygments .tok-ch { color: #008800; font-style: italic } /* Comment.Hashbang */
+pre.pygments .tok-cm { color: #008800; font-style: italic } /* Comment.Multiline */
+pre.pygments .tok-cp { color: #008080 } /* Comment.Preproc */
+pre.pygments .tok-cpf { color: #008800; font-style: italic } /* Comment.PreprocFile */
+pre.pygments .tok-c1 { color: #008800; font-style: italic } /* Comment.Single */
+pre.pygments .tok-cs { color: #008800; font-weight: bold } /* Comment.Special */
+pre.pygments .tok-gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+pre.pygments .tok-ge { font-style: italic } /* Generic.Emph */
+pre.pygments .tok-gr { color: #aa0000 } /* Generic.Error */
+pre.pygments .tok-gh { color: #999999 } /* Generic.Heading */
+pre.pygments .tok-gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+pre.pygments .tok-go { color: #888888 } /* Generic.Output */
+pre.pygments .tok-gp { color: #555555 } /* Generic.Prompt */
+pre.pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+pre.pygments .tok-gu { color: #aaaaaa } /* Generic.Subheading */
+pre.pygments .tok-gt { color: #aa0000 } /* Generic.Traceback */
+pre.pygments .tok-kc { color: #000080; font-weight: bold } /* Keyword.Constant */
+pre.pygments .tok-kd { color: #000080; font-weight: bold } /* Keyword.Declaration */
+pre.pygments .tok-kn { color: #000080; font-weight: bold } /* Keyword.Namespace */
+pre.pygments .tok-kp { color: #000080; font-weight: bold } /* Keyword.Pseudo */
+pre.pygments .tok-kr { color: #000080; font-weight: bold } /* Keyword.Reserved */
+pre.pygments .tok-kt { color: #000080; font-weight: bold } /* Keyword.Type */
+pre.pygments .tok-m { color: #0000FF } /* Literal.Number */
+pre.pygments .tok-s { color: #0000FF } /* Literal.String */
+pre.pygments .tok-na { color: #FF0000 } /* Name.Attribute */
+pre.pygments .tok-nt { color: #000080; font-weight: bold } /* Name.Tag */
+pre.pygments .tok-ow { font-weight: bold } /* Operator.Word */
+pre.pygments .tok-w { color: #bbbbbb } /* Text.Whitespace */
+pre.pygments .tok-mb { color: #0000FF } /* Literal.Number.Bin */
+pre.pygments .tok-mf { color: #0000FF } /* Literal.Number.Float */
+pre.pygments .tok-mh { color: #0000FF } /* Literal.Number.Hex */
+pre.pygments .tok-mi { color: #0000FF } /* Literal.Number.Integer */
+pre.pygments .tok-mo { color: #0000FF } /* Literal.Number.Oct */
+pre.pygments .tok-sa { color: #0000FF } /* Literal.String.Affix */
+pre.pygments .tok-sb { color: #0000FF } /* Literal.String.Backtick */
+pre.pygments .tok-sc { color: #800080 } /* Literal.String.Char */
+pre.pygments .tok-dl { color: #0000FF } /* Literal.String.Delimiter */
+pre.pygments .tok-sd { color: #0000FF } /* Literal.String.Doc */
+pre.pygments .tok-s2 { color: #0000FF } /* Literal.String.Double */
+pre.pygments .tok-se { color: #0000FF } /* Literal.String.Escape */
+pre.pygments .tok-sh { color: #0000FF } /* Literal.String.Heredoc */
+pre.pygments .tok-si { color: #0000FF } /* Literal.String.Interpol */
+pre.pygments .tok-sx { color: #0000FF } /* Literal.String.Other */
+pre.pygments .tok-sr { color: #0000FF } /* Literal.String.Regex */
+pre.pygments .tok-s1 { color: #0000FF } /* Literal.String.Single */
+pre.pygments .tok-ss { color: #0000FF } /* Literal.String.Symbol */
+pre.pygments .tok-il { color: #0000FF } /* Literal.Number.Integer.Long */
+</style>
 </head>
 <body class="book">
 <div id="header">
@@ -473,7 +532,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Internal reference number of this OGC® document:    18-062</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 1.0-draft.5</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 1.0-draft.6-SNAPSHOT</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Category: OGC® Implementation Specification</p></td>
@@ -583,10 +642,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_process_input">4.6. Process input</a></li>
 <li><a href="#_process_offering">4.7. Process offering</a></li>
 <li><a href="#_process_output">4.8. Process output</a></li>
-<li><a href="#_process_profile">4.9. Process profile</a></li>
-<li><a href="#_rest_or_restful">4.10. REST or RESTful</a></li>
-<li><a href="#_service_profiles_for_wps">4.11. Service profiles for WPS</a></li>
-<li><a href="#_wps_server">4.12. WPS Server</a></li>
+<li><a href="#_rest_or_restful">4.9. REST or RESTful</a></li>
 </ul>
 </li>
 <li><a href="#_conventions">5. Conventions</a>
@@ -594,9 +650,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_identifiers">5.1. Identifiers</a></li>
 <li><a href="#_link_relations">5.2. Link relations</a></li>
 <li><a href="#_abbreviated_terms">5.3. Abbreviated Terms</a></li>
-<li><a href="#_use_of_the_term_process">5.4. Use of the Term "Process"</a></li>
-<li><a href="#_use_of_https">5.5. Use of HTTPS</a></li>
-<li><a href="#_http_uris">5.6. HTTP URIs</a></li>
+<li><a href="#_use_of_https">5.4. Use of HTTPS</a></li>
+<li><a href="#_http_uris">5.5. HTTP URIs</a></li>
 </ul>
 </li>
 <li><a href="#overview">6. Overview</a>
@@ -1206,6 +1261,9 @@ specify the interface of a process.</p>
 <div class="paragraph">
 <p>where X denotes the domain of arguments x and Y denotes the co-domain of values y. Within this specification, process arguments are referred to as process inputs and result values are referred to as process outputs. Processes that have no process inputs represent value generators that deliver constant or random process outputs.</p>
 </div>
+<div class="paragraph">
+<p>The term process is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this specification uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the WPS 2.0 standard.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_job"><a class="anchor" href="#_job"></a>4.2. Job</h3>
@@ -1250,27 +1308,9 @@ specify the interface of a process.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_process_profile"><a class="anchor" href="#_process_profile"></a>4.9. Process profile</h3>
-<div class="paragraph">
-<p>A process profile is a description of a process on an interface level. Process profiles may have different levels of abstraction and cover several aspects. On a generic level, a process profile may only refer to the provided functionality of a process, i.e. by giving a verbal or formal definition how the outputs are derived from the inputs. On a concrete level a process profile may completely define inputs and outputs including data type definitions and formats.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_rest_or_restful"><a class="anchor" href="#_rest_or_restful"></a>4.10. REST or RESTful</h3>
+<h3 id="_rest_or_restful"><a class="anchor" href="#_rest_or_restful"></a>4.9. REST or RESTful</h3>
 <div class="paragraph">
 <p>Representational state transfer.  REST-compliant Web services allow requesting systems to access and manipulate textual representations of Web resources using a uniform and predefined set of stateless operations.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_service_profiles_for_wps"><a class="anchor" href="#_service_profiles_for_wps"></a>4.11. Service profiles for WPS</h3>
-<div class="paragraph">
-<p>A service profile for WPS is a conformance class that defines the general capabilities of a WPS server, by (1) specifying the supported service operations, (2) the process model, (3) the supported process execution modes, (4) the supported operation binding(s).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_wps_server"><a class="anchor" href="#_wps_server"></a>4.12. WPS Server</h3>
-<div class="paragraph">
-<p>A WPS Server is a web server that provides access to simple or complex computational processing services.</p>
 </div>
 </div>
 </div>
@@ -1434,13 +1474,7 @@ specify the interface of a process.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_use_of_the_term_process"><a class="anchor" href="#_use_of_the_term_process"></a>5.4. Use of the Term "Process"</h3>
-<div class="paragraph">
-<p>The term process is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this specification uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the WPS 2.0 standard.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_use_of_https"><a class="anchor" href="#_use_of_https"></a>5.5. Use of HTTPS</h3>
+<h3 id="_use_of_https"><a class="anchor" href="#_use_of_https"></a>5.4. Use of HTTPS</h3>
 <div class="paragraph">
 <p>For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. It is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <a href="#rfc2818">HTTPS</a>, not <a href="#rfc2616">HTTP</a>.</p>
 </div>
@@ -1449,7 +1483,7 @@ specify the interface of a process.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_http_uris"><a class="anchor" href="#_http_uris"></a>5.6. HTTP URIs</h3>
+<h3 id="_http_uris"><a class="anchor" href="#_http_uris"></a>5.5. HTTP URIs</h3>
 <div class="paragraph">
 <p>This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <a href="#rfc2616">HTTP</a> and <a href="#rfc3986">URI Syntax</a> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <a href="#rfc3986">RFC 3986 (URI Syntax)</a> for details.</p>
 </div>
@@ -1682,7 +1716,7 @@ and include at least links to the following resources:</p>
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml">Schema for the landing page</a></div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="YAML">type: object
+<pre class="pygments highlight"><code data-lang="YAML"><span></span>type: object
 required:
   - links
 properties:
@@ -1703,46 +1737,46 @@ properties:
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="JSON">{
-	"links": [{
-		"href": "http://processing.example.org/oapi-p?f=application/json",
-		"rel": "self",
-		"type": "application/json",
-		"title": "This document"
+<pre class="pygments highlight"><code data-lang="JSON"><span></span>{
+	&quot;links&quot;: [{
+		&quot;href&quot;: &quot;http://processing.example.org/oapi-p?f=application/json&quot;,
+		&quot;rel&quot;: &quot;self&quot;,
+		&quot;type&quot;: &quot;application/json&quot;,
+		&quot;title&quot;: &quot;This document&quot;
 	},{
-		"href": "http://processing.example.org/oapi-p?f=text/html",
-		"rel": "alternate",
-		"type": "text/html",
-		"title": "This document as HTML"
+		&quot;href&quot;: &quot;http://processing.example.org/oapi-p?f=text/html&quot;,
+		&quot;rel&quot;: &quot;alternate&quot;,
+		&quot;type&quot;: &quot;text/html&quot;,
+		&quot;title&quot;: &quot;This document as HTML&quot;
 	},
 	{
-		"href": "http://processing.example.org/oapi-p/api?f=application/json",
-		"rel": "service-desc",
-		"type": "application/json",
-		"title": "API definition for this endpoint as JSON"
+		&quot;href&quot;: &quot;http://processing.example.org/oapi-p/api?f=application/json&quot;,
+		&quot;rel&quot;: &quot;service-desc&quot;,
+		&quot;type&quot;: &quot;application/json&quot;,
+		&quot;title&quot;: &quot;API definition for this endpoint as JSON&quot;
 	},
 	{
-		"href": "http://processing.example.org/oapi-p/api?f=text/html",
-		"rel": "service-desc",
-		"type": "text/html",
-		"title": "API definition for this endpoint as HTML"
+		&quot;href&quot;: &quot;http://processing.example.org/oapi-p/api?f=text/html&quot;,
+		&quot;rel&quot;: &quot;service-desc&quot;,
+		&quot;type&quot;: &quot;text/html&quot;,
+		&quot;title&quot;: &quot;API definition for this endpoint as HTML&quot;
 	},
 	{
-		"href": "http://processing.example.org/oapi-p/conformance",
-		"rel": "conformance",
-		"type": "application/json",
-		"title": "OGC API - Processes conformance classes implemented by this server"
+		&quot;href&quot;: &quot;http://processing.example.org/oapi-p/conformance&quot;,
+		&quot;rel&quot;: &quot;conformance&quot;,
+		&quot;type&quot;: &quot;application/json&quot;,
+		&quot;title&quot;: &quot;OGC API - Processes conformance classes implemented by this server&quot;
 	},
 	{
-		"href": "http://processing.example.org/oapi-p/processes",
-		"rel": "processes",
-		"type": "application/json",
-		"title": "Metadata about the processes"
+		&quot;href&quot;: &quot;http://processing.example.org/oapi-p/processes&quot;,
+		&quot;rel&quot;: &quot;processes&quot;,
+		&quot;type&quot;: &quot;application/json&quot;,
+		&quot;title&quot;: &quot;Metadata about the processes&quot;
 	},
 	{
-		"href": "http://processing.example.org/oapi-p/jobs",
-		"rel": "execute",
-		"title": "The Execute endpoint"
+		&quot;href&quot;: &quot;http://processing.example.org/oapi-p/jobs&quot;,
+		&quot;rel&quot;: &quot;execute&quot;,
+		&quot;title&quot;: &quot;The Execute endpoint&quot;
 	}]
 }</code></pre>
 </div>
@@ -1908,7 +1942,7 @@ list all OGC API - Processes requirements classes that the server conforms to.</
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml">Schema for the list of requirements classes</a></div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="YAML">type: object
+<pre class="pygments highlight"><code data-lang="YAML"><span></span>type: object
 required:
   - conformsTo
 properties:
@@ -1916,7 +1950,7 @@ properties:
     type: array
     items:
       type: string
-      example: "http://www.opengis.net/spec/ogcapi_processes/1.0/req/core"</code></pre>
+      example: &quot;http://www.opengis.net/spec/ogcapi_processes/1.0/req/core&quot;</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -1928,12 +1962,12 @@ the API definition and HTML and JSON as encodings.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="JSON">{
-	"conformsTo": [
-		"http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core",
-		"http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json",
-		"http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html",
-		"http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30"
+<pre class="pygments highlight"><code data-lang="JSON"><span></span>{
+	&quot;conformsTo&quot;: [
+		&quot;http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core&quot;,
+		&quot;http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json&quot;,
+		&quot;http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html&quot;,
+		&quot;http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30&quot;
 	]
 }</code></pre>
 </div>
@@ -2108,7 +2142,7 @@ proxy layer on top of the server.</p>
 </li>
 </ul>
 </div>
-<table id="rec_core_html" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_core_access-control-expose-headers" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2117,11 +2151,28 @@ proxy layer on top of the server.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Recommendation 3</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>/rec/core/access-control-expose-headers<br></p>
+</div>
+<div class="paragraph">
+<p>If the server is intended to be accessed from the browser and if Cross-origin resource sharing is supported, the <code>Access-Control-Expose-Headers</code> header SHOULD be used and the header SHOULD contain the value <code>location</code> to enable the browser to access the <code>location</code> header of the response.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="rec_core_html" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Recommendation 4</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/rec/core/html<br></p>
 </div>
 <div class="paragraph">
-<p>To support browsing a WPS with a web browser and to enable search engines to crawl
-and index a dataset, implementations SHOULD consider to support an HTML encoding.</p>
+<p>To support browsing an OGC API - Processes with a web browser and to enable search engines to crawl
+and index a process, implementations SHOULD consider to support an HTML encoding.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2177,38 +2228,38 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml">Schema for the process list</a></div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="YAML">type: array
+<pre class="pygments highlight"><code data-lang="YAML"><span></span>type: array
 items:
-  $ref: "processSummary.yaml"</code></pre>
+  $ref: &quot;processSummary.yaml&quot;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code>GET /processes HTTP/1.1
+<pre class="pygments highlight"><code><span></span>GET /processes HTTP/1.1
 Host: processing.example.org</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of Process list encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="json">[
-    {
-		"id": "EchoProcess",
-		"title": "EchoProcess",
-		"version": "1.0.0",
-		"jobControlOptions": ["async-execute", "sync-execute"],
-		"outputTransmission": ["value",	"reference"],
-        "links": [
-          {
-            "href": "https://processing.example.org/oapi-p/processes/EchoProcess",
-            "type": "application/json",
-            "rel": "process-desc",
-            "title": "process description"
-          }
-        ]
-	}
-]</code></pre>
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">[</span>
+    <span class="tok-p">{</span>
+		<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EchoProcess&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EchoProcess&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;version&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;1.0.0&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;jobControlOptions&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span><span class="tok-s2">&quot;async-execute&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;sync-execute&quot;</span><span class="tok-p">],</span>
+		<span class="tok-nt">&quot;outputTransmission&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span><span class="tok-s2">&quot;value&quot;</span><span class="tok-p">,</span>	<span class="tok-s2">&quot;reference&quot;</span><span class="tok-p">],</span>
+        <span class="tok-nt">&quot;links&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+          <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;href&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;https://processing.example.org/oapi-p/processes/EchoProcess&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;type&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/json&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;rel&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;process-desc&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;process description&quot;</span>
+          <span class="tok-p">}</span>
+        <span class="tok-p">]</span>
+	<span class="tok-p">}</span>
+<span class="tok-p">]</span></code></pre>
 </div>
 </div>
 </div>
@@ -2284,7 +2335,7 @@ requirements class makes the following recommendation:</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>/rec/core/ogc-process-description<br></p>
 </div>
@@ -2370,7 +2421,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml">Schema for execute</a></div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="YAML">type: object
+<pre class="pygments highlight"><code data-lang="YAML"><span></span>type: object
 required:
   - id
   - outputs
@@ -2380,9 +2431,9 @@ properties:
   id:
     type: string
   inputs:
-      $ref: "input.yaml"
+      $ref: &quot;input.yaml&quot;
   outputs:
-      $ref: "output.yaml"
+      $ref: &quot;output.yaml&quot;
   mode:
     type: string
     enum:
@@ -2395,7 +2446,7 @@ properties:
       - raw
       - document
   subscriber:
-    $ref: "subscriber.yaml"</code></pre>
+    $ref: &quot;subscriber.yaml&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2436,70 +2487,70 @@ properties:
 <div class="listingblock">
 <div class="title">Example of an execute request</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="json">{
-	"id": "EchoProcess",
-	"inputs": {
-		"complexInputId": {
-			"format": {
-				"mimeType": "application/xml"
-			},
-			"value": "&lt;test/&gt;"
-		},
-		"complexInputsId": [
-			{
-				"format": {
-					"mimeType": "text/plain",
-					"encoding": "UTF-8"
-				},
-				"value": "test"
-			},
-			{
-				"format": {
-					"mimeType": "text/plain",
-					"encoding": "UTF-8"
-				},
-				"href": "https://test.data/test.txt"
-			}
-		],
-		"literalInputId": {
-			"dataType": {
-				"name": "double"
-			},
-			"value": "0.05"
-		},
-		"boundingboxInputId": {
-			"bbox": [
-				51.9,
-				7,
-				52,
-				7.1
-			],
-			"crs": "EPSG:4326"
-		}
-	},
-	"outputs": {
-		"literalOutputId": {
-			"transmissionMode": "value"
-		},
-		"boundingboxOutput": {
-			"transmissionMode": "value"
-		},
-		"complexOutputId": {
-			"format": {
-				"mimeType": "application/xml"
-			},
-			"transmissionMode": "value"
-		},
-		"complexOutputsId": {
-			"format": {
-				"mimeType": "text/plain"
-			},
-			"transmissionMode": "reference"
-		}
-	},
-	"response": "document",
-	"mode": "async"
-}</code></pre>
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
+	<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EchoProcess&quot;</span><span class="tok-p">,</span>
+	<span class="tok-nt">&quot;inputs&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+		<span class="tok-nt">&quot;complexInputId&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;format&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+				<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/xml&quot;</span>
+			<span class="tok-p">},</span>
+			<span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&lt;test/&gt;&quot;</span>
+		<span class="tok-p">},</span>
+		<span class="tok-nt">&quot;complexInputsId&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+			<span class="tok-p">{</span>
+				<span class="tok-nt">&quot;format&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+					<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;text/plain&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;encoding&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;UTF-8&quot;</span>
+				<span class="tok-p">},</span>
+				<span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;test&quot;</span>
+			<span class="tok-p">},</span>
+			<span class="tok-p">{</span>
+				<span class="tok-nt">&quot;format&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+					<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;text/plain&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;encoding&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;UTF-8&quot;</span>
+				<span class="tok-p">},</span>
+				<span class="tok-nt">&quot;href&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;https://test.data/test.txt&quot;</span>
+			<span class="tok-p">}</span>
+		<span class="tok-p">],</span>
+		<span class="tok-nt">&quot;literalInputId&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;dataType&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+				<span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;double&quot;</span>
+			<span class="tok-p">},</span>
+			<span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;0.05&quot;</span>
+		<span class="tok-p">},</span>
+		<span class="tok-nt">&quot;boundingboxInputId&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;bbox&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+				<span class="tok-mf">51.9</span><span class="tok-p">,</span>
+				<span class="tok-mi">7</span><span class="tok-p">,</span>
+				<span class="tok-mi">52</span><span class="tok-p">,</span>
+				<span class="tok-mf">7.1</span>
+			<span class="tok-p">],</span>
+			<span class="tok-nt">&quot;crs&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EPSG:4326&quot;</span>
+		<span class="tok-p">}</span>
+	<span class="tok-p">},</span>
+	<span class="tok-nt">&quot;outputs&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+		<span class="tok-nt">&quot;literalOutputId&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;transmissionMode&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;value&quot;</span>
+		<span class="tok-p">},</span>
+		<span class="tok-nt">&quot;boundingboxOutput&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;transmissionMode&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;value&quot;</span>
+		<span class="tok-p">},</span>
+		<span class="tok-nt">&quot;complexOutputId&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;format&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+				<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/xml&quot;</span>
+			<span class="tok-p">},</span>
+			<span class="tok-nt">&quot;transmissionMode&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;value&quot;</span>
+		<span class="tok-p">},</span>
+		<span class="tok-nt">&quot;complexOutputsId&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;format&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+				<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;text/plain&quot;</span>
+			<span class="tok-p">},</span>
+			<span class="tok-nt">&quot;transmissionMode&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;reference&quot;</span>
+		<span class="tok-p">}</span>
+	<span class="tok-p">},</span>
+	<span class="tok-nt">&quot;response&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;document&quot;</span><span class="tok-p">,</span>
+	<span class="tok-nt">&quot;mode&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;async&quot;</span>
+<span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -2641,7 +2692,7 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml">Schema for status info</a></div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="YAML">type: object
+<pre class="pygments highlight"><code data-lang="YAML"><span></span>type: object
 required:
    - jobID
    - status
@@ -2665,33 +2716,33 @@ properties:
    links:
       type: array
       items:
-         $ref: "link.yaml"</code></pre>
+         $ref: &quot;link.yaml&quot;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving status information about a job encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code>GET /processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f HTTP/1.1
+<pre class="pygments highlight"><code><span></span>GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f HTTP/1.1
 Host: processing.example.org</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of a job encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="json">{
-  "jobID" : "81574318-1eb1-4d7c-af61-4b3fbcf33c4f",
-  "status": "accepted",
-  "message": "Process started",
-  "progress": 0,
-  "links": [
-    {
-      "href": "http://processing.example.org/oapi-p/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f",
-      "rel": "self",
-      "type": "application/json",
-      "title": "this document"
-    }
-  ]
-}</code></pre>
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
+  <span class="tok-nt">&quot;jobID&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;81574318-1eb1-4d7c-af61-4b3fbcf33c4f&quot;</span><span class="tok-p">,</span>
+  <span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;accepted&quot;</span><span class="tok-p">,</span>
+  <span class="tok-nt">&quot;message&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Process started&quot;</span><span class="tok-p">,</span>
+  <span class="tok-nt">&quot;progress&quot;</span><span class="tok-p">:</span> <span class="tok-mi">0</span><span class="tok-p">,</span>
+  <span class="tok-nt">&quot;links&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+    <span class="tok-p">{</span>
+      <span class="tok-nt">&quot;href&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http://processing.example.org/oapi-p/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f&quot;</span><span class="tok-p">,</span>
+      <span class="tok-nt">&quot;rel&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;self&quot;</span><span class="tok-p">,</span>
+      <span class="tok-nt">&quot;type&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/json&quot;</span><span class="tok-p">,</span>
+      <span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;this document&quot;</span>
+    <span class="tok-p">}</span>
+  <span class="tok-p">]</span>
+<span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -2775,66 +2826,66 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml">Schema for the result of a job</a></div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="YAML">additionalProperties:
+<pre class="pygments highlight"><code data-lang="YAML"><span></span>additionalProperties:
     oneOf:
-        - $ref: "inlineOrRefData.yaml"
-        - $ref: "boundingBoxData.yaml"
+        - $ref: &quot;inlineOrRefData.yaml&quot;
+        - $ref: &quot;boundingBoxData.yaml&quot;
         - type: array
           items:
               oneOf:
-                  - $ref: "inlineOrRefData.yaml"
-                  - $ref: "boundingBoxData.yaml"</code></pre>
+                  - $ref: &quot;inlineOrRefData.yaml&quot;
+                  - $ref: &quot;boundingBoxData.yaml&quot;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the result a job encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code>GET /processes/EchoProcess/jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result HTTP/1.1
+<pre class="pygments highlight"><code><span></span>GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result HTTP/1.1
 Host: processing.example.org</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of a result encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="json">{
-	"literalOutputId": {
-		"dataType": {
-			"name": "double"
-		},
-		"value": 0.05
-	},
-	"boundingboxOutputId": {
-		"value": {
-			"bbox": [
-				51.9,
-				7,
-				52,
-				7.1
-			],
-			"crs": "EPSG:4326"
-		}
-	},
-	"complexOutputId": {
-		"format": {
-			"mimeType": "application/xml"
-		},
-		"value": "&lt;test/&gt;"
-	},
-	"complexOutputsId": [
-		{
-			"format": {
-				"mimeType": "text/plain"
-			},
-			"href": "https://processing.example.org/outputdata/faf7c1b6-3c47-4bab-a8a0-9ba9fce5378b.txt"
-		},
-		{
-			"format": {
-				"mimeType": "text/plain"
-			},
-			"href": "https://processing.example.org/outputdata/ae8eeda3-d408-4852-b442-de7d0b2d8c48.txt"
-		}
-	]
-}</code></pre>
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
+	<span class="tok-nt">&quot;literalOutputId&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+		<span class="tok-nt">&quot;dataType&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;double&quot;</span>
+		<span class="tok-p">},</span>
+		<span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-mf">0.05</span>
+	<span class="tok-p">},</span>
+	<span class="tok-nt">&quot;boundingboxOutputId&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+		<span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;bbox&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+				<span class="tok-mf">51.9</span><span class="tok-p">,</span>
+				<span class="tok-mi">7</span><span class="tok-p">,</span>
+				<span class="tok-mi">52</span><span class="tok-p">,</span>
+				<span class="tok-mf">7.1</span>
+			<span class="tok-p">],</span>
+			<span class="tok-nt">&quot;crs&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EPSG:4326&quot;</span>
+		<span class="tok-p">}</span>
+	<span class="tok-p">},</span>
+	<span class="tok-nt">&quot;complexOutputId&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+		<span class="tok-nt">&quot;format&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/xml&quot;</span>
+		<span class="tok-p">},</span>
+		<span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&lt;test/&gt;&quot;</span>
+	<span class="tok-p">},</span>
+	<span class="tok-nt">&quot;complexOutputsId&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+		<span class="tok-p">{</span>
+			<span class="tok-nt">&quot;format&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+				<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;text/plain&quot;</span>
+			<span class="tok-p">},</span>
+			<span class="tok-nt">&quot;href&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;https://processing.example.org/outputdata/faf7c1b6-3c47-4bab-a8a0-9ba9fce5378b.txt&quot;</span>
+		<span class="tok-p">},</span>
+		<span class="tok-p">{</span>
+			<span class="tok-nt">&quot;format&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+				<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;text/plain&quot;</span>
+			<span class="tok-p">},</span>
+			<span class="tok-nt">&quot;href&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;https://processing.example.org/outputdata/ae8eeda3-d408-4852-b442-de7d0b2d8c48.txt&quot;</span>
+		<span class="tok-p">}</span>
+	<span class="tok-p">]</span>
+<span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -3015,129 +3066,129 @@ class.</p>
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml">Schema for a process (process.yaml)</a></div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="YAML">allOf:
-   - $ref: "processSummary.yaml"
+<pre class="pygments highlight"><code data-lang="YAML"><span></span>allOf:
+   - $ref: &quot;processSummary.yaml&quot;
    - type: object
      properties:
         inputs:
            type: array
            items:
-              $ref: "inputDescription.yaml"
+              $ref: &quot;inputDescription.yaml&quot;
         outputs:
            type: array
            items:
-              $ref: "outputDescription.yaml"</code></pre>
+              $ref: &quot;outputDescription.yaml&quot;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code>https://processing.example.org/processes/EchoProcess</code></pre>
+<pre class="pygments highlight"><code><span></span>https://processing.example.org/processes/EchoProcess</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of a process encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="json">{
-	"id": "EchoProcess",
-	"title": "EchoProcess",
-	"version": "1.0.0",
-	"jobControlOptions": ["async-execute", "sync-execute"],
-	"outputTransmission": ["value", "reference"],
-	"inputs": [{
-		"id": "boundingboxInput",
-		"title": "boundingboxInput",
-		"input": {
-			"supportedCRS": [{
-				"default": true,
-				"crs": "EPSG:4326"
-			}]
-		},
-		"minOccurs": 1,
-		"maxOccurs": 1
-	},
-	{
-		"id": "literalInput",
-		"title": "literalInput",
-		"input": {
-			"literalDataDomain": {
-                "dataType": {
-                  "name": "double"
-                },
-				"valueDefinition": {
-					"anyValue": true
-				}
-			}
-		},
-		"minOccurs": 1,
-		"maxOccurs": 1
-	},
-	{
-		"id": "complexInput",
-		"title": "complexInput",
-		"input": {
-			"formats": [{
-				"default": true,
-				"mimeType": "application/xml"
-			},
-			{
-				"mimeType": "application/xml"
-			},
-			{
-				"mimeType": "text/xml"
-			}]
-		},
-		"minOccurs": 1,
-		"maxOccurs": 1
-	}],
-	"outputs": [{
-		"id": "boundingboxOutput",
-		"title": "boundingboxOutput",
-		"output": {
-			"supportedCRS": [{
-				"default": true,
-				"crs": "EPSG:4326"
-			}]
-		}
-	},
-	{
-		"id": "literalOutput",
-		"title": "literalOutput",
-		"output": {
-			"literalDataDomain": {
-                "dataType": {
-                  "name": "double"
-                },
-				"valueDefinition": {
-					"anyValue": true
-				}
-			}
-		}
-	},
-	{
-		"id": "complexOutput",
-		"title": "complexOutput",
-		"output": {
-			"formats": [{
-				"default": true,
-				"mimeType": "application/xml"
-			},
-			{
-				"mimeType": "application/xml"
-			},
-			{
-				"mimeType": "text/xml"
-			}]
-		}
-	}],
-    "links": [
-      {
-        "href": "https://processing.example.org/oapi-p/jobs",
-        "rel": "execute",
-        "title": "Execute endpoint"
-      }
-    ]
-}</code></pre>
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
+	<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EchoProcess&quot;</span><span class="tok-p">,</span>
+	<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EchoProcess&quot;</span><span class="tok-p">,</span>
+	<span class="tok-nt">&quot;version&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;1.0.0&quot;</span><span class="tok-p">,</span>
+	<span class="tok-nt">&quot;jobControlOptions&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span><span class="tok-s2">&quot;async-execute&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;sync-execute&quot;</span><span class="tok-p">],</span>
+	<span class="tok-nt">&quot;outputTransmission&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span><span class="tok-s2">&quot;value&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;reference&quot;</span><span class="tok-p">],</span>
+	<span class="tok-nt">&quot;inputs&quot;</span><span class="tok-p">:</span> <span class="tok-p">[{</span>
+		<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;boundingboxInput&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;boundingboxInput&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;input&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;supportedCRS&quot;</span><span class="tok-p">:</span> <span class="tok-p">[{</span>
+				<span class="tok-nt">&quot;default&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+				<span class="tok-nt">&quot;crs&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EPSG:4326&quot;</span>
+			<span class="tok-p">}]</span>
+		<span class="tok-p">},</span>
+		<span class="tok-nt">&quot;minOccurs&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;maxOccurs&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span>
+	<span class="tok-p">},</span>
+	<span class="tok-p">{</span>
+		<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;literalInput&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;literalInput&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;input&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;literalDataDomain&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+                <span class="tok-nt">&quot;dataType&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+                  <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;double&quot;</span>
+                <span class="tok-p">},</span>
+				<span class="tok-nt">&quot;valueDefinition&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+					<span class="tok-nt">&quot;anyValue&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
+				<span class="tok-p">}</span>
+			<span class="tok-p">}</span>
+		<span class="tok-p">},</span>
+		<span class="tok-nt">&quot;minOccurs&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;maxOccurs&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span>
+	<span class="tok-p">},</span>
+	<span class="tok-p">{</span>
+		<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;complexInput&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;complexInput&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;input&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;formats&quot;</span><span class="tok-p">:</span> <span class="tok-p">[{</span>
+				<span class="tok-nt">&quot;default&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+				<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/xml&quot;</span>
+			<span class="tok-p">},</span>
+			<span class="tok-p">{</span>
+				<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/xml&quot;</span>
+			<span class="tok-p">},</span>
+			<span class="tok-p">{</span>
+				<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;text/xml&quot;</span>
+			<span class="tok-p">}]</span>
+		<span class="tok-p">},</span>
+		<span class="tok-nt">&quot;minOccurs&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;maxOccurs&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span>
+	<span class="tok-p">}],</span>
+	<span class="tok-nt">&quot;outputs&quot;</span><span class="tok-p">:</span> <span class="tok-p">[{</span>
+		<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;boundingboxOutput&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;boundingboxOutput&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;output&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;supportedCRS&quot;</span><span class="tok-p">:</span> <span class="tok-p">[{</span>
+				<span class="tok-nt">&quot;default&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+				<span class="tok-nt">&quot;crs&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EPSG:4326&quot;</span>
+			<span class="tok-p">}]</span>
+		<span class="tok-p">}</span>
+	<span class="tok-p">},</span>
+	<span class="tok-p">{</span>
+		<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;literalOutput&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;literalOutput&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;output&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;literalDataDomain&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+                <span class="tok-nt">&quot;dataType&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+                  <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;double&quot;</span>
+                <span class="tok-p">},</span>
+				<span class="tok-nt">&quot;valueDefinition&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+					<span class="tok-nt">&quot;anyValue&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
+				<span class="tok-p">}</span>
+			<span class="tok-p">}</span>
+		<span class="tok-p">}</span>
+	<span class="tok-p">},</span>
+	<span class="tok-p">{</span>
+		<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;complexOutput&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;complexOutput&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;output&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;formats&quot;</span><span class="tok-p">:</span> <span class="tok-p">[{</span>
+				<span class="tok-nt">&quot;default&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+				<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/xml&quot;</span>
+			<span class="tok-p">},</span>
+			<span class="tok-p">{</span>
+				<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/xml&quot;</span>
+			<span class="tok-p">},</span>
+			<span class="tok-p">{</span>
+				<span class="tok-nt">&quot;mediaType&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;text/xml&quot;</span>
+			<span class="tok-p">}]</span>
+		<span class="tok-p">}</span>
+	<span class="tok-p">}],</span>
+    <span class="tok-nt">&quot;links&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+      <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;href&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;https://processing.example.org/oapi-p/jobs&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;rel&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;execute&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Execute endpoint&quot;</span>
+      <span class="tok-p">}</span>
+    <span class="tok-p">]</span>
+<span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -3751,7 +3802,7 @@ SHALL cover all applicable HTTP Status Codes.</p>
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="YAML">description: An error occurred.
+<pre class="pygments highlight"><code data-lang="YAML"><span></span>description: An error occurred.
 content:
   application/json:
     schema:
@@ -3879,87 +3930,87 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobList.yaml">Schema for the job list</a></div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="YAML">type: array
+<pre class="pygments highlight"><code data-lang="YAML"><span></span>type: array
 items:
-  $ref: "statusInfo.yaml"</code></pre>
+  $ref: &quot;statusInfo.yaml&quot;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of HTTP GET request for retrieving the list of jobs encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code>http://processing.example.org/processes/EchoProcess/jobs</code></pre>
+<pre class="pygments highlight"><code><span></span>http://processing.example.org/jobs</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example of a job list encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="json">[
-	{
-		"jobID": "8ca109b4-3b86-4a9c-a284-a6d50f91019e",
-		"status": "running",
-		"message": "Perform step 1/2",
-		"progress": 50,
-		"links": [
-			{
-				"href": "http://processing.example.org/oapi-p/jobs/8ca109b4-3b86-4a9c-a284-a6d50f91019e",
-				"rel": "status",
-				"type": "application/json",
-				"hreflang": "en",
-				"title": "Job status"
-			}
-		]
-	},
-	{
-		"id": "0cf773a5-282a-4e23-96cc-f5dab18123e5",
-		"infos": {
-			"jobID": "0cf773a5-282a-4e23-96cc-f5dab18123e5",
-			"status": "successful",
-			"message": "EchoProcess job finished successful",
-			"progress": 100,
-			"links": [
-				{
-					"href": "http://processing.example.org/oapi-p/jobs/0cf773a5-282a-4e23-96cc-f5dab18123e5",
-					"rel": "status",
-					"type": "application/json",
-					"hreflang": "en",
-					"title": "Job status"
-				},
-				{
-					"href": "http://processing.example.org/oapi-p/jobs/0cf773a5-282a-4e23-96cc-f5dab18123e5/results",
-					"rel": "results",
-					"type": "application/json",
-					"hreflang": "en",
-					"title": "Job result"
-				}
-			]
-		}
-	},
-	{
-		"id": "63aadd9c-c0e5-4a7f-80f0-228dbb158f09",
-		"infos": {
-			"jobID": "63aadd9c-c0e5-4a7f-80f0-228dbb158f09",
-			"status": "failed",
-			"message": "EchoProcess job failed",
-			"progress": 100,
-			"links": [
-				{
-					"href": "http://processing.example.org/oapi-p/jobs/63aadd9c-c0e5-4a7f-80f0-228dbb158f09",
-					"rel": "status",
-					"type": "application/json",
-					"hreflang": "en",
-					"title": "Job status"
-				},
-				{
-					"href": "http://processing.example.org/oapi-p/jobs/63aadd9c-c0e5-4a7f-80f0-228dbb158f09/results",
-					"rel": "exceptions",
-					"type": "application/json",
-					"hreflang": "en",
-					"title": "Job exception"
-				}
-			]
-		}
-	}
-]</code></pre>
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">[</span>
+	<span class="tok-p">{</span>
+		<span class="tok-nt">&quot;jobID&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;8ca109b4-3b86-4a9c-a284-a6d50f91019e&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;running&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;message&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Perform step 1/2&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;progress&quot;</span><span class="tok-p">:</span> <span class="tok-mi">50</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;links&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+			<span class="tok-p">{</span>
+				<span class="tok-nt">&quot;href&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http://processing.example.org/oapi-p/jobs/8ca109b4-3b86-4a9c-a284-a6d50f91019e&quot;</span><span class="tok-p">,</span>
+				<span class="tok-nt">&quot;rel&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;status&quot;</span><span class="tok-p">,</span>
+				<span class="tok-nt">&quot;type&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/json&quot;</span><span class="tok-p">,</span>
+				<span class="tok-nt">&quot;hreflang&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;en&quot;</span><span class="tok-p">,</span>
+				<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Job status&quot;</span>
+			<span class="tok-p">}</span>
+		<span class="tok-p">]</span>
+	<span class="tok-p">},</span>
+	<span class="tok-p">{</span>
+		<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;0cf773a5-282a-4e23-96cc-f5dab18123e5&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;infos&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;jobID&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;0cf773a5-282a-4e23-96cc-f5dab18123e5&quot;</span><span class="tok-p">,</span>
+			<span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;successful&quot;</span><span class="tok-p">,</span>
+			<span class="tok-nt">&quot;message&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EchoProcess job finished successful&quot;</span><span class="tok-p">,</span>
+			<span class="tok-nt">&quot;progress&quot;</span><span class="tok-p">:</span> <span class="tok-mi">100</span><span class="tok-p">,</span>
+			<span class="tok-nt">&quot;links&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+				<span class="tok-p">{</span>
+					<span class="tok-nt">&quot;href&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http://processing.example.org/oapi-p/jobs/0cf773a5-282a-4e23-96cc-f5dab18123e5&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;rel&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;status&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;type&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/json&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;hreflang&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;en&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Job status&quot;</span>
+				<span class="tok-p">},</span>
+				<span class="tok-p">{</span>
+					<span class="tok-nt">&quot;href&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http://processing.example.org/oapi-p/jobs/0cf773a5-282a-4e23-96cc-f5dab18123e5/results&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;rel&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;results&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;type&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/json&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;hreflang&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;en&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Job result&quot;</span>
+				<span class="tok-p">}</span>
+			<span class="tok-p">]</span>
+		<span class="tok-p">}</span>
+	<span class="tok-p">},</span>
+	<span class="tok-p">{</span>
+		<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;63aadd9c-c0e5-4a7f-80f0-228dbb158f09&quot;</span><span class="tok-p">,</span>
+		<span class="tok-nt">&quot;infos&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+			<span class="tok-nt">&quot;jobID&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;63aadd9c-c0e5-4a7f-80f0-228dbb158f09&quot;</span><span class="tok-p">,</span>
+			<span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;failed&quot;</span><span class="tok-p">,</span>
+			<span class="tok-nt">&quot;message&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EchoProcess job failed&quot;</span><span class="tok-p">,</span>
+			<span class="tok-nt">&quot;progress&quot;</span><span class="tok-p">:</span> <span class="tok-mi">100</span><span class="tok-p">,</span>
+			<span class="tok-nt">&quot;links&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+				<span class="tok-p">{</span>
+					<span class="tok-nt">&quot;href&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http://processing.example.org/oapi-p/jobs/63aadd9c-c0e5-4a7f-80f0-228dbb158f09&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;rel&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;status&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;type&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/json&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;hreflang&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;en&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Job status&quot;</span>
+				<span class="tok-p">},</span>
+				<span class="tok-p">{</span>
+					<span class="tok-nt">&quot;href&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http://processing.example.org/oapi-p/jobs/63aadd9c-c0e5-4a7f-80f0-228dbb158f09/results&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;rel&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;exceptions&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;type&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/json&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;hreflang&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;en&quot;</span><span class="tok-p">,</span>
+					<span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Job exception&quot;</span>
+				<span class="tok-p">}</span>
+			<span class="tok-p">]</span>
+		<span class="tok-p">}</span>
+	<span class="tok-p">}</span>
+<span class="tok-p">]</span></code></pre>
 </div>
 </div>
 </div>
@@ -4019,17 +4070,17 @@ items:
 <div class="listingblock">
 <div class="title">Example for a callback in the execute operation</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="YAML">callbacks:
+<pre class="pygments highlight"><code data-lang="YAML"><span></span>callbacks:
     jobCompleted:
-      '{$request.body#/subscriber/successUri}':
+      &#39;{$request.body#/subscriber/successUri}&#39;:
         post:
           requestBody:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/result'
+                  $ref: &#39;#/components/schemas/result&#39;
           responses:
-            '202':
+            &#39;202&#39;:
               description: Results received successfully</code></pre>
 </div>
 </div>
@@ -4117,20 +4168,20 @@ The content of that response SHALL be based upon the OpenAPI
 <div class="listingblock">
 <div class="title">Example of a dismissed job encoded as JSON.</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="json">{
-  "jobID" : "81574318-1eb1-4d7c-af61-4b3fbcf33c4f",
-  "status": "dismissed",
-  "message": "Job dismissed",
-  "progress": 56,
-  "links": [
-    {
-      "href": "http://processing.example.org/oapi-p/jobs",
-      "rel": "up",
-      "type": "application/json",
-      "title": "The job list of this server"
-    }
-  ]
-}</code></pre>
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
+  <span class="tok-nt">&quot;jobID&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;81574318-1eb1-4d7c-af61-4b3fbcf33c4f&quot;</span><span class="tok-p">,</span>
+  <span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;dismissed&quot;</span><span class="tok-p">,</span>
+  <span class="tok-nt">&quot;message&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Job dismissed&quot;</span><span class="tok-p">,</span>
+  <span class="tok-nt">&quot;progress&quot;</span><span class="tok-p">:</span> <span class="tok-mi">56</span><span class="tok-p">,</span>
+  <span class="tok-nt">&quot;links&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+    <span class="tok-p">{</span>
+      <span class="tok-nt">&quot;href&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http://processing.example.org/oapi-p/jobs&quot;</span><span class="tok-p">,</span>
+      <span class="tok-nt">&quot;rel&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;up&quot;</span><span class="tok-p">,</span>
+      <span class="tok-nt">&quot;type&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;application/json&quot;</span><span class="tok-p">,</span>
+      <span class="tok-nt">&quot;title&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;The job list of this server&quot;</span>
+    <span class="tok-p">}</span>
+  <span class="tok-p">]</span>
+<span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -4265,7 +4316,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="YAML">openapi: 3.0.2
+<pre class="pygments highlight"><code data-lang="YAML"><span></span>openapi: 3.0.2
 info:
   title: Alternative OGC API - Processes
   description: This is an alternative OGC API - Processes
@@ -4285,15 +4336,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/bufferExecute'
+              $ref: &#39;#/components/schemas/bufferExecute&#39;
       responses:
-        "200":
+        &quot;200&quot;:
           description: buffer created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/bufferResult'
-        "400":
+                $ref: &#39;#/components/schemas/bufferResult&#39;
+        &quot;400&quot;:
           description: invalid input
 components:
   schemas:
@@ -5178,7 +5229,7 @@ components:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate the result of a job that has been created using the <code>asyn</code> execution mode.</p>
+<p>Validate the result of a job that has been created using the <code>async</code> execution mode.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -7076,7 +7127,7 @@ s/exception.yaml[exception.yaml]</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-12-09 11:44:12 UTC
+Last updated 2021-02-08 12:15:57 UTC
 </div>
 </div>
 </body>
