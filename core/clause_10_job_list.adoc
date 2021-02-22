@@ -13,19 +13,21 @@ include::requirements/job-list/REQ_job-list-op.adoc[]
 
 include::requirements/job-list/REQ_job-list-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobList.yaml[Schema for the job list]
+.link:https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobList.yaml[The following is the schema for the job list]
 [source,YAML]
 ----
 include::openapi/schemas/jobList.yaml[]
 ----
 
-.Example of HTTP GET request for retrieving the list of jobs encoded as JSON.
+The schema defines an array of <<schema-statusInfo,status info elements>>.
+
+.The following is an example of an HTTP GET request for retrieving a list of jobs encoded as JSON.
 [source]
 ----
 http://processing.example.org/jobs
 ----
 
-.Example of a job list encoded as JSON.
+.The following is an example of a job list encoded as JSON.
 [source,json]
 ----
 include::examples/json/JobList.json[]
@@ -34,3 +36,5 @@ include::examples/json/JobList.json[]
 === Error situations
 
 See <<http_status_codes>> for general guidance.
+
+If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process>>).
