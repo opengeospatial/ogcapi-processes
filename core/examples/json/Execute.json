@@ -3,21 +3,21 @@
 	"inputs": {
 		"complexInputId": {
 			"format": {
-				"mimeType": "application/xml"
+				"mediaType": "application/xml"
 			},
 			"value": "<test/>"
 		},
 		"complexInputsId": [
 			{
 				"format": {
-					"mimeType": "text/plain",
+					"mediaType": "text/plain",
 					"encoding": "UTF-8"
 				},
 				"value": "test"
 			},
 			{
 				"format": {
-					"mimeType": "text/plain",
+					"mediaType": "text/plain",
 					"encoding": "UTF-8"
 				},
 				"href": "https://test.data/test.txt"
@@ -48,13 +48,13 @@
 		},
 		"complexOutputId": {
 			"format": {
-				"mimeType": "application/xml"
+				"mediaType": "application/xml"
 			},
 			"transmissionMode": "value"
 		},
 		"complexOutputsId": {
 			"format": {
-				"mimeType": "text/plain"
+				"mediaType": "text/plain"
 			},
 			"transmissionMode": "reference"
 		}

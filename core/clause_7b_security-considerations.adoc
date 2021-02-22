@@ -21,7 +21,7 @@ HTTP methods can be classified as
 3+|Source <<rfc7231,RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content>>
 !===
 
-The following resources can be retrieved using the safe HTTP GET method and can contain sensible information:
+The following resources can be retrieved using the safe HTTP GET method and can contain sensitive information:
 
 Requirements class "Core":
 
@@ -106,7 +106,7 @@ The ids that are used for new jobs and that are returned in the status info docu
 
 The optional dismiss extension uses the HTTP DELETE method and can be used to 
 
-* cancel a running job, and 
-* remove artifacts of a finished job. 
+* Cancel a running job, and 
+* Remove artifacts of a finished job. 
 
 Both usages pose security related issues. The cancellation of a running job (if not done on purpose) is wasting the resources that the job has used until it was canceled. The same goes for the unwanted removal of artifacts of a finished job. If the dismiss extension is implemented, access control for the operation should be considered. The dismiss operation is idempotent, as it is specified by this standard to be called using a specific job identifier. The first dismiss request to that identifier will result in a HTTP 200 (OK) status code. Continued dismiss requests using the same identifier result in a HTTP 410 (Gone) error code, but nothing else is changed on the server. A successful dismiss request returns a status info document containing the job identifier and the status "dismissed". This status info document has no further security implications.
