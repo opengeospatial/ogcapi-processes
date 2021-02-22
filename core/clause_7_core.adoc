@@ -12,7 +12,7 @@ Each OGC API - Processes has a single `LandingPage` (path `/`) that provides lin
 
 * The `APIDefinition` (no fixed path),
 * The `Conformance` statements (path `/conformance`),
-* The `processes` metadata (path `/processes`).
+* The `processes` metadata (path `/processes`).doss
 * the `execute` endpoint (path `/jobs`).
 
 The `APIDefinition` describes the capabilities of the server that can be used by
@@ -333,7 +333,7 @@ include::requirements/core/REQ_job-creation-success-sync.adoc[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process>>).
+If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process,/req/core/process-exception/no-such-process>>).
 
 [[sc_retrieve_status_info]]
 === Retrieve status information about a job
@@ -372,7 +372,7 @@ include::examples/json/StatusInfo.json[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier doesn't exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process>>).
+If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process,/req/core/process-exception/no-such-process>>).
 
 include::requirements/core/REQ_job-exception-no-such-job.adoc[]
 

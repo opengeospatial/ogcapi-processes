@@ -5,5 +5,5 @@
 ^|Test Purpose |Validate that a process description can be retrieved from the expected location.
 ^|Requirement |<<req_core_process,/req/core/process>>
 ^|Test Method |For every Process described in the process list content, issue an HTTP GET request to the URL `/processes/{processID}` where `{processID}` is the `id` property for the process.
-. Validate the response using the test <<ats_core_process-success,/req/core/process-success>>.
+. Validate the response using the test <<ats_core_process-success,/conf/core/process-success>>.
 |===

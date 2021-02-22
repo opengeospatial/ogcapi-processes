@@ -15,7 +15,7 @@ A job may be executed in one of the three modes; `sync`, `async` or `auto`.  The
 [width="90%",cols="2",options="header"]
 |===
 |Mode  |Test ID
-|sync  |<<ats_core_job-creation-success-sync,/req/core/job-creation-success-sync>>
-|async |<<ats_core_job-creation-success-async,/req/core/job-creation-success-async>>
-|auto  |<<ats_core_job-creation-success-auto,/req/core/job-creation-success-auto>>
+|sync  |<<ats_core_job-creation-success-sync,/conf/core/job-creation-success-sync>>
+|async |<<ats_core_job-creation-success-async,/conf/core/job-creation-success-async>>
+|auto  |<<ats_core_job-creation-success-auto,/conf/core/job-creation-success-auto>>
 |===
