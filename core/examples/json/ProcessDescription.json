@@ -20,14 +20,14 @@
 		"id": "literalInput",
 		"title": "literalInput",
 		"input": {
-			"literalDataDomain": {
-                "dataType": {
-                  "name": "double"
-                },
+			"literalDataDomains": [{
+				"dataType": {
+					"name": "double"
+				},
 				"valueDefinition": {
 					"anyValue": true
 				}
-			}
+			}]
 		},
 		"minOccurs": 1,
 		"maxOccurs": 1
