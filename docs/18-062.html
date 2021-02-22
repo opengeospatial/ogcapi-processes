@@ -802,16 +802,17 @@ pre.pygments .tok-il { color: #0000FF } /* Literal.Number.Integer.Long */
 <p><strong class="big">i.     Abstract</strong></p>
 </div>
 <div class="paragraph">
-<p>In many cases geospatial or location data, including data from sensors, must be processed before the information can be effectively used. The OGC Web Processing Service (WPS) Interface Standard provides a standard interface that simplifies the task of making simple or complex computational geospatial processing services accessible via web services. Such services include well-known processes found in GIS software as well as specialized processes for spatio-temporal modeling and simulation. While the OGC WPS standard was designed with spatial processing in mind, the standard could also be used to readily insert non-spatial processing tasks into a web services environment.
-The WPS standard provides a robust, interoperable, and versatile protocol for process execution on web services. WPS supports both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time-consuming tasks. Moreover, the WPS standard defines a general process model that is designed to provide an interoperable description of processing functions. It is intended to support process cataloguing and discovery in a distributed environment.</p>
+<p>This standard defines the OGC API - Processes API standard. This standard builds on the OGC Web Processing Service (WPS) 2.0 Standard and defines the processing interface to communicate over a RESTful protocol using JSON encodings.</p>
 </div>
 <div class="paragraph">
-<p>The OGC API - Processes API builds on the WPS 2.0 standard and defines the processing standards to communicate over a RESTful protocol using JSON encodings. This API is a newer and more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.</p>
+<p>By way of background and context, in many cases geospatial or location data, including data from sensors, must be processed before the information can be effectively used. The OGC Web Processing Service (WPS) Interface Standard provides a standard interface that simplifies the task of making simple or complex computational geospatial processing services accessible via web services. Such services include well-known processes found in GIS software as well as specialized processes for spatiotemporal modeling and simulation. While the OGC WPS standard was designed with spatial processing in mind, the standard could also be used to readily insert non-spatial processing tasks into a web services environment.
+The WPS standard provides a robust, interoperable, and versatile protocol for process execution on web services. WPS supports both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time-consuming tasks. Moreover, the WPS standard defines a general process model that is designed to provide an interoperable description of processing functions. WPS is intended to support process cataloguing and discovery in a distributed environment.</p>
 </div>
 <div class="paragraph">
-<p>The resources that are provided by a server implementing the OGC API - Processes are listed in <a href="#table_core_resources">Table 1</a> below and include the
-capabilities document of the server, the list of processes available
-(Process list and Process description), jobs (running processes) and
+<p>This API is a newer and more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.</p>
+</div>
+<div class="paragraph">
+<p>The resources that are provided by a server implementing the OGC API - Processes are listed in <a href="#table_core_resources">Table 1</a> below and include information about the server, the list of available processes (Process list and Process description), jobs (running processes) and
 results of process executions.</p>
 </div>
 <table id="table_core_resources" class="tableblock frame-all grid-all stretch">
@@ -886,7 +887,7 @@ results of process executions.</p>
 </table>
 <div class="paragraph">
 <p>In general, the HTTP GET operation is used to provide access to the resources described above.
-However, in order to create a new job, the HTTP POST method is used to create a new job by sending an execute request to the server.</p>
+However, in order to create the new job, the HTTP POST method is used to create a new job by sending an execute request to the server.</p>
 </div>
 <div class="paragraph">
 <p>Additionally, the /jobs endpoint can be used to grant access to a list of jobs.</p>
@@ -920,7 +921,7 @@ However, in order to create a new job, the HTTP POST method is used to create a 
 </tbody>
 </table>
 <div class="paragraph">
-<p>As a further addition to the operations accessible through HTTP GET and POST methods, in order to cancel a job execution and/or remove traces of the job execution the DELETE method can be used.</p>
+<p>In addition to the operations accessible through HTTP GET and POST methods, the DELETE method can be used to cancel a job execution and/or remove traces of the job execution.</p>
 </div>
 <table id="table_job_dismiss" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 3. Requirements class 'Dismiss' - Overview of resources, applicable HTTP methods and links to the document sections</caption>
@@ -963,14 +964,14 @@ However, in order to create a new job, the HTTP POST method is used to create a 
 <p><strong class="big">iii.   Preface</strong></p>
 </div>
 <div class="paragraph">
-<p>The Processing API is a continuation of WPS 2.0, a standard for web-based processing of geospatial data. The Processing API defines how the interfaces for WPS 2.0 operations should be constructed and interpreted using a REST based protocol with JSON encoding.
+<p>The OGC API – Processing, hereafter referred to as the Processing API is a continuation of WPS 2.0, a standard for web-based processing of geospatial data. The Processing API defines how the interfaces for WPS 2.0 operations should be constructed and interpreted using a REST based protocol with JSON encoding.
 Within the current version of WPS 2.0, bindings are defined for HTTP/POST using XML encodings and HTTP/GET using KVP encodings. Also in the current WPS 2.0 standard, a core conceptual model is provided that may be used to specify a WPS in different architectures such as REST or SOAP. Therefore, the Processing API is a natural fit to what is already defined in the standard.</p>
 </div>
 <div class="paragraph">
 <p><strong class="big">iv.    Submitting organizations</strong></p>
 </div>
 <div class="paragraph">
-<p>The following organizations submitted this Document to the Open Geospatial Consortium (OGC):</p>
+<p>The following organizations submitted this standard to the Open Geospatial Consortium (OGC):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1096,7 +1097,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <p>The JSON encoding is mandatory.</p>
 </div>
 <div class="paragraph">
-<p>The <em>Core</em> does not mandate any encoding or format for the formal definition of the API. One option is the OpenAPI 3.0 specification and a requirements class has been specified for OpenAPI 3.0, which depends on the <em>Core</em>:</p>
+<p>The <em>Core</em> does not mandate any encoding or format for the formal definition of the API. OpenAPI 3.0 specification is one option for defining the Processing API. As such a requirements class has been specified for OpenAPI 3.0, which depends on the requirements class <em>Core</em>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1109,7 +1110,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 <p>An implementation of the <em>Core</em> requirements class may also decide to use other API definition representations in addition or instead of an OpenAPI 3.0 definition. Examples for alternative API definitions: OpenAPI 2.0 (Swagger), future versions of the OpenAPI specification, an OWS Common 2.0 capabilities document or WSDL.</p>
 </div>
 <div class="paragraph">
-<p>The <em>Core</em> is intended to be a minimal useful API for the execution of processes from the geospatial domain. It is designed to map the operations of a Web Processing Service 2.0.</p>
+<p>The <em>Core</em> is intended to be a minimal useful API for the execution of processes in the geospatial domain. The Core is designed to map the operations of a Web Processing Service 2.0 instance.</p>
 </div>
 <div class="paragraph">
 <p>The <em>Core</em> does not mandate the use of any specific process description to
@@ -1124,7 +1125,7 @@ recommends the use of the following conformance class:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>which defines an information model, encoded in JSON, that may be used to
+<p>This class defines an information model, encoded in JSON, which may be used to
 specify the interface of a process.</p>
 </div>
 <div class="paragraph">
@@ -1147,7 +1148,7 @@ specify the interface of a process.</p>
 <p>Additional capabilities such as support for transactions, extended job monitoring, etc., may be specified in future parts of the OGC API - Processes series or as vendor-specific extensions.</p>
 </div>
 <div class="paragraph">
-<p>Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
+<p>Conformance with this standard SHALL be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
 </div>
 <table id="conf_class_uris" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 4. Conformance class URIs</caption>
@@ -1476,7 +1477,7 @@ specify the interface of a process.</p>
 <div class="sect2">
 <h3 id="_use_of_https"><a class="anchor" href="#_use_of_https"></a>5.4. Use of HTTPS</h3>
 <div class="paragraph">
-<p>For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. It is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <a href="#rfc2818">HTTPS</a>, not <a href="#rfc2616">HTTP</a>.</p>
+<p>For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. This is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <a href="#rfc2818">HTTPS</a>, not <a href="#rfc2616">HTTP</a>.</p>
 </div>
 <div class="paragraph">
 <p>OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities which are not in common use could be an impediment to interoperability.</p>
@@ -1494,7 +1495,7 @@ specify the interface of a process.</p>
 <h2 id="overview"><a class="anchor" href="#overview"></a>6. Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The OGC API - Processes builds on the WPS 2.0 standard and is modularized, meaning that there is a separation between</p>
+<p>The OGC API - Processes builds on the WPS 2.0 standard and is modularized. This means that there is a separation between</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1502,14 +1503,14 @@ specify the interface of a process.</p>
 <p>Core requirements, that specify basic capabilities and can easily be mapped to existing OGC Web Processing Services;</p>
 </li>
 <li>
-<p>More advanced functionality, that was not specified in WPS 2.0.</p>
+<p>More advanced functionality, that is not specified in WPS 2.0.</p>
 </li>
 </ul>
 </div>
 <div class="sect2">
 <h3 id="_encodings"><a class="anchor" href="#_encodings"></a>6.1. Encodings</h3>
 <div class="paragraph">
-<p>This standard uses JSON as the encoding for requests and responses. The inputs and outputs of a process can be any format. The formats of are defined at the time of job creation and are fixed for the specific job.</p>
+<p>JSON is the encoding for requests and responses. The inputs and outputs of a process can be any format. The formats are defined at the time of job creation and are fixed for the specific job.</p>
 </div>
 <div class="paragraph">
 <p><a href="#rec_html">Support for HTML is recommended</a> as HTML is the core language of the World Wide Web.
@@ -1570,13 +1571,13 @@ and will enable search engines to crawl and index the processes.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>the <code>APIDefinition</code> (no fixed path),</p>
+<p>The <code>APIDefinition</code> (no fixed path),</p>
 </li>
 <li>
-<p>the <code>Conformance</code> statements (path <code>/conformance</code>),</p>
+<p>The <code>Conformance</code> statements (path <code>/conformance</code>),</p>
 </li>
 <li>
-<p>the <code>processes</code> metadata (path <code>/processes</code>).</p>
+<p>The <code>processes</code> metadata (path <code>/processes</code>).doss</p>
 </li>
 <li>
 <p>the <code>execute</code> endpoint (path <code>/jobs</code>).</p>
@@ -1615,7 +1616,7 @@ requirements classes implemented by the server.</p>
 <div class="title">Figure 1. Resources in the Core requirements class</div>
 </div>
 <div class="paragraph">
-<p>The OGC API - Processes standard is build upon the OGC API-Common standard. <a href="#mapping-to-common">Table 5</a> Identifies the API-Common Requirements Classes which are applicable to each section of this standard.</p>
+<p>The OGC API - Processes standard utilizes elements of &lt;draft&gt; the OGC API-Common standard. <a href="#mapping-to-common">Table 5</a> Identifies the API-Common Requirements Classes which are applicable to each section of this standard.</p>
 </div>
 <table id="mapping-to-common" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Table 5. Mapping API - Processes Sections to API-Common Requirements Classes</caption>
@@ -1654,7 +1655,7 @@ requirements classes implemented by the server.</p>
 <div class="sect2">
 <h3 id="sc_landing_page"><a class="anchor" href="#sc_landing_page"></a>7.2. Retrieve the API landing page</h3>
 <div class="paragraph">
-<p>The following section describes a method to retrieve an API landing page.</p>
+<p>The following section defines the requirements to retrieve an API landing page.</p>
 </div>
 <div class="sect3">
 <h4 id="_operation"><a class="anchor" href="#_operation"></a>7.2.1. Operation</h4>
@@ -1714,7 +1715,7 @@ and include at least links to the following resources:</p>
 </tbody>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml">Schema for the landing page</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml">The following is the schema for the landing page</a></div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="YAML"><span></span>type: object
 required:
@@ -1794,13 +1795,13 @@ properties:
 <div class="sect2">
 <h3 id="sc_api_definition"><a class="anchor" href="#sc_api_definition"></a>7.3. Retrieve an API definition</h3>
 <div class="paragraph">
-<p>The following section describes a method to retrieve an API definition.</p>
+<p>The following section defines the requirements to retrieve an API definition.</p>
 </div>
 <div class="sect3">
 <h4 id="_operation_2"><a class="anchor" href="#_operation_2"></a>7.3.1. Operation</h4>
 <div class="paragraph">
 <p>Every OGC API - Processes provides an API definition that describes the capabilities
-of the server and which can be used by developers to understand the API,
+of the server. This definition is used by developers to understand the API,
 by software clients to connect to the server, or
 by development tools to support the implementation of servers and clients.</p>
 </div>
@@ -1836,7 +1837,7 @@ by development tools to support the implementation of servers and clients.</p>
 <p>/req/core/api-definition-success<br></p>
 </div>
 <div class="paragraph">
-<p>A successful execution of the operation SHALL be reported as a
+<p>A successful execution of the operation to get the API definition document SHALL be reported as a
 response with a HTTP status code <code>200</code>.</p>
 </div>
 <div class="paragraph">
@@ -1868,6 +1869,32 @@ the document SHOULD conform to the
 <p>If multiple API definition formats are supported by a server, use
 content negotiation to select the desired representation.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Two common approaches are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>an additional path for each encoding of each resource (this can be expressed,
+for example, using format specific suffixes like ".html");</p>
+</li>
+<li>
+<p>an additional query parameter (for example, "accept" or "f") that overrides
+the Accept header of the HTTP request.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The API definition document describes the API. In other words,
 there is no need to include the <code>/api</code> operation in the API definition itself.</p>
@@ -1893,7 +1920,7 @@ this standard to access the processes and results via the API.</p>
 <div class="sect3">
 <h4 id="_operation_3"><a class="anchor" href="#_operation_3"></a>7.4.1. Operation</h4>
 <div class="paragraph">
-<p>To support "generic" clients for accessing Web Processing Services in general - and
+<p>To support "generic" clients for accessing servers implementing OGC API - Processes in general - and
 not "just" a specific API / server, the server has to declare the
 requirements classes it implements and conforms to.</p>
 </div>
@@ -1940,7 +1967,7 @@ list all OGC API - Processes requirements classes that the server conforms to.</
 </tbody>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml">Schema for the list of requirements classes</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml">The following is the schema for the list of requirements classes</a></div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="YAML"><span></span>type: object
 required:
@@ -2108,7 +2135,7 @@ MAY return other status codes than those listed in <a href="#status_codes">Table
 <div class="sect2">
 <h3 id="_support_for_cross_origin_requests"><a class="anchor" href="#_support_for_cross_origin_requests"></a>7.6. Support for cross-origin requests</h3>
 <div class="paragraph">
-<p>Access to content from a HTML page is by default prohibited for security reasons, if the content is located on another host than the webpage ("same-origin policy"). A typical example is a web-application accessing processes and data from multiple servers.</p>
+<p>Access to content from a HTML page is by default prohibited for security reasons if the content is located on another host than the webpage ("same-origin policy"). Cross-origin resource sharing is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. A typical example is a web-application accessing processes and data from multiple servers.</p>
 </div>
 <table id="rec_core_cross-origin" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2181,7 +2208,7 @@ and index a process, implementations SHOULD consider to support an HTML encoding
 <div class="sect2">
 <h3 id="sc_process_list"><a class="anchor" href="#sc_process_list"></a>7.7. Retrieve a process list</h3>
 <div class="paragraph">
-<p>The following section describes a method to retrieve the available processes offered by the server.</p>
+<p>The following section defines the requirements to retrieve the available processes offered by the server.</p>
 </div>
 <div class="sect3">
 <h4 id="_operation_4"><a class="anchor" href="#_operation_4"></a>7.7.1. Operation</h4>
@@ -2217,7 +2244,7 @@ and index a process, implementations SHOULD consider to support an HTML encoding
 <p>/req/core/process-list-success<br></p>
 </div>
 <div class="paragraph">
-<p>A successful execution of the operation SHALL be reported as a
+<p>A successful execution of the <em>process</em> operation SHALL be reported as a
 response with a HTTP status code 200.
 The content of that response SHALL be based upon the OpenAPI
 3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml">processList.yaml</a>.</p>
@@ -2226,11 +2253,36 @@ The content of that response SHALL be based upon the OpenAPI
 </tbody>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml">Schema for the process list</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml">The following is the schema for the process list</a></div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="YAML"><span></span>type: array
 items:
   $ref: &quot;processSummary.yaml&quot;</code></pre>
+</div>
+</div>
+<div id="schema-processSummary" class="listingblock">
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processSummary.yaml">The following is the schema for the process summary</a></div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="YAML"><span></span>allOf:
+  - $ref: &quot;descriptionType.yaml&quot;
+  - type: object
+    required:
+      - version
+    properties:
+      version:
+        type: string
+      jobControlOptions:
+        type: array
+        items:
+          $ref: &quot;jobControlOptions.yaml&quot;
+      outputTransmission:
+        type: array
+        items:
+          $ref: &quot;transmissionMode.yaml&quot;
+      links:
+        type: array
+        items:
+          $ref: &quot;link.yaml&quot;</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -2241,7 +2293,7 @@ Host: processing.example.org</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Example of Process list encoded as JSON.</div>
+<div class="title">The following is an example of Process list encoded as JSON.</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">[</span>
     <span class="tok-p">{</span>
@@ -2273,7 +2325,7 @@ Host: processing.example.org</code></pre>
 <div class="sect2">
 <h3 id="sc_process_description"><a class="anchor" href="#sc_process_description"></a>7.8. Retrieve a process description</h3>
 <div class="paragraph">
-<p>The following section describes a method to retrieve metadata about a process.</p>
+<p>The following section defines the requirements to retrieve metadata about a process.</p>
 </div>
 <div class="sect3">
 <h4 id="_operation_5"><a class="anchor" href="#_operation_5"></a>7.8.1. Operation</h4>
@@ -2363,10 +2415,10 @@ requirements class makes the following recommendation:</p>
 <p>/req/core/process-exception/no-such-process<br></p>
 </div>
 <div class="paragraph">
-<p>If the operation is executed using an invalid process identifier, the response shall have HTTP status code 404.
+<p>If the operation is executed using an invalid process identifier, the response SHALL be HTTP status code 404.
 The content of that response SHALL be based upon the OpenAPI
 3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml">exception.yaml</a>.
-The exception code of the exception shall be "NoSuchProcess".</p>
+The exception code of the exception SHALL be "NoSuchProcess".</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2376,7 +2428,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 <div class="sect2">
 <h3 id="sc_create_job"><a class="anchor" href="#sc_create_job"></a>7.9. Create a new job</h3>
 <div class="paragraph">
-<p>The following section describes a method to create a new job, i.e. execute a process.</p>
+<p>The following section describes the requirements to create a new job, i.e. execute a process.</p>
 </div>
 <div class="sect3">
 <h4 id="_operation_6"><a class="anchor" href="#_operation_6"></a>7.9.1. Operation</h4>
@@ -2419,7 +2471,7 @@ The exception code of the exception shall be "NoSuchProcess".</p>
 </tbody>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml">Schema for execute</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml">The following is the schema for execute</a></div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="YAML"><span></span>type: object
 required:
@@ -2450,7 +2502,7 @@ properties:
 </div>
 </div>
 <div class="paragraph">
-<p>The creation of a job can be done synchronously or asynchronously.</p>
+<p>A process can be either synchronous or asynchronous.</p>
 </div>
 <table id="req_core_job-creation-mode" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2485,7 +2537,7 @@ properties:
 </tbody>
 </table>
 <div class="listingblock">
-<div class="title">Example of an execute request</div>
+<div class="title">The following is an example of an execute request</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
 	<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EchoProcess&quot;</span><span class="tok-p">,</span>
@@ -2557,7 +2609,7 @@ properties:
 <div class="sect3">
 <h4 id="_response_6"><a class="anchor" href="#_response_6"></a>7.9.3. Response</h4>
 <div class="paragraph">
-<p>In case of asynchronous execution, the requirements below apply:</p>
+<p>In the case of asynchronous execution, the requirements below apply:</p>
 </div>
 <table id="req_core_job-creation-success-async" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2595,7 +2647,7 @@ response with a HTTP status code 201.</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p>For synchronous execution, the following requirement applies:</p>
+<p>For a synchronous execution, the following requirement applies:</p>
 </div>
 <table id="req_core_job-creation-success-sync" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2638,14 +2690,14 @@ response with a HTTP status code 200.</p>
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
 <div class="paragraph">
-<p>If the process with the specified identifier doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#req_core_no-such-process">[req_core_no-such-process]</a>).</p>
+<p>If the process with the specified identifier does not exist on the server, the status code of the response SHALL be <code>404</code> (see <a href="#req_core_no-such-process">/req/core/process-exception/no-such-process</a>).</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="sc_retrieve_status_info"><a class="anchor" href="#sc_retrieve_status_info"></a>7.10. Retrieve status information about a job</h3>
 <div class="paragraph">
-<p>The following section describes a method to retrieve information about the status of a job.</p>
+<p>The following section describes the requirements to retrieve information about the status of a job.</p>
 </div>
 <div class="sect3">
 <h4 id="_operation_7"><a class="anchor" href="#_operation_7"></a>7.10.1. Operation</h4>
@@ -2689,8 +2741,8 @@ The content of that response SHALL be based upon the OpenAPI
 </tr>
 </tbody>
 </table>
-<div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml">Schema for status info</a></div>
+<div id="schema-statusInfo" class="listingblock">
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml">The following is the schema for status info</a></div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="YAML"><span></span>type: object
 required:
@@ -2720,14 +2772,14 @@ properties:
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Example of HTTP GET request for retrieving status information about a job encoded as JSON.</div>
+<div class="title">The following is an example of HTTP GET request for retrieving status information about a job encoded as JSON.</div>
 <div class="content">
 <pre class="pygments highlight"><code><span></span>GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f HTTP/1.1
 Host: processing.example.org</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Example of a job encoded as JSON.</div>
+<div class="title">The following is an example of a job encoded as JSON.</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
   <span class="tok-nt">&quot;jobID&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;81574318-1eb1-4d7c-af61-4b3fbcf33c4f&quot;</span><span class="tok-p">,</span>
@@ -2752,7 +2804,7 @@ Host: processing.example.org</code></pre>
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
 <div class="paragraph">
-<p>If the process with the specified identifier doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#req_core_no-such-process">[req_core_no-such-process]</a>).</p>
+<p>If the process with the specified identifier does not exist on the server, the status code of the response SHALL be <code>404</code> (see <a href="#req_core_no-such-process">/req/core/process-exception/no-such-process</a>).</p>
 </div>
 <table id="req_core_job-exception-no-such-job" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2766,10 +2818,10 @@ Host: processing.example.org</code></pre>
 <p>/req/core/job-exception-no-such-job<br></p>
 </div>
 <div class="paragraph">
-<p>If the operation is executed using an invalid job identifier, the response shall have HTTP status code 404.
+<p>If the operation is executed using an invalid job identifier, the response SHALL have HTTP status code 404.
 The content of that response SHALL be based upon the OpenAPI
 3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml">exception.yaml</a>.
-The exception code of the exception shall be "NoSuchJob".</p>
+The exception code of the exception SHALL be "NoSuchJob".</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2779,7 +2831,7 @@ The exception code of the exception shall be "NoSuchJob".</p>
 <div class="sect2">
 <h3 id="sc_retrieve_job_results"><a class="anchor" href="#sc_retrieve_job_results"></a>7.11. Retrieve job results</h3>
 <div class="paragraph">
-<p>The following section describes a method to retrieve the results of a job. In case the job execution failed, an exception is returned.</p>
+<p>The following section describes the requirements to retrieve the results of a job. In case the job execution failed, an exception is returned.</p>
 </div>
 <div class="sect3">
 <h4 id="_operation_8"><a class="anchor" href="#_operation_8"></a>7.11.1. Operation</h4>
@@ -2824,7 +2876,7 @@ The content of that response SHALL be based upon the OpenAPI
 </tbody>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml">Schema for the result of a job</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml">The following is the schema for the result of a job</a></div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="YAML"><span></span>additionalProperties:
     oneOf:
@@ -2837,15 +2889,18 @@ The content of that response SHALL be based upon the OpenAPI
                   - $ref: &quot;boundingBoxData.yaml&quot;</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>The schema defines a map using the respective id of the output as key. The value of the output can be returned as inline value or as reference.</p>
+</div>
 <div class="listingblock">
-<div class="title">Example of HTTP GET request for retrieving the result a job encoded as JSON.</div>
+<div class="title">The following is an example of HTTP GET request for retrieving the result a job encoded as JSON.</div>
 <div class="content">
 <pre class="pygments highlight"><code><span></span>GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result HTTP/1.1
 Host: processing.example.org</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Example of a result encoded as JSON.</div>
+<div class="title">The following is an example of a result encoded as JSON.</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
 	<span class="tok-nt">&quot;literalOutputId&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
@@ -2906,10 +2961,10 @@ Host: processing.example.org</code></pre>
 <p>/req/core/job-result-exception/no-such-job<br></p>
 </div>
 <div class="paragraph">
-<p>If the operation is executed using an invalid job identifier, the response shall have HTTP status code 404.
+<p>If the operation is executed using an invalid job identifier, the response SHALL have HTTP status code 404.
 The content of that response SHALL be based upon the OpenAPI
 3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml">exception.yaml</a>.
-The exception code of the exception shall be "NoSuchJob".</p>
+The exception code of the exception SHALL be "NoSuchJob".</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2926,10 +2981,10 @@ The exception code of the exception shall be "NoSuchJob".</p>
 <p>/req/core/job-result-exception/result-not-ready<br></p>
 </div>
 <div class="paragraph">
-<p>If the operation is executed on a running job with a valid job identifier, the response shall have HTTP status code 404.
+<p>If the operation is executed on a running job with a valid job identifier, the response SHALL have HTTP status code 404.
 The content of that response SHALL be based upon the OpenAPI
 3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml">exception.yaml</a>.
-The exception code of the exception shall be "ResultNotReady".</p>
+The exception code of the exception SHALL be "ResultNotReady".</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2946,10 +3001,10 @@ The exception code of the exception shall be "ResultNotReady".</p>
 <p>/req/core/job-result-failed<br></p>
 </div>
 <div class="paragraph">
-<p>If the operation is executed on a failed job using a valid job identifier, the response shall have a HTTP error code that corresponds to the reason of the failure.
+<p>If the operation is executed on a failed job using a valid job identifier, the response SHALL have a HTTP error code that corresponds to the reason of the failure.
 The content of that response SHALL be based upon the OpenAPI
 3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml">exception.yaml</a>.
-The exception code shall correspond to the reason of the failure, e.g. InvalidParameterValue for invalid input data.</p>
+The exception code SHALL correspond to the reason of the failure, e.g. InvalidParameterValue for invalid input data.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3009,16 +3064,16 @@ class.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>a title</p>
+<p>A title</p>
 </li>
 <li>
-<p>a narrative description of the process</p>
+<p>A narrative description of the process</p>
 </li>
 <li>
-<p>keywords that can be associated with the process</p>
+<p>Keywords that can be associated with the process</p>
 </li>
 <li>
-<p>references to additional metadata</p>
+<p>References to additional metadata</p>
 </li>
 </ul>
 </div>
@@ -3041,7 +3096,7 @@ class.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>This clause defines a JSON-encoding of the OGC process description.</p>
+<p>The following clause defines a JSON-encoding of the OGC process description.</p>
 </div>
 </div>
 <div class="sect2">
@@ -3058,7 +3113,7 @@ class.</p>
 <p>/req/ogc-process-description/json-encoding<br></p>
 </div>
 <div class="paragraph">
-<p>A JSON-encoded OGC process description shall validate against the OpenAPI 3.0 schema: <a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml">process.yaml</a>.</p>
+<p>A JSON-encoded OGC process description SHALL validate against the OpenAPI 3.0 schema: <a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml">process.yaml</a>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3080,14 +3135,17 @@ class.</p>
               $ref: &quot;outputDescription.yaml&quot;</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>The schema imports the elements from the <a href="#schema-processSummary">process summary</a> and specifies two arrays for input and output descriptions.</p>
+</div>
 <div class="listingblock">
-<div class="title">Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.</div>
+<div class="title">The following is an example of HTTP GET request for retrieving the list of offered processes encoded as JSON.</div>
 <div class="content">
 <pre class="pygments highlight"><code><span></span>https://processing.example.org/processes/EchoProcess</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Example of a process encoded as JSON.</div>
+<div class="title">The following is an example of a process encoded as JSON.</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
 	<span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;EchoProcess&quot;</span><span class="tok-p">,</span>
@@ -3252,7 +3310,7 @@ class.</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The following resources can be retrieved using the safe HTTP GET method and can contain sensible information:</p>
+<p>The following resources can be retrieved using the safe HTTP GET method and can contain sensitive information:</p>
 </div>
 <div class="paragraph">
 <p>Requirements class "Core":</p>
@@ -3469,10 +3527,10 @@ class.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>cancel a running job, and</p>
+<p>Cancel a running job, and</p>
 </li>
 <li>
-<p>remove artifacts of a finished job.</p>
+<p>Remove artifacts of a finished job.</p>
 </li>
 </ul>
 </div>
@@ -3627,7 +3685,7 @@ SHALL support the media type <code>text/html</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>/req//html/content<br></p>
+<p>/req/html/content<br></p>
 </div>
 <div class="paragraph">
 <p>Every <code>200</code>-response of the server with the media type "text/html" SHALL be a
@@ -3928,21 +3986,24 @@ The content of that response SHALL be based upon the OpenAPI
 </tbody>
 </table>
 <div class="listingblock">
-<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobList.yaml">Schema for the job list</a></div>
+<div class="title"><a href="https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/jobList.yaml">The following is the schema for the job list</a></div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="YAML"><span></span>type: array
 items:
   $ref: &quot;statusInfo.yaml&quot;</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>The schema defines an array of <a href="#schema-statusInfo">status info elements</a>.</p>
+</div>
 <div class="listingblock">
-<div class="title">Example of HTTP GET request for retrieving the list of jobs encoded as JSON.</div>
+<div class="title">The following is an example of an HTTP GET request for retrieving a list of jobs encoded as JSON.</div>
 <div class="content">
 <pre class="pygments highlight"><code><span></span>http://processing.example.org/jobs</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Example of a job list encoded as JSON.</div>
+<div class="title">The following is an example of a job list encoded as JSON.</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">[</span>
 	<span class="tok-p">{</span>
@@ -4019,6 +4080,9 @@ items:
 <div class="paragraph">
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
+<div class="paragraph">
+<p>If the process with the specified identifier does not exist on the server, the status code of the response SHALL be <code>404</code> (see <a href="#req_core_no-such-process">[req_core_no-such-process]</a>).</p>
+</div>
 </div>
 </div>
 </div>
@@ -4026,7 +4090,7 @@ items:
 <h2 id="Callbacks"><a class="anchor" href="#Callbacks"></a>13. Requirements Class "Callback"</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This conformance class specifies a callback mechanism for completed jobs. In contrast to the pull-based mechanism specified in <a href="#sc_create_job">Create a new job</a> and <a href="#sc_retrieve_status_info">Retrieve status information about a job</a>, this conformance class specifies a push-based mechanism, where a subscriber-URL is passed to the API in the execute request. After the job is completed, the result response is sent to the specified URL.</p>
+<p>The Callback conformance class specifies a callback mechanism for completed jobs. In contrast to the pull-based mechanism specified in <a href="#sc_create_job">Create a new job</a> and <a href="#sc_retrieve_status_info">Retrieve status information about a job</a>, this conformance class specifies a push-based mechanism, where a subscriber-URL is passed to the API in the execute request. After the job is completed, the result response is sent to the specified URL.</p>
 </div>
 <table id="rc_callback" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -4068,7 +4132,7 @@ items:
 </tbody>
 </table>
 <div class="listingblock">
-<div class="title">Example for a callback in the execute operation</div>
+<div class="title">The following is an example for a callback in the execute operation</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="YAML"><span></span>callbacks:
     jobCompleted:
@@ -4085,10 +4149,10 @@ items:
 </div>
 </div>
 <div class="paragraph">
-<p>If the server implements this conformance class, the optional subscriber element of the execute request JSON must be used.</p>
+<p>If the server implements this conformance class, the optional subscriber element of the execute request JSON SHALL be used.</p>
 </div>
 <div class="paragraph">
-<p>It is possible to add multiple callbacks for getting progress updates and notifications of a successful job completion or of a failure.</p>
+<p>Adding multiple callbacks is possible for getting progress updates and notifications of the success or failure of a job completion.</p>
 </div>
 <div class="paragraph">
 <p>Further guidance about how to use callbacks can be found in the <a href="https://swagger.io/docs/specification/callbacks/">OpenAPI documentation</a>.</p>
@@ -4099,7 +4163,7 @@ items:
 <h2 id="Dismiss"><a class="anchor" href="#Dismiss"></a>14. Requirements Class "Dismiss"</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This requirement class specifies how to dismiss a job. Dismiss can be seen as canceling a running job or removing artifacts of a finished job.</p>
+<p>The Dismiss requirement class specifies how to dismiss a job. Dismiss can be seen as canceling a running job or removing artifacts of a finished job.</p>
 </div>
 <table id="rc_dismiss" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -4166,7 +4230,7 @@ The content of that response SHALL be based upon the OpenAPI
 </tbody>
 </table>
 <div class="listingblock">
-<div class="title">Example of a dismissed job encoded as JSON.</div>
+<div class="title">The following is an example of a dismissed job encoded as JSON.</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>
   <span class="tok-nt">&quot;jobID&quot;</span> <span class="tok-p">:</span> <span class="tok-s2">&quot;81574318-1eb1-4d7c-af61-4b3fbcf33c4f&quot;</span><span class="tok-p">,</span>
@@ -4191,11 +4255,11 @@ The content of that response SHALL be based upon the OpenAPI
 <p>See <a href="#http_status_codes">HTTP status codes</a> for general guidance.</p>
 </div>
 <div class="paragraph">
-<p>If the process with the specified identifier doesn&#8217;t exist on the server, the status code of the response will be <code>404</code> (see <a href="#req_core_no-such-process">[req_core_no-such-process]</a>).</p>
+<p>If the process with the specified identifier does not exist on the server, the status code of the response SHALL be <code>404</code> (see <a href="#req_core_no-such-process">/req/core/process-exception/no-such-process</a>).</p>
 </div>
 <div class="paragraph">
-<p>If the job with the specified identifier doesn&#8217;t exist, the status code of the
-response will be <code>404</code> (see <a href="#req_core_job-exception-no-such-job">[req_core_job-exception-no-such-job]</a>).</p>
+<p>If the job with the specified identifier does not exist, the status code of the
+response SHALL be <code>404</code> (see <a href="#req_core_job-exception-no-such-job">/req/core/job-result-exception/no-such-job</a>).</p>
 </div>
 </div>
 </div>
@@ -4244,7 +4308,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 <h2 id="additional-api-building-blocks"><a class="anchor" href="#additional-api-building-blocks"></a>16. Additional API Building Blocks</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The core requirements classes of this standard are designed for the following workflow:</p>
+<p>The core requirements classes of the Processes API standard are designed for the following workflow:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4263,13 +4327,16 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </ol>
 </div>
 <div class="paragraph">
-<p>This workflow is useful for generic client that are implemented against the JSON schemas and paths specified in this standard. Generic clients can communicate with any server implementing the OGC API - Processes. However, here may be limitations regarding the handling of input and output formats.</p>
+<p>This workflow is useful for generic clients that are implemented against the JSON schemas and paths specified in this standard. Generic clients can communicate with any server implementing the OGC API - Processes. However, there may be limitations regarding the handling of input and output formats.</p>
 </div>
 <div class="paragraph">
-<p>The approach describe above requires implementers of clients to have knowledge about the standard.</p>
+<p>The approach described above requires implementers of clients to have knowledge about the standard.</p>
 </div>
 <div class="paragraph">
-<p>An alternative that could make it easier for implementers that are not familiar with OGC (API) standards is permitting deviations from strictly following the schemas and paths specified in this standard.</p>
+<p>This standard uses the OpenAPI specification to define the JSON schemas and OpenAPI MAY also be used to describe the concrete API) see <a href="#sc_api_definition">Retrieve an API definition</a>). A variety of tools for automatic code generation exist for the OpenAPI specification. This makes it very easy for client and server implementers to work with APIs defined using OpenAPI. However, as the OGC API - Processes defines several JSON schemas and leaves the concrete data types for input and outputs open, the automatic code generation cannot be used to its full extent. To cope with this and thus make the implementation of clients / servers easier for those that are not familiar with OGC (API) standards, additional alternatives to the process description and the paths to processes and jobs are permitted.</p>
+</div>
+<div class="paragraph">
+<p>The following permissions do not affect the mandatory core requirements.</p>
 </div>
 <table id="per_core_alternative-process-description" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -4289,7 +4356,7 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </tbody>
 </table>
 <div class="paragraph">
-<p>This permission allows server implementations to describe a process, such as by defining the request and response body of a POST request to a process endpoint.</p>
+<p>The alternative-process-description permission allows server implementations to describe a process, such as by defining the request and response body of a POST request to a process endpoint using the OpenAPI specification directly (see this  <a href="#example-alternative-process-description">example</a>).</p>
 </div>
 <table id="per_core_alternative-process-paths" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -4309,12 +4376,12 @@ The OpenAPI media types have not been registered yet with IANA and can change in
 </tbody>
 </table>
 <div class="paragraph">
-<p>This permission allows server implementations to specify alternative paths to processes and jobs.</p>
+<p>The alternative-process-paths permission allows server implementations to specify alternative paths to processes and jobs.</p>
 </div>
 <div class="paragraph">
-<p>An example of an OpenAPI document making use of the building blocks is shown in the following:</p>
+<p>An example of an OpenAPI document making use of these building blocks is shown in the following:</p>
 </div>
-<div class="listingblock">
+<div id="example-alternative-process-description" class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="YAML"><span></span>openapi: 3.0.2
 info:
@@ -4389,10 +4456,10 @@ components:
 <div class="ulist">
 <ul>
 <li>
-<p>enabling an more seamless integration of this API with other OGC API standards and</p>
+<p>Enabling a more seamless integration of this API with other OGC API standards and</p>
 </li>
 <li>
-<p>enabling the use of tools to auto-generate clients from the API description.</p>
+<p>Enabling the use of tools to auto-generate clients / servers from the API description.</p>
 </li>
 </ul>
 </div>
@@ -4764,10 +4831,10 @@ components:
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>All compliance tests shall be configured to use the HTTP 1.1 protocol exclusively.</p>
+<p>All compliance tests SHALL be configured to use the HTTP 1.1 protocol exclusively.</p>
 </li>
 <li>
-<p>For APIs which support HTTPS, all compliance tests shall be configured to use <a href="#rfc2818">HTTP over TLS</a> (RFC 2818) with their HTTP 1.1 protocol.</p>
+<p>For APIs which support HTTPS, all compliance tests SHALL be configured to use <a href="#rfc2818">HTTP over TLS</a> (RFC 2818) with their HTTP 1.1 protocol.</p>
 </li>
 </ol>
 </div></div></td>
@@ -4811,7 +4878,7 @@ components:
 <p>Issue an HTTP GET request to the URL {root}/processes</p>
 </li>
 <li>
-<p>Validate the contents of the returned document using test <a href="#ats_core_process-list-success">/req/core/process-list-success</a>.</p>
+<p>Validate the contents of the returned document using test <a href="#ats_core_process-list-success">/conf/core/process-list-success</a>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -4918,7 +4985,7 @@ components:
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>For every Process described in the process list content, issue an HTTP GET request to the URL <code>/processes/{processID}</code> where <code>{processID}</code> is the <code>id</code> property for the process.
-. Validate the response using the test <a href="#ats_core_process-success">/req/core/process-success</a>.</p>
+. Validate the response using the test <a href="#ats_core_process-success">/conf/core/process-success</a>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -4983,7 +5050,7 @@ components:
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC Process Description JSON</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/process.yaml">process.yaml</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#req_ogc-process-description_json-encoding">/req/ogc-process-description/json-encoding</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#req_ogc-process-description_json-encoding">/conf/ogc-process-description/json-encoding</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -5100,13 +5167,13 @@ components:
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Issue an HTTP POST request to the URL '/jobs' for each execution mode according to the test <a href="#ats_core_job-creation-mode">[ats_core_job-creation-mode]</a>.</p>
+<p>Issue an HTTP POST request to the URL '/jobs' for each execution mode according to the test <a href="#ats_core_job-creation-mode">/conf/core/job-creation-mode</a>.</p>
 </li>
 <li>
-<p>Validate the contents of the POST request using the test <a href="#ats_core_job-creation-request">/req/core/job-creation-request</a>.</p>
+<p>Validate the contents of the POST request using the test <a href="#ats_core_job-creation-request">/conf/core/job-creation-request</a>.</p>
 </li>
 <li>
-<p>Validate the creation of the job according to the execution mode using test <a href="#ats_core_job-creation-mode">/req/core/job-creation-mode </a>.</p>
+<p>Validate the creation of the job according to the execution mode using test <a href="#ats_core_job-creation-mode">/conf/core/job-creation-mode</a>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -5202,15 +5269,15 @@ components:
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">sync</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core_job-creation-success-sync">/req/core/job-creation-success-sync</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core_job-creation-success-sync">/conf/core/job-creation-success-sync</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">async</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core_job-creation-success-async">/req/core/job-creation-success-async</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core_job-creation-success-async">/conf/core/job-creation-success-async</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">auto</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core_job-creation-success-auto">/req/core/job-creation-success-auto</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core_job-creation-success-auto">/conf/core/job-creation-success-auto</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -5246,7 +5313,7 @@ components:
 <p>Validate that result of the job was returned with an HTTP status code 201.</p>
 </li>
 <li>
-<p>Validate the HTTP headers of the result using the test <a href="#ats_core_job-creation-success-header-async">/req/core/job-creation-success-header-async</a>.</p>
+<p>Validate the HTTP headers of the result using the test <a href="#ats_core_job-creation-success-header-async">/conf/core/job-creation-success-header-async</a>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -5288,7 +5355,7 @@ components:
 <p>Issue an HTTP GET request to the URL that is the value of the 'Location' header.</p>
 </li>
 <li>
-<p>Validate the result of resolving the 'Location' header URL using the test <a href="#ats_core_job-result-op">/req/core/job-result-op</a>.</p>
+<p>Validate the result of resolving the 'Location' header URL using the test <a href="#ats_core_job-result-op">/conf/core/job-result-op</a>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -5355,16 +5422,16 @@ components:
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">document</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml">results.yaml</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core_job-result-success">/req/core/job-result-success</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core_job-result-success">/conf/core/job-result-success</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">raw</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">N/A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_job-creation-success-sync-raw">[ats_job-creation-success-sync-raw]</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core_job-creation-success-sync-raw">/conf/core/job-creation-success-sync-raw</a></p></td>
 </tr>
 </tbody>
 </table>
-<table id="req_core_job-creation-success-sync-raw" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="ats_core_job-creation-success-sync-raw" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -5373,7 +5440,7 @@ components:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/conf/core/job-result-failed</strong></p>
+<p><strong>/conf/core/job-creation-success-sync-raw</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -5385,7 +5452,7 @@ components:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_core_job-creation-success-sync">/req/core/job-creation-success-sync</a></p>
+<p><a href="#req_core_job-creation-success-sync">/req/core/job-creation-success-sync-raw</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -5450,7 +5517,7 @@ components:
 <p>Issue an HTTP GET request to the URL '/jobs/{jobID}'.</p>
 </li>
 <li>
-<p>Validate the contents of the returned document using the test <a href="#ats_job-success">/req/core/job-success</a>.</p>
+<p>Validate the contents of the returned document using the test <a href="#ats_job-success">/conf/core/job-success</a>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -5645,7 +5712,7 @@ components:
 <p>Validate that the document was returned with a status code 200.</p>
 </li>
 <li>
-<p>Validate the contents of the returned document using the test <a href="#ats_job-result-success">/req/core/job-result-success</a>.</p>
+<p>Validate the contents of the returned document using the test <a href="#ats_job-result-success">/conf/core/job-result-success</a>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -5773,16 +5840,19 @@ components:
 <tr>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Format</th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Schema Document</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Test ID
-s/exception.yam[exception.yaml]</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Test ID</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">HTML</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml">exception.yaml</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/conf/html/content</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schema
-s/exception.yaml[exception.yaml]</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml">exception.yaml</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json_content">/conf/json/content</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -5848,16 +5918,19 @@ s/exception.yaml[exception.yaml]</p></td>
 <tr>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Format</th>
 <th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Schema Document</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Test ID
-s/exception.yam[exception.yaml]</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Test ID</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">HTML</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml">exception.yaml</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/conf/html/content</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schema
-s/exception.yaml[exception.yaml]</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml">exception.yaml</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json_content">/conf/json/content</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -6474,7 +6547,7 @@ s/exception.yaml[exception.yaml]</p></td>
 <p>Issue an HTTP GET request to the URL /jobs.</p>
 </li>
 <li>
-<p>Validate the contents of the returned document using test <a href="#ats_job-list_job-list-success">/req/job-list/job-list-success</a>.</p>
+<p>Validate the contents of the returned document using test <a href="#ats_job-list_job-list-success">/conf/job-list/job-list-success</a>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -6610,7 +6683,7 @@ s/exception.yaml[exception.yaml]</p></td>
 <p>Create an asynchronous execute request that includes the optional <code>subscriber</code> key (see <a href="https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml">execute.yaml</a>.</p>
 </li>
 <li>
-<p>Execute the asynchronous job using test <a href="#ats_core_job-creation-op">[ats_core_job-creation-op]</a>.</p>
+<p>Execute the asynchronous job using test <a href="#ats_core_job-creation-op">/conf/core/job-creation-request</a>.</p>
 </li>
 <li>
 <p>Validate the job result is received by the specified callback URL.</p>
@@ -6674,13 +6747,13 @@ s/exception.yaml[exception.yaml]</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create an asynchronous job as per test <a href="#ats_core_job-creation-op">[ats_core_job-creation-op]</a>; not the job identifier, {jobID}, assigned to the job.</p>
+<p>Create an asynchronous job as per test <a href="#ats_core_job-creation-op">/conf/core/job-creation-request*</a>; not the job identifier, {jobID}, assigned to the job.</p>
 </li>
 <li>
 <p>Issue an HTTP DELETE operation to the URL '/jobs/{jobID}'.</p>
 </li>
 <li>
-<p>Validate the contents of the returned document using test <a href="#ats_dismiss_job-dismiss-success">/req/dismiss/job-dismiss-success</a>.</p>
+<p>Validate the contents of the returned document using test <a href="#ats_dismiss_job-dismiss-success">/conf/dismiss/job-dismiss-success</a>.</p>
 </li>
 </ol>
 </div></div></td>
