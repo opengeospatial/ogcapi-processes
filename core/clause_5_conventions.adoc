@@ -36,13 +36,13 @@ In addition the following link relation types are used for which no applicable r
 
 * **exceptions**: The target URI points to exceptions of a failed process.
 
-* **execute**: The target URI points to the execution endpoint of a process.
+* **execute**: The target URI points to the execution endpoint of the server.
 
 * **process-desc**: The target URI points to a specific process description.
 
 * **processes**: The target URI points to the list of processes the API offers.
 
-* **results**: The target URI points to the results of a process.
+* **results**: The target URI points to the results of a job.
 
 Each resource representation includes an array of links. Implementations are free to add additional links for all resources provided by the API. 
 
