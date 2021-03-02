@@ -164,8 +164,5 @@ paths:
         500:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ServerError.yaml"
 servers:
-  # Added by API Auto Mocking Plugin
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/geoprocessing/WPS/0.01
   - description: 52°North demo server
     url: http://geoprocessing.demo.52north.org:8080/javaps/rest/
