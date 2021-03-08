@@ -15,53 +15,47 @@
 		]
 	},
 	{
-		"id": "0cf773a5-282a-4e23-96cc-f5dab18123e5",
-		"infos": {
-			"jobID": "0cf773a5-282a-4e23-96cc-f5dab18123e5",
-			"status": "successful",
-			"message": "EchoProcess job finished successful",
-			"progress": 100,
-			"links": [
-				{
-					"href": "http://processing.example.org/oapi-p/jobs/0cf773a5-282a-4e23-96cc-f5dab18123e5",
-					"rel": "status",
-					"type": "application/json",
-					"hreflang": "en",
-					"title": "Job status"
-				},
-				{
-					"href": "http://processing.example.org/oapi-p/jobs/0cf773a5-282a-4e23-96cc-f5dab18123e5/results",
-					"rel": "results",
-					"type": "application/json",
-					"hreflang": "en",
-					"title": "Job result"
-				}
-			]
+	    "jobID": "0cf773a5-282a-4e23-96cc-f5dab18123e5",
+	    "status": "successful",
+	    "message": "EchoProcess job finished successful",
+	    "progress": 100,
+	    "links": [
+		{
+		    "href": "http://processing.example.org/oapi-p/jobs/0cf773a5-282a-4e23-96cc-f5dab18123e5",
+		    "rel": "status",
+		    "type": "application/json",
+		    "hreflang": "en",
+		    "title": "Job status"
+		},
+		{
+		    "href": "http://processing.example.org/oapi-p/jobs/0cf773a5-282a-4e23-96cc-f5dab18123e5/results",
+		    "rel": "results",
+		    "type": "application/json",
+		    "hreflang": "en",
+		    "title": "Job result"
 		}
+	    ]
 	},
 	{
-		"id": "63aadd9c-c0e5-4a7f-80f0-228dbb158f09",
-		"infos": {
-			"jobID": "63aadd9c-c0e5-4a7f-80f0-228dbb158f09",
-			"status": "failed",
-			"message": "EchoProcess job failed",
-			"progress": 100,
-			"links": [
-				{
-					"href": "http://processing.example.org/oapi-p/jobs/63aadd9c-c0e5-4a7f-80f0-228dbb158f09",
-					"rel": "status",
-					"type": "application/json",
-					"hreflang": "en",
-					"title": "Job status"
-				},
-				{
-					"href": "http://processing.example.org/oapi-p/jobs/63aadd9c-c0e5-4a7f-80f0-228dbb158f09/results",
-					"rel": "exceptions",
-					"type": "application/json",
-					"hreflang": "en",
-					"title": "Job exception"
-				}
-			]
+	    "jobID": "63aadd9c-c0e5-4a7f-80f0-228dbb158f09",
+	    "status": "failed",
+	    "message": "EchoProcess job failed",
+	    "progress": 100,
+	    "links": [
+		{
+		    "href": "http://processing.example.org/oapi-p/jobs/63aadd9c-c0e5-4a7f-80f0-228dbb158f09",
+		    "rel": "status",
+		    "type": "application/json",
+		    "hreflang": "en",
+		    "title": "Job status"
+		},
+		{
+		    "href": "http://processing.example.org/oapi-p/jobs/63aadd9c-c0e5-4a7f-80f0-228dbb158f09/results",
+		    "rel": "exceptions",
+		    "type": "application/json",
+		    "hreflang": "en",
+		    "title": "Job exception"
 		}
+	    ]
 	}
 ]
