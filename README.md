@@ -63,7 +63,7 @@ A draft of the OGC API - Processes is available:
 
 * [OGC API - Processes, Draft HTML View](https://htmlpreview.github.io/?https://github.com/opengeospatial/ogcapi-processes/blob/master/docs/18-062.html)
 
-* [OGC API - Processes, OpenAPI specification](https://app.swaggerhub.com/apis/geoprocessing/WPS/1.0-draft.5)
+* [OGC API - Processes on Swaggerhub](https://app.swaggerhub.com/apis/geoprocessing/ogcapi-processes/1.0-draft.6-SNAPSHOT)
 
 Several implementations of the draft standard exist:
 

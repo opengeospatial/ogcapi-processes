@@ -12,4 +12,5 @@ and include at least links to the following resources:
 * the API definition (relation type 'service-desc' or 'service-doc')
 * `/conformance` (relation type 'conformance')
 * `/processes` (relation type 'processes')
+* `/jobs` (relation type 'execute')
 |===

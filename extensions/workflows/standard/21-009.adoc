@@ -30,8 +30,8 @@
 |Approval Date:  <yyyy-mm-dd>
 |Publication Date:  <yyyy-mm-dd>
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/ogcapi-processes-3/1.0
-|Internal reference number of this OGC(R) document:    20-XXX
-|Version: link:http://docs.opengeospatial.org/DRAFTS/20-XXX.html[1.0.0-SNAPSHOT (Editor's draft)]
+|Internal reference number of this OGC(R) document:    21-009
+|Version: link:http://docs.opengeospatial.org/DRAFTS/21-009.html[1.0.0-SNAPSHOT (Editor's draft)]
 |Latest Published Draft: n/a
 |Category: OGC(R) Implementation Specification
 |Editors: TBD

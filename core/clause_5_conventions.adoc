@@ -36,13 +36,13 @@ In addition the following link relation types are used for which no applicable r
 
 * **exceptions**: The target URI points to exceptions of a failed process.
 
-* **execute**: The target URI points to the execution endpoint of a process.
+* **execute**: The target URI points to the execution endpoint of the server.
 
 * **process-desc**: The target URI points to a specific process description.
 
 * **processes**: The target URI points to the list of processes the API offers.
 
-* **results**: The target URI points to the results of a process.
+* **results**: The target URI points to the results of a job.
 
 Each resource representation includes an array of links. Implementations are free to add additional links for all resources provided by the API. 
 
@@ -68,7 +68,7 @@ Each resource representation includes an array of links. Implementations are fre
 
 === Use of HTTPS
 
-For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. It is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>>, not <<rfc2616,HTTP>>.
+For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. This is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>>, not <<rfc2616,HTTP>>.
 
 OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities which are not in common use could be an impediment to interoperability.
 
