@@ -146,7 +146,7 @@ include::requirements/core/REQ_conformance-op.adoc[]
 
 include::requirements/core/REQ_conformance-success.adoc[]
 
-.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml[The following is the schema for the list of requirements classes]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/schemas/req-classes.yaml[The following is the schema for the list of requirements classes]
 [source,YAML]
 ----
 include::openapi/schemas/confClasses.yaml[]
