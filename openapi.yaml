@@ -29,8 +29,7 @@ paths:
     get:
       summary: information about standards that this API conforms to
       description: >-
-        Lists all requirements classes specified in the standard (e.g., OGC API - Processes
-        Part 1: Core) that the server conforms to
+        A list of all conformance classes, specified in a standard, that the server conforms to.
       operationId: getConformanceClasses
       tags:
         - ConformanceDeclaration
