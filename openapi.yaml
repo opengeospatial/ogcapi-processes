@@ -105,7 +105,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
     post:
       summary: execute a process.
-      description: >-
+      description: |
         Create a new job.
 
         For more information, see [Section 7.9](http://docs.ogc.org/DRAFTS/18-062.html#sc_create_job).
@@ -143,7 +143,7 @@ paths:
   /jobs/{jobId}:
     get:
       summary: retrieve the status of a job
-      description: >-
+      description: |
         Shows the status of a job.
 
          For more information, see [Section 7.10](http://docs.ogc.org/DRAFTS/18-062.html#sc_retrieve_status_info).
@@ -161,7 +161,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ServerError.yaml"
     delete:
       summary: cancel a job execution, remove a finished job
-      description: >-
+      description: |
         Cancel a job execution and remove it from the jobs list.
 
         For more information, see [Section 14](http://docs.ogc.org/DRAFTS/18-062.html#Dismiss).
@@ -180,7 +180,7 @@ paths:
   /jobs/{jobId}/results:
     get:
       summary: retrieve the result(s) of a job
-      description: >-
+      description: |
         Lists available results of a job. In case of a failure, lists exceptions instead.
 
         For more information, see [Section 7.11](http://docs.ogc.org/DRAFTS/18-062.html#sc_retrieve_job_results).
