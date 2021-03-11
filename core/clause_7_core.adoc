@@ -96,6 +96,10 @@ by development tools to support the implementation of servers and clients.
 
 include::requirements/core/REQ_api-definition-op.adoc[]
 
+include::recomendations/core/PER_api-definition-uri.adoc[]
+
+Note that multiple API definition formats can be supported.
+
 ==== Response
 
 include::requirements/core/REQ_api-definition-success.adoc[]
