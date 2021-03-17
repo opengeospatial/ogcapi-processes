@@ -1,0 +1,8 @@
+[[req_ogc-process-description_parameter-cardinality]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/ogc-process-description/parameter-cardinality +
+
+If the cardinality of an input parameter is something other than 1, then the `minOccurs` and/or `maxOccurs` parameters shall be used to defined the cardinality
+of the parameter.
+|===

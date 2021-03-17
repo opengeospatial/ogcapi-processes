@@ -1,0 +1,7 @@
+[[req_ogc-process-description_default-media-type]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/ogc-process-description/default-media-type +
+
+If the description of an input or output parameter accepts values of multiple media types (see: https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.8.4) and is specified using multiple sub-schemas (see: https://json-schema.org/draft/2020-12/json-schema-core.html#rfc.section.10.2.1.3) then the `contentMediaType` of the first schema in the array shall be considered the default media type.
+|===

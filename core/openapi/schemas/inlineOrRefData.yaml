@@ -1,7 +1,9 @@
 type: object
 oneOf:
-  - required: [href]
-  - required: [value]
+  - required:
+      - href
+  - required:
+      - value
 properties:
   uom:
     type: object

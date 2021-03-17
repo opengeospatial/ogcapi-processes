@@ -1,33 +1,20 @@
 allOf:
   - $ref: "descriptionType.yaml"
   - type: object
-    required: [schema]
+    required: 
+      - schema
     properties:
+      schema:
+         type: object
       minOccurs:
-        description: the minimum number of times that this input must be specified
         type: integer
         default: 1
       maxOccurs:
-        description: the maximum number of times that this input may be specified
         oneOf:
           - type: integer
           - type: string
             enum:
               - unbounded
         default: 1
-      schema:
-        description: the schema of the input specified using JSON-Schema fragment (see https://tools.ietf.org/html/draft-bhutton-json-schema-00)
-         type: object
-      supportedCRS:
-         description: list of supported CRSs for spatial inputs
-         type: array
-         items:
-            type: object
-            properties:
-              crs:
-                type: string
-              default:
-                type: boolean
-                default: false
       observedProperty:
         $ref: "observedProperty.yaml"

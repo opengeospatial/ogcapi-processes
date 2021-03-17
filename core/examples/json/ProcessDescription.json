@@ -1,78 +1,231 @@
 {
-   "id": "EchoProcess",
-   "title": "EchoProcess",
-   "version": "1.0.0",
-   "jobControlOptions": ["async-execute", "sync-execute"],
-   "outputTransmission": ["value", "reference"],
-   "inputs": [{
-      "id": "boundingboxInput",
-      "title": "boundingboxInput",
-      "schema" : {
-         "type" : "array",
-         "minItems" : 4, "maxItems" : 6,
-         "items" : { "type" : "number", "format" : "double" }
-      },
-      "supportedCRS": [ {"default": true, "crs": "EPSG:4326"} ],
-      "minOccurs": 1,
-      "maxOccurs": 1
-   },
-   {
-      "id": "literalInput",
-      "title": "literalInput",
-      "schemas": {
-         "type": "number",
-         "format": "double"
-      },
-      "minOccurs": 1,
-      "maxOccurs": 1
-   },
-   {
-      "id": "complexInput",
-      "title": "complexInput",
+  "id": "EchoProcess",
+  "title": "Echo Process",
+  "description": "This process accepts and number of input and simple echoes each input as an output.",
+  "version": "1.0.0",
+  "jobControlOptions": [
+    "async-execute",
+    "sync-execute"
+  ],
+  "outputTransmission": [
+    "value",
+    "reference"
+  ],
+  "inputs": [
+    {
+      "id": "stringLiteralInput",
+      "title": "String Literal Input Example",
+      "description": "This is an example of a STRING literal input.",
       "schema": {
-         "oneOf": [
-            { "type": "string", "contentMediaType": "application/xml" },
-            { "type": "string", "contentMediaType": "text/xml" }
-         ]
-      },
-      "defaultMediaType": "application/xml",
-      "minOccurs": 1,
-      "maxOccurs": 1
-   }],
-   "outputs": [{
-      "id": "boundingboxOutput",
-      "title": "boundingboxOutput",
-      "schema" : {
-         "type" : "array",
-         "minItems" : 4, "maxItems" : 6,
-         "items" : { "type" : "number", "format" : "double" }
-      },
-      "supportedCRS": [ {"default": true, "crs": "EPSG:4326"} ]
-   },
-   {
-      "id": "literalOutput",
-      "title": "literalOutput",
-      "schemas": {
-         "type": "number",
-         "format": "double"
+        "type": "string",
+        "enum": [
+          "Value1",
+          "Value2",
+          "Value3"
+        ]
       }
-   },
-   {
-      "id": "complexOutput",
-      "title": "complexOutput",
+    },
+    {
+      "id": "dateLiteralInput",
+      "title": "Date Literal Input Example",
+      "description": "This is an example of a DATE literal input.",
       "schema": {
-         "oneOf": [
-            { "type": "string", "contentMediaType": "application/xml" },
-            { "type": "string", "contentMediaType": "text/xml" }
-         ]
-      },
-      "defaultMediaType": "application/xml"
-   }],
-   "links": [
-      {
-        "href": "https://processing.example.org/oapi-p/jobs",
-        "rel": "execute",
-        "title": "Execute endpoint"
+        "type": "string",
+        "format": "dateTime"
       }
-   ]
+    },
+    {
+      "id": "doubleLiteralInput",
+      "title": "Bounded Double Literal Input Example",
+      "description": "This is an example of a DOUBLE literal input that is bounded between a value greater than 0 and 10.  The default value is 5.",
+      "schema": {
+        "type": "number",
+        "format": "double",
+        "minimum": 0,
+        "maximum": 10,
+        "default": 5,
+        "exclusiveMinimum": true
+      }
+    },
+    {
+      "id": "complexObjectInput",
+      "title": "Complex Object Input Example",
+      "description": "This is an example of a complex object input.",
+      "schema": {
+        "type": "object",
+        "required": [
+          "property1",
+          "property5"
+        ],
+        "properties": {
+          "property1": {
+            "type": "string"
+          },
+          "property2": {
+            "type": "string",
+            "format": "uri"
+          },
+          "property3": {
+            "type": "number"
+          },
+          "property4": {
+            "type": "string",
+            "format": "dateTime"
+          },
+          "property5": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    {
+      "id": "imageInput",
+      "title": "Image Value Input",
+      "description": "This is an example of an image input.  This example uses multiple sub-schemas to allow the input of different media type.  In this case, the input image can be a GeoTIFF or a JPEG 2000 image.  The default media type is the first schema in the oneOf array or GeoTIFF in this example.",
+      "schema": {
+        "oneOf": [
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "image/tiff; application=geotiff;"
+          },
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "image/jp2"
+          }
+        ]
+      },
+      "maxOccurs": "unbounded"
+    },
+    {
+      "id": "boundingBoxInput",
+      "title": "Bounding Box Input Example",
+      "description": "This is an example of a BBOX literal input.",
+      "schema": {
+        "$ref": "../../openapi/schemas/boundingBoxData.json"
+      }
+    },
+    {
+      "id": "geomInput",
+      "title": "Geometry Input Example",
+      "description": "This is an example of an input that is a GeoJSON geometry.",
+      "schema": {
+        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+      }
+    },
+    {
+      "id": "featureCollectionInput",
+      "title": "GeoJSON Feature Collection Object Input",
+      "description": "This is an example of GeoJSON feature collection object input.",
+      "schema": {
+        "$ref": "https://geojson.org/schema/FeatureCollection.json"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "stringLiteralOutput",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "Value1",
+          "Value2",
+          "Value3"
+        ]
+      }
+    },
+    {
+      "id": "dateLiteralOutput",
+      "schema": {
+        "type": "string",
+        "format": "dateTime"
+      }
+    },
+    {
+      "id": "doubleLiteralOutput",
+      "schema": {
+        "type": "number",
+        "format": "double",
+        "minimum": 0,
+        "maximum": 10,
+        "default": 5,
+        "exclusiveMinimum": true
+      }
+    },
+    {
+      "id": "complexObjectOutput",
+      "schema": {
+        "type": "object",
+        "required": [
+          "property1",
+          "property5"
+        ],
+        "properties": {
+          "property1": {
+            "type": "string"
+          },
+          "property2": {
+            "type": "string",
+            "format": "uri"
+          },
+          "property3": {
+            "type": "number"
+          },
+          "property4": {
+            "type": "string",
+            "format": "dateTime"
+          },
+          "property5": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    {
+      "id": "imageOutput",
+      "schema": {
+        "oneOf": [
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "image/tiff; application=geotiff;"
+          },
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "image/jp2"
+          }
+        ]
+      },
+      "maxOccurs": "unbounded"
+    },
+    {
+      "id": "boundingBoxOutput",
+      "schema": {
+        "$ref": "../../openapi/schemas/boundingBoxData.json"
+      }
+    },
+    {
+      "id": "geomOutput",
+      "schema": {
+        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+      }
+    },
+    {
+      "id": "featureCollectionOutput",
+      "title": "GeoJSON Feature Collection Object Output",
+      "description": "This is an example of GeoJSON feature collection object output.",
+      "schema": {
+        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.json"
+      }
+    }
+  ],
+  "links": [
+    {
+      "href": "https://processing.example.org/oapi-p/jobs",
+      "rel": "execute",
+      "title": "Execute endpoint"
+    }
+  ]
 }

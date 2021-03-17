@@ -7,7 +7,7 @@ class.
 
 include::requirements/requirements_class_ogc-process-description.adoc[]
 
-The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the http://docs.opengeospatial.org/is/14-065/14-065.html[OGC WPS 2.0.2 Interface Standard] and as such provides a bridge from legacy implementations into the OGC API Framework.
+The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the http://docs.opengeospatial.org/is/14-065/14-065.html[OGC WPS 2.0.2 Interface Standard] but also include elements of the http://spec.openapis.org/oas/v3.0.3[OpenAPI Speicification].  Specifically, this process description languges uses https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragments to define the input and output parameters of a process.  As such, this process description provides a bridge from legacy implementations into the OGC API Framework.
 
 The process description allows the following information to be specified:
 
@@ -17,8 +17,8 @@ The process description allows the following information to be specified:
 ** A narrative description of the process
 ** Keywords that can be associated with the process
 ** References to additional metadata
-* A description of each process input
-* A description of each process output
+* A description of each process input specified using a https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragment.
+* A description of each process output specified using a https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragment.
 * A job control specification that indicates whether the process can be invoked synchronously, asynchronously, or either.
 * An output transmission specification that indicates how the results of a process are retrieved; either by value or by reference
 * A section for additional parameters that are intended for communities of use to extend the process description as required
@@ -35,7 +35,26 @@ include::requirements/ogc-process-description/REQ_json-encoding.adoc[]
 include::openapi/schemas/process.yaml[]
 ----
 
-The schema imports the elements from the <<schema-processSummary, process summary>> and specifies two arrays for input and output descriptions.
+The schema imports the elements from the <<schema-processSummary, process summary>> and specifies two arrays for input and output parameter descriptions.
+
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[Schema for a process input (inputDescription.yaml)]
+[source,YAML]
+----
+include::openapi/schemas/inputDescription.yaml[]
+----
+
+
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[Schema for a process output (outputDescription.yaml)]
+[source,YAML]
+----
+include::openapi/schemas/outputDescription.yaml[]
+----
+
+include::requirements/ogc-process-description/REQ_parameter-def.adoc[]
+
+include::requirements/ogc-process-description/REQ_parameter-cardinality.adoc[]
+
+include::requirements/ogc-process-description/REQ_default-media-type.adoc[]
 
 .The following is an example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
 [source]

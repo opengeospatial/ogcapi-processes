@@ -1,19 +1,10 @@
 allOf:
   - $ref: "descriptionType.yaml"
   - type: object
-    required: [schema]
+    required:
+      - schema
     properties:
       schema:
          type: object
-      supportedCRS:
-         type: array
-         items:
-            type: object
-            properties:
-              crs:
-                type: string
-              default:
-                type: boolean
-                default: false
       observedProperty:
         $ref: "observedProperty.yaml"
