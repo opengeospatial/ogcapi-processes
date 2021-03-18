@@ -2,8 +2,11 @@ allOf:
   - $ref: "descriptionType.yaml"
   - type: object
     required:
+      - id
       - version
     properties:
+      id:
+        type: string
       version:
         type: string
       jobControlOptions:

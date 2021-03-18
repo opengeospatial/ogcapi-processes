@@ -11,9 +11,8 @@
     "value",
     "reference"
   ],
-  "inputs": [
-    {
-      "id": "stringLiteralInput",
+  "inputs": {
+    "stringLiteralInput": {
       "title": "String Literal Input Example",
       "description": "This is an example of a STRING literal input.",
       "schema": {
@@ -25,8 +24,7 @@
         ]
       }
     },
-    {
-      "id": "dateLiteralInput",
+    "dateLiteralInput": {
       "title": "Date Literal Input Example",
       "description": "This is an example of a DATE literal input.",
       "schema": {
@@ -34,8 +32,7 @@
         "format": "dateTime"
       }
     },
-    {
-      "id": "doubleLiteralInput",
+    "doubleLiteralInput": {
       "title": "Bounded Double Literal Input Example",
       "description": "This is an example of a DOUBLE literal input that is bounded between a value greater than 0 and 10.  The default value is 5.",
       "schema": {
@@ -47,8 +44,7 @@
         "exclusiveMinimum": true
       }
     },
-    {
-      "id": "complexObjectInput",
+    "complexObjectInput": {
       "title": "Complex Object Input Example",
       "description": "This is an example of a complex object input.",
       "schema": {
@@ -78,8 +74,7 @@
         }
       }
     },
-    {
-      "id": "imageInput",
+    "imageInput": {
       "title": "Image Value Input",
       "description": "This is an example of an image input.  This example uses multiple sub-schemas to allow the input of different media type.  In this case, the input image can be a GeoTIFF or a JPEG 2000 image.  The default media type is the first schema in the oneOf array or GeoTIFF in this example.",
       "schema": {
@@ -98,34 +93,30 @@
       },
       "maxOccurs": "unbounded"
     },
-    {
-      "id": "boundingBoxInput",
+    "boundingBoxInput": {
       "title": "Bounding Box Input Example",
       "description": "This is an example of a BBOX literal input.",
       "schema": {
         "$ref": "../../openapi/schemas/boundingBoxData.json"
       }
     },
-    {
-      "id": "geomInput",
+    "geomInput": {
       "title": "Geometry Input Example",
       "description": "This is an example of an input that is a GeoJSON geometry.",
       "schema": {
         "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
       }
     },
-    {
-      "id": "featureCollectionInput",
+    "featureCollectionInput": {
       "title": "GeoJSON Feature Collection Object Input",
       "description": "This is an example of GeoJSON feature collection object input.",
       "schema": {
         "$ref": "https://geojson.org/schema/FeatureCollection.json"
       }
     }
-  ],
+  },
   "outputs": [
-    {
-      "id": "stringLiteralOutput",
+    "stringLiteralOutput": {
       "schema": {
         "type": "string",
         "enum": [
@@ -135,15 +126,13 @@
         ]
       }
     },
-    {
-      "id": "dateLiteralOutput",
+    "dateLiteralOutput": {
       "schema": {
         "type": "string",
         "format": "dateTime"
       }
     },
-    {
-      "id": "doubleLiteralOutput",
+    "complexObjectOutput": {
       "schema": {
         "type": "number",
         "format": "double",
@@ -153,8 +142,7 @@
         "exclusiveMinimum": true
       }
     },
-    {
-      "id": "complexObjectOutput",
+    "complexObjectOutput": {
       "schema": {
         "type": "object",
         "required": [
@@ -182,8 +170,7 @@
         }
       }
     },
-    {
-      "id": "imageOutput",
+    "imageOutput": {
       "schema": {
         "oneOf": [
           {
@@ -200,20 +187,17 @@
       },
       "maxOccurs": "unbounded"
     },
-    {
-      "id": "boundingBoxOutput",
+    "boundingBoxOutput": {
       "schema": {
         "$ref": "../../openapi/schemas/boundingBoxData.json"
       }
     },
-    {
-      "id": "geomOutput",
+    "geomOutput": {
       "schema": {
         "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
       }
     },
-    {
-      "id": "featureCollectionOutput",
+    "featureCollectionOutput": {
       "title": "GeoJSON Feature Collection Object Output",
       "description": "This is an example of GeoJSON feature collection object output.",
       "schema": {
