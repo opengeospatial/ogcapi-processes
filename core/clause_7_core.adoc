@@ -12,7 +12,7 @@ Each OGC API - Processes has a single `LandingPage` (path `/`) that provides lin
 
 * The `APIDefinition` (no fixed path),
 * The `Conformance` statements (path `/conformance`),
-* The `processes` metadata (path `/processes`).doss
+* The `processes` metadata (path `/processes`)
 * the `execute` endpoint (path `/jobs`).
 
 The `APIDefinition` describes the capabilities of the server that can be used by
@@ -96,6 +96,10 @@ by development tools to support the implementation of servers and clients.
 
 include::requirements/core/REQ_api-definition-op.adoc[]
 
+include::recomendations/core/PER_api-definition-uri.adoc[]
+
+Note that multiple API definition formats can be supported.
+
 ==== Response
 
 include::requirements/core/REQ_api-definition-success.adoc[]
@@ -146,7 +150,7 @@ include::requirements/core/REQ_conformance-op.adoc[]
 
 include::requirements/core/REQ_conformance-success.adoc[]
 
-.link:https://raw.githubusercontent.com/bpross-52n/wps-rest-oas/master/schemas/req-classes.yaml[The following is the schema for the list of requirements classes]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/schemas/req-classes.yaml[The following is the schema for the list of requirements classes]
 [source,YAML]
 ----
 include::openapi/schemas/confClasses.yaml[]
