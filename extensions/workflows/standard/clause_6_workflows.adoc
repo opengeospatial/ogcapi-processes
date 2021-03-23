@@ -135,8 +135,6 @@ include::requirements/workflows/collection/REQ_post-op.adoc[]
 
 include::requirements/workflows/collection/REQ_body.adoc[]
 
-include::recommendations/workflows/collection/PER_body.adoc[]
-
 include::requirements/workflows/collection/REQ_content-type.adoc[]
 
 ==== Response
