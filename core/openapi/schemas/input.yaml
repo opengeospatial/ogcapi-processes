@@ -1,11 +1,3 @@
-additionalProperties:
-  oneOf:
-    - $ref: "inlineOrRefData.yaml"
-    - $ref: "boundingBoxData.yaml"
-    - $ref: "input.yaml"
-    - type: array
-      items:
-        oneOf:
-          - $ref: "inlineOrRefData.yaml"
-          - $ref: "boundingBoxData.yaml"
-          - $ref: "input.yaml"
+oneOf:
+  - $ref: "inlineOrRefData.yaml"
+  - $ref: "boundingBoxData.yaml"

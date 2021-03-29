@@ -8,9 +8,14 @@ properties:
   id:
     type: string
   inputs:
-      $ref: "input.yaml"
+    additionalProperties:
+      oneOf:
+        - $ref: "input.yaml"
+        - type: array
+          items:
+            - $ref: "input.yaml"
   outputs:
-      $ref: "output.yaml"
+    $ref: "output.yaml"
   mode:
     type: string
     enum:
