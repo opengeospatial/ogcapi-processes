@@ -15,7 +15,8 @@ properties:
           items:
             - $ref: "input.yaml"
   outputs:
-    $ref: "output.yaml"
+    additionalProperties:
+      $ref: "output.yaml"
   mode:
     type: string
     enum:
