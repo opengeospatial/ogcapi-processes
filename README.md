@@ -59,9 +59,9 @@ Returns the result of a job of a process.
 
 A draft of the OGC API - Processes is available:
 
-* [OGC API - Processes, Draft PDF](https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/docs/18-062.pdf)
+* [OGC API - Processes, Draft PDF](https://docs.ogc.org/DRAFTS/18-062.pdf)
 
-* [OGC API - Processes, Draft HTML View](https://htmlpreview.github.io/?https://github.com/opengeospatial/ogcapi-processes/blob/master/docs/18-062.html)
+* [OGC API - Processes, Draft HTML View](https://docs.ogc.org/DRAFTS/18-062.html)
 
 * [OGC API - Processes on Swaggerhub](https://app.swaggerhub.com/apis/geoprocessing/ogcapi-processes/1.0-draft.6-SNAPSHOT)
 
