@@ -5,6 +5,10 @@ allOf:
       - schema
     properties:
       schema:
-         type: object
+        type: object
+      formats:
+        type: array
+        items:
+          $ref: format.yaml
       observedProperty:
         $ref: "observedProperty.yaml"

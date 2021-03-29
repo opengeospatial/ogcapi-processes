@@ -1,8 +1,0 @@
-[[req_ogc-process-description_parameter-def]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/ogc-process-description/parameter-def +
-
-^|A |The description of an input or output process parameter SHALL be specified using the `schema` parameter.
-^|B |The value of the `schema` parameter SHALL be a https://tools.ietf.org/html/draft-bhutton-json-schema-00[JSON Schema] fragment.
-|===

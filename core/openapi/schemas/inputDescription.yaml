@@ -1,11 +1,11 @@
 allOf:
   - $ref: "descriptionType.yaml"
   - type: object
-    required: 
+    required:
       - schema
     properties:
       schema:
-         type: object
+        type: object
       minOccurs:
         type: integer
         default: 1
@@ -16,5 +16,9 @@ allOf:
             enum:
               - unbounded
         default: 1
+      formats:
+        type: array
+        items:
+          $ref: format.yaml
       observedProperty:
         $ref: "observedProperty.yaml"

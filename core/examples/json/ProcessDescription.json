@@ -12,7 +12,7 @@
     "reference"
   ],
   "inputs": {
-    "stringLiteralInput": {
+    "stringInput": {
       "title": "String Literal Input Example",
       "description": "This is an example of a STRING literal input.",
       "schema": {
@@ -24,7 +24,7 @@
         ]
       }
     },
-    "dateLiteralInput": {
+    "dateInput": {
       "title": "Date Literal Input Example",
       "description": "This is an example of a DATE literal input.",
       "schema": {
@@ -32,7 +32,7 @@
         "format": "dateTime"
       }
     },
-    "doubleLiteralInput": {
+    "doubleInput": {
       "title": "Bounded Double Literal Input Example",
       "description": "This is an example of a DOUBLE literal input that is bounded between a value greater than 0 and 10.  The default value is 5.",
       "schema": {
@@ -72,26 +72,33 @@
             "type": "boolean"
           }
         }
-      }
-    },
-    "imageInput": {
-      "title": "Image Value Input",
-      "description": "This is an example of an image input.  This example uses multiple sub-schemas to allow the input of different media type.  In this case, the input image can be a GeoTIFF or a JPEG 2000 image.  The default media type is the first schema in the oneOf array or GeoTIFF in this example.",
-      "schema": {
-        "oneOf": [
-          {
-            "type": "string",
-            "contentEncoding": "base64",
-            "contentMediaType": "image/tiff; application=geotiff;"
-          },
-          {
-            "type": "string",
-            "contentEncoding": "base64",
-            "contentMediaType": "image/jp2"
-          }
-        ]
       },
       "maxOccurs": "unbounded"
+    },
+    "gmlGeometryInput": {
+       "title": "XML Value Input",
+       "description": "This is an example of XML input.",
+       "schema": {
+          "type": "string"
+       },
+       "formats": [
+          {"mediaType": "application/gml+xml",
+           "schema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd" }
+       ]
+    },
+    "imageInput": {
+      "title": "Inline Image Value Input",
+      "description": "This is an example of an image input.  This example uses multiple sub-schemas to allow the of different image encodings (binary or base64).  The formats array is used to indicate the acceptable image content types; GeoTIFF and JPEG 2000 in this case.  The first item in the format array, GeoTIFF, is considered the default media type.",
+      "schema": {
+         "oneOf": [
+            {"type": "string", "contentEncoding": "base64"},
+            {"type": "string", "contentEncoding": "binary"}
+         ]
+      },
+      "formats": [
+         {"mediaType": "application/tiff; application=geotiff"},
+         {"mediaType": "application/jp2"}
+      ]
     },
     "boundingBoxInput": {
       "title": "Bounding Box Input Example",
@@ -100,7 +107,7 @@
         "$ref": "../../openapi/schemas/boundingBoxData.json"
       }
     },
-    "geomInput": {
+    "geometryInput": {
       "title": "Geometry Input Example",
       "description": "This is an example of an input that is a GeoJSON geometry.",
       "schema": {
@@ -115,24 +122,20 @@
       }
     }
   },
-  "outputs": [
-    "stringLiteralOutput": {
+  "outputs": {
+    "stringOutput": {
       "schema": {
         "type": "string",
-        "enum": [
-          "Value1",
-          "Value2",
-          "Value3"
-        ]
+        "enum": ["Value1","Value2","Value3" ]
       }
     },
-    "dateLiteralOutput": {
+    "dateOutput": {
       "schema": {
         "type": "string",
         "format": "dateTime"
       }
     },
-    "complexObjectOutput": {
+    "doubleOutput": {
       "schema": {
         "type": "number",
         "format": "double",
@@ -170,41 +173,43 @@
         }
       }
     },
+    "gmlGeometryOutput": {
+       "schema": {
+          "type": "string"
+       },
+       "formats": [
+          {"mediaType": "application/xml",
+           "schema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd" }
+       ]
+    },
     "imageOutput": {
       "schema": {
         "oneOf": [
-          {
-            "type": "string",
-            "contentEncoding": "base64",
-            "contentMediaType": "image/tiff; application=geotiff;"
-          },
-          {
-            "type": "string",
-            "contentEncoding": "base64",
-            "contentMediaType": "image/jp2"
-          }
+          { "type": "string", "contentEncoding": "base64" },
+          { "type": "string", "contentEncoding": "binary" }
         ]
       },
-      "maxOccurs": "unbounded"
+      "formats": [
+         {"mediaType": "application/tiff; application=geotiff"},
+         {"mediaType": "application/jp2"}
+      ]
     },
     "boundingBoxOutput": {
       "schema": {
         "$ref": "../../openapi/schemas/boundingBoxData.json"
       }
     },
-    "geomOutput": {
+    "geometryOutput": {
       "schema": {
         "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
       }
     },
     "featureCollectionOutput": {
-      "title": "GeoJSON Feature Collection Object Output",
-      "description": "This is an example of GeoJSON feature collection object output.",
       "schema": {
         "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.json"
       }
     }
-  ],
+  },
   "links": [
     {
       "href": "https://processing.example.org/oapi-p/jobs",
