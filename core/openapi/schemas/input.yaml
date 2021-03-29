@@ -1,5 +1,8 @@
 additionalProperties:
   oneOf:
+    - type: string
+    - type: number
+    - type: boolean
     - $ref: "inlineOrRefData.yaml"
     - $ref: "boundingBoxData.yaml"
     - $ref: "input.yaml"

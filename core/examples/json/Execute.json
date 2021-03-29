@@ -1,64 +1,59 @@
 {
-	"id": "EchoProcess",
-	"inputs": {
-		"complexInputId": {
-			"format": {
-				"mediaType": "application/xml"
-			},
-			"value": "<test/>"
-		},
-		"complexInputsId": [
-			{
-				"format": {
-					"mediaType": "text/plain",
-					"encoding": "UTF-8"
-				},
-				"value": "test"
-			},
-			{
-				"format": {
-					"mediaType": "text/plain",
-					"encoding": "UTF-8"
-				},
-				"href": "https://test.data/test.txt"
-			}
-		],
-		"literalInputId": {
-			"dataType": {
-				"name": "double"
-			},
-			"value": "0.05"
-		},
-		"boundingboxInputId": {
-			"bbox": [
-				51.9,
-				7,
-				52,
-				7.1
-			],
-			"crs": "EPSG:4326"
-		}
-	},
-	"outputs": {
-		"literalOutputId": {
-			"transmissionMode": "value"
-		},
-		"boundingboxOutput": {
-			"transmissionMode": "value"
-		},
-		"complexOutputId": {
-			"format": {
-				"mediaType": "application/xml"
-			},
-			"transmissionMode": "value"
-		},
-		"complexOutputsId": {
-			"format": {
-				"mediaType": "text/plain"
-			},
-			"transmissionMode": "reference"
-		}
-	},
-	"response": "document",
-	"mode": "async"
+   "id": "EchoProcess",
+   "inputs": {
+      "complexInputId": {
+         "format": {
+            "mediaType": "application/xml"
+         },
+         "value": "<test/>"
+      },
+      "complexInputsId": [
+         {
+            "format": {
+               "mediaType": "text/plain",
+               "encoding": "UTF-8"
+            },
+            "value": "test"
+         },
+         {
+            "format": {
+               "mediaType": "text/plain",
+               "encoding": "UTF-8"
+            },
+            "href": "https://test.data/test.txt"
+         }
+      ],
+      "literalInputId": 0.05,
+      "boundingboxInputId": {
+         "bbox": [
+            51.9,
+            7,
+            52,
+            7.1
+         ],
+         "crs": "EPSG:4326"
+      }
+   },
+   "outputs": {
+      "literalOutputId": {
+         "transmissionMode": "value"
+      },
+      "boundingboxOutput": {
+         "transmissionMode": "value"
+      },
+      "complexOutputId": {
+         "format": {
+            "mediaType": "application/xml"
+         },
+         "transmissionMode": "value"
+      },
+      "complexOutputsId": {
+         "format": {
+            "mediaType": "text/plain"
+         },
+         "transmissionMode": "reference"
+      }
+   },
+   "response": "document",
+   "mode": "async"
 }
