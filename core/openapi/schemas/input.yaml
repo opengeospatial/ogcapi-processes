@@ -3,6 +3,7 @@ additionalProperties:
     - type: string
     - type: number
     - type: boolean
+    - type: array
     - $ref: "inlineOrRefData.yaml"
     - $ref: "boundingBoxData.yaml"
     - $ref: "input.yaml"
