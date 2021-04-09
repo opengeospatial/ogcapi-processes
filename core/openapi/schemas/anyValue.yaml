@@ -1,5 +1,0 @@
-type: object
-properties:
-   anyValue:
-      type: boolean
-      default: true

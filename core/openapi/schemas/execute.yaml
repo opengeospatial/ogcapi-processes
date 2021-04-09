@@ -8,9 +8,9 @@ properties:
   id:
     type: string
   inputs:
-      $ref: "input.yaml"
+    $ref: "input.yaml"
   outputs:
-      $ref: "output.yaml"
+    $ref: "output.yaml"
   mode:
     type: string
     enum:

@@ -1,0 +1,6 @@
+[[req_ogc-process-description_default-output-media-type]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/ogc-process-description/default-output-media-type +
+The first element in the `formats` array SHALL be considered the default format.
+|===
