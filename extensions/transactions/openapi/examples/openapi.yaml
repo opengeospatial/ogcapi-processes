@@ -4,7 +4,8 @@ info:
   version: "1.0.0"
   description: |-
     WARNING - THIS IS WORK IN PROGRESS
-    This document extends the OpenAPI definition from OGC API - Processes - Part 1: Core to add transactional capabilities.
+    This document extends the OpenAPI definition from OGC API - Processes -
+    Part 1: Core to add transactional capabilities.
   contact:
     name: Panagiotis (Peter) A. Vretanos
     email: pvretano@cubewerx.com
@@ -18,9 +19,10 @@ paths:
   /:
     get:
       summary: landing page of this API
-      description: >-
+      description: |-
         The landing page provides links to the API definition, the conformance
-        declaration and the metadata about the processes offered by this service.
+        declaration and the metadata about the processes offered by this
+        service.
       operationId: getLandingPage
       tags:
         - Capabilities
@@ -32,9 +34,9 @@ paths:
   /conformance:
     get:
       summary: information about standards that this API conforms to
-      description: >-
-        Lists all requirements classes specified in the standard (e.g., OGC API - Processes
-        Part 1: Core) that the server conforms to
+      description: |-
+        Lists all requirements classes specified in the standard (e.g.,
+        OGC API - Processes - Part 1: Core) that the server conforms to
       operationId: getConformanceClasses
       tags:
         - ConformanceDeclaration
@@ -46,7 +48,7 @@ paths:
   /processes:
     get:
       summary: retrieve available processes
-      description: >-
+      description: |-
         Lists all available processes this server offers.
       operationId: getProcesses
       tags:
@@ -61,7 +63,11 @@ paths:
       tags:
         - Deploy Process
       requestBody:
-        description: The request body contains a description of the process to deploy.  Part 2 does not mandate a specific process description language or schema but this example uses the recommended OGC Application Package schema.
+        description: |-
+          The request body contains a description of the process to deploy.
+          Part 2 does not mandate a specific process description language
+          or schema but this example uses the recommended OGC Application
+          Package schema.
         content:
           application/json:
             schema:
@@ -78,7 +84,7 @@ paths:
   /processes/{processId}:
     get:
       summary: retrieve a process description
-      description: >-
+      description: |-
         Describes a process.
       operationId: getProcessDescription
       tags:
@@ -95,11 +101,15 @@ paths:
       description: Updates a previously deployed process.
       operationId: updateProcess
       tags:
-        - Replace Process 
+        - Replace Process
       parameters:
         - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
       requestBody:
-        description: The request body contains a description of the process to replace the existing process.  Part 2 does not mandate a specific process description language or schema but this example uses the recommended OGC Application Package schema.
+        description: |-
+          The request body contains a description of the process to replace
+          the existing process.  Part 2 does not mandate a specific process
+          description language or schema but this example uses the
+          recommended OGC Application Package schema.
         content:
           application/json:
             schema:
@@ -131,8 +141,7 @@ paths:
   /processes/{processId}/jobs:
     get:
       summary: retrieve the list of jobs for a process.
-      description: >-
-        Lists available jobs of a process.
+      description: Lists available jobs of a process.
       operationId: getJobs
       tags:
         - JobCollection
@@ -145,8 +154,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/NotFound.yaml"
     post:
       summary: execute a process.
-      description: >-
-        Submits a new job.
+      description: Submits a new job.
       operationId: execute
       tags:
         - Execute
@@ -183,8 +191,7 @@ paths:
   /processes/{processId}/jobs/{jobId}:
     get:
       summary: retrieve the status of a job
-      description: >-
-        Shows the status of a job.
+      description: Shows the status of a job.
       operationId: getStatus
       tags:
         - Status
@@ -200,8 +207,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ServerError.yaml"
     delete:
       summary: cancel a job execution, remove a finished job
-      description: >-
-        Cancel a job execution and remove it from the jobs list.
+      description: Cancel a job execution and remove it from the jobs list.
       operationId: dismiss
       tags:
         - Dismiss
@@ -218,8 +224,9 @@ paths:
   /processes/{processId}/jobs/{jobId}/results:
     get:
       summary: retrieve the result(s) of a job
-      description: >-
-        Lists available results of a job. In case of a failure, lists exceptions instead.
+      description: |-
+        Lists available results of a job. In case of a failure, lists
+        exceptions instead.
       operationId: getResult
       tags:
         - Result
