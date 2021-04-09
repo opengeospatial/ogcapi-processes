@@ -1,15 +1,9 @@
 {
 	"id": "EchoProcess",
 	"inputs": {
-      "stringInput": {
-         "value": "Value2"
-      },
-      "dateInput": {
-         "value": "2021-03-06T07:21:00"
-      },
-      "doubleInput": {
-         "value": "3.14159"
-      },
+      "stringInput": "Value2",
+      "dateInput": "2021-03-06T07:21:00",
+      "doubleInput": 3.14159,
       "complexInput": [
         {
           "value": {
