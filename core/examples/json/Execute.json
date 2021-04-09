@@ -41,7 +41,7 @@
       },
       "featureCollectionInput": {
          "href": "https://www.someserver.com/ogcapi/Foundation/collections/inwatera_1m/items?f=json",
-         "format": {"mediateType": "application/geo+json" }
+         "format": {"mediaType": "application/geo+json" }
       } 
 	},
 	"outputs": {
