@@ -1,9 +1,5 @@
 type: object
-required:
-  - id
 properties:
-  id:
-    type: string
   title:
     type: string
   description:

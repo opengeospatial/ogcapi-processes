@@ -1,11 +1,14 @@
 allOf:
   - $ref: "descriptionType.yaml"
   - type: object
+    required:
+      - schema
     properties:
-      output:
-        oneOf:
-          - $ref: "complexDataType.yaml"
-          - $ref: "literalDataType.yaml"
-          - $ref: "boundingBoxDataType.yaml"
+      schema:
+        type: object
+      formats:
+        type: array
+        items:
+          $ref: format.yaml
       observedProperty:
         $ref: "observedProperty.yaml"

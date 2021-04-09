@@ -1,8 +1,0 @@
-type: object
-required:
-   - formats
-properties:
-   formats:
-      type: array
-      items:
-         $ref: "formatDescription.yaml"
