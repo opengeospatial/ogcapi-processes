@@ -1,19 +1,24 @@
 allOf:
   - $ref: "descriptionType.yaml"
   - type: object
+    required:
+      - schema
     properties:
-      input:
-        oneOf:
-          - $ref: "complexDataType.yaml"
-          - $ref: "literalDataType.yaml"
-          - $ref: "boundingBoxDataType.yaml"
+      schema:
+        type: object
       minOccurs:
         type: integer
+        default: 1
       maxOccurs:
         oneOf:
           - type: integer
           - type: string
             enum:
               - unbounded
+        default: 1
+      formats:
+        type: array
+        items:
+          $ref: format.yaml
       observedProperty:
         $ref: "observedProperty.yaml"

@@ -1,3 +1,4 @@
 oneOf:
   - $ref: "inlineOrRefData.yaml"
   - $ref: "boundingBoxData.yaml"
+  

@@ -1,10 +1,11 @@
 type: object
-required:
-   - mediaType
 properties:
-   mediaType:
-      type: string
-   schema:
-      type: string
-   encoding:
-      type: string
+  mediaType:
+    type: string
+  schema:
+    oneOf:
+      - type: string
+        format: url
+      - type: object
+  characterEncoding:
+    type: string
