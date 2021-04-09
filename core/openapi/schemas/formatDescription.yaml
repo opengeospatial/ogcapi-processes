@@ -1,9 +1,0 @@
-allOf:
-   - $ref: "format.yaml"
-   - type: object
-     properties:
-        maximumMegabytes:
-           type: number
-        default:
-           type: boolean
-           default: false

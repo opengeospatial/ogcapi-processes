@@ -1,100 +1,220 @@
 {
-	"id": "EchoProcess",
-	"title": "EchoProcess",
-	"version": "1.0.0",
-	"jobControlOptions": ["async-execute", "sync-execute"],
-	"outputTransmission": ["value", "reference"],
-	"inputs": [{
-		"id": "boundingboxInput",
-		"title": "boundingboxInput",
-		"input": {
-			"supportedCRS": [{
-				"default": true,
-				"crs": "EPSG:4326"
-			}]
-		},
-		"minOccurs": 1,
-		"maxOccurs": 1
-	},
-	{
-		"id": "literalInput",
-		"title": "literalInput",
-		"input": {
-			"literalDataDomains": [{
-				"dataType": {
-					"name": "double"
-				},
-				"valueDefinition": {
-					"anyValue": true
-				}
-			}]
-		},
-		"minOccurs": 1,
-		"maxOccurs": 1
-	},
-	{
-		"id": "complexInput",
-		"title": "complexInput",
-		"input": {
-			"formats": [{
-				"default": true,
-				"mediaType": "application/xml"
-			},
-			{
-				"mediaType": "application/xml"
-			},
-			{
-				"mediaType": "text/xml"
-			}]
-		},
-		"minOccurs": 1,
-		"maxOccurs": 1
-	}],
-	"outputs": [{
-		"id": "boundingboxOutput",
-		"title": "boundingboxOutput",
-		"output": {
-			"supportedCRS": [{
-				"default": true,
-				"crs": "EPSG:4326"
-			}]
-		}
-	},
-	{
-		"id": "literalOutput",
-		"title": "literalOutput",
-		"output": {
-			"literalDataDomain": {
-                "dataType": {
-                  "name": "double"
-                },
-				"valueDefinition": {
-					"anyValue": true
-				}
-			}
-		}
-	},
-	{
-		"id": "complexOutput",
-		"title": "complexOutput",
-		"output": {
-			"formats": [{
-				"default": true,
-				"mediaType": "application/xml"
-			},
-			{
-				"mediaType": "application/xml"
-			},
-			{
-				"mediaType": "text/xml"
-			}]
-		}
-	}],
-    "links": [
-      {
-        "href": "https://processing.example.org/oapi-p/jobs",
-        "rel": "execute",
-        "title": "Execute endpoint"
+  "id": "EchoProcess",
+  "title": "Echo Process",
+  "description": "This process accepts and number of input and simple echoes each input as an output.",
+  "version": "1.0.0",
+  "jobControlOptions": [
+    "async-execute",
+    "sync-execute"
+  ],
+  "outputTransmission": [
+    "value",
+    "reference"
+  ],
+  "inputs": {
+    "stringInput": {
+      "title": "String Literal Input Example",
+      "description": "This is an example of a STRING literal input.",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "Value1",
+          "Value2",
+          "Value3"
+        ]
       }
-    ]
+    },
+    "dateInput": {
+      "title": "Date Literal Input Example",
+      "description": "This is an example of a DATE literal input.",
+      "schema": {
+        "type": "string",
+        "format": "dateTime"
+      }
+    },
+    "doubleInput": {
+      "title": "Bounded Double Literal Input Example",
+      "description": "This is an example of a DOUBLE literal input that is bounded between a value greater than 0 and 10.  The default value is 5.",
+      "schema": {
+        "type": "number",
+        "format": "double",
+        "minimum": 0,
+        "maximum": 10,
+        "default": 5,
+        "exclusiveMinimum": true
+      }
+    },
+    "complexObjectInput": {
+      "title": "Complex Object Input Example",
+      "description": "This is an example of a complex object input.",
+      "schema": {
+        "type": "object",
+        "required": [
+          "property1",
+          "property5"
+        ],
+        "properties": {
+          "property1": {
+            "type": "string"
+          },
+          "property2": {
+            "type": "string",
+            "format": "uri"
+          },
+          "property3": {
+            "type": "number"
+          },
+          "property4": {
+            "type": "string",
+            "format": "dateTime"
+          },
+          "property5": {
+            "type": "boolean"
+          }
+        }
+      },
+      "maxOccurs": "unbounded"
+    },
+    "gmlGeometryInput": {
+       "title": "XML Value Input",
+       "description": "This is an example of XML input.",
+       "schema": {
+          "type": "string"
+       },
+       "formats": [
+          {"mediaType": "application/gml+xml",
+           "schema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd" }
+       ]
+    },
+    "imageInput": {
+      "title": "Inline Image Value Input",
+      "description": "This is an example of an image input.  This example uses multiple sub-schemas to allow the of different image encodings (binary or base64).  The formats array is used to indicate the acceptable image content types; GeoTIFF and JPEG 2000 in this case.  The first item in the format array, GeoTIFF, is considered the default media type.",
+      "schema": {
+         "oneOf": [
+            {"type": "string", "contentEncoding": "base64"},
+            {"type": "string", "contentEncoding": "binary"}
+         ]
+      },
+      "formats": [
+         {"mediaType": "application/tiff; application=geotiff"},
+         {"mediaType": "application/jp2"}
+      ]
+    },
+    "boundingBoxInput": {
+      "title": "Bounding Box Input Example",
+      "description": "This is an example of a BBOX literal input.",
+      "schema": {
+        "$ref": "../../openapi/schemas/boundingBoxData.json"
+      }
+    },
+    "geometryInput": {
+      "title": "Geometry Input Example",
+      "description": "This is an example of an input that is a GeoJSON geometry.",
+      "schema": {
+        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+      }
+    },
+    "featureCollectionInput": {
+      "title": "GeoJSON Feature Collection Object Input",
+      "description": "This is an example of GeoJSON feature collection object input.",
+      "schema": {
+        "$ref": "https://geojson.org/schema/FeatureCollection.json"
+      }
+    }
+  },
+  "outputs": {
+    "stringOutput": {
+      "schema": {
+        "type": "string",
+        "enum": ["Value1","Value2","Value3" ]
+      }
+    },
+    "dateOutput": {
+      "schema": {
+        "type": "string",
+        "format": "dateTime"
+      }
+    },
+    "doubleOutput": {
+      "schema": {
+        "type": "number",
+        "format": "double",
+        "minimum": 0,
+        "maximum": 10,
+        "default": 5,
+        "exclusiveMinimum": true
+      }
+    },
+    "complexObjectOutput": {
+      "schema": {
+        "type": "object",
+        "required": [
+          "property1",
+          "property5"
+        ],
+        "properties": {
+          "property1": {
+            "type": "string"
+          },
+          "property2": {
+            "type": "string",
+            "format": "uri"
+          },
+          "property3": {
+            "type": "number"
+          },
+          "property4": {
+            "type": "string",
+            "format": "dateTime"
+          },
+          "property5": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "gmlGeometryOutput": {
+       "schema": {
+          "type": "string"
+       },
+       "formats": [
+          {"mediaType": "application/xml",
+           "schema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd" }
+       ]
+    },
+    "imageOutput": {
+      "schema": {
+        "oneOf": [
+          { "type": "string", "contentEncoding": "base64" },
+          { "type": "string", "contentEncoding": "binary" }
+        ]
+      },
+      "formats": [
+         {"mediaType": "application/tiff; application=geotiff"},
+         {"mediaType": "application/jp2"}
+      ]
+    },
+    "boundingBoxOutput": {
+      "schema": {
+        "$ref": "../../openapi/schemas/boundingBoxData.json"
+      }
+    },
+    "geometryOutput": {
+      "schema": {
+        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+      }
+    },
+    "featureCollectionOutput": {
+      "schema": {
+        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.json"
+      }
+    }
+  },
+  "links": [
+    {
+      "href": "https://processing.example.org/oapi-p/jobs",
+      "rel": "execute",
+      "title": "Execute endpoint"
+    }
+  ]
 }
