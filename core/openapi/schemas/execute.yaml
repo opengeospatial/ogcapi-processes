@@ -10,10 +10,10 @@ properties:
   inputs:
     additionalProperties:
       oneOf:
-        - $ref: "input.yaml"
+        - $ref: "inlineOrRefData.yaml"
         - type: array
           items:
-            - $ref: "input.yaml"
+            - $ref: "inlineOrRefData.yaml"
   outputs:
     additionalProperties:
       $ref: "output.yaml"
