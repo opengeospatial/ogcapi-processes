@@ -49,7 +49,7 @@ include::core/ATS_process-exception-no-such-process.adoc[]
 
 ==== Jobs
 
-===== Job creation /jobs
+===== Job creation /processes/{processID}/execution
 
 include::core/ATS_job-creation-op.adoc[]
 
