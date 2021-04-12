@@ -212,7 +212,7 @@
   },
   "links": [
     {
-      "href": "https://processing.example.org/oapi-p/jobs",
+      "href": "https://processing.example.org/oapi-p/processes/EchoProcess/execution",
       "rel": "execute",
       "title": "Execute endpoint"
     }
