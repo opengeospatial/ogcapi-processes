@@ -1,5 +1,4 @@
 {
-	"id": "EchoProcess",
 	"inputs": {
       "stringInput": "Value2",
       "dateInput": "2021-03-06T07:21:00",

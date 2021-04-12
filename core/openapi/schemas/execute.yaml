@@ -1,12 +1,9 @@
 type: object
 required:
-  - id
   - outputs
   - mode
   - response
 properties:
-  id:
-    type: string
   inputs:
     additionalProperties:
       oneOf:

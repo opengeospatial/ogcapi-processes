@@ -36,7 +36,7 @@
 	},
 	{
 		"href": "http://processing.example.org/oapi-p/jobs",
-		"rel": "execute",
-		"title": "The Execute endpoint"
+		"rel": "jobs",
+		"title": "The endpoint for job monitoring"
 	}]
 }
