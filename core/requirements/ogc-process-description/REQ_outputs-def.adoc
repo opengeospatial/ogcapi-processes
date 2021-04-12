@@ -1,0 +1,7 @@
+[[req_ogc-process-description_outputs-def]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/ogc-process-description/outputs-def +
+^|A |Each process output definition SHALL be specified as a nested object of the `outputs` object according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[outputDescription.yaml].
+^|B |The identifier for each process output SHALL be the key of the corresponding nested object in the `outputs` object.
+|===

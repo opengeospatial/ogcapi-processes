@@ -1,5 +1,0 @@
-type: array
-items:
-   oneOf:
-      - type: string
-      - $ref: "range.yaml"

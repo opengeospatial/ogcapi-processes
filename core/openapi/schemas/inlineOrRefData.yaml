@@ -1,9 +1,20 @@
 type: object
+oneOf:
+  - required:
+      - href
+  - required:
+      - value
 properties:
-  dataType:
-    $ref: "nameReferenceType.yaml"
   uom:
-    $ref: "nameReferenceType.yaml"
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      reference:
+        type: string
+        format: uri
   format:
     $ref: "format.yaml"
   href:
@@ -14,7 +25,5 @@ properties:
       - type: string
       - type: number
       - type: boolean
+      - type: array
       - type: object
-oneOf:
-  - required: [href]
-  - required: [value]

@@ -1,9 +1,0 @@
-type: object
-required:
-  - name
-properties:
-  name:
-    type: string
-  reference:
-    type: string
-    format: uri

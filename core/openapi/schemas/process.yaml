@@ -3,10 +3,12 @@ allOf:
    - type: object
      properties:
         inputs:
-           type: array
-           items:
-              $ref: "inputDescription.yaml"
+           type: object
+           patternProperties:
+              "^.*$":
+                 $ref: "inputDescription.yaml"
         outputs:
-           type: array
-           items:
-              $ref: "outputDescription.yaml"
+           type: object
+           patternProperties:
+              "^.*$":
+                 $ref: "inputDescription.yaml"

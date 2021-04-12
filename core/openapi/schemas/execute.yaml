@@ -8,8 +8,14 @@ properties:
   id:
     type: string
   inputs:
-      $ref: "input.yaml"
+    additionalProperties:
+      oneOf:
+        - $ref: "inlineOrRefData.yaml"
+        - type: array
+          items:
+            - $ref: "inlineOrRefData.yaml"
   outputs:
+    additionalProperties:
       $ref: "output.yaml"
   mode:
     type: string
