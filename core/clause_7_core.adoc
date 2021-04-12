@@ -311,6 +311,10 @@ include::requirements/core/REQ_job-creation-request.adoc[]
 include::openapi/schemas/execute.yaml[]
 ----
 
+Inputs can have a multiplicity greater than 1, which means multiple values can be provided for this input. The following requirement applies:
+
+include::requirements/core/REQ_job-creation-input.adoc[]
+
 A process can be either synchronous or asynchronous. 
 
 include::requirements/core/REQ_job-creation-mode.adoc[]

@@ -1,0 +1,13 @@
+[[req_core_job-creation-input]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-input +
+^|A | If an input is described as accepting a maximum multiplicity greater than 1, the input SHALL either be 
+ 
+* omitted (if this input has no relevance for the specific execution), or
+* A JSON array (even in the case of only one value being provided).
+^|B | If an input is described as accepting a maximum multiplicity of 1, the input SHALL either be 
+
+* omitted, or
+* A JSON object.
+|===
