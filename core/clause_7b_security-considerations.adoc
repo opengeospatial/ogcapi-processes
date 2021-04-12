@@ -101,6 +101,8 @@ The execute operation uses HTTP POST to create new processing jobs (process exec
 
 The ids that are used for new jobs and that are returned in the status info document should be created in a non-guessable way, for example using UUIDs. This will prevent random attempts to get job status information, results / exceptions or even cancel jobs / delete job artifacts.
 
+include::recommendations/job-list/REC_access-control-job-list.adoc[]
+
 [[sec_cons_dismiss]]
 === Dismiss operation
 
