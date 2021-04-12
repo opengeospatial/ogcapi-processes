@@ -13,7 +13,7 @@ Each OGC API - Processes has a single `LandingPage` (path `/`) that provides lin
 * The `APIDefinition` (no fixed path),
 * The `Conformance` statements (path `/conformance`),
 * The `processes` metadata (path `/processes`)
-* the `execute` endpoint (path `/jobs`).
+* The `execute` endpoint (path `/jobs`).
 
 The `APIDefinition` describes the capabilities of the server that can be used by
 clients to connect to the server or by development tools to support the
@@ -310,6 +310,10 @@ include::requirements/core/REQ_job-creation-request.adoc[]
 ----
 include::openapi/schemas/execute.yaml[]
 ----
+
+Inputs can have a multiplicity greater than 1, which means multiple values can be provided for this input. The following requirement applies:
+
+include::requirements/core/REQ_job-creation-input.adoc[]
 
 A process can be either synchronous or asynchronous. 
 
