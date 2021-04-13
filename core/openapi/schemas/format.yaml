@@ -2,10 +2,5 @@ type: object
 properties:
   mediaType:
     type: string
-  schema:
-    oneOf:
-      - type: string
-        format: url
-      - type: object
   characterEncoding:
     type: string
