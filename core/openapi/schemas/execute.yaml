@@ -11,6 +11,9 @@ properties:
         - type: array
           items:
             - $ref: "inlineOrRefData.yaml"
+        - type: string
+        - type: number
+        - type: boolean
   outputs:
     additionalProperties:
       $ref: "output.yaml"
