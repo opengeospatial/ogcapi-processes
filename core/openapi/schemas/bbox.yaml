@@ -1,4 +1,9 @@
 type: object
+description: |-
+  This YAML file is meant to be a template for defining bounding box process
+  inputs.  If the specified default and enum are suitable for your purposes
+  then you can reference this file directly in your process description. 
+  Otherwise copy the contents and adjust the default and enum as required.
 required:
   - bbox
 properties:
