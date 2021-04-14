@@ -4,8 +4,11 @@ required:
 properties:
   bbox:
     type: array
-    minItems: 4
-    maxItems: 6
+    oneOf:
+      - minItems: 4
+        maxItems: 4
+      - minItems: 6
+        maxItems: 6
     items:
       type: number
   crs:
