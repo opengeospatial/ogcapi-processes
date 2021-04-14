@@ -3,6 +3,8 @@ required:
    - jobID
    - status
 properties:
+   processID:
+      type: string
    jobID:
       type: string
    status:
