@@ -24,6 +24,29 @@
         ]
       }
     },
+    "measureInput": {
+      "title": "Numerical Value with UOM Example",
+      "description": "This is an example of a NUMERIC literal with an associated unit of measure.",
+      "schema": {
+        "type": "object",
+        "required": [
+          "value",
+          "uom"
+        ],
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "uom": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
     "dateInput": {
       "title": "Date Literal Input Example",
       "description": "This is an example of a DATE literal input.",
@@ -76,29 +99,31 @@
       "maxOccurs": "unbounded"
     },
     "gmlGeometryInput": {
-       "title": "XML Value Input",
-       "description": "This is an example of XML input.",
-       "schema": {
-          "type": "string"
-       },
-       "formats": [
-          {"mediaType": "application/gml+xml",
-           "schema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd" }
-       ]
+      "title": "XML Value Input",
+      "description": "This is an example of XML input.",
+      "schema": {
+        "type": "string",
+        "contentMediaType": "application/gml+xml",
+        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+      }
     },
     "imageInput": {
       "title": "Inline Image Value Input",
-      "description": "This is an example of an image input.  This example uses multiple sub-schemas to allow the of different image encodings (binary or base64).  The formats array is used to indicate the acceptable image content types; GeoTIFF and JPEG 2000 in this case.  The first item in the format array, GeoTIFF, is considered the default media type.",
+      "description": "This is an example of an image input.  The oneOf array is used to indicate the acceptable image content types; GeoTIFF and JPEG 2000 in this case.  The first item in the format array, GeoTIFF, is considered the default media type.",
       "schema": {
-         "oneOf": [
-            {"type": "string", "contentEncoding": "base64"},
-            {"type": "string", "contentEncoding": "binary"}
-         ]
-      },
-      "formats": [
-         {"mediaType": "application/tiff; application=geotiff"},
-         {"mediaType": "application/jp2"}
-      ]
+        "oneOf": [
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "application/tiff; application=geotiff"
+          },
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "application/jp2"
+          }
+        ]
+      }
     },
     "boundingBoxInput": {
       "title": "Bounding Box Input Example",
@@ -126,7 +151,32 @@
     "stringOutput": {
       "schema": {
         "type": "string",
-        "enum": ["Value1","Value2","Value3" ]
+        "enum": [
+          "Value1",
+          "Value2",
+          "Value3"
+        ]
+      }
+    },
+    "measureOutput": {
+      "schema": {
+        "type": "object",
+        "required": [
+          "value",
+          "uom"
+        ],
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "uom": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
       }
     },
     "dateOutput": {
@@ -174,25 +224,27 @@
       }
     },
     "gmlGeometryOutput": {
-       "schema": {
-          "type": "string"
-       },
-       "formats": [
-          {"mediaType": "application/xml",
-           "schema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd" }
-       ]
+      "schema": {
+        "type": "string",
+        "contentMediaType": "application/gml+xml; version=\"3.2\"",
+        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+      }
     },
     "imageOutput": {
       "schema": {
         "oneOf": [
-          { "type": "string", "contentEncoding": "base64" },
-          { "type": "string", "contentEncoding": "binary" }
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "application/tiff; application=geotiff"
+          },
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "application/jp2"
+          }
         ]
-      },
-      "formats": [
-         {"mediaType": "application/tiff; application=geotiff"},
-         {"mediaType": "application/jp2"}
-      ]
+      }
     },
     "boundingBoxOutput": {
       "schema": {
@@ -212,7 +264,7 @@
   },
   "links": [
     {
-      "href": "https://processing.example.org/oapi-p/jobs",
+      "href": "https://processing.example.org/oapi-p/processes/EchoProcess/execution",
       "rel": "execute",
       "title": "Execute endpoint"
     }

@@ -1,16 +1,19 @@
 type: object
 required:
-  - id
   - outputs
   - mode
   - response
 properties:
-  id:
-    type: string
   inputs:
-    $ref: "input.yaml"
+    additionalProperties:
+      oneOf:
+        - $ref: "inlineOrRefData.yaml"
+        - type: array
+          items:
+            - $ref: "inlineOrRefData.yaml"
   outputs:
-    $ref: "output.yaml"
+    additionalProperties:
+      $ref: "output.yaml"
   mode:
     type: string
     enum:
