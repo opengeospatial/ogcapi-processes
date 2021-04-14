@@ -1,0 +1,9 @@
+[[req_core_job-creation-input-inline-ref]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-input-inline-ref +
+
+^|A |In an execute request, an input value SHALL be specified inline or by reference.
+^|B |If the input is specified inline, then its value shall conform to the schema specified in the <<sc_process_description,process description>>.
+^|C |If the input is specified by reference, then its value shall be referenced using a link that conforms to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/link.yaml[link.yaml] schema.
+|===
