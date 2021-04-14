@@ -6,9 +6,5 @@ allOf:
     properties:
       schema:
         type: object
-      formats:
-        type: array
-        items:
-          $ref: format.yaml
       observedProperty:
         $ref: "observedProperty.yaml"

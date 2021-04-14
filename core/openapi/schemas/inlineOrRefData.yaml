@@ -1,29 +1,7 @@
-type: object
 oneOf:
-  - required:
-      - href
-  - required:
-      - value
-properties:
-  uom:
-    type: object
-    required:
-      - name
-    properties:
-      name:
-        type: string
-      reference:
-        type: string
-        format: uri
-  format:
-    $ref: "format.yaml"
-  href:
-    type: string
-    format: uri
-  value:
-    oneOf:
-      - type: string
-      - type: number
-      - type: boolean
-      - type: array
-      - type: object
+  - type: string
+  - type: number
+  - type: boolean
+  - type: array
+  - type: object
+  - $ref: link.yaml
