@@ -1,0 +1,25 @@
+type: object
+description: |-
+  This YAML file is meant to be a template for defining bounding box process
+  inputs.  If the specified default and enum are suitable for your purposes
+  then you can reference this file directly in your process description. 
+  Otherwise copy the contents and adjust the default and enum as required.
+required:
+  - bbox
+properties:
+  bbox:
+    type: array
+    oneOf:
+      - minItems: 4
+        maxItems: 4
+      - minItems: 6
+        maxItems: 6
+    items:
+      type: number
+  crs:
+    type: string
+    format: uri
+    default: "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+    enum:
+      - "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+      - "http://www.opengis.net/def/crs/OGC/0/CRS84h"
