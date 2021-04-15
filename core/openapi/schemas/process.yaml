@@ -4,7 +4,7 @@ allOf:
      properties:
         inputs:
           additionalProperties:
-              $ref: "#/components/schemas/inputDescription"
+              $ref: "inputDescription.yaml"
         outputs:
           additionalProperties:
-              $ref: "#/components/schemas/outputDescription"
+              $ref: "outputDescription.yaml"
