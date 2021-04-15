@@ -10,7 +10,7 @@ properties:
         - $ref: "inlineOrRefData.yaml"
         - type: array
           items:
-            - $ref: "inlineOrRefData.yaml"
+            $ref: "inlineOrRefData.yaml"
   outputs:
     additionalProperties:
       $ref: "output.yaml"
