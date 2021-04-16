@@ -1,0 +1,9 @@
+[[req_core_job-creation-input-cardinality-eq1]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-input-cardinality-eq1 +
+If an input is <<sc_process_description,described>> as accepting a multiplicity of 1, the input SHALL either be :
+
+* omitted (if this input has no relevance for the specific execution), or
+* a single value that validates according to the input's schema.
+|===

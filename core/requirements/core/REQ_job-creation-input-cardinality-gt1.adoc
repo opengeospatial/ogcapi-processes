@@ -1,0 +1,9 @@
+[[req_core_job-creation-input-cardinality-gt1]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-input-cardinality-gt1 +
+If an input is <<sc_process_description,described>> as accepting a multiplicity (minOccurs, maxOccurs or both) greater than 1, the input SHALL either be:
+
+. omitted (if this input has no relevance for the specific execution), or
+. a JSON array containing values that validate according the the input's schema and of a multiplicity as specified by the `minOccurs` and `maxOccurs` facets of the input's definition.
+|===
