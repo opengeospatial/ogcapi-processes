@@ -1,0 +1,10 @@
+[[req_core_job-creation-input-cardinality-eq1]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-input-cardinality-eq1 +
+
+If an input is <<sc_process_description,described>> as having multiplicity of 1 (maxOccurs=1) then the input SHALL either be:
+
+* omitted (depending on the value of the `minOccurs` facet) or,
+* a single value SHALL be provided that validates according to the input's schema.
+|===

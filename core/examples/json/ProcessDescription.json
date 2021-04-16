@@ -109,7 +109,7 @@
     },
     "imageInput": {
       "title": "Inline Image Value Input",
-      "description": "This is an example of an image input.  The oneOf array is used to indicate the acceptable image content types; GeoTIFF and JPEG 2000 in this case.  The first item in the format array, GeoTIFF, is considered the default media type.",
+      "description": "This is an example of an image input.  The oneOf array is used to indicate the acceptable image content types; GeoTIFF and JPEG 2000 in this case.  The image can be included inline as a base64-encoded string or referenced using a link as per the inlineOrRef.yaml schema.",
       "schema": {
         "oneOf": [
           {

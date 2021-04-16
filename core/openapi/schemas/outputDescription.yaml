@@ -6,5 +6,3 @@ allOf:
     properties:
       schema:
         type: object
-      observedProperty:
-        $ref: "observedProperty.yaml"

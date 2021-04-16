@@ -55,6 +55,10 @@ include::core/ATS_job-creation-op.adoc[]
 
 include::core/ATS_job-creation-request.adoc[]
 
+include::core/ATS_job-creation-input-cardinality-eq1.adoc[]
+
+include::core/ATS_job-creation-input-cardinality-gt1.adoc[]
+
 include::core/ATS_job-creation-mode.adoc[]
 
 include::core/ATS_job-creation-success-async.adoc[]

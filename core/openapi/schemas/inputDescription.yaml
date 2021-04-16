@@ -16,5 +16,3 @@ allOf:
             enum:
               - unbounded
         default: 1
-      observedProperty:
-        $ref: "observedProperty.yaml"
