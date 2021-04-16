@@ -4,4 +4,4 @@ oneOf:
   - type: boolean
   - type: array
   - type: object
-  - $ref: link.yaml
+  - $ref: "link.yaml"
