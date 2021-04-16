@@ -54,8 +54,6 @@ include::requirements/ogc-process-description/REQ_input-media-type.adoc[]
 
 include::requirements/ogc-process-description/REQ_default-input-media-type.adoc[]
 
-NOTE: I have NO IDEA what the objectProperty.yaml sub-schema is all about!
-
 include::requirements/ogc-process-description/REQ_outputs-def.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[Schema for a process output (outputDescription.yaml)]
