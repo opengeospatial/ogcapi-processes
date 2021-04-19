@@ -1,0 +1,78 @@
+oneOf:
+  - $ref: reference.yaml
+  - type: object
+    properties:
+      maximum:
+        type: number
+      exclusiveMaximum:
+        type: boolean
+        default: false
+      minimum:
+        type: number
+      exclusiveMinimum:
+        type: boolean
+        default: false
+      maxItems:
+        type: integer
+        minimum: 0
+      minItems:
+        type: integer
+        minimum: 0
+        default: 0
+      maxProperties:
+        type: integer
+        minimum: 0
+      minProperties:
+        type: integer
+        minimum: 0
+        default: 0
+      required:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        uniqueItems: true
+      enum:
+        type: array
+        items: {}
+        minItems: 1
+        uniqueItems: false
+      type:
+        type: string
+        enum:
+          - boolean
+          - integer
+          - number
+          - string
+          - array
+          - object
+      items:
+        oneOf:
+          - "$ref": "schemaLevel1.yaml"
+          - "$ref": "reference.yaml"
+      properties:
+        type: object
+        additionalProperties:
+          oneOf:
+            - "$ref": "schemaLevel1.yaml"
+            - "$ref": "reference.yaml"
+      additionalProperties:
+        oneOf:
+          - "$ref": "schemaLevel1.yaml"
+          - "$ref": "reference.yaml"
+          - type: boolean
+        default: true
+      format:
+        type: string
+      default: {}
+      nullable:
+        type: boolean
+        default: false
+      example: {}
+      contentMediaType:
+        type: string
+      contentEncoding:
+        type: string
+      contentSchema:
+        $ref: "schemaLevel1.yaml"
+    additionalProperties: false

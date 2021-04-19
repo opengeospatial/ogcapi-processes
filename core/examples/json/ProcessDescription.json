@@ -71,32 +71,36 @@
       "title": "Complex Object Input Example",
       "description": "This is an example of a complex object input.",
       "schema": {
-        "type": "object",
-        "required": [
-          "property1",
-          "property5"
-        ],
-        "properties": {
-          "property1": {
-            "type": "string"
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "property1",
+            "property5"
+          ],
+          "properties": {
+            "property1": {
+              "type": "string"
+            },
+            "property2": {
+              "type": "string",
+              "format": "uri"
+            },
+            "property3": {
+              "type": "number"
+            },
+            "property4": {
+              "type": "string",
+              "format": "dateTime"
+            },
+            "property5": {
+              "type": "boolean"
+            }
           },
-          "property2": {
-            "type": "string",
-            "format": "uri"
-          },
-          "property3": {
-            "type": "number"
-          },
-          "property4": {
-            "type": "string",
-            "format": "dateTime"
-          },
-          "property5": {
-            "type": "boolean"
-          }
+          "minItems": 2,
+          "maxItems": 10
         }
-      },
-      "maxOccurs": "unbounded"
+      }
     },
     "gmlGeometryInput": {
       "title": "XML Value Input",

@@ -5,14 +5,8 @@ allOf:
       - schema
     properties:
       schema:
-        type: object
-      minOccurs:
-        type: integer
-        default: 1
-      maxOccurs:
         oneOf:
-          - type: integer
-          - type: string
-            enum:
-              - unbounded
-        default: 1
+          - $ref: schemaLevel0.yaml
+          - $ref: schemaLevel1.yaml
+          - $ref: schemaLevel2.yaml
+          - $ref: schemaLevel3.yaml

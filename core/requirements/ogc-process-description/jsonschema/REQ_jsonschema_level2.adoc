@@ -1,0 +1,7 @@
+[[req_ogc-process-description_jsonschema_level2]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/ogc-process-description/jsonschema/level2 +
+A schema fragment that conforms to JSON Schema level 2 SHALL validate against th
+e JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schemaLevel2.yaml[schemaLevel2.yaml].
+|===
