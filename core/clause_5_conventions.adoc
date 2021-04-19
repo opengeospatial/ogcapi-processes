@@ -51,6 +51,7 @@ Each resource representation includes an array of links. Implementations are fre
 |=======================
 |*Abbreviated Term* |*Meaning*
 |API	| Application Programming Interface
+|CITE   | Compliance Interoperability & Testing Evaluation
 |CRS	| Coordinate Reference System
 |GML	| Geography Markup Language
 |HTTP	| Hypertext Transfer Protocol
