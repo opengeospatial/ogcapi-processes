@@ -76,6 +76,5 @@
       "transmissionMode": "value"
     }
   },
-  "response": "document",
-  "mode": "async"
+  "response": "document"
 }

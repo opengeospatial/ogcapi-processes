@@ -1,7 +1,6 @@
 type: object
 required:
   - outputs
-  - mode
   - response
 properties:
   inputs:
@@ -14,12 +13,6 @@ properties:
   outputs:
     additionalProperties:
       $ref: "output.yaml"
-  mode:
-    type: string
-    enum:
-      - sync
-      - async
-      - auto
   response:
     type: string
     enum:

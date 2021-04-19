@@ -329,9 +329,15 @@ Inputs can have a multiplicity greater than 1, which means multiple values can b
 
 include::requirements/core/REQ_job-creation-input-cardinality.adoc[]
 
-A process can be either synchronous or asynchronous. 
+Whether a processes is executed synchronously or asynchronously is a decision 
+of the server and so clients should be prepared to either receive a response
+from the process or a system message indicating that the job is being run
+asynchronously.
 
-include::requirements/core/REQ_job-creation-mode.adoc[]
+Clients can express their preferences to execute a process sychronously or 
+asynchronously by using the HTTP `Prefer` header as specified in https://tools.ietf.org/html/rfc7240[RFC 7240, "Prefer Header for HTTP"].  Servers should respect hints sent by clients.
+
+include::recommendations/core/REC_prefer-async.adoc[]
 
 .The following is an example of an execute request
 [source, json]
