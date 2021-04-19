@@ -121,6 +121,12 @@ oneOf:
       deprecated:
         type: boolean
         default: false
+      contentMediaType:
+        type: string
+      contentEncoding:
+        type: string
+      contentSchema:
+        $ref: "schemaLevel3.yaml"
     patternProperties:
       "^x-": {}
     additionalProperties: false

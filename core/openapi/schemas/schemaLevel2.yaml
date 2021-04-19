@@ -72,17 +72,17 @@ oneOf:
           - object
       items:
         oneOf:
-          - "$ref": "schemaLevel1.yaml"
+          - "$ref": "schemaLevel2.yaml"
           - "$ref": "reference.yaml"
       properties:
         type: object
         additionalProperties:
           oneOf:
-            - "$ref": "schemaLevel1.yaml"
+            - "$ref": "schemaLevel2.yaml"
             - "$ref": "reference.yaml"
       additionalProperties:
         oneOf:
-          - "$ref": "schemaLevel1.yaml"
+          - "$ref": "schemaLevel2.yaml"
           - "$ref": "reference.yaml"
           - type: boolean
         default: true
@@ -98,5 +98,5 @@ oneOf:
       contentEncoding:
         type: string
       contentSchema:
-        $ref: "schemaLevel1.yaml"
+        $ref: "schemaLevel2.yaml"
     additionalProperties: false
