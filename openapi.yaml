@@ -18,8 +18,8 @@ paths:
          The landing page provides links to the:
            * The APIDefinition (no fixed path),
            * The Conformance statements (path /conformance),
-           * The processes metadata (path /processes).doss
-           * the execute endpoint (path /jobs).
+           * The processes metadata (path /processes),
+           * The endpoint for job monitoring (path /jobs).
 
          For more information, see [Section 7.2](http://docs.ogc.org/DRAFTS/18-062.html#sc_landing_page).
       operationId: getLandingPage
