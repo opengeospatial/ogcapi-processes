@@ -1,4 +1,4 @@
-openapi: 3.0.2
+openapi: 3.0.3
 info:
   title: The OGC API - Processes
   version: 1.0-draft.6-SNAPSHOT
@@ -103,6 +103,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/JobList.yaml"
         404:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
+  /processes/{processId}/execution:
     post:
       summary: execute a process.
       description: |
@@ -112,6 +113,8 @@ paths:
       operationId: execute
       tags:
         - Execute
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/processId.yaml"
       requestBody:
         description: Mandatory execute request JSON
         required: true
