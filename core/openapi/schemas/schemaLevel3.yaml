@@ -127,6 +127,4 @@ oneOf:
         type: string
       contentSchema:
         $ref: "schemaLevel3.yaml"
-    patternProperties:
-      "^x-": {}
     additionalProperties: false
