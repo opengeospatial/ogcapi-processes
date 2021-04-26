@@ -19,13 +19,6 @@ oneOf:
         type: integer
         minimum: 0
         default: 0
-      maxProperties:
-        type: integer
-        minimum: 0
-      minProperties:
-        type: integer
-        minimum: 0
-        default: 0
       multipleOf:
         type: number
         minimum: 0
