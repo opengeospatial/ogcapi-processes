@@ -4,7 +4,7 @@
 include::requirements/requirements_class_jsonschema_level0.adoc[]
                       
 
-This standard defines four subsets of https://json-schema.org/specification.html[JSON Schema] each of increasing capability.  These subsets give server implementors flexiblity in the level of process description capability they wish to support in their server.  Servers implementing the lowest level will only allow processes with simple-valued input and output parameters to be described.  Servers that support the higest level allow processes with complex-valued input and output parameters to be described.  Servers implementing this standard can specify which level of schema capability(ies) they support in the <<sc_conformance_classes,conformance section>>.
+This standard defines four subsets of https://json-schema.org/specification.html[JSON Schema] each of increasing capability.  These subsets give server implementors flexiblity in the level of process description capability they wish to support in their server.  Servers implementing the lowest level will only allow processes with simple-valued input and output parameters to be described.  Servers that support the higest level allow processes with complex-valued input and output parameters to be described.  Servers implementing this standard can specify which level or levels of schema capability they support by specifying the appropriate conformance class URIs in the <<sc_conformance_classes,conformance section>>.
 
 This conformance class, JSON Schema Level 0, defines  the most restricted subset of https://json-schema.org/specification.html[JSON Schema] only allowing schemas that support simple types and arrays of simple types.  Specifically, the following types are supported:
 
@@ -23,7 +23,7 @@ and the following schema facets are supported:
 - format
 - nullable
 
-include:requirements/ogc-process-description/jsonschema/REQ_jsonschema_level0.adoc[]
+include::requirements/ogc-process-description/jsonschema/REQ_jsonschema_level0.adoc[]
 
 [[ogc_jsonschema_level1]]
 == Requirements Class "JSON Schema Level 1"
@@ -32,7 +32,7 @@ include::requirements/requirements_class_jsonschema_level1.adoc[]
 
 JSON Schema Level 1 supports all the capabilities of <<ogc_jsonschema_level0,level 0>> and adds support for objects.
 
-include:requirements/ogc-process-description/jsonschema/REQ_jsonschema_level1.adoc[]
+include::requirements/ogc-process-description/jsonschema/REQ_jsonschema_level1.adoc[]
 
 [[ogc_jsonschema_level2]]
 == Requirements Class "JSON Schema Level 2"
@@ -47,7 +47,7 @@ JSON Schema Level 2 supports all the capabilities of <<ogc_jsonschema_level2,lev
 - pattern
 - uniqueItems
 
-include:requirements/ogc-process-description/jsonschema/REQ_jsonschema_level2.adoc[]
+include::requirements/ogc-process-description/jsonschema/REQ_jsonschema_level2.adoc[]
 
 [[ogc_jsonschema_level3]]
 == Requirements Class "JSON Schema Level 3"
@@ -57,4 +57,4 @@ include::requirements/requirements_class_jsonschema_level3.adoc[]
 JSON Schema Level 3 supports a subset of https://json-schema.org/specification.html[JSON Schema] that is equivalent to the subset of JSON Schema supported by
 https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md[Open API 3.0.X].
 
-include:requirements/ogc-process-description/jsonschema/REQ_jsonschema_level3.adoc[]
+include::requirements/ogc-process-description/jsonschema/REQ_jsonschema_level3.adoc[]

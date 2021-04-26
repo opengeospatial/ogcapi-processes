@@ -317,13 +317,19 @@ include::openapi/schemas/execute.yaml[]
 include::openapi/schemas/inlineOrRefData.yaml[]
 ----
 
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedValue.yaml[The following is the schema for a qualified input value (quailifiedValue.yaml)]
+[source,YAML]
+----
+include::openapi/schemas/qualifiedValue.yaml[]
+----
+
+include::requirements/core/REQ_job-creation-input-inline-ref.adoc[]
+
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/output.yaml[The following is the schema for a process output (output.yaml)]
 [source,YAML]
 ----
 include::openapi/schemas/output.yaml[]
 ----
-
-include::requirements/core/REQ_job-creation-input-inline-ref.adoc[]
 
 A process can be either synchronous or asynchronous. 
 

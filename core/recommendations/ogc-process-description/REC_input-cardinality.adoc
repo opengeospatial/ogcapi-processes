@@ -1,0 +1,7 @@
+[[rec_ogc-process-description_input-cardinality]]
+[width="90%",cols="2,6a"]
+|===
+|*Recommendation {counter:rec-id}* |/rec/ogc-process-description/input-cardinality +
+^|A |If the maximum number of values that an input can have in an execute request is one then that input SHOULD be defined as simple type (one of: string, number, boolean or object).
+^|B |If the maximum number of values that an input can have in an execute request is greater than one then that input SHOULD be defined as an https://tools.ietf.org/html/draft-bhutton-json-schema-validation-00#section-6.1.1[`array`].
+|===

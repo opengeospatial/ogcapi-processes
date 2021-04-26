@@ -1,9 +1,9 @@
-[[ats_ogc-process-description_jsonschema_level0_test]]
+[[ats_ogc-process-description_jsonschema_l0]]
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/ogc-process-description/jsonschema/level0*
-^|Test Purpose |Validate a JSON-encoded OGC process description complies with the required structure and contents.
+^|Test Purpose |Validate that the input and output definitions of a JSON-encoded OGC Process Description comply with the required structure and contents.
 ^|Requirement |<<req_ogc-process-description_jsonschema_leve0,/req/ogc-process-description/jsonschema/level0>>
-^|Test Method |. Get a process description as per <<ats_core_process>>.
-.  For each input and putput parameter of the process, the schema used to describe the parameter conforms to the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schemaLevel0.yaml[schemaLevel0.yaml].
+^|Test Method |. Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
+. For each input and output of each process, verify that the definition of the input or output conforms to the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schemaLevel0.yaml[schemaLevel0.yaml].
 |===

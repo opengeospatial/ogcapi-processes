@@ -42,8 +42,8 @@
                        [ -176.5814819, -44.10896301 ]]]
     },
     "featureCollectionInput": {
-      "href": "https://www.someserver.com/ogcapi/Foundation/collections/inwatera_1m/items?f=json&limit=2",
-      "type": "application/geo+json"
+      "value": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><FeatureCollection xmlns=\"http://schemas.myserver.com/namespaces/null\" xmlns:gml=\"http://www.opengis.net/gml/3.2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://schemas.myserver.com/namespaces/null https://www.pvretano.com/myserver/ogcapi/daraa/schema?f=GML32&amp;collectionids=TransportationGroundCrv http://www.opengis.net/gml/3.2 http://schemas.opengis.net/schemas/gml/3.2.1/gml.xsd\">...",
+      "mediaType": "application/gml+xml; version=3.2"
     }
   },
   "outputs": {

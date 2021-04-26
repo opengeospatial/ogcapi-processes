@@ -144,10 +144,24 @@
       }
     },
     "featureCollectionInput": {
-      "title": "GeoJSON Feature Collection Object Input",
-      "description": "This is an example of GeoJSON feature collection object input.",
+      "title": "Feature Collection Input Example.",
+      "description": "This is an example of an input that is a feature collection that can be encoded in one of three ways: as a GeoJSON feature collection, as a GML feature collection retrieved from a WFS or as a KML document.",
       "schema": {
-        "$ref": "https://geojson.org/schema/FeatureCollection.json"
+        "oneOf": [
+          {
+            "type": "string",
+            "contentMediaType": "application/gml+xml; version=3.2"
+          },
+          {
+            "type": "string",
+            "contentMediaType": "application/vnd.google-earth.kml+xml",
+            "contentSchema": "https://schemas.opengis.net/kml/2.3/ogckml23.xsd"
+          },
+          {
+            "type": "object",
+            "$ref": "https://geojson.org/schema/FeatureCollection.json"
+          }
+        ]
       }
     }
   },
@@ -262,7 +276,21 @@
     },
     "featureCollectionOutput": {
       "schema": {
-        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.json"
+        "oneOf": [
+          {
+            "type": "string",
+            "contentMediaType": "application/gml+xml; version=3.2"
+          },
+          {
+            "type": "string",
+            "contentMediaType": "application/vnd.google-earth.kml+xml",
+            "contentSchema": "http://schemas.opengis.net/kml/2.3/ogckml23.xsd"
+          },
+          {
+            "type": "object",
+            "$ref": "https://geojson.org/schema/FeatureCollection.json"
+          }
+        ]
       }
     }
   },

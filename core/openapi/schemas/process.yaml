@@ -4,7 +4,7 @@ allOf:
      properties:
         inputs:
           additionalProperties:
-              $ref: "inputDescription.yaml"
+              $ref: "dataDescription.yaml"
         outputs:
           additionalProperties:
-              $ref: "outputDescription.yaml"
+              $ref: "dataDescription.yaml"
