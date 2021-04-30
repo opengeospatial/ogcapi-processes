@@ -71,44 +71,58 @@
       "title": "Complex Object Input Example",
       "description": "This is an example of a complex object input.",
       "schema": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "required": [
-            "property1",
-            "property5"
-          ],
-          "properties": {
-            "property1": {
-              "type": "string"
-            },
-            "property2": {
-              "type": "string",
-              "format": "uri"
-            },
-            "property3": {
-              "type": "number"
-            },
-            "property4": {
-              "type": "string",
-              "format": "dateTime"
-            },
-            "property5": {
-              "type": "boolean"
-            }
+        "type": "object",
+        "required": [
+          "property1",
+          "property5"
+        ],
+        "properties": {
+          "property1": {
+            "type": "string"
           },
-          "minItems": 2,
-          "maxItems": 10
+          "property2": {
+            "type": "string",
+            "format": "uri"
+          },
+          "property3": {
+            "type": "number"
+          },
+          "property4": {
+            "type": "string",
+            "format": "dateTime"
+          },
+          "property5": {
+            "type": "boolean"
+          }
         }
       }
     },
-    "gmlGeometryInput": {
-      "title": "XML Value Input",
-      "description": "This is an example of XML input.",
+    "geometryInput": {
+      "title": "Geometry input",
+      "description": "This is an example of a geometry input.  In this case the geometry can be expressed as a GML of GeoJSON geometry.",
       "schema": {
-        "type": "string",
-        "contentMediaType": "application/gml+xml",
-        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 5,
+        "items": {
+          "oneOf": [
+            {
+              "type": "string",
+              "contentMediaType": "application/gml+xml; version=3.2",
+              "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+            },
+            {
+              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+            }
+          ]
+        }
+      }
+    },
+    "boundingBoxInput": {
+      "title": "Bounding Box Input Example",
+      "description": "This is an example of a BBOX literal input.",
+      "schema": {
+        "$ref": "../../openapi/schemas/boundingBoxData.json"
       }
     },
     "imageInput": {
@@ -127,20 +141,6 @@
             "contentMediaType": "application/jp2"
           }
         ]
-      }
-    },
-    "boundingBoxInput": {
-      "title": "Bounding Box Input Example",
-      "description": "This is an example of a BBOX literal input.",
-      "schema": {
-        "$ref": "../../openapi/schemas/boundingBoxData.json"
-      }
-    },
-    "geometryInput": {
-      "title": "Geometry Input Example",
-      "description": "This is an example of an input that is a GeoJSON geometry.",
-      "schema": {
-        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
       }
     },
     "featureCollectionInput": {
@@ -241,11 +241,28 @@
         }
       }
     },
-    "gmlGeometryOutput": {
+    "geometryOutput": {
       "schema": {
-        "type": "string",
-        "contentMediaType": "application/gml+xml; version=\"3.2\"",
-        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 5,
+        "items": {
+          "oneOf": [
+            {
+              "type": "string",
+              "contentMediaType": "application/gml+xml",
+              "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+            },
+            {
+              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+            }
+          ]
+        }
+      }
+    },
+    "boundingBoxOutput": {
+      "schema": {
+        "$ref": "../../openapi/schemas/boundingBoxData.json"
       }
     },
     "imageOutput": {
@@ -264,16 +281,6 @@
         ]
       }
     },
-    "boundingBoxOutput": {
-      "schema": {
-        "$ref": "../../openapi/schemas/boundingBoxData.json"
-      }
-    },
-    "geometryOutput": {
-      "schema": {
-        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
-      }
-    },
     "featureCollectionOutput": {
       "schema": {
         "oneOf": [
@@ -284,7 +291,7 @@
           {
             "type": "string",
             "contentMediaType": "application/vnd.google-earth.kml+xml",
-            "contentSchema": "http://schemas.opengis.net/kml/2.3/ogckml23.xsd"
+            "contentSchema": "https://schemas.opengis.net/kml/2.3/ogckml23.xsd"
           },
           {
             "type": "object",

@@ -5,8 +5,4 @@ allOf:
       - schema
     properties:
       schema:
-        oneOf:
-          - $ref: schemaLevel0.yaml
-          - $ref: schemaLevel1.yaml
-          - $ref: schemaLevel2.yaml
-          - $ref: schemaLevel3.yaml
+        $ref: "schema.yaml"
