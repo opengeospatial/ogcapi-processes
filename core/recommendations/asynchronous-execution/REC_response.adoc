@@ -1,0 +1,7 @@
+[[rec_prefer_response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/prefer/response*
+
+Clients that specify a value for the `Prefer` HTTP header SHOULD be prepared to either receive a response from the process or a system message indicating that the job is being run asynchronously.
+|===

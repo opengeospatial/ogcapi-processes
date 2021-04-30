@@ -1,7 +1,7 @@
-[[req_core_job-creation-success-header-async]]
+[[req_prefer_job-creation-success-header-async]]
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/req/core/job-creation-success-header-async +
+|*Requirement {counter:req-id}* |/req/prefer/job-creation-success-header-async +
 
 The 201 response of the operation SHALL return a HTTP header named 'Location' which contains a link to the newly created job.
 |===

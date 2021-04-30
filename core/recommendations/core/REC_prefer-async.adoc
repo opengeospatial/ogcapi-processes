@@ -1,7 +1,0 @@
-[[rec_core_prefer-async]]
-[width="90%",cols="2,6a"]
-|===
-^|*Recommendation {counter:rec-id}* |*/rec/core/prefer-async*
-^|A |If the client includes the `Prefer` header with a https://tools.ietf.org/html/rfc7240#section-4.1["respond-async" Preference], the server SHOULD honor the preference and respond asynchronously.
-^|B |If the client includes the `Prefer` header with a https://tools.ietf.org/html/rfc7240#section-4.3["wait" Preference], the server SHOULD honor that preference in the decision to respond synchronously or asynchronously.
-|===

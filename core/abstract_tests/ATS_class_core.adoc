@@ -55,12 +55,6 @@ include::core/ATS_job-creation-op.adoc[]
 
 include::core/ATS_job-creation-request.adoc[]
 
-include::core/ATS_job-creation-mode.adoc[]
-
-include::core/ATS_job-creation-success-async.adoc[]
-
-include::core/ATS_job-creation-success-async-header.adoc[]
-
 include::core/ATS_job-creation-success-sync.adoc[]
 
 include::core/ATS_job-creation-success-sync-raw.adoc[]

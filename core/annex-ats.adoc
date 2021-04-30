@@ -10,6 +10,10 @@ OGC Web APIs are not a Web Services in the traditional sense. Rather, they defin
 
 include::abstract_tests/ATS_class_core.adoc[]
 
+=== Conformance Class Asynchronous Execution
+
+include::abstract_tests/ATS_class_asynchronous-execution.adoc[]
+
 === Conformance Class OGC Process Description
 
 include::abstract_tests/ATS_class_ogc-process-description.adoc[]

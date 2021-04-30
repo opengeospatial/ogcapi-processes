@@ -1,7 +1,7 @@
-[[ats_core_job-creation-success-header-async]]
+[[ats_asynchronous-execution_job-creation-success-header-async]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-success-header-async*
+^|*Abstract Test {counter:ats-id}* |*/conf/asynchronous-execution/job-creation-success-header-async*
 ^|Test Purpose |Validate the HTTP header for an asynchronously executed job.
 ^|Requirement |<<req_core_job-creation-success-header-async,/req/core/job-creation-success-header-async>>
 ^|Test Method |. Validate that the response contains the 'Location' header.

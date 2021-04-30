@@ -104,6 +104,8 @@ include::clause_6_overview.adoc[]
 
 include::clause_7_core.adoc[]
 
+include::clause_7d_asynchronous-execution.adoc[]
+
 include::clause_7a_ogc-process-description.adoc[]
 
 include::clause_7b_security-considerations.adoc[]

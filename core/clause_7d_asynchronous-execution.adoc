@@ -1,0 +1,33 @@
+== Requirements Class "Asynchronous Execution"
+
+=== Overview
+
+include::requirements/requirements_class_asynchronous-execution.adoc[]
+
+This conformance class defines requirements for requesting asynchronous
+execution of processes.  A client signals its desire for asynchronous 
+execution by following the requirements of this conformance class but the
+decision of whether the processes is executed asynchronously or not is left
+to the discretion of the server.
+
+=== Request
+
+include::requirements/asynchronous-execution/REQ_header.adoc[]
+
+include::recommendations/asynchronous-execution/REC_async.adoc[]
+
+include::recommendations/asynchronous-execution/REC_auto.adoc[]
+
+=== Response
+
+Based on the value of the `Prefer` header the server may choose to execute a 
+process synchronously or asynchronously.  In the case where the server decides
+to execute the process asynchronously, the following requirements apply:
+
+include::requirements/asynchronous-execution/REQ_job-creation-success-async.adoc[]
+
+include::requirements/asynchronous-execution/REQ_job-creation-success-async-header.adoc[]
+
+include::recommendations/asynchronous-execution/REC_response.adoc[]
+
+In the case where the server decides to execute the process synchronously, see requirement <<req_core_job-creation-success-sync,/req/core/job-creation-success-sync>>.

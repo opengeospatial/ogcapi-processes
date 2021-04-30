@@ -1,0 +1,9 @@
+[[ats_asynchronous-execution_job-creation-success-async]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/asynchronous-execution/job-creation-success-async*
+^|Test Purpose |Validate the result of a job that has been created as a result of a process being execute asynchronously.
+^|Requirement |<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
+^|Test Method |. Validate that result of the job was returned with an HTTP status code 201.
+. Validate the HTTP headers of the result using the test <<ats_asynchronous-execution_job-creation-success-header-async,/conf/asynchronous-execution/job-creation-success-header-async>>.
+|===

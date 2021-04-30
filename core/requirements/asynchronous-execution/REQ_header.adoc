@@ -1,0 +1,7 @@
+[[req_prefer_header]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/prefer/header +
+
+Servers that implement this conformance class SHALL support the HTTP `Prefer` header as defined in https://tools.ietf.org/html/rfc7240[RFC 7240].
+|===

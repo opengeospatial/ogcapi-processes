@@ -1,0 +1,7 @@
+[[req_core_default-execute-mode]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/default-execute-mode +
+
+The default execution mode for a process SHALL be `synchronous` execution.
+|===

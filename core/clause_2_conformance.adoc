@@ -29,6 +29,10 @@ The _Core_ does not mandate the use of any specific process description to
 specify the interface of a process. Instead this standard defines and
 recommends the use of the following conformance class:
 
+* <<rc_asynchronous-execution,Asynchronous Execution>>
+
+The default process execution mode is synchronous.  This class defines requirements for requesting asynchronous execution of a process.
+
 * <<rc_ogc-process-description,OGC Process Description>>
 
 This class defines an information model, encoded in JSON, which may be used to

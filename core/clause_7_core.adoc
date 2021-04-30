@@ -329,15 +329,7 @@ Inputs can have a multiplicity greater than 1, which means multiple values can b
 
 include::requirements/core/REQ_job-creation-input-cardinality.adoc[]
 
-Whether a processes is executed synchronously or asynchronously is a decision 
-of the server and so clients should be prepared to either receive a response
-from the process or a system message indicating that the job is being run
-asynchronously.
-
-Clients can express their preferences to execute a process sychronously or 
-asynchronously by using the HTTP `Prefer` header as specified in https://tools.ietf.org/html/rfc7240[RFC 7240, "Prefer Header for HTTP"].  Servers should respect hints sent by clients.
-
-include::recommendations/core/REC_prefer-async.adoc[]
+include::requirements/core/REQ_default-execute-mode.adoc[]
 
 .The following is an example of an execute request
 [source, json]
@@ -346,14 +338,6 @@ include::examples/json/Execute.json[]
 ----
 
 ==== Response
-
-In the case of asynchronous execution, the requirements below apply:
-
-include::requirements/core/REQ_job-creation-success-async.adoc[]
-
-include::requirements/core/REQ_job-creation-success-async-header.adoc[]
-
-For a synchronous execution, the following requirement applies:
 
 include::requirements/core/REQ_job-creation-success-sync.adoc[]
 

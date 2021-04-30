@@ -1,0 +1,9 @@
+[[rc_asynchronous-execution]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/asynchronous-execution
+|Target type |Web API
+|Dependency |http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core[API - Common Core]
+|Dependency |<<rfc7240,RFC 7240 (Prefer Header for HTTP)>>
+|===

@@ -2,7 +2,7 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-success-sync*
-^|Test Purpose |Validate the result of a job that has been created using the `sync` execution mode.
+^|Test Purpose |Validate the result of creating a job.
 ^|Requirement |<<req_core_job-creation-success-sync,/req/core/job-creation-success-sync>>
 ^|Test Method |. Validate that result of the job was returned with a status code 200.
 . Validate the content of the result using the resource and tests identified in <<sync-success-response>>.

@@ -1,0 +1,9 @@
+[[ats_asynchronous-execution_prefer-header]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/asynchronous-execution/prefer-header*
+^|Test Purpose |Verify that the server correctly processes the HTTP `Prefer` header.
+^|Requirement |<<req_core_prefer-header,/req/core/prefer-header>>
+^|Test Method |. Create a job according to the test <<ats_core_job-creation-op,/req/core/job-creation-op>> and set the value of the HTTP `Prefer` header according to https://tools.ietf.org/html/rfc7240[RFC 7240] to prefer asynchronous execution.
+. Verify that the server responds according to the test <<ats_asynchronous-execution_job-creation-success-header-async,/conf/asynchronous-execution/job-creation-success-async>>.
+|===

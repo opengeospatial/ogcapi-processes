@@ -1,0 +1,17 @@
+[[ats_asynchronous-execution]]
+[cols="1,4",width="90%"]
+|===
+2+|*Conformance Class*
+2+|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/asynchronous-execution
+|Target type |Web API
+|Requirements class |<<rc_core,Requirements Class "Core">>
+|===
+
+==== Asynchronous Execution
+
+include::asynchronous-execution/ATS_prefer-header.adoc[]
+
+include::asynchronous-execution/ATS_job-creation-success-async.adoc[]
+
+include::asynchronous-execution/ATS_job-creation-success-async-header.adoc[]
+
