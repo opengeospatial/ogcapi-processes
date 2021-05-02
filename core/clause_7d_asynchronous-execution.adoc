@@ -12,11 +12,22 @@ to the discretion of the server.
 
 === Request
 
-include::requirements/asynchronous-execution/REQ_header.adoc[]
+include::requirements/asynchronous-execution/REQ_prefer-header.adoc[]
 
 include::recommendations/asynchronous-execution/REC_async.adoc[]
 
 include::recommendations/asynchronous-execution/REC_auto.adoc[]
+
+Requirement <<req_asynchronous-execution_prefer-header,/req/prefer/header>> specifies how the execution mode preference is indicated using standard HTTP methods.  In some cases, however, it is desireable to support a mechanism to mint URIs that encode this preference into links that can, for example, be embeded into a web page.  This document does not mandate any particular approach for how this is supported by a server.
+
+Since clients simply need to dereference the URI of a link, the specific details of how the execution mode preference is encoded into the URI are not important.  Developers interested in the approach of a particular implementation, for example, to manupliate ("hack") URIs in the browser address bar, can study the API definition.
+
+[NOTE]
+====
+A common approach for encoding the execution mode preference in the URI of a link might be to define a `prefer` query parameter with the same syntax and semantics as the `Prefer` header.
+====
+
+include::requirements/asynchronous-execution/REQ_preference_precedence.adoc[]
 
 === Response
 
@@ -24,9 +35,9 @@ Based on the value of the `Prefer` header the server may choose to execute a
 process synchronously or asynchronously.  In the case where the server decides
 to execute the process asynchronously, the following requirements apply:
 
-include::requirements/asynchronous-execution/REQ_job-creation-success-async.adoc[]
+include::requirements/asynchronous-execution/REQ_job-creation-success.adoc[]
 
-include::requirements/asynchronous-execution/REQ_job-creation-success-async-header.adoc[]
+include::requirements/asynchronous-execution/REQ_job-creation-success-header.adoc[]
 
 include::recommendations/asynchronous-execution/REC_response.adoc[]
 

@@ -1,0 +1,7 @@
+[[req_asynchronous-execution_preference_precedencej]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/asynchronous-execution/preference_precedence +
+
+In the case where the execution mode preference is encoded in the URI of a link and is also specified using the HTTP `Prefer` header, then the preference encoded in the link SHALL take precedence.
+|===
