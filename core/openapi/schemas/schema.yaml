@@ -67,39 +67,39 @@ oneOf:
         - string
       not:
         oneOf:
-        - "$ref": "schemaFull.yaml"
+        - "$ref": "schema.yaml"
         - "$ref": "reference.yaml"
       allOf:
         type: array
         items:
           oneOf:
-          - "$ref": "schemaFull.yaml"
+          - "$ref": "schema.yaml"
           - "$ref": "reference.yaml"
       oneOf:
         type: array
         items:
           oneOf:
-          - "$ref": "schemaFull.yaml"
+          - "$ref": "schema.yaml"
           - "$ref": "reference.yaml"
       anyOf:
         type: array
         items:
           oneOf:
-          - "$ref": "schemaFull.yaml"
+          - "$ref": "schema.yaml"
           - "$ref": "reference.yaml"
       items:
         oneOf:
-        - "$ref": "schemaFull.yaml"
+        - "$ref": "schema.yaml"
         - "$ref": "reference.yaml"
       properties:
         type: object
         additionalProperties:
           oneOf:
-          - "$ref": "schemaFull.yaml"
+          - "$ref": "schema.yaml"
           - "$ref": "reference.yaml"
       additionalProperties:
         oneOf:
-        - "$ref": "schemaFull.yaml"
+        - "$ref": "schema.yaml"
         - "$ref": "reference.yaml"
         - type: boolean
         default: true
@@ -126,5 +126,5 @@ oneOf:
       contentEncoding:
         type: string
       contentSchema:
-        $ref: "schemaLevel3.yaml"
+        $ref: "schema.yaml"
     additionalProperties: false
