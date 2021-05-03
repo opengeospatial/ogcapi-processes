@@ -1,7 +1,0 @@
-[[req_ogc-process-description_input-cardinality]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/ogc-process-description/input-cardinality +
-^|A |If the minimum number of times that a process input must be specified when invoking a process is greater than one, then the required minimum number of occurences SHALL be specified using the `minOccurs` facet.
-^|B |If the maximum number of times that a process input may be specified when invoking a process is greater than one, then the maximum number of occurences SHALL be specified using the `maxOccurs` facet.
-|===

@@ -5,3 +5,4 @@ oneOf:
   - type: array
   - type: object
   - $ref: "link.yaml"
+  - $ref: "qualifiedValue.yaml"

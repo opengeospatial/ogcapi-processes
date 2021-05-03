@@ -95,16 +95,34 @@
             "type": "boolean"
           }
         }
-      },
-      "maxOccurs": "unbounded"
+      }
     },
-    "gmlGeometryInput": {
-      "title": "XML Value Input",
-      "description": "This is an example of XML input.",
+    "geometryInput": {
+      "title": "Geometry input",
+      "description": "This is an example of a geometry input.  In this case the geometry can be expressed as a GML of GeoJSON geometry.",
       "schema": {
-        "type": "string",
-        "contentMediaType": "application/gml+xml",
-        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 5,
+        "items": {
+          "oneOf": [
+            {
+              "type": "string",
+              "contentMediaType": "application/gml+xml; version=3.2",
+              "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+            },
+            {
+              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+            }
+          ]
+        }
+      }
+    },
+    "boundingBoxInput": {
+      "title": "Bounding Box Input Example",
+      "description": "This is an example of a BBOX literal input.",
+      "schema": {
+        "$ref": "../../openapi/schemas/boundingBoxData.json"
       }
     },
     "imageInput": {
@@ -125,25 +143,25 @@
         ]
       }
     },
-    "boundingBoxInput": {
-      "title": "Bounding Box Input Example",
-      "description": "This is an example of a BBOX literal input.",
-      "schema": {
-        "$ref": "../../openapi/schemas/boundingBoxData.json"
-      }
-    },
-    "geometryInput": {
-      "title": "Geometry Input Example",
-      "description": "This is an example of an input that is a GeoJSON geometry.",
-      "schema": {
-        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
-      }
-    },
     "featureCollectionInput": {
-      "title": "GeoJSON Feature Collection Object Input",
-      "description": "This is an example of GeoJSON feature collection object input.",
+      "title": "Feature Collection Input Example.",
+      "description": "This is an example of an input that is a feature collection that can be encoded in one of three ways: as a GeoJSON feature collection, as a GML feature collection retrieved from a WFS or as a KML document.",
       "schema": {
-        "$ref": "https://geojson.org/schema/FeatureCollection.json"
+        "oneOf": [
+          {
+            "type": "string",
+            "contentMediaType": "application/gml+xml; version=3.2"
+          },
+          {
+            "type": "string",
+            "contentMediaType": "application/vnd.google-earth.kml+xml",
+            "contentSchema": "https://schemas.opengis.net/kml/2.3/ogckml23.xsd"
+          },
+          {
+            "type": "object",
+            "$ref": "https://geojson.org/schema/FeatureCollection.json"
+          }
+        ]
       }
     }
   },
@@ -223,11 +241,28 @@
         }
       }
     },
-    "gmlGeometryOutput": {
+    "geometryOutput": {
       "schema": {
-        "type": "string",
-        "contentMediaType": "application/gml+xml; version=\"3.2\"",
-        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 5,
+        "items": {
+          "oneOf": [
+            {
+              "type": "string",
+              "contentMediaType": "application/gml+xml",
+              "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+            },
+            {
+              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+            }
+          ]
+        }
+      }
+    },
+    "boundingBoxOutput": {
+      "schema": {
+        "$ref": "../../openapi/schemas/boundingBoxData.json"
       }
     },
     "imageOutput": {
@@ -246,19 +281,23 @@
         ]
       }
     },
-    "boundingBoxOutput": {
-      "schema": {
-        "$ref": "../../openapi/schemas/boundingBoxData.json"
-      }
-    },
-    "geometryOutput": {
-      "schema": {
-        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
-      }
-    },
     "featureCollectionOutput": {
       "schema": {
-        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.json"
+        "oneOf": [
+          {
+            "type": "string",
+            "contentMediaType": "application/gml+xml; version=3.2"
+          },
+          {
+            "type": "string",
+            "contentMediaType": "application/vnd.google-earth.kml+xml",
+            "contentSchema": "https://schemas.opengis.net/kml/2.3/ogckml23.xsd"
+          },
+          {
+            "type": "object",
+            "$ref": "https://geojson.org/schema/FeatureCollection.json"
+          }
+        ]
       }
     }
   },

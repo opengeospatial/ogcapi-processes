@@ -1,0 +1,11 @@
+[[ats_ogc-process-description_output-mixed-type]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/ogc-process-description/output-mixed-type*
+^|Test Purpose |Validate that each output of mixed type complies with the required structure and contents.
+^|Requirement |<<req_ogc-process-description_output-mixed-type,/req/ogc-process-description/output-mixed-type>>
+^|Requirement |<<req_ogc-process-description_jsonschema_level3,/req/ogc-process-description/jsonschema/level3>>
+^|Test Method |. Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
+. For each process identify if the process has one or more output of mixed type denoted by the use of the `oneOf` JSON Schema keyword.
+. For each identified output, verify that the definition complies with the <<req_ogc-process-description_jsonschema_level3,level3>>) JSON Schema.
+|===

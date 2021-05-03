@@ -14,6 +14,22 @@ include::abstract_tests/ATS_class_core.adoc[]
 
 include::abstract_tests/ATS_class_ogc-process-description.adoc[]
 
+=== Conformance Class JSON Schema Level 0 
+
+include::abstract_tests/ATS_class_jsonschema_level0.adoc[]
+
+=== Conformance Class JSON Schema Level 1 
+
+include::abstract_tests/ATS_class_jsonschema_level1.adoc[]
+
+=== Conformance Class JSON Schema Level 2 
+
+include::abstract_tests/ATS_class_jsonschema_level2.adoc[]
+
+=== Conformance Class JSON Schema Level 3
+
+include::abstract_tests/ATS_class_jsonschema_level3.adoc[]
+
 === Conformance Class JSON
 
 include::abstract_tests/ATS_class_json.adoc[]

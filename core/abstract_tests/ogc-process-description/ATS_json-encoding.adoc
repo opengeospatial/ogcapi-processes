@@ -1,8 +1,9 @@
 [[ats_ogc-process-description_json-encoding]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-request*
-^|Test Purpose |Validate a JSON-encoded OGC process description complies with the required structure and contents.
+^|*Abstract Test {counter:ats-id}* |*/conf/ogc-process-description/json-encoding*
+^|Test Purpose |Verify that a JSON-encoded OGC Process Description complies with the required structure and contents.
 ^|Requirement |<<req_ogc-process-description_json-encoding,/req/ogc-process-description/json-encoding>>
-^|Test Method |Verify the contents of the request body against the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[process.yaml].
+^|Test Method |. Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
+. For each process, verify the contents of the response body validate against the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[process.yaml].
 |===
