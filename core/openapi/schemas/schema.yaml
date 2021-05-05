@@ -53,7 +53,8 @@ oneOf:
         uniqueItems: true
       enum:
         type: array
-        items: {}
+        items:
+	  "$ref": "schema.yaml"
         minItems: 1
         uniqueItems: false
       type:
@@ -86,13 +87,14 @@ oneOf:
         additionalProperties:
           "$ref": "schema.yaml"
       additionalProperties:
-        "$ref": "schema.yaml"
+        oneOf:
+          - "$ref": "schema.yaml"
       description:
         type: string
       format:
         type: string
       default:
-        "$ref": "schema.yaml"
+        - "$ref": "schema.yaml"
       nullable:
         type: boolean
         default: false
