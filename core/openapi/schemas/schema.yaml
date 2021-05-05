@@ -1,5 +1,5 @@
 oneOf:
-  - $ref: reference.yaml
+  - $ref: link.yaml
   - type: object
     properties:
       title:
