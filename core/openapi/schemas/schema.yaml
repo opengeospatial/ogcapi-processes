@@ -86,14 +86,13 @@ oneOf:
         additionalProperties:
           "$ref": "schema.yaml"
       additionalProperties:
-        oneOf:
-          - "$ref": "schema.yaml"
+        "$ref": "schema.yaml"
       description:
         type: string
       format:
         type: string
       default:
-        - "$ref": "schema.yaml"
+        "$ref": "schema.yaml"
       nullable:
         type: boolean
         default: false
