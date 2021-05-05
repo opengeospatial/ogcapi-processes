@@ -53,7 +53,8 @@ oneOf:
         uniqueItems: true
       enum:
         type: array
-        items: {}
+        items:
+	  "$ref": "schema.yaml"
         minItems: 1
         uniqueItems: false
       type:
@@ -66,48 +67,34 @@ oneOf:
         - object
         - string
       not:
-        oneOf:
-        - "$ref": "schema.yaml"
-        - "$ref": "link.yaml"
+        "$ref": "schema.yaml"
       allOf:
         type: array
         items:
-          oneOf:
-          - "$ref": "schema.yaml"
-          - "$ref": "link.yaml"
+          "$ref": "schema.yaml"
       oneOf:
         type: array
         items:
-          oneOf:
-          - "$ref": "schema.yaml"
-          - "$ref": "link.yaml"
+          "$ref": "schema.yaml"
       anyOf:
         type: array
         items:
-          oneOf:
-          - "$ref": "schema.yaml"
-          - "$ref": "link.yaml"
+          "$ref": "schema.yaml"
       items:
-        oneOf:
-        - "$ref": "schema.yaml"
-        - "$ref": "link.yaml"
+        "$ref": "schema.yaml"
       properties:
         type: object
         additionalProperties:
-          oneOf:
-          - "$ref": "schema.yaml"
-          - "$ref": "link.yaml"
+          "$ref": "schema.yaml"
       additionalProperties:
         oneOf:
-        - "$ref": "schema.yaml"
-        - "$ref": "link.yaml"
-        - type: boolean
-        default: true
+          - "$ref": "schema.yaml"
       description:
         type: string
       format:
         type: string
-      default: {}
+      default:
+        - "$ref": "schema.yaml"
       nullable:
         type: boolean
         default: false
@@ -117,7 +104,8 @@ oneOf:
       writeOnly:
         type: boolean
         default: false
-      example: {}
+      example:
+         "$ref": "schema.yaml"
       deprecated:
         type: boolean
         default: false
