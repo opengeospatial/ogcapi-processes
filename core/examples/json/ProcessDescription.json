@@ -24,6 +24,29 @@
         ]
       }
     },
+    "measureInput": {
+      "title": "Numerical Value with UOM Example",
+      "description": "This is an example of a NUMERIC literal with an associated unit of measure.",
+      "schema": {
+        "type": "object",
+        "required": [
+          "value",
+          "uom"
+        ],
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "uom": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
     "dateInput": {
       "title": "Date Literal Input Example",
       "description": "This is an example of a DATE literal input.",
@@ -72,53 +95,73 @@
             "type": "boolean"
           }
         }
-      },
-      "maxOccurs": "unbounded"
+      }
     },
-    "gmlGeometryInput": {
-       "title": "XML Value Input",
-       "description": "This is an example of XML input.",
-       "schema": {
-          "type": "string"
-       },
-       "formats": [
-          {"mediaType": "application/gml+xml",
-           "schema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd" }
-       ]
-    },
-    "imageInput": {
-      "title": "Inline Image Value Input",
-      "description": "This is an example of an image input.  This example uses multiple sub-schemas to allow the of different image encodings (binary or base64).  The formats array is used to indicate the acceptable image content types; GeoTIFF and JPEG 2000 in this case.  The first item in the format array, GeoTIFF, is considered the default media type.",
+    "geometryInput": {
+      "title": "Geometry input",
+      "description": "This is an example of a geometry input.  In this case the geometry can be expressed as a GML of GeoJSON geometry.",
       "schema": {
-         "oneOf": [
-            {"type": "string", "contentEncoding": "base64"},
-            {"type": "string", "contentEncoding": "binary"}
-         ]
-      },
-      "formats": [
-         {"mediaType": "application/tiff; application=geotiff"},
-         {"mediaType": "application/jp2"}
-      ]
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 5,
+        "items": {
+          "oneOf": [
+            {
+              "type": "string",
+              "contentMediaType": "application/gml+xml; version=3.2",
+              "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+            },
+            {
+              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
+            }
+          ]
+        }
+      }
     },
     "boundingBoxInput": {
       "title": "Bounding Box Input Example",
       "description": "This is an example of a BBOX literal input.",
       "schema": {
-        "$ref": "../../openapi/schemas/boundingBoxData.json"
+        "$ref": "../../openapi/schemas/boundingBoxData.yaml"
       }
     },
-    "geometryInput": {
-      "title": "Geometry Input Example",
-      "description": "This is an example of an input that is a GeoJSON geometry.",
+    "imageInput": {
+      "title": "Inline Image Value Input",
+      "description": "This is an example of an image input.  The oneOf array is used to indicate the acceptable image content types; GeoTIFF and JPEG 2000 in this case.  The image can be included inline as a base64-encoded string or referenced using a link as per the inlineOrRef.yaml schema.",
       "schema": {
-        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+        "oneOf": [
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "application/tiff; application=geotiff"
+          },
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "application/jp2"
+          }
+        ]
       }
     },
     "featureCollectionInput": {
-      "title": "GeoJSON Feature Collection Object Input",
-      "description": "This is an example of GeoJSON feature collection object input.",
+      "title": "Feature Collection Input Example.",
+      "description": "This is an example of an input that is a feature collection that can be encoded in one of three ways: as a GeoJSON feature collection, as a GML feature collection retrieved from a WFS or as a KML document.",
       "schema": {
-        "$ref": "https://geojson.org/schema/FeatureCollection.json"
+        "oneOf": [
+          {
+            "type": "string",
+            "contentMediaType": "application/gml+xml; version=3.2"
+          },
+          {
+            "type": "string",
+            "contentMediaType": "application/vnd.google-earth.kml+xml",
+            "contentSchema": "https://schemas.opengis.net/kml/2.3/ogckml23.xsd"
+          },
+          {
+            "type": "object",
+            "$ref": "https://geojson.org/schema/FeatureCollection.json"
+          }
+        ]
       }
     }
   },
@@ -126,7 +169,32 @@
     "stringOutput": {
       "schema": {
         "type": "string",
-        "enum": ["Value1","Value2","Value3" ]
+        "enum": [
+          "Value1",
+          "Value2",
+          "Value3"
+        ]
+      }
+    },
+    "measureOutput": {
+      "schema": {
+        "type": "object",
+        "required": [
+          "value",
+          "uom"
+        ],
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "uom": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
       }
     },
     "dateOutput": {
@@ -173,40 +241,63 @@
         }
       }
     },
-    "gmlGeometryOutput": {
-       "schema": {
-          "type": "string"
-       },
-       "formats": [
-          {"mediaType": "application/xml",
-           "schema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd" }
-       ]
-    },
-    "imageOutput": {
+    "geometryOutput": {
       "schema": {
-        "oneOf": [
-          { "type": "string", "contentEncoding": "base64" },
-          { "type": "string", "contentEncoding": "binary" }
-        ]
-      },
-      "formats": [
-         {"mediaType": "application/tiff; application=geotiff"},
-         {"mediaType": "application/jp2"}
-      ]
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 5,
+        "items": {
+          "oneOf": [
+            {
+              "type": "string",
+              "contentMediaType": "application/gml+xml",
+              "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+            },
+            {
+              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+            }
+          ]
+        }
+      }
     },
     "boundingBoxOutput": {
       "schema": {
         "$ref": "../../openapi/schemas/boundingBoxData.json"
       }
     },
-    "geometryOutput": {
+    "imageOutput": {
       "schema": {
-        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+        "oneOf": [
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "application/tiff; application=geotiff"
+          },
+          {
+            "type": "string",
+            "contentEncoding": "base64",
+            "contentMediaType": "application/jp2"
+          }
+        ]
       }
     },
     "featureCollectionOutput": {
       "schema": {
-        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.json"
+        "oneOf": [
+          {
+            "type": "string",
+            "contentMediaType": "application/gml+xml; version=3.2"
+          },
+          {
+            "type": "string",
+            "contentMediaType": "application/vnd.google-earth.kml+xml",
+            "contentSchema": "https://schemas.opengis.net/kml/2.3/ogckml23.xsd"
+          },
+          {
+            "type": "object",
+            "$ref": "https://geojson.org/schema/FeatureCollection.json"
+          }
+        ]
       }
     }
   },

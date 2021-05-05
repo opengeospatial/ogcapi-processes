@@ -8,3 +8,15 @@
 |===
 
 include::ogc-process-description/ATS_json-encoding.adoc[]
+
+include::ogc-process-description/ATS_inputs-def.adoc[]
+
+include::ogc-process-description/ATS_input-def.adoc[]
+
+include::ogc-process-description/ATS_input-mixed-type.adoc[]
+
+include::ogc-process-description/ATS_outputs-def.adoc[]
+
+include::ogc-process-description/ATS_output-def.adoc[]
+
+include::ogc-process-description/ATS_output-mixed-type.adoc[]

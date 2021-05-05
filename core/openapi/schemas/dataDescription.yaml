@@ -1,0 +1,8 @@
+allOf:
+  - $ref: "descriptionType.yaml"
+  - type: object
+    required:
+      - schema
+    properties:
+      schema:
+        $ref: "schema.yaml"

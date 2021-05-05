@@ -1,8 +1,0 @@
-properties:
-  name:
-    type: string
-  uri:
-    type: string
-    format: uri
-  description:
-    type: string

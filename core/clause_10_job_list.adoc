@@ -9,6 +9,8 @@ include::requirements/requirements_class_job-list.adoc[]
 
 include::requirements/job-list/REQ_job-list-op.adoc[]
 
+include::recommendations/job-list/REC_job-list-landing-page.adoc[]
+
 === Response
 
 include::requirements/job-list/REQ_job-list-success.adoc[]

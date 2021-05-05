@@ -10,10 +10,7 @@ properties:
         - $ref: "inlineOrRefData.yaml"
         - type: array
           items:
-            - $ref: "inlineOrRefData.yaml"
-        - type: string
-        - type: number
-        - type: boolean
+            $ref: "inlineOrRefData.yaml"
   outputs:
     additionalProperties:
       $ref: "output.yaml"

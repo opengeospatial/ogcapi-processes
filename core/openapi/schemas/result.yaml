@@ -3,5 +3,4 @@ additionalProperties:
     - $ref: "inlineOrRefData.yaml"
     - type: array
       items:
-        oneOf:
-          - $ref: "inlineOrRefData.yaml"
+        $ref: "inlineOrRefData.yaml"

@@ -2,6 +2,6 @@
 [width="90%",cols="2,6a"]
 |===
 |*Requirement {counter:req-id}* |/req/ogc-process-description/inputs-def +
-^|A |Each process input definition SHALL be specified as a nested object of the `inputs` object according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[inputDescription.yaml].
+^|A |Each process input definition SHALL be specified as a nested object of the `inputs` object according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/dataDescription.yaml[dataDescription.yaml].
 ^|B |The identifier for each process input SHALL be the key of the corresponding nested object in the `inputs` object.
 |===

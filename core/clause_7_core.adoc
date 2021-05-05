@@ -12,8 +12,9 @@ Each OGC API - Processes has a single `LandingPage` (path `/`) that provides lin
 
 * The `APIDefinition` (no fixed path),
 * The `Conformance` statements (path `/conformance`),
-* The `processes` metadata (path `/processes`)
-* The `execute` endpoint (path `/jobs`).
+* The `processes` metadata (path `/processes`).
+
+Note that additional requirements classes may introduce additional links for the landing page.
 
 The `APIDefinition` describes the capabilities of the server that can be used by
 clients to connect to the server or by development tools to support the
@@ -96,7 +97,7 @@ by development tools to support the implementation of servers and clients.
 
 include::requirements/core/REQ_api-definition-op.adoc[]
 
-((include::recomendations/core/PER_api-definition-uri.adoc[]))
+include::recommendations/core/PER_api-definition-uri.adoc[]
 
 Note that multiple API definition formats can be supported.
 
@@ -305,15 +306,31 @@ include::requirements/core/REQ_job-creation-op.adoc[]
 
 include::requirements/core/REQ_job-creation-request.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[The following is the schema for execute]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[The following is the schema for execute (execute.yaml)]
 [source,YAML]
 ----
 include::openapi/schemas/execute.yaml[]
 ----
 
-Inputs can have a multiplicity greater than 1, which means multiple values can be provided for this input. The following requirement applies:
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inlineOrRefData.yaml[The following is the schema for a process input (inlineOrRefData.yaml)]
+[source,YAML]
+----
+include::openapi/schemas/inlineOrRefData.yaml[]
+----
 
-include::requirements/core/REQ_job-creation-input.adoc[]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedValue.yaml[The following is the schema for a qualified input value (quailifiedValue.yaml)]
+[source,YAML]
+----
+include::openapi/schemas/qualifiedValue.yaml[]
+----
+
+include::requirements/core/REQ_job-creation-input-inline-ref.adoc[]
+
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/output.yaml[The following is the schema for a process output (output.yaml)]
+[source,YAML]
+----
+include::openapi/schemas/output.yaml[]
+----
 
 A process can be either synchronous or asynchronous. 
 
