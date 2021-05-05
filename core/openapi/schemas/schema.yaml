@@ -92,7 +92,8 @@ oneOf:
         type: string
       format:
         type: string
-      default: {}
+      default:
+        - "$ref": "schema.yaml"
       nullable:
         type: boolean
         default: false
@@ -102,7 +103,8 @@ oneOf:
       writeOnly:
         type: boolean
         default: false
-      example: {}
+      example:
+         "$ref": "schema.yaml"
       deprecated:
         type: boolean
         default: false
