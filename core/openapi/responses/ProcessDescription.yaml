@@ -2,6 +2,6 @@ description: A process description.
 content:
   application/json:
     schema:
-      $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml"
+      $ref: "../schemas/process.yaml"
     example:
-      $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/examples/json/ProcessDescription.json"
+      $ref: "../../examples/json/ProcessDescription.json"
