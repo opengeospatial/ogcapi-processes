@@ -122,7 +122,7 @@
       "title": "Bounding Box Input Example",
       "description": "This is an example of a BBOX literal input.",
       "schema": {
-        "$ref": "../../openapi/schemas/boundingBoxData.yaml"
+        "$ref": "../../openapi/schemas/bbox.yaml"
       }
     },
     "imageInput": {
@@ -262,7 +262,7 @@
     },
     "boundingBoxOutput": {
       "schema": {
-        "$ref": "../../openapi/schemas/boundingBoxData.json"
+        "$ref": "../../openapi/schemas/bbox.json"
       }
     },
     "imageOutput": {
