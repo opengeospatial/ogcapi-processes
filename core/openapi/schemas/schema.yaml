@@ -68,39 +68,39 @@ oneOf:
       not:
         oneOf:
         - "$ref": "schema.yaml"
-        - "$ref": "reference.yaml"
+        - "$ref": "link.yaml"
       allOf:
         type: array
         items:
           oneOf:
           - "$ref": "schema.yaml"
-          - "$ref": "reference.yaml"
+          - "$ref": "link.yaml"
       oneOf:
         type: array
         items:
           oneOf:
           - "$ref": "schema.yaml"
-          - "$ref": "reference.yaml"
+          - "$ref": "link.yaml"
       anyOf:
         type: array
         items:
           oneOf:
           - "$ref": "schema.yaml"
-          - "$ref": "reference.yaml"
+          - "$ref": "link.yaml"
       items:
         oneOf:
         - "$ref": "schema.yaml"
-        - "$ref": "reference.yaml"
+        - "$ref": "link.yaml"
       properties:
         type: object
         additionalProperties:
           oneOf:
           - "$ref": "schema.yaml"
-          - "$ref": "reference.yaml"
+          - "$ref": "link.yaml"
       additionalProperties:
         oneOf:
         - "$ref": "schema.yaml"
-        - "$ref": "reference.yaml"
+        - "$ref": "link.yaml"
         - type: boolean
         default: true
       description:
