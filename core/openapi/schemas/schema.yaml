@@ -53,8 +53,7 @@ oneOf:
         uniqueItems: true
       enum:
         type: array
-        items:
-	  "$ref": "schema.yaml"
+        items: {}
         minItems: 1
         uniqueItems: false
       type:
@@ -93,8 +92,7 @@ oneOf:
         type: string
       format:
         type: string
-      default:
-        - "$ref": "schema.yaml"
+      default: {}
       nullable:
         type: boolean
         default: false
@@ -104,8 +102,7 @@ oneOf:
       writeOnly:
         type: boolean
         default: false
-      example:
-         "$ref": "schema.yaml"
+      example: {}
       deprecated:
         type: boolean
         default: false
