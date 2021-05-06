@@ -1,5 +1,5 @@
 oneOf:
-  - $ref: link.yaml
+  - $ref: reference.yaml
   - type: object
     properties:
       title:
@@ -53,48 +53,31 @@ oneOf:
         uniqueItems: true
       enum:
         type: array
-        items:
-	  "$ref": "schema.yaml"
+        items: {}
         minItems: 1
         uniqueItems: false
       type:
         type: string
         enum:
-        - array
-        - boolean
-        - integer
-        - number
-        - object
-        - string
-      not:
-        "$ref": "schema.yaml"
-      allOf:
-        type: array
-        items:
-          "$ref": "schema.yaml"
-      oneOf:
-        type: array
-        items:
-          "$ref": "schema.yaml"
-      anyOf:
-        type: array
-        items:
-          "$ref": "schema.yaml"
-      items:
-        "$ref": "schema.yaml"
+          - array
+          - boolean
+          - integer
+          - number
+          - object
+          - string
       properties:
         type: object
         additionalProperties:
-          "$ref": "schema.yaml"
+          type: boolean
+          default: false
       additionalProperties:
-        oneOf:
-          - "$ref": "schema.yaml"
+        type: boolean
+        default: false
       description:
         type: string
       format:
         type: string
-      default:
-        - "$ref": "schema.yaml"
+      default: {}
       nullable:
         type: boolean
         default: false
@@ -104,8 +87,6 @@ oneOf:
       writeOnly:
         type: boolean
         default: false
-      example:
-         "$ref": "schema.yaml"
       deprecated:
         type: boolean
         default: false
@@ -113,6 +94,4 @@ oneOf:
         type: string
       contentEncoding:
         type: string
-      contentSchema:
-        $ref: "schema.yaml"
     additionalProperties: false
