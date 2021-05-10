@@ -2,6 +2,7 @@
 [width="90%",cols="2,6a"]
 |===
 |*Requirement {counter:req-id}* |/req/ogc-process-description/input-def +
+^| Condition | The server implements and declares, in the <<sc_conformance_classes,conformance section>>, support for one of the <<req_ogc-process-description_jsonschema_level0,/req/ogc-process-description/jsonschema/level0>>, <<req_ogc-process-description_jsonschema_level1,/req/ogc-process-description/jsonschema/level1>>, <<req_ogc-process-description_jsonschema_level2,/req/ogc-process-description/jsonschema/level2>> or <<req_ogc-process-description_jsonschema_level3,/req/ogc-process-description/jsonschema/level3>> conformance classes denoting the level of JSON Schema support.
 ^|A |The definition of each process **input** SHALL be specified using the `schema` parameter.
-^|B |The value of the `schema` parameter SHALL be a https://tools.ietf.org/html/draft-bhutton-json-schema-00[JSON Schema] fragment.
+^|B |The value of the `schema` parameter SHALL be a JSON Schema fragment that conforms to the server's declared level (<<req_ogc-process-description_jsonschema_level0,level0>>, <<req_ogc-process-description_jsonschema_level1,level1>>, <<req_ogc-process-description_jsonschema_level2,level2>>, or <<req_ogc-process-description_jsonschema_level3,level3>>) of JSON Schema support.
 |===

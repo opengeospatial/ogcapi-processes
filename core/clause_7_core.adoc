@@ -12,8 +12,9 @@ Each OGC API - Processes has a single `LandingPage` (path `/`) that provides lin
 
 * The `APIDefinition` (no fixed path),
 * The `Conformance` statements (path `/conformance`),
-* The `processes` metadata (path `/processes`)
-* The `execute` endpoint (path `/jobs`).
+* The `processes` metadata (path `/processes`).
+
+Note that additional requirements classes may introduce additional links for the landing page.
 
 The `APIDefinition` describes the capabilities of the server that can be used by
 clients to connect to the server or by development tools to support the
@@ -317,21 +318,19 @@ include::openapi/schemas/execute.yaml[]
 include::openapi/schemas/inlineOrRefData.yaml[]
 ----
 
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedValue.yaml[The following is the schema for a qualified input value (quailifiedValue.yaml)]
+[source,YAML]
+----
+include::openapi/schemas/qualifiedValue.yaml[]
+----
+
+include::requirements/core/REQ_job-creation-input-inline-ref.adoc[]
+
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/output.yaml[The following is the schema for a process output (output.yaml)]
 [source,YAML]
 ----
 include::openapi/schemas/output.yaml[]
 ----
-
-include::requirements/core/REQ_job-creation-input-inline-ref.adoc[]
-
-Input values can either be a single value or an array of values depending on
-the multiplicty of the input specified using the `minOccurs` and `maxOccurs`
-facets.  The following requirements apply:
-
-include::requirements/core/REQ_job-creation-input-cardinality-eq1.adoc[]
-
-include::requirements/core/REQ_job-creation-input-cardinality-gt1.adoc[]
 
 A process can be either synchronous or asynchronous. 
 

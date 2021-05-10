@@ -1,6 +1,0 @@
-[[req_ogc-process-description_input-media-type]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/ogc-process-description/input-media-type +
-If the value of a process input conforms to one or more well know schemas or media types, then those schemas and/or media types SHALL be listed using the `formats` array.
-|===

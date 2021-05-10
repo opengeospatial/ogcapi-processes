@@ -31,7 +31,7 @@ GET /jobs
 Returns the running and finished jobs for a process (optional).
 
 ```
-POST /jobs
+POST /processes/{process-id}/execution
 ```
 
 Executes a process, i.e. creates a new job. Inputs, outputs and the process id will have to be specified in

@@ -1,0 +1,22 @@
+[[ats_ogc-process-description_input-def]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/ogc-process-description/input-def*
+^|Test Purpose |Verify that the definition of each input for each process complies with the required structure and contents.
+^|Requirement |<<req_ogc-process-description_input-def,/req/ogc-process-description/input-def>>
+^|Test Method |For each input identified according to the test <<ats_ogc-process-description_inputs-def,/conf/ogc-process-description/inputs-def>> verify that the value of the `schema` key, that defines the input, conforms to the declared level of JSON Schema support as declared in the server's <<sc_conformance_classes,conformance section>>.
+|===
+
+This specification defines four levels of capability of increasing complexity for the JSON Schema that an implementation recognizes for defining process inputs.  The following table identifies the applicable test to check based on the declared level of JSON Schema support.
+
+[[input-def-jsonschema-support]]
+.Schema and Tests based on the declared level of JSON Schema support
+[width="90%",cols="2",options="header"]
+|===
+|JSON Schema Level  |Test ID
+|0  |<<ats_ogc-process-description_jsonschema_l0,/conf/ogc-process-description/jsonschema/level0>>
+|1  |<<ats_ogc-process-description_jsonschema_l0,/conf/ogc-process-description/jsonschema/level1>>
+|2  |<<ats_ogc-process-description_jsonschema_l0,/conf/ogc-process-description/jsonschema/level2>>
+|3  |<<ats_ogc-process-description_jsonschema_l0,/conf/ogc-process-description/jsonschema/level3>>
+|===
+

@@ -1,0 +1,8 @@
+[[req_ogc-process-description_input-mixed-type]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/ogc-process-description/input-mixed-type +
+^|A |An input that can be of mixed type SHALL be defined using the https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3[`oneOf`] JSON Schema keyword.
+^|B |Each sub-schema SHALL be a JSON Schema fragment that conforms to the `level3' JSON Schema capability (conformance class <<req_ogc-process-description_jsonschema_level3,/req/ogc-process-description/jsonschema/level3>>).
+^|C |The first sub-schema in the https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3[`oneOf`] array SHALL be considered the default format.
+|===

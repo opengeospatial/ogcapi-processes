@@ -5,4 +5,4 @@ allOf:
       - schema
     properties:
       schema:
-        type: object
+        $ref: "schema.yaml"

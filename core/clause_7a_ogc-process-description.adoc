@@ -40,39 +40,70 @@ The schema imports the elements from the <<schema-processSummary, process summar
 
 include::requirements/ogc-process-description/REQ_inputs-def.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[Schema for a process input (inputDescription.yaml)]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/dataDescription.yaml[Schema for a process input or output (dataDescription.yaml)]
 [source,YAML]
 ----
-include::openapi/schemas/inputDescription.yaml[]
+include::openapi/schemas/dataDescription.yaml[]
 ----
 
 include::requirements/ogc-process-description/REQ_input-def.adoc[]
 
-include::requirements/ogc-process-description/REQ_input-cardinality.adoc[]
+include::recommendations/ogc-process-description/REC_input-cardinality.adoc[]
 
-include::requirements/ogc-process-description/REQ_input-media-type.adoc[]
+include::requirements/ogc-process-description/REQ_input-mixed-type.adoc[]
 
-include::requirements/ogc-process-description/REQ_default-input-media-type.adoc[]
+.Mixed type input example.
+
+The following JSON Schema fragment illustrates how to define an input of mixed type.  In this case, the `imageInput` input can be one a couple of image media type encoded as either `binary` or `base64`.
+
+----
+   "imageInput": { 
+     "schema": {
+       "oneOf": [
+         {
+           "type": "string",
+           "contentEncoding": "base64",
+           "contentMediaType": "application/tiff; application=geotiff"
+         },
+         {
+           "type": "string",
+           "contentEncoding": "binary",
+           "contentMediaType": "application/tiff; application=geotiff"
+         },
+         {
+           "type": "string",
+           "contentEncoding": "base64",
+           "contentMediaType": "application/jp2"
+         },
+         {
+           "type": "string",
+           "contentEncoding": "binary",
+           "contentMediaType": "application/jp2"
+         }
+       ]
+     }
+   }
+----
 
 include::requirements/ogc-process-description/REQ_outputs-def.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[Schema for a process output (outputDescription.yaml)]
-[source,YAML]
-----
-include::openapi/schemas/outputDescription.yaml[]
-----
-
 include::requirements/ogc-process-description/REQ_output-def.adoc[]
 
-include::requirements/ogc-process-description/REQ_default-output-media-type.adoc[]
+include::requirements/ogc-process-description/REQ_output-mixed-type.adoc[]
 
-.The following is an example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
+.Retrieving a process description.
+
+The following is an example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
+
 [source]
 ----
 https://processing.example.org/processes/EchoProcess
 ----
 
-.The following is an example of a process description encoded as JSON.
+.Example OGC Process Description.
+
+The following JSON document is the process description for an example `EchoProcess` that simply echoes whatever inputs are specified.
+
 [source,json]
 ----
 include::examples/json/ProcessDescription.json[]
