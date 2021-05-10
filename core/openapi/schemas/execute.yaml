@@ -1,7 +1,6 @@
 type: object
 required:
   - outputs
-  - mode
   - response
 properties:
   inputs:
