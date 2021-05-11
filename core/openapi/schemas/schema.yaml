@@ -101,9 +101,9 @@ oneOf:
             default: false
       additionalProperties:
         oneOf:
-	- "$ref": "schema.yaml"
-	- "$ref": "reference.yaml"
-	- type: boolean
+        - "$ref": "schema.yaml"
+        - "$ref": "reference.yaml"
+        - type: boolean
           default: false
       description:
         type: string
