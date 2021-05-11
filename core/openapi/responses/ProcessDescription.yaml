@@ -2,7 +2,6 @@ description: A process description.
 content:
   application/json:
     schema:
-      allOf:
-      - $ref: "../schemas/process.yaml"
-      - "ref":
-        $ref: "../schemas/schema.yaml"
+      $ref: "../schemas/process.yaml"
+    example:
+      $ref: "../../examples/json/ProcessDescription.json"
