@@ -59,52 +59,52 @@ oneOf:
       type:
         type: string
         enum:
-          - array
-          - boolean
-          - integer
-          - number
-          - object
-          - string
+        - array
+        - boolean
+        - integer
+        - number
+        - object
+        - string
       not:
         oneOf:
-          - "$ref": "schema.yaml"
-          - "$ref": "reference.yaml"
+        - "$ref": "schema.yaml"
+        - "$ref": "reference.yaml"
       allOf:
         type: array
         items:
           oneOf:
-            - "$ref": "schema.yaml"
-            - "$ref": "reference.yaml"
+          - "$ref": "schema.yaml"
+          - "$ref": "reference.yaml"
       oneOf:
         type: array
         items:
           oneOf:
-            - "$ref": "schema.yaml"
-            - "$ref": "reference.yaml"
+          - "$ref": "schema.yaml"
+          - "$ref": "reference.yaml"
       anyOf:
         type: array
         items:
           oneOf:
-            - "$ref": "schema.yaml"
-            - "$ref": "reference.yaml"
-      items:
-        oneOf:
           - "$ref": "schema.yaml"
           - "$ref": "reference.yaml"
+      items:
+        oneOf:
+        - "$ref": "schema.yaml"
+        - "$ref": "reference.yaml"
       properties:
         type: object
         additionalProperties:
-	  oneOf:
-            - "$ref": "schema.yaml"
-            - "$ref": "reference.yaml"
-            - type: boolean
-              default: false
+          oneOf:
+          - "$ref": "schema.yaml"
+          - "$ref": "reference.yaml"
+          - type: boolean
+            default: false
       additionalProperties:
         oneOf:
-	  - "$ref": "schema.yaml"
-	  - "$ref": "reference.yaml"
-	  - type: boolean
-            default: false
+	- "$ref": "schema.yaml"
+	- "$ref": "reference.yaml"
+	- type: boolean
+          default: false
       description:
         type: string
       format:
