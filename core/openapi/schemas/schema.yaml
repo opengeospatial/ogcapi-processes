@@ -94,11 +94,17 @@ oneOf:
       properties:
         type: object
         additionalProperties:
-          type: boolean
-          default: false
+	  oneOf:
+	    - "$ref": "schema.yaml"
+	    - "$ref": "reference.yaml"
+	    - type: boolean
+              default: false
       additionalProperties:
-        type: boolean
-        default: false
+        oneOf:
+	  - "$ref": "schema.yaml"
+	  - "$ref": "reference.yaml"
+	  - type: boolean
+            default: false
       description:
         type: string
       format:
@@ -122,5 +128,5 @@ oneOf:
       contentEncoding:
         type: string
       contentSchema:
-        type: 'string'
+        type: string
     additionalProperties: false
