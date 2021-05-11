@@ -17,6 +17,18 @@ properties:
          - dismissed
    message:
       type: string
+   created:
+      type: string
+      format: date-time
+   started:
+      type: string
+      format: date-time
+   finished:
+      type: string
+      format: date-time
+   updated:
+      type: string
+      format: date-time
    progress:
       type: integer
       minimum: 0
