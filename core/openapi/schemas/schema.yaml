@@ -97,14 +97,12 @@ oneOf:
           oneOf:
           - "$ref": "schema.yaml"
           - "$ref": "reference.yaml"
-          - type: boolean
-            default: false
       additionalProperties:
         oneOf:
         - "$ref": "schema.yaml"
         - "$ref": "reference.yaml"
         - type: boolean
-          default: false
+          default: true
       description:
         type: string
       format:
