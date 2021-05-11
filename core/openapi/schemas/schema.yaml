@@ -95,9 +95,9 @@ oneOf:
         type: object
         additionalProperties:
 	  oneOf:
-	    - "$ref": "schema.yaml"
-	    - "$ref": "reference.yaml"
-	    - type: boolean
+            - "$ref": "schema.yaml"
+            - "$ref": "reference.yaml"
+            - type: boolean
               default: false
       additionalProperties:
         oneOf:
