@@ -1,7 +1,0 @@
-[[rc_ogc-process-description_jsonschema_level3]]
-[cols="1,4",width="90%"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/opc-process-description/schemaschema/level3
-|Target type |Web API
-|===

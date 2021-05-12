@@ -4,8 +4,7 @@
 ^|*Abstract Test {counter:ats-id}* |*/conf/ogc-process-description/input-mixed-type*
 ^|Test Purpose |Validate that each input of mixed type complies with the required structure and contents.
 ^|Requirement |<<req_ogc-process-description_input-mixed-type,/req/ogc-process-description/input-mixed-type>>
-^|Requirement |<<req_ogc-process-description_jsonschema_level3,/req/ogc-process-description/jsonschema/level3>>
 ^|Test Method |. Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
 . For each process identify if the process has one or more inputs of mixed type.
-. For each identified input, verify that the definition complies with the <<req_ogc-process-description_jsonschema_level3,level3>>) JSON Schema.
+. For each sub-schema of each identified input, verify that the definition validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
 |===
