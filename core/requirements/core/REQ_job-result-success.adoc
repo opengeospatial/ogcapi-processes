@@ -5,6 +5,6 @@
 
 A successful execution of the operation SHALL be reported as a
 response with a HTTP status code 200.
-The content of that response SHALL be based upon the OpenAPI
-3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml[result.yaml].
+The content of the response SHALL be the same as defined by requirement <<req_core_job-creation-success-sync,/req/core/job-creation-success-sync>>.
 |===
+

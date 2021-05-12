@@ -7,4 +7,5 @@ response with a HTTP status code 200.
 ^|B | If the "response" attribute of the execute request was set to "document", the content of the response SHALL be based upon the OpenAPI
 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml]
 ^|C | If the "response" attribute of the execute request was set to "raw", the content of the response SHALL only include the one output selected by the execute request body.
+^|D | In the case where the "response" attribute is set to "raw" the media type and schema of the response SHALL be as requested using the "format" key or the default media type of the output as specified in the process description.
 |===
