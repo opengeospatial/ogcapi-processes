@@ -65,44 +65,14 @@ oneOf:
         - number
         - object
         - string
-      not:
-        oneOf:
-        - "$ref": "schema.yaml"
-        - "$ref": "reference.yaml"
-      allOf:
-        type: array
-        items:
-          oneOf:
-          - "$ref": "schema.yaml"
-          - "$ref": "reference.yaml"
-      oneOf:
-        type: array
-        items:
-          oneOf:
-          - "$ref": "schema.yaml"
-          - "$ref": "reference.yaml"
-      anyOf:
-        type: array
-        items:
-          oneOf:
-          - "$ref": "schema.yaml"
-          - "$ref": "reference.yaml"
-      items:
-        oneOf:
-        - "$ref": "schema.yaml"
-        - "$ref": "reference.yaml"
       properties:
         type: object
         additionalProperties:
-          oneOf:
-          - "$ref": "schema.yaml"
-          - "$ref": "reference.yaml"
-      additionalProperties:
-        oneOf:
-        - "$ref": "schema.yaml"
-        - "$ref": "reference.yaml"
-        - type: boolean
+          type: boolean
           default: true
+      additionalProperties:
+        type: boolean
+        default: true
       description:
         type: string
       format:
