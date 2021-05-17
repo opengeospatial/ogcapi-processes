@@ -3,16 +3,21 @@
   "inputs": {
     "stringInput": "Value2",
     "measureInput": {
-      "value": 10.3,
-      "uom": "m",
-      "reference": "https://ucum.org/ucum-essence.xml"
+      "value": {
+        "measurement": 10.3,
+        "uom": "m",
+        "reference": "https://ucum.org/ucum-essence.xml"
+      }
     },
     "dateInput": "2021-03-06T07:21:00",
     "doubleInput": 3.14159,
+    "arrayInput": [1,2,3,4,5,6],
     "complexObjectInput": {
-      "property1": "value1",
-      "property2": "value2",
-      "property5": true
+      "value": {
+        "property1": "value1",
+        "property2": "value2",
+        "property5": true
+      }
     },
     "geometryInput": [
       {
@@ -20,27 +25,35 @@
         "mediaType": "application/gml+xml; version=3.2"
       },
       {
-        "type": "Polygon",
-        "coordinates": [[[ -176.5814819, -44.10896301 ],
-                         [ -176.5818024, -44.10964584 ],
-                         [ -176.5844116, -44.11236572 ],
-                         [ -176.5935974, -44.11021805 ],
-                         [ -176.5973511, -44.10743332 ],
-                         [ -176.5950928, -44.10562134 ],
-                         [ -176.5858459, -44.1043396  ],
-                         [ -176.5811157, -44.10667801 ],
-                         [ -176.5814819, -44.10896301 ]]]
+        "value": {
+          "type": "Polygon",
+          "coordinates": [[[ -176.5814819, -44.10896301 ],
+                           [ -176.5818024, -44.10964584 ],
+                           [ -176.5844116, -44.11236572 ],
+                           [ -176.5935974, -44.11021805 ],
+                           [ -176.5973511, -44.10743332 ],
+                           [ -176.5950928, -44.10562134 ],
+                           [ -176.5858459, -44.1043396  ],
+                           [ -176.5811157, -44.10667801 ],
+                           [ -176.5814819, -44.10896301 ]]]
+        }
       }
     ],
     "boundingBoxInput": {
       "bbox": [ 51.9, 7, 52, 7.1 ],
       "crs": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
     },
-    "imageInput": {
-      "href": "https://www.someserver.com/ogcapi/Daraa/collections/Daraa_DTED/styles/Topographic/coverage?...",
-      "type": "application/tiff; application=geotiff"
-    },
-    "featureColletionInput": {
+    "imagesInput": [
+      {
+        "href": "https://www.someserver.com/ogcapi/Daraa/collections/Daraa_DTED/styles/Topographic/coverage?...",
+        "type": "application/tiff; application=geotiff"
+      },
+      {
+         "value": "VBORw0KGgoAAAANSUhEUgAABvwAAAa4CAYAAABMB35kAAABhGlDQ1BJQ0MgcHJvZmlsZQAA\nKJF9kT1Iw0AcxV9TpSL1A+xQxCFDdbIgKuKoVShChVArtOpgcumH0KQhSXFxFFwLDn4sVh1c\nnHV1cBUEwQ8QNzcnRRcp8X9JoUWMB8f9eHfvcfcOEOplplkdY4Cm22Y6mRCzuRUx9IogouhH\n ... \nj3Z5mX7/PCPVRJV92rpHK24xcJrzk20+tkeYlCPqcZNO3Lpni1OJWatPCcmgGDEqx7Om6lfa\nppM4k4BTe9+bsn3L9/9/yWhA0PwQGW8ipCZsnZt9lsdrYEM8z/M8z/M8z/M8z/M8z/MzLWY1\nAAAACUlEQVQ871H6P6JI+TxS5Wn2AAAAAElFTkSuQmCC",
+         "mediaType": "application/jp2"
+      }
+    ],
+    "featureCollectionInput": {
       "value": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><FeatureCollection xmlns=\"http://schemas.myserver.com/namespaces/null\" xmlns:gml=\"http://www.opengis.net/gml/3.2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://schemas.myserver.com/namespaces/null https://www.pvretano.com/myserver/ogcapi/daraa/schema?f=GML32&amp;collectionids=TransportationGroundCrv http://www.opengis.net/gml/3.2 http://schemas.opengis.net/schemas/gml/3.2.1/gml.xsd\">...",
       "mediaType": "application/gml+xml; version=3.2"
     }
@@ -56,6 +69,9 @@
       "transmissionMode": "value"
     },
     "doubleOutput": {
+      "transmissionMode": "value"
+    },
+    "arrayOutput": {
       "transmissionMode": "value"
     },
     "complexObjectOutput": {
