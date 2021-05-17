@@ -91,6 +91,10 @@ include::requirements/ogc-process-description/REQ_output-def.adoc[]
 
 include::requirements/ogc-process-description/REQ_output-mixed-type.adoc[]
 
+The execution mode for each process is specified using the `jobControlOptions` key in the <<schema-processSummary, process summary>>.  The following requirement indicates how to specify the default execution mode.
+
+include::requirements/ogc-process-description/REQ_default_mode.adoc[]
+
 .Retrieving a process description.
 
 The following is an example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
