@@ -112,7 +112,7 @@
               "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
             },
             {
-              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
             }
           ]
         }
@@ -122,7 +122,7 @@
       "title": "Bounding Box Input Example",
       "description": "This is an example of a BBOX literal input.",
       "schema": {
-        "$ref": "../../openapi/schemas/boundingBoxData.json"
+        "$ref": "../../openapi/schemas/bbox.yaml"
       }
     },
     "imageInput": {
@@ -254,7 +254,7 @@
               "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
             },
             {
-              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
             }
           ]
         }
@@ -262,7 +262,7 @@
     },
     "boundingBoxOutput": {
       "schema": {
-        "$ref": "../../openapi/schemas/boundingBoxData.json"
+        "$ref": "../../openapi/schemas/bbox.yaml"
       }
     },
     "imageOutput": {

@@ -380,6 +380,12 @@ include::requirements/core/REQ_job-success.adoc[]
 include::openapi/schemas/statusInfo.yaml[]
 ----
 
+The job status information includes several optional date-time fields that represent milestones in the lifecycle of a job.   The following are recommended for servers that decide to populate some or all of these date-time fields:
+
+include::recommendations/core/REC_job-status.adoc[]
+
+NOTE: Once a job has finished execution and is no longer consuming compute resources, the duration of processing can be computed as `finished-started`.  The `updated` field, however, may still be revised as the system continues processing outputs, storing results, releasing compute resources, etc.
+
 .The following is an example of HTTP GET request for retrieving status information about a job encoded as JSON.
 [source]
 ----
