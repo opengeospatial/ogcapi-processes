@@ -278,7 +278,7 @@
     },
     "boundingBoxOutput": {
       "schema": {
-        "$ref": "../../openapi/schemas/boundingBoxData.json"
+        "$ref": "../../openapi/schemas/bbox.yaml"
       }
     },
     "imagesOutput": {

@@ -3,4 +3,4 @@ description: >-
 content:
   application/json:
     schema:
-      $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml"
+      $ref: "../schemas/processList.yaml"

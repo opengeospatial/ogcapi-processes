@@ -2,4 +2,4 @@ description: The status of a job.
 content:
   application/json:
     schema:
-      $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml"
+      $ref: "../schemas/statusInfo.yaml"
