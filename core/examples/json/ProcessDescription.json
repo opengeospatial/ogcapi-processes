@@ -34,7 +34,7 @@
           "uom"
         ],
         "properties": {
-          "value": {
+          "measurement": {
             "type": "number"
           },
           "uom": {
@@ -65,6 +65,18 @@
         "maximum": 10,
         "default": 5,
         "exclusiveMinimum": true
+      }
+    },
+    "arrayInput": {
+      "title": "Array Input Example",
+      "description": "This is an example of a single process input that is an array of values.  In this case, the input array would be interpreted as a single value and not as individual inputs.",
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 10,
+        "items": {
+          "type": "integer"
+        }
       }
     },
     "complexObjectInput": {
@@ -100,22 +112,19 @@
     "geometryInput": {
       "title": "Geometry input",
       "description": "This is an example of a geometry input.  In this case the geometry can be expressed as a GML of GeoJSON geometry.",
+      "minOccurs": 2,
+      "maxOccurs": 5,
       "schema": {
-        "type": "array",
-        "minItems": 2,
-        "maxItems": 5,
-        "items": {
-          "oneOf": [
-            {
-              "type": "string",
-              "contentMediaType": "application/gml+xml; version=3.2",
-              "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
-            },
-            {
-              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
-            }
-          ]
-        }
+        "oneOf": [
+          {
+            "type": "string",
+            "contentMediaType": "application/gml+xml; version=3.2",
+            "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+          },
+          {
+            "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+          }
+        ]
       }
     },
     "boundingBoxInput": {
@@ -125,19 +134,21 @@
         "$ref": "../../openapi/schemas/bbox.yaml"
       }
     },
-    "imageInput": {
-      "title": "Inline Image Value Input",
-      "description": "This is an example of an image input.  The oneOf array is used to indicate the acceptable image content types; GeoTIFF and JPEG 2000 in this case.  The image can be included inline as a base64-encoded string or referenced using a link as per the inlineOrRef.yaml schema.",
+    "imagesInput": {
+      "title": "Inline Images Value Input",
+      "description": "This is an example of an image input.  In this case, the input is an array of up to 150 images that might, for example, be a set of tiles.  The oneOf[] conditional is used to indicate the acceptable image content types; GeoTIFF and JPEG 2000 in this case.  Each input image in the input array can be included inline in the execute request as a base64-encoded string or referenced using the link.yaml schema.  The use of a base64-encoded string is implied by the specification and does not need to be specified in the definition of the input.",
+      "minOccurs": 1,
+      "maxOccurs": 150,
       "schema": {
         "oneOf": [
           {
             "type": "string",
-            "contentEncoding": "base64",
+            "contentEncoding": "binary",
             "contentMediaType": "application/tiff; application=geotiff"
           },
           {
             "type": "string",
-            "contentEncoding": "base64",
+            "contentEncoding": "binary",
             "contentMediaType": "application/jp2"
           }
         ]
@@ -184,7 +195,7 @@
           "uom"
         ],
         "properties": {
-          "value": {
+          "measurement": {
             "type": "number"
           },
           "uom": {
@@ -211,6 +222,16 @@
         "maximum": 10,
         "default": 5,
         "exclusiveMinimum": true
+      }
+    },
+    "arrayOutput": {
+      "schema": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 10,
+        "items": {
+          "type": "integer"
+        }
       }
     },
     "complexObjectOutput": {
@@ -243,21 +264,16 @@
     },
     "geometryOutput": {
       "schema": {
-        "type": "array",
-        "minItems": 2,
-        "maxItems": 5,
-        "items": {
-          "oneOf": [
-            {
-              "type": "string",
-              "contentMediaType": "application/gml+xml",
-              "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
-            },
-            {
-              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
-            }
-          ]
-        }
+        "oneOf": [
+          {
+            "type": "string",
+            "contentMediaType": "application/gml+xml",
+            "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+          },
+          {
+            "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+          }
+        ]
       }
     },
     "boundingBoxOutput": {
@@ -265,17 +281,17 @@
         "$ref": "../../openapi/schemas/bbox.yaml"
       }
     },
-    "imageOutput": {
+    "imagesOutput": {
       "schema": {
         "oneOf": [
           {
             "type": "string",
-            "contentEncoding": "base64",
+            "contentEncoding": "binary",
             "contentMediaType": "application/tiff; application=geotiff"
           },
           {
             "type": "string",
-            "contentEncoding": "base64",
+            "contentEncoding": "binary",
             "contentMediaType": "application/jp2"
           }
         ]

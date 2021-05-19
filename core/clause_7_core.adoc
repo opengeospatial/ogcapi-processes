@@ -324,7 +324,19 @@ include::openapi/schemas/inlineOrRefData.yaml[]
 include::openapi/schemas/qualifiedValue.yaml[]
 ----
 
+[NOTE]
+=====
+In the following requirement the term `input value` is used to mean a single input value or a single value item in an array of input values (not to be confused with an array that is itself an input value).
+=====
+
 include::requirements/core/REQ_job-creation-input-inline-ref.adoc[]
+
+.The following is an example of an execute request
+[source, json]
+----
+include::examples/json/Execute.json[]
+----
+
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/output.yaml[The following is the schema for a process output (output.yaml)]
 [source,YAML]
@@ -335,12 +347,6 @@ include::openapi/schemas/output.yaml[]
 A process can be either synchronous or asynchronous. 
 
 include::requirements/core/REQ_job-creation-mode.adoc[]
-
-.The following is an example of an execute request
-[source, json]
-----
-include::examples/json/Execute.json[]
-----
 
 ==== Response
 
