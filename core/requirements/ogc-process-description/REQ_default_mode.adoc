@@ -1,0 +1,7 @@
+[[req_ogc-process-description_default-mode]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/ogc-process-description/default-mode +
+
+The first execution mode specified in the array of job control options in the process description SHALL be the default execution mode.
+|===

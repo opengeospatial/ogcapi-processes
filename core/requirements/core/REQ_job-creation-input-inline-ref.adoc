@@ -5,7 +5,7 @@
 
 ^|A |In an execute request, an input value SHALL be specified inline or by reference.
 ^|B |If an input is specified in-line, then its value shall conform to the schema specified in the <<sc_process_description,process description>>.
-^|C |If an input is specified in-line and is of mixed-type then its value SHALL conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedValue.yaml[qualifiedValue.yaml] schema.
+^|C |If an input is specified in-line and is an object or of mixed-type then its value SHALL conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedValue.yaml[qualifiedValue.yaml] schema.
 ^|D |If an input value is specified by reference, then its value shall be referenced using a link that conforms to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/link.yaml[link.yaml] schema.
 ^|E |If an input value is specified by reference, then its type(s) SHALL be the same as defined in the process description.
 |===
