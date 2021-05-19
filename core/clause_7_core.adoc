@@ -420,17 +420,17 @@ include::requirements/core/REQ_job-result-op.adoc[]
 
 include::requirements/core/REQ_job-result-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml[The following is the schema for the result of a job]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[The following is the schema for the result of a job]
 [source,YAML]
 ----
-include::openapi/schemas/result.yaml[]
+include::openapi/schemas/results.yaml[]
 ----
 The schema defines a map using the respective id of the output as key. The value of the output can be returned as inline value or as reference. 
 
 .The following is an example of HTTP GET request for retrieving the result a job encoded as JSON. 
 [source]
 ----
-GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result HTTP/1.1
+GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/results HTTP/1.1
 Host: processing.example.org
 ----
 
