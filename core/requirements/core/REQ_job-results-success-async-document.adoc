@@ -1,0 +1,6 @@
+[[req_core_job-result-sync-document]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-result-sync-document +
+The server SHALL response as per requirement <<req_core_job-creation-sync-document,req/core/job-creaation-sync-document>>.
+|===

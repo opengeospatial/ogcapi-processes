@@ -1,0 +1,7 @@
+[[req_core_default-response]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/default-response +
+^|A |If a single output is requested and the value of the `mode` parameter is set to `sync` and the value of the `transmissionMode` parameter is set to `value` then the default value of the `response` parameter SHALL be `raw`.
+^|B |Otherwise, the default value for the `response` parameter SHALL be `document`.
+|===

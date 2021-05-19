@@ -1,0 +1,7 @@
+[[req_core_job-creation-input-inline-mixed]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-input-mixed-type +
+^|A |If a process input is specified in-line in an execute request and its value may be one of multiple input types (denoted by the use of `oneOf[]` in the input's schema), then the input value SHALL be encoded as a qualified value (https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedValue.yaml[qualifiedValue.yaml]).
+^|B |The `format` parameter of the qualified value (https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedValue.yaml[qualifiedValue.yaml]) SHALL be used to indicate the specific input type selected from the list of type choices defined by the input's schema from the <<sc_process_description,process description>>.
+|===

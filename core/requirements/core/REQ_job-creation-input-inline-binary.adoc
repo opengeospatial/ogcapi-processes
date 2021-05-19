@@ -1,0 +1,9 @@
+[req_core_job-creation-input-binary]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-input-binary +
+
+If a process input is defined to be a binary value and its value is specified in-line in an execute request, then it SHALL be encoded as a base64-encoding string.
+|===
+
+
