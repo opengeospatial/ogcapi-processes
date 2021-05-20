@@ -6,5 +6,5 @@
 . The number of outputs requested is 1 or more.
 ^|A |The server SHALL respond with an HTTP status code of 200.
 ^|B |The media type of the response SHALL be `application/json`
-^|C |The content of response SHALL conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml[result.yaml] schema.
+^|C |The content of response SHALL conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] schema.
 |===

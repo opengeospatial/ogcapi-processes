@@ -399,7 +399,7 @@ The following table maps the possible responses based on the combinations of the
 |* ^.^|200 |multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
 .2+^.^|ref |1 .2+^.^|204 .2+.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
 |*
-.4+^.^|document .2+^.^|value |1 .4+^.^|200 .4+.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml[result.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
+.4+^.^|document .2+^.^|value |1 .4+^.^|200 .4+.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
 |*
 .2+^.^|ref |1
 |*
@@ -413,10 +413,10 @@ The following table maps the possible responses based on the combinations of the
 |*
 |===
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml[The following is the schema (result.yaml) for a processing result presented as a document.]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[The following is the schema (results.yaml) for a processing results presented as a document.]
 [source,yaml]
 ----
-include::openapi/schemas/result.yaml[]
+include::openapi/schemas/results.yaml[]
 ----
 
 This schema defines a map using the respective output identifier as the key. The value of an output can be returned as an in-line value or by reference. 
@@ -463,6 +463,12 @@ include::requirements/core/REQ_job-success.adoc[]
 include::openapi/schemas/statusInfo.yaml[]
 ----
 
+The job status information includes several optional date-time fields that represent milestones in the lifecycle of a job.   The following are recommended for servers that decide to populate some or all of these date-time fields:
+
+include::recommendations/core/REC_job-status.adoc[]
+
+NOTE: Once a job has finished execution and is no longer consuming compute resources, the duration of processing can be computed as `finished-started`.  The `updated` field, however, may still be revised as the system continues processing outputs, storing results, releasing compute resources, etc.
+
 .The following is an example of HTTP GET request for retrieving status information about a job encoded as JSON.
 [source]
 ----
@@ -491,7 +497,7 @@ The following section describes the requirements to retrieve the results of a jo
 
 ==== Operation
 
-include::requirements/core/REQ_job-result-op.adoc[]
+include::requirements/core/REQ_job-results-op.adoc[]
 
 ==== Response
 
@@ -504,8 +510,8 @@ The manner in which a server responds when retrieving job results depends on the
 
 The following table maps the possible responses based on the combinations of these execute parameters.
 
-[#table_core_getresult_responses,reftext='{table-caption} {counter:table-num}']
-.Table mapping get result reponses based on the input parameter values used on the original execute request.
+[#table_core_getresults_responses,reftext='{table-caption} {counter:table-num}']
+.Table mapping get results reponses based on the input parameter values used on the original execute request.
 [%autowidth.strech,,options="header"]
 |===
 |*mode* |*response* |*tx mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
@@ -521,7 +527,7 @@ The following table maps the possible responses based on the combinations of the
 |* ^.^|200 |multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
 .2+^.^|ref |1 .2+^.^|204 .2+.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
 |*
-.4+^.^|document .2+^.^|value |1 .4+^.^|200 .4+.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml[result.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
+.4+^.^|document .2+^.^|value |1 .4+^.^|200 .4+.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
 |*
 .2+^.^|ref |1
 |*
@@ -551,7 +557,7 @@ include::requirements/core/REQ_job-results-success-async-document.adoc[]
 .The following is an example of HTTP GET request for retrieving the result a job encoded as JSON.
 [source]
 ----
-GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/result HTTP/1.1
+GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/results HTTP/1.1
 Host: processing.example.org
 ----
 
@@ -565,8 +571,8 @@ include::examples/json/Result.json[]
 
 See <<http_status_codes>> for general guidance.
 
-include::requirements/core/REQ_job-result-exception-no-such-job.adoc[]
+include::requirements/core/REQ_job-results-exception-no-such-job.adoc[]
 
-include::requirements/core/REQ_job-result-exception-result-not-ready.adoc[]
+include::requirements/core/REQ_job-results-exception-results-not-ready.adoc[]
 
-include::requirements/core/REQ_job-result-failed.adoc[]
+include::requirements/core/REQ_job-results-failed.adoc[]

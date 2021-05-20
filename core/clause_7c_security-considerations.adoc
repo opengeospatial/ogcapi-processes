@@ -28,7 +28,7 @@ Requirements class "Core":
 * Process list
 * Process description
 * Job status info
-* Job result
+* Job results
 
 Requirements class "Job list"
 

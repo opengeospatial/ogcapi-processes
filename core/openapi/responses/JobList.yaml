@@ -2,4 +2,4 @@ description: A list of jobs for this process.
 content:
   application/json:
     schema:
-      $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobList.yaml"
+      $ref: "../schemas/jobList.yaml"

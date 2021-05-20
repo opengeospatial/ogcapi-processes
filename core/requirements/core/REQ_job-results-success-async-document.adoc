@@ -1,6 +1,6 @@
-[[req_core_job-result-async-document]]
+[[req_core_job-results-async-document]]
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/req/core/job-result-async-document +
+|*Requirement {counter:req-id}* |/req/core/job-results-async-document +
 The server SHALL response as per requirement <<req_core_job-creation-async-document,req/core/job-creation-async-document>>.
 |===

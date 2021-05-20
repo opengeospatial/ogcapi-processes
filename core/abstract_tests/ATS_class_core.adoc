@@ -87,7 +87,7 @@ include::core/ATS_job-exception-no-such-job.adoc[]
 
 ===== Job results /jobs/{jobID}/results
 
-include::core/ATS_job-result-op.adoc[]
+include::core/ATS_job-results-op.adoc[]
 
 include::core/ATS_job-results-success-sync.adoc[]
 
@@ -99,9 +99,9 @@ include::core/ATS_job-results-success-async-raw-ref.adoc[]
 
 include::core/ATS_job-results-success-async-document.adoc[]
 
-include::core/ATS_job-result-exception-no-such-job.adoc[]
+include::core/ATS_job-results-exception-no-such-job.adoc[]
 
-include::core/ATS_job-result-exception-result-not-ready.adoc[]
+include::core/ATS_job-results-exception-results-not-ready.adoc[]
 
-include::core/ATS_job-result-failed.adoc[]
+include::core/ATS_job-results-failed.adoc[]
 

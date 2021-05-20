@@ -3,6 +3,6 @@ oneOf:
   - type: number
   - type: boolean
   - type: array
-  - type: object
+  - $ref: "bbox.yaml"
   - $ref: "link.yaml"
   - $ref: "qualifiedValue.yaml"
