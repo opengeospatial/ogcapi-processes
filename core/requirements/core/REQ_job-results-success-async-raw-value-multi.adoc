@@ -1,6 +1,6 @@
-[[req_core_job-results-sync-raw-value-multi]]
+[[req_core_job-results-async-raw-value-multi]]
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/req/core/job-results-sync-raw-value-multi +
-The server SHALL respond as per requirement <<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>.
+|*Requirement {counter:req-id}* |/req/core/job-results-async-raw-value-multi +
+The server SHALL respond as per requirement <<req_core_job-creation-async-raw-value-multi,/req/core/job-creation-async-raw-value-multi>>.
 |===

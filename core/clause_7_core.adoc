@@ -373,12 +373,6 @@ The value of the `mode` parameter is used to specify the execution mode of a pro
 
 include::recommendations/core/REC_job-creation-mode-auto.adoc[]
 
-Process outputs may be transmitted as a document containing one or more output values or an output may be transmitted in its native or raw format.
-
-include::requirements/core/REQ_job-creation-output-raw.adoc[]
-
-include::requirements/core/REQ_default_response.adoc[]
-
 .The following is an example of an execute request.
 [source, json]
 ----

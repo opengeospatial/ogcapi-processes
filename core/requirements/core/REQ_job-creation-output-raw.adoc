@@ -1,7 +1,0 @@
-[[req_core_job-creation-output-raw]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/job-creation-output-raw +
-
-If the value of the `response` parameter in an execute request is `raw`, then only one output SHALL be requested in the request.
-|===
