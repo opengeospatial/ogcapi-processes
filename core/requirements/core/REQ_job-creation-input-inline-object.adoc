@@ -1,0 +1,7 @@
+[[req_core_job-creation-input-inline-object]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-input-inline-object +
+
+If the value of a process input is is specified in-line in an execute request and the input is defined as an object in the <<sc_process_description,process description>>, then the input value SHALL be encoded as a qualified value (https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedValue.yaml[qualifiedValue.yaml]).
+|===

@@ -1,0 +1,6 @@
+[[req_core_job-results-async-raw-ref]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-results-async-raw-ref +
+The server SHALL response as per requirement <<req_core_job-creation-async-raw-ref,/req/core/job-creation-async-raw-ref>>.
+|===

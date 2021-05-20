@@ -1,0 +1,7 @@
+[[req_core_job-creation-input-array]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-input-array +
+^|A |If a process input is defined to have a maximum cardinality of greater than one (maxOccurs>1), then values for that process input SHALL be encoded as an array.
+^|B |This SHALL be true even if the input consists of a single value.
+|===

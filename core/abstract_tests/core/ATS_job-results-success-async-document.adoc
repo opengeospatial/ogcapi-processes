@@ -1,0 +1,11 @@
+[[ats_core_job-results-async-document]]
+[width="90%",cols="2,6a"]
+|===
+|*Abstract Test {counter:ats-id}* |*/conf/core/job-results-async-document*
+^|Test Purpose |Validate that the server responds as expected when the execution mode is `async` and the response type is `document`.
+^|Test Method |. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
+. Inspect the description of each process and identify the subset of processes that support the `async-execute` job control option.
+. For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that the execution mode is set to `async` (i.e. `"mode": "async"`) and the requested response type is `document` (i.e. `"response": "document"`) according to requirement <<req_core_job-creation-async-document,/req/core/job-creation-async-document>>.
+. Periodically retrieve the status of the asynchronously execute job as per test <<ats_core_job-op,/conf/core/job-op>>.
+. When the job status is `completed`, get the results as per test <<ats_core_job-result-op,/conf/core/job-result>> and verify that they conform to the test <<ats_core_job-results-async-document,/conf/core/job-results-async-document>>.
+|===
