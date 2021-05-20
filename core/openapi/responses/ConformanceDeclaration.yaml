@@ -8,7 +8,7 @@ description: |-
 content:
   application/json:
     schema:
-      $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/confClasses.yaml"
+      $ref: "../schemas/confClasses.yaml"
     example:
       conformsTo:
         - http://www.opengis.net/spec/ogcapi-processes/1.0/conf/core

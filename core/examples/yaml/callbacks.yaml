@@ -6,7 +6,7 @@ callbacks:
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/result'
+                  $ref: '#/components/schemas/results'
           responses:
             '202':
               description: Results received successfully

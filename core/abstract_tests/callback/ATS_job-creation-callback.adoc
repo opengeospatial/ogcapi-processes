@@ -7,5 +7,5 @@
 ^|Test Method |. Configure a URL endpoint to accept message body from the server.
 . Create an asynchronous execute request that includes the optional `subscriber` key (see https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
 . Execute the asynchronous job using test <<ats_core_job-creation-op,/conf/core/job-creation-request>>.
-. Validate the job result is received by the specified callback URL.
+. Validate the job results are received by the specified callback URL.
 |===

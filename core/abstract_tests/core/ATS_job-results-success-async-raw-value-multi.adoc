@@ -7,5 +7,5 @@
 . Inspect the description of each process and identify the subset of processes that generate more than one output and that support the `async-execute` job control option and the `value` output transmission.
 . For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that more that one output is requested and the execution mode is set to `async` (i.e. `"mode": "async"`), the requested response type is `raw` (i.e. `"response": "raw"`) and the output transmission is set to `value` (i.e. `"outputTransmission": "value"`) according to requirement <<req_core_job-creation-async-raw-value-multi,/req/core/job-creation-async-raw-value-multi>>.
 . Periodically retrieve the status of the asynchronously execute job as per test <<ats_core_job-op,/conf/core/job-op>>.
-. When the job status is `completed`, get the results as per test <<ats_core_job-result-op,/conf/core/job-result>> and verify that they conform to the test <<ats_core_job-creation-async-raw-value-multi,/conf/core/job-creation-async-raw-value-multi>>.
+. When the job status is `completed`, get the results as per test <<ats_core_job-results-op,/conf/core/job-results>> and verify that they conform to the test <<ats_core_job-creation-async-raw-value-multi,/conf/core/job-creation-async-raw-value-multi>>.
 |===
