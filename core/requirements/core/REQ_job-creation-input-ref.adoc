@@ -1,0 +1,7 @@
+[req_core_job-creation-input-ref]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-input-inline-ref +
+^|A |If the value of a process input is specified by reference in an execute request, then it SHALL be referenced using a link (https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/link.yaml[link.yaml]).
+^|B |The type of the remote value SHALL match the type specified by the definition of the process input in the  <<sc_process_description,process description>>.
+|===

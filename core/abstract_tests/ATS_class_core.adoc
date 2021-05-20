@@ -39,7 +39,7 @@ include::core/ATS_process-list-success.adoc[]
 
 ===== Process description /processes/{processID}
 
-include::core/ATS_process.adoc[]
+include::core/ATS_process-op.adoc[]
 
 include::core/ATS_process-success.adoc[]
 
@@ -55,15 +55,27 @@ include::core/ATS_job-creation-op.adoc[]
 
 include::core/ATS_job-creation-request.adoc[]
 
-include::core/ATS_job-creation-mode.adoc[]
+include::core/ATS_job-creation-input-inline.adoc[]
+
+include::core/ATS_job-creation-input-ref.adoc[]
+
+include::core/ATS_job-creation-input-array.adoc[]
+
+include::core/ATS_job-creation-input-inline-object.adoc[]
+
+include::core/ATS_job-creation-input-inline-mixed.adoc[]
+
+include::core/ATS_job-creation-input-inline-binary.adoc[]
+
+include::core/ATS_job-creation-success-sync-raw-value-one.adoc[]
+
+include::core/ATS_job-creation-success-sync-raw-value-multi.adoc[]
+
+include::core/ATS_job-creation-success-sync-raw-ref.adoc[]
+
+include::core/ATS_job-creation-success-sync-document.adoc[]
 
 include::core/ATS_job-creation-success-async.adoc[]
-
-include::core/ATS_job-creation-success-async-header.adoc[]
-
-include::core/ATS_job-creation-success-sync.adoc[]
-
-include::core/ATS_job-creation-success-sync-raw.adoc[]
 
 ===== Job status /jobs/{jobID}
 
@@ -77,10 +89,19 @@ include::core/ATS_job-exception-no-such-job.adoc[]
 
 include::core/ATS_job-result-op.adoc[]
 
-include::core/ATS_job-result-success.adoc[]
+include::core/ATS_job-results-success-sync.adoc[]
+
+include::core/ATS_job-results-success-async-raw-value-one.adoc[]
+
+include::core/ATS_job-results-success-async-raw-value-multi.adoc[]
+
+include::core/ATS_job-results-success-async-raw-ref.adoc[]
+
+include::core/ATS_job-results-success-async-document.adoc[]
 
 include::core/ATS_job-result-exception-no-such-job.adoc[]
 
 include::core/ATS_job-result-exception-result-not-ready.adoc[]
 
 include::core/ATS_job-result-failed.adoc[]
+
