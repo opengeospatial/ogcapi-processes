@@ -416,7 +416,7 @@ The following table maps the possible responses based on the combinations of the
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/result.yaml[The following is the schema (result.yaml) for a processing result presented as a document.]
 [source,yaml]
 ----
-include::openapi/schemas/result.yaml[]
+include::openapi/schemas/results.yaml[]
 ----
 
 This schema defines a map using the respective output identifier as the key. The value of an output can be returned as an in-line value or by reference. 
