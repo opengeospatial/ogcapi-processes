@@ -40,10 +40,10 @@ The schema imports the elements from the <<schema-processSummary, process summar
 
 include::requirements/ogc-process-description/REQ_inputs-def.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/dataDescription.yaml[Schema for a process input or output (dataDescription.yaml)]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[Schema for a process input or output (inputDescription.yaml)]
 [source,YAML]
 ----
-include::openapi/schemas/dataDescription.yaml[]
+include::openapi/schemas/inputDescription.yaml[]
 ----
 
 include::requirements/ogc-process-description/REQ_input-def.adoc[]
@@ -85,11 +85,21 @@ The following JSON Schema fragment illustrates how to define an input of mixed t
    }
 ----
 
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[Schema for a process input or output (outputDescription.yaml)]
+[source,YAML]
+----
+include::openapi/schemas/outputDescription.yaml[]
+----
+
 include::requirements/ogc-process-description/REQ_outputs-def.adoc[]
 
 include::requirements/ogc-process-description/REQ_output-def.adoc[]
 
 include::requirements/ogc-process-description/REQ_output-mixed-type.adoc[]
+
+The execution mode for each process is specified using the `jobControlOptions` key in the <<schema-processSummary, process summary>>.  The following requirement indicates how to specify the default execution mode.
+
+include::requirements/ogc-process-description/REQ_default_mode.adoc[]
 
 .Retrieving a process description.
 
