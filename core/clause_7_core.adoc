@@ -220,7 +220,7 @@ include::recommendations/core/PER_additional-status-codes.adoc[]
 
 When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be prefered. [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807) addresses this need by providing "Problem Details" response schemas for both JSON and XML.
 
-include::recommendations/core/REC-permission-details.adoc[]
+include::recommendations/core/REC_problem-details.adoc[]
 
 === Support for cross-origin requests
 
