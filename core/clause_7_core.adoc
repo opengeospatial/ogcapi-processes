@@ -350,6 +350,8 @@ include::openapi/schemas/format.yaml[]
 
 Process inputs may be specified in-line in an execute request or specified by reference.
 
+include::requirements/core/REQ_job-creation-inputs.adoc[]
+
 include::requirements/core/REQ_job-creation-input-inline.adoc[]
 
 include::requirements/core/REQ_job-creation-input-ref.adoc[]

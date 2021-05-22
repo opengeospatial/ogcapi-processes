@@ -55,6 +55,8 @@ include::core/ATS_job-creation-op.adoc[]
 
 include::core/ATS_job-creation-request.adoc[]
 
+include::core/ATS_job-creation-inputs.adoc[]
+
 include::core/ATS_job-creation-input-inline.adoc[]
 
 include::core/ATS_job-creation-input-ref.adoc[]
