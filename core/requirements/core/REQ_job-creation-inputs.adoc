@@ -1,0 +1,8 @@
+[[req_core_job-creation-inputs]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-inputs +
+
+^|A |The server SHALL support process input values specified in-line in an execute request (i.e. by value).
+^|B |The server SHALL support process input values specified by reference.
+|===
