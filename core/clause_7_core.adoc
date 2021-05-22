@@ -407,15 +407,10 @@ The following table maps the possible responses based on the combinations of the
 |*
 .2+^.^|ref |1
 |*
-.8+^.^|async .4+^.^|raw .2+^.^|value |1 .8+^.^|201 .8+.^|application/json  .8+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] .8+.^|<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
-|*
-.2+^.^|ref |1
-|*
-.4+^.^|document .2+^.^|value |1
-|*
-.2+^.^|ref | 1
-|*
+^.^|async ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|201 .^|application/json .^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] .^|<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
 |===
+
+NOTE: The value _any_ in a cell means _"for any valid value of the parameter represented by that cell"_.
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[The following is the schema (results.yaml) for a processing results presented as a document.]
 [source,yaml]
@@ -436,6 +431,16 @@ include::requirements/core/REQ_job-creation-success-sync-raw-ref.adoc[]
 include::requirements/core/REQ_job-creation-success-sync-document.adoc[]
 
 include::recommendations/core/REC_core_job-creation-sync-document-ref.adoc[]
+
+This specification does not mandate that servers create a job as a result of executing a process sychronously.  However the following permission is given:
+
+include::recommendations/core/PER_job-creation-sync-job.adoc[]
+
+For servers that implement this permission and do create a job as a result of synchronous execution of a process, the following requirement applies:
+
+include::requirements/core/REQ_job-results-success-sync.adoc[]
+
+The job reference in the header can then be used to <<async-fetch,re-fetch the results>> of the original synchronous execution.
 
 In the case of asynchronous execution, the following requirement applies:
 
@@ -519,15 +524,9 @@ The following table maps the possible responses based on the combinations of the
 [%autowidth.strech,,options="header"]
 |===
 |*mode* |*response* |*tx mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
-.8+^.^|sync .4+^.^|raw .2+^.^|value |1 .8+^.^|no 4.8+^.^|<<per_core_job-creation-sync-job,[if server creates job on sync execute, as per async]>>
-|*
-.2+^.^|ref |1
-|*
-.4+^.^|document .2+^.^|value |1
-|*
-.2+^.^|ref | 1
-|*
-.8+^.^|async .4+^.^|raw .2+^.^|value |1 .8+^.^|yes ^.^|200 |[as per output definition] |[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
+^.^|sync ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|no 4+^.^|[if the server creates a job on synchronous execute, +
+job results may be re-fetched at any time <<async-fetch,as per async>>]
+.8+^.^|[[async-fetch]]async .4+^.^|raw .2+^.^|value |1 .8+^.^|yes ^.^|200 |[as per output definition] |[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
 |* ^.^|200 |multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
 .2+^.^|ref |1 .2+^.^|204 .2+.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
 |*
@@ -537,16 +536,7 @@ The following table maps the possible responses based on the combinations of the
 |*
 |===
 
-This specification does not mandate that servers create a job as a result of executing a process sychronously.  However the following permission is given:
-
-include::recommendations/core/PER_job-creation-sync-job.adoc[]
-
-For servers that create a job as a result of synchronously execution a process, 
-the following requirement applies:
-
-include::requirements/core/REQ_job-results-success-sync.adoc[]
-
-The referenced job can then be used to re-fetch the results of the original synchronous execution.
+NOTE: The value _any_ in a cell means _"for any valid value of the parameter represented by that cell"_.
 
 The following requirements apply when retrieving the results of a job that was created by executing a process synchronously OR was created by execution a process synchronously on a server that creates a job even on synchronous execution:
 
