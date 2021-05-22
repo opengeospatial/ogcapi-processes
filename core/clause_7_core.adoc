@@ -218,6 +218,10 @@ More specific guidance is provided for each resource, where applicable.
 
 include::recommendations/core/PER_additional-status-codes.adoc[]
 
+When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be prefered. [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807) addresses this need by providing "Problem Details" response schemas for both JSON and XML.
+
+include::recommendations/core/REC-permission-details.adoc[]
+
 === Support for cross-origin requests
 
 Access to content from a HTML page is by default prohibited for security reasons if the content is located on another host than the webpage ("same-origin policy"). Cross-origin resource sharing is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. A typical example is a web-application accessing processes and data from multiple servers.
@@ -441,7 +445,7 @@ include::requirements/core/REQ_job-creation-success-async.adoc[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process,/req/core/process-exception/no-such-process>>).
+If the process with the specified identifier does not exist on the server, see requirement <<req_core_no-such-process,/req/core/process-exception/no-such-process>>.
 
 [[sc_retrieve_status_info]]
 === Retrieve status information about a job
@@ -486,7 +490,7 @@ include::examples/json/StatusInfo.json[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process,/req/core/process-exception/no-such-process>>).
+If the process with the specified identifier does not exist on the server, see requirement <<req_core_no-such-process,/req/core/process-exception/no-such-process>>.
 
 include::requirements/core/REQ_job-exception-no-such-job.adoc[]
 
