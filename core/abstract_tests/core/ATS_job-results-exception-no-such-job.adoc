@@ -6,7 +6,7 @@
 ^|Requirement |<<req_core_job-results-exception-no-such-job,/req/core/job-results-exception-no-such-job>>
 ^|Test Method |. Issue an HTTP GET request to the URL '/jobs/{jobID}/results' using an invalid {jobID}.
 . Validate that the document was returned with a 404.
-. Validate that the document contains the exception code "NoSuchJob". 
+. Validate that the document contains the exception type "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job". 
 . Validate the document for all supported media types using the resources and tests identified in <<job-results-exception-no-such-job>>
 |===
 

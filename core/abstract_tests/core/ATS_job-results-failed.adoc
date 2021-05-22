@@ -8,7 +8,7 @@
 . Ensure that the failed job will not result in an HTTP error code of 404.
 . Issue an HTTP GET request to the URL '/jobs/{jobID}/results'.
 . Validate that the document was returned with a HTTP error code (4XX or 5XX).
-. Validate that the document contains an exception code that corresponds to the reason the job failed (e.g. InvalidParameterValue for invalid input data).
+. Validate that the document contains an exception `type` that corresponds to the reason the job failed (e.g. InvalidParameterValue for invalid input data).
 . Validate the document for all supported media types using the resources and tests identified in <<job-results-failed-schema>>
 |===
 
