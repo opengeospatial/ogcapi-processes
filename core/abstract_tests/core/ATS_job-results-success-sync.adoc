@@ -7,6 +7,6 @@
 . Inspect the description of each process and identify the subset of processes that support the `sync-execute` job control option.
 . For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that the execution mode is set to `sync` (i.e. `"mode": "sync"`) according to requirement <<req_core_job-creation-sync,/req/core/job-creation-sync>>.
 . Inspect the headers of the response and see if a `Link` header is included with `rel=monitor`.
-. If the link exists, get the job status as per test <<ats_core_job-op,/conf/core/job-op>> and ensure that the job status is set to `completed`.
+. If the link exists, get the job status as per test <<ats_core_job-op,/conf/core/job-op>> and ensure that the job status is set to `sucessful`.
 . Get the results as per test <<ats_core_job-results-op,/conf/core/job-results>> and verify that they conform to the test <<ats_core_job-results-sync,/conf/core/job-results-sync>>.
 |===
