@@ -106,4 +106,3 @@ include::core/ATS_job-results-exception-no-such-job.adoc[]
 include::core/ATS_job-results-exception-results-not-ready.adoc[]
 
 include::core/ATS_job-results-failed.adoc[]
-
