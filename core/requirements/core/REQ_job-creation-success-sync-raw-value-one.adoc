@@ -5,6 +5,6 @@
 ^|Conditions |. `mode=sync`, `response=raw`, `transmissionMode=value`
 . The number of outputs requested is 1.
 ^|A |The server SHALL respond with an HTTP status code of 200.
-^|B |The media type of the response SHALL be as specified by the output defintion from the <<sc_process_description,process description>>.
+^|B |The media type of the response SHALL be as specified by the output definition from the <<sc_process_description,process description>>.
 ^|C |The content of response SHALL be the requested process output in the requested output format.
 |===

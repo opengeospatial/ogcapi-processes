@@ -81,6 +81,9 @@ components:
           enum:
             - "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
             - "http://www.opengis.net/def/crs/OGC/0/CRS84h"
+    binaryValue:
+      type: string
+      contentEncoding: base64
     confClasses:
       type: object
       required:
@@ -173,13 +176,11 @@ components:
             - type: object
     inlineOrRefData:
       oneOf:
-        - type: string
-        - type: number
-        - type: boolean
-        - type: array
+        - $ref: "#/components/schemas/simpleValue"
+        - $ref: "#/components/schemas/binaryValue"
+        - $ref: "#/components/schemas/qualifiedValue"
         - $ref: "#/components/schemas/bbox"
         - $ref: "#/components/schemas/link"
-        - $ref: "#/components/schemas/qualifiedValue"
     inputDescription:
       allOf:
         - $ref: "#/components/schemas/descriptionType"
@@ -199,6 +200,10 @@ components:
                     - "unbounded"
             schema:
               $ref: "#/components/schemas/schema"
+    inputValue:
+      oneOf:
+        - $ref: "#/components/schemas/simpleValue"
+        - type: object
     jobControlOptions:
       type: string
       enum:
@@ -307,18 +312,13 @@ components:
                   $ref: "#/components/schemas/outputDescription"
     qualifiedValue:
       allOf:
-        - $ref: "#/components/schemas/format"
+        - $ref: "format.yaml"
         - type: object
           required:
             - value
           properties:
             value:
-              oneOf:
-                - type: string
-                - type: number
-                - type: boolean
-                - type: array
-                - type: object
+              $ref: "inputValue.yaml"
     reference:
       type: object
       required:
@@ -435,6 +435,12 @@ components:
             contentSchema:
               type: string
           additionalProperties: false
+    simpleValue:
+      oneOf:
+        - type: string
+        - type: number
+        - type: boolean
+        - type: array
     statusInfo:
       type: object
       required:
