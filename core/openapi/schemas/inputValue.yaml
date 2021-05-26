@@ -1,3 +1,4 @@
 oneOf:
   - $ref: "inputValueNoObject.yaml"
+  - $ref: "bbox.yaml"
   - type: object

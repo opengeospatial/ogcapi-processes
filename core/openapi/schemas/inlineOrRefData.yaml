@@ -2,5 +2,4 @@ oneOf:
   - $ref: "inputValueNoObject.yaml"
   - $ref: "qualifiedInputValue.yaml"
   - $ref: "binaryInputValue.yaml"
-  - $ref: "bbox.yaml"
   - $ref: "link.yaml"
