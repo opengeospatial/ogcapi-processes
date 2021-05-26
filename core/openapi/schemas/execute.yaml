@@ -1,7 +1,4 @@
 type: object
-required:
-  - outputs
-  - response
 properties:
   inputs:
     additionalProperties:

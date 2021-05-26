@@ -1,0 +1,11 @@
+[[ats_core_job-results-async-raw-value-multi]]
+[width="90%",cols="2,6a"]
+|===
+|*Abstract Test {counter:ats-id}* |*/conf/core/job-results-async-raw-value-multi*
+^|Test Purpose |Validate that the server responds as expected when requesting more than one output and the execution mode is `async`, the response type is `raw` and the output transmission is `value`.
+^|Test Method |. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
+. Inspect the description of each process and identify the subset of processes that generate more than one output and that support the `async-execute` job control option and the `value` output transmission.
+. For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that more that one output is requested and the execution mode is set to `async` (i.e. `"mode": "async"`), the requested response type is `raw` (i.e. `"response": "raw"`) and the output transmission is set to `value` (i.e. `"outputTransmission": "value"`) according to requirement <<req_core_job-creation-async-raw-value-multi,/req/core/job-creation-async-raw-value-multi>>.
+. Periodically retrieve the status of the asynchronously execute job as per test <<ats_core_job-op,/conf/core/job-op>>.
+. When the job status is `successful`, get the results as per test <<ats_core_job-results-op,/conf/core/job-results>> and verify that they conform to the test <<ats_core_job-creation-async-raw-value-multi,/conf/core/job-creation-async-raw-value-multi>>.
+|===

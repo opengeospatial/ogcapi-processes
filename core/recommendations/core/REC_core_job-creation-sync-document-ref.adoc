@@ -1,0 +1,9 @@
+[[rec_core_job-creation-sync-document-ref]]
+[width="90%",cols="2,6a"]
+|===
+|*Recommendation {counter:rec-id}* |/rec/core/job-creation-sync-document-ref +
+^|Conditions |. `mode=sync`, `response=document`, `transmissionMode=ref`
+. The number of outputs requested is 1 or more.
+. The requested output value is a simple scalar value.
+^|A |For a simple scalar values servers SHOULD consider supporting links to `text/plain` files that contain the output values.
+|===

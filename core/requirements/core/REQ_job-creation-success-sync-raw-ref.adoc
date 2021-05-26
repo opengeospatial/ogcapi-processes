@@ -1,0 +1,9 @@
+[[req_core_job-creation-sync-raw-ref]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-sync-raw-ref +
+^|Conditions |. `mode=sync`, `response=raw`, `transmissionMode=ref`
+. The number of outputs requested is 1 or more.
+^|A |The server SHALL respond with an HTTP status code of 204.
+^|B |The response SHALL include one for more https://datatracker.ietf.org/doc/html/rfc8288[`Link`] headers that reference each requested output.
+|===

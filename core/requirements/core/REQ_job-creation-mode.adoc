@@ -1,8 +1,0 @@
-[[req_core_job-creation-mode]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/job-creation-mode +
-^|A | To create a job asynchronously, the "mode" attribute of the execute request body SHALL be set to "async".
-^|B | To create a job synchronously, the "mode" attribute of the execute request body SHALL be set to "sync".
-^|C| To let the server decide the execution mode, the "mode" attribute of the execute request body SHALL be set to "auto".
-|===

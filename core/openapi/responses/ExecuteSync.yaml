@@ -1,18 +1,16 @@
-description: Result of a synchronous execution.
+description: Result of synchronous execution
 content:
   /*:
     schema:
       oneOf:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml"
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml"
+        - type: string
+        - type: number
+        - type: integer
         - type: object
+        - type: array
+        - type: boolean
+        - type: null
         - type: string
           format: binary
-          description: Single binary data output.
-        - type: string
-          format: byte
-          description: Single data output encoded in base64.
-        - type: string
-          description: Text-based single data output.
-        - type: number
-        - type: boolean
+        - $ref: "../schemas/results.yaml"
+          description: mode=sync,response=document,any txMode and no. outputs

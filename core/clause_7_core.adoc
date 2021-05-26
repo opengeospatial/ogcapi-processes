@@ -26,7 +26,7 @@ requirements classes implemented by the server.
 
 The list of processes contains a summary of each process the OGC API - Processes offers, including the link to a more detailed description of the process.
 
-The process description contains information about inputs and outputs and a link to the execution-endpoint for the process. 
+The <<sc_process_description,process description>> contains information about inputs and outputs and a link to the execution-endpoint for the process.
 
 A HTTP POST request to the execution-endpoint creates a new job. The inputs and outputs need to be passed in a JSON execute-request.
 
@@ -65,15 +65,22 @@ include::requirements/core/REQ_landingpage-op.adoc[]
 
 include::requirements/core/REQ_landingpage-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml[The following is the schema for the landing page]
-[source,YAML]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml[The following is the schema for the landing page (landingPage.yaml).]
+[source,yaml]
 ----
 include::openapi/schemas/landingPage.yaml[]
 ----
 
+[[link-schema]]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/link.yaml[The following is the schema for a link (link.yaml).]
+[source,yaml]
+----
+include::openapi/schemas/link.yaml[]
+----
+
 .Landing page response document
 =================
-[source,JSON]
+[source,json]
 ----
 include::examples/json/LandingPage.json[]
 ----
@@ -151,8 +158,8 @@ include::requirements/core/REQ_conformance-op.adoc[]
 
 include::requirements/core/REQ_conformance-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/schemas/req-classes.yaml[The following is the schema for the list of requirements classes]
-[source,YAML]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/schemas/req-classes.yaml[The following is the schema for the list of requirements classes.]
+[source,yaml]
 ----
 include::openapi/schemas/confClasses.yaml[]
 ----
@@ -162,7 +169,7 @@ include::openapi/schemas/confClasses.yaml[]
 This example response in JSON is for a server that supports OpenAPI 3.0 for
 the API definition and HTML and JSON as encodings.
 
-[source,JSON]
+[source,json]
 ----
 include::examples/json/ConfClasses.json[]
 ----
@@ -195,6 +202,7 @@ outside of the server.
 |Status code |Description
 |`200` |A successful request.
 |`201` |The request was successful and one or more new resources have being created.
+|`204` |The request was successful but did not generate any content.
 |`400` |The server cannot or will not process the request due to an apparent client error. For example, a query parameter had an incorrect value.
 |`401` |The request requires user authentication. The response includes a `WWW-Authenticate` header field containing a challenge applicable to the requested resource.
 |`403` |The server understood the request, but is refusing to fulfill it. While status code `401` indicates missing or bad authentication, status code `403` indicates that authentication is not the issue, but the client is not authorized to perform the requested operation on the resource.
@@ -210,6 +218,10 @@ outside of the server.
 More specific guidance is provided for each resource, where applicable.
 
 include::recommendations/core/PER_additional-status-codes.adoc[]
+
+When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be prefered. [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807) addresses this need by providing "Problem Details" response schemas for both JSON and XML.
+
+include::recommendations/core/REC_problem-details.adoc[]
 
 === Support for cross-origin requests
 
@@ -239,16 +251,22 @@ include::requirements/core/REQ_process-list-op.adoc[]
 
 include::requirements/core/REQ_process-list-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml[The following is the schema for the process list]
-[source,YAML]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml[The following is the schema for the process list.]
+[source,yaml]
 ----
 include::openapi/schemas/processList.yaml[]
 ----
 [[schema-processSummary]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processSummary.yaml[The following is the schema for the process summary]
-[source,YAML]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processSummary.yaml[The following is the schema for the process summary.]
+[source,yaml]
 ----
 include::openapi/schemas/processSummary.yaml[]
+----
+
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/transmissionMode.yaml[The following is the schema for the transmission mode.]
+[source,yaml]
+----
+include::openapi/schemas/transmissionMode.yaml[]
 ----
 
 .Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
@@ -294,9 +312,11 @@ See <<http_status_codes>> for general guidance.
 include::requirements/core/REQ_process-exception-no-such-process.adoc[]
 
 [[sc_create_job]]
-=== Create a new job
+=== Execute a process
 
-The following section describes the requirements to create a new job, i.e. execute a process.
+This section describes the requirements for executing a process.
+
+Depending on the description of the <<sc_process_description,process>> and the specific execution mode specified in an execute request, process execution may result in the creation of a <<sc_retrieve_job_results,job resource>>.
 
 ==== Operation
 
@@ -304,67 +324,530 @@ include::requirements/core/REQ_job-creation-op.adoc[]
 
 ==== Request body
 
+===== Content schema
+
 include::requirements/core/REQ_job-creation-request.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[The following is the schema for execute (execute.yaml)]
-[source,YAML]
+[[execute-request-body]]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[The following is the schema for execute (execute.yaml):]
+[source,yaml]
 ----
 include::openapi/schemas/execute.yaml[]
 ----
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inlineOrRefData.yaml[The following is the schema for a process input (inlineOrRefData.yaml)]
-[source,YAML]
+[[inline-or-ref-data]]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inlineOrRefData.yaml[The following in the schema for an in-line or referenced process input value (inlineOrRefData.yaml)]:
+[source,yaml]
 ----
 include::openapi/schemas/inlineOrRefData.yaml[]
 ----
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedValue.yaml[The following is the schema for a qualified input value (quailifiedValue.yaml)]
-[source,YAML]
+[[output-schema]]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/output.yaml[The following is the schema for a process output (output.yaml):]
+[source,yaml]
 ----
-include::openapi/schemas/qualifiedValue.yaml[]
+include::openapi/schemas/output.yaml[]
 ----
 
-[NOTE]
-=====
-In the following requirement the term `input value` is used to mean a single input value or a single value item in an array of input values (not to be confused with an array that is itself an input value).
-=====
+(see also: <<format-schema,format.yaml>>, <<tx-mode-schema,transmissionMode.yaml>>)
 
-include::requirements/core/REQ_job-creation-input-inline-ref.adoc[]
+[[sc_process_inputs]]
+===== Process inputs
 
-.The following is an example of an execute request
+*_Overview:_*
+
+Each process input is a name/value pair that appears in the `inputs` section of
+an execute request.
+
+The name of each input is its identifier as specified by the input's definition in the <<sc_process_description,process description>>.
+
+Process input values in an execute request can be specified in-line or by reference.
+
+include::requirements/core/REQ_job-creation-inputs.adoc[]
+
+As shown in https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inlineOrRefData.yaml[inlineOrRefData.yaml], a process input value that is specified in-line in an execute request can be:
+
+* a simple literal value,
+* an array,
+* a qualified value,
+* a binary value,
+* or a bounding box.
+
+[[simple-literals]]
+*_Simple literal values:_*
+
+A simple literal value can be a string, number, integer or Boolean.
+
+[[input-value-noobject-schema]]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputValueNoObject.yaml[The following is the schema for a simple literal value (inputValueNoObject.yaml):]
+[source,yaml]
+----
+include::openapi/schemas/inputValueNoObject.yaml[]
+----
+
+.Simple literal value examples.
+====
+A string literal:
+[source]
+----
+"stringInput": "String value"
+----
+
+A date string:
+[source]
+----
+"dateInput": "2021-05-24T20:40:13-05:00"
+----
+
+A number:
+[source]
+----
+"numberInput": 3.14159
+----
+
+An integer:
+[source]
+----
+"integerInput": 10
+----
+
+A Boolean:
+[source]
+----
+"booleanInput": true
+----
+====
+
+[[arrays]]
+*_Array of values:_*
+
+Array elements, as per <<inline-or-ref-data,inlineOrRefData.yaml>>, can be:
+
+* <<simple-literals,simple literals>>,
+* embeded arrays,
+* <<qualified-value,qualified values>>,
+* <<binary-value,binary values>>,
+* <<bounding-box-value,bounding box values>>,
+* or references to values using <<link-schema,links>>.
+
+include::requirements/core/REQ_job-creation-input-array.adoc[]
+
+.Array value examples.
+====
+An array of simple values:
+[source]
+----
+"arrayOfSimpleValues": [1, 2, 4, 10, 7]
+----
+
+An array of arrays of simple values:
+[source]
+----
+"arrayOfArrays": [[1,2,3,4], ["a","b","c","d"]]
+----
+
+An array of objects values:
+[source]
+----
+"arrayOfQualifiedValues": [
+  {
+    "value": {
+      "measurement": 10.3,
+      "uom": "m",
+      "reference": "https://ucum.org/ucum-essence.xml"
+    }
+  },
+  {
+    "value": {
+      "measurement": 10.5,
+      "uom": "m",
+      "reference": "https://ucum.org/ucum-essence.xml"
+    }
+  },
+  {
+    "value": {
+      "measurement": 10.9,
+      "uom": "m",
+      "reference": "https://ucum.org/ucum-essence.xml"
+    }
+  },...
+],
+----
+
+NOTE: In an execute request, as per requirement <<req_core_job-creation-input-inline-object,/req/core/job-creation-input-inline-object>>, object values must be encoded as <<qualified-value,qualified values>> to prevent unintended ambiguity with the built-in value types (i.e. <<bounding-box-value,boudning boxes>>, <<link-schema,links>> or <<qualified-value,qualified values>>).
+====
+
+[[qualified-value]]
+*_Qualified values:_*
+
+A qualified value is a <<input-value-schema,value>> that can be optionally qualified with a `format` parameter.
+
+Qualified values may be used to encode process input values that can, according to their definition in the <<sc_process_description,process description>>, be of multiple media types.  The `format` parameter is used to identify the specific media type being provided as the process input.
+
+Qualified values may also be used to encode object-valued process inputs in order to avoid ambiguity with the built-in value schemas defined in this standard (i.e. <<bounding-box-value,bbox.yaml>>, <<link-schema,link.yaml>> or <<qualified-value,qualifiedInputValue.yaml>> itself).
+
+The actual _value_ in a qualified value object is specified using the `value` key.  The value of the `value` key is an instance of <<input-value-schema,inputValue.yaml>>.
+
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedInputValue.yaml[The following is the schema for a qualified value (qualifiedInputValue.yaml):]
+[source,yaml]
+----
+include::openapi/schemas/qualifiedInputValue.yaml[]
+----
+
+[[format-schema]]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/format.yaml[The following is the schema for a format qualifier (format.yaml):]
+[source,yaml]
+----
+include::openapi/schemas/format.yaml[]
+----
+
+[[input-value-schema]]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputValue.yaml[The following is the schema of a process input value (inputValue.yaml):]
+[source,yaml]
+----
+include::openapi/schemas/inputValue.yaml[]
+----
+(see also: <<input-value-noobject-schema,inputValueNoObject.yaml>>)
+
+include::requirements/core/REQ_job-creation-input-inline-object.adoc[]
+
+include::requirements/core/REQ_job-creation-input-inline-mixed.adoc[]
+
+.Qualified value examples.
+====
+An example of a complex process input value.
+[source]
+----
+"complexObjectInput": {
+  "value": {
+    "property1": "value1",
+    "property2": "value2",
+    "property3": "value3"
+  }
+}
+----
+
+In this second example, the property, `geometryInput` has a cardinality of greater than 1 and value instances can be one of a number of enumerated media types.  The schema of `geometryInput` from the <<ogc_process_description,OGC process description>> for the process might be:
+
+[source]
+----
+"geometryInput": {
+  "title": "Geometry input",
+  "description": "This is an example of a geometry input.  In this case the geometry can be expressed as a GML of GeoJSON geometry.",
+  "minOccurs": 2,
+  "maxOccurs": 5,
+  "schema": {
+    "oneOf": [
+      {
+        "type": "string",
+        "contentMediaType": "application/gml+xml; version=3.2",
+        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+      },
+      {
+        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+      }
+    ]
+  }
+},
+----
+
+and an instance of this process input in an execute request might be:
+
+[source]
+----
+
+"geometryInputs": [
+  {
+    "value": "<gml:Polygon gml:id=\"GID1\" srsName=\"urn:ogc:def:crs:OGC::CRS84\"><gml:exterior><gml:LinearRing><gml:posList>-77.024519 38.810529 -77.024635 38.810973 -77.024704 38.810962 -77.024776 38.811239 -77.024957 38.81121 -77.024905 38.811012 -77.024905 38.811012 -77.024865 38.810857 -77.025024 38.810832 -77.025071 38.811012 -77.025203 38.810992 -77.02506 38.810444 -77.024519 38.810529</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>",
+    "mediaType": "application/gml+xml; version=3.2"
+  },
+  {
+    "value": {
+      "type": "Polygon",
+      "coordinates": [[[ -176.5814819, -44.10896301 ],
+                       [ -176.5818024, -44.10964584 ],
+                       [ -176.5844116, -44.11236572 ],
+                       [ -176.5935974, -44.11021805 ],
+                       [ -176.5973511, -44.10743332 ],
+                       [ -176.5950928, -44.10562134 ],
+                       [ -176.5858459, -44.1043396  ],
+                       [ -176.5811157, -44.10667801 ],
+                       [ -176.5814819, -44.10896301 ]]]
+    },
+    "mediaType": "application/geo+json"
+  }
+]
+----
+
+In this case, the `mediaType` parameter is used to indicate the specific type of geometry being passed as input in each case; GML Polygon for the first element of the array and GeoJSON Polygon for the second element.
+====
+
+[[binary-value]]
+*_Binary values:_*
+
+In some cases, for example in order to pass through firewalls, binary input values need to be encoded in-line in an execute request as a string.
+
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/binaryInputValue.yaml[The following is the schema for an in-line binary value (binaryInputValue.yaml):]
+[source,yaml]
+----
+include::openapi/schemas/binaryInputValue.yaml[]
+----
+
+include::requirements/core/REQ_job-creation-input-inline-binary.adoc[]
+
+.Binary value examples.
+====
+
+This is an example of an image process input whose media type is defined in the
+<<sc_process_description,process description>>.  The schema definition for this process input might be:
+[source]
+----
+"schema": {
+  "type": "string",
+  "contentEncoding": "binary",
+  "contentMediaType": "application/tiff; application=geotiff"
+}
+----
+and an example instance value in an execute request might be:
+[source]
+----
+   "imageInput": "R0lGODdhNAHCAfcAAAcHDD+Gs4sLDQpDaqGFdaHE54dJPEoECUlGRteKgcdITgokG4hoVkpY\ngNzHwKKkqOLm7RRjlEgpHU9iZ44lHQYqVdmki6doVmhHOMOIeJG20HiDjCcKBglIeadISrso\nJGooFNbN2d2qr8aljyklHwQJQkdvkWaKxIdrb442LidLeGhMTp6LkeP1+Kh3aiUuVAoUHmlu\ngkcwNYdZRmkJDYGcsDFokElVYyk1NsWWhLEPDtmQldrUyoyFhrjo+Nna5d+4tMGstspoXgc4\n...qgu7sSu7qbtCs2u7t6u6rLsrp4u7veu76eO6vyu8w0u8xWu8x4u8yau8shu8y+u8zwu90Su9\n00u91Wu914u92au928u9whsQADs="
+----
+
+NOTE: Even though the schema indicates that the input type is `binary`, when the input value is encoded in-line in an execute request, as per requirement <<req_core_job-creation-input-inline-binary,/req/core/job-creation-input-inline-binary>>, the binary value is encoded as base64-encoded string.
+
+In this second example, the image input can be one of a number of value types denoted in JSON Schema by the use of the `oneOf[]` construct.  An example schema for this a process input might be:
+[source]
+----
+"schema": {
+  "oneOf": [
+    {
+      "type": "string",
+      "contentEncoding": "binary",
+      "contentMediaType": "application/tiff; application=geotiff"
+    },
+    {
+      "type": "string",
+      "contentEncoding": "binary",
+      "contentMediaType": "application/jp2"
+    }
+  ]
+}
+----
+and a JPEG2000 instance example in an execute request might be:
+[source]
+----
+   {
+     "value": "VBORw0KGgoAAAANSUhEUgAABvwAAAa4CAYAAABMB35kAAABhGlDQ1BJQ0MgcHJvZmlsZQAA\nKJF9kT1Iw0AcxV9TpSL1A+xQxCFDdbIgKuKoVShChVArtOpgcumH0KQhSXFxFFwLDn4sVh1c\nnHV1cBUEwQ8QNzcnRRcp8X9JoUWMB8f9eHfvcfcOEOplplkdY4Cm22Y6mRCzuRUx9IogouhH\n ... \nj3Z5mX7/PCPVRJV92rpHK24xcJrzk20+tkeYlCPqcZNO3Lpni1OJWatPCcmgGDEqx7Om6lfa\nppM4k4BTe9+bsn3L9/9/yWhA0PwQGW8ipCZsnZt9lsdrYEM8z/M8z/M8z/M8z/M8z/MzLWY1\nAAAACUlEQVQ871H6P6JI+TxS5Wn2AAAAAElFTkSuQmCC",
+     "mediaType": "application/jp2"
+   }
+----
+====
+
+[[bounding-box-value]]
+*_Bounding box values:_*
+
+A process input value instance can be a bounding box.  
+
+include::requirements/core/REQ_job-creation-input-inline-bbox.adoc[]
+
+[[bbox-schema]]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml[The following is the schema for a bounding box value (bbox.yaml):]
+[source,yaml]
+----
+include::openapi/schemas/bbox.yaml[]
+----
+
+This schema is meant to be a template for defining bounding box process inputs. If the specified `default` and `enum` are suitable for your purposes then you can reference this file directly in your process description. 
+
+include::recommendations/core/PER_job-creation-input-inline-bbox.adoc[]
+
+*_Input validation_*
+
+Process inputs in an execute request and the corresponding process input definition in the <<sc_process_description,process description>> have a validation relationship.  That is to say, that the schema of a process input definition from the <<sc_process_description,process description>> can be used to validate the component of the corresponding process input value in an execute request that is an instance of <<input-value-schema,inputValue.yaml>>.
+
+====
+Consider a process input named `complexObjectInput` with the following definition from an <<ogc_process_description,OGC process description>>:
+
+[source]
+----
+"complexObjectInput": {
+  "title": "Complex Object Input Example",
+  "description": "This is an example of a complex object input.",
+  "schema": {
+    "type": "object",
+    "required": [
+      "property1",
+      "property5"
+    ],
+    "properties": {
+      "property1": {
+        "type": "string"
+      },
+      "property2": {
+        "type": "string",
+        "format": "uri"
+      },
+      "property3": {
+        "type": "number"
+      },
+      "property4": {
+        "type": "string",
+        "format": "dateTime"
+      },
+      "property5": {
+        "type": "boolean"
+      }
+    }
+  }
+}
+----
+
+and the following instance in an execute request:
+
+[source]
+----
+"inputs": [
+  .
+  .
+  .
+  "complexObjectInput": {
+    "value": {
+      "property1": "value1",
+      "property2": "value2",
+      "property3": "value5"
+    }
+  },
+  .
+  .
+  .
+----
+
+The process input value in this execute request is an instance of a <<qualified-value,qualified value>>.
+
+For the purposes of validation, the server need only validate the component of the <<qualified-value,qualified value>> that is an instance of <<input-value-schema,inputValue.yaml>> against the `schema` fragment from the <<ogc_process_description,OGC process description>>.  Specifically, the validation target is:
+
+[source]
+----
+{
+  "property1": "value1",
+  "property2": "value2",
+  "property3": "value5"
+}
+----
+
+NOTE: This example makes use of an <<ogc_process_description,OGC process description>>.  However, any other process description vocabulary may be used and applied, for the purpose of validation, in a similar manner.
+====
+
+include::requirements/core/REQ_job-creation-input-validation.adoc[]
+
+===== Execution mode
+
+The value of the `mode` parameter is used to specify the execution mode of a process.
+
+* A `mode` value of `async` indicates that the server execute the process asynchronously.
+* A `mode` value of `sync` indicates that the server execute the process synchronously.
+* A `mode` value of `auto` indicates that the server select the most appropriate execution mode.
+
+include::recommendations/core/REC_job-creation-mode-auto.adoc[]
+
+===== Response type
+
+The `response` parameter selects the form used to represent process results.
+
+* A `response` value of `document` indicates that the server should generate a response document (see https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml]) that contains each of the requested process outputs.
+* A `response` value of `raw` indicates that the server should present the process responses in their native form without the use of a containing document.
+
+[[sc_process_outputs]]
+===== Process outputs
+
+A process can, in general, generate any number of outputs and an output can be of any media type.  Like inputs, outputs can be transmitted in-line in a result document or referenced using a <<link-schema,link>>.  The `transmissionMode` parameter in the execute request controls how the server responds.
+
+[[tx-mode-schema]]
+https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/transmissionMode.yaml[The following is the schema for the transmission mode (transmissionMode.yaml):]
+[source,yaml]
+----
+include::openapi/schemas/transmissionMode.yaml[]
+----
+
+In cases where a specific output can be presented in a number of media types, the `format` parameter in the <<output-schema,execute request>> indicates the format that should be presented.
+
+==== Example
+
+.The following is an example of an execute request.
 [source, json]
 ----
 include::examples/json/Execute.json[]
 ----
 
-
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/output.yaml[The following is the schema for a process output (output.yaml)]
-[source,YAML]
-----
-include::openapi/schemas/output.yaml[]
-----
-
-A process can be either synchronous or asynchronous. 
-
-include::requirements/core/REQ_job-creation-mode.adoc[]
-
 ==== Response
 
-In the case of asynchronous execution, the requirements below apply:
+The manner in which a server responds to a process execution request is influenced by the following parameters:
+
+* the `mode` parameter (`sync`, `async`, or `auto`),
+* the `response` parameter (`document` or `raw`),
+* the `transmissionMode` parameter (`value` or `reference`)
+* and the number of output requested.
+
+The following table maps the possible responses based on the combinations of these execute parameters.
+
+[#table_core_execute_responses,reftext='{table-caption} {counter:table-num}']
+.Table mapping execute reponses based on the input parameter values.
+[%autowidth.strech,,options="header"]
+|===
+|*mode* |*response* |*tx mode* |*# out* |*HTTP code* |*media type* |*body content* |*requirement*
+.8+^.^|sync .4+^.^|raw .2+^.^|value |1 ^.^|200 |[as per output definition] |[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
+|* ^.^|200 |multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
+.2+^.^|ref |1 .2+^.^|204 .2+.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
+|*
+.4+^.^|document .2+^.^|value |1 .4+^.^|200 .4+.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
+|*
+.2+^.^|ref |1
+|*
+^.^|async ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|201 .^|application/json .^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] .^|<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
+|===
+
+NOTE: The value _any_ in a cell means _"for any valid value of the parameter represented by that cell"_.
+
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[The following is the schema (results.yaml) for a processing results presented as a document.]
+[source,yaml]
+----
+include::openapi/schemas/results.yaml[]
+----
+
+This schema defines a map using the respective output identifier as the key. The value of an output can be returned as an in-line value or by reference.
+
+For a synchronous execution, the following requirements apply:
+
+include::requirements/core/REQ_job-creation-success-sync-raw-value-one.adoc[]
+
+include::requirements/core/REQ_job-creation-success-sync-raw-value-multi.adoc[]
+
+include::requirements/core/REQ_job-creation-success-sync-raw-ref.adoc[]
+
+include::requirements/core/REQ_job-creation-success-sync-document.adoc[]
+
+include::recommendations/core/REC_core_job-creation-sync-document-ref.adoc[]
+
+This specification does not mandate that servers create a job as a result of executing a process synchronously.  However the following permission is given:
+
+include::recommendations/core/PER_job-creation-sync-job.adoc[]
+
+For servers that implement this permission and do create a job as a result of synchronous execution of a process, the following requirement applies:
+
+include::requirements/core/REQ_job-results-success-sync.adoc[]
+
+The job reference in the header can then be used to <<async-fetch,re-fetch the results>> of the original synchronous execution.
+
+In the case of asynchronous execution, the following requirement applies:
 
 include::requirements/core/REQ_job-creation-success-async.adoc[]
-
-include::requirements/core/REQ_job-creation-success-async-header.adoc[]
-
-For a synchronous execution, the following requirement applies:
-
-include::requirements/core/REQ_job-creation-success-sync.adoc[]
 
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process,/req/core/process-exception/no-such-process>>).
+If the process with the specified identifier does not exist on the server, see requirement <<req_core_no-such-process,/req/core/process-exception/no-such-process>>.
 
 [[sc_retrieve_status_info]]
 === Retrieve status information about a job
@@ -380,13 +863,13 @@ include::requirements/core/REQ_job-op.adoc[]
 include::requirements/core/REQ_job-success.adoc[]
 
 [[schema-statusInfo]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[The following is the schema for status info]
-[source,YAML]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[The following is the schema for status info.]
+[source,yaml]
 ----
 include::openapi/schemas/statusInfo.yaml[]
 ----
 
-The job status information includes several optional date-time fields that represent milestones in the lifecycle of a job.   The following are recommended for servers that decide to populate some or all of these date-time fields:
+The job status information includes several optional date-time fields that represent milestones in the life cycle of a job.   The following are recommended for servers that decide to populate some or all of these date-time fields:
 
 include::recommendations/core/REC_job-status.adoc[]
 
@@ -409,7 +892,7 @@ include::examples/json/StatusInfo.json[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process,/req/core/process-exception/no-such-process>>).
+If the process with the specified identifier does not exist on the server, see requirement <<req_core_no-such-process,/req/core/process-exception/no-such-process>>.
 
 include::requirements/core/REQ_job-exception-no-such-job.adoc[]
 
@@ -420,20 +903,49 @@ The following section describes the requirements to retrieve the results of a jo
 
 ==== Operation
 
-include::requirements/core/REQ_job-result-op.adoc[]
+include::requirements/core/REQ_job-results-op.adoc[]
 
 ==== Response
 
-include::requirements/core/REQ_job-result-success.adoc[]
+The manner in which a server responds when retrieving job results depends on the values of the following parameters used on the execute request that created the job:
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[The following is the schema for the result of a job]
-[source,YAML]
-----
-include::openapi/schemas/results.yaml[]
-----
-The schema defines a map using the respective id of the output as key. The value of the output can be returned as inline value or as reference. 
+* the `mode` parameter (`sync`, `async`, or `auto`),
+* the `response` parameter (`document` or `raw`),
+* the `transmissionMode` parameter (`value` or `reference`)
+* and the number of output requested.
 
-.The following is an example of HTTP GET request for retrieving the result a job encoded as JSON. 
+The following table maps the possible responses based on the combinations of these execute parameters.
+
+[#table_core_getresults_responses,reftext='{table-caption} {counter:table-num}']
+.Table mapping get results reponses based on the input parameter values used on the original execute request.
+[%autowidth.strech,,options="header"]
+|===
+|*mode* |*response* |*tx mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
+^.^|sync ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|no 4+^.^|[if the server creates a job on synchronous execute, +
+job results may be re-fetched at any time <<async-fetch,as per async>>]
+.8+^.^|[[async-fetch]]async .4+^.^|raw .2+^.^|value |1 .8+^.^|yes ^.^|200 |[as per output definition] |[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
+|* ^.^|200 |multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
+.2+^.^|ref |1 .2+^.^|204 .2+.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
+|*
+.4+^.^|document .2+^.^|value |1 .4+^.^|200 .4+.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
+|*
+.2+^.^|ref |1
+|*
+|===
+
+NOTE: The value _any_ in a cell means _"for any valid value of the parameter represented by that cell"_.
+
+The following requirements apply when retrieving the results of a job that was created by executing a process synchronously OR was created by execution a process synchronously on a server that creates a job even on synchronous execution:
+
+include::requirements/core/REQ_job-results-success-async-raw-value-one.adoc[]
+
+include::requirements/core/REQ_job-results-success-async-raw-value-multi.adoc[]
+
+include::requirements/core/REQ_job-results-success-async-raw-ref.adoc[]
+
+include::requirements/core/REQ_job-results-success-async-document.adoc[]
+
+.The following is an example of HTTP GET request for retrieving the result a job encoded as JSON.
 [source]
 ----
 GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/results HTTP/1.1
@@ -450,8 +962,8 @@ include::examples/json/Result.json[]
 
 See <<http_status_codes>> for general guidance.
 
-include::requirements/core/REQ_job-result-exception-no-such-job.adoc[]
+include::requirements/core/REQ_job-results-exception-no-such-job.adoc[]
 
-include::requirements/core/REQ_job-result-exception-result-not-ready.adoc[]
+include::requirements/core/REQ_job-results-exception-results-not-ready.adoc[]
 
-include::requirements/core/REQ_job-result-failed.adoc[]
+include::requirements/core/REQ_job-results-failed.adoc[]

@@ -8,7 +8,7 @@ class.
 
 include::requirements/requirements_class_ogc-process-description.adoc[]
 
-The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the http://docs.opengeospatial.org/is/14-065/14-065.html[OGC WPS 2.0.2 Interface Standard] but also include elements of the http://spec.openapis.org/oas/v3.0.3[OpenAPI Speicification].  Specifically, this process description languges uses https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragments to define the input and output parameters of a process.  As such, this process description provides a bridge from legacy implementations to the OGC API Framework.
+The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the http://docs.opengeospatial.org/is/14-065/14-065.html[OGC WPS 2.0.2 Interface Standard] but also include elements of the http://spec.openapis.org/oas/v3.0.3[OpenAPI Specification].  Specifically, this process description languges uses https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragments to define the input and output parameters of a process.  As such, this process description provides a bridge from legacy implementations to the OGC API Framework.
 
 The process description allows the following information to be specified:
 
@@ -40,7 +40,7 @@ The schema imports the elements from the <<schema-processSummary, process summar
 
 include::requirements/ogc-process-description/REQ_inputs-def.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[Schema for a process input or output (inputDescription.yaml)]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[Schema for a process input (inputDescription.yaml)]
 [source,YAML]
 ----
 include::openapi/schemas/inputDescription.yaml[]
@@ -48,13 +48,18 @@ include::openapi/schemas/inputDescription.yaml[]
 
 include::requirements/ogc-process-description/REQ_input-def.adoc[]
 
+NOTE: The schema fragment specified as the value of the `schema` parameter can be used to validate the corresponding <<input-value-schema,process input value>> in an <<execute-request-body,execute request>>.
+
 include::recommendations/ogc-process-description/REC_input-cardinality.adoc[]
+
+include::requirements/ogc-process-description/REQ_input-binary.adoc[]
 
 include::requirements/ogc-process-description/REQ_input-mixed-type.adoc[]
 
+
 .Mixed type input example.
 
-The following JSON Schema fragment illustrates how to define an input of mixed type.  In this case, the `imageInput` input can be one a couple of image media type encoded as either `binary` or `base64`.
+The following JSON Schema fragment illustrates how to define an input of mixed type.  In this case, the `imageInput` input can be one a couple of image media types. 
 
 ----
    "imageInput": { 
@@ -62,18 +67,8 @@ The following JSON Schema fragment illustrates how to define an input of mixed t
        "oneOf": [
          {
            "type": "string",
-           "contentEncoding": "base64",
-           "contentMediaType": "application/tiff; application=geotiff"
-         },
-         {
-           "type": "string",
            "contentEncoding": "binary",
            "contentMediaType": "application/tiff; application=geotiff"
-         },
-         {
-           "type": "string",
-           "contentEncoding": "base64",
-           "contentMediaType": "application/jp2"
          },
          {
            "type": "string",
@@ -85,7 +80,7 @@ The following JSON Schema fragment illustrates how to define an input of mixed t
    }
 ----
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[Schema for a process input or output (outputDescription.yaml)]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[Schema for a process input (outputDescription.yaml)]
 [source,YAML]
 ----
 include::openapi/schemas/outputDescription.yaml[]
@@ -101,20 +96,20 @@ The execution mode for each process is specified using the `jobControlOptions` k
 
 include::requirements/ogc-process-description/REQ_default_mode.adoc[]
 
-.Retrieving a process description.
-
-The following is an example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
-
+.Example OGC Process Description.
+====
+The following URL is an example of retrieving a <<sc_process_description,process description>> from the `/processes/{processId}` endpoint.
 [source]
 ----
 https://processing.example.org/processes/EchoProcess
 ----
 
-.Example OGC Process Description.
-
-The following JSON document is the process description for an example `EchoProcess` that simply echoes whatever inputs are specified.
+The description of the example `EchoProcess` process might be:
 
 [source,json]
 ----
 include::examples/json/ProcessDescription.json[]
 ----
+
+The `EchoProcess` process simply echoes each process input value it is given.
+====
