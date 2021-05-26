@@ -2,9 +2,9 @@
 [width="90%",cols="2,6a"]
 |===
 |*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-sync-raw-value-multi*
-^|Test Purpose |Validate that the server responds as expected when the execution mode is `sync`, the response type is `raw` and the output transmission is `value`.
+^|Test Purpose |Validate that the server responds as expected when a process is executed synchronouly, the response type is `raw` and the output transmission is `value`.
 ^|Test Method |. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
-. Inspect the description of each process and identify the subset of processes that generate more that one output, support the `sync-execute` job control option and the `value` output transmission.
-. For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that more that one output is requested and that the execution mode is set to `sync` (i.e. `"mode": "sync"`), the requested response type is `raw` (i.e. `"response": "raw"`) and the transmission mode is set to `value` (i.e. `"transmissionMode": "value"`) according to requirement <<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>.
+. Inspect the description of each process and identify the subset of processes that generate more that one output, support the `value` output transmission mode and support the `sync-execute` job control option.
+. For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that the negotiated execution mode is synchronous, that more that one output is requested, the requested response type is `raw` (i.e. `"response": "raw"`) and the transmission mode is set to `value` (i.e. `"transmissionMode": "value"`) according to requirement <<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>.
 . Verify that each process executes successfully according to test <<ats_core_job-creation-sync-raw-value-multi,/conf/core/job-creation-sync-raw-value-multi>>.
 |===

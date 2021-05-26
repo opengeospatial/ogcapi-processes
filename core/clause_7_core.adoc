@@ -365,13 +365,7 @@ include::requirements/core/REQ_job-creation-input-inline-binary.adoc[]
 include::openapi/schemas/output.yaml[]
 ----
 
-The value of the `mode` parameter is used to specify the execution mode of a process.
-
-. Setting the `mode` to `async` directs the server to execute the process asynchronously.
-. Setting the `mode` to `sync` directs the server to execute the process synchronously.
-. Setting the `mode` to `auto` directs the server to select the most appropriate execution mode.
-
-include::recommendations/core/REC_job-creation-mode-auto.adoc[]
+include::requirements/core/REQ_default_mode.adoc[]
 
 .The following is an example of an execute request.
 [source, json]
@@ -383,7 +377,7 @@ include::examples/json/Execute.json[]
 
 The manner in which a server responds to a process execution request is influenced by the following parameters:
 
-* the `mode` parameter (`sync`, `async`, or `auto`),
+* the execution mode negotiated between the client and the server (`sync` or `async`)
 * the `response` parameter (`document` or `raw`),
 * the `transmissionMode` parameter (`value` or `reference`)
 * and the number of output requested.
@@ -394,7 +388,7 @@ The following table maps the possible responses based on the combinations of the
 .Table mapping execute reponses based on the input parameter values.
 [%autowidth.strech,,options="header"]
 |===
-|*mode* |*response* |*tx mode* |*# out* |*HTTP code* |*media type* |*body content* |*requirement*
+|*ex mode* |*response* |*tx mode* |*# out* |*HTTP code* |*media type* |*body content* |*requirement*
 .8+^.^|sync .4+^.^|raw .2+^.^|value |1 ^.^|200 |[as per output definition] |[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
 |* ^.^|200 |multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
 .2+^.^|ref |1 .2+^.^|204 .2+.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
@@ -503,7 +497,7 @@ include::requirements/core/REQ_job-result-op.adoc[]
 
 The manner in which a server responds when retrieving job results depends on the values of the following parameters used on the execute request that created the job:
 
-* the `mode` parameter (`sync`, `async`, or `auto`),
+* the execution mode as negotiated between the client and the server (`sync` or `async`)
 * the `response` parameter (`document` or `raw`),
 * the `transmissionMode` parameter (`value` or `reference`)
 * and the number of output requested.
@@ -514,7 +508,7 @@ The following table maps the possible responses based on the combinations of the
 .Table mapping get result reponses based on the input parameter values used on the original execute request.
 [%autowidth.strech,,options="header"]
 |===
-|*mode* |*response* |*tx mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
+|*ex mode* |*response* |*tx mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
 .8+^.^|sync .4+^.^|raw .2+^.^|value |1 .8+^.^|no 4.8+^.^|<<per_core_job-creation-sync-job,[if server creates job on sync execute, as per async]>>
 |*
 .2+^.^|ref |1

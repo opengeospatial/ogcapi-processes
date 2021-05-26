@@ -3,5 +3,5 @@
 |===
 |*Recommendation {counter:rec-id}* |/rec/core/job-creation-mode-auto +
 
-A client that requests a process be executed in `auto` mode SHOULD be prepared to receive either an asynchronous or a synchronous response.
+A client that has negotiated the process execution mode  to `auto` SHOULD be prepared to receive either an asynchronous or a synchronous response.
 |===
