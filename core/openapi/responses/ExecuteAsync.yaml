@@ -5,6 +5,6 @@ headers:
       type: string
     description: URL to check the status of the execution/job.
 content:
-   application/json:
-     schema:
-       $ref: ../schemas/statusInfo.yaml
+  application/json:
+    schema:
+      $ref: ../schemas/statusInfo.yaml

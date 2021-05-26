@@ -32,8 +32,8 @@ components:
   schemas:
     bufferExecute:
       required:
-      - data
-      - width
+        - data
+        - width
       type: object
       properties:
         data:
@@ -43,10 +43,10 @@ components:
           description: this is possible to provide the abstract in here
           items:
             oneOf:
-            - type: string
-              format: application/geo+json
-            - type: string
-              format: application/gml+xml
+              - type: string
+                format: application/geo+json
+              - type: string
+                format: application/gml+xml
         width:
           maximum: 100
           minimum: 1
@@ -59,7 +59,7 @@ components:
           type: array
           items:
             oneOf:
-            - type: string
-              format: application/geo+json
-            - type: string
-              format: application/gml+xml
+              - type: string
+                format: application/geo+json
+              - type: string
+                format: application/gml+xml
