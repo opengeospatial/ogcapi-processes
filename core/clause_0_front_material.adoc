@@ -78,7 +78,7 @@ All questions regarding this submission should be directed to the editor or the 
 |*Name* | *Representing* 
 |Benjamin Pross _(editor)_ | 52°North GmbH
 |Stan Tillman|Hexagon
-|Panagiotis (Peter) A. Vretanos|CubeWerx Inc.
+|Panagiotis (Peter) A. Vretanos _(editor)_ |CubeWerx Inc.
 |Jérôme Jacovella-St-Louis|Ecere Corporation
 |Pedro Gonçalves|Terradue Srl
 |Gérald Fenoy| Gérald Fenoy (Individual Member)

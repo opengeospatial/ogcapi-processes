@@ -33,7 +33,7 @@
 |Internal reference number of this OGC® document:    18-062
 |Version: 1.0-draft.6-SNAPSHOT
 |Category: OGC® Implementation Specification
-|Editor:   Benjamin Pross
+|Editors:   Benjamin Pross, Panagiotis (Peter) A. Vretanos
 |===
 
 [cols = "^", frame = "none"]
