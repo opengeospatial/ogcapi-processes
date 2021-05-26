@@ -1,0 +1,219 @@
+openapi: 3.0.2
+info:
+  title: "A sample API conforming to the draft standard OGC API - Processes - Part 1: Core"
+  version: '1.0.0'
+  description: |-
+    This is a sample OpenAPI definition that conforms to the conformance
+    classes "Core", "OGC Process Description", "Jon list", "Dismiss", "JSON",
+    "HTML" and "OpenAPI 3.0" of the standard.
+  contact:
+    name: Panagiotis Vretanos
+    email: pvretano@cubewerx.com
+    url: 'http://example.org/'
+  license:
+    name: CC-BY 4.0 license
+    url: 'https://creativecommons.org/licenses/by/4.0/'
+servers:
+  - url: 'https://data.example.org/'
+    description: Production server
+  - url: 'https://dev.example.org/'
+    description: Development server
+tags:
+  - name: Capabilities
+    description: |-
+      essential characteristics of this API
+  - name: Data
+    description: |-
+      access to data (features)
+paths:
+  '/':
+    get:
+      operationId: getLandingPage
+      summary: landing page of this API
+      description: |-
+        The landing page provides links to the API definition, the conformance
+        declaration and the metadata about the processes offered by this
+        service.
+      tags:
+        - Capabilities
+      responses:
+        '200':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/LandingPage"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ServerError"
+  '/conformance':
+    get:
+      operationId: getConformanceClasses
+      summary: information about standards that this API conforms to
+      description: |-
+        Lists all requirements classes specified in the standard (e.g.,
+        OGC API - Processes - Part 1: Core) that the server conforms to
+      tags:
+        - ConformanceDeclaration
+      responses:
+        '200':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ConformanceDeclaration"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ServerError"
+  '/processes':
+    get:
+      operationId: getProcesses
+      summary: retrieve available processes
+      description: |-
+        Lists all available processes this server offers.
+      tags:
+        - ProcessList
+      responses:
+        '200':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ProcessList"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ServerError"
+  '/processes/{processId}':
+    get:
+      operationId: getProcessDescription
+      summary: retrieve a process description
+      description: |-
+        Describes a process.
+      tags:
+        - ProcessDescription
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/parameters/processId"
+      responses:
+        '200':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ProcessDescription"
+        '404':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/NotFound"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ServerError"
+  '/processes/{processId}/execution':
+    post:
+      summary: execute a process.
+      description: Submits a new job.
+      operationId: execute
+      tags:
+        - Execute
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/parameters/processId"
+      requestBody:
+        description: Mandatory execute request JSON
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/schemas/execute"
+      responses:
+        '200':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ExecuteSync"
+        '201':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ExecuteAsync"
+        '204':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ExecuteSyncRawRef"
+        '404':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/NotFound"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ServerError"
+  '/jobs':
+    get:
+      summary: retrieve the list of jobs for a process.
+      description: Lists available jobs of a process.
+      operationId: getJobs
+      tags:
+        - JobList
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/parameters/processId"
+      responses:
+        '200':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/JobList"
+        '404':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/NotFound"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ServerError"
+  '/jobs/{jobId}':
+    get:
+      summary: retrieve the status of a job
+      description: Shows the status of a job.
+      operationId: getStatus
+      tags:
+        - JobStatus
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/parameters/jobId"
+      responses:
+        '200':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/Status"
+        '404':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/NotFound"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ServerError"
+    delete:
+      summary: cancel a job execution, remove a finished job
+      description: Cancel a job execution and remove it from the jobs list.
+      operationId: dismiss
+      tags:
+        - DismissJob
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/parameters/processId"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/parameters/jobId"
+      responses:
+        '200':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/Status"
+        '404':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/NotFound"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ServerError"
+  '/jobs/{jobId}/results':
+    get:
+      summary: retrieve the result(s) of a job
+      description: |-
+        Lists available results of a job. In case of a failure, lists
+        exceptions instead.
+      operationId: getResults
+      tags:
+        - JobResults
+      parameters:
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/parameters/jobId"
+      responses:
+        '200':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ExecuteSync"
+        '204':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ExecuteSyncRawRef"
+        '404':
+          $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/NotFound"
+
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/ogcapi-process-1.yaml#/components/responses/ServerError"

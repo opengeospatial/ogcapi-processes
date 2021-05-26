@@ -1,0 +1,7 @@
+[[req-creation-input-inline-bbox]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-creation-input-inline-bbox +
+
+Servers SHALL support process input values that conform to the <<bbox-schema,bbox.yaml>> schema.
+|===

@@ -59,12 +59,12 @@ oneOf:
       type:
         type: string
         enum:
-        - array
-        - boolean
-        - integer
-        - number
-        - object
-        - string
+          - array
+          - boolean
+          - integer
+          - number
+          - object
+          - string
       properties:
         type: object
         additionalProperties:

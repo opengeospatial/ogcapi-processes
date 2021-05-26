@@ -1,6 +1,6 @@
 type: object
 required:
-- "$ref"
+  - "$ref"
 properties:
   "$ref":
     type: string

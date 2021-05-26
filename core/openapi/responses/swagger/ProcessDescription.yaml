@@ -2,8 +2,8 @@ description: A process description.
 content:
   application/json:
     schema:
-      $ref: "../schemas/process_swagger.yaml"
+      $ref: "../../schemas/swagger/process.yaml"
     examples:
       processDecription:
         summary: A Process Description example
-        externalValue: "../../examples/json/ProcessDescription.json"
+        externalValue: "../../../examples/json/ProcessDescription.json"

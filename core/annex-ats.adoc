@@ -6,6 +6,12 @@
 
 OGC Web APIs are not a Web Services in the traditional sense. Rather, they define the behavior and content of a set of Resources exposed through a Web Application Programing Interface (Web API). Therefore, an API may expose resources in addition to those defined by the standard. A test engine must be able to traverse the API, identify and validate test points, and ignore resource paths which are not to be tested.
 
+The following requirement applies for a server implementing the OGC API - Processes - Part 1: Core under test:
+
+include::requirements/core/REQ_test-process.adoc[]
+
+include::recommendations/core/REC_test-process.adoc[]
+
 === Conformance Class Core
 
 include::abstract_tests/ATS_class_core.adoc[]

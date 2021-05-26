@@ -3,5 +3,5 @@
 |===
 |*Requirement {counter:req-id}* |/req/core/process-success +
 ^|A |A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.
-^|B |The content of the response SHALL be a process description.
+^|B |The content of the response SHALL be a <<sc_process_description,process description>>.
 |===

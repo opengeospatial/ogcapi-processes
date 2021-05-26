@@ -11,4 +11,4 @@ properties:
   links:
     type: array
     items:
-      $ref: link.yaml
+      $ref: "link.yaml"

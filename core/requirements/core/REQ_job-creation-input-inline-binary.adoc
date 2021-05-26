@@ -2,6 +2,7 @@
 [width="90%",cols="2,6a"]
 |===
 |*Requirement {counter:req-id}* |/req/core/job-creation-input-inline-binary +
-
-If a process input is defined to be a binary value and its value is specified in-line in an execute request, then it SHALL be encoded as a base64-encoding string.
+^|Conditions |. The process input value is specified in-line in an execute request.
+. The process input value is binary.
+^|A |The service SHALL support binary values encoded as base64-encoded strings.
 |===
