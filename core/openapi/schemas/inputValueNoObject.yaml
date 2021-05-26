@@ -4,3 +4,4 @@ oneOf:
   - type: integer
   - type: boolean
   - type: array
+  - $ref: "bbox.yaml"
