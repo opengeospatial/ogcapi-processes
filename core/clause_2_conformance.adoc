@@ -34,13 +34,6 @@ recommends the use of the following conformance class:
 This class defines an information model, encoded in JSON, which may be used to
 specify the interface of a process.
 
-Comlementing the <<rc_ogc-process-description,OGC Process Description>> conformance class are four conformance classes that constrain the level of schema complexity that may be used to define input and output parameters for a process.  The four conformance classes are:
-
-* <<rc_schemaLevel0, JSON Schema Level 0>>
-* <<rc_schemaLevel1, JSON Schema Level 1>>
-* <<rc_schemaLevel2, JSON Schema Level 2>>
-* <<rc_schemaLevel3, JSON Schema Level 3>>
-
 Three additional conformance classes are specified that extend the basic functionality of an API:
 
 * <<rc_job-list,Job list>>, and
@@ -60,10 +53,6 @@ Conformance with this standard SHALL be checked using all the relevant tests spe
 |Conformance class |URI
 |<<ats_core,Core>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
 |<<ats_ogc-process-description,OGC Process Description>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description
-|<<ats_ogc-process-description_jsonschema_level0,JSON Schema Level 0>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description/jsonschema/level0
-|<<ats_ogc-process-description_jsonschema_level1,JSON Schema Level 1>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description/jsonschema/level1
-|<<ats_ogc-process-description_jsonschema_level2,JSON Schema Level 2>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description/jsonschema/level2
-|<<ats_ogc-process-description_jsonschema_level3,JSON Schema Level 3>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description/jsonschema/level3
 |<<ats_json,JSON>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json
 |<<ats_html,HTML>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html
 |<<ats_oas30,OpenAPI Specification 3.0>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30
