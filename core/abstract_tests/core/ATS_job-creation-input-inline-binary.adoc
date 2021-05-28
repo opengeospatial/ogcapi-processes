@@ -1,11 +1,12 @@
 [[ats_core_job-creation-input-inline-binary]]
 [width="90%",cols="2,6a"]
 |===
-|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-input-inline-binary* +
+^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-input-inline-binary* +
 ^|Test Purpose |Validate that binary input values encoded as base-64 string in-line in an execute request are correctly processes.
+^|Requirement |<<req_core_job-creations-input-binary,/req/core/job-creation-input-binary>>
 ^|Test Method |. Get a description of each process offered by the server using t
 est <<ats_core_process,/conf/core/process>>.
 . Inspect the description of each process and identify the subset of processes that have binary inputs.
 . For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> taking care to encode binary input values in-line in the execute request according to requirement <<req_core_job-creation-input-inline-binary,/req/core/job-creation-input-inline-binary>>.
-. Verify that each process executes successfully according to one or more of the tests <<ats_core_job-creation-success-async,/conf/core/job-creation-success-async>>, <<ats_core_job-creation-sync-document,/conf/core/job-creation-sync-document>>, <<ats_core_job-creation-sync-raw-ref,/conf/core/job-creation-sync-raw-ref>>, <<ats_core_job-creation-sync-raw-value-multi,/conf/core/job-creation-sync-raw-value-multi>> or <<ats_core_job-creation-sync-raw-value-one,/conf/core/job-creation-sync-raw-value-one>> depending on the parameters used in the execute request.
+. Verify that each process executes successfully according to the <<ats-job-creation-success-sync,relevant requirement based on the combination of execute parameters.>>
 |===

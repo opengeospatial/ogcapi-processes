@@ -21,5 +21,7 @@ OGC 08-131r3 – The Specification Model – A Standard for Modular Specificatio
 
 [[rfc7231]] IETF RFC 7231: Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content. https://tools.ietf.org/html/rfc7231
 
+[[rfc7240]] IETF RFC 7240: Prefer Header for HTTP. https://tools.ietf.org/html/rfc7240
+
 [[rfc8288]] IETF RFC 8288: Web Linking https://tools.ietf.org/html/rfc8288
 

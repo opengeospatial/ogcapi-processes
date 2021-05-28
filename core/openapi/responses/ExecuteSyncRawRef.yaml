@@ -1,6 +1,5 @@
 description: |-
-  Response when mode=sync, response=raw, transmissionMode=reference and
-  for any number of output values.
+  Response when negotiate synchronous execution, response=raw, transmissionMode=reference and for any number of output values.
 headers:
   Link:
     schema:

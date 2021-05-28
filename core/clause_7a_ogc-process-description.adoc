@@ -30,11 +30,13 @@ The following clause defines a JSON-encoding of the OGC process description.
 
 include::requirements/ogc-process-description/REQ_json-encoding.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[Schema for a process (process.yaml)]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[Schema for a process (process.yaml):]
 [source,YAML]
 ----
 include::openapi/schemas/process.yaml[]
 ----
+
+(see also: <<schema-processSummary,processSummary.yaml>>)
 
 The schema imports the elements from the <<schema-processSummary, process summary>> and specifies an object for the definition of process inputs and another object for the definition of process outputs.
 
@@ -50,12 +52,9 @@ include::requirements/ogc-process-description/REQ_input-def.adoc[]
 
 NOTE: The schema fragment specified as the value of the `schema` parameter can be used to validate the corresponding <<input-value-schema,process input value>> in an <<execute-request-body,execute request>>.
 
-include::recommendations/ogc-process-description/REC_input-cardinality.adoc[]
-
 include::requirements/ogc-process-description/REQ_input-binary.adoc[]
 
 include::requirements/ogc-process-description/REQ_input-mixed-type.adoc[]
-
 
 .Mixed type input example.
 
@@ -91,10 +90,6 @@ include::requirements/ogc-process-description/REQ_outputs-def.adoc[]
 include::requirements/ogc-process-description/REQ_output-def.adoc[]
 
 include::requirements/ogc-process-description/REQ_output-mixed-type.adoc[]
-
-The execution mode for each process is specified using the `jobControlOptions` key in the <<schema-processSummary, process summary>>.  The following requirement indicates how to specify the default execution mode.
-
-include::requirements/ogc-process-description/REQ_default_mode.adoc[]
 
 .Example OGC Process Description.
 ====

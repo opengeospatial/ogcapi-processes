@@ -219,7 +219,7 @@ More specific guidance is provided for each resource, where applicable.
 
 include::recommendations/core/PER_additional-status-codes.adoc[]
 
-When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be prefered. [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807) addresses this need by providing "Problem Details" response schemas for both JSON and XML.
+When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be preferred. [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807) addresses this need by providing "Problem Details" response schemas for both JSON and XML.
 
 include::recommendations/core/REC_problem-details.adoc[]
 
@@ -251,19 +251,29 @@ include::requirements/core/REQ_process-list-op.adoc[]
 
 include::requirements/core/REQ_process-list-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml[The following is the schema for the process list.]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml[Schema for the process list (processList.yaml):]
 [source,yaml]
 ----
 include::openapi/schemas/processList.yaml[]
 ----
 [[schema-processSummary]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processSummary.yaml[The following is the schema for the process summary.]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processSummary.yaml[Schema for a process summary (processSummary.yaml):]
 [source,yaml]
 ----
 include::openapi/schemas/processSummary.yaml[]
 ----
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/transmissionMode.yaml[The following is the schema for the transmission mode.]
+(see also: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/descriptionType.yaml[descriptionType.yaml])
+
+[[job-control-options-schema]]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobControlOptions.yaml[Schema for the job control options (jobControlOptions.yaml):]
+[source,yaml]
+----
+include::openapi/schemas/jobControlOptions.yaml[]
+----
+
+[[transmission-mode-schema]]
+.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/transmissionMode.yaml[Schema for the transmission mode (transmissionMode.yaml):]
 [source,yaml]
 ----
 include::openapi/schemas/transmissionMode.yaml[]
@@ -316,7 +326,7 @@ include::requirements/core/REQ_process-exception-no-such-process.adoc[]
 
 This section describes the requirements for executing a process.
 
-Depending on the description of the <<sc_process_description,process>> and the specific execution mode specified in an execute request, process execution may result in the creation of a <<sc_retrieve_job_results,job resource>>.
+Depending on the description of the <<sc_process_description,process>> and the <<sc_execution_mode,negotiated process execution mode>>, process execution may result in the creation of a <<sc_retrieve_job_results,job resource>>.
 
 ==== Operation
 
@@ -424,7 +434,7 @@ A Boolean:
 Array elements, as per <<inline-or-ref-data,inlineOrRefData.yaml>>, can be:
 
 * <<simple-literals,simple literals>>,
-* embeded arrays,
+* embedded arrays,
 * <<qualified-value,qualified values>>,
 * <<binary-value,binary values>>,
 * <<bounding-box-value,bounding box values>>,
@@ -474,7 +484,7 @@ An array of objects values:
 ],
 ----
 
-NOTE: In an execute request, as per requirement <<req_core_job-creation-input-inline-object,/req/core/job-creation-input-inline-object>>, object values must be encoded as <<qualified-value,qualified values>> to prevent unintended ambiguity with the built-in value types (i.e. <<bounding-box-value,boudning boxes>>, <<link-schema,links>> or <<qualified-value,qualified values>>).
+NOTE: In an execute request, as per requirement <<req_core_job-creation-input-inline-object,/req/core/job-creation-input-inline-object>>, object values must be encoded as <<qualified-value,qualified values>> to prevent unintended ambiguity with the built-in value types (i.e. <<bounding-box-value,bounding boxes>>, <<link-schema,links>> or <<qualified-value,qualified values>>).
 ====
 
 [[qualified-value]]
@@ -482,9 +492,9 @@ NOTE: In an execute request, as per requirement <<req_core_job-creation-input-in
 
 A qualified value is a <<input-value-schema,value>> that can be optionally qualified with a `format` parameter.
 
-Qualified values may be used to encode process input values that can, according to their definition in the <<sc_process_description,process description>>, be of multiple media types.  The `format` parameter is used to identify the specific media type being provided as the process input.
+Qualified values can be used to encode process input values that, according to their definition in the <<sc_process_description,process description>>, can be of multiple media types.  The `format` parameter is used to identify the specific media type being provided as the process input.
 
-Qualified values may also be used to encode object-valued process inputs in order to avoid ambiguity with the built-in value schemas defined in this standard (i.e. <<bounding-box-value,bbox.yaml>>, <<link-schema,link.yaml>> or <<qualified-value,qualifiedInputValue.yaml>> itself).
+Qualified values can also be used to encode object-valued process inputs in order to avoid ambiguity with the built-in value schemas defined in this standard (i.e. <<bounding-box-value,bbox.yaml>>, <<link-schema,link.yaml>> or <<qualified-value,qualifiedInputValue.yaml>> itself).
 
 The actual _value_ in a qualified value object is specified using the `value` key.  The value of the `value` key is an instance of <<input-value-schema,inputValue.yaml>>.
 
@@ -741,19 +751,24 @@ NOTE: This example makes use of an <<ogc_process_description,OGC process descrip
 
 include::requirements/core/REQ_job-creation-input-validation.adoc[]
 
+[[sc_execution_mode]]
 ===== Execution mode
 
-The value of the `mode` parameter is used to specify the execution mode of a process.
+A process may be executed synchronously or asynchronously.
 
-* A `mode` value of `async` indicates that the server execute the process asynchronously.
-* A `mode` value of `sync` indicates that the server execute the process synchronously.
-* A `mode` value of `auto` indicates that the server select the most appropriate execution mode.
+In which of these two modes a server responds is a function of the job control options specified in the <<sc_process_description,process description>> and the presence or absence of the HTTP `Prefer` header (http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240]).
 
-include::recommendations/core/REC_job-creation-mode-auto.adoc[]
+include::requirements/core/REQ_job-creation-default-execution-mode.adoc[]
+
+include::requirements/core/REQ_job-creation-auto-execution-mode.adoc[]
+
+include::recommendations/core/REC_job-creation-honor-prefer.adoc[]
+
+include::recommendations/core/REC_job-creation-handle-prefer.adoc[]
 
 ===== Response type
 
-The `response` parameter selects the form used to represent process results.
+The `response` parameter selects the form used to present processing results.
 
 * A `response` value of `document` indicates that the server should generate a response document (see https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml]) that contains each of the requested process outputs.
 * A `response` value of `raw` indicates that the server should present the process responses in their native form without the use of a containing document.
@@ -782,21 +797,21 @@ include::examples/json/Execute.json[]
 
 ==== Response
 
-The manner in which a server responds to a process execution request is influenced by the following parameters:
+The manner in which a server responds to a process execution request is determined by the following parameters:
 
-* the `mode` parameter (`sync`, `async`, or `auto`),
+* the <<sc_execution_mode,negotiated execution mode>> (synchronous or asynchronous),
 * the `response` parameter (`document` or `raw`),
 * the `transmissionMode` parameter (`value` or `reference`)
-* and the number of output requested.
+* and the number of outputs requested.
 
 The following table maps the possible responses based on the combinations of these execute parameters.
 
 [#table_core_execute_responses,reftext='{table-caption} {counter:table-num}']
-.Table mapping execute reponses based on the input parameter values.
-[%autowidth.strech,,options="header"]
+.Table mapping execute responses based on the input parameter values.
+[%autowidth.stretch,,options="header"]
 |===
 |*mode* |*response* |*tx mode* |*# out* |*HTTP code* |*media type* |*body content* |*requirement*
-.8+^.^|sync .4+^.^|raw .2+^.^|value |1 ^.^|200 |[as per output definition] |[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
+.8+^.^|sync .4+^.^|raw .2+^.^|value |1 ^.^|200 |[as per output definition from process description] |[output in requested format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
 |* ^.^|200 |multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
 .2+^.^|ref |1 .2+^.^|204 .2+.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
 |*
@@ -807,7 +822,7 @@ The following table maps the possible responses based on the combinations of the
 ^.^|async ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|201 .^|application/json .^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] .^|<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
 |===
 
-NOTE: The value _any_ in a cell means _"for any valid value of the parameter represented by that cell"_.
+NOTE: The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[The following is the schema (results.yaml) for a processing results presented as a document.]
 [source,yaml]
@@ -827,7 +842,7 @@ include::requirements/core/REQ_job-creation-success-sync-raw-ref.adoc[]
 
 include::requirements/core/REQ_job-creation-success-sync-document.adoc[]
 
-include::recommendations/core/REC_core_job-creation-sync-document-ref.adoc[]
+include::recommendations/core/REC_job-creation-sync-document-ref.adoc[]
 
 This specification does not mandate that servers create a job as a result of executing a process synchronously.  However the following permission is given:
 
@@ -907,9 +922,9 @@ include::requirements/core/REQ_job-results-op.adoc[]
 
 ==== Response
 
-The manner in which a server responds when retrieving job results depends on the values of the following parameters used on the execute request that created the job:
+The manner in which a server responds when retrieving job results depends on the values of the following parameters used in the execute request that created the job:
 
-* the `mode` parameter (`sync`, `async`, or `auto`),
+* the <<sc_execution_mode,negotiated execution mode>> (synchronous or asynchronous),
 * the `response` parameter (`document` or `raw`),
 * the `transmissionMode` parameter (`value` or `reference`)
 * and the number of output requested.
@@ -917,13 +932,13 @@ The manner in which a server responds when retrieving job results depends on the
 The following table maps the possible responses based on the combinations of these execute parameters.
 
 [#table_core_getresults_responses,reftext='{table-caption} {counter:table-num}']
-.Table mapping get results reponses based on the input parameter values used on the original execute request.
-[%autowidth.strech,,options="header"]
+.Table mapping get results responses based on the input parameter values used on the original execute request.
+[%autowidth.stretch,,options="header"]
 |===
 |*mode* |*response* |*tx mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
 ^.^|sync ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|no 4+^.^|[if the server creates a job on synchronous execute, +
 job results may be re-fetched at any time <<async-fetch,as per async>>]
-.8+^.^|[[async-fetch]]async .4+^.^|raw .2+^.^|value |1 .8+^.^|yes ^.^|200 |[as per output definition] |[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
+.8+^.^|[[async-fetch]]async .4+^.^|raw .2+^.^|value |1 .8+^.^|yes ^.^|200 |[as per output definition from process description] |[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
 |* ^.^|200 |multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
 .2+^.^|ref |1 .2+^.^|204 .2+.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
 |*
@@ -933,7 +948,7 @@ job results may be re-fetched at any time <<async-fetch,as per async>>]
 |*
 |===
 
-NOTE: The value _any_ in a cell means _"for any valid value of the parameter represented by that cell"_.
+NOTE: The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
 
 The following requirements apply when retrieving the results of a job that was created by executing a process synchronously OR was created by execution a process synchronously on a server that creates a job even on synchronous execution:
 

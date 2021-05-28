@@ -1,7 +1,0 @@
-[[req_core_job-creation-input-inline]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/job-creation-input-inline +
-
-If the value of a process input is specified in-line in an execute request, the specified value SHALL conform to the schema of the corresponding input definition from the  <<sc_process_description,process description>>.
-|===

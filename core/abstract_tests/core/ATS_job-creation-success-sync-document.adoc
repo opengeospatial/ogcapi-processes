@@ -1,10 +1,11 @@
 [[ats_core_job-creation-sync-document]]
 [width="90%",cols="2,6a"]
 |===
-|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-sync-document*
-^|Test Purpose |Validate that the server responds as expected when the execution mode is `sync` and the response type is `document`.
+^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-sync-document*
+^|Test Purpose |Validate that the server responds as expected when synchronous execution is <<sc_execution_code,negotiated>> and the response type is `document`.
+^|Requirement |<<req_core_job-creation-sync-document,/req/core/job-creation-sync-document>>
 ^|Test Method |. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
 . Inspect the description of each process and identify the subset of processes that support the `sync-execute` job control option.
-. For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that the execution mode is set to `sync` (i.e. `"mode": "sync"`) and the requested response type is `document` (i.e. `"response": "document"`) according to requirement <<req_core_job-creation-sync-document,/req /core/job-creation-sync-document>>.
-. Verify that each process executes successfully according to test <<ats_core_job-creation-sync-document,/conf/core/job-creation-sync-document>>.
+. For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that synchronous execution has been <<sc_execution_mode,negotiated>> according to tests <<ats_core_job-creation-default-execution-mode,/conf/core/job-creation-default-execution-mode>> and the requested response type is `document` (i.e. `"response": "document"`) according to requirement <<req_core_job-creation-sync-document,/req /core/job-creation-sync-document>>.
+. Verify that each process executes successfully according to requirement <<req_core_job-creation-sync-document,/req/core/job-creation-sync-document>>.
 |===

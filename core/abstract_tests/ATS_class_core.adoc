@@ -53,6 +53,10 @@ include::core/ATS_process-exception-no-such-process.adoc[]
 
 include::core/ATS_job-creation-op.adoc[]
 
+include::core/ATS_job-creation-auto-execution-mode.adoc[]
+
+include::core/ATS_job-creation-default-execution-mode.adoc[]
+
 include::core/ATS_job-creation-request.adoc[]
 
 include::core/ATS_job-creation-inputs.adoc[]
@@ -68,6 +72,12 @@ include::core/ATS_job-creation-input-inline-object.adoc[]
 include::core/ATS_job-creation-input-inline-mixed.adoc[]
 
 include::core/ATS_job-creation-input-inline-binary.adoc[]
+
+include::core/REQ_job-creation-input-inline-bbox.adoc[]
+
+include::core/ATS_job-creation-input-validation.adoc[]
+
+include::core/ATS_job-creation-success.adoc[]
 
 include::core/ATS_job-creation-success-sync-raw-value-one.adoc[]
 
@@ -90,6 +100,8 @@ include::core/ATS_job-exception-no-such-job.adoc[]
 ===== Job results /jobs/{jobID}/results
 
 include::core/ATS_job-results-op.adoc[]
+
+include::core/ATS_job-results-success.adoc[]
 
 include::core/ATS_job-results-success-sync.adoc[]
 
