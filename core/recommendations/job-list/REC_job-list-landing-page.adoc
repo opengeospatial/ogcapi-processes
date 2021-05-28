@@ -1,7 +1,7 @@
 [[rec_job-list_job-list-landing-page]]
 [width="90%",cols="2,6a"]
 |===
-|*Recommendation{counter:rec-id}* |/rec/job-list/job-list-landing-page +
+|Recommendation {counter:rec-id} |/rec/job-list/job-list-landing-page +
 
 A link to the following resource SHOULD be added to the API landing page:
 

@@ -142,12 +142,6 @@ components:
         outputs:
           additionalProperties:
             $ref: "#/components/schemas/output"
-        mode:
-          type: string
-          enum:
-            - sync
-            - async
-            - auto
         response:
           type: string
           enum:
@@ -573,10 +567,10 @@ components:
                 format: binary
               - $ref: "#/components/schemas/results"
                 description: |-
-                  mode=sync,response=document,any txMode and no. outputs
+                  Negotiate synchronous execution,response=document,any txMode and no. outputs
     ExecuteSyncRawRef:
       description: |-
-        Response when mode=sync, response=raw, transmissionMode=reference and
+        Response when negotiate synchronous execution, response=raw, transmissionMode=reference and
         for any number of output values.
       headers:
         Link:

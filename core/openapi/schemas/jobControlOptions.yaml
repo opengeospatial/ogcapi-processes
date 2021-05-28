@@ -2,3 +2,5 @@ type: string
 enum:
   - sync-execute
   - async-execute
+default:
+  - sync-execute
