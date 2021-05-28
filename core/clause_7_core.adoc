@@ -766,6 +766,8 @@ include::recommendations/core/REC_job-creation-honor-prefer.adoc[]
 
 include::recommendations/core/REC_job-creation-handle-prefer.adoc[]
 
+include::recommendations/core/REC_job-creation-preference-applied.adoc[]
+
 ===== Response type
 
 The `response` parameter selects the form used to present processing results.
@@ -795,6 +797,7 @@ In cases where a specific output can be presented in a number of media types, th
 include::examples/json/Execute.json[]
 ----
 
+[[sc_execute_response]]
 ==== Response
 
 The manner in which a server responds to a process execution request is determined by the following parameters:

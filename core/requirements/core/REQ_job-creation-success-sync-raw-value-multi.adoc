@@ -6,7 +6,7 @@
 . The number of requested outputs is greater than 1.
 ^|A |The server SHALL respond with an HTTP status code of 200.
 ^|B |The media type of the response SHALL be `multipart/related`.
-^|C |The content of response shall conform to (https://datatracker.ietf.org/doc/html/rfc2387)[RFC 2387].
+^|C |The content of response shall conform to https://datatracker.ietf.org/doc/html/rfc2387[RFC 2387, The MIME Multipart/Related Content-type].
 ^|D |Each requested output shall be encoded into one part of the response.
 ^|E |The `Content-ID` header for each part SHALL be the corresponding output identifier.
 |===
