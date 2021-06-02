@@ -1,0 +1,28 @@
+
+== Self-registration for the 2021-06 OGC API Processes Workshop
+
+[cols="50e,^25m,>25s",width="75%",options="header",align="center"]
+|===
+|Full Name | Affiliation | GitHub Handle
+
+| Benjamin Pross
+| 52 North
+| https://github.com/bpross-52n[bpross-52n]
+
+| TBA
+| TBA
+| TBA
+
+| TBA
+| TBA
+| TBA
+
+| TBA
+| TBA
+| TBA
+
+| TBA
+| TBA
+| TBA
+
+|===
