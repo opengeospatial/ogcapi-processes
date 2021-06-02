@@ -10,11 +10,11 @@ This workshop will prepare OGC Members for the https://github.com/opengeospatial
 
 The draft OGC API - Processes specification defines how a client application can request the execution of a process, how the inputs to that process can be provided, and how the output from the process is handled. The specification allows for the wrapping of computational tasks into an executable process that can be invoked by a client application. Examples of computational processes that can be supported by implementations of this specification include raster algebra, geometry buffering, constructive area geometry, routing and several others.
 
-Please register for the June 8th - 10th OGC API - Processes Workshop by creating a Pull Request adding your name to https://github.com/opengeospatial/ogcapi-processes/blob/master/workshops/2021_06_Workshop.adoc
+*For further information*, please post the questions to the GitHub Issues board on the OGC API - Processes repository.
 
-For further information, please post the questions to the GitHub Issues board on the OGC API - Processes repository.
+=== Self-Registration
 
-
+Please register for the June 8th - 10th OGC API - Processes Workshop by creating a Pull Request adding your name to https://github.com/opengeospatial/ogcapi-processes/blob/master/workshops/2021_06_Workshop_Registration.adoc
 
 === Agenda
 
@@ -46,31 +46,3 @@ For further information, please post the questions to the GitHub Issues board on
 
 |===
 
-
-=== Self-registration
-
-[cols="50e,^25m,>25s",width="75%",options="header",align="center"]
-|===
-|Full Name | Affiliation | GitHub Handle
-
-| Benjamin Pross
-| 52 North
-| https://github.com/bpross-52n[bpross-52n]
-
-| TBA
-| TBA
-| TBA
-
-| TBA
-| TBA
-| TBA
-
-| TBA
-| TBA
-| TBA
-
-| TBA
-| TBA
-| TBA
-
-|===
