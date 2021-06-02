@@ -18,31 +18,35 @@ Please register for the June 8th - 10th OGC API - Processes Workshop by creating
 
 === Agenda
 
+All times on the agenda are in EDT (New York time).
+
+&#10036; means that the session will be in the main Gotomeeting virtual room.
+
 [cols="3,7",width="75%",options="header",align="center"]
 |===
 |Time (EDT) | Item 
 2+| Tuesday 8th June 2021
-| 09:00 - 10:00 | Opening Session
+| 09:00 - 10:00 | Opening Session &#10036;
 
 | 10:00 - 16:30 | Practical work
 
-| 16:30 - 17:30 | Daily brief back
+| 16:30 - 17:30 | Daily brief back &#10036;
 
 2+| Wednesday 9th June 2021
 
-| 09:00 - 10:00 | A short stand-up
+| 09:00 - 10:00 | A short stand-up &#10036;
 
 | 10:00 - 16:30 | Practical work
 
-| 16:30 - 17:30 | Daily brief back
+| 16:30 - 17:30 | Daily brief back &#10036;
 
 2+| Thursday 10th June 2021
 
-| 09:00 - 10:00 | A short stand-up
+| 09:00 - 10:00 | A short stand-up &#10036;
 
 | 10:00 - 16:30 | Practical work
 
-| 16:30 - 17:30 | Final demonstration and wrap-up
+| 16:30 - 17:30 | Final demonstration and wrap-up &#10036;
 
 |===
 
