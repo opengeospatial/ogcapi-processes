@@ -1,4 +1,4 @@
-== Self-registration for the 2021-06 OGC API Processes Worksho
+== Self-registration for the 2021-06 OGC API Processes Workshop
 
 
 [cols="50e,^25m,>25s",width="75%",options="header",align="center"]
