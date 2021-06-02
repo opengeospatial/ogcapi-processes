@@ -5,9 +5,9 @@
 |===
 |Full Name | Affiliation | GitHub Handle
 
-| FirstName LastName
-| OrganisationName
-| myGitHubHandle
+| Benjamin Pross
+| 52 North
+| https://github.com/bpross-52n[bpross-52n]
 
 | TBA
 | TBA
