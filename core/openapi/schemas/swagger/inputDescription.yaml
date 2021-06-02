@@ -1,0 +1,18 @@
+allOf:
+  - $ref: "../descriptionType.yaml"
+  - type: object
+    required:
+      - schema
+    properties:
+      minOccurs:
+        type: integer
+        default: 1
+      maxOccurs:
+        oneOf:
+          - type: integer
+            default: 1
+          - type: string
+            enum:
+              - "unbounded"
+      schema:
+        $ref: "schema.yaml"
