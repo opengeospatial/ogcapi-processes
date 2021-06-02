@@ -1,5 +1,53 @@
-== Self-registration for the 2021-06 OGC API Processes Workshop
+== 2021-06 OGC API Processes Workshop
 
+The OGC API - Processes Standards Working Group (SWG) invites software developers from the OGC Membership to a workshop from Tuesday 8th June 2021 until Thursday 10th June 2021 to validate the latest revision of the draft OGC API - Processes specification through implementation.
+
+The workshop will start Tuesday, June 8th with a plenary to discuss the work items and will have several status check ins until Thursday, June 10th.
+
+The SWG would like to cross-test implementations to find out if everything that has been recently changed makes sense. The SWG welcomes developers from outside of the SWG. 
+
+This workshop will prepare OGC Members for the https://github.com/opengeospatial/developer-track[Developer Track] event that is taking place on Wednesday 16th June 2021. This is because some of the specifications in focus for the Developer Track are envisaged to include extensions of OGC API - Processes.
+
+The draft OGC API - Processes specification defines how a client application can request the execution of a process, how the inputs to that process can be provided, and how the output from the process is handled. The specification allows for the wrapping of computational tasks into an executable process that can be invoked by a client application. Examples of computational processes that can be supported by implementations of this specification include raster algebra, geometry buffering, constructive area geometry, routing and several others.
+
+Please register for the June 8th - 10th OGC API - Processes Workshop by creating a Pull Request adding your name to https://github.com/opengeospatial/ogcapi-processes/blob/master/workshops/2021_06_Workshop.adoc
+
+For further information, please post the questions to the GitHub Issues board on the OGC API - Processes repository.
+
+
+
+=== Agenda
+
+[cols="3,7",width="75%",options="header",align="center"]
+|===
+|Time (EDT) | Item 
+2+| Tuesday 8th June 2021
+| 09:00 - 10:00 | Opening Session
+
+| 10:00 - 16:30 | Practical work
+
+| 16:30 - 17:30 | Daily brief back
+
+2+| Wednesday 9th June 2021
+
+| 09:00 - 10:00 | A short stand-up
+
+| 10:00 - 16:30 | Practical work
+
+| 16:30 - 17:30 | Daily brief back
+
+2+| Thursday 10th June 2021
+
+| 09:00 - 10:00 | A short stand-up
+
+| 10:00 - 16:30 | Practical work
+
+| 16:30 - 17:30 | Final demonstration and wrap-up
+
+|===
+
+
+=== Self-registration
 
 [cols="50e,^25m,>25s",width="75%",options="header",align="center"]
 |===
