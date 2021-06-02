@@ -1,0 +1,28 @@
+== Self-registration for the 2021-06 OGC API Processes Worksho
+
+
+[cols="50e,^25m,>25s",width="75%",options="header",align="center"]
+|===
+|Full Name | Affiliation | GitHub Handle
+
+| FirstName LastName
+| OrganisationName
+| myGitHubHandle
+
+| TBA
+| TBA
+| TBA
+
+| TBA
+| TBA
+| TBA
+
+| TBA
+| TBA
+| TBA
+
+| TBA
+| TBA
+| TBA
+
+|===
