@@ -7,5 +7,6 @@ content:
       processDecription:
         summary: A Process Description example
         value:
-          appliction/json:
-            $ref: "../../../examples/json/ProcessDescription.json"
+          allOf:
+            - type: object
+            - $ref: "../../../examples/json/ProcessDescription.json"
