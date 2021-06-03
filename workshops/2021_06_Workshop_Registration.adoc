@@ -13,9 +13,17 @@
 | CubeWerx Inc.
 | https://github.com/pvretano[pvretano]
 
-| TBA
-| TBA
-| TBA
+| Jerome St-Louis
+| Ecere Corporation
+| https://github.com/jerstlouis[jerstlouis]
+
+| Patrick Dion
+| Ecere Corporation
+| https://github.com/slothtrop[slothtrop]
+
+| Diego Caraffini
+| Ecere Corporation
+| https://github.com/bonderado[bonderado]
 
 | TBA
 | TBA
