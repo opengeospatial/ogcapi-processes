@@ -25,9 +25,9 @@
 | Ecere Corporation
 | https://github.com/bonderado[bonderado]
 
-| TBA
-| TBA
-| TBA
+| Mohamed Elhefnawy
+| Polytechnique Montreal
+| https://github.com/MElHefnawy369[MElHefnawy369]
 
 | TBA
 | TBA
