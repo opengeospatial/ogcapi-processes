@@ -9,9 +9,9 @@
 | 52 North
 | https://github.com/bpross-52n[bpross-52n]
 
-| TBA
-| TBA
-| TBA
+| Panagiotis (Peter) A. Vretanos
+| CubeWerx Inc.
+| https://github.com/pvretano[pvretano]
 
 | TBA
 | TBA
