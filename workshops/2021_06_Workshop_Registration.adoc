@@ -33,6 +33,10 @@
 | GeoLabs
 | https://github.com/gfenoy[gfenoy]
 
+| Francis Charette-Migneault
+| Computer Research Institute of Montréal (CRIM)
+| https://github.com/fmigneault[fmigneault]
+
 | TBA
 | TBA
 | TBA
