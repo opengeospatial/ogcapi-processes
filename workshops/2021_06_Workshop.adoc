@@ -26,27 +26,27 @@ All times on the agenda are in EDT (New York time).
 |===
 |Time (EDT) | Item 
 2+| Tuesday 8th June 2021
-| 09:00 - 10:00 | Opening Session https://meet.jit.si/OGCAPI-Processes-Workshop[&#10036;]
+| 09:00 - 10:00 | Opening Session &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
 
 | 10:00 - 16:30 | Practical work
 
-| 16:30 - 17:30 | Daily brief back &#10036;
+| 16:30 - 17:30 | Daily brief back &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
 
 2+| Wednesday 9th June 2021
 
-| 09:00 - 10:00 | A short stand-up &#10036;
+| 09:00 - 10:00 | A short stand-up &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
 
 | 10:00 - 16:30 | Practical work
 
-| 16:30 - 17:30 | Daily brief back &#10036;
+| 16:30 - 17:30 | Daily brief back &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
 
 2+| Thursday 10th June 2021
 
-| 09:00 - 10:00 | A short stand-up &#10036;
+| 09:00 - 10:00 | A short stand-up &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
 
 | 10:00 - 16:30 | Practical work
 
-| 16:30 - 17:30 | Final demonstration and wrap-up &#10036;
+| 16:30 - 17:30 | Final demonstration and wrap-up &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
 
 |===
 
