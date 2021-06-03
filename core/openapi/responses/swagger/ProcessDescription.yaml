@@ -6,4 +6,4 @@ content:
     examples:
       processDecription:
         summary: A Process Description example
-        externalValue: "../../../examples/json/ProcessDescription.json"
+        externalValue: "https:/raw.githubusercontent.com/GeoLabs/ogcapi-processes/small-fixes/core/examples/json/ProcessDescription.json"
