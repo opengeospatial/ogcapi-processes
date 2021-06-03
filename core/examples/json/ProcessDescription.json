@@ -122,7 +122,7 @@
             "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
           },
           {
-            "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+            "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
           }
         ]
       }
@@ -271,7 +271,7 @@
             "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
           },
           {
-            "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+            "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
           }
         ]
       }
