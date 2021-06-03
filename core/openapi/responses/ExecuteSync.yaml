@@ -7,7 +7,7 @@ content:
         - type: number
         - type: integer
         - type: object
-	  nullable: true
+          nullable: true
         - type: array
         - type: boolean
         - type: string
