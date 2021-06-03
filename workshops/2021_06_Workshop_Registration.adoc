@@ -29,8 +29,8 @@
 | Polytechnique Montreal
 | https://github.com/MElHefnawy369[MElHefnawy369]
 
-| TBA
-| TBA
-| TBA
+| Gérald Fenoy
+| GeoLabs
+| https://github.com/gfenoy[gfenoy]
 
 |===
