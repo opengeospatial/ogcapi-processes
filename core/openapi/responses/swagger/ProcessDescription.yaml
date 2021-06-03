@@ -6,4 +6,6 @@ content:
     examples:
       processDecription:
         summary: A Process Description example
-        externalValue: "../../../examples/json/ProcessDescription.json"
+        value:
+          appliction/json:
+            $ref: "../../../examples/json/ProcessDescription.json"
