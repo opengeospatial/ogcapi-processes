@@ -20,13 +20,13 @@ Please register for the June 8th - 10th OGC API - Processes Workshop by creating
 
 All times on the agenda are in EDT (New York time).
 
-&#10036; means that the session will be in the main Gotomeeting virtual room.
+&#10036; means that the session will be in the jitsi room.
 
 [cols="3,7",width="75%",options="header",align="center"]
 |===
 |Time (EDT) | Item 
 2+| Tuesday 8th June 2021
-| 09:00 - 10:00 | Opening Session &#10036;
+| 09:00 - 10:00 | Opening Session https://meet.jit.si/OGCAPI-Processes-Workshop[&#10036;]
 
 | 10:00 - 16:30 | Practical work
 
