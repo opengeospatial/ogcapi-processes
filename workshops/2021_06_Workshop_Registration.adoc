@@ -41,6 +41,10 @@
 | Hexagon
 | https://github.com/sptillma[sptillma]
 
+| Steve McDaniel
+| Hexagon
+| https://github.com/gardengeek99[gardengeek99]
+
 | TBA
 | TBA
 | TBA
