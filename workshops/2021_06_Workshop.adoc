@@ -16,6 +16,10 @@ The draft OGC API - Processes specification defines how a client application can
 
 Please register for the June 8th - 10th OGC API - Processes Workshop by creating a Pull Request adding your name to https://github.com/opengeospatial/ogcapi-processes/blob/master/workshops/2021_06_Workshop_Registration.adoc
 
+=== Gitter Chat
+
+The Workshop will use this Gitter room https://gitter.im/ogc-developer/Sprints
+
 === Agenda
 
 All times on the agenda are in EDT (New York time).
