@@ -1,0 +1,16 @@
+
+== Who is testing what
+
+[cols="50e,^25m,>25s",width="75%",options="header",align="center"]
+|===
+|Client | Server | What is tested
+
+| Example client
+| Example server
+| Sync execute
+
+| TBA
+| TBA
+| TBA
+
+|===

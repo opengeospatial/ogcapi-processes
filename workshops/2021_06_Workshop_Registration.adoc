@@ -37,6 +37,14 @@
 | Computer Research Institute of Montréal (CRIM)
 | https://github.com/fmigneault[fmigneault]
 
+| Stan Tillman
+| Hexagon
+| https://github.com/sptillma[sptillma]
+
+| Steve McDaniel
+| Hexagon
+| https://github.com/gardengeek99[gardengeek99]
+
 | TBA
 | TBA
 | TBA
