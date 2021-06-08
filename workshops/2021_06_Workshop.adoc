@@ -34,7 +34,7 @@ All times on the agenda are in EDT (New York time).
 
 | 10:00 - 12:00 | Practical work
 
-| 12:00 - 13:00 | Catch-up Plenary
+| 12:00 - 13:00 | Catch-up Plenary &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
 
 | 13:00 - 16:30 | Practical work
 
