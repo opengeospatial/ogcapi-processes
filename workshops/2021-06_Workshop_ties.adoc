@@ -13,6 +13,10 @@
 | http://tb17.geolabs.fr:8088/ogc-api/api
 | Test various combinaison of transmissionMode when response is set to "raw"
 
+| swagger-ui: http://ogc.intergraph.com/swagger-ui/index.html#/Open%20API%20Processes
+| http://ogc.intergraph.com:80/oapi-p/
+| Test server for various proprietary async processes and a sample process ("_sample")
+
 | TBA
 | TBA
 | TBA
