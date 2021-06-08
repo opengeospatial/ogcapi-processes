@@ -32,7 +32,11 @@ All times on the agenda are in EDT (New York time).
 2+| Tuesday 8th June 2021
 | 09:00 - 10:00 | Opening Session &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
 
-| 10:00 - 16:30 | Practical work
+| 10:00 - 12:00 | Practical work
+
+| 12:00 - 13:00 | Catch-up Plenary &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
+
+| 13:00 - 16:30 | Practical work
 
 | 16:30 - 17:30 | Daily brief back &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
 
