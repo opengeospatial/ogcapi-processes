@@ -10,7 +10,7 @@
 | Sync execute
 
 | swagger-ui: http://tb17.geolabs.fr:8088/swagger-ui/oapip/
-| http://tb17.geolabs.fr:8088/swagger-ui/oapip/
+| http://tb17.geolabs.fr:8088/ogc-api/api
 | Test various combinaison of transmissionMode when response is set to "raw"
 
 | TBA
