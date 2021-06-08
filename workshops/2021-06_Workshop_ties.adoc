@@ -17,6 +17,10 @@
 | http://ogc.intergraph.com:80/oapi-p/
 | Test server for various proprietary async processes and a sample process ("_sample")
 
+| swagger-ui: https://maps.ecere.com/ogcapi/api
+| https://maps.ecere.com/ogcapi
+| Sync execution (not yet ready)
+
 | TBA
 | TBA
 | TBA
