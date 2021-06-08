@@ -148,7 +148,7 @@ components:
             - raw
             - document
         subscriber:
-          $ref: "#/components/schemas/subscriberl"
+          $ref: "#/components/schemas/subscriber"
     format:
       type: object
       properties:
