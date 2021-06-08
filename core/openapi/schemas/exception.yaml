@@ -14,4 +14,4 @@ properties:
     type: string
   instance:
     type: string
-  additionalProperties: true
+additionalProperties: true

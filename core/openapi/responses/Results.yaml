@@ -2,4 +2,4 @@ description: The results of a job.
 content:
   application/json:
     schema:
-      $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml"
+      $ref: "../schemas/results.yaml"

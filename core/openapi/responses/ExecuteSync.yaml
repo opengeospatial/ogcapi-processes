@@ -7,9 +7,9 @@ content:
         - type: number
         - type: integer
         - type: object
+          nullable: true
         - type: array
         - type: boolean
-        - type: null
         - type: string
           format: binary
         - $ref: "../schemas/results.yaml"

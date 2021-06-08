@@ -1,4 +1,4 @@
-openapi: 3.0.2
+openapi: 3.0.3
 info:
   title: "Building Blocks specified in OGC API - Processes - Part 1: Core"
   description: |-
@@ -12,10 +12,10 @@ info:
 
     This document is also available on
     [OGC](http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/ogcapi-processes-1.yaml).
-  version: '1.0.0'
+  version: 1.0
   contact:
-    name: Panagiotis Vretanos
-    email: pvretano@cubewerx.com
+    name: Gérald Fenoy
+    email: gerald.fenoy@geolabs.fr
   license:
     name: OGC License
     url: 'http://www.opengeospatial.org/legal/'
@@ -77,7 +77,7 @@ components:
             - "http://www.opengis.net/def/crs/OGC/0/CRS84h"
     binaryInputValue:
       type: string
-      contentEncoding: base64
+      format: byte
     confClasses:
       type: object
       required:
@@ -128,7 +128,7 @@ components:
           type: string
         instance:
           type: string
-        additionalProperties: true
+      additionalProperties: true
     execute:
       type: object
       properties:
@@ -301,9 +301,9 @@ components:
             inputs:
               additionalProperties:
                 $ref: "#/components/schemas/inputDescription"
-              outputs:
-                additionalProperties:
-                  $ref: "#/components/schemas/outputDescription"
+            outputs:
+              additionalProperties:
+                $ref: "#/components/schemas/outputDescription"
     qualifiedInputValue:
       allOf:
         - $ref: "#/components/schemas/format"
@@ -488,8 +488,7 @@ components:
       enum:
         - value
         - reference
-      default:
-        - value
+      default: value
   responses:
     LandingPage:
       description: |-
@@ -562,7 +561,6 @@ components:
               - type: object
               - type: array
               - type: boolean
-              - type: null
               - type: string
                 format: binary
               - $ref: "#/components/schemas/results"
