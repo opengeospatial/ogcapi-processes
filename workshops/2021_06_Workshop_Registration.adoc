@@ -45,8 +45,8 @@
 | Hexagon
 | https://github.com/gardengeek99[gardengeek99]
 
-| TBA
-| TBA
-| TBA
+| Nazih Fino
+| Global Nomad GIS Services
+| https://github.com/NazihFino[NazihFino]
 
 |===
