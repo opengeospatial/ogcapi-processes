@@ -1,0 +1,45 @@
+== Ecere server report
+
+=== Server base URL
+
+https://maps.ecere.com/ogcapi
+
+=== Test scripts
+
+https://www.pvretano.com/Projects/OAPIP_WORKSHOP_JUN2021/demo/
+
+=== Execute request
+
+[source,json]
+====
+{
+   "process" : "https://maps.ecere.com/ogcapi/processes/RenderMap",
+   "inputs" : {
+      "background" : "navy",
+      "transparent" : false,
+      "layers" : [
+            { "href" : "https://maps.ecere.com/ogcapi/collections/SRTM_ViewFinderPanorama/coverage?subset=Lat(0:90),Lon(0:90)&scaleFactor=256&f=image/tiff" }
+      ]
+   }
+}
+====
+
+=== Test report
+
+Just basic tests returning JSON.
+
+[cols="40e,20m,20s,20s",width="75%",options="header",align="center"]
+|===
+|Resource |Access URL |Result |Notes
+|Landing page |/ |success |N/A
+|Conformance page |/conformance |fail |Missing core,oas30,json
+|API document |/api |failed |Missing /processes/{processId}/execution path.
+|List of processes |/processes |success |N/A
+|Process description |/processes/RenderMap |success |N/A
+|Process execution (sync)|/processes/RenderMap/execution |success |N/A
+|Process execution (async)|N/A |N/A |N/A
+|Job monitoring |N/A |N/A |N/A
+|Results |N/A |N/A |N/A
+|List of jobs |N/A |N/A |N/A
+|Dismiss job |N/A |N/A |N/A
+|Cancel job |N/A |N/A |N/A
