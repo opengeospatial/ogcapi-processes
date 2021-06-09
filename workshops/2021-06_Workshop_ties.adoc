@@ -32,7 +32,8 @@
 
 | swagger-ui: https://maps.ecere.com/ogcapi/api
 | https://maps.ecere.com/ogcapi
-| Sync execution (not yet ready)
+| Sync execution
+| @jerstlouis (Ecere)
 
 | TBA
 | TBA
