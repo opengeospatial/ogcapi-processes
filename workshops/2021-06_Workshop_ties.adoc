@@ -18,7 +18,7 @@
 | swagger-ui: http://ogc.intergraph.com/swagger-ui/index.html#/Open%20API%20Processes
 | http://ogc.intergraph.com:80/oapi-p/
 | Test server for various proprietary async processes and a sample process ("_sample")
-|
+| @gardengeek (Hexagon)
 
 | swagger-ui: https://ogc-ades.crim.ca/ADES/api
 | https://ogc-ades.crim.ca/ADES/
