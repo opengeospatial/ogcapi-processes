@@ -4,6 +4,10 @@
 
 http://tb17.geolabs.fr:8089/ogc-api
 
+=== Test scripts
+
+https://www.pvretano.com/Projects/OAPIP_WORKSHOP_JUN2021/demo/
+
 === Execute request
 
 [source,json]
