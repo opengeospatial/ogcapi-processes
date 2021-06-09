@@ -1,0 +1,48 @@
+== GeoLabs server report
+
+=== Server base URL
+
+http://tb17.geolabs.fr:8089/ogc-api
+
+=== Execute request
+
+[source,json]
+====
+{
+  "inputs": {
+    "InputPoints": {
+      "href": "https://demo.pygeoapi.io/stable/collections/dutch_georef_stations
+/items?f=json&limit=1000"
+    }
+  },
+  "outputs": {
+    "Result": {
+      "format": {
+        "mediaType": "application/json"
+      },
+      "transmissionMode": "value"
+    }
+  },
+  "response": "raw"
+}
+====
+
+=== Test report
+
+Just basic tests returning JSON.
+
+[cols="40e,20m,20s,20s",width="75%",options="header",align="center"]
+|===
+|Resource |Access URL |Result |Notes
+|Landing page |/ |success |N/A
+|Conformance page |/conformance |success |N/A
+|API document |/api |success |Includes examples.
+|List of processes |/processes |success |N/A
+|Process description |/processes/Voronoi |success |Includes an "extended-schema" key but that is OK.
+|Process execution (sync)|/processes/Voronoi/execution |success |N/A
+|Process execution (async)|/processes/Voronoi/execution |success |N/A
+|Job monitoring |/jobs/62aa805e-c92b-11eb-9c22-0242ac150006 |success |N/A
+|Results |/jobs/62aa805e-c92b-11eb-9c22-0242ac150006/results |success |N/A
+|List of jobs |/jobs |success |N/A
+|Dismiss job |/jobs/62aa805e-c92b-11eb-9c22-0242ac150006 |success |N/A
+|Cancel job |N/A |N/A |Job runs too quickly
