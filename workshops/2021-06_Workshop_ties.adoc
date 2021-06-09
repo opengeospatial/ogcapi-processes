@@ -12,8 +12,8 @@
 
 | swagger-ui: http://tb17.geolabs.fr:8088/swagger-ui/oapip/
 | http://tb17.geolabs.fr:8088/ogc-api/api
-| Test various combinaison of transmissionMode when response is set to "raw"
-|
+| Test various combinaison of transmissionMode when response is set to "raw" (known as not working: `"response":"raw""` and `Prefer: respond-async`)
+| @gfenoy (GeoLabs)
 
 | swagger-ui: http://ogc.intergraph.com/swagger-ui/index.html#/Open%20API%20Processes
 | http://ogc.intergraph.com:80/oapi-p/
@@ -24,6 +24,11 @@
 | https://ogc-ades.crim.ca/ADES/
 | Async-execute, WPS-T, Application Packages
 | @fmigneault (CRIM)
+
+| swagger-ui: http://tb17.geolabs.fr:8089/swagger-ui/oapip/
+| http://tb17.geolabs.fr:8089/ogc-api/api
+| More examples than in the previous instance for more processes. Testing combinaisons of transmissionMode when response is set to "raw" (known as not working: `"response":"raw""` and `Prefer: respond-async`)
+| @gfenoy (GeoLabs)
 
 | TBA
 | TBA
