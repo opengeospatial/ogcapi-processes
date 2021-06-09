@@ -30,6 +30,10 @@
 | More examples than in the previous instance for more processes. Testing combinaisons of transmissionMode when response is set to "raw" (known as not working: `"response":"raw""` and `Prefer: respond-async`)
 | @gfenoy (GeoLabs)
 
+| swagger-ui: https://maps.ecere.com/ogcapi/api
+| https://maps.ecere.com/ogcapi
+| Sync execution (not yet ready)
+
 | TBA
 | TBA
 | TBA
