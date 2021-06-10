@@ -10,6 +10,8 @@ https://www.pvretano.com/Projects/OAPIP_WORKSHOP_JUN2021/demo/
 
 === Execute request
 
+Sample execute request for `RenderMap` process.
+
 [source,json]
 ====
 {
@@ -32,8 +34,8 @@ Just basic tests returning JSON.
 |===
 |Resource |Access URL |Result |Notes
 |Landing page |/ |success |N/A
-|Conformance page |/conformance |fail |Missing core,oas30,json
-|API document |/api |failed |Missing /processes/{processId}/execution path.
+|Conformance page |/conformance |success |N/A
+|API document |/api |success |N/A
 |List of processes |/processes |success |N/A
 |Process description |/processes/RenderMap |success |N/A
 |Process execution (sync)|/processes/RenderMap/execution |success |N/A
