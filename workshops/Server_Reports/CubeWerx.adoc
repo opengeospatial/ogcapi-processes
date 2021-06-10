@@ -1,0 +1,55 @@
+== Cubewerx server report
+
+=== Server base URL
+
+http://tb17.geolabs.fr:8089/ogc-api
+
+=== Test scripts
+
+https://www.pvretano.com/Projects/OAPIP_WORKSHOP_JUN2021/demo/
+
+=== Execute request
+
+Sample execute request for `dsi` process.
+
+[source,json]
+====
+{
+   "inputs": [
+      {
+         "id": "productRef",
+         "input": {
+            "format": { "mimeType": "application/directory" },
+            "value": { "href": "https://eratosthenes.pvretano.com/Projects/radarsat/repository/RS2_OK95449_IK624299_PEK008698378_OSVN_20180315_222217_VV_VH_SCF/
+" }}
+      }
+   ],
+   "outputs": [
+      {
+         "id": "output",
+         "transmissionMode": "reference"
+      }
+   ],
+   "response": "document"
+}
+====
+
+=== Test report
+
+Just basic tests returning JSON.
+
+[cols="40e,20m,20s,20s",width="75%",options="header",align="center"]
+|===
+|Resource |Access URL |Result |Notes
+|Landing page |/ |success |N/A
+|Conformance page |/conformance |success |N/A
+|API document |/api |failed |Generates an API document but no OAPIP endpoints are listed.
+|List of processes |/processes |success |N/A
+|Process description |/processes/dsi |success |Missing examples.
+|Process execution (sync)|N/A |N/A |N/A
+|Process execution (async)|/processes/dsi |success |Status message includes monitor and runlog links.
+|Job monitoring |/jobs/urn:cw:wps:dsi:20210610144710:jobid:bc73cdb4-c9fa-11eb-ad17-2f292a75d3f1 |success |N/A
+|Results |/jobs/urn:cw:wps:dsi:20210610144710:jobid:bc73cdb4-c9fa-11eb-ad17-2f292a75d3f1/results |success |N/A
+|List of jobs |/jobs |success |N/A
+|Dismiss job |/jobs/urn:cw:wps:dsi:20210610144710:jobid:bc73cdb4-c9fa-11eb-ad17-2f292a75d3f1 |failed |Job still in jobs list.
+|Cancel job |/jobs/{jobID} |failed |Job still exists and is still running.
