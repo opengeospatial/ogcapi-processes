@@ -775,6 +775,8 @@ The `response` parameter selects the form used to present processing results.
 * A `response` value of `document` indicates that the server should generate a response document (see https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml]) that contains each of the requested process outputs.
 * A `response` value of `raw` indicates that the server should present the process responses in their native form without the use of a containing document.
 
+The default value, if the parameter is not specified is `raw`.
+
 [[sc_process_outputs]]
 ===== Process outputs
 
