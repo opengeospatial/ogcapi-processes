@@ -9,8 +9,15 @@ http://ogc.intergraph.com/oapi-p
 https://www.pvretano.com/Projects/OAPIP_WORKSHOP_JUN2021/demo/
 
 === Execute request
+For ProcessId _sample
 
-No example execute request provided so far.
+{
+  "inputs": {
+    "iterations": 30,
+    "doNextStep": false
+  },
+  "response": "document"
+}
 
 [source,JSON]
 ====
