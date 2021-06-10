@@ -15,5 +15,7 @@ properties:
     enum:
       - raw
       - document
+    default:
+      - raw
   subscriber:
     $ref: "subscriber.yaml"
