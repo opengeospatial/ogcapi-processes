@@ -10,6 +10,8 @@ https://www.pvretano.com/Projects/OAPIP_WORKSHOP_JUN2021/demo/
 
 === Execute request
 
+Sample execute request for `RenderMap` process.
+
 [source,json]
 ====
 {

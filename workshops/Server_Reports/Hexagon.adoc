@@ -10,10 +10,17 @@ https://www.pvretano.com/Projects/OAPIP_WORKSHOP_JUN2021/demo/
 
 === Execute request
 
-No example execute request provided so far.
+Sample execute request for `_sample` process.
 
 [source,JSON]
 ====
+{
+  "inputs": {
+    "iterations": 30,
+    "doNextStep": false
+  },
+  "response": "document"
+}
 ====
 
 === Test report
@@ -22,14 +29,14 @@ No example execute request provided so far.
 |===
 |Resource |Access URL |Result |Notes
 |Landing page |/ |success |Execution end point is the old one.
-|Conformance page |/conformance |failed |Missing oas30, ogc-process-description, dismiss
-|API document |/api |failed |Response returns a body that contains a URL that resolves to the API document.
+|Conformance page |/conformance |success |N/A
+|API document |/api |failed |No /processes/{processId}/execution endpoint.  The endpoint is named "execute".
 |List of processes |/processes |success |N/A
-|Process description |/processes/ImageToImageChangeDetection |success |Use of oneOf[] in parameter schemas even though there is only one choice.  Not wrong, just odd.
+|Process description |/processes/_sample |success |N/A
 |Process execution (sync)|N/A |N/A |N/A
-|Process execution (async)|N/A |N/A |N/A
-|Job monitoring |N/A |N/A |N/A
-|Results |N/A |N/A |N/A
-|List of jobs |/jobs |success |Returns 404 as expected since not listed in conformance.
-|Dismiss job |/jobs/{jobID} |N/A |N/A
-|Cancel job |N/A |N/A |N/A
+|Process execution (async)|/processes/_sample/execute |success |N/A
+|Job monitoring |/jobs/38cda8e5-c75c-4c77-b028-71756c3924e0 |success |N/A
+|Results |/jobs/38cda8e5-c75c-4c77-b028-71756c3924e0/results |failed |Returned a status info message instead.
+|List of jobs |/jobs |success |N/A
+|Dismiss job |/jobs/38cda8e5-c75c-4c77-b028-71756c3924e0 |success |N/A
+|Cancel job |/jobs/14d54f37-61b3-42f7-a39e-ac962c075d20 |failed |Status messages returned indicating job is still running.
