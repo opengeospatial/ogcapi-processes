@@ -56,7 +56,11 @@ All times on the agenda are in EDT (New York time).
 
 | 09:00 - 10:00 | A short stand-up &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
 
-| 10:00 - 16:30 | Practical work
+| 10:00 - 12:00 | Practical work
+
+| 12:00 - 12:30 | A short stand-up  &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
+
+| 12:30 - 16:30 | Practical work
 
 | 16:30 - 17:30 | Final demonstration and wrap-up &#10036; https://meet.jit.si/OGCAPI-Processes-Workshop[Join]
 
