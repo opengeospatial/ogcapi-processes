@@ -2,7 +2,7 @@
 
 === Server base URL
 
-http://tb17.geolabs.fr:8089/ogc-api
+https://www.pvretano.com/cubewerx/cubeserv/default/ogcapi/wpstest
 
 === Test scripts
 
