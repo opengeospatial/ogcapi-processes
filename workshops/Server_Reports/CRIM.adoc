@@ -1,0 +1,31 @@
+== CRIM server report
+
+=== Server base URL
+
+https://ogc-ades.crim.ca/ADES/
+
+=== Execute request
+
+[source,json]
+====
+====
+
+=== Test report
+
+Just basic tests returning JSON.
+
+[cols="40e,20m,20s,20s",width="75%",options="header",align="center"]
+|===
+|Resource |Access URL |Result |Notes
+|Landing page |/ |failed |Missing service-doc & service-desc rel.
+|Conformance page |/conformance |failed |Lists http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core/process which is not in specification.
+|API document |/api |success |N/A
+|List of processes |/processes |failed |Returns as object with a "Processes" key.  Should return an array of process.yaml.
+|Process description |/processes/las2tif |failed |Using the old input and output description format.
+|Process execution (sync)|N/A |N/A |N/A
+|Process execution (async)|N/A |N/A |N/A
+|Job monitoring |N/A |N/A |N/A
+|Results |N/A |N/A |N/A
+|List of jobs |/jobs |failed |Need authorization to have access to this endpoint.  Also requested JSON response but got XML instead.  Not wrong but seems the server generates JSON everywhere else except exception reports?
+|Dismiss job |N/A |N/A |N/A
+|Cancel job |N/A |N/A |N/A
