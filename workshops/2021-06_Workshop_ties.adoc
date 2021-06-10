@@ -43,6 +43,11 @@ _sample execute payload: +
 | Sync execution
 | @jerstlouis (Ecere)
 
+| swagger-ui: http://tb17.geolabs.fr:8090/swagger-ui/oapip/
+| http://tb17.geolabs.fr:8090/ogc-api/api
+| Test the basic HTML UI available from [here](http://tb17.geolabs.fr:8090/ogc-api/index.html), to browse over processes and then try to access a dynamic form (based on the process description) which let you configure the process execution,  produce a request body based on you have set and, execute the request, synchronously or asyncrhonously (not all processes from the list has been tested)
+| @gfenoy (GeoLabs)
+
 | TBA
 | TBA
 | TBA
