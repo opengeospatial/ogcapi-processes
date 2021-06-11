@@ -1,17 +1,17 @@
 [
     {
-		"id": "EchoProcess",
-		"title": "EchoProcess",
-		"version": "1.0.0",
-		"jobControlOptions": ["async-execute", "sync-execute"],
-		"outputTransmission": ["value",	"reference"],
+	"id": "EchoProcess",
+	"title": "EchoProcess",
+	"version": "1.0.0",
+	"jobControlOptions": ["sync-execute", "async-execute"],
+	"outputTransmission": ["value",	"reference"],
         "links": [
-          {
-            "href": "https://processing.example.org/oapi-p/processes/EchoProcess",
-            "type": "application/json",
-            "rel": "process-desc",
-            "title": "process description"
-          }
+            {
+		"href": "https://processing.example.org/oapi-p/processes/EchoProcess",
+		"type": "application/json",
+		"rel": "self",
+		"title": "process description"
+            }
         ]
-	}
+    }
 ]
