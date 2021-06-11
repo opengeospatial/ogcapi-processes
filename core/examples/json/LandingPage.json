@@ -24,19 +24,19 @@
 	},
 	{
 		"href": "http://processing.example.org/oapi-p/conformance",
-		"rel": "conformance",
+		"rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
 		"type": "application/json",
 		"title": "OGC API - Processes conformance classes implemented by this server"
 	},
 	{
 		"href": "http://processing.example.org/oapi-p/processes",
-		"rel": "processes",
+		"rel": "http://www.opengis.net/def/rel/ogc/1.0/processes",
 		"type": "application/json",
 		"title": "Metadata about the processes"
 	},
 	{
 		"href": "http://processing.example.org/oapi-p/jobs",
-		"rel": "jobs",
+		"rel": "http://www.opengis.net/def/rel/ogc/1.0/jobs-list",
 		"title": "The endpoint for job monitoring"
 	}]
 }
