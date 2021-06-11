@@ -9,7 +9,7 @@
             {
 		"href": "https://processing.example.org/oapi-p/processes/EchoProcess",
 		"type": "application/json",
-		"rel": "self",
+		"rel": "process-desc",
 		"title": "process description"
             }
         ]
