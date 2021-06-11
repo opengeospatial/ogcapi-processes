@@ -780,7 +780,18 @@ The default value, if the parameter is not specified is `raw`.
 [[sc_process_outputs]]
 ===== Process outputs
 
-A process can, in general, generate any number of outputs and an output can be of any media type.  Like inputs, outputs can be transmitted in-line in a result document or referenced using a <<link-schema,link>>.  The `transmissionMode` parameter in the execute request controls how the server responds.
+*_Overview:_*
+
+Each process output is a named object that appears in the `outputs` section of
+an <<execute-request-body,execute request>>. The name of each output is its identifier as specified by the output's definition in the <<sc_process_description,process description>>.
+
+*_Default outputs_*
+
+include::requirements/core/REQ_job-creation-default-outputs.adoc[]
+
+*_Output value transmission mode_*
+
+Like inputs, output values can be transmitted in-line in a result document or referenced using a <<link-schema,link>>.  The `transmissionMode` parameter in the execute request controls how the server <<sc_execute_response,responds>>.
 
 [[tx-mode-schema]]
 https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/transmissionMode.yaml[The following is the schema for the transmission mode (transmissionMode.yaml):]
@@ -789,7 +800,9 @@ https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/op
 include::openapi/schemas/transmissionMode.yaml[]
 ----
 
-In cases where a specific output can be presented in a number of media types, the `format` parameter in the <<output-schema,execute request>> indicates the format that should be presented.
+*_Output value format_*
+
+A process output can be defined in the <<sc_process_description,process description>> as being of one or more media types.   In cases where a specific output can be presented in one of a number of media types, the `format` parameter in the <<output-schema,execute request>> can be used to indicate the format that should be used to present the process output value in the server's <<sc_execute_response,response>>.
 
 ==== Example
 
