@@ -73,7 +73,7 @@ include::core/ATS_job-creation-input-inline-mixed.adoc[]
 
 include::core/ATS_job-creation-input-inline-binary.adoc[]
 
-include::core/REQ_job-creation-input-inline-bbox.adoc[]
+include::core/ATS_job-creation-input-inline-bbox.adoc[]
 
 include::core/ATS_job-creation-input-validation.adoc[]
 
