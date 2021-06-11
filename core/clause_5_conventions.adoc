@@ -40,8 +40,6 @@ In addition the following link relation types are used for which no applicable r
 
 * **http://www.opengis.net/def/rel/ogc/1.0/job-list**: The target URI points to the list of jobs.
 
-* **http://www.opengis.net/def/rel/ogc/1.0/process-desc**: The target URI points to a specific process description.
-
 * **http://www.opengis.net/def/rel/ogc/1.0/processes**: The target URI points to the list of processes the API offers.
 
 * **http://www.opengis.net/def/rel/ogc/1.0/results**: The target URI points to the results of a job.
