@@ -1,5 +1,5 @@
 {
-  "processList": [
+  "processes": [
     {
       "id": "EchoProcess",
       "title": "EchoProcess",

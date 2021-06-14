@@ -1,9 +1,9 @@
 type: object
 required:
-  - processList
+  - processes
   - links
 properties:
-  processList:
+  processes:
     type: array
     items:
       $ref: "processSummary.yaml"

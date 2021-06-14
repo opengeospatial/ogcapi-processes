@@ -1,9 +1,9 @@
 type: object
 required:
-  - jobList
+  - jobs
   - links
 properties:
-  jobList:
+  jobs:
     type: array
     items:
       $ref: "statusInfo.yaml"
