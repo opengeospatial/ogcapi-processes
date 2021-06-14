@@ -1,0 +1,8 @@
+[[ats_job-list_status-definition]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/job-list/status-definition*
+^|Test Purpose |Validate that the `status` query parameter is constructed correctly.
+^|Requirement |<<req_job-list-status-definition,/req/job-list/status-definition>>
+^|Test Method |Verify that the `status` query parameter complies with its definition in requirement <<req_job-list_status-definition,/req/job-list/status-definition>>.
+|===

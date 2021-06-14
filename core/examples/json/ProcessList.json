@@ -1,17 +1,37 @@
-[
+{
+  "processList": [
     {
-		"id": "EchoProcess",
-		"title": "EchoProcess",
-		"version": "1.0.0",
-		"jobControlOptions": ["async-execute", "sync-execute"],
-		"outputTransmission": ["value",	"reference"],
-        "links": [
-          {
-            "href": "https://processing.example.org/oapi-p/processes/EchoProcess",
-            "type": "application/json",
-            "rel": "process-desc",
-            "title": "process description"
-          }
-        ]
-	}
-]
+      "id": "EchoProcess",
+      "title": "EchoProcess",
+      "version": "1.0.0",
+      "jobControlOptions": [
+        "async-execute",
+        "sync-execute"
+      ],
+      "outputTransmission": [
+        "value",
+        "reference"
+      ],
+      "links": [
+        {
+          "href": "https://processing.example.org/oapi-p/processes/EchoProcess",
+          "type": "application/json",
+          "rel": "process-desc",
+          "title": "process description"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "href": "https://processing.example.org/oapi-p/processes?f=json",
+      "rel": "self",
+      "type": "application/json"
+    },
+    {
+      "href": "https://processing.example.org/oapi-p/processes?f=html",
+      "rel": "alternate",
+      "type": "text/html"
+    }
+  ]
+}

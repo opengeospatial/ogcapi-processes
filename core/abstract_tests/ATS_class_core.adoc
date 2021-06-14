@@ -35,7 +35,13 @@ include::core/ATS_http.adoc[]
 
 include::core/ATS_process-list-op.adoc[]
 
+include::core/ATS_process-list-limit-def.adoc[]
+
 include::core/ATS_process-list-success.adoc[]
+
+include::core/ATS_process-list-links.adoc[]
+
+include::core/ATS_process-list-limit-response.adoc[]
 
 ===== Process description /processes/{processID}
 
