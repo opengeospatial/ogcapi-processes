@@ -10,6 +10,6 @@ The content of that response SHALL be based upon the OpenAPI 3.0 schema link:htt
 and include at least links to the following resources:
 
 * the API definition (relation type 'service-desc' or 'service-doc')
-* `/conformance` (relation type 'conformance')
-* `/processes` (relation type 'processes')
+* `/conformance` (relation type 'http://www.opengis.net/def/rel/ogc/1.0/conformance')
+* `/processes` (relation type 'http://www.opengis.net/def/rel/ogc/1.0/processes')
 |===
