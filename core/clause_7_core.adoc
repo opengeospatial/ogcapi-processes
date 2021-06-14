@@ -657,7 +657,7 @@ and a JPEG2000 instance example in an execute request might be:
 [[bounding-box-value]]
 *_Bounding box values:_*
 
-A process input value instance can be a bounding box.  
+A process input value instance can be a bounding box.
 
 include::requirements/core/REQ_job-creation-input-inline-bbox.adoc[]
 
@@ -668,7 +668,7 @@ include::requirements/core/REQ_job-creation-input-inline-bbox.adoc[]
 include::openapi/schemas/bbox.yaml[]
 ----
 
-This schema is meant to be a template for defining bounding box process inputs. If the specified `default` and `enum` are suitable for your purposes then you can reference this file directly in your process description. 
+This schema is meant to be a template for defining bounding box process inputs. If the specified `default` and `enum` are suitable for your purposes then you can reference this file directly in your process description.
 
 include::recommendations/core/PER_job-creation-input-inline-bbox.adoc[]
 
@@ -828,16 +828,17 @@ The following table maps the possible responses based on the combinations of the
 .Table mapping execute responses based on the input parameter values.
 [%autowidth.stretch,,options="header"]
 |===
-|*mode* |*response* |*tx mode* |*# out* |*HTTP code* |*media type* |*body content* |*requirement*
-.8+^.^|sync .4+^.^|raw .2+^.^|value |1 ^.^|200 |[as per output definition from process description] |[output in requested format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
-|* ^.^|200 |multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
-.2+^.^|ref |1 .2+^.^|204 .2+.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
-|*
-.4+^.^|document .2+^.^|value |1 .4+^.^|200 .4+.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
-|*
-.2+^.^|ref |1
-|*
-^.^|async ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|201 .^|application/json .^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] .^|<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
+|*negotiated execution mode* |*response* |*transmission mode* |*# out* |*HTTP code* |*media type* |*body content* |*requirement*
+.9+^.^|sync .5+^.^|raw .2+^.^|value ^.^|1 ^.^|200 ^.^|[as per output definition from process description] |[output in requested format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
+^.^|* ^.^|200 ^.^|multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
+.2+^.^|reference ^.^|1 .2+^.^|204 .2+^.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
+^.^|*
+^.^|mixed ^.^|* ^.^|200 ^.^|multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-mixed-multi,/req/core/job-creation-sync-raw-mixed-multi>>
+.4+^.^|document .2+^.^|value ^.^|1 .4+^.^|200 .4+^.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
+^.^|*
+.2+^.^|reference ^.^|1
+^.^|*
+^.^|async ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|201 ^.^|application/json .^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] .^|<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
 |===
 
 NOTE: The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
@@ -857,6 +858,8 @@ include::requirements/core/REQ_job-creation-success-sync-raw-value-one.adoc[]
 include::requirements/core/REQ_job-creation-success-sync-raw-value-multi.adoc[]
 
 include::requirements/core/REQ_job-creation-success-sync-raw-ref.adoc[]
+
+include::requirements/core/REQ_job-creation-success-sync-raw-mixed-multi.adoc[]
 
 include::requirements/core/REQ_job-creation-success-sync-document.adoc[]
 
@@ -953,17 +956,18 @@ The following table maps the possible responses based on the combinations of the
 .Table mapping get results responses based on the input parameter values used on the original execute request.
 [%autowidth.stretch,,options="header"]
 |===
-|*mode* |*response* |*tx mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
+|*negotiated execute mode* |*response* |*transmission mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
 ^.^|sync ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|no 4+^.^|[if the server creates a job on synchronous execute, +
 job results may be re-fetched at any time <<async-fetch,as per async>>]
-.8+^.^|[[async-fetch]]async .4+^.^|raw .2+^.^|value |1 .8+^.^|yes ^.^|200 |[as per output definition from process description] |[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
-|* ^.^|200 |multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
-.2+^.^|ref |1 .2+^.^|204 .2+.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
-|*
-.4+^.^|document .2+^.^|value |1 .4+^.^|200 .4+.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
-|*
-.2+^.^|ref |1
-|*
+.8+^.^|[[async-fetch]]async .5+^.^|raw .2+^.^|value ^.^|1 .8+^.^|yes ^.^|200 ^.^|[as per output definition from process description] ^.^|[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
+^.^|* ^.^|200 ^.^|multipart/related ^.^|[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
+.2+^.^|reference ^.^|1 .2+^.^|204 .2+^.^|none .2+^.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
+^.^|*
+^.^|mixed ^.^|* ^.^|200 ^.^|multipart/related ^.^|[one output per part] |<<req_core_job-creation-async-raw-mixed-multi,/req/core/job-creation-async-raw-mixed-multi>>
+.4+^.^|document .2+^.^|value ^.^|1 .4+^.^|200 .4+^.^|application/json .4+^.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
+^.^|*
+.2+^.^|reference ^.^|1
+^.^|*
 |===
 
 NOTE: The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
@@ -973,6 +977,8 @@ The following requirements apply when retrieving the results of a job that was c
 include::requirements/core/REQ_job-results-success-async-raw-value-one.adoc[]
 
 include::requirements/core/REQ_job-results-success-async-raw-value-multi.adoc[]
+
+include::requirements/core/REQ_job-results-success-async-raw-mixed-multi.adoc[]
 
 include::requirements/core/REQ_job-results-success-async-raw-ref.adoc[]
 
