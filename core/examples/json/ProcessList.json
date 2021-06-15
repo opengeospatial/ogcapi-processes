@@ -1,9 +1,9 @@
 {
   "processes": [
     {
-      "id": "EchoProcess",
-      "title": "EchoProcess",
-      "version": "1.0.0",
+	"id": "EchoProcess",
+	"title": "EchoProcess",
+	"version": "1.0.0",
       "jobControlOptions": [
         "async-execute",
         "sync-execute"
