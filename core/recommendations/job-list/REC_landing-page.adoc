@@ -5,5 +5,5 @@
 
 A link to the following resource SHOULD be added to the API landing page:
 
-/jobs (relation type 'job-list')
+/jobs (relation type 'http://www.opengis.net/def/rel/ogc/1.0/job-list')
 |===

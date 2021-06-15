@@ -32,7 +32,7 @@
         },
         {
           "href": "http://processing.example.org/oapi-p/jobs/0cf773a5-282a-4e23-96cc-f5dab18123e5/results",
-          "rel": "results",
+          "rel": "http://www.opengis.net/def/rel/ogc/1.0/results",
           "type": "application/json",
           "hreflang": "en",
           "title": "Job result"
@@ -55,7 +55,7 @@
         },
         {
           "href": "http://processing.example.org/oapi-p/jobs/63aadd9c-c0e5-4a7f-80f0-228dbb158f09/results",
-          "rel": "exceptions",
+          "rel": "http://www.opengis.net/def/rel/ogc/1.0/exceptions",
           "type": "application/json",
           "hreflang": "en",
           "title": "Job exception"

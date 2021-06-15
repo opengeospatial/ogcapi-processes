@@ -91,6 +91,8 @@ include::core/ATS_job-creation-success-sync-raw-value-multi.adoc[]
 
 include::core/ATS_job-creation-success-sync-raw-ref.adoc[]
 
+include::core/ATS_job-creation-success-sync-raw-mixed-multi.adoc[]
+
 include::core/ATS_job-creation-success-sync-document.adoc[]
 
 include::core/ATS_job-creation-success-async.adoc[]
@@ -116,6 +118,8 @@ include::core/ATS_job-results-success-async-raw-value-one.adoc[]
 include::core/ATS_job-results-success-async-raw-value-multi.adoc[]
 
 include::core/ATS_job-results-success-async-raw-ref.adoc[]
+
+include::core/ATS_job-results-success-async-raw-mixed-multi.adoc[]
 
 include::core/ATS_job-results-success-async-document.adoc[]
 

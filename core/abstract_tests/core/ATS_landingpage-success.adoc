@@ -10,7 +10,7 @@
 
 .. Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition.
 
-.. Validate that the landing page includes a "conformance" link to the conformance class declaration.
+.. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration.
 
 .. Validate that the landing page includes a "data" link to the Feature contents.
 |===

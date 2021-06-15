@@ -16,7 +16,7 @@
         {
           "href": "https://processing.example.org/oapi-p/processes/EchoProcess",
           "type": "application/json",
-          "rel": "process-desc",
+          "rel": "self",
           "title": "process description"
         }
       ]
