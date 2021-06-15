@@ -165,12 +165,13 @@
           },
           {
             "type": "string",
-            "contentMediaType": "application/vnd.google-earth.kml+xml",
-            "contentSchema": "https://schemas.opengis.net/kml/2.3/ogckml23.xsd"
+            "contentSchema": "https://schemas.opengis.net/kml/2.3/ogckml23.xsd",
+            "contentMediaType": "application/vnd.google-earth.kml+xml"
           },
           {
             "type": "object",
-            "$ref": "https://geojson.org/schema/FeatureCollection.json"
+            "$ref": "https://geojson.org/schema/FeatureCollection.json",
+            "contentMediaType": "application/geo+json"
           }
         ]
       }
@@ -311,7 +312,8 @@
           },
           {
             "type": "object",
-            "$ref": "https://geojson.org/schema/FeatureCollection.json"
+            "$ref": "https://geojson.org/schema/FeatureCollection.json",
+            "contentMediaType": "application/geo+json"
           }
         ]
       }
