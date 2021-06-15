@@ -1,0 +1,17 @@
+[[req_job-list_type-definition]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/job-list/type-definition*
+^|A |The operation SHALL support a parameter `type` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+
+[source,YAML]
+----
+name: type
+in: query
+required: false
+schema:
+  type: array
+  items:
+    type: string
+----
+|===

@@ -1,3 +1,4 @@
+[[sc_conformance]]
 == Conformance
 This standard defines seven requirements / conformance classes.
 

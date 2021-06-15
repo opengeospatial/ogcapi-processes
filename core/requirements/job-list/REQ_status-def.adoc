@@ -1,0 +1,17 @@
+[[req_job-list_status-definition]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/job-list/status-definition*
+^|A |The operation SHALL support a parameter `status` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+
+[source,YAML]
+----
+name: status
+in: query
+required: false
+schema:
+  type: array
+  items:
+    type: string
+----
+|===

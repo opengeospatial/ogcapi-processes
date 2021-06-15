@@ -35,7 +35,13 @@ include::core/ATS_http.adoc[]
 
 include::core/ATS_process-list-op.adoc[]
 
+include::core/ATS_process-list-limit-def.adoc[]
+
 include::core/ATS_process-list-success.adoc[]
+
+include::core/ATS_process-list-links.adoc[]
+
+include::core/ATS_process-list-limit-response.adoc[]
 
 ===== Process description /processes/{processID}
 
@@ -85,6 +91,8 @@ include::core/ATS_job-creation-success-sync-raw-value-multi.adoc[]
 
 include::core/ATS_job-creation-success-sync-raw-ref.adoc[]
 
+include::core/ATS_job-creation-success-sync-raw-mixed-multi.adoc[]
+
 include::core/ATS_job-creation-success-sync-document.adoc[]
 
 include::core/ATS_job-creation-success-async.adoc[]
@@ -110,6 +118,8 @@ include::core/ATS_job-results-success-async-raw-value-one.adoc[]
 include::core/ATS_job-results-success-async-raw-value-multi.adoc[]
 
 include::core/ATS_job-results-success-async-raw-ref.adoc[]
+
+include::core/ATS_job-results-success-async-raw-mixed-multi.adoc[]
 
 include::core/ATS_job-results-success-async-document.adoc[]
 

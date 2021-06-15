@@ -238,6 +238,47 @@ include::recommendations/core/REC_access-control-expose-headers.adoc[]
 
 include::recommendations/core/REC_html.adoc[]
 
+[[sc_limit_parameter]]
+=== Limit parameter
+
+Several resources defined in this specification (see <<sc_process_list,Retrieve a process list>>, <<sc_job_list,Retrieve a job list>>) use the `limit` parameter to control the number of results that are presented in a response.
+
+* The client can request a limit it is interested in.
+
+* The server likely has a default value for the limit, and a maximum limit.
+
+* If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
+
+So (using the default/maximum values of 10/1000 from the OpenAPI fragment in requirement <<req_core_pl-limit-definition,`/req/core/pl-limit-definition`>> or <<req_job-list_jl-limit-definition,`/req/job-list/jl-limit-definition`>>):
+
+* If you ask for 10 results, you will get 0 to 10 (as requested) and if there are more, a `next` link;
+
+* If you don't specify a limit, you will get 0 to 10 (default) and if there are more, a `next` link;
+
+* If you ask for 5000 results, you might get up to 1000 (server-limited) and if there are more, a `next` link;
+
+* If you follow the next link from the previous response, you might get up to 1000 additional results and if there are more, a `next` link.
+
+This document make requirements and recommendations about links in general and the `next` link in particular at the approprate resource end points.
+
+[[next-link-discussion]]
+This document does not mandate any specific implementation approach for the `next` links.
+
+An implementation could use opaque links that are managed by the server. It is up to the server to determine how long these links can be de-referenced. Clients should be prepared to receive a 404 response.
+
+Another implementation approach is to use an implementation-specific parameter that specifies the index within the result set from which the server begins presenting results in the response, like `offset` or the `startIndex` parameter that was used in <<WFS20,WFS 2.0>>.
+
+The API will return no `next` link, if it has returned all selected results, and the server knows that. However, the server may not be aware that it has already returned all selected results. For example, if the request states `limit=10` and the query to the backend returns 10 results, the server may not know, if there are more results or not (in most cases there will be more results), unless the total number of results is also computed, which may be too costly. The server will then add the next link, and if there are no more results, dereferencing the next link will return an empty results list and no next link. This behavior is consistent with the statements above.
+
+Clients should not assume that paging is safe against changes to dataset while a client iterates through `next` links. If a server provides opaque links these could be safe and maintain the state during the original request. Using a parameter for the start index, however, will not be safe.
+
+[[prev-link-discussion]]
+This document also makes recommendations about include a `prev` link at the approriate resource end points.  Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
+
+=== Link headers
+
+include::recommendations/core/REC_link-header.adoc[]
+
 [[sc_process_list]]
 === Retrieve a process list
 
@@ -245,7 +286,19 @@ The following section defines the requirements to retrieve the available process
 
 ==== Operation
 
+===== Process list
+
 include::requirements/core/REQ_process-list-op.adoc[]
+
+===== Parameter `limit`
+
+include::requirements/core/REQ_pl-limit-def.adoc[]
+
+include::recommendations/core/PER_pl-limit-default-minimum-maximum.adoc[]
+
+include::requirements/core/REQ_pl-limit-response.adoc[]
+
+include::recommendations/core/PER_pl-limit-response.adoc[]
 
 ==== Response
 
@@ -278,6 +331,26 @@ include::openapi/schemas/jobControlOptions.yaml[]
 ----
 include::openapi/schemas/transmissionMode.yaml[]
 ----
+
+The number of process summaries returned depends on the server and the parameter `limit.`
+
+See the discussion about the `limit` parameter in the <<sc_limit_parameter,Limit parameter>> section.
+
+include::requirements/core/REQ_links.adoc[]
+
+See the discussion about the `next` links in the <<next-link-discussion,Limit parameter>> section.
+
+include::recommendations/core/REC_next-1.adoc[]
+
+include::recommendations/core/REC_next-2.adoc[]
+
+include::recommendations/core/REC_next-3.adoc[]
+
+See the discussion about the `prev` link in the  <<prev-link-discussion,Limit parameter>> section.
+
+include::recommendations/core/PER_prev.adoc[]
+
+_**Example**_
 
 .Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
 [source]
@@ -657,7 +730,7 @@ and a JPEG2000 instance example in an execute request might be:
 [[bounding-box-value]]
 *_Bounding box values:_*
 
-A process input value instance can be a bounding box.  
+A process input value instance can be a bounding box.
 
 include::requirements/core/REQ_job-creation-input-inline-bbox.adoc[]
 
@@ -668,7 +741,7 @@ include::requirements/core/REQ_job-creation-input-inline-bbox.adoc[]
 include::openapi/schemas/bbox.yaml[]
 ----
 
-This schema is meant to be a template for defining bounding box process inputs. If the specified `default` and `enum` are suitable for your purposes then you can reference this file directly in your process description. 
+This schema is meant to be a template for defining bounding box process inputs. If the specified `default` and `enum` are suitable for your purposes then you can reference this file directly in your process description.
 
 include::recommendations/core/PER_job-creation-input-inline-bbox.adoc[]
 
@@ -828,16 +901,17 @@ The following table maps the possible responses based on the combinations of the
 .Table mapping execute responses based on the input parameter values.
 [%autowidth.stretch,,options="header"]
 |===
-|*mode* |*response* |*tx mode* |*# out* |*HTTP code* |*media type* |*body content* |*requirement*
-.8+^.^|sync .4+^.^|raw .2+^.^|value |1 ^.^|200 |[as per output definition from process description] |[output in requested format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
-|* ^.^|200 |multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
-.2+^.^|ref |1 .2+^.^|204 .2+.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
-|*
-.4+^.^|document .2+^.^|value |1 .4+^.^|200 .4+.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
-|*
-.2+^.^|ref |1
-|*
-^.^|async ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|201 .^|application/json .^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] .^|<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
+|*negotiated execution mode* |*response* |*transmission mode* |*# out* |*HTTP code* |*media type* |*body content* |*requirement*
+.9+^.^|sync .5+^.^|raw .2+^.^|value ^.^|1 ^.^|200 ^.^|[as per output definition from process description] |[output in requested format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
+^.^|* ^.^|200 ^.^|multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
+.2+^.^|reference ^.^|1 .2+^.^|204 .2+^.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
+^.^|*
+^.^|mixed ^.^|* ^.^|200 ^.^|multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-mixed-multi,/req/core/job-creation-sync-raw-mixed-multi>>
+.4+^.^|document .2+^.^|value ^.^|1 .4+^.^|200 .4+^.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
+^.^|*
+.2+^.^|reference ^.^|1
+^.^|*
+^.^|async ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|201 ^.^|application/json .^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] .^|<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
 |===
 
 NOTE: The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
@@ -857,6 +931,8 @@ include::requirements/core/REQ_job-creation-success-sync-raw-value-one.adoc[]
 include::requirements/core/REQ_job-creation-success-sync-raw-value-multi.adoc[]
 
 include::requirements/core/REQ_job-creation-success-sync-raw-ref.adoc[]
+
+include::requirements/core/REQ_job-creation-success-sync-raw-mixed-multi.adoc[]
 
 include::requirements/core/REQ_job-creation-success-sync-document.adoc[]
 
@@ -953,17 +1029,18 @@ The following table maps the possible responses based on the combinations of the
 .Table mapping get results responses based on the input parameter values used on the original execute request.
 [%autowidth.stretch,,options="header"]
 |===
-|*mode* |*response* |*tx mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
+|*negotiated execute mode* |*response* |*transmission mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
 ^.^|sync ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|no 4+^.^|[if the server creates a job on synchronous execute, +
 job results may be re-fetched at any time <<async-fetch,as per async>>]
-.8+^.^|[[async-fetch]]async .4+^.^|raw .2+^.^|value |1 .8+^.^|yes ^.^|200 |[as per output definition from process description] |[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
-|* ^.^|200 |multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
-.2+^.^|ref |1 .2+^.^|204 .2+.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
-|*
-.4+^.^|document .2+^.^|value |1 .4+^.^|200 .4+.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
-|*
-.2+^.^|ref |1
-|*
+.8+^.^|[[async-fetch]]async .5+^.^|raw .2+^.^|value ^.^|1 .8+^.^|yes ^.^|200 ^.^|[as per output definition from process description] ^.^|[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
+^.^|* ^.^|200 ^.^|multipart/related ^.^|[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
+.2+^.^|reference ^.^|1 .2+^.^|204 .2+^.^|none .2+^.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
+^.^|*
+^.^|mixed ^.^|* ^.^|200 ^.^|multipart/related ^.^|[one output per part] |<<req_core_job-creation-async-raw-mixed-multi,/req/core/job-creation-async-raw-mixed-multi>>
+.4+^.^|document .2+^.^|value ^.^|1 .4+^.^|200 .4+^.^|application/json .4+^.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
+^.^|*
+.2+^.^|reference ^.^|1
+^.^|*
 |===
 
 NOTE: The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
@@ -973,6 +1050,8 @@ The following requirements apply when retrieving the results of a job that was c
 include::requirements/core/REQ_job-results-success-async-raw-value-one.adoc[]
 
 include::requirements/core/REQ_job-results-success-async-raw-value-multi.adoc[]
+
+include::requirements/core/REQ_job-results-success-async-raw-mixed-multi.adoc[]
 
 include::requirements/core/REQ_job-results-success-async-raw-ref.adoc[]
 

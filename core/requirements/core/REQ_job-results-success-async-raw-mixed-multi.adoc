@@ -1,0 +1,6 @@
+[[req_core_job-results-async-raw-mixed-multi]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/job-results-async-raw-mixed-multi +
+The server SHALL respond as per requirement <<req_core_job-creation-sync-raw-mixed-multi,/req/core/job-creation-sync-raw-mixed-multi>>.
+|===
