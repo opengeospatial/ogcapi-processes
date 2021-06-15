@@ -1,3 +1,13 @@
-type: array
-items:
-  $ref: "processSummary.yaml"
+type: object
+required:
+  - processes
+  - links
+properties:
+  processes:
+    type: array
+    items:
+      $ref: "processSummary.yaml"
+  links:
+    type: array
+    items:
+      $ref: "link.yaml"

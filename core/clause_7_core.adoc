@@ -238,6 +238,47 @@ include::recommendations/core/REC_access-control-expose-headers.adoc[]
 
 include::recommendations/core/REC_html.adoc[]
 
+[[sc_limit_parameter]]
+=== Limit parameter
+
+Several resources defined in this specification (see <<sc_process_list,Retrieve a process list>>, <<sc_job_list,Retrieve a job list>>) use the `limit` parameter to control the number of results that are presented in a response.
+
+* The client can request a limit it is interested in.
+
+* The server likely has a default value for the limit, and a maximum limit.
+
+* If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
+
+So (using the default/maximum values of 10/1000 from the OpenAPI fragment in requirement <<req_core_pl-limit-definition,`/req/core/pl-limit-definition`>> or <<req_job-list_jl-limit-definition,`/req/job-list/jl-limit-definition`>>):
+
+* If you ask for 10 results, you will get 0 to 10 (as requested) and if there are more, a `next` link;
+
+* If you don't specify a limit, you will get 0 to 10 (default) and if there are more, a `next` link;
+
+* If you ask for 5000 results, you might get up to 1000 (server-limited) and if there are more, a `next` link;
+
+* If you follow the next link from the previous response, you might get up to 1000 additional results and if there are more, a `next` link.
+
+This document make requirements and recommendations about links in general and the `next` link in particular at the approprate resource end points.
+
+[[next-link-discussion]]
+This document does not mandate any specific implementation approach for the `next` links.
+
+An implementation could use opaque links that are managed by the server. It is up to the server to determine how long these links can be de-referenced. Clients should be prepared to receive a 404 response.
+
+Another implementation approach is to use an implementation-specific parameter that specifies the index within the result set from which the server begins presenting results in the response, like `offset` or the `startIndex` parameter that was used in <<WFS20,WFS 2.0>>.
+
+The API will return no `next` link, if it has returned all selected results, and the server knows that. However, the server may not be aware that it has already returned all selected results. For example, if the request states `limit=10` and the query to the backend returns 10 results, the server may not know, if there are more results or not (in most cases there will be more results), unless the total number of results is also computed, which may be too costly. The server will then add the next link, and if there are no more results, dereferencing the next link will return an empty results list and no next link. This behavior is consistent with the statements above.
+
+Clients should not assume that paging is safe against changes to dataset while a client iterates through `next` links. If a server provides opaque links these could be safe and maintain the state during the original request. Using a parameter for the start index, however, will not be safe.
+
+[[prev-link-discussion]]
+This document also makes recommendations about include a `prev` link at the approriate resource end points.  Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
+
+=== Link headers
+
+include::recommendations/core/REC_link-header.adoc[]
+
 [[sc_process_list]]
 === Retrieve a process list
 
@@ -245,7 +286,19 @@ The following section defines the requirements to retrieve the available process
 
 ==== Operation
 
+===== Process list
+
 include::requirements/core/REQ_process-list-op.adoc[]
+
+===== Parameter `limit`
+
+include::requirements/core/REQ_pl-limit-def.adoc[]
+
+include::recommendations/core/PER_pl-limit-default-minimum-maximum.adoc[]
+
+include::requirements/core/REQ_pl-limit-response.adoc[]
+
+include::recommendations/core/PER_pl-limit-response.adoc[]
 
 ==== Response
 
@@ -278,6 +331,26 @@ include::openapi/schemas/jobControlOptions.yaml[]
 ----
 include::openapi/schemas/transmissionMode.yaml[]
 ----
+
+The number of process summaries returned depends on the server and the parameter `limit.`
+
+See the discussion about the `limit` parameter in the <<sc_limit_parameter,Limit parameter>> section.
+
+include::requirements/core/REQ_links.adoc[]
+
+See the discussion about the `next` links in the <<next-link-discussion,Limit parameter>> section.
+
+include::recommendations/core/REC_next-1.adoc[]
+
+include::recommendations/core/REC_next-2.adoc[]
+
+include::recommendations/core/REC_next-3.adoc[]
+
+See the discussion about the `prev` link in the  <<prev-link-discussion,Limit parameter>> section.
+
+include::recommendations/core/PER_prev.adoc[]
+
+_**Example**_
 
 .Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
 [source]

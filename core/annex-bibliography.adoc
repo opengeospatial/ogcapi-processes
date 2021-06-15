@@ -11,4 +11,4 @@
 
 * [[jsonschema-pointers]] Hutton, B.: Relative JSON Pointers, https://json-schema.org/draft/2020-12/relative-json-pointer.html
 
-
+* [[WFS20]] Open Geospatial Consortium (OGC). OGC 09-025r2: **Web Feature Service 2.0** [online]. Edited by P. Vretanos. 2014 [viewed 2020-03-16]. Available at http://docs.opengeospatial.org/is/09-025r2/09-025r2.html
