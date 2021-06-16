@@ -3,5 +3,3 @@ enum:
   - sync-execute
   - async-execute
   - dismiss
-default:
-  - sync-execute
