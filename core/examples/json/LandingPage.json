@@ -36,7 +36,7 @@
 	},
 	{
 		"href": "http://processing.example.org/oapi-p/jobs",
-		"rel": "http://www.opengis.net/def/rel/ogc/1.0/jobs-list",
+		"rel": "http://www.opengis.net/def/rel/ogc/1.0/job-list",
 		"title": "The endpoint for job monitoring"
 	}]
 }
