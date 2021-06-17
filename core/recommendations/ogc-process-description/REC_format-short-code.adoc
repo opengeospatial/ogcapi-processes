@@ -1,0 +1,7 @@
+[[rec_ogc-process-description_additional-format-short-code]]
+[width="90%",cols="2,6a"]
+|===
+|*Recommendation {counter:rec-id}* |/rec/ogc-process-description/format-short-code +
+
+Servers SHOULD, in liue of the longer key values, accept the short codes listed in table <<format-key-values>>.
+|===
