@@ -3,5 +3,5 @@
 |===
 |*Recommendation {counter:rec-id}* |/rec/ogc-process-description/format-short-code +
 
-In addition to the key values listed in <<format-key-values>>, server SHOULD also accept the short codes.
+In addition to the key values listed in <<format-key-values>>, servers SHOULD also accept the short codes.
 |===
