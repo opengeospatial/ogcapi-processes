@@ -1,6 +1,8 @@
 [[Job_list]]
 == Requirements Class "Job list"
 
+== Overview 
+
 This requirement class specifies how to retrieve a job list from the API.
 
 include::requirements/requirements_class_job-list.adoc[]
@@ -18,6 +20,8 @@ include::requirements/job-list/REQ_type-def.adoc[]
 include::requirements/job-list/REQ_type-response.adoc[]
 
 ==== Parameter `processID`
+
+include::requirements/job-list/REQ_processid-mandatory.adoc[]
 
 include::requirements/job-list/REQ_processid-def.adoc[]
 include::requirements/job-list/REQ_processid-response.adoc[]
