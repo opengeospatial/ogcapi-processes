@@ -305,12 +305,14 @@
     },
     "boundingBoxOutput": {
       "schema": {
-        {
-          "format": "ogc-bbox"
-        },
-        {
-          "$ref": "../../openapi/schemas/bbox.yaml"
-        }
+        "allOf": [
+           {
+             "format": "ogc-bbox"
+           },
+           {
+             "$ref": "../../openapi/schemas/bbox.yaml"
+           }
+        ]
       }
     },
     "imagesOutput": {
