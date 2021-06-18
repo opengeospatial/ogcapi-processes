@@ -27,6 +27,8 @@ include::job-list/ATS_jl-links.adoc[]
 
 include::job-list/ATS_type-response.adoc[]
 
+include::job-list/ATS_processid-mandatory.adoc[]
+
 include::job-list/ATS_processid-response.adoc[]
 
 include::job-list/ATS_status-response.adoc[]
