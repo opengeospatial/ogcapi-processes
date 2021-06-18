@@ -7,6 +7,8 @@ OGC 06-121r9, OGC Web Service Common Specification, version 2.0
 
 OGC 08-131r3 – The Specification Model – A Standard for Modular Specifications
 
+[[jsonschemavalidation]] JSON Schema Validation: A Vocabulary for Structural Validation of JSON. https://json-schema.org/draft/2020-12/json-schema-validation.html
+
 [[rfc2246]] IETF RFC 2246. Transport Layer Security. http://tools.ietf.org/html/rfc2246
 
 [[rfc2616]] IETF RFC 2616. Hypertext Transfer Protocol - HTTP/1.1. http://tools.ietf.org/html/rfc2616
@@ -26,4 +28,3 @@ OGC 08-131r3 – The Specification Model – A Standard for Modular Specificatio
 [[rfc7240]] IETF RFC 7240: Prefer Header for HTTP. https://tools.ietf.org/html/rfc7240
 
 [[rfc8288]] IETF RFC 8288: Web Linking https://tools.ietf.org/html/rfc8288
-

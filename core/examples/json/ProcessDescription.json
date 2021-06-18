@@ -122,7 +122,14 @@
             "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
           },
           {
-            "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
+            "allOf": [
+              {
+                "format": "geojson-geometry"
+              },
+              {
+                "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
+              }
+            ]
           }
         ]
       }
@@ -131,7 +138,14 @@
       "title": "Bounding Box Input Example",
       "description": "This is an example of a BBOX literal input.",
       "schema": {
-        "$ref": "../../openapi/schemas/bbox.yaml"
+        "allOf": [
+          {
+            "format": "ogc-bbox"
+          },
+          {
+            "$ref": "../../openapi/schemas/bbox.yaml"
+          }  
+        ]
       }
     },
     "imagesInput": {
@@ -165,12 +179,18 @@
           },
           {
             "type": "string",
-            "contentMediaType": "application/vnd.google-earth.kml+xml",
-            "contentSchema": "https://schemas.opengis.net/kml/2.3/ogckml23.xsd"
+            "contentSchema": "https://schemas.opengis.net/kml/2.3/ogckml23.xsd",
+            "contentMediaType": "application/vnd.google-earth.kml+xml"
           },
           {
-            "type": "object",
-            "$ref": "https://geojson.org/schema/FeatureCollection.json"
+            "allOf": [
+              {
+                "format": "geojson-feature-collection"
+              },
+              {
+                "$ref": "https://geojson.org/schema/FeatureCollection.json"
+              }
+            ]
           }
         ]
       }
@@ -271,14 +291,28 @@
             "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
           },
           {
-            "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
+            "allOf": [
+              {
+                "format": "geojson-geometry"
+              },
+              {
+                "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
+              }
+            ]
           }
         ]
       }
     },
     "boundingBoxOutput": {
       "schema": {
-        "$ref": "../../openapi/schemas/bbox.yaml"
+        "allOf": [
+           {
+             "format": "ogc-bbox"
+           },
+           {
+             "$ref": "../../openapi/schemas/bbox.yaml"
+           }
+        ]
       }
     },
     "imagesOutput": {
@@ -310,8 +344,14 @@
             "contentSchema": "https://schemas.opengis.net/kml/2.3/ogckml23.xsd"
           },
           {
-            "type": "object",
-            "$ref": "https://geojson.org/schema/FeatureCollection.json"
+            "allOf": [
+              {
+                "format": "geojson-feature-collection"
+              },
+              {
+                "$ref": "https://geojson.org/schema/FeatureCollection.json"
+              }
+            ]
           }
         ]
       }

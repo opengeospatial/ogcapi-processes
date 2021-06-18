@@ -79,6 +79,61 @@ The following JSON Schema fragment illustrates how to define an input of mixed t
    }
 ----
 
+include::recommendations/ogc-process-description/REC_format-key.adoc[]
+
+The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7[set of values] for the `format` key.  This specification extends this list by defining the following additional key values for use specifically in OGC process descriptions.
+
+[#format-key-values,reftext='{table-caption} {counter:table-num}']
+.Additional values for the JSON schema format key for OGC Process Description
+[width="90%"]
+|====
+^|*Key value* ^|*Short code* ^|*Description*
+|http://www.opengis.net/def/ogcapi-processes/format/geojson-feature-collection |geojson-feature-collection |Indicates that the object is an instance of a GeoJSON feature collection http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.yaml[(featureCollectionGeoJSON.yaml)].
+|http://www.opengis.net/def/ogcapi-processes/format/geojson-feature |geojson-feature |Indicates that the object is an instance of a GeoJSON feature http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureGeoJSON.yaml[(featureGeoJSON.yaml)].
+|http://www.opengis.net/def/ogcapi-processes/format/geojson-geometry |geojson-geometry |Indicates that the object is an instance of a GeoJSON geometry http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml[(geometryGeoJSON.yaml)].
+|http://www.opengis.net/def/ogcapi-processes/format/ogc-bbox |ogc-bbox |Indicates that the object is an instance of an OGC bounding box https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml[(bbox.yaml)].
+|====
+
+NOTE: This list of values has been submitted to the https://www.ogc.org/ogcna[OGC Naming Authority] for registration in their definition server.
+
+include::recommendations/ogc-process-description/REC_format-short-code.adoc[]
+
+Situations might arise where communities of interest wish to extend this list of values for their own purposes.
+
+include::recommendations/ogc-process-description/REC_format-value-registration.adoc[]
+
+.Example of semantic hints using the format key.
+
+The following JSON Schema fragment illustrates the use of the `format` key to include a semantic hint to a process input that is a geometry.
+
+----
+   "geometryInput": {
+     "title": "Geometry input",
+     "description": "This is an example of a geometry input.  In this case the geometry can be expressed as a GML of GeoJSON geometry.",
+     "minOccurs": 2,
+     "maxOccurs": 5,
+     "schema": {
+       "oneOf": [
+         {
+           "type": "string",
+           "contentMediaType": "application/gml+xml; version=3.2",
+           "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+         },
+         {
+           "allOf": [
+             {
+                "format": "geojson-geometry"
+             },
+             {
+                "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
+             }
+           ]
+         }
+       ]
+     }
+   }
+----
+
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[Schema for a process input (outputDescription.yaml)]
 [source,YAML]
 ----
