@@ -1,7 +1,7 @@
-[[req_core_job-creation-sync-raw-mixed-multi]]
+[[req_core_process-execute-sync-raw-mixed-multi]]
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/req/core/job-creation-sync-raw-mixed-multi +
+|*Requirement {counter:req-id}* |/req/core/process-execute-sync-raw-mixed-multi +
 ^|Conditions |. The <<sc_execution_mode,negotiated execution mode>> is synchronous, `response=raw`,
 . Multiple transmission modes (`value`,`reference`) are requested.
 . The number of requested outputs is more than 1.

@@ -1,7 +1,7 @@
-[[req_core_job-creation-input-inline-mixed]]
+[[req_core_process-execute-input-inline-mixed]]
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/req/core/job-creation-input-mixed-type +
+|*Requirement {counter:req-id}* |/req/core/process-execute-input-mixed-type +
 ^|Conditions |. The process input value is specified in-line in an execute request.
 . The schema of the process input from the <<sc_process_description,process description>> indicates that a value instance can be one of multiple input media types. +
 In JSON Schema this is denoted by the use of the `oneOf` construct.

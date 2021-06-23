@@ -1,7 +1,7 @@
-[[per_core_job-creation-sync-job]]
+[[per_core_process-execute-sync-job]]
 [width="90%",cols="2,6a"]
 |===
-|Permission {counter:per-id} |/per/core/job-creation-sync-job +
+|Permission {counter:per-id} |/per/core/process-execute-sync-job +
 
 Servers MAY support the creation of a job for synchronously executed processes.
 |===

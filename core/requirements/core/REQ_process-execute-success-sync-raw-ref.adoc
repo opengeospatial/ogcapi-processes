@@ -1,7 +1,7 @@
-[[req_core_job-creation-sync-raw-ref]]
+[[req_core_process-execute-sync-raw-ref]]
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/req/core/job-creation-sync-raw-ref +
+|*Requirement {counter:req-id}* |/req/core/process-execute-sync-raw-ref +
 ^|Conditions |. The <<sc_execution_mode,negotiated execution mode>> is synchronous, `response=raw`, `transmissionMode=reference`
 . The number of requested outputs is 1 or more.
 ^|A |The server SHALL respond with an HTTP status code of 204.

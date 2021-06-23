@@ -104,23 +104,23 @@ include::clause_6_overview.adoc[]
 
 include::clause_7_core.adoc[]
 
-include::clause_7a_ogc-process-description.adoc[]
+include::clause_8_ogc-process-description.adoc[]
 
-include::clause_7c_security-considerations.adoc[]
+include::clause_9_security-considerations.adoc[]
 
-include::clause_8_encodings.adoc[]
+include::clause_10_encodings.adoc[]
 
-include::clause_9_oas.adoc[]
+include::clause_11_oas.adoc[]
 
-include::clause_10_job_list.adoc[]
+include::clause_12_job_list.adoc[]
 
-include::clause_11_callback.adoc[]
+include::clause_13_callback.adoc[]
 
-include::clause_12_dismiss.adoc[]
+include::clause_14_dismiss.adoc[]
 
-include::clause_13_media_types.adoc[]
+include::clause_15_media_types.adoc[]
 
-include::clause_14_additional-api-building-blocks.adoc[]
+include::clause_16_additional-api-building-blocks.adoc[]
 
 <<<
 ////
