@@ -292,13 +292,13 @@ include::requirements/core/REQ_process-list-op.adoc[]
 
 ===== Parameter `limit`
 
-include::requirements/core/REQ_pl-limit-def.adoc[]
+include::requirements/core/REQ_process-list-limit-def.adoc[]
 
-include::recommendations/core/PER_pl-limit-default-minimum-maximum.adoc[]
+include::recommendations/core/PER_process-list-limit-default-minimum-maximum.adoc[]
 
-include::requirements/core/REQ_pl-limit-response.adoc[]
+include::requirements/core/REQ_process-list-limit-response.adoc[]
 
-include::recommendations/core/PER_pl-limit-response.adoc[]
+include::recommendations/core/PER_process-list-limit-response.adoc[]
 
 ==== Response
 
@@ -340,15 +340,15 @@ include::requirements/core/REQ_links.adoc[]
 
 See the discussion about the `next` links in the <<next-link-discussion,Limit parameter>> section.
 
-include::recommendations/core/REC_next-1.adoc[]
+include::recommendations/core/REC_process-list-next-1.adoc[]
 
-include::recommendations/core/REC_next-2.adoc[]
+include::recommendations/core/REC_process-list-next-2.adoc[]
 
-include::recommendations/core/REC_next-3.adoc[]
+include::recommendations/core/REC_process-list-next-3.adoc[]
 
 See the discussion about the `prev` link in the  <<prev-link-discussion,Limit parameter>> section.
 
-include::recommendations/core/PER_prev.adoc[]
+include::recommendations/core/PER_process-list-prev.adoc[]
 
 _**Example**_
 
@@ -376,11 +376,11 @@ The following section defines the requirements to retrieve metadata about a proc
 
 ==== Operation
 
-include::requirements/core/REQ_process-op.adoc[]
+include::requirements/core/REQ_process-description-op.adoc[]
 
 ==== Response
 
-include::requirements/core/REQ_process-success.adoc[]
+include::requirements/core/REQ_process-description-success.adoc[]
 
 The <<rc_core,Core>> does not mandate the use of a specific process description
 to specify the interface of a process.  That said, the <<rc_core,Core>>
@@ -403,13 +403,13 @@ Depending on the description of the <<sc_process_description,process>> and the <
 
 ==== Operation
 
-include::requirements/core/REQ_job-creation-op.adoc[]
+include::requirements/core/REQ_process-execute-op.adoc[]
 
 ==== Request body
 
 ===== Content schema
 
-include::requirements/core/REQ_job-creation-request.adoc[]
+include::requirements/core/REQ_process-execute-request.adoc[]
 
 [[execute-request-body]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[The following is the schema for execute (execute.yaml):]
@@ -446,7 +446,7 @@ The name of each input is its identifier as specified by the input's definition 
 
 Process input values in an execute request can be specified in-line or by reference.
 
-include::requirements/core/REQ_job-creation-inputs.adoc[]
+include::requirements/core/REQ_process-execute-inputs.adoc[]
 
 As shown in https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inlineOrRefData.yaml[inlineOrRefData.yaml], a process input value that is specified in-line in an execute request can be:
 
@@ -513,7 +513,7 @@ Array elements, as per <<inline-or-ref-data,inlineOrRefData.yaml>>, can be:
 * <<bounding-box-value,bounding box values>>,
 * or references to values using <<link-schema,links>>.
 
-include::requirements/core/REQ_job-creation-input-array.adoc[]
+include::requirements/core/REQ_process-execute-input-array.adoc[]
 
 .Array value examples.
 ====
@@ -557,7 +557,7 @@ An array of objects values:
 ],
 ----
 
-NOTE: In an execute request, as per requirement <<req_core_job-creation-input-inline-object,/req/core/job-creation-input-inline-object>>, object values must be encoded as <<qualified-value,qualified values>> to prevent unintended ambiguity with the built-in value types (i.e. <<bounding-box-value,bounding boxes>>, <<link-schema,links>> or <<qualified-value,qualified values>>).
+NOTE: In an execute request, as per requirement <<req_core_process-execute-input-inline-object,/req/core/process-execute-input-inline-object>>, object values must be encoded as <<qualified-value,qualified values>> to prevent unintended ambiguity with the built-in value types (i.e. <<bounding-box-value,bounding boxes>>, <<link-schema,links>> or <<qualified-value,qualified values>>).
 ====
 
 [[qualified-value]]
@@ -592,9 +592,9 @@ include::openapi/schemas/inputValue.yaml[]
 ----
 (see also: <<input-value-noobject-schema,inputValueNoObject.yaml>>)
 
-include::requirements/core/REQ_job-creation-input-inline-object.adoc[]
+include::requirements/core/REQ_process-execute-input-inline-object.adoc[]
 
-include::requirements/core/REQ_job-creation-input-inline-mixed.adoc[]
+include::requirements/core/REQ_process-execute-input-inline-mixed.adoc[]
 
 .Qualified value examples.
 ====
@@ -676,7 +676,7 @@ In some cases, for example in order to pass through firewalls, binary input valu
 include::openapi/schemas/binaryInputValue.yaml[]
 ----
 
-include::requirements/core/REQ_job-creation-input-inline-binary.adoc[]
+include::requirements/core/REQ_process-execute-input-inline-binary.adoc[]
 
 .Binary value examples.
 ====
@@ -697,7 +697,7 @@ and an example instance value in an execute request might be:
    "imageInput": "R0lGODdhNAHCAfcAAAcHDD+Gs4sLDQpDaqGFdaHE54dJPEoECUlGRteKgcdITgokG4hoVkpY\ngNzHwKKkqOLm7RRjlEgpHU9iZ44lHQYqVdmki6doVmhHOMOIeJG20HiDjCcKBglIeadISrso\nJGooFNbN2d2qr8aljyklHwQJQkdvkWaKxIdrb442LidLeGhMTp6LkeP1+Kh3aiUuVAoUHmlu\ngkcwNYdZRmkJDYGcsDFokElVYyk1NsWWhLEPDtmQldrUyoyFhrjo+Nna5d+4tMGstspoXgc4\n...qgu7sSu7qbtCs2u7t6u6rLsrp4u7veu76eO6vyu8w0u8xWu8x4u8yau8shu8y+u8zwu90Su9\n00u91Wu914u92au928u9whsQADs="
 ----
 
-NOTE: Even though the schema indicates that the input type is `binary`, when the input value is encoded in-line in an execute request, as per requirement <<req_core_job-creation-input-inline-binary,/req/core/job-creation-input-inline-binary>>, the binary value is encoded as base64-encoded string.
+NOTE: Even though the schema indicates that the input type is `binary`, when the input value is encoded in-line in an execute request, as per requirement <<req_core_process-execute-input-inline-binary,/req/core/process-execute-input-inline-binary>>, the binary value is encoded as base64-encoded string.
 
 In this second example, the image input can be one of a number of value types denoted in JSON Schema by the use of the `oneOf[]` construct.  An example schema for this a process input might be:
 [source]
@@ -732,7 +732,7 @@ and a JPEG2000 instance example in an execute request might be:
 
 A process input value instance can be a bounding box.
 
-include::requirements/core/REQ_job-creation-input-inline-bbox.adoc[]
+include::requirements/core/REQ_process-execute-input-inline-bbox.adoc[]
 
 [[bbox-schema]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml[The following is the schema for a bounding box value (bbox.yaml):]
@@ -743,7 +743,7 @@ include::openapi/schemas/bbox.yaml[]
 
 This schema is meant to be a template for defining bounding box process inputs. If the specified `default` and `enum` are suitable for your purposes then you can reference this file directly in your process description.
 
-include::recommendations/core/PER_job-creation-input-inline-bbox.adoc[]
+include::recommendations/core/PER_process-execute-input-inline-bbox.adoc[]
 
 *_Input validation_*
 
@@ -822,7 +822,7 @@ For the purposes of validation, the server need only validate the component of t
 NOTE: This example makes use of an <<ogc_process_description,OGC process description>>.  However, any other process description vocabulary may be used and applied, for the purpose of validation, in a similar manner.
 ====
 
-include::requirements/core/REQ_job-creation-input-validation.adoc[]
+include::requirements/core/REQ_process-execute-input-validation.adoc[]
 
 [[sc_execution_mode]]
 ===== Execution mode
@@ -831,15 +831,15 @@ A process may be executed synchronously or asynchronously.
 
 In which of these two modes a server responds is a function of the job control options specified in the <<sc_process_description,process description>> and the presence or absence of the HTTP `Prefer` header (http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240]).
 
-include::requirements/core/REQ_job-creation-default-execution-mode.adoc[]
+include::requirements/core/REQ_process-execute-default-execution-mode.adoc[]
 
-include::requirements/core/REQ_job-creation-auto-execution-mode.adoc[]
+include::requirements/core/REQ_process-execute-auto-execution-mode.adoc[]
 
-include::recommendations/core/REC_job-creation-honor-prefer.adoc[]
+include::recommendations/core/REC_process-execute-honor-prefer.adoc[]
 
-include::recommendations/core/REC_job-creation-handle-prefer.adoc[]
+include::recommendations/core/REC_process-execute-handle-prefer.adoc[]
 
-include::recommendations/core/REC_job-creation-preference-applied.adoc[]
+include::recommendations/core/REC_process-execute-preference-applied.adoc[]
 
 ===== Response type
 
@@ -860,7 +860,7 @@ an <<execute-request-body,execute request>>. The name of each output is its iden
 
 *_Default outputs_*
 
-include::requirements/core/REQ_job-creation-default-outputs.adoc[]
+include::requirements/core/REQ_process-execute-default-outputs.adoc[]
 
 *_Output value transmission mode_*
 
@@ -902,16 +902,16 @@ The following table maps the possible responses based on the combinations of the
 [%autowidth.stretch,,options="header"]
 |===
 |*negotiated execution mode* |*response* |*transmission mode* |*# out* |*HTTP code* |*media type* |*body content* |*requirement*
-.9+^.^|sync .5+^.^|raw .2+^.^|value ^.^|1 ^.^|200 ^.^|[as per output definition from process description] |[output in requested format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
-^.^|* ^.^|200 ^.^|multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
-.2+^.^|reference ^.^|1 .2+^.^|204 .2+^.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
+.9+^.^|sync .5+^.^|raw .2+^.^|value ^.^|1 ^.^|200 ^.^|[as per output definition from process description] |[output in requested format]| <<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>
+^.^|* ^.^|200 ^.^|multipart/related |[one output per part] |<<req_core_process-execute-sync-raw-value-multi,/req/core/process-execute-sync-raw-value-multi>>
+.2+^.^|reference ^.^|1 .2+^.^|204 .2+^.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_process-execute-sync-raw-ref,/req/core/process-execute-sync-raw-ref>>
 ^.^|*
-^.^|mixed ^.^|* ^.^|200 ^.^|multipart/related |[one output per part] |<<req_core_job-creation-sync-raw-mixed-multi,/req/core/job-creation-sync-raw-mixed-multi>>
-.4+^.^|document .2+^.^|value ^.^|1 .4+^.^|200 .4+^.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
+^.^|mixed ^.^|* ^.^|200 ^.^|multipart/related |[one output per part] |<<req_core_process-execute-sync-raw-mixed-multi,/req/core/process-execute-sync-raw-mixed-multi>>
+.4+^.^|document .2+^.^|value ^.^|1 .4+^.^|200 .4+^.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_process-execute-success-document,/req/core/process-execute-success-document>>
 ^.^|*
 .2+^.^|reference ^.^|1
 ^.^|*
-^.^|async ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|201 ^.^|application/json .^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] .^|<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
+^.^|async ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|201 ^.^|application/json .^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] .^|<<req_core_process-execute-success-async,/req/core/process-execute-success-async>>
 |===
 
 NOTE: The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
@@ -926,21 +926,21 @@ This schema defines a map using the respective output identifier as the key. The
 
 For a synchronous execution, the following requirements apply:
 
-include::requirements/core/REQ_job-creation-success-sync-raw-value-one.adoc[]
+include::requirements/core/REQ_process-execute-success-sync-raw-value-one.adoc[]
 
-include::requirements/core/REQ_job-creation-success-sync-raw-value-multi.adoc[]
+include::requirements/core/REQ_process-execute-success-sync-raw-value-multi.adoc[]
 
-include::requirements/core/REQ_job-creation-success-sync-raw-ref.adoc[]
+include::requirements/core/REQ_process-execute-success-sync-raw-ref.adoc[]
 
-include::requirements/core/REQ_job-creation-success-sync-raw-mixed-multi.adoc[]
+include::requirements/core/REQ_process-execute-success-sync-raw-mixed-multi.adoc[]
 
-include::requirements/core/REQ_job-creation-success-sync-document.adoc[]
+include::requirements/core/REQ_process-execute-success-sync-document.adoc[]
 
-include::recommendations/core/REC_job-creation-sync-document-ref.adoc[]
+include::recommendations/core/REC_process-execute-sync-document-ref.adoc[]
 
 This specification does not mandate that servers create a job as a result of executing a process synchronously.  However the following permission is given:
 
-include::recommendations/core/PER_job-creation-sync-job.adoc[]
+include::recommendations/core/PER_process-execute-sync-job.adoc[]
 
 For servers that implement this permission and do create a job as a result of synchronous execution of a process, the following requirement applies:
 
@@ -950,7 +950,7 @@ The job reference in the header can then be used to <<async-fetch,re-fetch the r
 
 In the case of asynchronous execution, the following requirement applies:
 
-include::requirements/core/REQ_job-creation-success-async.adoc[]
+include::requirements/core/REQ_process-execute-success-async.adoc[]
 
 ==== Error situations
 
@@ -1032,12 +1032,12 @@ The following table maps the possible responses based on the combinations of the
 |*negotiated execute mode* |*response* |*transmission mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
 ^.^|sync ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|no 4+^.^|[if the server creates a job on synchronous execute, +
 job results may be re-fetched at any time <<async-fetch,as per async>>]
-.8+^.^|[[async-fetch]]async .5+^.^|raw .2+^.^|value ^.^|1 .8+^.^|yes ^.^|200 ^.^|[as per output definition from process description] ^.^|[output in requested output format]| <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
-^.^|* ^.^|200 ^.^|multipart/related ^.^|[one output per part] |<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
-.2+^.^|reference ^.^|1 .2+^.^|204 .2+^.^|none .2+^.^|[empty with `Link` headers] .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
+.8+^.^|[[async-fetch]]async .5+^.^|raw .2+^.^|value ^.^|1 .8+^.^|yes ^.^|200 ^.^|[as per output definition from process description] ^.^|[output in requested output format]| <<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>
+^.^|* ^.^|200 ^.^|multipart/related ^.^|[one output per part] |<<req_core_process-execute-sync-raw-value-multi,/req/core/process-execute-sync-raw-value-multi>>
+.2+^.^|reference ^.^|1 .2+^.^|204 .2+^.^|none .2+^.^|[empty with `Link` headers] .2+.^|<<req_core_process-execute-sync-raw-ref,/req/core/process-execute-sync-raw-ref>>
 ^.^|*
-^.^|mixed ^.^|* ^.^|200 ^.^|multipart/related ^.^|[one output per part] |<<req_core_job-creation-async-raw-mixed-multi,/req/core/job-creation-async-raw-mixed-multi>>
-.4+^.^|document .2+^.^|value ^.^|1 .4+^.^|200 .4+^.^|application/json .4+^.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_job-creation-success-document,/req/core/job-creation-success-document>>
+^.^|mixed ^.^|* ^.^|200 ^.^|multipart/related ^.^|[one output per part] |<<req_core_process-execute-async-raw-mixed-multi,/req/core/process-execute-async-raw-mixed-multi>>
+.4+^.^|document .2+^.^|value ^.^|1 .4+^.^|200 .4+^.^|application/json .4+^.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_process-execute-success-document,/req/core/process-execute-success-document>>
 ^.^|*
 .2+^.^|reference ^.^|1
 ^.^|*

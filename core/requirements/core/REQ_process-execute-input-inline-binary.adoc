@@ -1,7 +1,7 @@
-[req_core_job-creation-input-inline-binary]]
+[req_core_process-execute-input-inline-binary]]
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/req/core/job-creation-input-inline-binary +
+|*Requirement {counter:req-id}* |/req/core/process-execute-input-inline-binary +
 ^|Conditions |. The process input value is specified in-line in an execute request.
 . The process input value is binary.
 ^|A |The service SHALL support binary values encoded as base64-encoded strings.
