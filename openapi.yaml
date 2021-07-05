@@ -92,7 +92,7 @@ paths:
     get:
       summary: retrieve the list of jobs.
       description: |
-        Lists available jobs. 
+        Lists available jobs.
 
         For more information, see [Section 12](http://docs.ogc.org/DRAFTS/18-062.html#Job_list).
       operationId: getJobs
