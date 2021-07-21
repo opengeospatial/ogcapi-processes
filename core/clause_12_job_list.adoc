@@ -1,7 +1,7 @@
 [[Job_list]]
 == Requirements Class "Job list"
 
-== Overview 
+=== Overview 
 
 This requirement class specifies how to retrieve a job list from the API.
 
