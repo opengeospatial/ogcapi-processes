@@ -1,12 +1,17 @@
+
 == Conventions
+
 This section provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
 
+
 === Identifiers
+
 The normative provisions in this specification are denoted by the URI
 
 http://www.opengis.net/spec/ogcapi-processes-1/1.0
 
 All requirements, permission, recommendations and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
+
 
 === Link relations
 
@@ -46,26 +51,25 @@ In addition the following link relation types are used for which no applicable r
 
 Each resource representation includes an array of links. Implementations are free to add additional links for all resources provided by the API. 
 
+
 === Abbreviated Terms
 
-|=======================
-|*Abbreviated Term* |*Meaning*
-|API	| Application Programming Interface
-|CITE   | Compliance Interoperability & Testing Evaluation
-|CRS	| Coordinate Reference System
-|GML	| Geography Markup Language
-|HTTP	| Hypertext Transfer Protocol
-|ISO	| International Organization for Standardization
-|JSON	| JavaScript Object Notation
-|KVP	| Keyword Value Pair
-|MIME	| Multipurpose Internet Mail Extensions
-|OGC	| Open Geospatial Consortium
-|REST	| Representational State Transfer
-|URI	| Universal Resource Identifier
-|URL	| Uniform Resource Locator
-|WPS	| Web Processing Service
-|XML	| Extensible Markup Language
-|=======================
+API:: Application Programming Interface
+CITE:: Compliance Interoperability & Testing Evaluation
+CRS:: Coordinate Reference System
+GML:: Geography Markup Language
+HTTP:: Hypertext Transfer Protocol
+ISO:: International Organization for Standardization
+JSON:: JavaScript Object Notation
+KVP:: Keyword Value Pair
+MIME:: Multipurpose Internet Mail Extensions
+OGC:: Open Geospatial Consortium
+REST:: Representational State Transfer
+URI:: Universal Resource Identifier
+URL:: Uniform Resource Locator
+WPS:: Web Processing Service
+XML:: Extensible Markup Language
+
 
 === Use of HTTPS
 

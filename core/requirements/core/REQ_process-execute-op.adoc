@@ -1,7 +1,5 @@
 [[req_core_process-execute-op]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/process-execute-op +
-
+[.requirement,label="/req/core/process-execute-op"]
+====
 The server SHALL support the HTTP POST operation at the path `/processes/{processID}/execution`.
-|===
+====

@@ -1,10 +1,15 @@
 [[ats_ogc-process-description_output-mixed-type]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/ogc-process-description/output-mixed-type*
-^|Test Purpose |Validate that each output of mixed type complies with the required structure and contents.
-^|Requirement |<<req_ogc-process-description_output-mixed-type,/req/ogc-process-description/output-mixed-type>>
-^|Test Method |. Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
+[requirement,type="abstracttest",label="/conf/ogc-process-description/output-mixed-type",subject='<<req_ogc-process-description_output-mixed-type,/req/ogc-process-description/output-mixed-type>>']
+====
+[.component,class=test-purpose]
+--
+Validate that each output of mixed type complies with the required structure and contents.
+--
+
+[.component,class=test-method]
+--
+. Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
 . For each process identify if the process has one or more output of mixed type denoted by the use of the `oneOf` JSON Schema keyword.
 . For each sub-schema or each identified output, verify that the definition validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
-|===
+--
+====

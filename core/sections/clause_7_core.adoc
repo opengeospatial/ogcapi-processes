@@ -1,10 +1,12 @@
+
 == Requirements Class "Core"
 
 The following section describes the core requirements class.
 
+
 === Overview
 
-include::requirements/requirements_class_core.adoc[]
+include::../requirements/requirements_class_core.adoc[]
 
 A server that implements the OGC API - Processes provides access to processes.
 
@@ -34,13 +36,13 @@ The URL for accessing status information is delivered in the HTTP header `locati
 
 After a process is finished (status = success/failed), the results/exceptions can be retrieved.
 
-[#img_core,reftext='{figure-caption} {counter:figure-num}']
+[[img_core]]
 .Resources in the Core requirements class
 image::figures/PT1_FIG01.png[align="center"]
 
 The OGC API - Processes standard utilizes elements of <draft> the OGC API-Common standard. <<mapping-to-common>> Identifies the API-Common Requirements Classes which are applicable to each section of this standard.
 
-[#mapping-to-common,reftext='{table-caption} {counter:table-num}']
+[[mapping-to-common]]
 .Mapping API - Processes Sections to API-Common Requirements Classes
 [width="90%",cols="2,6"]
 |====
@@ -52,18 +54,21 @@ The OGC API - Processes standard utilizes elements of <draft> the OGC API-Common
 |<<sc_requirements_class_html,HTML>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/html
 |====
 
+
 [[sc_landing_page]]
 === Retrieve the API landing page
 
 The following section defines the requirements to retrieve an API landing page.
 
+
 ==== Operation
 
-include::requirements/core/REQ_landingpage-op.adoc[]
+include::../requirements/core/REQ_landingpage-op.adoc[]
+
 
 ==== Response
 
-include::requirements/core/REQ_landingpage-success.adoc[]
+include::../requirements/core/REQ_landingpage-success.adoc[]
 
 [NOTE]
 =====================================================================
@@ -78,21 +83,21 @@ It also mean that unless explicitly excluded these schemas are extensible with a
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml[The following is the schema for the landing page (landingPage.yaml).]
 [source,yaml]
 ----
-include::openapi/schemas/landingPage.yaml[]
+include::../openapi/schemas/landingPage.yaml[]
 ----
 
 [[link-schema]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/link.yaml[The following is the schema for a link (link.yaml).]
 [source,yaml]
 ----
-include::openapi/schemas/link.yaml[]
+include::../openapi/schemas/link.yaml[]
 ----
 
 .Landing page response document
 =================
 [source,json]
 ----
-include::examples/json/LandingPage.json[]
+include::../examples/json/LandingPage.json[]
 ----
 =================
 
@@ -100,10 +105,12 @@ include::examples/json/LandingPage.json[]
 
 See <<http_status_codes>> for general guidance.
 
+
 [[sc_api_definition]]
 === Retrieve an API definition
 
 The following section defines the requirements to retrieve an API definition.
+
 
 ==== Operation
 
@@ -112,23 +119,24 @@ of the server. This definition is used by developers to understand the API,
 by software clients to connect to the server, or
 by development tools to support the implementation of servers and clients.
 
-include::requirements/core/REQ_api-definition-op.adoc[]
+include::../requirements/core/REQ_api-definition-op.adoc[]
 
-include::recommendations/core/PER_api-definition-uri.adoc[]
+include::../recommendations/core/PER_api-definition-uri.adoc[]
 
 Note that multiple API definition formats can be supported.
 
+
 ==== Response
 
-include::requirements/core/REQ_api-definition-success.adoc[]
+include::../requirements/core/REQ_api-definition-success.adoc[]
 
-include::recommendations/core/REC_api-definition-oas.adoc[]
+include::../recommendations/core/REC_api-definition-oas.adoc[]
 
 If multiple API definition formats are supported by a server, use
 content negotiation to select the desired representation.
 
 [NOTE]
-=====================================================================
+====
 Two common approaches are:
 
 * an additional path for each encoding of each resource (this can be expressed,
@@ -136,8 +144,7 @@ for example, using format specific suffixes like ".html");
 
 * an additional query parameter (for example, "accept" or "f") that overrides
 the Accept header of the HTTP request.
-
-=====================================================================
+====
 
 The API definition document describes the API. In other words,
 there is no need to include the `/api` operation in the API definition itself.
@@ -148,6 +155,7 @@ an OpenAPI definition is used, it should be possible to create a working
 client using the OpenAPI definition. The developer may need to learn a little
 bit about geospatial data types, etc., but it should not be required to read
 this standard to access the processes and results via the API.
+
 
 ==== Error situations
 
@@ -162,36 +170,39 @@ To support "generic" clients for accessing servers implementing OGC API - Proces
 not "just" a specific API / server, the server has to declare the
 requirements classes it implements and conforms to.
 
-include::requirements/core/REQ_conformance-op.adoc[]
+include::../requirements/core/REQ_conformance-op.adoc[]
+
 
 ==== Response
 
-include::requirements/core/REQ_conformance-success.adoc[]
+include::../requirements/core/REQ_conformance-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/schemas/req-classes.yaml[The following is the schema for the list of requirements classes.]
 [source,yaml]
 ----
-include::openapi/schemas/confClasses.yaml[]
+include::../openapi/schemas/confClasses.yaml[]
 ----
 
 .Requirements class response document
-=================
+====
 This example response in JSON is for a server that supports OpenAPI 3.0 for
 the API definition and HTML and JSON as encodings.
 
 [source,json]
 ----
-include::examples/json/ConfClasses.json[]
+include::../examples/json/ConfClasses.json[]
 ----
-=================
+====
+
 
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
 
+
 === Use of HTTP 1.1
 
-include::requirements/core/REQ_http.adoc[]
+include::../requirements/core/REQ_http.adoc[]
 
 [[http_status_codes]]
 ==== HTTP status codes
@@ -205,7 +216,7 @@ redirection.
 In addition, other error situations may occur in the transport layer
 outside of the server.
 
-[#status_codes,reftext='{table-caption} {counter:table-num}']
+[[status_codes]]
 .Typical HTTP status codes
 [cols="15,85",options="header"]
 !===
@@ -227,26 +238,28 @@ outside of the server.
 
 More specific guidance is provided for each resource, where applicable.
 
-include::recommendations/core/PER_additional-status-codes.adoc[]
+include::../recommendations/core/PER_additional-status-codes.adoc[]
 
 When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be preferred. [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807) addresses this need by providing "Problem Details" response schemas for both JSON and XML.
 
-include::recommendations/core/REC_problem-details.adoc[]
+include::../recommendations/core/REC_problem-details.adoc[]
+
 
 === Support for cross-origin requests
 
 Access to content from a HTML page is by default prohibited for security reasons if the content is located on another host than the webpage ("same-origin policy"). Cross-origin resource sharing is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. A typical example is a web-application accessing processes and data from multiple servers.
 
-include::recommendations/core/REC_cross-origin.adoc[]
+include::../recommendations/core/REC_cross-origin.adoc[]
 
 Two common mechanisms to support cross-origin requests are:
 
 * link:https://en.wikipedia.org/wiki/Cross-origin_resource_sharing[Cross-origin resource sharing (CORS)]
 * link:https://en.wikipedia.org/wiki/JSONP[JSONP (JSON with padding)]
 
-include::recommendations/core/REC_access-control-expose-headers.adoc[]
+include::../recommendations/core/REC_access-control-expose-headers.adoc[]
 
-include::recommendations/core/REC_html.adoc[]
+include::../recommendations/core/REC_html.adoc[]
+
 
 [[sc_limit_parameter]]
 === Limit parameter
@@ -285,45 +298,49 @@ Clients should not assume that paging is safe against changes to dataset while a
 [[prev-link-discussion]]
 This document also makes recommendations about include a `prev` link at the approriate resource end points.  Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
 
+
 === Link headers
 
-include::recommendations/core/REC_link-header.adoc[]
+include::../recommendations/core/REC_link-header.adoc[]
 
 [[sc_process_list]]
 === Retrieve a process list
 
 The following section defines the requirements to retrieve the available processes offered by the server.
 
+
 ==== Operation
 
 ===== Process list
 
-include::requirements/core/REQ_process-list-op.adoc[]
+include::../requirements/core/REQ_process-list-op.adoc[]
+
 
 ===== Parameter `limit`
 
-include::requirements/core/REQ_process-list-limit-def.adoc[]
+include::../requirements/core/REQ_process-list-limit-def.adoc[]
 
-include::recommendations/core/PER_process-list-limit-default-minimum-maximum.adoc[]
+include::../recommendations/core/PER_process-list-limit-default-minimum-maximum.adoc[]
 
-include::requirements/core/REQ_process-list-limit-response.adoc[]
+include::../requirements/core/REQ_process-list-limit-response.adoc[]
 
-include::recommendations/core/PER_process-list-limit-response.adoc[]
+include::../recommendations/core/PER_process-list-limit-response.adoc[]
+
 
 ==== Response
 
-include::requirements/core/REQ_process-list-success.adoc[]
+include::../requirements/core/REQ_process-list-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml[Schema for the process list (processList.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/processList.yaml[]
+include::../openapi/schemas/processList.yaml[]
 ----
 [[schema-processSummary]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processSummary.yaml[Schema for a process summary (processSummary.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/processSummary.yaml[]
+include::../openapi/schemas/processSummary.yaml[]
 ----
 
 (see also: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/descriptionType.yaml[descriptionType.yaml])
@@ -332,33 +349,33 @@ include::openapi/schemas/processSummary.yaml[]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobControlOptions.yaml[Schema for the job control options (jobControlOptions.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/jobControlOptions.yaml[]
+include::../openapi/schemas/jobControlOptions.yaml[]
 ----
 
 [[transmission-mode-schema]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/transmissionMode.yaml[Schema for the transmission mode (transmissionMode.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/transmissionMode.yaml[]
+include::../openapi/schemas/transmissionMode.yaml[]
 ----
 
 The number of process summaries returned depends on the server and the parameter `limit.`
 
 See the discussion about the `limit` parameter in the <<sc_limit_parameter,Limit parameter>> section.
 
-include::requirements/core/REQ_links.adoc[]
+include::../requirements/core/REQ_links.adoc[]
 
 See the discussion about the `next` links in the <<next-link-discussion,Limit parameter>> section.
 
-include::recommendations/core/REC_process-list-next-1.adoc[]
+include::../recommendations/core/REC_process-list-next-1.adoc[]
 
-include::recommendations/core/REC_process-list-next-2.adoc[]
+include::../recommendations/core/REC_process-list-next-2.adoc[]
 
-include::recommendations/core/REC_process-list-next-3.adoc[]
+include::../recommendations/core/REC_process-list-next-3.adoc[]
 
 See the discussion about the `prev` link in the  <<prev-link-discussion,Limit parameter>> section.
 
-include::recommendations/core/PER_process-list-prev.adoc[]
+include::../recommendations/core/PER_process-list-prev.adoc[]
 
 _**Example**_
 
@@ -372,37 +389,43 @@ Host: processing.example.org
 .The following is an example of Process list encoded as JSON.
 [source,json]
 ----
-include::examples/json/ProcessList.json[]
+include::../examples/json/ProcessList.json[]
 ----
+
 
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
+
 
 [[sc_process_description]]
 === Retrieve a process description
 
 The following section defines the requirements to retrieve metadata about a process.
 
+
 ==== Operation
 
-include::requirements/core/REQ_process-description-op.adoc[]
+include::../requirements/core/REQ_process-description-op.adoc[]
+
 
 ==== Response
 
-include::requirements/core/REQ_process-description-success.adoc[]
+include::../requirements/core/REQ_process-description-success.adoc[]
 
 The <<rc_core,Core>> does not mandate the use of a specific process description
 to specify the interface of a process.  That said, the <<rc_core,Core>>
 requirements class makes the following recommendation:
 
-include::recommendations/core/REC_ogc-process-description.adoc[]
+include::../recommendations/core/REC_ogc-process-description.adoc[]
+
 
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
 
-include::requirements/core/REQ_process-exception-no-such-process.adoc[]
+include::../requirements/core/REQ_process-exception-no-such-process.adoc[]
+
 
 [[sc_create_job]]
 === Execute a process
@@ -411,38 +434,41 @@ This section describes the requirements for executing a process.
 
 Depending on the description of the <<sc_process_description,process>> and the <<sc_execution_mode,negotiated process execution mode>>, process execution may result in the creation of a <<sc_retrieve_job_results,job resource>>.
 
+
 ==== Operation
 
-include::requirements/core/REQ_process-execute-op.adoc[]
+include::../requirements/core/REQ_process-execute-op.adoc[]
+
 
 ==== Request body
 
 ===== Content schema
 
-include::requirements/core/REQ_process-execute-request.adoc[]
+include::../requirements/core/REQ_process-execute-request.adoc[]
 
 [[execute-request-body]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[The following is the schema for execute (execute.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/execute.yaml[]
+include::../openapi/schemas/execute.yaml[]
 ----
 
 [[inline-or-ref-data]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inlineOrRefData.yaml[The following in the schema for an in-line or referenced process input value (inlineOrRefData.yaml)]:
 [source,yaml]
 ----
-include::openapi/schemas/inlineOrRefData.yaml[]
+include::../openapi/schemas/inlineOrRefData.yaml[]
 ----
 
 [[output-schema]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/output.yaml[The following is the schema for a process output (output.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/output.yaml[]
+include::../openapi/schemas/output.yaml[]
 ----
 
 (see also: <<format-schema,format.yaml>>, <<tx-mode-schema,transmissionMode.yaml>>)
+
 
 [[sc_process_inputs]]
 ===== Process inputs
@@ -456,7 +482,7 @@ The name of each input is its identifier as specified by the input's definition 
 
 Process input values in an execute request can be specified in-line or by reference.
 
-include::requirements/core/REQ_process-execute-inputs.adoc[]
+include::../requirements/core/REQ_process-execute-inputs.adoc[]
 
 As shown in https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inlineOrRefData.yaml[inlineOrRefData.yaml], a process input value that is specified in-line in an execute request can be:
 
@@ -475,7 +501,7 @@ A simple literal value can be a string, number, integer or Boolean.
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputValueNoObject.yaml[The following is the schema for a simple literal value (inputValueNoObject.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/inputValueNoObject.yaml[]
+include::../openapi/schemas/inputValueNoObject.yaml[]
 ----
 
 .Simple literal value examples.
@@ -523,7 +549,7 @@ Array elements, as per <<inline-or-ref-data,inlineOrRefData.yaml>>, can be:
 * <<bounding-box-value,bounding box values>>,
 * or references to values using <<link-schema,links>>.
 
-include::requirements/core/REQ_process-execute-input-array.adoc[]
+include::../requirements/core/REQ_process-execute-input-array.adoc[]
 
 .Array value examples.
 ====
@@ -584,27 +610,27 @@ The actual _value_ in a qualified value object is specified using the `value` ke
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedInputValue.yaml[The following is the schema for a qualified value (qualifiedInputValue.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/qualifiedInputValue.yaml[]
+include::../openapi/schemas/qualifiedInputValue.yaml[]
 ----
 
 [[format-schema]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/format.yaml[The following is the schema for a format qualifier (format.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/format.yaml[]
+include::../openapi/schemas/format.yaml[]
 ----
 
 [[input-value-schema]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputValue.yaml[The following is the schema of a process input value (inputValue.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/inputValue.yaml[]
+include::../openapi/schemas/inputValue.yaml[]
 ----
 (see also: <<input-value-noobject-schema,inputValueNoObject.yaml>>)
 
-include::requirements/core/REQ_process-execute-input-inline-object.adoc[]
+include::../requirements/core/REQ_process-execute-input-inline-object.adoc[]
 
-include::requirements/core/REQ_process-execute-input-inline-mixed.adoc[]
+include::../requirements/core/REQ_process-execute-input-inline-mixed.adoc[]
 
 .Qualified value examples.
 ====
@@ -683,10 +709,10 @@ In some cases, for example in order to pass through firewalls, binary input valu
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/binaryInputValue.yaml[The following is the schema for an in-line binary value (binaryInputValue.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/binaryInputValue.yaml[]
+include::../openapi/schemas/binaryInputValue.yaml[]
 ----
 
-include::requirements/core/REQ_process-execute-input-inline-binary.adoc[]
+include::../requirements/core/REQ_process-execute-input-inline-binary.adoc[]
 
 .Binary value examples.
 ====
@@ -742,18 +768,18 @@ and a JPEG2000 instance example in an execute request might be:
 
 A process input value instance can be a bounding box.
 
-include::requirements/core/REQ_process-execute-input-inline-bbox.adoc[]
+include::../requirements/core/REQ_process-execute-input-inline-bbox.adoc[]
 
 [[bbox-schema]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml[The following is the schema for a bounding box value (bbox.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/bbox.yaml[]
+include::../openapi/schemas/bbox.yaml[]
 ----
 
 This schema is meant to be a template for defining bounding box process inputs. If the specified `default` and `enum` are suitable for your purposes then you can reference this file directly in your process description.
 
-include::recommendations/core/PER_process-execute-input-inline-bbox.adoc[]
+include::../recommendations/core/PER_process-execute-input-inline-bbox.adoc[]
 
 *_Input validation_*
 
@@ -832,7 +858,7 @@ For the purposes of validation, the server need only validate the component of t
 NOTE: This example makes use of an <<ogc_process_description,OGC process description>>.  However, any other process description vocabulary may be used and applied, for the purpose of validation, in a similar manner.
 ====
 
-include::requirements/core/REQ_process-execute-input-validation.adoc[]
+include::../requirements/core/REQ_process-execute-input-validation.adoc[]
 
 [[sc_execution_mode]]
 ===== Execution mode
@@ -841,15 +867,15 @@ A process may be executed synchronously or asynchronously.
 
 In which of these two modes a server responds is a function of the job control options specified in the <<sc_process_description,process description>> and the presence or absence of the HTTP `Prefer` header (http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240]).
 
-include::requirements/core/REQ_process-execute-default-execution-mode.adoc[]
+include::../requirements/core/REQ_process-execute-default-execution-mode.adoc[]
 
-include::requirements/core/REQ_process-execute-auto-execution-mode.adoc[]
+include::../requirements/core/REQ_process-execute-auto-execution-mode.adoc[]
 
-include::recommendations/core/REC_process-execute-honor-prefer.adoc[]
+include::../recommendations/core/REC_process-execute-honor-prefer.adoc[]
 
-include::recommendations/core/REC_process-execute-handle-prefer.adoc[]
+include::../recommendations/core/REC_process-execute-handle-prefer.adoc[]
 
-include::recommendations/core/REC_process-execute-preference-applied.adoc[]
+include::../recommendations/core/REC_process-execute-preference-applied.adoc[]
 
 ===== Response type
 
@@ -870,7 +896,7 @@ an <<execute-request-body,execute request>>. The name of each output is its iden
 
 *_Default outputs_*
 
-include::requirements/core/REQ_process-execute-default-outputs.adoc[]
+include::../requirements/core/REQ_process-execute-default-outputs.adoc[]
 
 *_Output value transmission mode_*
 
@@ -880,19 +906,20 @@ Like inputs, output values can be transmitted in-line in a result document or re
 https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/transmissionMode.yaml[The following is the schema for the transmission mode (transmissionMode.yaml):]
 [source,yaml]
 ----
-include::openapi/schemas/transmissionMode.yaml[]
+include::../openapi/schemas/transmissionMode.yaml[]
 ----
 
 *_Output value format_*
 
 A process output can be defined in the <<sc_process_description,process description>> as being of one or more media types.   In cases where a specific output can be presented in one of a number of media types, the `format` parameter in the <<output-schema,execute request>> can be used to indicate the format that should be used to present the process output value in the server's <<sc_execute_response,response>>.
 
+
 ==== Example
 
 .The following is an example of an execute request.
 [source, json]
 ----
-include::examples/json/Execute.json[]
+include::../examples/json/Execute.json[]
 ----
 
 [[sc_execute_response]]
@@ -934,38 +961,39 @@ This table shows all possible combinations of execute parameters that are specif
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[The following is the schema (results.yaml) for a processing results presented as a document.]
 [source,yaml]
 ----
-include::openapi/schemas/results.yaml[]
+include::../openapi/schemas/results.yaml[]
 ----
 
 This schema defines a map using the respective output identifier as the key. The value of an output can be returned as an in-line value or by reference.
 
 For a synchronous execution, the following requirements apply:
 
-include::requirements/core/REQ_process-execute-success-sync-raw-value-one.adoc[]
+include::../requirements/core/REQ_process-execute-success-sync-raw-value-one.adoc[]
 
-include::requirements/core/REQ_process-execute-success-sync-raw-value-multi.adoc[]
+include::../requirements/core/REQ_process-execute-success-sync-raw-value-multi.adoc[]
 
-include::requirements/core/REQ_process-execute-success-sync-raw-ref.adoc[]
+include::../requirements/core/REQ_process-execute-success-sync-raw-ref.adoc[]
 
-include::requirements/core/REQ_process-execute-success-sync-raw-mixed-multi.adoc[]
+include::../requirements/core/REQ_process-execute-success-sync-raw-mixed-multi.adoc[]
 
-include::requirements/core/REQ_process-execute-success-sync-document.adoc[]
+include::../requirements/core/REQ_process-execute-success-sync-document.adoc[]
 
-include::recommendations/core/REC_process-execute-sync-document-ref.adoc[]
+include::../recommendations/core/REC_process-execute-sync-document-ref.adoc[]
 
 This specification does not mandate that servers create a job as a result of executing a process synchronously.  However the following permission is given:
 
-include::recommendations/core/PER_process-execute-sync-job.adoc[]
+include::../recommendations/core/PER_process-execute-sync-job.adoc[]
 
 For servers that implement this permission and do create a job as a result of synchronous execution of a process, the following requirement applies:
 
-include::requirements/core/REQ_job-results-success-sync.adoc[]
+include::../requirements/core/REQ_job-results-success-sync.adoc[]
 
 The job reference in the header can then be used to <<async-fetch,re-fetch the results>> of the original synchronous execution.
 
 In the case of asynchronous execution, the following requirement applies:
 
-include::requirements/core/REQ_process-execute-success-async.adoc[]
+include::../requirements/core/REQ_process-execute-success-async.adoc[]
+
 
 ==== Error situations
 
@@ -973,29 +1001,32 @@ See <<http_status_codes>> for general guidance.
 
 If the process with the specified identifier does not exist on the server, see requirement <<req_core_no-such-process,/req/core/process-exception/no-such-process>>.
 
+
 [[sc_retrieve_status_info]]
 === Retrieve status information about a job
 
 The following section describes the requirements to retrieve information about the status of a job.
 
+
 ==== Operation
 
-include::requirements/core/REQ_job-op.adoc[]
+include::../requirements/core/REQ_job-op.adoc[]
+
 
 ==== Response
 
-include::requirements/core/REQ_job-success.adoc[]
+include::../requirements/core/REQ_job-success.adoc[]
 
 [[schema-statusInfo]]
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[The following is the schema for status info.]
 [source,yaml]
 ----
-include::openapi/schemas/statusInfo.yaml[]
+include::../openapi/schemas/statusInfo.yaml[]
 ----
 
 The job status information includes several optional date-time fields that represent milestones in the life cycle of a job.   The following are recommended for servers that decide to populate some or all of these date-time fields:
 
-include::recommendations/core/REC_job-status.adoc[]
+include::../recommendations/core/REC_job-status.adoc[]
 
 NOTE: Once a job has finished execution and is no longer consuming compute resources, the duration of processing can be computed as `finished-started`.  The `updated` field, however, may still be revised as the system continues processing outputs, storing results, releasing compute resources, etc.
 
@@ -1009,8 +1040,9 @@ Host: processing.example.org
 .The following is an example of a job encoded as JSON.
 [source,json]
 ----
-include::examples/json/StatusInfo.json[]
+include::../examples/json/StatusInfo.json[]
 ----
+
 
 ==== Error situations
 
@@ -1018,16 +1050,19 @@ See <<http_status_codes>> for general guidance.
 
 If the process with the specified identifier does not exist on the server, see requirement <<req_core_no-such-process,/req/core/process-exception/no-such-process>>.
 
-include::requirements/core/REQ_job-exception-no-such-job.adoc[]
+include::../requirements/core/REQ_job-exception-no-such-job.adoc[]
+
 
 [[sc_retrieve_job_results]]
 === Retrieve job results
 
 The following section describes the requirements to retrieve the results of a job. In case the job execution failed, an exception is returned.
 
+
 ==== Operation
 
-include::requirements/core/REQ_job-results-op.adoc[]
+include::../requirements/core/REQ_job-results-op.adoc[]
+
 
 ==== Response
 
@@ -1040,9 +1075,9 @@ The manner in which a server responds when retrieving job results depends on the
 
 The following table maps the possible responses based on the combinations of these execute parameters.
 
-[#table_core_getresults_responses,reftext='{table-caption} {counter:table-num}']
+[[table_core_getresults_responses]]
 .Table mapping get results responses based on the input parameter values used on the original execute request.
-[%autowidth.stretch,,options="header"]
+[cols="9",options="header"]
 |===
 |*negotiated execute mode* |*response* |*transmission mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
 ^.^|sync ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|no 4+^.^|[if the server creates a job on synchronous execute, +
@@ -1062,15 +1097,15 @@ NOTE: The value _any_ in a cell means _"for any valid value of the execute param
 
 The following requirements apply when retrieving the results of a job that was created by executing a process synchronously OR was created by execution a process synchronously on a server that creates a job even on synchronous execution:
 
-include::requirements/core/REQ_job-results-success-async-raw-value-one.adoc[]
+include::../requirements/core/REQ_job-results-success-async-raw-value-one.adoc[]
 
-include::requirements/core/REQ_job-results-success-async-raw-value-multi.adoc[]
+include::../requirements/core/REQ_job-results-success-async-raw-value-multi.adoc[]
 
-include::requirements/core/REQ_job-results-success-async-raw-mixed-multi.adoc[]
+include::../requirements/core/REQ_job-results-success-async-raw-mixed-multi.adoc[]
 
-include::requirements/core/REQ_job-results-success-async-raw-ref.adoc[]
+include::../requirements/core/REQ_job-results-success-async-raw-ref.adoc[]
 
-include::requirements/core/REQ_job-results-success-async-document.adoc[]
+include::../requirements/core/REQ_job-results-success-async-document.adoc[]
 
 .The following is an example of HTTP GET request for retrieving the result a job encoded as JSON.
 [source]
@@ -1082,15 +1117,16 @@ Host: processing.example.org
 .The following is an example of a result encoded as JSON.
 [source,json]
 ----
-include::examples/json/Result.json[]
+include::../examples/json/Result.json[]
 ----
+
 
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
 
-include::requirements/core/REQ_job-results-exception-no-such-job.adoc[]
+include::../requirements/core/REQ_job-results-exception-no-such-job.adoc[]
 
-include::requirements/core/REQ_job-results-exception-results-not-ready.adoc[]
+include::../requirements/core/REQ_job-results-exception-results-not-ready.adoc[]
 
-include::requirements/core/REQ_job-results-failed.adoc[]
+include::../requirements/core/REQ_job-results-failed.adoc[]

@@ -1,12 +1,7 @@
 [[ats_html]]
-[cols="1,4",width="90%"]
-|===
-2+|*Conformance Class*
-2+|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html
-|Target type |Web API
-|Requirements class |<<rc_html,Requirements Class "HTML">>
-|Dependency |<<ats_core,Conformance Class 'Core'>>
-|===
+[requirement,type="conformanceclass",label="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss",subject='<<rc_core,Requirements Class "Core">>',inherit='<<ats_core,Conformance Class "Core">>',classification="Target Type:Web API"]
+====
+====
 
 include::html/ATS_content.adoc[]
 

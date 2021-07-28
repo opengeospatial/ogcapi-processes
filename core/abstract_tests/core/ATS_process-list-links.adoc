@@ -7,4 +7,5 @@
 ^|Test Method |. Get a list of process summaries as per test <<ats_core_process-list-op,/conf/core/process-list-op>>.
 . Verify that the `links` section of the response contains a link with `rel=self`. 
 . Verify that the `links` section of the response contains a link with `rel=alternate` for each response representation the service claims to support in its <<sc_conformance,conformance document>>.
-|===
+--
+====

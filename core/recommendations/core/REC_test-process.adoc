@@ -1,13 +1,10 @@
 [[rec_core_test-process]]
-[width="90%",cols="2,6a"]
-|===
-|Recommendation {counter:rec-id} |/rec/core/test-process +
-
+[.recommendation,label="/rec/core/test-process"]
+====
 If a server implementing the OGC API - Processes - Part 1: Core is tested using CITE tests, the server SHOULD offer one of the following options:
 
 . An Echo process that returns any input that is provided, without any actual processing. 
 . Provide example input data for a specific process.
 
 The process logic SHOULD include a delay, whether through actual processing or a simple sleep mechanism, in order to test asynchronous execution.
-
-|===
+====

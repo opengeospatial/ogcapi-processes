@@ -1,3 +1,4 @@
+
 [[additional-api-building-blocks]]
 == Additional API Building Blocks
 
@@ -16,11 +17,11 @@ This standard uses the OpenAPI specification to define the JSON schemas and Open
 
 The following permissions do not affect the mandatory core requirements.
 
-include::recommendations/core/PER_alternative-process-description.adoc[]
+include::../recommendations/core/PER_alternative-process-description.adoc[]
 
 The alternative-process-description permission allows server implementations to describe a process, such as by defining the request and response body of a POST request to a process endpoint using the OpenAPI specification directly (see this  <<example-alternative-process-description, example>>).
 
-include::recommendations/core/PER_alternative-process-paths.adoc[]
+include::../recommendations/core/PER_alternative-process-paths.adoc[]
 
 The alternative-process-paths permission allows server implementations to specify alternative paths to processes and jobs. 
 
@@ -29,7 +30,7 @@ An example of an OpenAPI document making use of these building blocks is shown i
 [[example-alternative-process-description]]
 [source,YAML]
 ----
-include::examples/yaml/alternative-api.yaml[]
+include::../examples/yaml/alternative-api.yaml[]
 ----
 
 The goals of these additional API building blocks are:
