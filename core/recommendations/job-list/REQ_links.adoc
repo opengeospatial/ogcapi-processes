@@ -4,9 +4,7 @@
 [%metadata]
 type:: general
 label:: /req/job-list/links
-
-part::
-+
+[.component,class=part]
 --
 A `200`-response SHALL include the following links:
 

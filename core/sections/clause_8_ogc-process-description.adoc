@@ -59,10 +59,9 @@ include::../requirements/ogc-process-description/REQ_input-binary.adoc[]
 
 include::../requirements/ogc-process-description/REQ_input-mixed-type.adoc[]
 
-.Mixed type input example.
-
 The following JSON Schema fragment illustrates how to define an input of mixed type.  In this case, the `imageInput` input can be one a couple of image media types.
 
+.Mixed type input example
 [source,json]
 ----
 "imageInput": {
@@ -107,10 +106,9 @@ Situations might arise where communities of interest wish to extend this list of
 
 include::../recommendations/ogc-process-description/REC_format-value-registration.adoc[]
 
-.Example of semantic hints using the format key.
-
 The following JSON Schema fragment illustrates the use of the `format` key to include a semantic hint to a process input that is a geometry.
 
+.Example of semantic hints using the format key
 [source,json]
 ----
 "geometryInput": {

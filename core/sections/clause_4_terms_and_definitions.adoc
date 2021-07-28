@@ -3,23 +3,7 @@
 
 === Terms and definitions
 
-=== Job
-
-The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.
-
-=== JSON
-
-JavaScript Object Notation is a lightweight data-interchange format. JSON is easy for humans to read and write and it is easy for machines to parse and generate. 
-
-=== Link
-
-The term "link" is commonly used as substitute for URL or URI. In this standard, "link" refers to the <<link-schema,link.yaml>>. This is a JSON element containing properties like "rel" (relation) and "href". The value of the "href" property is an URI.
-
-=== Link header
-
-HTTP Link header, as defined in <<rfc8288,RFC 8288 (Web Linking)>>.
-
-=== Process
+==== process
 
 A process p is a function that for each input returns a corresponding output
 
@@ -32,7 +16,18 @@ where stem:[X] denotes the domain of arguments stem:[x] and stem:[Y] denotes the
 
 The term process is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this specification uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the WPS 2.0 standard.
 
-=== Process description
+
+==== job
+
+The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.
+
+
+==== JSON
+
+JavaScript Object Notation is a lightweight data-interchange format. JSON is easy for humans to read and write and it is easy for machines to parse and generate.
+
+
+==== process description
 
 A process description is an information model that specifies the interface of a process. A process description is used for a machine-readable description of the process itself but also provides some basic information about the process inputs and outputs.
 

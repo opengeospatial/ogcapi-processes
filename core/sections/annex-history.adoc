@@ -1,7 +1,8 @@
 
-[appendix]
+[appendix,obligation=informative]
 == Revision History
 
+[%unnumbered]
 [options="header"]
 |===
 |Date |Release |Editor | Primary clauses modified |Description

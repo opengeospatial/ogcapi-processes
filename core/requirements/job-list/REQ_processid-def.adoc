@@ -4,8 +4,7 @@
 [%metadata]
 type:: general
 label:: /req/job-list/processID-definition
-part::
-+
+[.component,class=part]
 --
 The operation SHALL support a parameter `processID` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 

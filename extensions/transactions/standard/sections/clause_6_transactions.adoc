@@ -23,7 +23,7 @@ conformance class, <<rc_ogcapppkg,OGC Application Package>>, that defines a
 formal process description language encoded using JSON.  It is recommended
 that all implementations of this extension support the `OGC Application Package`.
 
-[[http_status_codes]]
+[[transactions-http_status_codes]]
 ==== HTTP status codes
 
 API clients should be prepared to handle any legal HTTP or HTTPS status code.
@@ -184,7 +184,7 @@ include::../requirements/transactions/delete/REQ_response.adoc[]
 
 ==== Exceptions
 
-See <<http_status_codes>>.
+See <<transactions-http_status_codes,HTTP status codes>>.
 
 === Static processes
 
