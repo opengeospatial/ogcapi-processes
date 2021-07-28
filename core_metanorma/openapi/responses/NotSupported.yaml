@@ -1,0 +1,8 @@
+description: None of the requested media types is supported at the path.
+content:
+  application/json:
+    schema:
+      $ref: "../schemas/exception.yaml"
+  text/html:
+    schema:
+      type: string

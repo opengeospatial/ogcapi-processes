@@ -1,0 +1,83 @@
+{
+  "jobs": [
+    {
+      "processID": "Voronoi",
+      "jobID": "8ca109b4-3b86-4a9c-a284-a6d50f91019e",
+      "status": "running",
+      "message": "Perform step 1/2",
+      "progress": 50,
+      "links": [
+        {
+          "href": "http://processing.example.org/oapi-p/jobs/8ca109b4-3b86-4a9c-a284-a6d50f91019e",
+          "rel": "status",
+          "type": "application/json",
+          "hreflang": "en",
+          "title": "Job status"
+        }
+      ]
+    },
+    {
+      "processID": "EchoProcess",
+      "jobID": "0cf773a5-282a-4e23-96cc-f5dab18123e5",
+      "status": "successful",
+      "message": "EchoProcess job finished successful",
+      "progress": 100,
+      "links": [
+        {
+          "href": "http://processing.example.org/oapi-p/jobs/0cf773a5-282a-4e23-96cc-f5dab18123e5",
+          "rel": "status",
+          "type": "application/json",
+          "hreflang": "en",
+          "title": "Job status"
+        },
+        {
+          "href": "http://processing.example.org/oapi-p/jobs/0cf773a5-282a-4e23-96cc-f5dab18123e5/results",
+          "rel": "http://www.opengis.net/def/rel/ogc/1.0/results",
+          "type": "application/json",
+          "hreflang": "en",
+          "title": "Job result"
+        }
+      ]
+    },
+    {
+      "processID": "EchoProcess",
+      "jobID": "63aadd9c-c0e5-4a7f-80f0-228dbb158f09",
+      "status": "failed",
+      "message": "EchoProcess job failed",
+      "progress": 100,
+      "links": [
+        {
+          "href": "http://processing.example.org/oapi-p/jobs/63aadd9c-c0e5-4a7f-80f0-228dbb158f09",
+          "rel": "status",
+          "type": "application/json",
+          "hreflang": "en",
+          "title": "Job status"
+        },
+        {
+          "href": "http://processing.example.org/oapi-p/jobs/63aadd9c-c0e5-4a7f-80f0-228dbb158f09/results",
+          "rel": "http://www.opengis.net/def/rel/ogc/1.0/exceptions",
+          "type": "application/json",
+          "hreflang": "en",
+          "title": "Job exception"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "href": "http://processing.example.org/jobs?limit3&f=json",
+      "rel": "self",
+      "type": "application/json"
+    },
+    {
+      "href": "http://processing.example.org/jobs?f=html",
+      "rel": "alternate",
+      "type": "text/html"
+    },
+    {
+       "href": "http//processing.example.org/jobs?offset=4&limit=3&f=json",
+       "rel": "next"
+    }
+       
+  ]
+}

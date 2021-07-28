@@ -1,0 +1,7 @@
+[[req_dismiss_job-dismiss-op]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/dismiss/job-dismiss-op +
+
+The server SHALL support the HTTP DELETE operation at the path `/jobs/{jobID}`.
+|===

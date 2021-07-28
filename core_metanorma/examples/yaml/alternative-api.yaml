@@ -1,0 +1,65 @@
+openapi: 3.0.2
+info:
+  title: Alternative OGC API - Processes
+  description: This is an alternative OGC API - Processes
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+paths:
+  /buffer:
+    post:
+      summary: execute buffer process
+      operationId: executeBuffer
+      requestBody:
+        description: buffer inputs
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bufferExecute'
+      responses:
+        "200":
+          description: buffer created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bufferResult'
+        "400":
+          description: invalid input
+components:
+  schemas:
+    bufferExecute:
+      required:
+        - data
+        - width
+      type: object
+      properties:
+        data:
+          maxItems: 10
+          minItems: 1
+          type: array
+          description: this is possible to provide the abstract in here
+          items:
+            oneOf:
+              - type: string
+                format: application/geo+json
+              - type: string
+                format: application/gml+xml
+        width:
+          maximum: 100
+          minimum: 1
+          type: integer
+          default: 20
+    bufferResult:
+      type: object
+      properties:
+        outputs:
+          type: array
+          items:
+            oneOf:
+              - type: string
+                format: application/geo+json
+              - type: string
+                format: application/gml+xml

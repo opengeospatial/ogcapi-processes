@@ -1,0 +1,6 @@
+type: object
+properties:
+  format:
+    $ref: "format.yaml"
+  transmissionMode:
+    $ref: "transmissionMode.yaml"

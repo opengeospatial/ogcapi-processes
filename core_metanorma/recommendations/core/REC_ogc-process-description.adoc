@@ -1,0 +1,7 @@
+[[rec_core_ogc-process-description]]
+[width="90%",cols="2,6a"]
+|===
+|Recommendation {counter:rec-id} |/rec/core/ogc-process-description +
+
+Implementations SHOULD consider supporting the <<ogc_process_description,OGC process description>>.
+|===

@@ -1,0 +1,10 @@
+[[req_core_process-execute-input-inline-object]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/process-execute-input-inline-object +
+^|Conditions |. The process input value is specified in-line in an execute request.
+. The process input is defined as an object according to its schema from the <<sc_process_description,process description>>.
+
+^|A |The server SHALL support process input values encoded as qualified values (https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedValue.yaml[qualifiedValue.yaml]).
+^|B |The value of the `value` key SHALL be an _object_ instance of <<input-value-schema,inputValue.yaml>>.
+|===

@@ -1,0 +1,130 @@
+[[ats_core]]
+[cols="1,4",width="90%"]
+|===
+2+|*Conformance Class*
+2+|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
+|Target type |Web API
+|Requirements class |<<rc_core,Requirements Class "Core">>
+|===
+
+==== Landing Page /
+
+include::core/ATS_landingpage-op.adoc[]
+
+include::core/ATS_landingpage-success.adoc[]
+
+==== API Definition /api
+
+include::core/ATS_api-definition-op.adoc[]
+
+include::core/ATS_api-definition-success.adoc[]
+
+==== Conformance Path /conformance
+
+include::core/ATS_conformance-op.adoc[]
+
+include::core/ATS_conformance-success.adoc[]
+
+==== HTTP 1.1
+
+include::core/ATS_http.adoc[]
+
+==== Processes /processes
+
+===== Process list
+
+include::core/ATS_process-list-op.adoc[]
+
+include::core/ATS_process-list-limit-def.adoc[]
+
+include::core/ATS_process-list-success.adoc[]
+
+include::core/ATS_process-list-links.adoc[]
+
+include::core/ATS_process-list-limit-response.adoc[]
+
+===== Process description /processes/{processID}
+
+include::core/ATS_process-op.adoc[]
+
+include::core/ATS_process-success.adoc[]
+
+===== Process exception
+
+include::core/ATS_process-exception-no-such-process.adoc[]
+
+==== Jobs
+
+===== Job creation /processes/{processID}/execution
+
+include::core/ATS_job-creation-op.adoc[]
+
+include::core/ATS_job-creation-auto-execution-mode.adoc[]
+
+include::core/ATS_job-creation-default-execution-mode.adoc[]
+
+include::core/ATS_job-creation-request.adoc[]
+
+include::core/ATS_job-creation-inputs.adoc[]
+
+include::core/ATS_job-creation-input-inline.adoc[]
+
+include::core/ATS_job-creation-input-ref.adoc[]
+
+include::core/ATS_job-creation-input-array.adoc[]
+
+include::core/ATS_job-creation-input-inline-object.adoc[]
+
+include::core/ATS_job-creation-input-inline-mixed.adoc[]
+
+include::core/ATS_job-creation-input-inline-binary.adoc[]
+
+include::core/ATS_job-creation-input-inline-bbox.adoc[]
+
+include::core/ATS_job-creation-input-validation.adoc[]
+
+include::core/ATS_job-creation-success.adoc[]
+
+include::core/ATS_job-creation-success-sync-raw-value-one.adoc[]
+
+include::core/ATS_job-creation-success-sync-raw-value-multi.adoc[]
+
+include::core/ATS_job-creation-success-sync-raw-ref.adoc[]
+
+include::core/ATS_job-creation-success-sync-raw-mixed-multi.adoc[]
+
+include::core/ATS_job-creation-success-sync-document.adoc[]
+
+include::core/ATS_job-creation-success-async.adoc[]
+
+===== Job status /jobs/{jobID}
+
+include::core/ATS_job-op.adoc[]
+
+include::core/ATS_job-success.adoc[]
+
+include::core/ATS_job-exception-no-such-job.adoc[]
+
+===== Job results /jobs/{jobID}/results
+
+include::core/ATS_job-results-op.adoc[]
+
+include::core/ATS_job-results-success.adoc[]
+
+include::core/ATS_job-results-success-sync.adoc[]
+
+include::core/ATS_job-results-success-async-raw-value-one.adoc[]
+
+include::core/ATS_job-results-success-async-raw-value-multi.adoc[]
+
+include::core/ATS_job-results-success-async-raw-ref.adoc[]
+
+include::core/ATS_job-results-success-async-raw-mixed-multi.adoc[]
+
+include::core/ATS_job-results-success-async-document.adoc[]
+
+include::core/ATS_job-results-exception-no-such-job.adoc[]
+
+include::core/ATS_job-results-exception-results-not-ready.adoc[]
+
+include::core/ATS_job-results-failed.adoc[]

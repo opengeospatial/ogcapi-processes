@@ -1,0 +1,10 @@
+[[ats_core_job-creation-op]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-op*
+^|Test Purpose |Validate the creation of a new job.
+^|Requirement |<<req_core_job-creation-op,/req/core/job-creation-op>>
+^|Test Method |. Issue an HTTP POST request to the URL '/processes/{processID}/execution' for each execution mode according to requirements <<req_core_job-creation-default-execution-mode,/conf/core/job-creation-default-execution-mode>> or <<req_core_job-creation-auto-execution-mode,/conf/core/job-creation-auto-execution-mode>>.
+. Validate the contents of the POST request using the test <<ats_core_job-creation-request,/conf/core/job-creation-request>>.
+. Validate the creation of the job according the requirements <<req_core_job-creation-default-execution-mode,/req/core/job-creation-default-execution-mode>>, <<req_core_job-creation-auto-execution-mode,/req/core/job-creation-auto-execution-mode>>.
+|===

@@ -1,0 +1,14 @@
+type: object
+required:
+  - links
+properties:
+  title:
+    type: string
+    example: Example processing server
+  description:
+    type: string
+    example: Example server implementing the OGC API - Processes 1.0
+  links:
+    type: array
+    items:
+      $ref: "link.yaml"

@@ -1,0 +1,100 @@
+oneOf:
+  - $ref: ../reference.yaml
+  - type: object
+    properties:
+      title:
+        type: string
+      multipleOf:
+        type: number
+        minimum: 0
+        exclusiveMinimum: true
+      maximum:
+        type: number
+      exclusiveMaximum:
+        type: boolean
+        default: false
+      minimum:
+        type: number
+      exclusiveMinimum:
+        type: boolean
+        default: false
+      maxLength:
+        type: integer
+        minimum: 0
+      minLength:
+        type: integer
+        minimum: 0
+        default: 0
+      pattern:
+        type: string
+        format: regex
+      maxItems:
+        type: integer
+        minimum: 0
+      minItems:
+        type: integer
+        minimum: 0
+        default: 0
+      uniqueItems:
+        type: boolean
+        default: false
+      maxProperties:
+        type: integer
+        minimum: 0
+      minProperties:
+        type: integer
+        minimum: 0
+        default: 0
+      required:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        uniqueItems: true
+      enum:
+        type: array
+        items: {}
+        minItems: 1
+        uniqueItems: false
+      type:
+        type: string
+        enum:
+          - array
+          - boolean
+          - integer
+          - number
+          - object
+          - string
+      properties:
+        type: object
+        additionalProperties:
+          type: boolean
+          default: true
+      additionalProperties:
+        type: boolean
+        default: true
+      description:
+        type: string
+      format:
+        type: string
+      default: {}
+      nullable:
+        type: boolean
+        default: false
+      readOnly:
+        type: boolean
+        default: false
+      writeOnly:
+        type: boolean
+        default: false
+      example: {}
+      deprecated:
+        type: boolean
+        default: false
+      contentMediaType:
+        type: string
+      contentEncoding:
+        type: string
+      contentSchema:
+        type: string
+    additionalProperties: false

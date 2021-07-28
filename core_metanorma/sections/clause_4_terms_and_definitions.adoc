@@ -1,0 +1,62 @@
+
+== Terms and Definitions
+
+This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r9], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.
+
+For the purposes of this document, the following additional terms and definitions apply.
+
+=== Process
+
+A process p is a function that for each input returns a corresponding output
+
+[stem%unnumbered]
+++++
+p: X -> Y
+++++
+
+where stem:[X] denotes the domain of arguments stem:[x] and stem:[Y] denotes the co-domain of values y. Within this specification, process arguments are referred to as process inputs and result values are referred to as process outputs. Processes that have no process inputs represent value generators that deliver constant or random process outputs.
+
+The term process is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this specification uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the WPS 2.0 standard. 
+
+
+=== Job
+
+The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.
+
+
+=== JSON
+
+JavaScript Object Notation is a lightweight data-interchange format. JSON is easy for humans to read and write and it is easy for machines to parse and generate. 
+
+
+=== Process description
+
+A process description is an information model that specifies the interface of a process. A process description is used for a machine-readable description of the process itself but also provides some basic information about the process inputs and outputs.
+
+
+=== Process execution
+
+The execution of a process is an action that calculates the outputs of a given process for a given set of data inputs.
+
+
+=== Process input
+
+Process inputs are the arguments of a process and refer to data provided to a process. Each process input is an identifiable item.
+
+
+=== Process offering
+
+A process offering is an identifiable process that may be executed on a particular service instance. A process offering contains a process description as well as service-specific information about the supported execution protocols (e.g. synchronous and asynchronous execution).
+
+
+=== Process output
+
+Process outputs are the results of a process and refer to data returned by a process. Each process output is an identifiable item.
+
+
+=== REST or RESTful
+
+Representational state transfer.  REST-compliant Web services allow requesting systems to access and manipulate textual representations of Web resources using a uniform and predefined set of stateless operations.
+
+
+

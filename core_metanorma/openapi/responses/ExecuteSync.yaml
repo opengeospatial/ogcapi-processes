@@ -1,0 +1,16 @@
+description: Result of synchronous execution
+content:
+  /*:
+    schema:
+      oneOf:
+        - type: string
+        - type: number
+        - type: integer
+        - type: object
+          nullable: true
+        - type: array
+        - type: boolean
+        - type: string
+          format: binary
+        - $ref: "../schemas/results.yaml"
+          description: Negotiate synchronous execution, response=document,any txMode and no. outputs

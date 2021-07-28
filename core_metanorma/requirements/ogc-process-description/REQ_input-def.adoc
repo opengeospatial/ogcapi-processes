@@ -1,0 +1,8 @@
+[[req_ogc-process-description_input-def]]
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/ogc-process-description/input-def +
+^|A |The schema of each <<input-value-schema,process **input** value>> SHALL be specified using the `schema` parameter.
+^|B |The value of the `schema` parameter SHALL be a JSON fragment that validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
+^|C |Servers SHALL use this schema fragment to validate the components of a <<sc_process_input,process input>> in an <<execute-request-body,execute request>> that is an instance of <<input-schema,inputValue.yaml>>.
+|===

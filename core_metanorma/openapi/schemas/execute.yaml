@@ -1,0 +1,21 @@
+type: object
+properties:
+  inputs:
+    additionalProperties:
+      oneOf:
+        - $ref: "inlineOrRefData.yaml"
+        - type: array
+          items:
+            $ref: "inlineOrRefData.yaml"
+  outputs:
+    additionalProperties:
+      $ref: "output.yaml"
+  response:
+    type: string
+    enum:
+      - raw
+      - document
+    default:
+      - raw
+  subscriber:
+    $ref: "subscriber.yaml"
