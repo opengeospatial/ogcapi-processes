@@ -1,16 +1,21 @@
 [[ats_core_process-exception-no-such-process]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/process-exception-no-such-process*
-^|Test Purpose |Validate that an invalid process identifier is handled correctly.
-^|Requirement |<<req_core_process-exception-no-such-process,/req/core/process-exception-no-such-process>>
-^|Test Method |. Issue an HTTP GET request to a URL that includes the `{processID}` as a path element using a non-existent process identifier.
+[requirement,type="abstracttest",label="/conf/core/process-exception-no-such-process",subject='<<req_core_process-exception-no-such-process,/req/core/process-exception-no-such-process>>']
+====
+[.component,class=test-purpose]
+--
+Validate that an invalid process identifier is handled correctly.
+--
+
+[.component,class=test-method]
+--
+. Issue an HTTP GET request to a URL that includes the `{processID}` as a path element using a non-existent process identifier.
 . Validate that the document was returned with a 404.
 . Validate that the document contains the exception `type` "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-process".
 . Validate the document for all supported media types using the resources and tests identified in <<no-such-process>>
-|===
+--
 
 An exception response caused by the use of an invalid process identifier may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the response. All supported formats should be exercised.
+====
 
 [[no-such-process]]
 .Schema and Tests for Non-existent Process

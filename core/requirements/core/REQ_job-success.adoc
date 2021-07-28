@@ -1,10 +1,8 @@
 [[req_core_job-success]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/job-success +
-
+[.requirement,label="/req/core/job-success"]
+====
 A successful execution of the operation SHALL be reported as a
 response with a HTTP status code 200.
 The content of that response SHALL be based upon the OpenAPI
 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml].
-|===
+====

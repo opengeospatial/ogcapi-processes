@@ -1,12 +1,14 @@
+
 [[ogc_process_description]]
 == Requirements Class "OGC Process Description"
 
 The following section describes the `OGC Process Description` requirements
 class.
 
+
 === Overview
 
-include::requirements/requirements_class_ogc-process-description.adoc[]
+include::../requirements/requirements_class_ogc-process-description.adoc[]
 
 The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the http://docs.opengeospatial.org/is/14-065/14-065.html[OGC WPS 2.0.2 Interface Standard] but also include elements of the http://spec.openapis.org/oas/v3.0.3[OpenAPI Specification].  Specifically, this process description languges uses https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragments to define the input and output parameters of a process.  As such, this process description provides a bridge from legacy implementations to the OGC API Framework.
 
@@ -26,35 +28,36 @@ The process description allows the following information to be specified:
 
 The following clause defines a JSON-encoding of the OGC process description.
 
+
 === OGC process description
 
-include::requirements/ogc-process-description/REQ_json-encoding.adoc[]
+include::../requirements/ogc-process-description/REQ_json-encoding.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[Schema for a process (process.yaml):]
 [source,YAML]
 ----
-include::openapi/schemas/process.yaml[]
+include::../openapi/schemas/process.yaml[]
 ----
 
 (see also: <<schema-processSummary,processSummary.yaml>>)
 
 The schema imports the elements from the <<schema-processSummary, process summary>> and specifies an object for the definition of process inputs and another object for the definition of process outputs.
 
-include::requirements/ogc-process-description/REQ_inputs-def.adoc[]
+include::../requirements/ogc-process-description/REQ_inputs-def.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[Schema for a process input (inputDescription.yaml)]
 [source,YAML]
 ----
-include::openapi/schemas/inputDescription.yaml[]
+include::../openapi/schemas/inputDescription.yaml[]
 ----
 
-include::requirements/ogc-process-description/REQ_input-def.adoc[]
+include::../requirements/ogc-process-description/REQ_input-def.adoc[]
 
 NOTE: The schema fragment specified as the value of the `schema` parameter can be used to validate the corresponding <<input-value-schema,process input value>> in an <<execute-request-body,execute request>>.
 
-include::requirements/ogc-process-description/REQ_input-binary.adoc[]
+include::../requirements/ogc-process-description/REQ_input-binary.adoc[]
 
-include::requirements/ogc-process-description/REQ_input-mixed-type.adoc[]
+include::../requirements/ogc-process-description/REQ_input-mixed-type.adoc[]
 
 .Mixed type input example.
 
@@ -79,7 +82,7 @@ The following JSON Schema fragment illustrates how to define an input of mixed t
    }
 ----
 
-include::recommendations/ogc-process-description/REC_format-key.adoc[]
+include::../recommendations/ogc-process-description/REC_format-key.adoc[]
 
 The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7[set of values] for the `format` key.  This specification extends this list by defining the following additional key values for use specifically in OGC process descriptions.
 
@@ -96,11 +99,11 @@ The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-sc
 
 NOTE: This list of values has been submitted to the https://www.ogc.org/ogcna[OGC Naming Authority] for registration in their definition server.
 
-include::recommendations/ogc-process-description/REC_format-short-code.adoc[]
+include::../recommendations/ogc-process-description/REC_format-short-code.adoc[]
 
 Situations might arise where communities of interest wish to extend this list of values for their own purposes.
 
-include::recommendations/ogc-process-description/REC_format-value-registration.adoc[]
+include::../recommendations/ogc-process-description/REC_format-value-registration.adoc[]
 
 .Example of semantic hints using the format key.
 
@@ -137,14 +140,14 @@ The following JSON Schema fragment illustrates the use of the `format` key to in
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[Schema for a process input (outputDescription.yaml)]
 [source,YAML]
 ----
-include::openapi/schemas/outputDescription.yaml[]
+include::../openapi/schemas/outputDescription.yaml[]
 ----
 
-include::requirements/ogc-process-description/REQ_outputs-def.adoc[]
+include::../requirements/ogc-process-description/REQ_outputs-def.adoc[]
 
-include::requirements/ogc-process-description/REQ_output-def.adoc[]
+include::../requirements/ogc-process-description/REQ_output-def.adoc[]
 
-include::requirements/ogc-process-description/REQ_output-mixed-type.adoc[]
+include::../requirements/ogc-process-description/REQ_output-mixed-type.adoc[]
 
 .Example OGC Process Description.
 ====
@@ -158,7 +161,7 @@ The description of the example `EchoProcess` process might be:
 
 [source,json]
 ----
-include::examples/json/ProcessDescription.json[]
+include::../examples/json/ProcessDescription.json[]
 ----
 
 The `EchoProcess` process simply echoes each process input value it is given.

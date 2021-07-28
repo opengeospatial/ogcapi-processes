@@ -1,7 +1,5 @@
 [[req_core_process-execute-default-outputs]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/process-execute-default-outputs +
-
+[.requirement,label="/req/core/process-execute-default-outputs"]
+====
 If a process is defined as having one or more outputs and the `outputs` parameter is omitted in an <<execute-request-body,execute request>>, this SHALL be equivalent to having requested all the defined outputs in the <<execute-request-body,execute request>>.
-|===
+====

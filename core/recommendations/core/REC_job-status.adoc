@@ -1,11 +1,28 @@
 [[rec_core_job-status]]
-[width="90%",cols="2,6a"]
-|===
-|Recommendation {counter:rec-id} |/rec/core/job-status +
+[.recommendation,label="/rec/core/job-status"]
+====
+[.component,class=part]
+--
+Servers SHOULD set the value of the `processID` field if it is known.
+--
 
-^|A |Servers SHOULD set the value of the `processID` field if it is known.
-^|A |Servers SHOULD set the value of the `created` field when a job has been accepted and queued for execution.
-^|B |Servers SHOULD set the value of the `started` field when a job begins execution and is consuming compute resources.
-^|C |Servers SHOULD set the value of the `finished` field when the execution of a job has completed and the process is no longer consuming compute resources.
-^|D |Whenever the `status` field of the job changes, servers SHOULD revise the value of the `updated` field.
-|===
+[.component,class=part]
+--
+Servers SHOULD set the value of the `created` field when a job has been accepted and queued for execution.
+--
+
+[.component,class=part]
+--
+Servers SHOULD set the value of the `started` field when a job begins execution and is consuming compute resources.
+--
+
+[.component,class=part]
+--
+Servers SHOULD set the value of the `finished` field when the execution of a job has completed and the process is no longer consuming compute resources.
+--
+
+[.component,class=part]
+--
+Whenever the `status` field of the job changes, servers SHOULD revise the value of the `updated` field.
+--
+====

@@ -1,4 +1,6 @@
-[big]*i.     Abstract*
+
+[abstract]
+== Abstract
 
 This standard defines the OGC API - Processes API standard. This standard builds on the OGC Web Processing Service (WPS) 2.0 Standard and defines the processing interface to communicate over a RESTful protocol using JSON encodings.
 
@@ -10,11 +12,13 @@ This API is a newer and more modern way of programming and interacting with reso
 The resources that are provided by a server implementing the OGC API - Processes are listed in <<table_core_resources>> below and include information about the server, the list of available processes (Process list and Process description), jobs (running processes) and
 results of process executions.
 
-[#table_core_resources,reftext='{table-caption} {counter:table-num}']
+
+[[table_core_resources]]
 .Requirements class 'Core' - Overview of resources, applicable HTTP methods and links to the document sections
 [cols="27,25,10,10,28",options="header"]
 !===
-|Resource |Path |HTTP method | Parameter| Document reference
+| Resource | Path | HTTP method | Parameter | Document reference
+
 |Landing page |`/` |GET| N/A | <<sc_landing_page,7.2 API landing page>>
 |Conformance classes |`/conformance` |GET| N/A | <<sc_conformance_classes,7.4 Declaration of conformance classes>>
 |Process list |`/processes` |GET | N/A | <<sc_process_list,7.7 Retrieve a process list>>
@@ -29,7 +33,7 @@ However, in order to execute a process, the HTTP POST method is used to send an 
 
 Additionally, the /jobs endpoint can be used to grant access to a list of jobs. 
 
-[#table_job_list,reftext='{table-caption} {counter:table-num}']
+
 .Requirements class 'Job list' - Overview of resources, applicable HTTP methods and links to the document sections
 [cols="27,25,10,10,28",options="header"]
 !===
@@ -39,7 +43,7 @@ Additionally, the /jobs endpoint can be used to grant access to a list of jobs.
 
 In addition to the operations accessible through HTTP GET and POST methods, the DELETE method can be used to cancel a job execution and/or remove traces of the job execution.
 
-[#table_job_dismiss,reftext='{table-caption} {counter:table-num}']
+
 .Requirements class 'Dismiss' - Overview of resources, applicable HTTP methods and links to the document sections
 [cols="27,25,10,10,28",options="header"]
 !===
@@ -47,35 +51,23 @@ In addition to the operations accessible through HTTP GET and POST methods, the 
 |Job status info |`/jobs/{jobID}` |DELETE| jobID (in path) | <<Dismiss,14 Requirements Class "Dismiss">>
 !===
 
-[big]*ii.    Keywords*
 
-The following are keywords to be used by search engines and document catalogues.
-
-ogcdoc, OGC document, OGC API, Geospatial API, processes, Web Processing Service, WPS, JSON, HTML, geoprocessing, API, OpenAPI, HTML
-
-[big]*iii.   Preface*
+[.preface]
+== Preface
 
 The OGC API – Processing, hereafter referred to as the Processing API is a continuation of WPS 2.0, a standard for web-based processing of geospatial data. The Processing API defines how the interfaces for WPS 2.0 operations should be constructed and interpreted using a REST based protocol with JSON encoding.
 Within the current version of WPS 2.0, bindings are defined for HTTP/POST using XML encodings and HTTP/GET using KVP encodings. Also in the current WPS 2.0 standard, a core conceptual model is provided that may be used to specify a WPS in different architectures such as REST or SOAP. Therefore, the Processing API is a natural fit to what is already defined in the standard.
 
-[big]*iv.    Submitting organizations*
 
-The following organizations submitted this standard to the Open Geospatial Consortium (OGC):
-
-* 52°North GmbH
-* Hexagon
-* CubeWerx Inc.
-* Ecere Corporation
-* Terradue Srl
-* European Space Agency (ESA)
-* Spacebel
-
-[big]*v.     Submitters*
+[.preface]
+== Submitters
 
 All questions regarding this submission should be directed to the editor or the submitters:
 
-|=======================
-|*Name* | *Representing* 
+[options="unnumbered, header"]
+|===
+| Name | Representing
+
 |Benjamin Pross _(editor)_ | 52°North GmbH
 |Stan Tillman|Hexagon
 |Panagiotis (Peter) A. Vretanos _(editor)_ |CubeWerx Inc.
@@ -84,4 +76,4 @@ All questions regarding this submission should be directed to the editor or the 
 |Gérald Fenoy| Gérald Fenoy (Individual Member)
 |Cristiano Lopes|European Space Agency (ESA)
 |Christophe Noel | Spacebel 
-|=======================
+|===

@@ -1,8 +1,13 @@
 [[ats_oas30_oas-definition-2]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/oas30/oas-definition-2* 
-^|Test Purpose |Verify that the OpenAPI document is valid JSON. 
-^|Requirement |<<req_oas30_oas-definition-2,/req/oas30/oas-definition-2>>
-^|Test Method |Verify that the JSON representation conforms to the <<OpenAPI,OpenAPI Specification, version 3.0>>.
-|===
+[requirement,type="abstracttest",label="/conf/oas30/oas-definition-2",subject='<<req_oas30_oas-definition-2,/req/oas30/oas-definition-2>>']
+====
+[.component,class=test-purpose]
+--
+Verify that the OpenAPI document is valid JSON. 
+--
+
+[.component,class=test-method]
+--
+Verify that the JSON representation conforms to the <<OpenAPI,OpenAPI Specification, version 3.0>>.
+--
+====

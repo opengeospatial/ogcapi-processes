@@ -1,7 +1,5 @@
 [[req_job-list_processid-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/job-list/processid-response*
-
+[.requirement,label="/req/job-list/processid-response"]
+====
 If the parameter is specified with the operation, only jobs that have a value for the `processID` property (see: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml]) that matches one of the values specified for the `processID` parameter SHALL be included in the response.
-|===
+====

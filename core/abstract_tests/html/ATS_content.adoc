@@ -1,12 +1,17 @@
 [[ats_html_content]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/html/content* 
-^|Test Purpose |Verify the content of an HTML document given an input document and schema. 
-^|Requirement |<<req_html_content,/req/html/content>>
-^|Test Method |. Validate that the document is an link:https://www.w3.org/TR/html5/[HTML 5 document]
+[requirement,type="abstracttest",label="/conf/html/content",subject='<<req_html_content,/req/html/content>>']
+====
+[.component,class=test-purpose]
+--
+Verify the content of an HTML document given an input document and schema. 
+--
+
+[.component,class=test-method]
+--
+. Validate that the document is an link:https://www.w3.org/TR/html5/[HTML 5 document]
 . Manually inspect the document and verify that the HTML body contains:
 
 *  all information in the schemas of the link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject[Response Object] in the HTML `<body/>`
 * all links in HTML `<a/>` elements in the HTML `<body/>`.
-|===
+--
+====

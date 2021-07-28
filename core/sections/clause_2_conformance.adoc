@@ -1,5 +1,7 @@
+
 [[sc_conformance]]
 == Conformance
+
 This standard defines seven requirements / conformance classes.
 
 The standardization targets of all conformance classes are "Web APIs."
@@ -47,11 +49,12 @@ Additional capabilities such as support for transactions, extended job monitorin
 
 Conformance with this standard SHALL be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
 
-[#conf_class_uris,reftext='{table-caption} {counter:table-num}']
+
 .Conformance class URIs
 [cols="40,60",options="header"]
 !===
-|Conformance class |URI
+| Conformance class | URI
+
 |<<ats_core,Core>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
 |<<ats_ogc-process-description,OGC Process Description>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description
 |<<ats_json,JSON>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json

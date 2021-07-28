@@ -1,6 +1,7 @@
-name: processId
-in: path
-description: local identifier of a process
-required: true
+name: processID
+in: query
+required: false
 schema:
+  type: array
+  items:
     type: string
