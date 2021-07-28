@@ -62,6 +62,7 @@ Within the current version of WPS 2.0, bindings are defined for HTTP/POST using 
 
 All questions regarding this submission should be directed to the editor or the submitters:
 
+[%unnumbered]
 |===
 | Name | Affiliation
 

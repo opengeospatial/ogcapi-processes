@@ -1,6 +1,7 @@
 [[ats-job-results-success]]
 Retrieving the results of an asynchronously executed process depends on a number of parameters specified in the execute request.  The following table enumerates the relevant requirement that needs to be satisfied based on the various execute parameter combinations.
 
+[%unnumbered]
 [options="header"]
 |===
 |mode |response |tx mode |# out |abstract test

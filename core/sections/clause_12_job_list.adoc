@@ -63,11 +63,13 @@ include::../recommendations/job-list/PER_jl-limit-response.adoc[]
 
 include::../requirements/job-list/REQ_success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobList.yaml[The following is the schema for the job list]
+.Schema for the job list
 [source,yaml]
 ----
 include::../openapi/schemas/jobList.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobList.yaml[`jobList.yaml`].
 
 The schema defines an array of <<schema-statusInfo,status info elements>> and includes a links section for navigation links within the API.
 

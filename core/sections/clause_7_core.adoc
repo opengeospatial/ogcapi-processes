@@ -80,18 +80,23 @@ The term "_...based upon the OpenAPI 3.0 schema..._" used in the requirements of
 It also mean that unless explicitly excluded these schemas are extensible with additional properties not defined in the schema using the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#schemaObject[`additionalProperties`] mechanism defined in the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md[OpenAPI 3.0 specification].
 ====
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml[The following is the schema for the landing page (landingPage.yaml).]
+.Schema for the landing page
 [source,yaml]
 ----
 include::../openapi/schemas/landingPage.yaml[]
 ----
 
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml[`landingPage.yaml`].
+
+
 [[link-schema]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/link.yaml[The following is the schema for a link (link.yaml).]
+.Schema for a link
 [source,yaml]
 ----
 include::../openapi/schemas/link.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/link.yaml[`link.yaml`].
 
 .Landing page response document
 ====
@@ -177,11 +182,13 @@ include::../requirements/core/REQ_conformance-op.adoc[]
 
 include::../requirements/core/REQ_conformance-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/schemas/req-classes.yaml[The following is the schema for the list of requirements classes.]
+.Schema for the list of requirements classes
 [source,yaml]
 ----
 include::../openapi/schemas/confClasses.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/schemas/req-classes.yaml[`req-classes.yaml`].
 
 .Requirements class response document
 ====
@@ -331,33 +338,43 @@ include::../recommendations/core/PER_process-list-limit-response.adoc[]
 
 include::../requirements/core/REQ_process-list-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml[Schema for the process list (processList.yaml):]
+.Schema for the process list
 [source,yaml]
 ----
 include::../openapi/schemas/processList.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processList.yaml[`processList.yaml`].
+
 [[schema-processSummary]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processSummary.yaml[Schema for a process summary (processSummary.yaml):]
+.Schema for a process summary
 [source,yaml]
 ----
 include::../openapi/schemas/processSummary.yaml[]
 ----
 
-(see also: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/descriptionType.yaml[descriptionType.yaml])
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processSummary.yaml[`processSummary.yaml`].
+
+NOTE: See also https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/descriptionType.yaml[`descriptionType.yaml`]).
 
 [[job-control-options-schema]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobControlOptions.yaml[Schema for the job control options (jobControlOptions.yaml):]
+.Schema for the job control options
 [source,yaml]
 ----
 include::../openapi/schemas/jobControlOptions.yaml[]
 ----
 
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobControlOptions.yaml[`jobControlOptions.yaml`].
+
 [[transmission-mode-schema]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/transmissionMode.yaml[Schema for the transmission mode (transmissionMode.yaml):]
+.Schema for the transmission mode
 [source,yaml]
 ----
 include::../openapi/schemas/transmissionMode.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/transmissionMode.yaml[`transmissionMode.yaml`].
+
 
 The number of process summaries returned depends on the server and the parameter `limit.`
 
@@ -449,25 +466,31 @@ include::../requirements/core/REQ_process-execute-op.adoc[]
 include::../requirements/core/REQ_process-execute-request.adoc[]
 
 [[execute-request-body]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[The following is the schema for execute (execute.yaml):]
+.Schema for execute
 [source,yaml]
 ----
 include::../openapi/schemas/execute.yaml[]
 ----
 
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[`execute.yaml`].
+
 [[inline-or-ref-data]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inlineOrRefData.yaml[The following in the schema for an in-line or referenced process input value (inlineOrRefData.yaml)]:
+.Schema for an in-line or referenced process input value
 [source,yaml]
 ----
 include::../openapi/schemas/inlineOrRefData.yaml[]
 ----
 
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inlineOrRefData.yaml[`inlineOrRefData.yaml`].
+
 [[output-schema]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/output.yaml[The following is the schema for a process output (output.yaml):]
+.Schema for a process output
 [source,yaml]
 ----
 include::../openapi/schemas/output.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/output.yaml[`output.yaml`].
 
 (see also: <<format-schema,format.yaml>>, <<tx-mode-schema,transmissionMode.yaml>>)
 
@@ -500,11 +523,13 @@ As shown in https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/ma
 A simple literal value can be a string, number, integer or Boolean.
 
 [[input-value-noobject-schema]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputValueNoObject.yaml[The following is the schema for a simple literal value (inputValueNoObject.yaml):]
+.Schema for a simple literal value
 [source,yaml]
 ----
 include::../openapi/schemas/inputValueNoObject.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputValueNoObject.yaml[`inputValueNoObject.yaml`].
 
 .Simple literal value examples.
 ====
@@ -609,25 +634,32 @@ Qualified values can also be used to encode object-valued process inputs in orde
 
 The actual _value_ in a qualified value object is specified using the `value` key.  The value of the `value` key is an instance of <<input-value-schema,inputValue.yaml>>.
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedInputValue.yaml[The following is the schema for a qualified value (qualifiedInputValue.yaml):]
+.Schema for a qualified value
 [source,yaml]
 ----
 include::../openapi/schemas/qualifiedInputValue.yaml[]
 ----
 
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedInputValue.yaml[`qualifiedInputValue.yaml`].
+
 [[format-schema]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/format.yaml[The following is the schema for a format qualifier (format.yaml):]
+.Schema for a format qualifier
 [source,yaml]
 ----
 include::../openapi/schemas/format.yaml[]
 ----
 
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/format.yaml[`format.yaml`].
+
 [[input-value-schema]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputValue.yaml[The following is the schema of a process input value (inputValue.yaml):]
+.Schema of a process input value
 [source,yaml]
 ----
 include::../openapi/schemas/inputValue.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputValue.yaml[`inputValue.yaml`].
+
 (see also: <<input-value-noobject-schema,inputValueNoObject.yaml>>)
 
 include::../requirements/core/REQ_process-execute-input-inline-object.adoc[]
@@ -708,11 +740,13 @@ In this case, the `mediaType` parameter is used to indicate the specific type of
 
 In some cases, for example in order to pass through firewalls, binary input values need to be encoded in-line in an execute request as a string.
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/binaryInputValue.yaml[The following is the schema for an in-line binary value (binaryInputValue.yaml):]
+.Schema for an in-line binary value
 [source,yaml]
 ----
 include::../openapi/schemas/binaryInputValue.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/binaryInputValue.yaml[`binaryInputValue.yaml`].
 
 include::../requirements/core/REQ_process-execute-input-inline-binary.adoc[]
 
@@ -779,11 +813,13 @@ A process input value instance can be a bounding box.
 include::../requirements/core/REQ_process-execute-input-inline-bbox.adoc[]
 
 [[bbox-schema]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml[The following is the schema for a bounding box value (bbox.yaml):]
+.Schema for a bounding box value
 [source,yaml]
 ----
 include::../openapi/schemas/bbox.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml[`bbox.yaml`].
 
 This schema is meant to be a template for defining bounding box process inputs. If the specified `default` and `enum` are suitable for your purposes then you can reference this file directly in your process description.
 
@@ -793,6 +829,7 @@ include::../recommendations/core/PER_process-execute-input-inline-bbox.adoc[]
 
 Process inputs in an execute request and the corresponding process input definition in the <<sc_process_description,process description>> have a validation relationship.  That is to say, that the schema of a process input definition from the <<sc_process_description,process description>> can be used to validate the component of the corresponding process input value in an execute request that is an instance of <<input-value-schema,inputValue.yaml>>.
 
+[%unnumbered]
 ====
 Consider a process input named `complexObjectInput` with the following definition from an <<ogc_process_description,OGC process description>>:
 
@@ -912,11 +949,13 @@ include::../requirements/core/REQ_process-execute-default-outputs.adoc[]
 Like inputs, output values can be transmitted in-line in a result document or referenced using a <<link-schema,link>>.  The `transmissionMode` parameter in the execute request controls how the server <<sc_execute_response,responds>>.
 
 [[tx-mode-schema]]
-https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/transmissionMode.yaml[The following is the schema for the transmission mode (transmissionMode.yaml):]
+.Schema for the transmission mode
 [source,yaml]
 ----
 include::../openapi/schemas/transmissionMode.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/transmissionMode.yaml[`transmissionMode.yaml`].
 
 *_Output value format_*
 
@@ -1010,11 +1049,13 @@ The value _any_ in a cell means _"for any valid value of the execute parameter r
 This table shows all possible combinations of execute parameters that are specified by this standard.  Not all of these combinations need to be implemented by a server conforming to this standard.  For example, if a server only offers processes that support multiple outputs **by value**, then the server **must** support `multipart/related` responses as indicated in <<table_core_execute_responses>>.  If, on the other hand, the server only offers processes that support multiple outputs **by reference**, then the server does not need to support `multipart/related` responses.
 ====
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[The following is the schema (results.yaml) for a processing results presented as a document.]
+.Schema for a processing results presented as a document
 [source,yaml]
 ----
 include::../openapi/schemas/results.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[`results.yaml`].
 
 This schema defines a map using the respective output identifier as the key. The value of an output can be returned as an in-line value or by reference.
 
@@ -1070,11 +1111,13 @@ include::../requirements/core/REQ_job-op.adoc[]
 include::../requirements/core/REQ_job-success.adoc[]
 
 [[schema-statusInfo]]
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[The following is the schema for status info.]
+.Schema for status info
 [source,yaml]
 ----
 include::../openapi/schemas/statusInfo.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[`statusInfo.yaml`].
 
 The job status information includes several optional date-time fields that represent milestones in the life cycle of a job.   The following are recommended for servers that decide to populate some or all of these date-time fields:
 
