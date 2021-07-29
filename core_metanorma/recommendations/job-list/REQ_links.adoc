@@ -1,9 +1,11 @@
 [[req_job-list_links]] 
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/job-list/links*
-^|A |A `200`-response SHALL include the following links:
+[.requirement,label="/req/job-list/links"]
+====
+[.requirement,label="A"]
+=====
+A `200`-response SHALL include the following links:
 
 * a link to this response document (relation: `self`),
 * a link to the response document in every other media type supported by the service (relation: `alternate`).
-|===
+=====
+====
