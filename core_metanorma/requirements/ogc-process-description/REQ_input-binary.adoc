@@ -1,19 +1,6 @@
 
-// [[req_ogc-process-description_input-binary]]
-// [width="90%",cols="2,6a"]
-// ====
-// |*Requirement {counter:req-id}* |/req/ogc-process-description/input-binary +
-// A server SHALL support the following schema for binary include values:
-
-// [source,yaml]
-// ----
-// include::../../openapi/schemas/binaryInputValue.yaml[]
-// ----
-// ====
-
-
 [[req_ogc-process-description_input-binary]]
-[requirement,type="{counter:req-id}",label="/req/ogc-process-description/input-binary"]
+[requirement,label="/req/ogc-process-description/input-binary"]
 ====
 A server SHALL support the following schema for binary include values:
 
