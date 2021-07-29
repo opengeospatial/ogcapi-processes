@@ -1,10 +1,24 @@
 [[req_core_process-execute-success-async]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/process-execute-success-async +
-^|Conditions | . The <<sc_execution_mode,negotiated execution mode>> is asynchronous.
-^|A |A successful execution of the operation SHALL be reported as a response with a HTTP status code 201.
-^|B |The header of the response SHALL return the HTTP https://datatracker.ietf.org/doc/html/rfc7231#page-68[`Location`] header that contains a link to the newly created job.
-^|C |The content of the response SHALL be based upon the JSON Schema fragment https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml].
-|===
+[.requirement,label="/req/core/process-execute-success-async"]
+====
+[.requirement,label="Conditions"]
+=====
+. The <<sc_execution_mode,negotiated execution mode>> is asynchronous.
+=====
+
+[.requirement,label="A"]
+=====
+A successful execution of the operation SHALL be reported as a response with a HTTP status code 201.
+=====
+
+[.requirement,label="B"]
+=====
+The header of the response SHALL return the HTTP https://datatracker.ietf.org/doc/html/rfc7231#page-68[`Location`] header that contains a link to the newly created job.
+=====
+
+[.requirement,label="C"]
+=====
+The content of the response SHALL be based upon the JSON Schema fragment https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml].
+=====
+====
 

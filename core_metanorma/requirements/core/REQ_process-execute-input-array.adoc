@@ -1,8 +1,18 @@
 [[req_core_process-execute-input-array]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/process-execute-input-array +
-^|Conditions |The process input is defined in the <<sc_process_description,process description>> as having a maximum cardinality of greater than one (maxOccurs>1).
-^|A |The server SHALL support process input values encoded as an array.
-^|B |This SHALL be true even if the input consists of a single value.
-|===
+[.requirement,label="/req/core/process-execute-input-array"]
+====
+[.requirement,label="Conditions"]
+=====
+The process input is defined in the <<sc_process_description,process description>> as having a maximum cardinality of greater than one (maxOccurs>1).
+=====
+
+[.requirement,label="A"]
+=====
+The server SHALL support process input values encoded as an array.
+=====
+
+[.requirement,label="B"]
+=====
+This SHALL be true even if the input consists of a single value.
+=====
+====
