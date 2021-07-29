@@ -1,7 +1,6 @@
 [[req_ogc-process-description_outputs-def]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/ogc-process-description/outputs-def +
+[.requirement,label="/req/ogc-process-description/outputs-def"]
+====
 ^|A |Each process output definition SHALL be listed in the `outputs` section according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[outputDescription.yaml].
 ^|B |The key of each process input in the `output` section of the process definition SHALL be the identifier for that output.
-|===
+====

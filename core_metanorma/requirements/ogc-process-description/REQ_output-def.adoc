@@ -1,7 +1,6 @@
 [[req_ogc-process-description_output-def]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/ogc-process-description/output-def +
+[.requirement,label="/req/ogc-process-description/output-def"]
+====
 ^|A |The schema of each <<sc_process_outputs-value-schema,process **output**>> SHALL be specified using the `schema` parameter.
 ^|B |The value of the `schema` parameter SHALL be a JSON fragment that validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
-|===
+====
