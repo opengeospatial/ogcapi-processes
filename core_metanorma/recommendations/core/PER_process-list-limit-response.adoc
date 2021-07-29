@@ -1,6 +1,8 @@
 [[per_core_limit-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Permission {counter:per-id}* |*/per/core/limit-response* 
-^|A |The server MAY return fewers process summaries than requested (but not more).
-|===
+[.permission,label="/per/core/limit-response"]
+====
+[.permission,label="A"]
+=====
+The server MAY return fewers process summaries than requested (but not more).
+=====
+====

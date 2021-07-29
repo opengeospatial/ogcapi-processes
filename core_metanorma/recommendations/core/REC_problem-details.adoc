@@ -1,7 +1,5 @@
 [[rec_core_problem-details]]
-[width="90%",cols="2,6a"]
-|===
-|Recommendation {counter:rec-id} |/rec/core/problem-details +
-
+[.recommendation,label="/rec/core/problem-details"]
+====
 A server SHOULD include a "Problem Details" report in an error response in accordance with [RFC 7807](http://docs.opengeospatial.org/DRAFTS/19-072.html#rfc7807).
-|===
+====

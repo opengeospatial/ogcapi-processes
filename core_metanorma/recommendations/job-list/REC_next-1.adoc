@@ -1,6 +1,8 @@
 [[rec_job-list_next-1]]
-[width="90%",cols="2,6a"]
-|===
-^|*Recommendation {counter:rec-id}* |*/rec/job-list/next-1* 
-^|A |A `200`-response SHOULD include a link to the next "page" (relation: `next`), if more jobs have been selected than returned in the response.
-|===
+[.recommendation,label="/rec/job-list/next-1"]
+====
+[.recommendation,label="A"]
+=====
+A `200`-response SHOULD include a link to the next "page" (relation: `next`), if more jobs have been selected than returned in the response.
+=====
+====

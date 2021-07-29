@@ -1,7 +1,5 @@
 [[per_core_alternative-process-description]]
-[width="90%",cols="2,6a"]
-|===
-|Permission {counter:per-id} |/per/core/alternative-process-description +
-
+[.permission,label="/per/core/alternative-process-description"]
+====
 Servers MAY support alternative means of describing the inputs and outputs of a process.
-|===
+====

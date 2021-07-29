@@ -1,6 +1,8 @@
 [[per_job-list_prev]]
-[width="90%",cols="2,6a"]
-|===
-^|*Permission {counter:per-id}* |*/per/job-list/prev* 
-^|A |A response to a `next` link MAY include a `prev` link to the resource that included the `next` link.
-|===
+[.permission,label="/per/job-list/prev"]
+====
+[.permission,label="A"]
+=====
+A response to a `next` link MAY include a `prev` link to the resource that included the `next` link.
+=====
+====
