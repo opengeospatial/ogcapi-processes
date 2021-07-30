@@ -1,4 +1,4 @@
-== OGC API - Processes - Part 1: Core
+= OGC API - Processes - Part 1: Core
 :doctype: standard
 :docsubtype: Interface
 :edition: 1.0
