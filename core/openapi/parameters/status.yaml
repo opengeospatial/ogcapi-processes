@@ -4,4 +4,10 @@ required: false
 schema:
   type: array
   items:
-    $ref: '../schema/status.yaml'
+    type: string
+    enum:
+      - successful
+      - failed
+      - running
+      - dismissed
+      - accepted
