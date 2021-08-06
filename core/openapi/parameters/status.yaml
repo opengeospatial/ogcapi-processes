@@ -5,3 +5,9 @@ schema:
   type: array
   items:
     type: string
+    enum:
+      - successful
+      - failed
+      - running
+      - dismissed
+      - accepted
