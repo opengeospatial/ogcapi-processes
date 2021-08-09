@@ -8,7 +8,7 @@ properties:
    jobID:
       type: string
    status:
-      $ref: "status.yaml"
+      $ref: "statusCode.yaml"
    message:
       type: string
    created:
