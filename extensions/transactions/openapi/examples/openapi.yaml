@@ -90,7 +90,7 @@ paths:
       tags:
         - ProcessDescription
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processIdPathParam.yaml"
       responses:
         200:
           $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/ProcessDescription.yaml"
@@ -103,7 +103,7 @@ paths:
       tags:
         - Replace Process
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processIdPathParam.yaml"
       requestBody:
         description: |-
           The request body contains a description of the process to replace
@@ -130,7 +130,7 @@ paths:
       tags:
         - Undeploy Process
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processIdPathParam.yaml"
       responses:
         204:
           description: The process was deleted.
@@ -146,7 +146,7 @@ paths:
       tags:
         - JobCollection
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processIdPathParam.yaml"
       responses:
         200:
           $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/responses/JobCollection.yaml"
@@ -159,7 +159,7 @@ paths:
       tags:
         - Execute
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processIdPathParam.yaml"
       requestBody:
         description: Mandatory execute request JSON
         required: true
@@ -196,7 +196,7 @@ paths:
       tags:
         - Status
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processIdPathParam.yaml"
         - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml"
       responses:
         200:
@@ -212,7 +212,7 @@ paths:
       tags:
         - Dismiss
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processIdPathParam.yaml"
         - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml"
       responses:
         200:
@@ -231,7 +231,7 @@ paths:
       tags:
         - Result
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/processIdPathParam.yaml"
         - $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/parameters/jobId.yaml"
       responses:
         200:
