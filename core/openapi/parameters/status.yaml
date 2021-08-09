@@ -4,4 +4,4 @@ required: false
 schema:
   type: array
   items:
-    $ref: "../schemas/status.yaml"
+    $ref: "../schemas/statusCode.yaml"
