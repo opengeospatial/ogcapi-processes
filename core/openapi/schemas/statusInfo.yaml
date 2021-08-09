@@ -8,13 +8,7 @@ properties:
    jobID:
       type: string
    status:
-      type: string
-      enum:
-         - accepted
-         - running
-         - successful
-         - failed
-         - dismissed
+      $ref: "status.yaml"
    message:
       type: string
    created:
