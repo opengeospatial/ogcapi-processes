@@ -1,15 +1,21 @@
 [[ats_core_job-results-async-document]]
-[width="90%",cols="2,6a"]
-|====
-^|*Abstract Test {counter:ats-id}* |*/conf/core/job-results-async-document*
-^|Test Purpose |Validate that the server responds as expected when the asynchronous execution is <<sc_execution_mode,negotiated>> and the response type is `document`.
-^|Requirement |<<req_core_job-results-async-document,/req/core/job-results-async-document>>
-^|Test Method |. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
+[requirement,type="abstracttest",label="/conf/core/job-results-async-document"]
+====
+[.component,class=test-purpose]
+Validate that the server responds as expected when the asynchronous execution is <<sc_execution_mode,negotiated>> and the response type is `document`.
+
+[.component,class=conditions]
+<<req_core_job-results-async-document,/req/core/job-results-async-document>>
+
+[.component,class=test-method]
+-----
+. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
 . Inspect the description of each process and identify the subset of processes that support the `async-execute` job control option.
 . For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that asynchronous execution is <<sc_execution_mode,negotiated>> according to test <<ats_core_job-creation-auto-execution-mode,/conf/core/job-creation-auto-execution-mode>> and that the requested response type is `document` (i.e. `"response": "document"`) according to requirement <<req_core_job-creation-async-document,/req/core/job-creation-async-document>>.
 . If the server responds asynchronously periodically retrieve the status of the asynchronously execute job as per test <<ats_core_job-op,/conf/core/job-op>>.
 . When the job status is `successful`, get the results as per test <<ats_core_job-results-op,/conf/core/job-results>> and verify that they conform to requirement <<req_core_job-results-async-document,/req/core/job-results-async-document>>.
-|====
+-----
+====
 
 NOTE: In the case where a process supports both `async-execute` and `sync-execute` job control options there is a possibility that the server responds synchronously even though the `Prefer` headers asserts a `respond-async` preference.  In this case, the following additional test should be performed:
 

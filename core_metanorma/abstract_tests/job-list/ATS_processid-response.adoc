@@ -1,10 +1,16 @@
 [[ats_job-list_processID-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/job-list/processID-response*
-^|Test Purpose |Validate that the `processID` query parameter is processed correctly.
-^|Requirement |<<req_job-list_processID-response,/req/job-list/processID-response>>
-^|Test Method |. Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `processID` parameter to the request.
+[requirement,type="abstracttest",label="/conf/job-list/processID-response"]
+====
+[.component,class=test-purpose]
+Validate that the `processID` query parameter is processed correctly.
+
+[.component,class=conditions]
+<<req_job-list_processID-response,/req/job-list/processID-response>>
+
+[.component,class=test-method]
+-----
+. Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `processID` parameter to the request.
 . Inspect the value of the `processID` property for each job listed in the response.
 . Verify that that value of the `processID` property matches one of the values specified for the `processID` query parameter.
-|===
+-----
+====

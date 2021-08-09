@@ -1,10 +1,16 @@
 [[ats_core_job-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/job-op*
-^|Test Purpose |Validate that the status info of a job can be retrieved.
-^|Requirement |<<req_core_fc-op,/req/core/fc-op>>
-^|Test Method |. Create a job as per <<ats_core_job-creations-op,/req/core/job-creation-op>> and note the {jobID} assigned to the job.
+[requirement,type="abstracttest",label="/conf/core/job-op"]
+====
+[.component,class=test-purpose]
+Validate that the status info of a job can be retrieved.
+
+[.component,class=conditions]
+<<req_core_fc-op,/req/core/fc-op>>
+
+[.component,class=test-method]
+-----
+. Create a job as per <<ats_core_job-creations-op,/req/core/job-creation-op>> and note the {jobID} assigned to the job.
 . Issue an HTTP GET request to the URL '/jobs/{jobID}'.
 . Validate the contents of the returned document using the test <<ats_core_job-success,/conf/core/job-success>>.
-|===
+-----
+====

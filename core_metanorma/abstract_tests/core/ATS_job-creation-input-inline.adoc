@@ -1,11 +1,17 @@
 [[ats_core_job-creation-input-inline]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-input-inline* +
-^|Test Purpose |Validate in-line process input values are validated against the corresponding schema from the process description.
-^|Requirement |<<req_core_job-creations-input-inline,/req/core/job-creation-input-inline>>
-^|Test Method |. Get a description of each process offered by the server using t
+[requirement,type="abstracttest",label="/conf/core/job-creation-input-inline"]
+====
+[.component,class=test-purpose]
+Validate in-line process input values are validated against the corresponding schema from the process description.
+
+[.component,class=conditions]
+<<req_core_job-creations-input-inline,/req/core/job-creation-input-inline>>
+
+[.component,class=test-method]
+-----
+. Get a description of each process offered by the server using t
 est <<ats_core_process,/conf/core/process>>.
 . For each process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> taking care to encode process inputs in-line with the execute request according to the requirement <<req_core_job-creation-input-inline,/req/core/job-creation-input-inline>>.
 . Verify that each process executes successfully according to the <<ats-job-creation-success-sync,relevant requirement based on the combination of execute parameters.>>
-|===
+-----
+====

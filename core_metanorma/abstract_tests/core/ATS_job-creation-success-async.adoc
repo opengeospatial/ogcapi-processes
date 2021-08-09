@@ -1,9 +1,15 @@
 [[ats_core_job-creation-success-async]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-success-async*
-^|Test Purpose |Validate the results of a job that has been created using the `async` execution mode.
-^|Requirement |<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
-^|Test Method |. Validate that results of the job was returned with an HTTP status code 201.
+[requirement,type="abstracttest",label="/conf/core/job-creation-success-async"]
+====
+[.component,class=test-purpose]
+Validate the results of a job that has been created using the `async` execution mode.
+
+[.component,class=conditions]
+<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
+
+[.component,class=test-method]
+-----
+. Validate that results of the job was returned with an HTTP status code 201.
 . Validate the HTTP headers of the results using the test <<ats_core_job-creation-success-header-async,/conf/core/job-creation-success-header-async>>.
-|===
+-----
+====

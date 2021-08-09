@@ -1,11 +1,17 @@
 [[ats_core_job-creation-input-array]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |/conf/core/job-creation-input-array +
-^|Test Purpose |Verify that the server correctly recognizes the encoding of parameter values for input parameters with a maximum cardinality greater than one.
-^|Requirement |<<req_core_job-creations-input-array,/req/core/job-creation-input-array>>
-^|Test Method |. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
+[requirement,type="abstracttest",label="/conf/core/job-creation-input-array"]
+====
+[.component,class=test-purpose]
+Verify that the server correctly recognizes the encoding of parameter values for input parameters with a maximum cardinality greater than one.
+
+[.component,class=conditions]
+<<req_core_job-creations-input-array,/req/core/job-creation-input-array>>
+
+[.component,class=test-method]
+-----
+. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
 . Inspect the description of each process and identify the list of processes that have inputs with a maximum cardinality greater that one.
 . For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> taking care to encode the inputs with maximum cardinality > 1 according to the requirement <<req_core_job-creation-input-array,/req/core/job-creation-input-array>>.
 . Verify that each process executes successfully according to the <<ats-job-creation-success-sync,relevant requirement based on the combination of execute parameters.>>
-|===
+-----
+====

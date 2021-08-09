@@ -1,9 +1,15 @@
 [[ats_core_landingpage-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/landingpage-op*
-^|Test Purpose |Validate that a landing page can be retrieved from the expected location.
-^|Requirement |<<req_core_landingpage-op,/req/core/landingpage-op>>
-^|Test Method |. Issue an HTTP GET request to the root URL `/`
+[requirement,type="abstracttest",label="/conf/core/landingpage-op"]
+====
+[.component,class=test-purpose]
+Validate that a landing page can be retrieved from the expected location.
+
+[.component,class=conditions]
+<<req_core_landingpage-op,/req/core/landingpage-op>>
+
+[.component,class=test-method]
+-----
+. Issue an HTTP GET request to the root URL `/`
 . Validate the contents of the returned document using test <<ats_core_landingpage-success,/conf/core/landingpage-success>>.
-|===
+-----
+====

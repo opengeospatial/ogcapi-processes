@@ -1,12 +1,18 @@
 [[ats_core_job-creation-input-inline-object]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-input-inline-object*
-^|Test Purpose |Validate that inputs with a complex object schema encoded in-line in an execute request are correctly processed.
-^|Requirement |<<req_core_job-creation-input-inline-object,/req/core/job-creation-input-inline-object>>
-^|Test Method |. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
+[requirement,type="abstracttest",label="/conf/core/job-creation-input-inline-object"]
+====
+[.component,class=test-purpose]
+Validate that inputs with a complex object schema encoded in-line in an execute request are correctly processed.
+
+[.component,class=conditions]
+<<req_core_job-creation-input-inline-object,/req/core/job-creation-input-inline-object>>
+
+[.component,class=test-method]
+-----
+. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
 . Inspect the description of each process and identify the subset of processes that have inputs with complex `object schemas (i.e. inputs of type `object`).
 . For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> taking care to encode the identified object inputs in-line in the execute request according to requirement <<req_core_job-creation-input-inline-object,/req/core/job-creation-input-inline-object>>.
 . Verify that each process executes successfully according to the <<ats-job-creation-success-sync,relevant requirement based on the combination of execute parameters.>>
-|===
+-----
+====
 

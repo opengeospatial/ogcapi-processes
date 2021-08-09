@@ -1,13 +1,19 @@
 [[ats_core_job-creation-auto-execution-mode]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-auto-execution-mode*
-^|Test Purpose |Validate that the server correctly handles the execution mode for a process.
-^|Requirement |<<req_core_job-creation-op,/req/core/job-creation-op>>
-^|Test Method |. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
+[requirement,type="abstracttest",label="/conf/core/job-creation-auto-execution-mode"]
+====
+[.component,class=test-purpose]
+Validate that the server correctly handles the execution mode for a process.
+
+[.component,class=conditions]
+<<req_core_job-creation-op,/req/core/job-creation-op>>
+
+[.component,class=test-method]
+-----
+. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
 . Inspect the description of each process and take note of the job control options for the process.
 . Setting the HTTP `Prefer` header to include the `respond-sync` preference, construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>>.
 . For processes that are supposed to execute asynchronously according to the <<req_core_job-creation-auto-execution-mode,/req/core/job-creation-auto-execution-mode>> requirement, verify the successful execution according to the <<ats_core_job-creation-success-async,/conf/core/job-creation-success-async>> test.
 . For processes that are supposed to execute synchronously according to the <<req_core_job-creation-auto-execution-mode,/req/core/job-creation-auto-execution-mode>> requirement, verify the successful execution according to the <<ats-job-creation-success-sync,relevant requirement based on the combination of execute parameters.>>
 . For processes that may execute either synchronously or asynchronously according to the <<req_core_job-creation-auto-execution-mode,/req/core/job-creation-auto-execution-mode>> requirement, verify that successful execution according to the <<ats-job-creation-success-sync,relevant requirement based on the combination of execute parameters.>>
-|===
+-----
+====

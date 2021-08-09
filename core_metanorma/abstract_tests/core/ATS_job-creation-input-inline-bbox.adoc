@@ -1,12 +1,17 @@
 [[ats_core_job-creation-input-inline-bbox]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-input-inline-bbox*
-^|Test Purpose |Validate that inputs with a bounding box schema encoded in-line in an execute request are correctly processed.
-^|Requirement |<<req_core_job-creation-input-inline-bbox,/req/core/job-creation-input-inline-bbox>>
-^|Test Method |. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
+[requirement,type="abstracttest",label="/conf/core/job-creation-input-inline-bbox"]
+====
+[.component,class=test-purpose]
+Validate that inputs with a bounding box schema encoded in-line in an execute request are correctly processed.
+
+[.component,class=conditions]
+<<req_core_job-creation-input-inline-bbox,/req/core/job-creation-input-inline-bbox>>
+
+[.component,class=test-method]
+-----
+. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
 . Inspect the description of each process and identify the subset of processes that have bounding box inputs that are supposed to conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml[bbox.yaml] schema.
 . For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> taking care to encode values for the identified bounding box inputs in-line in the execute request.
 . Verify that each process executes successfully according to the <<ats_job-creation-success,relevant requirement based on the combination of execute parameters>>.
-|===
-
+-----
+====

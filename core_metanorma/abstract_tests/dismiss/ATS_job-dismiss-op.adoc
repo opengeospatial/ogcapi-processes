@@ -1,10 +1,16 @@
 [[ats_dismiss_job-dismiss-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/dismiss/job-dismiss-op*
-^|Test Purpose |Validate that a running job can be dismissed.
-^|Requirement |<<req_dismiss_job-dismiss-op,/req/dismiss/job-dismiss-op>>
-^|Test Method |. Create an asynchronous job as per test <<ats_core_job-creation-op,/conf/core/job-creation-request*>>; not the job identifier, {jobID}, assigned to the job.
+[requirement,type="abstracttest",label="/conf/dismiss/job-dismiss-op"]
+====
+[.component,class=test-purpose]
+Validate that a running job can be dismissed.
+
+[.component,class=conditions]
+<<req_dismiss_job-dismiss-op,/req/dismiss/job-dismiss-op>>
+
+[.component,class=test-method]
+-----
+. Create an asynchronous job as per test <<ats_core_job-creation-op,/conf/core/job-creation-request*>>; not the job identifier, {jobID}, assigned to the job.
 . Issue an HTTP DELETE operation to the URL '/jobs/{jobID}'.
 . Validate the contents of the returned document using test <<ats_dismiss_job-dismiss-success,/conf/dismiss/job-dismiss-success>>.
-|===
+-----
+====

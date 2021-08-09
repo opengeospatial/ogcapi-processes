@@ -1,8 +1,14 @@
 [[ats_core_job-creation-request]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-request*
-^|Test Purpose |Validate that the body of a job creation operation complies with the required structure and contents.
-^|Requirement |<<req_core_job-creation-request,/req/core/job-creation-request>>
-^|Test Method |Verify the contents of the request body against the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
-|===
+[requirement,type="abstracttest",label="/conf/core/job-creation-request"]
+====
+[.component,class=test-purpose]
+Validate that the body of a job creation operation complies with the required structure and contents.
+
+[.component,class=conditions]
+<<req_core_job-creation-request,/req/core/job-creation-request>>
+
+[.component,class=test-method]
+-----
+Verify the contents of the request body against the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
+-----
+====

@@ -1,9 +1,15 @@
 [[ats_ogc-process-description_outputs-def]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/ogc-process-description/outputs-def*
-^|Test Purpose |Verify that the definition of `outputs` for each process complies with the required structure and contents.
-^|Requirement |<<req_ogc-process-description_outputs-def,/req/ogc-process-description/outputs-def>>
-^|Test Method |. Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
+[requirement,type="abstracttest",label="/conf/ogc-process-description/outputs-def"]
+====
+[.component,class=test-purpose]
+Verify that the definition of `outputs` for each process complies with the required structure and contents.
+
+[.component,class=conditions]
+<<req_ogc-process-description_outputs-def,/req/ogc-process-description/outputs-def>>
+
+[.component,class=test-method]
+-----
+. Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
 . For each process, verify that the definition of the outputs confroms to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[outputDescription.yaml].
-|===
+-----
+====

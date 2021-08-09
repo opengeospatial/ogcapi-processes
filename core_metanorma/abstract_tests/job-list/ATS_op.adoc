@@ -1,9 +1,15 @@
 [[ats_job-list_job-list-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/job-list/job-list-op*
-^|Test Purpose |Validate that information about jobs can be retrieved from the expected location.
-^|Requirement |<<req_job-list_job-list-op,/req/job-list/job-list-op>>
-^|Test Method |. Issue an HTTP GET request to the URL /jobs.
+[requirement,type="abstracttest",label="/conf/job-list/job-list-op"]
+====
+[.component,class=test-purpose]
+Validate that information about jobs can be retrieved from the expected location.
+
+[.component,class=conditions]
+<<req_job-list_job-list-op,/req/job-list/job-list-op>>
+
+[.component,class=test-method]
+-----
+. Issue an HTTP GET request to the URL /jobs.
 . Validate the contents of the returned document using test <<ats_job-list_job-list-success,/conf/job-list/job-list-success>>.
-|===
+-----
+====

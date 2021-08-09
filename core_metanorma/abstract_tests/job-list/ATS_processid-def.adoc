@@ -1,8 +1,14 @@
 [[ats_job-list_processID-definition]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/job-list/processID-definition*
-^|Test Purpose |Validate that the `processID` query parameter is constructed correctly.
-^|Requirement |<<req_job-list-processID-definition,/req/job-list/processID-definition>>
-^|Test Method |Verify that the `processID` query parameter complies with its definition in requirement <<req_job-list_processID-definition,/req/job-list/processID-definition>>.
-|===
+[requirement,type="abstracttest",label="/conf/job-list/processID-definition"]
+====
+[.component,class=test-purpose]
+Validate that the `processID` query parameter is constructed correctly.
+
+[.component,class=conditions]
+<<req_job-list-processID-definition,/req/job-list/processID-definition>>
+
+[.component,class=test-method]
+-----
+Verify that the `processID` query parameter complies with its definition in requirement <<req_job-list_processID-definition,/req/job-list/processID-definition>>.
+-----
+====

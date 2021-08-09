@@ -1,10 +1,15 @@
 [[ats_core_landingpage-success]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/landingpage-success*
-^|Test Purpose |Validate that the landing page complies with the require structure and contents.
-^|Requirement |<<req_core_landingpage-success,/req/core/landingpage-success>>
-^|Test Method |. Validate that a document was returned with an HTTP status code or 200.
+[requirement,type="abstracttest",label="/conf/core/landingpage-success"]
+====
+[.component,class=test-purpose]
+Validate that the landing page complies with the require structure and contents.
+
+[.component,class=conditions]
+<<req_core_landingpage-success,/req/core/landingpage-success>>
+
+[.component,class=test-method]
+-----
+. Validate that a document was returned with an HTTP status code or 200.
 . Validate the landing page for all supported media types using the resources and tests identified in <<landing-page-schema>>
 . For formats that require manual inspection, perform the following:
 
@@ -13,7 +18,8 @@
 .. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration.
 
 .. Validate that the landing page includes a "data" link to the Feature contents.
-|===
+-----
+====
 
 The landing page may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the landing page against that schema. All supported formats should be exercised.
 
