@@ -2,7 +2,7 @@
 [.recommendation,label="/rec/job-list/next-3"]
 ====
 [.component,class=part]
----
+--
 The number of jobs in a response to a `next` link SHOULD follow the same rules as for the response to the original query and again include a `next` link, if there are more jobs in the selection that have not yet been returned.
----
+--
 ====

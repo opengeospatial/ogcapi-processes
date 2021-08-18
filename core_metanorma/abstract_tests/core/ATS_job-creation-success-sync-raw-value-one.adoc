@@ -1,17 +1,16 @@
 [[ats_core_job-creation-sync-raw-value-one]]
-[requirement,type="abstracttest",label="/conf/core/job-creation-sync-raw-value-one"]
+[requirement,type="abstracttest",label="/conf/core/job-creation-sync-raw-value-one",subject='<<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>']
 ====
 [.component,class=test-purpose]
+--
 Validate that the server responds as expected when synchronous execution is <<sc_execution_mode,negotiated>>, a single output value is requested, the response type is `raw` and the output transmission is `value`.
-
-[.component,class=conditions]
-<<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
+--
 
 [.component,class=test-method]
------
+--
 . Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
 . Inspect the description of each process and identify the subset of processes that generate at least one output and support the `sync-execute` job control option and the `value` output transmission.
 . For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that synchronous execution is <<sc_execution_mode,negotiated>> according to test <<ats_core_job-creation-default-execution-mode,/conf/core/job-creation-default-execution-mode>>, that only one output is requested, that the requested response type is `raw` (i.e. `"response": "raw"`) and that the output transmission is set to `value` (i.e. `"transmissionMode": "value"`) according to requirement <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>.
 . Verify that each process executes successfully according to requirement <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>.
------
+--
 ====

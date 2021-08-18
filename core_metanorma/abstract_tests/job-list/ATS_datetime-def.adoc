@@ -1,14 +1,13 @@
 [[ats_job-list_datetime-definition]]
-[requirement,type="abstracttest",label="/conf/job-list/datetime-definition"]
+[requirement,type="abstracttest",label="/conf/job-list/datetime-definition",subject='<<req_job-list-datetime-definition,/req/job-list/datetime-definition>>']
 ====
 [.component,class=test-purpose]
+--
 Validate that the `datetime` query parameter is constructed correctly.
-
-[.component,class=conditions]
-<<req_job-list-datetime-definition,/req/job-list/datetime-definition>>
+--
 
 [.component,class=test-method]
------
+--
 Verify that the `datetime` query parameter complies with its definition in requirement <<req_job-list_datetime-definition,/req/job-list/datetime-definition>>.
------
+--
 ====

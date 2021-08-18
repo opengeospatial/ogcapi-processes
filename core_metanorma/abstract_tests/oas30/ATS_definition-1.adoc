@@ -1,15 +1,14 @@
 [[ats_oas30_oas-definition-1]]
-[requirement,type="abstracttest",label="/conf/oas30/oas-definition-1"]
+[requirement,type="abstracttest",label="/conf/oas30/oas-definition-1",subject='<<req_oas30_oas-definition-1,/req/oas30/oas-definition-1>>']
 ====
 [.component,class=test-purpose]
+--
 Verify that JSON and HTML versions of the OpenAPI document are available.
-
-[.component,class=conditions]
-<<req_oas30_oas-definition-1,/req/oas30/oas-definition-1>>
+--
 
 [.component,class=test-method]
------
+--
 . Verify that an OpenAPI definition in JSON is available using the media type `application/vnd.oai.openapi+json;version=3.0` and link relation `service-desc`
 . Verify that an HTML version of the API definition is available using the media type `text/html` and link relation `service-doc`.
------
+--
 ====

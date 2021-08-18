@@ -2,12 +2,12 @@
 [.requirement,label="/req/job-list/limit-response"]
 ====
 [.component,class=part]
----
+--
 The response SHALL not contain more jobs than specified by the optional `limit` parameter.
----
+--
 
 [.component,class=part]
----
+--
 If the API definition specifies a maximum value for `limit` parameter, the response SHALL not contain more jobs than this maximum value.
----
+--
 ====

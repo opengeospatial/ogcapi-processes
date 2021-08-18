@@ -2,7 +2,7 @@
 [.recommendation,label="/rec/core/next-1"]
 ====
 [.component,class=part]
----
+--
 A `200`-response SHOULD include a link to the next "page" (relation: `next`), if more process summaries have been selected than returned in the response.
----
+--
 ====

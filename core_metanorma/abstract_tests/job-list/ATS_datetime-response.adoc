@@ -1,16 +1,15 @@
 [[ats_job-list_datetime-response]]
-[requirement,type="abstracttest",label="/conf/job-list/datetime-response"]
+[requirement,type="abstracttest",label="/conf/job-list/datetime-response",subject='<<req_job-list_datetime-response,/req/job-list/datetime-response>>']
 ====
 [.component,class=test-purpose]
+--
 Validate that the `datetime` query parameter is processed correctly.
-
-[.component,class=conditions]
-<<req_job-list_datetime-response,/req/job-list/datetime-response>>
+--
 
 [.component,class=test-method]
------
+--
 . Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `datatime` query parameter to the request.
 . Inspect the value of the `created` (see: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml]) property for each job listed in the response.
 . Verify that the value of the `created` temporally intersects with the value specified for the `datetime` query parameter.
------
+--
 ====

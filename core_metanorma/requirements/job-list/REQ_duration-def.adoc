@@ -2,7 +2,7 @@
 [.requirement,label="/req/job-list/duration-definition"]
 ====
 [.component,class=part]
----
+--
 The operation SHALL support a parameter `minDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
 [source,YAML]
@@ -15,10 +15,10 @@ schema:
   items:
     type: integer
 ----
----
+--
 
 [.component,class=part]
----
+--
 The operation SHALL support a parameter `maxDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
 [source,YAML]
@@ -33,5 +33,5 @@ schema:
 style: form
 explode: false
 ----
----
+--
 ====

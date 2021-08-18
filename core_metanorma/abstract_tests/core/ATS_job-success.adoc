@@ -1,17 +1,16 @@
 [[ats_core_job-success]]
-[requirement,type="abstracttest",label="/conf/core/job-success"]
+[requirement,type="abstracttest",label="/conf/core/job-success",subject='<<req_core_job-success,/req/core/job-success>>']
 ====
 [.component,class=test-purpose]
+--
 Validate that the job status info complies with the require structure and contents.
-
-[.component,class=conditions]
-<<req_core_job-success,/req/core/job-success>>
+--
 
 [.component,class=test-method]
------
+--
 . Validate that the document was returned with an HTTP status code of 200.
 . Validate the job status info for all supported media types using the resources and tests identified in <<job-status-info-schema>>
------
+--
 
 The status info page for a job may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the status info against that schema. All supported formats should be exercised.
 ====

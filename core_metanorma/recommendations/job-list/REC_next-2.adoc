@@ -2,7 +2,7 @@
 [.recommendation,label="/rec/job-list/next-2"]
 ====
 [.component,class=part]
----
+--
 Dereferencing a `next` link SHOULD return additional jobs from the set of selected jobs that have not yet been returned.
----
+--
 ====

@@ -1,15 +1,14 @@
 [[ats_core_landingpage-op]]
-[requirement,type="abstracttest",label="/conf/core/landingpage-op"]
+[requirement,type="abstracttest",label="/conf/core/landingpage-op",subject='<<req_core_landingpage-op,/req/core/landingpage-op>>']
 ====
 [.component,class=test-purpose]
+--
 Validate that a landing page can be retrieved from the expected location.
-
-[.component,class=conditions]
-<<req_core_landingpage-op,/req/core/landingpage-op>>
+--
 
 [.component,class=test-method]
------
+--
 . Issue an HTTP GET request to the root URL `/`
 . Validate the contents of the returned document using test <<ats_core_landingpage-success,/conf/core/landingpage-success>>.
------
+--
 ====

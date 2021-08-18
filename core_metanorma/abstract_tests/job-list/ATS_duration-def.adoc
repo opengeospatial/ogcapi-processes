@@ -1,15 +1,14 @@
 [[ats_job-list_duration-definition]]
-[requirement,type="abstracttest",label="/conf/job-list/duration-definition"]
+[requirement,type="abstracttest",label="/conf/job-list/duration-definition",subject='<<req_job-list-duration-definition,/req/job-list/duration-definition>>']
 ====
 [.component,class=test-purpose]
+--
 Validate that the `minDuration` and `maxDuration` query parameter are constructed correctly.
-
-[.component,class=conditions]
-<<req_job-list-duration-definition,/req/job-list/duration-definition>>
+--
 
 [.component,class=test-method]
------
+--
 . Verify that the `minDuration` query parameter complies with its definition in requirement <<req_job-list_duration-definition,/req/job-list/duration-definition, A>>.
 . Verify that the `maxDuration` query parameter complies with its definition in requirement <<req_job-list_duration-definition,/req/job-list/duration-definition, B>>.
------
+--
 ====

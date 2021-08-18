@@ -1,14 +1,13 @@
 [[ats_job-list_duration-response]]
-[requirement,type="abstracttest",label="/conf/job-list/duration-response"]
+[requirement,type="abstracttest",label="/conf/job-list/duration-response",subject='<<req_job-list_duration-response,/req/job-list/duration-response>>']
 ====
 [.component,class=test-purpose]
+--
 Validate that the `minDuration` and `maxDuration` query parameter are processed correctly.
-
-[.component,class=conditions]
-<<req_job-list_duration-response,/req/job-list/duration-response>>
+--
 
 [.component,class=test-method]
------
+--
 . Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `minDuration` query parameter to the request.
 . Compute the duration of each job listed in the response document as per requirements <<req_job-list_duration-response,/req/job-list/status-response, E or F>> depending on the current status of the job.
 . Verify that the computed duration of each job listed in the response is at least as long as the specified value of the `minDuration` query parameter.
@@ -18,5 +17,5 @@ Validate that the `minDuration` and `maxDuration` query parameter are processed 
 . Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `minDuration` and `maxDuration` query parameters to the request.
 . Compute the duration of each job listed in the response document as per requirements <<req_job-list_duration-response,/req/job-list/status-response, E or F>> depending on the current status of the job.
 . Verify that the computed duration of each job listed in the response is at least as long as the specified value of the `minDuration` query parameter AND no longer than the value of the  `maxDuration` query parameter.
------
+--
 ====
