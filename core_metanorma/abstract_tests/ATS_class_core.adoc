@@ -1,11 +1,7 @@
 [[ats_core]]
-[cols="1,4",width="90%"]
-|===
-2+|*Conformance Class*
-2+|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
-|Target type |Web API
-|Requirements class |<<rc_core,Requirements Class "Core">>
-|===
+[requirement,type="conformanceclass",label="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core",subject='<<rc_core,Requirements Class "Core">>',classification="Target Type:Web API"]
+====
+====
 
 ==== Landing Page /
 
