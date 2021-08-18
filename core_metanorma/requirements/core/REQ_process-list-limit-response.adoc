@@ -1,13 +1,13 @@
 [[req_core_pl-limit-response]]
 [.requirement,label="/req/core/pl-limit-response"]
 ====
-[.requirement,label="A"]
-=====
+[.component,class=part]
+---
 The response SHALL not contain more process summaries than specified by the optional `limit` parameter.
-=====
+---
 
-[.requirement,label="B"]
-=====
+[.component,class=part]
+---
 If the API definition specifies a maximum value for `limit` parameter, the response SHALL not contain more process summaries than this maximum value.
-=====
+---
 ====

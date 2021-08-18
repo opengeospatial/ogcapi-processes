@@ -1,13 +1,13 @@
 [[req_job-list_type-response]]
 [.requirement,label="/req/job-list/type-response"]
 ====
-[.requirement,label="A"]
-=====
+[.component,class=part]
+---
 If the parameter is provided and its value is `process` then only jobs created by an OGC processes API SHALL be included in the response.
-=====
+---
 
-[.requirement,label="B"]
-=====
+[.component,class=part]
+---
 The the parameter is omitted, than all jobs SHALL be included in the response.
-=====
+---
 ====

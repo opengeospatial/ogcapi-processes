@@ -1,8 +1,8 @@
 [[req_job-list_limit-definition]]
 [.requirement,label="/req/job-list/limit-definition"]
 ====
-[.requirement,label="A"]
-=====
+[.component,class=part]
+---
 The operation SHALL support a parameter `limit` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
 [source,YAML]
@@ -16,5 +16,5 @@ schema:
   maximum: 10000
   default: 10
 ----
-=====
+---
 ====

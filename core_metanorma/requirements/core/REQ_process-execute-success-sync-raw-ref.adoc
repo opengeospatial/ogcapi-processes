@@ -1,19 +1,19 @@
 [[req_core_process-execute-sync-raw-ref]]
 [.requirement,label="/req/core/process-execute-sync-raw-ref"]
 ====
-[.requirement,label="Conditions"]
-=====
+[.component,class=conditions]
+---
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous, `response=raw`, `transmissionMode=reference`
 . The number of requested outputs is 1 or more.
-=====
+---
 
-[.requirement,label="A"]
-=====
+[.component,class=part]
+---
 The server SHALL respond with an HTTP status code of 204.
-=====
+---
 
-[.requirement,label="B"]
-=====
+[.component,class=part]
+---
 The response SHALL include one or more https://datatracker.ietf.org/doc/html/rfc8288[`Link`] headers that reference each requested output.
-=====
+---
 ====

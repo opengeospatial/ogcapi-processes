@@ -1,8 +1,8 @@
 [[req_core_pl-limit-definition]]
 [.requirement,label="/req/core/pl-limit-definition"]
 ====
-[.requirement,label="A"]
-=====
+[.component,class=part]
+---
 The operation SHALL support a parameter `limit` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
 [source,YAML]
@@ -18,5 +18,5 @@ schema:
 style: form
 explode: false
 ----
-=====
+---
 ====

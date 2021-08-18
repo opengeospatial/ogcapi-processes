@@ -1,8 +1,8 @@
 [[req_job-list_status-definition]]
 [.requirement,label="/req/job-list/status-definition"]
 ====
-[.requirement,label=""]
-=====
+[.component,class=part]
+---
 The operation SHALL support a parameter `status` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
 [source,YAML]
@@ -15,5 +15,5 @@ schema:
   items:
     type: string
 ----
-=====
+---
 ====
