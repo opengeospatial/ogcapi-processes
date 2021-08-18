@@ -14,9 +14,9 @@ Validate that an invalid job identifier is handled correctly.
 . Validate that the document contains the exception type "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job". 
 . Validate the document for all supported media types using the resources and tests identified in <<job-exception-no-such-job>>
 -----
-====
 
 An exception response caused by the use of an invalid job identifier may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the response. All supported formats should be exercised.
+====
 
 [[job-exception-no-such-job]]
 .Schema and Tests for the Job Result for Non-existent Job
