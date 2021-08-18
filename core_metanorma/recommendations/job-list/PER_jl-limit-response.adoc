@@ -1,8 +1,8 @@
 [[per_job-list_limit-response]]
 [.permission,label="/per/job-list/limit-response"]
 ====
-[.permission,label="A"]
-=====
+[.component,class=part]
+---
 The server MAY return fewers jobs than requested (but not more).
-=====
+---
 ====

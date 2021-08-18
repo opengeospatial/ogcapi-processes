@@ -1,8 +1,8 @@
 [[per_core_limit-default-minimum-maximum]]
 [.permission,label="/per/core/limit-default-minimum-maximum"]
 ====
-[.permission,label="A"]
-=====
+[.component,class=part]
+---
 The values for `minimum`, `maximum` and `default` in requirement `/req/core/limit-definition` are only examples and MAY be changed.
-=====
+---
 ====

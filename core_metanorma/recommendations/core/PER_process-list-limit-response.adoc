@@ -1,8 +1,8 @@
 [[per_core_limit-response]]
 [.permission,label="/per/core/limit-response"]
 ====
-[.permission,label="A"]
-=====
+[.component,class=part]
+---
 The server MAY return fewers process summaries than requested (but not more).
-=====
+---
 ====
