@@ -1,6 +1,0 @@
-[[rc_ogc-process-description]]
-[requirement,type="class",label="http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description",obligation="requirement",subject="Web API"]
-====
-inherit:[<<rc_core,OGC API - Processes Core>>]
-inherit:[<<JSON,JSON>>]
-====

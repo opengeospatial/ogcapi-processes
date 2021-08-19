@@ -1,5 +1,0 @@
-[[rc_job-list]]
-[requirement,type="class",label="http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/job-list",obligation="requirement",subject="Web API"]
-====
-inherit:[<<rc_core,OGC API - Processes Core>>]
-====

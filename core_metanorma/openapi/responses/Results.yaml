@@ -1,5 +1,0 @@
-description: The results of a job.
-content:
-  application/json:
-    schema:
-      $ref: "../schemas/results.yaml"

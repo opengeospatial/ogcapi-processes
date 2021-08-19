@@ -1,8 +1,0 @@
-[[ats_dismiss]]
-[requirement,type="conformanceclass",label="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss",subject='<<rc_core,Requirements Class "Core">>',classification="Target Type:Web API"]
-====
-====
-
-include::dismiss/ATS_job-dismiss-op.adoc[]
-
-include::dismiss/ATS_job-dismiss-success.adoc[]

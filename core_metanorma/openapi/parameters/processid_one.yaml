@@ -1,6 +1,0 @@
-name: processId
-in: path
-description: local identifier of a process
-required: true
-schema:
-    type: string

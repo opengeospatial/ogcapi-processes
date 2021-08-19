@@ -1,5 +1,0 @@
-[[req_core_process]]
-[.requirement,label="/req/core/process"]
-====
-The server SHALL support the HTTP GET operation at the path `/processes/{processID}`.
-====

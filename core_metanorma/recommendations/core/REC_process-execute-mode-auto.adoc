@@ -1,5 +1,0 @@
-[[rec_core_process-execute-mode-auto]]
-[.recommendation,label="/rec/core/process-execute-mode-auto"]
-====
-A client that requests a process be executed in `auto` mode SHOULD be prepared to receive either an asynchronous or a synchronous response.
-====

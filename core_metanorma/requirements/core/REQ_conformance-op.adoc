@@ -1,6 +1,0 @@
-
-[[req_core_conformance-op]]
-[.requirement,label="/req/core/conformance-op"]
-====
-The server SHALL support the HTTP GET operation at the path `/conformance`.
-====

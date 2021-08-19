@@ -1,5 +1,0 @@
-[[per_core_process-execute-sync-job]]
-[.permission,label="/per/core/process-execute-sync-job"]
-====
-Servers MAY support the creation of a job for synchronously executed processes.
-====

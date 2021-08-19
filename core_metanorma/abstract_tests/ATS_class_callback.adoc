@@ -1,6 +1,0 @@
-[[ats_callback]]
-[requirement,type="conformanceclass",label="http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback",subject='<<rc_core,Requirements Class "Core">>',classification="Target Type:Web API"]
-====
-====
-
-include::callback/ATS_job-creation-callback.adoc[]
