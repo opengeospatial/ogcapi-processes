@@ -1,15 +1,45 @@
 [[req_core_process-execute-sync-raw-mixed-multi]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/process-execute-sync-raw-mixed-multi +
-^|Conditions |. The <<sc_execution_mode,negotiated execution mode>> is synchronous, `response=raw`,
+[.requirement,label="/req/core/process-execute-sync-raw-mixed-multi"]
+====
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is synchronous, `response=raw`,
 . Multiple transmission modes (`value`,`reference`) are requested.
 . The number of requested outputs is more than 1.
-^|A |The server SHALL respond with an HTTP status code of 200.
-^|B |The media type of the response SHALL be `multipart/related`.
-^|C |The content of response shall conform to https://datatracker.ietf.org/doc/html/rfc2387[RFC 2387, The MIME Multipart/Related Content-type].
-^|D |Each requested output shall be encoded into one part of the response.
-^|E |The `Content-ID` header for each part SHALL be the corresponding output identifier.
-^|F |For outputs requested by reference, the `Content-Location` header SHALL be included pointing to the output and the body of the part SHALL be empty.
-^|G |For outputs requested vy value, the body of the response SHALL contain the output value.
-|===
+--
+
+[.component,class=part]
+--
+The server SHALL respond with an HTTP status code of 200.
+--
+
+[.component,class=part]
+--
+The media type of the response SHALL be `multipart/related`.
+--
+
+[.component,class=part]
+--
+The content of response shall conform to https://datatracker.ietf.org/doc/html/rfc2387[RFC 2387, The MIME Multipart/Related Content-type].
+--
+
+[.component,class=part]
+--
+Each requested output shall be encoded into one part of the response.
+--
+
+[.component,class=part]
+--
+The `Content-ID` header for each part SHALL be the corresponding output identifier.
+--
+
+[.component,class=part]
+--
+For outputs requested by reference, the `Content-Location` header SHALL be included pointing to the output and the body of the part SHALL be empty.
+--
+
+[.component,class=part]
+--
+For outputs requested vy value, the body of the response SHALL contain the output value.
+--
+====

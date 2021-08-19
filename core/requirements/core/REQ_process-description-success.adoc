@@ -1,7 +1,13 @@
 [[req_core_process-success]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/process-success +
-^|A |A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.
-^|B |The content of the response SHALL be a <<sc_process_description,process description>>.
-|===
+[.requirement,label="/req/core/process-success"]
+====
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.
+--
+
+[.component,class=part]
+--
+The content of the response SHALL be a <<sc_process_description,process description>>.
+--
+====

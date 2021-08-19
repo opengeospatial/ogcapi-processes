@@ -1,22 +1,27 @@
 [[ats_core_job-results-async-raw-ref]]
-[width="90%",cols="2,6a"]
-|====
-^|*Abstract Test {counter:ats-id}* |*/conf/core/job-results-async-raw-ref*
-^|Test Purpose |Validate that the server responds as expected when asynchronous execution is <,sc_execution_mode,negotiated>>, the response type is `raw` and the output transmission is `reference`.
-^|Requirement |<<req_core_job-results-async-raw-ref,/req/core/job-results-async-raw-ref>>
-^|Test Method |. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
+[requirement,type="abstracttest",label="/conf/core/job-results-async-raw-ref",subject='<<req_core_job-results-async-raw-ref,/req/core/job-results-async-raw-ref>>']
+====
+[.component,class=test-purpose]
+--
+Validate that the server responds as expected when asynchronous execution is <,sc_execution_mode,negotiated>>, the response type is `raw` and the output transmission is `reference`.
+--
+
+[.component,class=test-method]
+--
+. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
 . Inspect the description of each process and identify the subset of processes that support the `async-execute` job control option and the `reference` output transmission.
 . For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that synchronous execution is <<sc_execution_mode,negotiated>> according to test <<ats_core_job-creation-auto-execution-mode,/conf/core/job-creation-auto-execution-mode>>, that the requested response type is `raw` (i.e. `"response": "raw"`) and that the output transmission is set to `reference` (i.e. `"outputTransmission": "reference"`) according to requirement <<req_core_job-creation-async-raw-ref,/req/core/job-creation-async-raw-ref>>.
 . If the server responds asynchronously, periodically retrieve the status of the asynchronously executed job as per test <<ats_core_job-op,/conf/core/job-op>>.
 . When the job status is `successful`, get the results as per test <<ats_core_job-results-op,/conf/core/job-results>> and verify that they conform to requirement <<req_core_job-results-async-raw-ref,/req/core/job-results-async-ref>>.
-|====
+--
 
 NOTE: In the case where a process supports both `async-execute` and `sync-execute` job control options there is a possibility that the server responds synchronously even though the `Prefer` headers asserts a `respond-async` preference.  In this case, the following additional test should be performed.
 
-[width="90%",cols="2,6a"]
-|====
-^|Test Method |. Inspect the headers of the synchronous response and see if a `Link` header is included with `rel=monitor`.
+[.component,class=test-method]
+--
+. Inspect the headers of the synchronous response and see if a `Link` header is included with `rel=monitor`.
 . If the link exists, get the job status as per test <<ats_core_job-op,/conf/core/job-op>> and ensure that the job status is set to `successful`.
 . Get the results as per test <<ats_core_job-results-op,/conf/core/job-results>> and verify that they conform to the test <<ats_core_job-results-async-document,/conf/core/job-results-async-document>>.
 . If the link does not exist then verify that the synchronous response conforms to requirement <<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>.
-|====
+--
+====

@@ -1,10 +1,8 @@
 [[req_core_no-such-process]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/process-exception/no-such-process +
-
+[.requirement,label="/req/core/process-exception/no-such-process"]
+====
 If the operation is executed using an invalid process identifier, the response SHALL be HTTP status code 404.
 The content of that response SHALL be based upon the OpenAPI
 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml[exception.yaml].
 The `type` of the exception SHALL be "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-process".
-|===
+====

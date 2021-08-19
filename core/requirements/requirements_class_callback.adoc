@@ -1,9 +1,5 @@
 [[rc_callback]]
-[cols="1,4",width="90%"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/callback
-|Target type |Web API
-|Dependency |<<rc_core,OGC API - Processes Core>>
-|===
-
+[requirement,type="class",label="http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/callback",obligation="requirement",subject="Web API"]
+====
+inherit:[<<rc_core,OGC API - Processes Core>>]
+====
