@@ -1,3 +1,4 @@
+
 [[sc_security_considerations]]
 == Security Considerations
 
@@ -10,7 +11,8 @@ HTTP methods can be classified as
 
 <<http_methods_safety>> gives an overview of the classification of HTTP the methods used in this standard:
 
-[#http_methods_safety,reftext='{table-caption} {counter:table-num}']
+
+[[http_methods_safety]]
 .Classification of HTTP methods
 [cols="30, 30, 30",options="header"]
 !===
@@ -44,11 +46,13 @@ Requirements class "Dismiss"
 
 * <<Dismiss,Dismiss>>, HTTP DELETE
 
+
 === Operations using HTTP GET
 
 Most of the operations defined in this standard are use the safe HTTP GET method. However, the resources that are returned by these operations contain information that could be used to exploit the API. <<table_core_safe_operations_security>> gives an overview of the resources specified in this standard and what kind of information they contain.
 
-[#table_core_safe_operations_security,reftext='{table-caption} {counter:table-num}']
+
+[[table_core_safe_operations_security]]
 .Requirements class 'Core' - Overview of core operations and returned sensitive information
 [cols="20,30,10,40",options="header"]
 !===
@@ -73,7 +77,8 @@ The resources and contained information in more detail:
 
 * The job status info contains not only status information, but for finished processes also links to results / exceptions. The results of a process execution are a valuable resource as well as the exceptions that could contain hints about why the execution has failed.
 
-[#table_job_list_operation_security,reftext='{table-caption} {counter:table-num}']
+
+[[table_job_list_operation_security]]
 .Requirements class 'Job List' - Overview of operations and returned sensitive information
 [cols="20,30,10,40",options="header"]
 !===
@@ -83,6 +88,7 @@ The resources and contained information in more detail:
 
 The retrieval of the job list of a process returns the job ids and links to the respective job status.
 
+
 [[sec_cons_execute]]
 === Execute operation
 
@@ -91,7 +97,7 @@ The execute operation uses HTTP POST to create new processing jobs (process exec
 * The processing can use up considerable server resources, for example computing time, network traffic (when accessing referenced inputs) or storage space for inputs and outputs.
 * Malicious inputs can be provided. Either inline in the execute request JSON or referenced.
 
-[#table_core_execute_operation_security,reftext='{table-caption} {counter:table-num}']
+[[table_core_execute_operation_security]]
 .Requirements class 'Core' - Overview of the execute operation and returned sensitive information
 [cols="20,30,10,40",options="header"]
 !===
@@ -101,7 +107,8 @@ The execute operation uses HTTP POST to create new processing jobs (process exec
 
 The ids that are used for new jobs and that are returned in the status info document should be created in a non-guessable way, for example using UUIDs. This will prevent random attempts to get job status information, results / exceptions or even cancel jobs / delete job artifacts.
 
-include::recommendations/job-list/REC_access-control-job-list.adoc[]
+include::../recommendations/job-list/REC_access-control-job-list.adoc[]
+
 
 [[sec_cons_dismiss]]
 === Dismiss operation

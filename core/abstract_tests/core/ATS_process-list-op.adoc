@@ -1,9 +1,14 @@
 [[ats_core_process-list]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/process-list*
-^|Test Purpose |Validate that information about the processes can be retrieved from the expected location.
-^|Requirement |<<req_core_process-list,/req/core/process-list>>
-^|Test Method |. Issue an HTTP GET request to the URL {root}/processes
+[requirement,type="abstracttest",label="/conf/core/process-list",subject='<<req_core_process-list,/req/core/process-list>>']
+====
+[.component,class=test-purpose]
+--
+Validate that information about the processes can be retrieved from the expected location.
+--
+
+[.component,class=test-method]
+--
+. Issue an HTTP GET request to the URL {root}/processes
 . Validate the contents of the returned document using test <<ats_core_process-list-success,/conf/core/process-list-success>>.
-|===
+--
+====

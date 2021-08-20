@@ -1,6 +1,6 @@
-[appendix]
-:appendix-caption: Annex
-== Abstract Test Suite (Normative)
+
+[appendix,obligation="normative"]
+== Abstract Test Suite
 
 === Introduction
 
@@ -8,38 +8,46 @@ OGC Web APIs are not a Web Services in the traditional sense. Rather, they defin
 
 The following requirement applies for a server implementing the OGC API - Processes - Part 1: Core under test:
 
-include::requirements/core/REQ_test-process.adoc[]
+include::../requirements/core/REQ_test-process.adoc[]
 
-include::recommendations/core/REC_test-process.adoc[]
+include::../recommendations/core/REC_test-process.adoc[]
+
 
 === Conformance Class Core
 
-include::abstract_tests/ATS_class_core.adoc[]
+include::../abstract_tests/ATS_class_core.adoc[]
+
 
 === Conformance Class OGC Process Description
 
-include::abstract_tests/ATS_class_ogc-process-description.adoc[]
+include::../abstract_tests/ATS_class_ogc-process-description.adoc[]
+
 
 === Conformance Class JSON
 
-include::abstract_tests/ATS_class_json.adoc[]
+include::../abstract_tests/ATS_class_json.adoc[]
+
 
 === Conformance Class HTML
 
-include::abstract_tests/ATS_class_html.adoc[]
+include::../abstract_tests/ATS_class_html.adoc[]
+
 
 === Conformance Class OpenAPI 3.0
 
-include::abstract_tests/ATS_class_oas30.adoc[]
+include::../abstract_tests/ATS_class_oas30.adoc[]
+
 
 === Conformance Class Job list
 
-include::abstract_tests/ATS_class_job-list.adoc[]
+include::../abstract_tests/ATS_class_job-list.adoc[]
+
 
 === Conformance Class Callback
 
-include::abstract_tests/ATS_class_callback.adoc[]
+include::../abstract_tests/ATS_class_callback.adoc[]
+
 
 === Conformance Class Dismiss
 
-include::abstract_tests/ATS_class_dismiss.adoc[]
+include::../abstract_tests/ATS_class_dismiss.adoc[]

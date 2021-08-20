@@ -1,6 +1,8 @@
 [[per_job-list_limit-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Permission {counter:per-id}* |*/per/job-list/limit-response* 
-^|A |The server MAY return fewers jobs than requested (but not more).
-|===
+[.permission,label="/per/job-list/limit-response"]
+====
+[.component,class=part]
+--
+The server MAY return fewers jobs than requested (but not more).
+--
+====

@@ -1,10 +1,15 @@
 [[ats_core_pl-limit-definition]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/pl-limit-definition*
-^|Test Purpose |Validate that the `limit` query parameter is constructed correctly.
-^|Requirement |<<req_core-pl-limit-definition,/req/core/pl-limit-definition>>
-^|Test Method |Verify that the `limit` query parameter complies with its definition in requirement <<req_core_pl-limit-definition,/req/core/pl-limit-definition>>.
+[requirement,type="abstracttest",label="/conf/core/pl-limit-definition",subject='<<req_core-pl-limit-definition,/req/core/pl-limit-definition>>']
+====
+[.component,class=test-purpose]
+--
+Validate that the `limit` query parameter is constructed correctly.
+--
+
+[.component,class=test-method]
+--
+Verify that the `limit` query parameter complies with its definition in requirement <<req_core_pl-limit-definition,/req/core/pl-limit-definition>>.
 
 Note that the API can define different values for "minimum", "maximum" and "default".
-|===
+--
+====
