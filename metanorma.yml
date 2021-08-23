@@ -1,0 +1,9 @@
+---
+metanorma:
+  source:
+    files:
+      - core/document.adoc
+
+  collection:
+    organization: "OGC"
+    name: "OGC API - Processes"
