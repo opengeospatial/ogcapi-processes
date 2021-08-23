@@ -1,5 +1,5 @@
 [[rc_transactions]]
-[cols="1,4",width="90%"]
+[cols="1,4"]
 |===
 2+|*Requirements Class*
 2+|http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/transactions

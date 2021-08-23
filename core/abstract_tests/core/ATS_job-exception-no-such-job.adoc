@@ -10,7 +10,7 @@ Validate that an invalid job identifier is handled correctly.
 --
 . Issue an HTTP GET request to the URL that includes the `{jobID}` as a path element using a non-existent job identifier.
 . Validate that the document was returned with a 404.
-. Validate that the document contains the exception type "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job". 
+. Validate that the document contains the exception type "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job".
 . Validate the document for all supported media types using the resources and tests identified in <<job-exception-no-such-job>>
 --
 
@@ -19,7 +19,7 @@ An exception response caused by the use of an invalid job identifier may be retr
 
 [[job-exception-no-such-job]]
 .Schema and Tests for the Job Result for Non-existent Job
-[width="90%",cols="3",options="header"]
+[cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
 |HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_html_content,/conf/html/content>>

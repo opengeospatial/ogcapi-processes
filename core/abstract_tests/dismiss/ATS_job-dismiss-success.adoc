@@ -18,7 +18,7 @@ The response to dismissing a job can be presented in a number of different forma
 
 [[job-dismiss-schema]]
 .Schema and Tests for Dismissing a Job
-[width="90%",cols="3",options="header"]
+[cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
 |HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_html_content,/conf/html/content>>

@@ -31,7 +31,7 @@ include::../requirements/oas30/REQ_exception-codes.adoc[]
 
 .An exception response object definition
 ====
-[source,YAML]
+[source,yaml]
 ----
 description: An error occurred.
 content:

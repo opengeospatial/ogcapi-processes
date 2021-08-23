@@ -44,7 +44,7 @@ The OGC API - Processes standard utilizes elements of <draft> the OGC API-Common
 
 [[mapping-to-common]]
 .Mapping API - Processes Sections to API-Common Requirements Classes
-[width="90%",cols="2,6"]
+[cols="2,6"]
 |====
 ^|*API - Processes Section* ^|*API-Common Requirements Class*
 |<<sc_landing_page,API Landing Page>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
@@ -219,7 +219,7 @@ outside of the server.
 [[status_codes]]
 .Typical HTTP status codes
 [cols="15,85",options="header"]
-!===
+|===
 |Status code |Description
 |`200` |A successful request.
 |`201` |The request was successful and one or more new resources have being created.
@@ -234,7 +234,7 @@ outside of the server.
 |`429` |The user has sent too many requests in a given amount of time ("rate limiting").
 |`500` |An internal error occurred in the server.
 |`501` |The server does not support the functionality required to fulfill the request.
-!===
+|===
 
 More specific guidance is provided for each resource, where applicable.
 
@@ -377,20 +377,22 @@ See the discussion about the `prev` link in the  <<prev-link-discussion,Limit pa
 
 include::../recommendations/core/PER_process-list-prev.adoc[]
 
-_**Example**_
-
-.Example of HTTP GET request for retrieving the list of offered processes encoded as JSON.
+.A HTTP GET request for retrieving the list of offered processes encoded as JSON.
+====
 [source]
 ----
 GET /processes HTTP/1.1
 Host: processing.example.org
 ----
+====
 
-.The following is an example of Process list encoded as JSON.
+.A Process list encoded as JSON.
+====
 [source,json]
 ----
 include::../examples/json/ProcessList.json[]
 ----
+====
 
 
 ==== Error situations
@@ -635,7 +637,7 @@ include::../requirements/core/REQ_process-execute-input-inline-mixed.adoc[]
 .Qualified value examples.
 ====
 An example of a complex process input value.
-[source]
+[source,json]
 ----
 "complexObjectInput": {
   "value": {
@@ -648,7 +650,7 @@ An example of a complex process input value.
 
 In this second example, the property, `geometryInput` has a cardinality of greater than 1 and value instances can be one of a number of enumerated media types.  The schema of `geometryInput` from the <<ogc_process_description,OGC process description>> for the process might be:
 
-[source]
+[source,json]
 ----
 "geometryInput": {
   "title": "Geometry input",
@@ -719,7 +721,8 @@ include::../requirements/core/REQ_process-execute-input-inline-binary.adoc[]
 
 This is an example of an image process input whose media type is defined in the
 <<sc_process_description,process description>>.  The schema definition for this process input might be:
-[source]
+
+[source,json]
 ----
 "schema": {
   "type": "string",
@@ -727,16 +730,19 @@ This is an example of an image process input whose media type is defined in the
   "contentMediaType": "application/tiff; application=geotiff"
 }
 ----
+
 and an example instance value in an execute request might be:
-[source]
+
+[source,json]
 ----
-   "imageInput": "R0lGODdhNAHCAfcAAAcHDD+Gs4sLDQpDaqGFdaHE54dJPEoECUlGRteKgcdITgokG4hoVkpY\ngNzHwKKkqOLm7RRjlEgpHU9iZ44lHQYqVdmki6doVmhHOMOIeJG20HiDjCcKBglIeadISrso\nJGooFNbN2d2qr8aljyklHwQJQkdvkWaKxIdrb442LidLeGhMTp6LkeP1+Kh3aiUuVAoUHmlu\ngkcwNYdZRmkJDYGcsDFokElVYyk1NsWWhLEPDtmQldrUyoyFhrjo+Nna5d+4tMGstspoXgc4\n...qgu7sSu7qbtCs2u7t6u6rLsrp4u7veu76eO6vyu8w0u8xWu8x4u8yau8shu8y+u8zwu90Su9\n00u91Wu914u92au928u9whsQADs="
+"imageInput": "R0lGODdhNAHCAfcAAAcHDD+Gs4sLDQpDaqGFdaHE54dJPEoECUlGRteKgcdITgokG4hoVkpY\ngNzHwKKkqOLm7RRjlEgpHU9iZ44lHQYqVdmki6doVmhHOMOIeJG20HiDjCcKBglIeadISrso\nJGooFNbN2d2qr8aljyklHwQJQkdvkWaKxIdrb442LidLeGhMTp6LkeP1+Kh3aiUuVAoUHmlu\ngkcwNYdZRmkJDYGcsDFokElVYyk1NsWWhLEPDtmQldrUyoyFhrjo+Nna5d+4tMGstspoXgc4\n...qgu7sSu7qbtCs2u7t6u6rLsrp4u7veu76eO6vyu8w0u8xWu8x4u8yau8shu8y+u8zwu90Su9\n00u91Wu914u92au928u9whsQADs="
 ----
 
 NOTE: Even though the schema indicates that the input type is `binary`, when the input value is encoded in-line in an execute request, as per requirement <<req_core_process-execute-input-inline-binary,/req/core/process-execute-input-inline-binary>>, the binary value is encoded as base64-encoded string.
 
 In this second example, the image input can be one of a number of value types denoted in JSON Schema by the use of the `oneOf[]` construct.  An example schema for this a process input might be:
-[source]
+
+[source,json]
 ----
 "schema": {
   "oneOf": [
@@ -753,13 +759,15 @@ In this second example, the image input can be one of a number of value types de
   ]
 }
 ----
+
 and a JPEG2000 instance example in an execute request might be:
-[source]
+
+[source,json]
 ----
-   {
-     "value": "VBORw0KGgoAAAANSUhEUgAABvwAAAa4CAYAAABMB35kAAABhGlDQ1BJQ0MgcHJvZmlsZQAA\nKJF9kT1Iw0AcxV9TpSL1A+xQxCFDdbIgKuKoVShChVArtOpgcumH0KQhSXFxFFwLDn4sVh1c\nnHV1cBUEwQ8QNzcnRRcp8X9JoUWMB8f9eHfvcfcOEOplplkdY4Cm22Y6mRCzuRUx9IogouhH\n ... \nj3Z5mX7/PCPVRJV92rpHK24xcJrzk20+tkeYlCPqcZNO3Lpni1OJWatPCcmgGDEqx7Om6lfa\nppM4k4BTe9+bsn3L9/9/yWhA0PwQGW8ipCZsnZt9lsdrYEM8z/M8z/M8z/M8z/M8z/MzLWY1\nAAAACUlEQVQ871H6P6JI+TxS5Wn2AAAAAElFTkSuQmCC",
-     "mediaType": "application/jp2"
-   }
+{
+  "value": "VBORw0KGgoAAAANSUhEUgAABvwAAAa4CAYAAABMB35kAAABhGlDQ1BJQ0MgcHJvZmlsZQAA\nKJF9kT1Iw0AcxV9TpSL1A+xQxCFDdbIgKuKoVShChVArtOpgcumH0KQhSXFxFFwLDn4sVh1c\nnHV1cBUEwQ8QNzcnRRcp8X9JoUWMB8f9eHfvcfcOEOplplkdY4Cm22Y6mRCzuRUx9IogouhH\n ... \nj3Z5mX7/PCPVRJV92rpHK24xcJrzk20+tkeYlCPqcZNO3Lpni1OJWatPCcmgGDEqx7Om6lfa\nppM4k4BTe9+bsn3L9/9/yWhA0PwQGW8ipCZsnZt9lsdrYEM8z/M8z/M8z/M8z/M8z/MzLWY1\nAAAACUlEQVQ871H6P6JI+TxS5Wn2AAAAAElFTkSuQmCC",
+  "mediaType": "application/jp2"
+}
 ----
 ====
 
@@ -788,7 +796,7 @@ Process inputs in an execute request and the corresponding process input definit
 ====
 Consider a process input named `complexObjectInput` with the following definition from an <<ogc_process_description,OGC process description>>:
 
-[source]
+[source,json]
 ----
 "complexObjectInput": {
   "title": "Complex Object Input Example",
@@ -824,7 +832,7 @@ Consider a process input named `complexObjectInput` with the following definitio
 
 and the following instance in an execute request:
 
-[source]
+[source,json]
 ----
 "inputs": [
   .
@@ -840,13 +848,14 @@ and the following instance in an execute request:
   .
   .
   .
+]
 ----
 
 The process input value in this execute request is an instance of a <<qualified-value,qualified value>>.
 
 For the purposes of validation, the server need only validate the component of the <<qualified-value,qualified value>> that is an instance of <<input-value-schema,inputValue.yaml>> against the `schema` fragment from the <<ogc_process_description,OGC process description>>.  Specifically, the validation target is:
 
-[source]
+[source,json]
 ----
 {
   "property1": "value1",
@@ -916,11 +925,13 @@ A process output can be defined in the <<sc_process_description,process descript
 
 ==== Example
 
-.The following is an example of an execute request.
-[source, json]
+.An execute request.
+====
+[source,json]
 ----
 include::../examples/json/Execute.json[]
 ----
+====
 
 [[sc_execute_response]]
 ==== Response
@@ -934,9 +945,8 @@ The manner in which a server responds to a process execution request is determin
 
 The following table maps the possible responses based on the combinations of these execute parameters.
 
-[#table_core_execute_responses,reftext='{table-caption} {counter:table-num}']
 .Table mapping execute responses based on the input parameter values.
-[%autowidth.stretch,,options="header"]
+[options="header"]
 |===
 |*negotiated execution mode* |*response* |*transmission mode* |*# out* |*HTTP code* |*media type* |*body content* |*requirement*
 .9+^.^|sync .5+^.^|raw .2+^.^|value ^.^|1 ^.^|200 ^.^|[as per output definition from process description] |[output in requested format]| <<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>
@@ -1030,18 +1040,22 @@ include::../recommendations/core/REC_job-status.adoc[]
 
 NOTE: Once a job has finished execution and is no longer consuming compute resources, the duration of processing can be computed as `finished-started`.  The `updated` field, however, may still be revised as the system continues processing outputs, storing results, releasing compute resources, etc.
 
-.The following is an example of HTTP GET request for retrieving status information about a job encoded as JSON.
+.A HTTP GET request for retrieving status information about a job encoded as JSON.
+====
 [source]
 ----
 GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f HTTP/1.1
 Host: processing.example.org
 ----
+====
 
-.The following is an example of a job encoded as JSON.
+.A job encoded as JSON.
+====
 [source,json]
 ----
 include::../examples/json/StatusInfo.json[]
 ----
+====
 
 
 ==== Error situations
@@ -1107,18 +1121,22 @@ include::../requirements/core/REQ_job-results-success-async-raw-ref.adoc[]
 
 include::../requirements/core/REQ_job-results-success-async-document.adoc[]
 
-.The following is an example of HTTP GET request for retrieving the result a job encoded as JSON.
+.A HTTP GET request for retrieving the result a job encoded as JSON.
+====
 [source]
 ----
 GET /jobs/81574318-1eb1-4d7c-af61-4b3fbcf33c4f/results HTTP/1.1
 Host: processing.example.org
 ----
+====
 
-.The following is an example of a result encoded as JSON.
+.A result encoded as JSON.
+====
 [source,json]
 ----
 include::../examples/json/Result.json[]
 ----
+====
 
 
 ==== Error situations

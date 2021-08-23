@@ -8,7 +8,7 @@ include::requirements/requirements_class_ogcapppkg.adoc[]
 This conformance class defines the schema of an `OGC Application Package`. An
 `OGC Application Package` is a document that describes a process in sufficient
 detail so that an implementation of this extension can dynamically deploy the
-process and make it available for execution via an OGC processes API.  An 
+process and make it available for execution via an OGC processes API.  An
 `OGC Application Package` document includes the following:
 
 * A formal description of the process including what inputs the process takes and what outputs the process generates.
@@ -17,13 +17,13 @@ process and make it available for execution via an OGC processes API.  An
 
 === OGC Application Package schema
 
-==== Overview 
+==== Overview
 
 include::requirements/ogcapppkg/REQ_schema.adoc[]
 
 [[schema_ogcappkg]]
 .link:http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[Schema for the OGC Application Package]
-[source,YAML]
+[source,yaml]
 ----
 type: object
 required:
@@ -74,7 +74,7 @@ include::requirements/ogcapppkg/REQ_execution-unit-docker.adoc[]
 ==== deploymentProfile property
 
 The deploymentProfile property is used to indicate the type of execution unit
-that is being provided.  
+that is being provided.
 
 include::requirements/ogcapppkg/REQ_profile-docker.adoc[]
 

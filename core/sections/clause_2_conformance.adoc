@@ -59,7 +59,7 @@ Conformance with this standard SHALL be checked using all the relevant tests spe
 
 .Conformance class URIs
 [cols="40,60",options="header"]
-!===
+|===
 | Conformance class | URI
 
 |<<ats_core,Core>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
@@ -70,4 +70,4 @@ Conformance with this standard SHALL be checked using all the relevant tests spe
 |<<ats_job-list,Job list>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list
 |<<ats_callback,Callback>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback
 |<<ats_dismiss,Dismiss>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
-!===
+|===

@@ -1,5 +1,5 @@
 [[req_transactions_static_indicator]]
-[width="90%",cols="2,6a"]
+[cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/transactions/static/indicator*
 ^|A |The optional property `isStatic` shall be used to indicate whether a process is a static or built-in process or a dynamically added process.

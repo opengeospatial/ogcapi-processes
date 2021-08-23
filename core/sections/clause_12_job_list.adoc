@@ -1,7 +1,7 @@
 [[Job_list]]
 == Requirements Class "Job list"
 
-=== Overview 
+=== Overview
 
 This requirement class specifies how to retrieve a job list from the API.
 
@@ -64,7 +64,7 @@ include::../recommendations/job-list/PER_jl-limit-response.adoc[]
 include::../requirements/job-list/REQ_success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobList.yaml[The following is the schema for the job list]
-[source,YAML]
+[source,yaml]
 ----
 include::../openapi/schemas/jobList.yaml[]
 ----
@@ -90,19 +90,21 @@ See the discussion about the `prev` link in the  <<prev-link-discussion,Limit pa
 include::../recommendations/job-list/PER_prev.adoc[]
 
 
-_**Example**_
-
-.The following is an example of an HTTP GET request for retrieving a list of jobs encoded as JSON.
+.A HTTP GET request for retrieving a list of jobs encoded as JSON.
+====
 [source]
 ----
 http://processing.example.org/jobs
 ----
+====
 
-.The following is an example of a job list encoded as JSON.
+.A job list encoded as JSON.
+====
 [source,json]
 ----
 include::../examples/json/JobList.json[]
 ----
+====
 
 
 === Error situations

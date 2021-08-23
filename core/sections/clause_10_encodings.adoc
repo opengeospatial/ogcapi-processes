@@ -5,7 +5,6 @@
 for now, normative statements are often included inline. This will be re-factored later.
 ////
 
-
 === Overview
 
 This clause specifies two pre-defined requirements classes for encodings to be

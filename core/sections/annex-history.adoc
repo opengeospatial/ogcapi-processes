@@ -2,7 +2,7 @@
 [appendix]
 == Revision History
 
-[width="90%",options="header"]
+[options="header"]
 |===
 |Date |Release |Editor | Primary clauses modified |Description
 |2017-03-07 |0.1 |Benjamin Pross |all |initial version

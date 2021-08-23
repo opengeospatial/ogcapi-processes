@@ -61,7 +61,7 @@ and resolution for any specific request which would propagate upwards in the wor
 This extension also depends on other improvements proposed to the _OGC API - Processes - Core_ process execution document schema, as discussed in
 https://github.com/opengeospatial/wps-rest-binding/issues/47#issuecomment-664508833[here].
 
-[[http_status_codes]]
+[[workflows-http_status_codes]]
 ==== HTTP status codes
 
 API clients should be prepared to handle any legal HTTP or HTTPS status code.
@@ -71,10 +71,10 @@ Status codes 200, 303 and 404 are called out in API requirements. Therefore, sup
 The remainder of the status codes in <<status_codes>> are not mandatory, but are important for the implementation of a well functioning API.
 Support for these status codes is strongly encouraged for both client and server implementations.
 
-[#status_codes,reftext='{table-caption} {counter:table-num}']
+[[workflows-http_status_codes-table]]]
 .Typical HTTP status codes[[table_2]]
 [cols="15,85",options="header"]
-!===
+|===
 |Status code |Description
 |`200` |A successful request.
 |`201` |The server has been fulfilled the operation and a new resource has been created.
@@ -88,7 +88,7 @@ Support for these status codes is strongly encouraged for both client and server
 |`406` |Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
 |`409` |Conflict.  For example, the processes already exists.
 |`500` |An internal error occurred in the server.
-!===
+|===
 
 More specific guidance is provided for each resource, where applicable.
 
@@ -109,20 +109,20 @@ The following diagram illustrates the sequence diagram for dynamically deploying
 a new process to the API:
 
 ....
-   Client                                                        Server
-     |                                                             |
-     |  POST /processes/{processId}   HTTP/1.1                     |
-     |  Content-Type: application/json                             |
-     |                                                             |
-     |     Body contains a process (workflow) execution document   |
-     |------------------------------------------------------------>|
-     |                                                             |
-     |  HTTP/1.1 303 See Other                                     |
-     |  Location: /{customPath}/{internalID}                       |
-     |     Body contains a collection description document         |
-     |     which can also be retrieved via GET from the redirect   |
-     |     Location                                                |
-     |<------------------------------------------------------------|
+Client                                                        Server
+  |                                                             |
+  |  POST /processes/{processId}   HTTP/1.1                     |
+  |  Content-Type: application/json                             |
+  |                                                             |
+  |     Body contains a process (workflow) execution document   |
+  |------------------------------------------------------------>|
+  |                                                             |
+  |  HTTP/1.1 303 See Other                                     |
+  |  Location: /{customPath}/{internalID}                       |
+  |     Body contains a collection description document         |
+  |     which can also be retrieved via GET from the redirect   |
+  |     Location                                                |
+  |<------------------------------------------------------------|
 ....
 
 ==== Operation
@@ -145,4 +145,4 @@ include::requirements/workflows/collection/REQ_response-body.adoc[]
 
 ==== Exceptions
 
-See <<http_status_codes,HTTP status codes>>.
+See <<workflows-http_status_codes,HTTP status codes>>.

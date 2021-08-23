@@ -2,7 +2,7 @@
 :doctype: standard
 :docsubtype: Interface
 :edition: 1.0
-:lang: en
+:language: en
 :docnumber: 18-062
 :status: draft
 :copyright-year: 2018
@@ -18,8 +18,6 @@
 :docfile: document.adoc
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf
-
-
 
 ////
 Make sure to complete each included document
@@ -58,12 +56,10 @@ include::sections/clause_15_media_types.adoc[]
 
 include::sections/clause_16_additional-api-building-blocks.adoc[]
 
-
 ////
 add or remove annexes after "A" as necessary
 ////
 include::sections/annex-ats.adoc[]
-
 
 ////
 Revision History should be the last annex before the Bibliography

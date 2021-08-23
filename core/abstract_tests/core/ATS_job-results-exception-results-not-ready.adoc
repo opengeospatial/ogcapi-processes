@@ -11,7 +11,7 @@ Validate that the job results retrieved for an incomplete job complies with the 
 . Create a job as per <<ats_core_job-creation-op,/req/core/job-creation-op>> and note the {jobID} assigned to the job; ensure that the job is long-running.
 . Issue an HTTP GET request to the URL '/jobs/{jobID}/results' before the job completes execution.
 . Validate that the document was returned with a 404.
-. Validate that the document contains the exception `type` "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-ready". 
+. Validate that the document contains the exception `type` "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-ready".
 . Validate the document for all supported media types using the resources and tests identified in <<job-results-exception-results-not-ready>>
 --
 
@@ -20,7 +20,7 @@ The job results page for a job may be retrieved in a number of different formats
 
 [[job-results-exception-results-not-ready]]
 .Schema and Tests for the Job Result for an Incomplete Job
-[width="90%",cols="3",options="header"]
+[cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
 |HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_html_content,/conf/html/content>>
