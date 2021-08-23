@@ -8,11 +8,13 @@ include::../requirements/requirements_class_callback.adoc[]
 
 include::../requirements/callback/REQ_job-creation-callback.adoc[]
 
-.The following is an example for a callback in the execute operation
-[source,YAML]
+.A callback in the execute operation
+====
+[source,yaml]
 ----
 include::../examples/yaml/callbacks.yaml[]
 ----
+====
 
 If the server implements this conformance class, the optional subscriber element of the execute request JSON SHALL be used.
 

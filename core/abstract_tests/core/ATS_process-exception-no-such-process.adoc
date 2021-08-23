@@ -19,7 +19,7 @@ An exception response caused by the use of an invalid process identifier may be 
 
 [[no-such-process]]
 .Schema and Tests for Non-existent Process
-[width="90%",cols="3",options="header"]
+[cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
 |HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_html_content,/conf/html/content>>

@@ -11,17 +11,16 @@ HTTP methods can be classified as
 
 <<http_methods_safety>> gives an overview of the classification of HTTP the methods used in this standard:
 
-
 [[http_methods_safety]]
 .Classification of HTTP methods
 [cols="30, 30, 30",options="header"]
-!===
+|===
 |HTTP Method  |Safe |Idempotent
-|GET	      |yes  |yes
-|POST	      |no   |no
-|DELETE	      |no   |yes
+|GET        |yes  |yes
+|POST       |no   |no
+|DELETE     |no   |yes
 3+|Source <<rfc7231,RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content>>
-!===
+|===
 
 The following resources can be retrieved using the safe HTTP GET method and can contain sensitive information:
 
@@ -55,7 +54,7 @@ Most of the operations defined in this standard are use the safe HTTP GET method
 [[table_core_safe_operations_security]]
 .Requirements class 'Core' - Overview of core operations and returned sensitive information
 [cols="20,30,10,40",options="header"]
-!===
+|===
 |Resource |Path |HTTP method | Information delivered
 |Landing page |`/` |GET| General information about the service, links to API endpoints
 |Conformance classes |`/conformance` |GET| List of conformance classes
@@ -63,7 +62,7 @@ Most of the operations defined in this standard are use the safe HTTP GET method
 |Process description |`/processes/{processID}` |GET | Information about a process, e.g. inputs/outputs
 |Job status info |`/jobs/{jobID}` |GET | Status info, links to results or exceptions
 |Job results |`/jobs/{jobID}/results` |GET | Job results
-!===
+|===
 
 The resources and contained information in more detail:
 
@@ -81,10 +80,10 @@ The resources and contained information in more detail:
 [[table_job_list_operation_security]]
 .Requirements class 'Job List' - Overview of operations and returned sensitive information
 [cols="20,30,10,40",options="header"]
-!===
+|===
 |Resource |Path |HTTP method | Information delivered
 |Job list |`/jobs` |GET | List of job ids and status info, links to results or exceptions
-!===
+|===
 
 The retrieval of the job list of a process returns the job ids and links to the respective job status.
 
@@ -100,10 +99,10 @@ The execute operation uses HTTP POST to create new processing jobs (process exec
 [[table_core_execute_operation_security]]
 .Requirements class 'Core' - Overview of the execute operation and returned sensitive information
 [cols="20,30,10,40",options="header"]
-!===
+|===
 |Resource |Path |HTTP method | Information delivered
 |Job status info |`/jobs` |POST | Job id, status info, (links to) results or exceptions
-!===
+|===
 
 The ids that are used for new jobs and that are returned in the status info document should be created in a non-guessable way, for example using UUIDs. This will prevent random attempts to get job status information, results / exceptions or even cancel jobs / delete job artifacts.
 

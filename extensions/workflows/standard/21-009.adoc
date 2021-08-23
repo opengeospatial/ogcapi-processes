@@ -60,10 +60,10 @@ Recipients of this document are invited to submit, with their comments, notifica
 
 [width = "50%", grid = "none"]
 |===
-|Document type:   	OGC® Standard
-|Document subtype:   	Interface
-|Document stage:   	Draft
-|Document language: 	English
+|Document type:     OGC® Standard
+|Document subtype:     Interface
+|Document stage:     Draft
+|Document language:   English
 |===
 
 <<<

@@ -5,7 +5,7 @@
 --
 The operation SHALL support a parameter `limit` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
-[source,YAML]
+[source,yaml]
 ----
 name: limit
 in: query

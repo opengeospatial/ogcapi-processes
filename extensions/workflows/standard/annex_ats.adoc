@@ -1,6 +1,5 @@
 [[ats]]
 [appendix]
-:appendix-caption: Annex
 == Abstract Test Suite (Normative)
 
 (( add test cases ))

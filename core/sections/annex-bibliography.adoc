@@ -1,10 +1,8 @@
-
-
-[[Bibliography]]
+[appendix]
 [bibliography]
 == Bibliography
 
-* [[[ogc15-022,OGC Testbed]]] Matheus, A.: OGC® Testbed 11 Engineering Report: Implementing Common Security Across the OGC Suite of Service Standards, https://portal.opengeospatial.org/files/?artifact_id=63312
+* [[[ogc15-022,OGC 15-022]]] Matheus, A.: OGC® Testbed 11 Engineering Report: Implementing Common Security Across the OGC Suite of Service Standards, https://portal.opengeospatial.org/files/?artifact_id=63312
 
 * [[[jsonschema-core,A Media Type]]] Hutton, B.: JSON Schema: A Media Type for Describing JSON Documents, https://json-schema.org/draft/2020-12/json-schema-core.html
 

@@ -24,7 +24,7 @@ The landing page may be retrieved in a number of different formats. The followin
 
 [[landing-page-schema]]
 .Schema and Tests for Landing Pages
-[width="90%",cols="3",options="header"]
+[cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
 |HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_html_content,/conf/html/content>>

@@ -16,8 +16,8 @@ The status info page for a job may be retrieved in a number of different formats
 ====
 
 [[job-status-info-schema]]
-.Schema and Tests for the Job Status Info 
-[width="90%",cols="3",options="header"]
+.Schema and Tests for the Job Status Info
+[cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
 |HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/landingPage.yaml[statusInfo.yaml] |<<ats_html,/conf/html/content>>

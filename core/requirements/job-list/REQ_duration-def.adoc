@@ -5,9 +5,9 @@
 --
 The operation SHALL support a parameter `minDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
-[source,YAML]
+[source,yaml]
 ----
-name: minDuration 
+name: minDuration
 in: query
 required: false
 schema:
@@ -21,9 +21,9 @@ schema:
 --
 The operation SHALL support a parameter `maxDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
-[source,YAML]
+[source,yaml]
 ----
-name: maxDuration 
+name: maxDuration
 in: query
 required: false
 schema:
