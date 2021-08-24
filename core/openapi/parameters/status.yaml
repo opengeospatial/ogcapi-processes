@@ -4,4 +4,4 @@ required: false
 schema:
   type: array
   items:
-    type: string
+    $ref: "../schemas/statusCode.yaml"
