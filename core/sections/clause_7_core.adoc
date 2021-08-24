@@ -45,14 +45,14 @@ The OGC API - Processes standard utilizes elements of <draft> the OGC API-Common
 [[mapping-to-common]]
 .Mapping API - Processes Sections to API-Common Requirements Classes
 [cols="2,6"]
-|====
+|===
 ^|*API - Processes Section* ^|*API-Common Requirements Class*
 |<<sc_landing_page,API Landing Page>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
 |<<sc_api_definition,API Definition>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
 |<<sc_conformance_classes,Declaration of Conformance Classes>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
 |<<requirements-class-openapi_3_0-clause,OpenAPI 3.0>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/oas30
 |<<sc_requirements_class_html,HTML>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/html
-|====
+|===
 
 
 [[sc_landing_page]]
@@ -948,17 +948,59 @@ The following table maps the possible responses based on the combinations of the
 .Table mapping execute responses based on the input parameter values.
 [options="header"]
 |===
-|*negotiated execution mode* |*response* |*transmission mode* |*# out* |*HTTP code* |*media type* |*body content* |*requirement*
-.9+^.^|sync .5+^.^|raw .2+^.^|value ^.^|1 ^.^|200 ^.^|[as per output definition from process description] |[output in requested format]| <<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>
-^.^|* ^.^|200 ^.^|multipart/related |[one output per part] |<<req_core_process-execute-sync-raw-value-multi,/req/core/process-execute-sync-raw-value-multi>>
-.2+^.^|reference ^.^|1 .2+^.^|204 .2+^.^|none .2+.^|[empty with `Link` headers] .2+.^|<<req_core_process-execute-sync-raw-ref,/req/core/process-execute-sync-raw-ref>>
-^.^|*
-^.^|mixed ^.^|* ^.^|200 ^.^|multipart/related |[one output per part] |<<req_core_process-execute-sync-raw-mixed-multi,/req/core/process-execute-sync-raw-mixed-multi>>
-.4+^.^|document .2+^.^|value ^.^|1 .4+^.^|200 .4+^.^|application/json .4+.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_process-execute-success-document,/req/core/process-execute-success-document>>
-^.^|*
-.2+^.^|reference ^.^|1
-^.^|*
-^.^|async ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|201 ^.^|application/json .^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] .^|<<req_core_process-execute-success-async,/req/core/process-execute-success-async>>
+|negotiated execution mode |response |transmission mode |# out |HTTP code |media type |body content |requirement
+
+.9+|sync
+.5+|raw
+.2+|value
+|1
+|200
+|[as per output definition from process description]
+|[output in requested format]| <<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>
+|*
+
+|200
+|multipart/related
+|[one output per part]
+|<<req_core_process-execute-sync-raw-value-multi,/req/core/process-execute-sync-raw-value-multi>>
+
+.2+|reference
+|1
+.2+|204
+.2+|none
+.2+|[empty with `Link` headers]
+.2+|<<req_core_process-execute-sync-raw-ref,/req/core/process-execute-sync-raw-ref>>
+|*
+
+|mixed
+|*
+|200
+|multipart/related
+|[one output per part]
+|<<req_core_process-execute-sync-raw-mixed-multi,/req/core/process-execute-sync-raw-mixed-multi>>
+
+.4+|document
+.2+|value
+|1
+.4+|200
+.4+|application/json
+.4+|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml]
+.4+|<<req_core_process-execute-success-document,/req/core/process-execute-success-document>>
+
+|*
+.2+|reference
+|1
+|*
+
+|async
+|_any_
+|_any_
+|_any_
+|201
+|application/json
+|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml]
+|<<req_core_process-execute-success-async,/req/core/process-execute-success-async>>
+
 |===
 
 [NOTE]
@@ -1093,18 +1135,59 @@ The following table maps the possible responses based on the combinations of the
 .Table mapping get results responses based on the input parameter values used on the original execute request.
 [cols="9",options="header"]
 |===
-|*negotiated execute mode* |*response* |*transmission mode* |*# out* |*Required* |*HTTP code* |*media type* |*body content* |*requirement*
-^.^|sync ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|no 4+^.^|[if the server creates a job on synchronous execute, +
-job results may be re-fetched at any time <<async-fetch,as per async>>]
-.8+^.^|[[async-fetch]]async .5+^.^|raw .2+^.^|value ^.^|1 .8+^.^|yes ^.^|200 ^.^|[as per output definition from process description] ^.^|[output in requested output format]| <<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>
-^.^|* ^.^|200 ^.^|multipart/related ^.^|[one output per part] |<<req_core_process-execute-sync-raw-value-multi,/req/core/process-execute-sync-raw-value-multi>>
-.2+^.^|reference ^.^|1 .2+^.^|204 .2+^.^|none .2+^.^|[empty with `Link` headers] .2+.^|<<req_core_process-execute-sync-raw-ref,/req/core/process-execute-sync-raw-ref>>
-^.^|*
-^.^|mixed ^.^|* ^.^|200 ^.^|multipart/related ^.^|[one output per part] |<<req_core_process-execute-async-raw-mixed-multi,/req/core/process-execute-async-raw-mixed-multi>>
-.4+^.^|document .2+^.^|value ^.^|1 .4+^.^|200 .4+^.^|application/json .4+^.^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] .4+.^|<<req_core_process-execute-success-document,/req/core/process-execute-success-document>>
-^.^|*
-.2+^.^|reference ^.^|1
-^.^|*
+|negotiated execute mode |response |transmission mode |# out |Required |HTTP code |media type |body content |requirement
+
+|sync
+|_any_
+|_any_
+|_any_
+|no
+4+|[if the server creates a job on synchronous execute, job results may be re-fetched at any time <<async-fetch,as per async>>]
+
+.8+| [[async-fetch]]async
+.5+|raw
+.2+|value
+|1
+.8+|yes
+|200
+|[as per output definition from process description]
+|[output in requested output format]| <<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>
+
+|*
+|200
+|multipart/related
+|[one output per part]
+|<<req_core_process-execute-sync-raw-value-multi,/req/core/process-execute-sync-raw-value-multi>>
+
+.2+|reference
+|1
+.2+|204
+.2+|none
+.2+|[empty with `Link` headers]
+.2+|<<req_core_process-execute-sync-raw-ref,/req/core/process-execute-sync-raw-ref>>
+|*
+|mixed
+|*
+|200
+|multipart/related
+|[one output per part]
+|<<req_core_process-execute-async-raw-mixed-multi,/req/core/process-execute-async-raw-mixed-multi>>
+
+.3+|document
+.2+|value
+|1
+.3+|200
+.3+|application/json
+.3+|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml]
+
+.3+|<<req_core_process-execute-success-document,/req/core/process-execute-success-document>>
+
+|*
+
+|reference
+|1
+|*
+
 |===
 
 NOTE: The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.

@@ -2,17 +2,40 @@
 Retrieving the results of an asynchronously executed process depends on a number of parameters specified in the execute request.  The following table enumerates the relevant requirement that needs to be satisfied based on the various execute parameter combinations.
 
 [options="header"]
-|====
+|===
 |mode |response |tx mode |# out |abstract test
-^.^|sync ^.^|_any_ ^.^|_any_ ^.^|_any_ .^|<<ats_core_job-results-sync,/conf/core/job-results-sync>>
-.8+^.^|async .4+^.^|raw .2+^.^|value |1 .^|<<ats_core_job-results-async-raw-value-one,/conf/core/job-results-async-raw-value-one>>
-|* .^|<<ats_core_job-results-async-raw-value-multi,/conf/core/job-results-async-raw-value-multi>>
-.2+^.^|ref |1 .2+.^|<<ats_core_job-results-async-raw-ref,/conf/core/job-results-async-raw-ref>>
+
+|sync
+|_any_
+|_any_
+|_any_
+|<<ats_core_job-results-sync,/conf/core/job-results-sync>>
+
+.8+|async
+.4+|raw
+.2+|value
+|1
+|<<ats_core_job-results-async-raw-value-one,/conf/core/job-results-async-raw-value-one>>
+
 |*
-.4+^.^|document .2+.^|value |1 .4+.^|<<ats_core_job-results-async-document,/conf/core/job-results-async-document>>
+|<<ats_core_job-results-async-raw-value-multi,/conf/core/job-results-async-raw-value-multi>>
+
+.2+|ref
+|1
+
+.2+|<<ats_core_job-results-async-raw-ref,/conf/core/job-results-async-raw-ref>>
 |*
-.2+^.^|ref |1
+
+.4+|document
+.2+|value
+|1
+.4+|<<ats_core_job-results-async-document,/conf/core/job-results-async-document>>
+
 |*
-|====
+
+.2+|ref |1
+|*
+
+|===
 
 NOTE: The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.

@@ -31,7 +31,7 @@ The following <<link-relations,registered link relation types>> are used in this
 
 * **self**: Conveys an identifier for the link's context.
 
-* **status**: 	Identifies a resource that represents the context's status.
+* **status**: Identifies a resource that represents the context's status.
 
 * **up**: Refers to a parent document in a hierarchy of documents.
 

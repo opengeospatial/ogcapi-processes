@@ -2,17 +2,41 @@
 The response generated when executing a process depends on a number of parameters specified in the execute request.  The following table enumerates the relevant requirement that needs to be satisfied based on the various execute parameter combinations.
 
 [options="header"]
-|====
-|*mode* |*response* |*tx mode* |*# out* |requirement
-.8+^.^|sync .4+^.^|raw .2+^.^|value |1 .^|<<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
-|* .^|<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
-.2+^.^|ref |1 .2+.^|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
+|===
+| mode | response | tx mode | # out | requirement
+
+.8+|sync
+.4+|raw
+.2+|value
+
+|1
+|<<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
+
 |*
-.4+^.^|document .2+^.^|value |1 .4+.^|<<req_core_job-creation-sync-document,/req/core/job-creation-sync-document>>
+|<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
+
+.2+|ref
+|1
+.2+|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
+
 |*
-.2+^.^|ref |1
+
+.4+|document
+.2+|value
+|1
+.4+|<<req_core_job-creation-sync-document,/req/core/job-creation-sync-document>>
 |*
-^.^|async ^.^|_any_ ^.^|_any_ ^.^|_any_ .^|<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
-|====
+
+.2+|ref
+|1
+|*
+
+|async
+|_any_
+|_any_
+|_any_
+|<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
+
+|===
 
 NOTE: The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
