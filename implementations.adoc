@@ -25,6 +25,14 @@
 | OGC API - Processes
 | https://github.com/gfenoy[Gérald Fenoy]
 
+| https://github.com/geopython/pywps/blob/main/docs/api_rest.rst[PyWPS]
+| OGC API - Processes
+| https://github.com/idanmiara[Idan Miara]
+
+| http://ogc.intergraph.com:8089/oapi-p/[Hexagon]
+| OGC API - Processes
+| https://github.com/gardengeek99[Steve McDaniel]
+
 | TBA
 | TBA
 | TBA
@@ -38,6 +46,10 @@
 [cols=",,",width="75%",options="header",align="center"]
 |===
 |Implementation | Type | Contact
+
+| http://ogc.intergraph.com:8089[Hexagon]
+| OGC API - Processes
+| https://github.com/gardengeek99[Steve McDaniel]
 
 | TBA
 | TBA
