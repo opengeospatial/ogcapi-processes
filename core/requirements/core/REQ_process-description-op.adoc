@@ -3,5 +3,5 @@
 |===
 |*Requirement {counter:req-id}* |/req/core/process +
 
-The server SHALL support the HTTP GET operation at the path `/processes/{processID}`.
+The server SHALL support the HTTP GET method at the path `/processes/{processID}`.
 |===

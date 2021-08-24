@@ -3,5 +3,5 @@
 |===
 |*Requirement {counter:req-id}* |/req/core/conformance-op +
 
-The server SHALL support the HTTP GET operation at the path `/conformance`.
+The server SHALL support the HTTP GET method at the path `/conformance`.
 |===
