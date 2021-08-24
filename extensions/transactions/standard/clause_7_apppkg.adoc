@@ -1,3 +1,4 @@
+
 == Requirements Class "OGC Application Package"
 
 [[ogcapppkg-overview]]
@@ -291,10 +292,10 @@ NOTE: I think we need to consult with the OGC NA to get a property identifier in
 
 NOTE: TBD. Need to have a discussion here about how the process inputs are mapped to the invocation of the execution unit.   Command line arguments can be expressed in many ways (e.g. '-arg value', 'arg=value', etc.) and metadata needs to be provided to tell the server how to invoke the execution unit.
 
-NOTE: TBD. I envision this clause being composed of a series of recommendations (not requirements) based on using the `additionaParameters` property of the process description from <<OAProc-1,OGC API - Processes - Part 1: Core>>.
+NOTE: TBD. I envision this clause being composed of a series of recommendations (not requirements) based on using the `additionaParameters` property of the process description from <<OAProc-1>>.
 
 ==== Providing value hints for process inputs
 
 NOTE: TBD. Need to have a discussion here about how hints (or perhaps stronger guidance) can be provided for process inputs.  This is beyond the kind of enum or range value that might be specified in the process description.  Rather I am thinking about being able to provide references to authoritative code lists or providing references to catalogues that can be searched for suitable values.
 
-NOTE: TBD. I envision this clause being composed of a series of recommendations (not requirements) based on using the `metadata` property of the process description from <<OAProc-1,OGC API - Processes - Part 1: Core>>.
+NOTE: TBD. I envision this clause being composed of a series of recommendations (not requirements) based on using the `metadata` property of the process description from <<OAProc-1>>.
