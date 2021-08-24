@@ -1,6 +1,8 @@
 [[req_transactions_update_body]]
-[cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/transactions/update/body*
-^|A |The body of a PUT request shall contain a formal description of the replacement process.
-|===
+[.requirement,label="/req/transactions/update/body"]
+====
+[.component,class=part]
+--
+The body of a PUT request shall contain a formal description of the replacement process.
+--
+====
