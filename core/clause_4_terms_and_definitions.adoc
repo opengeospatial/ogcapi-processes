@@ -3,6 +3,22 @@ This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r9], which 
 
 For the purposes of this document, the following additional terms and definitions apply.
 
+=== Job
+
+The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.
+
+=== JSON
+
+JavaScript Object Notation is a lightweight data-interchange format. JSON is easy for humans to read and write and it is easy for machines to parse and generate. 
+
+=== Link
+
+The term "link" is commonly used as substitute for URL or URI. In this standard, "link" refers to the <<link-schema,link.yaml>>. This is a JSON element containing properties like "rel" (relation) and "href". The value of the "href" property is an URI.
+
+=== Link header
+
+HTTP Link header, as defined in <<rfc8288,RFC 8288 (Web Linking)>>.
+
 === Process
 
 A process p is a function that for each input returns a corresponding output
@@ -12,14 +28,6 @@ A process p is a function that for each input returns a corresponding output
 where X denotes the domain of arguments x and Y denotes the co-domain of values y. Within this specification, process arguments are referred to as process inputs and result values are referred to as process outputs. Processes that have no process inputs represent value generators that deliver constant or random process outputs.
 
 The term process is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this specification uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the WPS 2.0 standard. 
-
-=== Job
-
-The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.
-
-=== JSON
-
-JavaScript Object Notation is a lightweight data-interchange format. JSON is easy for humans to read and write and it is easy for machines to parse and generate. 
 
 === Process description
 
