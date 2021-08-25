@@ -4,7 +4,7 @@
 [[ogcapppkg-overview]]
 === Overview
 
-include::requirements/requirements_class_ogcapppkg.adoc[]
+include::../requirements/requirements_class_ogcapppkg.adoc[]
 
 This conformance class defines the schema of an `OGC Application Package`. An
 `OGC Application Package` is a document that describes a process in sufficient
@@ -20,7 +20,7 @@ process and make it available for execution via an OGC processes API.  An
 
 ==== Overview
 
-include::requirements/ogcapppkg/REQ_schema.adoc[]
+include::../requirements/ogcapppkg/REQ_schema.adoc[]
 
 [[schema_ogcappkg]]
 .link:http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[Schema for the OGC Application Package]
@@ -60,7 +60,7 @@ The formal process description (i.e. its inputs, its output, etc.) are provided,
 either in-line or by reference as the value of the `processDescription`
 property.
 
-include::requirements/ogcapppkg/REQ_process-description.adoc[]
+include::../requirements/ogcapppkg/REQ_process-description.adoc[]
 
 NOTE: Should this requirement be a recommendation?  Making it a recommendation opens up the possibility of using the `OGC Application Package` schema with alternative process description languages.
 
@@ -70,18 +70,19 @@ The execution unit is the `code` that an implementation of this extensions needs
 to execute whenever the deployed process is executed.  The execution unit can be
 either specified in-line or by reference.
 
-include::requirements/ogcapppkg/REQ_execution-unit-docker.adoc[]
+include::../requirements/ogcapppkg/REQ_execution-unit-docker.adoc[]
 
 ==== deploymentProfile property
 
 The deploymentProfile property is used to indicate the type of execution unit
 that is being provided.
 
-include::requirements/ogcapppkg/REQ_profile-docker.adoc[]
+include::../requirements/ogcapppkg/REQ_profile-docker.adoc[]
 
 NOTE: I think we need to consult with the OGC NA to get a property identifier indicating that the profile is "dockerized application".
 
 [[example1]]
+[source%unnumbered]
 ----
 {
   "processDescription": {

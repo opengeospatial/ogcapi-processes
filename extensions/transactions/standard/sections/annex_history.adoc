@@ -1,7 +1,7 @@
 [appendix]
 == Revision History
 
-[cols="12,18,12,12,46",options="header"]
+[cols="12,18,12,12,46",options="header,unnumbered"]
 |===
 |Date |Release |Editor | Primary clauses modified |Description
 |2019-xx-xx |1.0.0-SNAPSHOT |J. Doe |all |initial version

@@ -4,4 +4,4 @@
 
 (( add test cases ))
 
-(( include::abstract_tests/cc/TEST001.adoc[] ))
+include::../abstract_tests/cc/TEST001.adoc[]
