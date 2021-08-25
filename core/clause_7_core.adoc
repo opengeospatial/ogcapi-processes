@@ -65,6 +65,16 @@ include::requirements/core/REQ_landingpage-op.adoc[]
 
 include::requirements/core/REQ_landingpage-success.adoc[]
 
+[NOTE]
+=====================================================================
+The requests/responses of the API specified in this standard are defined using OpenAPI 3.0 schemas. Servers that conform to this standard 
+
+* shall use all required properties of the respective request/response schema,
+* can use optional properties of the respective request/response schema,
+* may use additional properties.
+
+=====================================================================
+
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml[The following is the schema for the landing page (landingPage.yaml).]
 [source,yaml]
 ----
