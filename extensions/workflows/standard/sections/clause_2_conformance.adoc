@@ -1,3 +1,4 @@
+
 == Conformance
 
 This standard defines one requirements / conformance class.
@@ -6,12 +7,12 @@ The standardization target is "Web APIs".
 
 The main requirements class is:
 
-   * <<rc_workflows,Workflows>>.
+* <<rc_workflows>>.
 
 This class specifies requirements that all Web APIs have to implement.
 
 Conformance with this standard shall be checked using all the relevant tests
-specified in <<ats,Annex A>> of this document. The framework, concepts, and
+specified in <<ats>> of this document. The framework, concepts, and
 methodology for testing, and the criteria to be achieved to claim conformance
 are specified in the OGC Compliance Testing Policies and Procedures and the
 OGC Compliance Testing web site.

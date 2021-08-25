@@ -3,6 +3,6 @@
 ====
 [.component,class=part]
 --
-Servers may support other capabilities of the HTTP protocol and, therefore, may return other status codes than those listed in <<status_codes>>.
+Servers may support other capabilities of the HTTP protocol and, therefore, may return other status codes than those listed in <<workflows_http_status_codes_table>>.
 --
 ====
