@@ -1,6 +1,7 @@
 = OGC API - Processes - Part 2: Transactions
 :doctype: standard
 :docsubtype: interface
+:docnumber: 20-044
 :status: draft
 :copyright-year: 2019
 :edition: 1.0
@@ -9,9 +10,7 @@
 :received-date: yyyy-mm-dd
 :issued-date: yyyy-mm-dd
 :external-id: http://www.opengis.net/doc/IS/ogcapi-processes-2/1.0
-:keywords: process, collection, instance, spatial, data, openapi, transactions, insert, update, delete, add, modify, remove, REST, PUT, POST, DELETE
-:committee: 
-:docnumber: 20-044
+:keywords: process, collection, instance, spatial, data, openapi, transactions, insert, update, delete, add, modify, remove, REST, PUT, POST, DELETE 
 :submitting-organizations: CubeWerx Inc.
 :editor: Panagiotis (Peter) A. Vretanos
 :mn-document-class: ogc
