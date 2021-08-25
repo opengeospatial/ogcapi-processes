@@ -3,7 +3,7 @@
 |===
 ^|*Requirement {counter:req-id}* |*/req/job-list/status-response*
 ^|Condition |. If the `status` parameter is not specified then only jobs that are running (status: `running`) or have completed execution (`successful`, `failed` or `dismissed`) SHALL be considered for inclusion in the response.
-. If the `status` parameter is specified, then only jobs with the speecified status SHALL be considered for inclusion in the response.
+. If the `status` parameter is specified, then only jobs with the specified status SHALL be considered for inclusion in the response.
 ^|A |If only the `minDuration` parameter is specified with the operation, only jobs with the appropriate status and a duration of at least the specified `minDuration` value SHALL be included in the response.
 ^|B |If only the `maxDuration` parameter is specified with the operation, only jobs with the appropriate status and a duration of no longer than the specified `maxDuration` value SHALL be included in the response.
 ^|C |If both the `minDuration` and `maxDuration` parameters are specified with the operation, only jobs with the appropriate status and a duration of at least the specified `minDuration` value and no longer than the specified `maxDuration` value SHALL be included in the response.
