@@ -1,6 +1,8 @@
 [[req_workflows_collection_insert_body]]
-[cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/workflows/collection/body*
-^|A |The body of the POST request shall contain a process (workflow) execution document describing the workflow to set up.
-|===
+[.requirement,type="general",label="/req/workflows/collection/body"]
+====
+[.component,class=part]
+--
+The body of the POST request shall contain a process (workflow) execution document describing the workflow to set up.
+--
+====

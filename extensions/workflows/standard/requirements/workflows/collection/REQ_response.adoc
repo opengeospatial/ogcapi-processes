@@ -1,8 +1,18 @@
 [[req_workflows_collection_response]]
-[cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/workflows/collection/response*
-^|A |A successful execution of the operation shall be reported as a response with a HTTP status code '303'.
-^|B |The response shall include a 'Location' header with the URL of a collection description document corresponding to the output(s) of the workflow.
-^|C |The response shall also include the full content of the collection(s) resource corresponding to the submitted workflow.
-|===
+[.requirement,type="general",label="/req/workflows/collection/response"]
+====
+[.component,class=part]
+--
+A successful execution of the operation shall be reported as a response with a HTTP status code '303'.
+--
+
+[.component,class=part]
+--
+The response shall include a 'Location' header with the URL of a collection description document corresponding to the output(s) of the workflow.
+--
+
+[.component,class=part]
+--
+The response shall also include the full content of the collection(s) resource corresponding to the submitted workflow.
+--
+====

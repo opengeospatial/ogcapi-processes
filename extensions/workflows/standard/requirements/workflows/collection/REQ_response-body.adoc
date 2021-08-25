@@ -1,6 +1,8 @@
 [[req_workflows_collection_response-body]]
-[cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/workflows/collection/response-body*
-^|A |The response shall include a body that describe the collection(s) resulting from the submitted workflow.
-|===
+[.requirement,type="general",label="/req/workflows/collection/response-body"]
+====
+[.component,class=part]
+--
+The response shall include a body that describe the collection(s) resulting from the submitted workflow.
+--
+====
