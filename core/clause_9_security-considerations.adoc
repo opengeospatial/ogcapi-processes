@@ -21,7 +21,7 @@ HTTP methods can be classified as
 3+|Source <<rfc7231,RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content>>
 !===
 
-The following resources can be retrieved using the safe HTTP GET method and can contain sensitive information:
+The following resources can be retrieved using the safe HTTP GET operation and can contain sensitive information:
 
 Requirements class "Core":
 
@@ -46,7 +46,7 @@ Requirements class "Dismiss"
 
 === Operations using HTTP GET
 
-Most of the operations defined in this standard are use the safe HTTP GET method. However, the resources that are returned by these operations contain information that could be used to exploit the API. <<table_core_safe_operations_security>> gives an overview of the resources specified in this standard and what kind of information they contain.
+Most of the operations defined in this standard are use the safe HTTP GET operation. However, the resources that are returned by these operations contain information that could be used to exploit the API. <<table_core_safe_operations_security>> gives an overview of the resources specified in this standard and what kind of information they contain.
 
 [#table_core_safe_operations_security,reftext='{table-caption} {counter:table-num}']
 .Requirements class 'Core' - Overview of core operations and returned sensitive information
