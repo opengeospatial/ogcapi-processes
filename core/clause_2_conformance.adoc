@@ -24,6 +24,13 @@ The _Core_ does not mandate any encoding or format for the formal definition of 
 
 An implementation of the _Core_ requirements class may also decide to use other API definition representations in addition or instead of an OpenAPI 3.0 definition. Examples for alternative API definitions: OpenAPI 2.0 (Swagger), future versions of the OpenAPI specification, an OWS Common 2.0 capabilities document or WSDL.
 
+[NOTE]
+=====================================================================
+OpenAPI 3.0 offers an open, powerful and vendor neutral description format.
+While the use of OpenAPI 3.0 for the formal definition of the API is not mandatory, the requests/responses of the API specified in this standard are defined using OpenAPI 3.0 schemas.
+See also the note regarding <<req_core_landingpage-success,/req/core/landingpage-success>>
+=====================================================================
+
 The _Core_ is intended to be a minimal useful API for the execution of processes in the geospatial domain. The Core is designed to map the operations of a Web Processing Service 2.0 instance.
 
 The _Core_ does not mandate the use of any specific process description to

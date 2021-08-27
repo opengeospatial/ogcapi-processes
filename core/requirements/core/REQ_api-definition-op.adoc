@@ -4,5 +4,5 @@
 |*Requirement {counter:req-id}* |/req/core/api-definition-op +
 
 The URIs of all API definitions referenced from the landing page
-SHALL support the HTTP GET method.
+SHALL support the HTTP GET operation.
 |===
