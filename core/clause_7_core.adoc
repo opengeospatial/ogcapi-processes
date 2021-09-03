@@ -924,7 +924,17 @@ The following table maps the possible responses based on the combinations of the
 ^.^|async ^.^|_any_ ^.^|_any_ ^.^|_any_ ^.^|201 ^.^|application/json .^|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] .^|<<req_core_process-execute-success-async,/req/core/process-execute-success-async>>
 |===
 
-NOTE: The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
+[NOTE]
+====
+The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
+
+This table shows all possible execution paths that are specified by this standard. 
+
+Not all of these paths need to be implemented by a server conforming to this standard.
+
+ - If a server offers a process that supports multiple outputs by value, the server shall support multipart/related responses.
+ - If a server only supports outputs by reference, it does not have to support multipart/related responses.
+====
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[The following is the schema (results.yaml) for a processing results presented as a document.]
 [source,yaml]
