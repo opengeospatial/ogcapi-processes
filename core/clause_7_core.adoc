@@ -67,12 +67,12 @@ include::requirements/core/REQ_landingpage-success.adoc[]
 
 [NOTE]
 =====================================================================
-The requests/responses of the API specified in this standard are defined using OpenAPI 3.0 schemas. Servers that conform to this standard 
+The term "_...based upon the OpenAPI 3.0 schema..._" used in the requirements of this specification means that OpenAPI 3.0 is used to define:
 
-* shall use all required properties of the respective request/response schema,
-* can use optional properties of the respective request/response schema,
-* may use additional properties.
+* all the required properties of the respective request/response schema,
+* and any optional properties of the respective request/response schema.
 
+It also mean that unless explicitly excluded these schemas are extensible with additional properties not defined in the schema using the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#schemaObject[`additionalProperties`] mechanism defined in the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md[OpenAPI 3.0 specification].
 =====================================================================
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml[The following is the schema for the landing page (landingPage.yaml).]
@@ -928,12 +928,7 @@ The following table maps the possible responses based on the combinations of the
 ====
 The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
 
-This table shows all possible execution paths that are specified by this standard. 
-
-Not all of these paths need to be implemented by a server conforming to this standard.
-
- - If a server offers a process that supports multiple outputs by value, the server shall support multipart/related responses.
- - If a server only supports outputs by reference, it does not have to support multipart/related responses.
+This table shows all possible combinations of execute parameters that are specified by this standard.  Not all of these combinations need to be implemented by a server conforming to this standard.  For example, if a server only offers processes that support multiple outputs **by value**, then the server **must** support `multipart/related` responses as indicated in <<table_core_execute_responses>>.  If, on the other hand, the server only offers processes that support multiple outputs **by reference**, then the server does not need to support `multipart/related` responses.
 ====
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[The following is the schema (results.yaml) for a processing results presented as a document.]
