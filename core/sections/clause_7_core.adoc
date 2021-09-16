@@ -71,14 +71,14 @@ include::../requirements/core/REQ_landingpage-op.adoc[]
 include::../requirements/core/REQ_landingpage-success.adoc[]
 
 [NOTE]
-=====================================================================
+====
 The term "_...based upon the OpenAPI 3.0 schema..._" used in the requirements of this specification means that OpenAPI 3.0 is used to define:
 
 * all the required properties of the respective request/response schema,
 * and any optional properties of the respective request/response schema.
 
 It also mean that unless explicitly excluded these schemas are extensible with additional properties not defined in the schema using the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#schemaObject[`additionalProperties`] mechanism defined in the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md[OpenAPI 3.0 specification].
-=====================================================================
+====
 
 .link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/landingPage.yaml[The following is the schema for the landing page (landingPage.yaml).]
 [source,yaml]
@@ -94,12 +94,12 @@ include::../openapi/schemas/link.yaml[]
 ----
 
 .Landing page response document
-=================
+====
 [source,json]
 ----
 include::../examples/json/LandingPage.json[]
 ----
-=================
+====
 
 ==== Error situations
 
