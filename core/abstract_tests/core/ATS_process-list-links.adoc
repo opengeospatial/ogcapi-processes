@@ -1,11 +1,31 @@
 [[ats_core_pl-links]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/pl-links*
-^|Test Purpose |Validate that the proper links are included in a response.
-^|Requirement |<<req_core_pl-links,/req/core/pl-links>>
-^|Test Method |. Get a list of process summaries as per test <<ats_core_process-list-op,/conf/core/process-list-op>>.
-. Verify that the `links` section of the response contains a link with `rel=self`. 
-. Verify that the `links` section of the response contains a link with `rel=alternate` for each response representation the service claims to support in its <<sc_conformance,conformance document>>.
+[requirement,type="abstracttest",label="/conf/core/pl-links",subject='<<req_core_pl-links,/req/core/pl-links>>']
+====
+[.component,class=test-purpose]
 --
+Validate that the proper links are included in a response.
+--
+
+[.component,class=test method type]
+--
+Manual Inspection
+--
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Get a list of process summaries as per test <<ats_core_process-list-op,/conf/core/process-list-op>>.
+--
+
+[.component,class=step]
+--
+Verify that the `links` section of the response contains a link with `rel=self`.
+--
+
+[.component,class=step]
+--
+Verify that the `links` section of the response contains a link with `rel=alternate` for each response representation the service claims to support in its <<sc_conformance,conformance document>>.
+--
+=====
 ====
