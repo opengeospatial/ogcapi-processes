@@ -1,6 +1,11 @@
 [[rc_transactions]]
-[requirement,type="class",label="http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/transactions",obligation="requirement",subject="Web API"]
+[requirement]
 ====
-inherit:[<<OAProc-1,OGC API - Processes - Part 1: Core, Conformance Class 'core'>>]
-inherit:[<<rfc2616,RFC 2616 (HTTP/1.1)>>]
+[%metadata]
+type:: class
+label:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/transactions
+obligation:: requirement
+subject:: Web API
+inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core, Conformance Class 'core'>>
+inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
 ====

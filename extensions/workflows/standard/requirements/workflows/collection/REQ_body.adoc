@@ -1,8 +1,8 @@
 [[req_workflows_collection_insert_body]]
-[.requirement,type="general",label="/req/workflows/collection/body"]
+[requirement]
 ====
-[.component,class=part]
---
-The body of the POST request shall contain a process (workflow) execution document describing the workflow to set up.
---
+[%metadata]
+type:: general
+label:: /req/workflows/collection/body
+part:: The body of the POST request shall contain a process (workflow) execution document describing the workflow to set up.
 ====

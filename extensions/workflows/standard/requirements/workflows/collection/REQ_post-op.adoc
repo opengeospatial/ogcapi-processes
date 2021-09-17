@@ -1,8 +1,8 @@
 [[req_workflows_collection-post-op]]
-[.requirement,type="general",label="/req/workflows/collection/post-op"]
+[requirement]
 ====
-[.component,class=part]
---
-The server shall support the HTTP POST operation at the path '/processes/{processId}'.
---
+[%metadata]
+type:: general
+label:: /req/workflows/collection/post-op
+part:: The server shall support the HTTP POST operation at the path '/processes/{processId}'.
 ====

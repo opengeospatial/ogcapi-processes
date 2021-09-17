@@ -1,8 +1,8 @@
 [[req_workflows_collection_response-body]]
-[.requirement,type="general",label="/req/workflows/collection/response-body"]
+[requirement]
 ====
-[.component,class=part]
---
-The response shall include a body that describe the collection(s) resulting from the submitted workflow.
---
+[%metadata]
+type:: general
+label:: /req/workflows/collection/response-body
+part:: The response shall include a body that describe the collection(s) resulting from the submitted workflow.
 ====
