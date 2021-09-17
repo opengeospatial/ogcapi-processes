@@ -3,8 +3,6 @@
 
 === Terms and definitions
 
-For the purposes of this document, the following additional terms and definitions apply.
-
 === Job
 
 The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.

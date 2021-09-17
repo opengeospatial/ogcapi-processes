@@ -1,6 +1,6 @@
 = OGC API - Processes - Part 1: Core
 :doctype: standard
-:docsubtype: Interface
+:docsubtype: implementation
 :edition: 1.0
 :language: en
 :docnumber: 18-062

@@ -1,6 +1,6 @@
 = OGC API - Processes - Part 3: Workflows
 :doctype: standard
-:docsubtype: interface
+:docsubtype: implementation
 :status: draft
 :docnumber: 21-009
 :copyright-year: 2020

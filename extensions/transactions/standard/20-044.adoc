@@ -1,6 +1,6 @@
 = OGC API - Processes - Part 2: Transactions
 :doctype: standard
-:docsubtype: interface
+:docsubtype: implementation
 :docnumber: 20-044
 :status: draft
 :copyright-year: 2019

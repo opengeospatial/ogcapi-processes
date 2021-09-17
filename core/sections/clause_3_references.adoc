@@ -2,13 +2,11 @@
 [bibliography]
 == References
 
-* [[[OGC_14-065,OGC 14-065]]], OGC 14-065, OGC WPS 2.0 Interface Standard, version 2.0.2
+* [[[OGC_08-131r3,OGC 08-131r3]]], OGC 08-131r3 -- The Specification Model -- A Standard for Modular Specifications
 
 * [[[OGC_06-121r9,OGC 06-121r9]]], OGC 06-121r9, OGC Web Service Common Specification, version 2.0
 
-* [[[OGC_08-131r3,OGC 08-131r3]]], OGC 08-131r3 -- The Specification Model -- A Standard for Modular Specifications
-
-* [[[jsonschemavalidation,JSON Schema Validation]]] JSON Schema Validation: A Vocabulary for Structural Validation of JSON. https://json-schema.org/draft/2020-12/json-schema-validation.html
+* [[[OGC_14-065,OGC 14-065]]], OGC 14-065, OGC WPS 2.0 Interface Standard, version 2.0.2
 
 * [[[rfc2246,IETF RFC 2246]]], IETF RFC 2246. Transport Layer Security. http://tools.ietf.org/html/rfc2246
 
@@ -29,3 +27,5 @@
 * [[[rfc7240,IETF RFC 7240]]], IETF RFC 7240: Prefer Header for HTTP. https://tools.ietf.org/html/rfc7240
 
 * [[[rfc8288,IETF RFC 8288]]], IETF RFC 8288: Web Linking https://tools.ietf.org/html/rfc8288
+
+* [[[jsonschemavalidation,JSON Schema Validation]]] JSON Schema Validation: A Vocabulary for Structural Validation of JSON. https://json-schema.org/draft/2020-12/json-schema-validation.html
