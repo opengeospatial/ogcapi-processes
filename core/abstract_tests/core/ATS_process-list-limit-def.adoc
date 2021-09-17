@@ -1,10 +1,11 @@
 [[ats_core_pl-limit-definition]]
-[requirement,type="abstracttest",label="/conf/core/pl-limit-definition",subject='<<req_core-pl-limit-definition,/req/core/pl-limit-definition>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the `limit` query parameter is constructed correctly.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/pl-limit-definition
+subject:: <<req_core-pl-limit-definition,/req/core/pl-limit-definition>>
+test-purpose:: Validate that the `limit` query parameter is constructed correctly.
 
 [.component,class=test method type]
 --

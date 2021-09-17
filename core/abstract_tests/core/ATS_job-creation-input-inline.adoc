@@ -1,10 +1,11 @@
 [[ats_core_job-creation-input-inline]]
-[requirement,type="abstracttest",label="/conf/core/job-creation-input-inline",subject='<<req_core_job-creations-input-inline,/req/core/job-creation-input-inline>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate in-line process input values are validated against the corresponding schema from the process description.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/job-creation-input-inline
+subject:: <<req_core_job-creations-input-inline,/req/core/job-creation-input-inline>>
+test-purpose:: Validate in-line process input values are validated against the corresponding schema from the process description.
 
 [.component,class=test method type]
 --

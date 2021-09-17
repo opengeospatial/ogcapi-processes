@@ -1,10 +1,11 @@
 [[ats_core_job-results-async-raw-value-multi]]
-[requirement,type="abstracttest",label="/conf/core/job-results-async-raw-value-multi",subject='<<req_core_job-results-async-raw-value-multi,/req/core/job-results-async-raw-value-multi>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the server responds as expected when asynchronous execution is <sc_execution_mode,negotiated>>, more than one output is requested, the response type is `raw` and the output transmission is `value`.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/job-results-async-raw-value-multi
+subject:: <<req_core_job-results-async-raw-value-multi,/req/core/job-results-async-raw-value-multi>>
+test-purpose:: Validate that the server responds as expected when asynchronous execution is <sc_execution_mode,negotiated>>, more than one output is requested, the response type is `raw` and the output transmission is `value`.
 
 [.component,class=test method type]
 --

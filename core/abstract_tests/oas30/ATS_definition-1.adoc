@@ -1,10 +1,11 @@
 [[ats_oas30_oas-definition-1]]
-[requirement,type="abstracttest",label="/conf/oas30/oas-definition-1",subject='<<req_oas30_oas-definition-1,/req/oas30/oas-definition-1>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Verify that JSON and HTML versions of the OpenAPI document are available.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/oas30/oas-definition-1
+subject:: <<req_oas30_oas-definition-1,/req/oas30/oas-definition-1>>
+test-purpose:: Verify that JSON and HTML versions of the OpenAPI document are available.
 
 [.component,class=test method type]
 --

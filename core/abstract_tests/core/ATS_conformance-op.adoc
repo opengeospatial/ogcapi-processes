@@ -1,10 +1,11 @@
 [[ats_core_conformance-op]]
-[requirement,type="abstracttest",label="/conf/core/conformance-op",subject='<<req_core_conformance-op,/req/core/conformance-op>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that a Conformance Declaration can be retrieved from the expected location.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/conformance-op
+subject:: <<req_core_conformance-op,/req/core/conformance-op>>
+test-purpose:: Validate that a Conformance Declaration can be retrieved from the expected location.
 
 [.component,class=test method type]
 --

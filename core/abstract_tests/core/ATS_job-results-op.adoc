@@ -1,10 +1,11 @@
 [[ats_core_job-results-op]]
-[requirement,type="abstracttest",label="/conf/core/job-results",subject='<<req_core_job-results,/req/core/job-results>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the results of a job can be retrieved.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/job-results
+subject:: <<req_core_job-results,/req/core/job-results>>
+test-purpose:: Validate that the results of a job can be retrieved.
 
 [.component,class=test method type]
 --

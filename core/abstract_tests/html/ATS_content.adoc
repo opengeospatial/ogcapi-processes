@@ -1,10 +1,11 @@
 [[ats_html_content]]
-[requirement,type="abstracttest",label="/conf/html/content",subject='<<req_html_content,/req/html/content>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Verify the content of an HTML document given an input document and schema. 
---
+[%metadata]
+type:: abstracttest
+label:: /conf/html/content
+subject:: <<req_html_content,/req/html/content>>
+test-purpose:: Verify the content of an HTML document given an input document and schema. 
 
 [.component,class=test method type]
 --

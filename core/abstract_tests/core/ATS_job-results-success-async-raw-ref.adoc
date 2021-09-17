@@ -1,10 +1,11 @@
 [[ats_core_job-results-async-raw-ref]]
-[requirement,type="abstracttest",label="/conf/core/job-results-async-raw-ref",subject='<<req_core_job-results-async-raw-ref,/req/core/job-results-async-raw-ref>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the server responds as expected when asynchronous execution is <,sc_execution_mode,negotiated>>, the response type is `raw` and the output transmission is `reference`.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/job-results-async-raw-ref
+subject:: <<req_core_job-results-async-raw-ref,/req/core/job-results-async-raw-ref>>
+test-purpose:: Validate that the server responds as expected when asynchronous execution is <,sc_execution_mode,negotiated>>, the response type is `raw` and the output transmission is `reference`.
 
 [.component,class=test method type]
 --

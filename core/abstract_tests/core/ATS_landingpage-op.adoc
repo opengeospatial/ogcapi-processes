@@ -1,10 +1,11 @@
 [[ats_core_landingpage-op]]
-[requirement,type="abstracttest",label="/conf/core/landingpage-op",subject='<<req_core_landingpage-op,/req/core/landingpage-op>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that a landing page can be retrieved from the expected location.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/landingpage-op
+subject:: <<req_core_landingpage-op,/req/core/landingpage-op>>
+test-purpose:: Validate that a landing page can be retrieved from the expected location.
 
 [.component,class=test method type]
 --

@@ -1,10 +1,11 @@
 [[ats_core_job-results-async-raw-value-one]]
-[requirement,type="abstracttest",label="/conf/core/job-results-async-raw-value-one",subject='<<req_core_job-results-async-raw-value-one,/req/core/job-results-async-raw-value-one>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the server responds as expected when asynchronous execution is <<sc_execution_mode,negotiated>>, one output is requested, the response type is `raw` and the output transmission is `value`.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/job-results-async-raw-value-one
+subject:: <<req_core_job-results-async-raw-value-one,/req/core/job-results-async-raw-value-one>>
+test-purpose:: Validate that the server responds as expected when asynchronous execution is <<sc_execution_mode,negotiated>>, one output is requested, the response type is `raw` and the output transmission is `value`.
 
 [.component,class=test method type]
 --

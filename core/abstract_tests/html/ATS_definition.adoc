@@ -1,10 +1,11 @@
 [[ats_html_definition]]
-[requirement,type="abstracttest",label="/conf/html/definition",subject='<<req_html_definition,/req/html/definition>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Verify support for HTML
---
+[%metadata]
+type:: abstracttest
+label:: /conf/html/definition
+subject:: <<req_html_definition,/req/html/definition>>
+test-purpose:: Verify support for HTML
 
 [.component,class=test method type]
 --

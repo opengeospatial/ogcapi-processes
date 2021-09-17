@@ -1,10 +1,11 @@
 [[ats_job-list_datetime-definition]]
-[requirement,type="abstracttest",label="/conf/job-list/datetime-definition",subject='<<req_job-list-datetime-definition,/req/job-list/datetime-definition>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the `datetime` query parameter is constructed correctly.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/job-list/datetime-definition
+subject:: <<req_job-list-datetime-definition,/req/job-list/datetime-definition>>
+test-purpose:: Validate that the `datetime` query parameter is constructed correctly.
 
 [.component,class=test method type]
 --

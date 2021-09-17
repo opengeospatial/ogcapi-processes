@@ -1,10 +1,11 @@
 [[ats_core_job-creation-sync-document]]
-[requirement,type="abstracttest",label="/conf/core/job-creation-sync-document",subject='<<req_core_job-creation-sync-document,/req/core/job-creation-sync-document>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the server responds as expected when synchronous execution is <<sc_execution_code,negotiated>> and the response type is `document`.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/job-creation-sync-document
+subject:: <<req_core_job-creation-sync-document,/req/core/job-creation-sync-document>>
+test-purpose:: Validate that the server responds as expected when synchronous execution is <<sc_execution_code,negotiated>> and the response type is `document`.
 
 [.component,class=test method type]
 --

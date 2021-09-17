@@ -1,10 +1,11 @@
 [[ats_job-list_limit-response]]
-[requirement,type="abstracttest",label="/conf/job-list/limit-response",subject='<<req_job-list_limit-response,/req/job-list/limit-response>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the `limit` query parameter is processed correctly.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/job-list/limit-response
+subject:: <<req_job-list_limit-response,/req/job-list/limit-response>>
+test-purpose:: Validate that the `limit` query parameter is processed correctly.
 
 [.component,class=test method type]
 --

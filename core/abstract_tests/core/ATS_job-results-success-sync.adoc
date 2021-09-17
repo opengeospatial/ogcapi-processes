@@ -1,10 +1,11 @@
 [[ats_core_job-results-sync]]
-[requirement,type="abstracttest",label="/conf/core/job-results-sync",subject='<<req_core_job-results-sync,/req/core/job-results-sync>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the server responds as expected when getting results from a job for a process that has been executed synchronously.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/job-results-sync
+subject:: <<req_core_job-results-sync,/req/core/job-results-sync>>
+test-purpose:: Validate that the server responds as expected when getting results from a job for a process that has been executed synchronously.
 
 [.component,class=test method type]
 --

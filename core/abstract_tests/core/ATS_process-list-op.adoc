@@ -1,10 +1,11 @@
 [[ats_core_process-list]]
-[requirement,type="abstracttest",label="/conf/core/process-list",subject='<<req_core_process-list,/req/core/process-list>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that information about the processes can be retrieved from the expected location.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/process-list
+subject:: <<req_core_process-list,/req/core/process-list>>
+test-purpose:: Validate that information about the processes can be retrieved from the expected location.
 
 [.component,class=test method type]
 --

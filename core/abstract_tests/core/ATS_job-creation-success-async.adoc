@@ -1,10 +1,11 @@
 [[ats_core_job-creation-success-async]]
-[requirement,type="abstracttest",label="/conf/core/job-creation-success-async",subject='<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate the results of a job that has been created using the `async` execution mode.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/job-creation-success-async
+subject:: <<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
+test-purpose:: Validate the results of a job that has been created using the `async` execution mode.
 
 [.component,class=test method type]
 --

@@ -1,10 +1,11 @@
 [[ats_core_job-creation-input-inline-mixed]]
-[requirement,type="abstracttest",label="/conf/core/job-creation-input-inline-mixed",subject='<<req_core_job-creation-input-inline-mixed,/req/core/job-creation-input-inline-mixed>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that inputs of mixed content encoded in-line in an execute request are correctly processed.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/job-creation-input-inline-mixed
+subject:: <<req_core_job-creation-input-inline-mixed,/req/core/job-creation-input-inline-mixed>>
+test-purpose:: Validate that inputs of mixed content encoded in-line in an execute request are correctly processed.
 
 [.component,class=test method type]
 --

@@ -1,10 +1,11 @@
 [[ats_core_api-definition-op]]
-[requirement,type="abstracttest",label="/conf/core/api-definition-op",subject='<<req_core_api-definition-op,/req/core/api-definition-op>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the API Definition document can be retrieved from the expected location.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/api-definition-op
+subject:: <<req_core_api-definition-op,/req/core/api-definition-op>>
+test-purpose:: Validate that the API Definition document can be retrieved from the expected location.
 
 [.component,class=test method type]
 --

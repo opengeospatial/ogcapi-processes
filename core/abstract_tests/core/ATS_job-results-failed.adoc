@@ -1,10 +1,11 @@
 [[ats_core_job-results-failed]]
-[requirement,type="abstracttest",label="/conf/core/job-results-failed",subject='<<req_core_job-results-failed,/req/core/job-results-failed>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the job results for a failed job complies with the require structure and contents.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/job-results-failed
+subject:: <<req_core_job-results-failed,/req/core/job-results-failed>>
+test-purpose:: Validate that the job results for a failed job complies with the require structure and contents.
 
 [.component,class=test method type]
 --

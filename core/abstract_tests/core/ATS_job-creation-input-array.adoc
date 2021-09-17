@@ -1,10 +1,11 @@
 [[ats_core_job-creation-input-array]]
-[requirement,type="abstracttest",label="/conf/core/job-creation-input-array",subject='<<req_core_job-creations-input-array,/req/core/job-creation-input-array>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Verify that the server correctly recognizes the encoding of parameter values for input parameters with a maximum cardinality greater than one.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/job-creation-input-array
+subject:: <<req_core_job-creations-input-array,/req/core/job-creation-input-array>>
+test-purpose:: Verify that the server correctly recognizes the encoding of parameter values for input parameters with a maximum cardinality greater than one.
 
 [.component,class=test method type]
 --

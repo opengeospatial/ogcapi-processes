@@ -1,10 +1,11 @@
 [[ats_job-list_processID-response]]
-[requirement,type="abstracttest",label="/conf/job-list/processID-response",subject='<<req_job-list_processID-response,/req/job-list/processID-response>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the `processID` query parameter is processed correctly.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/job-list/processID-response
+subject:: <<req_job-list_processID-response,/req/job-list/processID-response>>
+test-purpose:: Validate that the `processID` query parameter is processed correctly.
 
 [.component,class=test method type]
 --

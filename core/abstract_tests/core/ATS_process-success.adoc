@@ -1,10 +1,11 @@
 [[ats_core_process-success]]
-[requirement,type="abstracttest",label="/conf/core/process-success",subject='<<req_core_process-success,/req/core/process-success>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the content complies with the required structure and contents.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/process-success
+subject:: <<req_core_process-success,/req/core/process-success>>
+test-purpose:: Validate that the content complies with the required structure and contents.
 
 [.component,class=test method type]
 --

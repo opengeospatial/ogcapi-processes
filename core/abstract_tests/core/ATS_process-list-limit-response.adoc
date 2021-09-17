@@ -1,10 +1,11 @@
 [[ats_core_pl-limit-response]]
-[requirement,type="abstracttest",label="/conf/core/pl-limit-response",subject='<<req_core_pl-limit-response,/req/core/pl-limit-response>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the `limit` query parameter is processed correctly.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/pl-limit-response
+subject:: <<req_core_pl-limit-response,/req/core/pl-limit-response>>
+test-purpose:: Validate that the `limit` query parameter is processed correctly.
 
 [.component,class=test method type]
 --

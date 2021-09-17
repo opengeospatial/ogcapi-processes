@@ -1,10 +1,11 @@
 [[ats_core_job-creation-sync-raw-ref]]
-[requirement,type="abstracttest",label="/conf/core/job-creation-sync-raw-ref",subject='<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>']
+[requirement]
 ====
-[.component,class=test-purpose]
---
-Validate that the server responds as expected when synchronous execution is <<sc_execution_mode,negotiated>>, the response type is `raw` and the transmission mode is `ref`.
---
+[%metadata]
+type:: abstracttest
+label:: /conf/core/job-creation-sync-raw-ref
+subject:: <<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
+test-purpose:: Validate that the server responds as expected when synchronous execution is <<sc_execution_mode,negotiated>>, the response type is `raw` and the transmission mode is `ref`.
 
 [.component,class=test method type]
 --
