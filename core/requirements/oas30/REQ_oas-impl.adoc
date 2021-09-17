@@ -1,6 +1,10 @@
 [[req_oas30_oas-impl]]
-[.requirement,label="/req/oas30/oas-impl"]
+[requirement]
 ====
+[%metadata]
+type:: general
+label:: /req/oas30/oas-impl
+
 
 The server SHALL implement all capabilities specified in the OpenAPI
 definition.

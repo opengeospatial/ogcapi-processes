@@ -1,9 +1,8 @@
 [[per_transactions_insert_body]]
-[.permission,label="/per/transaction/insert/body"]
+[permission]
 ====
-[.component,class=part]
---
-A server may support any processes description encoding in the body of a HTTP POST operation.
---
+[%metadata]
+label:: /per/transaction/insert/body
+part:: A server may support any processes description encoding in the body of a HTTP POST operation.
 ====
 

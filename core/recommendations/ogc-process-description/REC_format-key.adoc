@@ -1,8 +1,7 @@
 [[rec_ogc-process-description_format-key]]
-[.recommendation,label="/rec/ogc-process-description/format-key"]
+[recommendation]
 ====
-[.component,class=part]
---
-Servers SHOULD use the `format` key in the schema description of a process input or output (key: `schema`) to provide additional semantic context that can aid in the interpretation and validation of process input or output values in an <<sc_create_job,execute>> request.
---
+[%metadata]
+label:: /rec/ogc-process-description/format-key
+part:: Servers SHOULD use the `format` key in the schema description of a process input or output (key: `schema`) to provide additional semantic context that can aid in the interpretation and validation of process input or output values in an <<sc_create_job,execute>> request.
 ====

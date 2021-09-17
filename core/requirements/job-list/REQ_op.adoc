@@ -1,5 +1,9 @@
 [[req_job-list_job-list-op]]
-[.requirement,label="/req/job-list/job-list-op"]
+[requirement]
 ====
+[%metadata]
+type:: general
+label:: /req/job-list/job-list-op
+
 The server SHALL support the HTTP GET operation at the path `/jobs`.
 ====

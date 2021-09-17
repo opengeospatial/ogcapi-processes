@@ -1,5 +1,9 @@
 [[req_core_job-results-async-document]]
-[.requirement,label="/req/core/job-results-async-document"]
+[requirement]
 ====
+[%metadata]
+type:: general
+label:: /req/core/job-results-async-document
+
 The server SHALL response as per requirement <<req_core_process-execute-sync-document,/req/core/process-execute-sync-document>>.
 ====

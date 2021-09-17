@@ -1,6 +1,10 @@
 [[req_json_definition]]
-[.requirement,label="/req/json/definition"]
+[requirement]
 ====
+[%metadata]
+type:: general
+label:: /req/json/definition
+
 
 `200`-responses of the server SHALL support the following media type:
 

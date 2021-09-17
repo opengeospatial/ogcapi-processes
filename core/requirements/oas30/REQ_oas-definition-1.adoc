@@ -1,8 +1,8 @@
 [[req_oas30_oas-definition-1]]
-[.requirement,label="/req/oas30/oas-definition-1"]
+[requirement]
 ====
-[.component,class=part]
---
-An OpenAPI definition in JSON using the media type `application/vnd.oai.openapi+json;version=3.0` and a HTML version of the API definition using the media type `text/html` SHALL be available.
---
+[%metadata]
+type:: general
+label:: /req/oas30/oas-definition-1
+part:: An OpenAPI definition in JSON using the media type `application/vnd.oai.openapi+json;version=3.0` and a HTML version of the API definition using the media type `text/html` SHALL be available.
 ====

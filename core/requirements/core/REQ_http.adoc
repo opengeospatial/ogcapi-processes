@@ -1,7 +1,11 @@
 
 [[req_core_http]]
-[.requirement,label="/req/core/http"]
+[requirement]
 ====
+[%metadata]
+type:: general
+label:: /req/core/http
+
 The server SHALL conform to <<rfc2616,HTTP 1.1>>.
 
 If the server supports HTTPS, the server SHALL also conform to

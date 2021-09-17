@@ -1,8 +1,8 @@
 [[req_transactions_update_response]]
-[.requirement,label="/req/transactions/update/response"]
+[requirement]
 ====
-[.component,class=part]
---
-A successful execution of the operation shall be reported as a response with a HTTP status code '204'.
---
+[%metadata]
+type:: general
+label:: /req/transactions/update/response
+part:: A successful execution of the operation shall be reported as a response with a HTTP status code '204'.
 ====

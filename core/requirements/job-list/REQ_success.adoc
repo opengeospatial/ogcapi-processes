@@ -1,6 +1,10 @@
 [[req_core_process-list-success]]
-[.requirement,label="/req/job-list/job-list-success"]
+[requirement]
 ====
+[%metadata]
+type:: general
+label:: /req/job-list/job-list-success
+
 
 A successful execution of the operation SHALL be reported as a
 response with a HTTP status code 200.

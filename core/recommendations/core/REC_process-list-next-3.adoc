@@ -1,8 +1,7 @@
 [[rec_core_next-3]]
-[.recommendation,label="/rec/core/next-3"]
+[recommendation]
 ====
-[.component,class=part]
---
-The number of process summaries in a response to a `next` link SHOULD follow the same rules as for the response to the original query and again include a `next` link, if there are more process summaries in the selection that have not yet been returned.
---
+[%metadata]
+label:: /rec/core/next-3
+part:: The number of process summaries in a response to a `next` link SHOULD follow the same rules as for the response to the original query and again include a `next` link, if there are more process summaries in the selection that have not yet been returned.
 ====

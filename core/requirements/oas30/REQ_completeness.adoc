@@ -1,6 +1,10 @@
 [[req_oas30_completeness]]
-[.requirement,label="/req/oas30/completeness"]
+[requirement]
 ====
+[%metadata]
+type:: general
+label:: /req/oas30/completeness
+
 
 The OpenAPI definition SHALL specify for each operation all
 link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#httpCodes[HTTP Status Codes]

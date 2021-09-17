@@ -1,18 +1,12 @@
 [[rec_ogcapppkg_execution-unit-docker]]
-[.recommendation,label="/rec/ogcapppkg/execution-unit-docker"]
+[recommendation]
 ====
-[.component,class=part]
---
-If the execution unit is a Docker image then it is recommended that the contents of the execution unit be the properties `type` and `image`.
---
+[%metadata]
+label:: /rec/ogcapppkg/execution-unit-docker
 
-[.component,class=part]
---
-The value of the `type` property shall be `docker'.
---
+part:: If the execution unit is a Docker image then it is recommended that the contents of the execution unit be the properties `type` and `image`.
 
-[.component,class=part]
---
-The value of the `image` property shall be a reference to the Docker image.
---
+part:: The value of the `type` property shall be `docker'.
+
+part:: The value of the `image` property shall be a reference to the Docker image.
 ====

@@ -1,5 +1,8 @@
 [[per_core_alternative-process-description]]
-[.permission,label="/per/core/alternative-process-description"]
+[permission]
 ====
+[%metadata]
+label:: /per/core/alternative-process-description
+
 Servers MAY support alternative means of describing the inputs and outputs of a process.
 ====

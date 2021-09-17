@@ -1,8 +1,8 @@
 [[req_ogcapppkg_schema]]
-[.requirement,label="/req/ogcapppkg/schema"]
+[requirement]
 ====
-[.component,class=part]
---
-An `OGC Application Package` document shall be based upon the schema http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[ogcapppkg.yaml].
---
+[%metadata]
+type:: general
+label:: /req/ogcapppkg/schema
+part:: An `OGC Application Package` document shall be based upon the schema http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[ogcapppkg.yaml].
 ====

@@ -1,18 +1,13 @@
 [[req_ogc-process-description_output-mixed-type]]
-[.requirement,label="/req/ogc-process-description/output-mixed-type"]
+[requirement]
 ====
-[.component,class=part]
---
-An output that can be of mixed type SHALL be defined using the https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3[`oneOf`] JSON Schema keyword.
---
+[%metadata]
+type:: general
+label:: /req/ogc-process-description/output-mixed-type
 
-[.component,class=part]
---
-Each sub-schema SHALL be a JSON fragment that validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
---
+part:: An output that can be of mixed type SHALL be defined using the https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3[`oneOf`] JSON Schema keyword.
 
-[.component,class=part]
---
-The first sub-schema in the https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3[`oneOf`] array SHALL be considered the default format.
---
+part:: Each sub-schema SHALL be a JSON fragment that validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
+
+part:: The first sub-schema in the https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3[`oneOf`] array SHALL be considered the default format.
 ====

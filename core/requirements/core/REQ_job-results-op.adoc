@@ -1,5 +1,9 @@
 [[req_core_job-results]]
-[.requirement,label="/req/core/job-results"]
+[requirement]
 ====
+[%metadata]
+type:: general
+label:: /req/core/job-results
+
 The server SHALL support the HTTP GET operation at the path `/jobs/{jobID}/results`.
 ====

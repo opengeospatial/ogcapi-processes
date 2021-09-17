@@ -1,13 +1,9 @@
 [[req_transactions_update_put-op]]
-[.requirement,label="/req/transactions/update/put-op"]
+[requirement]
 ====
-[.component,class=part]
---
-For every dynamically added processes (path '/processes/{processId}'), the server shall support the HTTP PUT operation.
---
-
-[.component,class=part]
---
-The parameter 'processId' is each 'id' property in the process collection response (JSONPath: '$.processes[*].id').
---
+[%metadata]
+type:: general
+label:: /req/transactions/update/put-op
+part:: For every dynamically added processes (path '/processes/{processId}'), the server shall support the HTTP PUT operation.
+part:: The parameter 'processId' is each 'id' property in the process collection response (JSONPath: '$.processes[*].id').
 ====

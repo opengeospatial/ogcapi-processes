@@ -1,7 +1,11 @@
 [[rec_core_link-header]]
-[.recommendation,label="/rec/core/link-header"]
+[recommendation]
 ====
-[.component,class=part]
+[%metadata]
+label:: /rec/core/link-header
+
+part::
++
 --
 Links included in payload of responses SHOULD also be included as `Link` headers in the HTTP response according to <<rfc8288,RFC 8288, Clause 3>>.
 

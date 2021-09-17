@@ -1,7 +1,11 @@
 [[req_core_pl-limit-definition]]
-[.requirement,label="/req/core/pl-limit-definition"]
+[requirement]
 ====
-[.component,class=part]
+[%metadata]
+type:: general
+label:: /req/core/pl-limit-definition
+part::
++
 --
 The operation SHALL support a parameter `limit` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 

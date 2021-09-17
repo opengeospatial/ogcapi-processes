@@ -1,6 +1,9 @@
 [[rec_core_html]]
-[.recommendation,label="/rec/core/html"]
+[recommendation]
 ====
+[%metadata]
+label:: /rec/core/html
+
 To support browsing an OGC API - Processes with a web browser and to enable search engines to crawl
 and index a process, implementations SHOULD consider to support an HTML encoding.
 ====

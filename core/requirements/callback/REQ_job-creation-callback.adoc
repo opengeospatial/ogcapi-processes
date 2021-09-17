@@ -1,6 +1,9 @@
 [[req_callback_job-callback]]
-[.requirement,label="/req/callback/job-callback"]
+[requirement]
 ====
+[%metadata]
+type:: general
+label:: /req/callback/job-callback
 
 The server SHALL support callback functions for jobs.
 ====

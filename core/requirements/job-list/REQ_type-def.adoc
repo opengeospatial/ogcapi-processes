@@ -1,7 +1,11 @@
 [[req_job-list_type-definition]]
-[.requirement,label="/req/job-list/type-definition"]
+[requirement]
 ====
-[.component,class=part]
+[%metadata]
+type:: general
+label:: /req/job-list/type-definition
+part::
++
 --
 The operation SHALL support a parameter `type` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 

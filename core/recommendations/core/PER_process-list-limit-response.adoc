@@ -1,8 +1,7 @@
 [[per_core_limit-response]]
-[.permission,label="/per/core/limit-response"]
+[permission]
 ====
-[.component,class=part]
---
-The server MAY return fewers process summaries than requested (but not more).
---
+[%metadata]
+label:: /per/core/limit-response
+part:: The server MAY return fewers process summaries than requested (but not more).
 ====

@@ -1,34 +1,24 @@
 [[req_core_process-execute-sync-raw-value-multi]]
-[.requirement,label="/req/core/process-execute-sync-raw-value-multi"]
+[requirement]
 ====
-[.component,class=conditions]
+[%metadata]
+type:: general
+label:: /req/core/process-execute-sync-raw-value-multi
+
+conditions::
++
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous, `response=raw`, `transmissionMode=value`
 . The number of requested outputs is greater than 1.
 --
 
-[.component,class=part]
---
-The server SHALL respond with an HTTP status code of 200.
---
+part:: The server SHALL respond with an HTTP status code of 200.
 
-[.component,class=part]
---
-The media type of the response SHALL be `multipart/related`.
---
+part:: The media type of the response SHALL be `multipart/related`.
 
-[.component,class=part]
---
-The content of response shall conform to https://datatracker.ietf.org/doc/html/rfc2387[RFC 2387, The MIME Multipart/Related Content-type].
---
+part:: The content of response shall conform to https://datatracker.ietf.org/doc/html/rfc2387[RFC 2387, The MIME Multipart/Related Content-type].
 
-[.component,class=part]
---
-Each requested output shall be encoded into one part of the response.
---
+part:: Each requested output shall be encoded into one part of the response.
 
-[.component,class=part]
---
-The `Content-ID` header for each part SHALL be the corresponding output identifier.
---
+part:: The `Content-ID` header for each part SHALL be the corresponding output identifier.
 ====

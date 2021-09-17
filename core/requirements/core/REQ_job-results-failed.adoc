@@ -1,6 +1,10 @@
 [[req_core_job-results-failed]]
-[.requirement,label="/req/core/job-results-failed"]
+[requirement]
 ====
+[%metadata]
+type:: general
+label:: /req/core/job-results-failed
+
 If the operation is executed on a failed job using a valid job identifier, the response SHALL have a HTTP error code that corresponds to the reason of the failure.
 The content of that response SHALL be based upon the OpenAPI
 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml[exception.yaml].

@@ -1,8 +1,8 @@
 [[req_transactions_insert_response-pid]]
-[.requirement,label="/req/transactions/insert/response-pid"]
+[requirement]
 ====
-[.component,class=part]
---
-If the operation completes successfully, the server shall assign the processes identifier (i.e. {processId}) specified in the processes description to the newly added processes.
---
+[%metadata]
+type:: general
+label:: /req/transactions/insert/response-pid
+part:: If the operation completes successfully, the server shall assign the processes identifier (i.e. {processId}) specified in the processes description to the newly added processes.
 ====

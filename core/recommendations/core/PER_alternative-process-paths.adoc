@@ -1,5 +1,8 @@
 [[per_core_alternative-process-paths]]
-[.permission,label="/per/core/alternative-process-paths"]
+[permission]
 ====
+[%metadata]
+label:: /per/core/alternative-process-paths
+
 Servers MAY support alternative API paths.
 ====

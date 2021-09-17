@@ -1,7 +1,11 @@
 
 [[req_core_conformance-success]]
-[.requirement,label="/req/core/conformance-success"]
+[requirement]
 ====
+[%metadata]
+type:: general
+label:: /req/core/conformance-success
+
 A successful execution of the operation SHALL be reported as a response with a
 HTTP status code `200`.
 

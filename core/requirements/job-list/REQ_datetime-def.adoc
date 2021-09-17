@@ -1,7 +1,12 @@
 [[req_job-list_datetime-definition]]
-[.requirement,label="/req/job-list/datetime-definition"]
+[requirement]
 ====
-[.component,class=part]
+[%metadata]
+type:: general
+label:: /req/job-list/datetime-definition
+
+part::
++
 --
 The operation SHALL support a parameter `datetime` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
@@ -15,7 +20,8 @@ schema:
 ----
 --
 
-[.component,class=part]
+part::
++
 --
 The value of the `datetime` parameter is either a date-time value or a time interval. The parameter value SHALL conform to the following syntax (using link:https://tools.ietf.org/html/rfc2234[ABNF]):
 
@@ -28,13 +34,7 @@ datetime            = date-time / interval
 ```
 --
 
-[.component,class=part]
---
-The syntax of `date-time` is specified by link:https://tools.ietf.org/html/rfc3339#section-5.6[RFC 3339, 5.6].
---
+part:: The syntax of `date-time` is specified by link:https://tools.ietf.org/html/rfc3339#section-5.6[RFC 3339, 5.6].
 
-[.component,class=part]
---
-Open ranges in time intervals at the start or end are supported using a double-dot (`..`) or an empty string for the start/end.
---
+part:: Open ranges in time intervals at the start or end are supported using a double-dot (`..`) or an empty string for the start/end.
 ====

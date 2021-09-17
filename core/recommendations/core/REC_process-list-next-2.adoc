@@ -1,8 +1,7 @@
 [[rec_core_next-2]]
-[.recommendation,label="/rec/core/next-2"]
+[recommendation]
 ====
-[.component,class=part]
---
-Dereferencing a `next` link SHOULD return additional process summaries from the set of selected process summaries that have not yet been returned.
---
+[%metadata]
+label:: /rec/core/next-2
+part:: Dereferencing a `next` link SHOULD return additional process summaries from the set of selected process summaries that have not yet been returned.
 ====

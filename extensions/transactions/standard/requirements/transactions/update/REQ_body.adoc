@@ -1,8 +1,8 @@
 [[req_transactions_update_body]]
-[.requirement,label="/req/transactions/update/body"]
+[requirement]
 ====
-[.component,class=part]
---
-The body of a PUT request shall contain a formal description of the replacement process.
---
+[%metadata]
+type:: general
+label:: /req/transactions/update/body
+part:: The body of a PUT request shall contain a formal description of the replacement process.
 ====

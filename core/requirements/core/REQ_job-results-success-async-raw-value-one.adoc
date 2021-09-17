@@ -1,5 +1,9 @@
 [[req_core_job-results-async-raw-value-one]]
-[.requirement,label="/req/core/job-results-async-raw-value-one"]
+[requirement]
 ====
+[%metadata]
+type:: general
+label:: /req/core/job-results-async-raw-value-one
+
 The server SHALL response as per requirement <<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>.
 ====

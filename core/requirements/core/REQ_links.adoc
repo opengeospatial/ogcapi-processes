@@ -1,7 +1,12 @@
 [[req_core_pl-links]] 
-[.requirement,label="/req/core/pl-links"]
+[requirement]
 ====
-[.component,class=part]
+[%metadata]
+type:: general
+label:: /req/core/pl-links
+
+part::
++
 --
 A `200`-response SHALL include the following links:
 

@@ -1,13 +1,9 @@
 [[req_transactions_insert_response]]
-[.requirement,label="/req/transactions/insert/response"]
+[requirement]
 ====
-[.component,class=part]
---
-A successful execution of the operation shall be reported as a response with a HTTP status code '201'.
---
-
-[.component,class=part]
---
-The response shall include a 'Location' header with the URL of the newly added processes with the path '/processes/{processId}'.
---
+[%metadata]
+type:: general
+label:: /req/transactions/insert/response
+part:: A successful execution of the operation shall be reported as a response with a HTTP status code '201'.
+part:: The response shall include a 'Location' header with the URL of the newly added processes with the path '/processes/{processId}'.
 ====

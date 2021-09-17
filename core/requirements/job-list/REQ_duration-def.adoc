@@ -1,7 +1,12 @@
 [[req_job-list_duration-definition]]
-[.requirement,label="/req/job-list/duration-definition"]
+[requirement]
 ====
-[.component,class=part]
+[%metadata]
+type:: general
+label:: /req/job-list/duration-definition
+
+part::
++
 --
 The operation SHALL support a parameter `minDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
@@ -17,7 +22,8 @@ schema:
 ----
 --
 
-[.component,class=part]
+part::
++
 --
 The operation SHALL support a parameter `maxDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
