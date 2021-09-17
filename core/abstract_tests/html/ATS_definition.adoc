@@ -6,8 +6,16 @@
 Verify support for HTML
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
+--
+Manual Inspection
+--
+
+[.component,class=test method]
+=====
+[.component,class=step]
 --
 Verify that every `200` response of every operation of the API where HTML was requested is of media type `text/html`.
 --
+=====
 ====

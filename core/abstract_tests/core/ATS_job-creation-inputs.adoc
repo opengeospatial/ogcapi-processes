@@ -6,8 +6,16 @@
 Validate that servers can accept input values both inline and by reference.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Verify that the server passes tests <<ats_core_job-creation-input-inline,/conf/core/job-creation-input-inline>> and <<ats_core_job-creation-input-ref,/conf/core/job-creation-input-ref>> .
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Verify that the server passes tests <<ats_core_job-creation-input-inline,/conf/core/job-creation-input-inline>> and <<ats_core_job-creation-input-ref,/conf/core/job-creation-input-ref>> .
+--
+=====
 ====

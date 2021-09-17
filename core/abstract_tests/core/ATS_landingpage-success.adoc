@@ -6,18 +6,43 @@
 Validate that the landing page complies with the require structure and contents.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Validate that a document was returned with an HTTP status code or 200.
-. Validate the landing page for all supported media types using the resources and tests identified in <<landing-page-schema>>
-. For formats that require manual inspection, perform the following:
+Manual Inspection
+--
 
-.. Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition.
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Validate that a document was returned with an HTTP status code or 200.
+--
 
-.. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration.
+[.component,class=step]
+--
+Validate the landing page for all supported media types using the resources and tests identified in <<landing-page-schema>>
+--
 
-.. Validate that the landing page includes a "processes" link to the list of processes.
-|===
+[.component,class=step]
+======
+For formats that require manual inspection, perform the following:
+
+[.component,class=step]
+--
+Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition.
+--
+
+[.component,class=step]
+--
+Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration.
+--
+
+[.component,class=step]
+--
+Validate that the landing page includes a "processes" link to the list of processes.
+--
+======
+=====
 
 The landing page may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the landing page against that schema. All supported formats should be exercised.
 ====

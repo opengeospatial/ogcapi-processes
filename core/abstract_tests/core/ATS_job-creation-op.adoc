@@ -6,10 +6,27 @@
 Validate the creation of a new job.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Issue an HTTP POST request to the URL '/processes/{processID}/execution' for each execution mode according to requirements <<req_core_job-creation-default-execution-mode,/conf/core/job-creation-default-execution-mode>> or <<req_core_job-creation-auto-execution-mode,/conf/core/job-creation-auto-execution-mode>>.
-. Validate the contents of the POST request using the test <<ats_core_job-creation-request,/conf/core/job-creation-request>>.
-. Validate the creation of the job according the requirements <<req_core_job-creation-default-execution-mode,/req/core/job-creation-default-execution-mode>>, <<req_core_job-creation-auto-execution-mode,/req/core/job-creation-auto-execution-mode>>.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Issue an HTTP POST request to the URL '/processes/{processID}/execution' for each execution mode according to requirements <<req_core_job-creation-default-execution-mode,/conf/core/job-creation-default-execution-mode>> or <<req_core_job-creation-auto-execution-mode,/conf/core/job-creation-auto-execution-mode>>.
+--
+
+[.component,class=step]
+--
+Validate the contents of the POST request using the test <<ats_core_job-creation-request,/conf/core/job-creation-request>>.
+--
+
+[.component,class=step]
+--
+Validate the creation of the job according the requirements <<req_core_job-creation-default-execution-mode,/req/core/job-creation-default-execution-mode>>, <<req_core_job-creation-auto-execution-mode,/req/core/job-creation-auto-execution-mode>>.
+--
+=====
 ====

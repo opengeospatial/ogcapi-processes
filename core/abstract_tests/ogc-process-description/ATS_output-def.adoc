@@ -6,8 +6,16 @@
 Verify that the definition of each output for each process complies with the required structure and contents.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
+--
+Manual Inspection
+--
+
+[.component,class=test method]
+=====
+[.component,class=step]
 --
 For each output identified according to the test <<ats_ogc-process-description_outputs-def,/conf/ogc-process-description/outputs-def>> verify that the value of the `schema` key, that defines the output, validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
 --
+=====
 ====

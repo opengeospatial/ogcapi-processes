@@ -6,8 +6,16 @@
 Verify that the OpenAPI document fully describes potential exception codes. 
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
+--
+Manual Inspection
+--
+
+[.component,class=test method]
+=====
+[.component,class=step]
 --
 Verify that for each operation, the OpenAPI document describes all link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#httpCodes[HTTP Status Codes] that may be generated.
 --
+=====
 ====

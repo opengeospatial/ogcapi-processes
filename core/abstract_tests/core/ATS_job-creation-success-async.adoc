@@ -6,9 +6,22 @@
 Validate the results of a job that has been created using the `async` execution mode.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Validate that results of the job was returned with an HTTP status code 201.
-. Validate the HTTP headers of the results using the test <<ats_core_job-creation-success-header-async,/conf/core/job-creation-success-header-async>>.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Validate that results of the job was returned with an HTTP status code 201.
+--
+
+[.component,class=step]
+--
+Validate the HTTP headers of the results using the test <<ats_core_job-creation-success-header-async,/conf/core/job-creation-success-header-async>>.
+--
+=====
 ====

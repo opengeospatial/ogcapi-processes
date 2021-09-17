@@ -6,9 +6,22 @@
 Verify that the definition of `inputs` for each process complies with the required structure and contents.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
-. For each process, verify that the definition of the inputs confroms to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[inputDescription.yaml].
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
+--
+
+[.component,class=step]
+--
+For each process, verify that the definition of the inputs confroms to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[inputDescription.yaml].
+--
+=====
 ====

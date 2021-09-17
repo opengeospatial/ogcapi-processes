@@ -6,9 +6,22 @@
 Validate that information about jobs can be retrieved from the expected location.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Issue an HTTP GET request to the URL /jobs.
-. Validate the contents of the returned document using test <<ats_job-list_job-list-success,/conf/job-list/job-list-success>>.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Issue an HTTP GET request to the URL /jobs.
+--
+
+[.component,class=step]
+--
+Validate the contents of the returned document using test <<ats_job-list_job-list-success,/conf/job-list/job-list-success>>.
+--
+=====
 ====

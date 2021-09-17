@@ -6,12 +6,31 @@
 Validate that binary input values encoded as base-64 string in-line in an execute request are correctly processes.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Get a description of each process offered by the server using t
-est <<ats_core_process,/conf/core/process>>.
-. Inspect the description of each process and identify the subset of processes that have binary inputs.
-. For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> taking care to encode binary input values in-line in the execute request according to requirement <<req_core_job-creation-input-inline-binary,/req/core/job-creation-input-inline-binary>>.
-. Verify that each process executes successfully according to the <<ats-job-creation-success-sync,relevant requirement based on the combination of execute parameters.>>
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
+--
+
+[.component,class=step]
+--
+Inspect the description of each process and identify the subset of processes that have binary inputs.
+--
+
+[.component,class=step]
+--
+For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> taking care to encode binary input values in-line in the execute request according to requirement <<req_core_job-creation-input-inline-binary,/req/core/job-creation-input-inline-binary>>.
+--
+
+[.component,class=step]
+--
+Verify that each process executes successfully according to the <<ats-job-creation-success-sync,relevant requirement based on the combination of execute parameters.>>
+--
+=====
 ====

@@ -6,9 +6,22 @@
 Verify that any authentication protocols implemented by the API are documented in the OpenAPI document. 
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Identify all authentication protocols supported by the API.
-. Validate that each authentication protocol is described in the OpenAPI document by a Security Schema Object and its use is specified by a Security Requirement Object.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Identify all authentication protocols supported by the API.
+--
+
+[.component,class=step]
+--
+Validate that each authentication protocol is described in the OpenAPI document by a Security Schema Object and its use is specified by a Security Requirement Object.
+--
+=====
 ====

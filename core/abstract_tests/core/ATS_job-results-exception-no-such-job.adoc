@@ -6,13 +6,34 @@
 Validate that the job results retrieved using an invalid job identifier complies with the require structure and contents.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Issue an HTTP GET request to the URL '/jobs/{jobID}/results' using an invalid {jobID}.
-. Validate that the document was returned with a 404.
-. Validate that the document contains the exception type "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job".
-. Validate the document for all supported media types using the resources and tests identified in <<job-results-exception-no-such-job>>
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Issue an HTTP GET request to the URL '/jobs/{jobID}/results' using an invalid {jobID}.
+--
+
+[.component,class=step]
+--
+Validate that the document was returned with a 404.
+--
+
+[.component,class=step]
+--
+Validate that the document contains the exception type "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-job".
+--
+
+[.component,class=step]
+--
+Validate the document for all supported media types using the resources and tests identified in <<job-results-exception-no-such-job>>
+--
+=====
 
 The job results page for a job may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the job results for a non-existent job against that schema.  All supported formats should be exercised.
 ====

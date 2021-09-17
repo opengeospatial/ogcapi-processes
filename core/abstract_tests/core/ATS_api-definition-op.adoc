@@ -6,10 +6,26 @@
 Validate that the API Definition document can be retrieved from the expected location.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Construct a path for the API Definition document that ends with `/api`.
-. Issue a HTTP GET request on that path
-. Validate the contents of the returned document using test <<ats_core_api-definition-success,/conf/core/api-definition-success>>.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Construct a path for the API Definition document that ends with `/api`.
+--
+
+[.component,class=step]
+--
+Issue a HTTP GET request on that path
+--
+
+[.component,class=step]
+--
+Validate the contents of the returned document using test <<ats_core_api-definition-success,/conf/core/api-definition-success>>.
+--
+=====
 ====

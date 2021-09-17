@@ -6,10 +6,18 @@
 Validate that the `limit` query parameter is constructed correctly.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
+--
+Manual Inspection
+--
+
+[.component,class=test method]
+=====
+[.component,class=step]
 --
 Verify that the `limit` query parameter complies with its definition in requirement <<req_core_pl-limit-definition,/req/core/pl-limit-definition>>.
+--
 
 Note that the API can define different values for "minimum", "maximum" and "default".
---
+=====
 ====

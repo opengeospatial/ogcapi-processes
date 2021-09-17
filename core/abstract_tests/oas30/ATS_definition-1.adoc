@@ -6,9 +6,22 @@
 Verify that JSON and HTML versions of the OpenAPI document are available.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Verify that an OpenAPI definition in JSON is available using the media type `application/vnd.oai.openapi+json;version=3.0` and link relation `service-desc`
-. Verify that an HTML version of the API definition is available using the media type `text/html` and link relation `service-doc`.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Verify that an OpenAPI definition in JSON is available using the media type `application/vnd.oai.openapi+json;version=3.0` and link relation `service-desc`
+--
+
+[.component,class=step]
+--
+Verify that an HTML version of the API definition is available using the media type `text/html` and link relation `service-doc`.
+--
+=====
 ====

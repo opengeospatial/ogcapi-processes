@@ -6,11 +6,31 @@
 Validate that the results of a job can be retrieved.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Create a job as per <<ats_core_job-creation-op,/req/core/job-creation-op>> and note the {jobID} assigned to the job.
-. Issue an HTTP GET request to the URL '/jobs/{jobID}/results'.
-. Validate that the document was returned with a status code 200.
-. Validate the contents of the returned document using the test <<ats_job-results-success,/conf/core/job-results-success>>.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Create a job as per <<ats_core_job-creation-op,/req/core/job-creation-op>> and note the {jobID} assigned to the job.
+--
+
+[.component,class=step]
+--
+Issue an HTTP GET request to the URL '/jobs/{jobID}/results'.
+--
+
+[.component,class=step]
+--
+Validate that the document was returned with a status code 200.
+--
+
+[.component,class=step]
+--
+Validate the contents of the returned document using the test <<ats_job-results-success,/conf/core/job-results-success>>.
+--
+=====
 ====

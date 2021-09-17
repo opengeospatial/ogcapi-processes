@@ -6,9 +6,21 @@
 Verify support for JSON.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. A resource is requested with response media type of `application/json`.
-. All `200` responses SHALL support the following media types: `application/json` for all resources.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+A resource is requested with response media type of `application/json`.
+--
+
+[.component,class=step]
+--
+All `200` responses SHALL support the following media types: `application/json` for all resources.
+--
+=====
 ====

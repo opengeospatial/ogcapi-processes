@@ -6,10 +6,27 @@
 Validate that a running job can be dismissed.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Create an asynchronous job as per test <<ats_core_job-creation-op,/conf/core/job-creation-request*>>; not the job identifier, {jobID}, assigned to the job.
-. Issue an HTTP DELETE operation to the URL '/jobs/{jobID}'.
-. Validate the contents of the returned document using test <<ats_dismiss_job-dismiss-success,/conf/dismiss/job-dismiss-success>>.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Create an asynchronous job as per test <<ats_core_job-creation-op,/conf/core/job-creation-request*>>; not the job identifier, {jobID}, assigned to the job.
+--
+
+[.component,class=step]
+--
+Issue an HTTP DELETE operation to the URL '/jobs/{jobID}'.
+--
+
+[.component,class=step]
+--
+Validate the contents of the returned document using test <<ats_dismiss_job-dismiss-success,/conf/dismiss/job-dismiss-success>>.
+--
+=====
 ====

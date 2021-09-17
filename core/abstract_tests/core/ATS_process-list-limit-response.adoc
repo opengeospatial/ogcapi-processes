@@ -6,11 +6,32 @@
 Validate that the `limit` query parameter is processed correctly.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Get a list of processes as per test <<ats_core_process-list-op,/conf/core/process-list-op>> and append the `limit` query parameter to the request.
-. Count the number of process summaries listed in the response.
-. Verify that this count is not greater than the value specified by the `limit` parameter.
-. If the API definition specifies a maximum value for `limit` parameter, verify that the count does not exceed this maximum value.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Get a list of processes as per test <<ats_core_process-list-op,/conf/core/process-list-op>> and append the `limit` query parameter to the request.
+--
+
+[.component,class=step]
+--
+Count the number of process summaries listed in the response.
+--
+
+[.component,class=step]
+--
+Verify that this count is not greater than the value specified by the `limit` parameter.
+--
+
+[.component,class=step]
+--
+If the API definition specifies a maximum value for `limit` parameter, verify that the count does not exceed this maximum value.
+--
+=====
 ====

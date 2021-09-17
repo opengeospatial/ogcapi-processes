@@ -6,8 +6,16 @@
 Validate that the body of a job creation operation complies with the required structure and contents.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
+--
+Manual Inspection
+--
+
+[.component,class=test method]
+=====
+[.component,class=step]
 --
 Verify the contents of the request body against the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
 --
+=====
 ====

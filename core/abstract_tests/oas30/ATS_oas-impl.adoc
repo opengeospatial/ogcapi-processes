@@ -6,9 +6,22 @@
 Verify that all capabilities specified in the OpenAPI definition are implemented by the API. 
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Construct a path from each URL template including all server URL options and all enumerated path parameters.
-. For each path defined in the OpenAPI document, validate that the path performs in accordance with the API definition and the API-Features standard.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Construct a path from each URL template including all server URL options and all enumerated path parameters.
+--
+
+[.component,class=step]
+--
+For each path defined in the OpenAPI document, validate that the path performs in accordance with the API definition and the API-Features standard.
+--
+=====
 ====

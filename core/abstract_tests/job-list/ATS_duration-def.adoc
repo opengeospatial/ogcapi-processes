@@ -6,9 +6,22 @@
 Validate that the `minDuration` and `maxDuration` query parameter are constructed correctly.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Verify that the `minDuration` query parameter complies with its definition in requirement <<req_job-list_duration-definition,/req/job-list/duration-definition, A>>.
-. Verify that the `maxDuration` query parameter complies with its definition in requirement <<req_job-list_duration-definition,/req/job-list/duration-definition, B>>.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Verify that the `minDuration` query parameter complies with its definition in requirement <<req_job-list_duration-definition,/req/job-list/duration-definition, A>>.
+--
+
+[.component,class=step]
+--
+Verify that the `maxDuration` query parameter complies with its definition in requirement <<req_job-list_duration-definition,/req/job-list/duration-definition, B>>.
+--
+=====
 ====

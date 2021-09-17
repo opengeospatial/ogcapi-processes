@@ -6,12 +6,37 @@
 Validate that the server responds as expected when getting results from a job for a process that has been executed synchronously.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
-. Inspect the description of each process and identify the subset of processes that support the `sync-execute` job control option.
-. For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that synchronous execution is <<sc_execution_mode,negotiated>> according to test <<ats_core_job-creation-default-execution-mode,/conf/core/job-creation-default-execution-mode>>.
-. Inspect the headers of the response and see if a `Link` header is included with `rel=monitor`.
-. If the link exists, get the job status as per test <<ats_core_job-op,/conf/core/job-op>> and ensure that the job status is set to `successful`.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
+--
+
+[.component,class=step]
+--
+Inspect the description of each process and identify the subset of processes that support the `sync-execute` job control option.
+--
+
+[.component,class=step]
+--
+For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that synchronous execution is <<sc_execution_mode,negotiated>> according to test <<ats_core_job-creation-default-execution-mode,/conf/core/job-creation-default-execution-mode>>.
+--
+
+[.component,class=step]
+--
+Inspect the headers of the response and see if a `Link` header is included with `rel=monitor`.
+--
+
+[.component,class=step]
+--
+If the link exists, get the job status as per test <<ats_core_job-op,/conf/core/job-op>> and ensure that the job status is set to `successful`.
+--
+=====
 ====

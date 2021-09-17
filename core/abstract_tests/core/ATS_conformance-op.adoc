@@ -6,10 +6,26 @@
 Validate that a Conformance Declaration can be retrieved from the expected location.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/conformance" link on the landing page as well as for the {root}/conformance path.
-. Issue an HTTP GET request on each path
-. Validate the contents of the returned document using test <<ats_core_conformance-success,/conf/core/conformance-success>>.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/conformance" link on the landing page as well as for the {root}/conformance path.
+--
+
+[.component,class=step]
+--
+Issue an HTTP GET request on each path
+--
+
+[.component,class=step]
+--
+Validate the contents of the returned document using test <<ats_core_conformance-success,/conf/core/conformance-success>>.
+--
+=====
 ====

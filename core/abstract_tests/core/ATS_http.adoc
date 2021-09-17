@@ -6,9 +6,21 @@
 Validate that the resource paths advertised through the API conform with HTTP 1.1 and, where appropriate, TLS.
 --
 
-[.component,class=test-method]
+[.component,class=test method type]
 --
-. All compliance tests SHALL be configured to use the HTTP 1.1 protocol exclusively.
-. For APIs which support HTTPS, all compliance tests SHALL be configured to use <<rfc2818,HTTP over TLS>> (RFC 2818) with their HTTP 1.1 protocol.
+Manual Inspection
 --
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+All compliance tests SHALL be configured to use the HTTP 1.1 protocol exclusively.
+--
+
+[.component,class=step]
+--
+For APIs which support HTTPS, all compliance tests SHALL be configured to use <<rfc2818,HTTP over TLS>> (RFC 2818) with their HTTP 1.1 protocol.
+--
+=====
 ====
