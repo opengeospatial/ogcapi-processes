@@ -1,6 +1,8 @@
 [[req_transaction_insert-post-op]]
-[cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/transactions/insert/post-op*
-^|A |The server shall support the HTTP POST operation at the path '/processes'.
-|===
+[.requirement,label="/req/transactions/insert/post-op"]
+====
+[.component,class=part]
+--
+The server shall support the HTTP POST operation at the path '/processes'.
+--
+====
