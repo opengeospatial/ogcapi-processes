@@ -1,7 +1,13 @@
 [[req_workflows_collection-content-type]]
-[cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/workflows/collection/content-type*
-^|A |As per <<rfc2616,HTTP 1.1>> (https://tools.ietf.org/html/rfc2616#section-14.17) the 'Content-Type' header shall be used to indicate the media type of a request body containing the submitted workflow to be set up on the API.
-^|B |The `Content-Type` header shall be application/json and the request body shall conform to the OGC API - Processes schema for process execution documents, including additional capabilities defined by the Workflows extension
-|===
+[.requirement,type="general",label="/req/workflows/collection/content-type"]
+====
+[.component,class=part]
+--
+As per <<rfc2616,HTTP 1.1>> (https://tools.ietf.org/html/rfc2616#section-14.17) the 'Content-Type' header shall be used to indicate the media type of a request body containing the submitted workflow to be set up on the API.
+--
+
+[.component,class=part]
+--
+The `Content-Type` header shall be application/json and the request body shall conform to the OGC API - Processes schema for process execution documents, including additional capabilities defined by the Workflows extension
+--
+====
