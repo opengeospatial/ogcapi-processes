@@ -15,7 +15,6 @@
 :submitting-organizations: 52°North GmbH; Hexagon; CubeWerx Inc.; Ecere Corporation; Terradue Srl; European Space Agency (ESA); Spacebel
 :local-cache-only:
 :data-uri-image:
-:docfile: document.adoc
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf
 
