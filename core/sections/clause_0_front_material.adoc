@@ -52,7 +52,7 @@ In addition to the operations accessible through HTTP GET and POST methods, the 
 |===
 
 
-== Preface
+.Preface
 
 The OGC API – Processing, hereafter referred to as the Processing API is a continuation of WPS 2.0, a standard for web-based processing of geospatial data. The Processing API defines how the interfaces for WPS 2.0 operations should be constructed and interpreted using a REST based protocol with JSON encoding.
 Within the current version of WPS 2.0, bindings are defined for HTTP/POST using XML encodings and HTTP/GET using KVP encodings. Also in the current WPS 2.0 standard, a core conceptual model is provided that may be used to specify a WPS in different architectures such as REST or SOAP. Therefore, the Processing API is a natural fit to what is already defined in the standard.
