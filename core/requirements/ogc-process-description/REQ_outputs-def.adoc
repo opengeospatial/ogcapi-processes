@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/ogc-process-description/outputs-def
 [.component,class=part]
 --

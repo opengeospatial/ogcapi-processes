@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/workflows/collection/response-body
 part:: The response shall include a body that describe the collection(s) resulting from the submitted workflow.
 ====

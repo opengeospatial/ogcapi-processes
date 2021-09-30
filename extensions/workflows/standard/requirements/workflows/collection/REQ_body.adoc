@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/workflows/collection/body
 part:: The body of the POST request shall contain a process (workflow) execution document describing the workflow to set up.
 ====

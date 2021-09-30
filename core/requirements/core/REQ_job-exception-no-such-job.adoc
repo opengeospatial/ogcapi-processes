@@ -3,7 +3,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/core/job-exception-no-such-job
 
 If the operation is executed using an invalid job identifier, the response SHALL have HTTP status code 404.

@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/transactions/static/indicator
 
 part:: The optional property `isStatic` shall be used to indicate whether a process is a static or built-in process or a dynamically added process.

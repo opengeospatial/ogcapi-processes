@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/transactions/update/body
 part:: The body of a PUT request shall contain a formal description of the replacement process.
 ====

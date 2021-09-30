@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/transactions/insert/response
 part:: A successful execution of the operation shall be reported as a response with a HTTP status code '201'.
 part:: The response shall include a 'Location' header with the URL of the newly added processes with the path '/processes/{processId}'.

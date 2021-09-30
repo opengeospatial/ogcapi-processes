@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/ogc-process-description/input-def
 [.component,class=part]
 --

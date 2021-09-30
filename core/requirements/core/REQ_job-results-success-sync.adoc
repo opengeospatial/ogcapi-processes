@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/core/job-results-success-sync
 conditions:: The server creates a job when a processes is executed synchronously.
 part:: A successful execution of the operation SHALL include an HTTP https://datatracker.ietf.org/doc/html/rfc8288#section-3[`Link`] header with `rel=monitor` pointing to the created job.

@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/job-list/status-definition
 [.component,class=part]
 --

@@ -1,8 +1,7 @@
-[[req_core_pl-links]] 
+[[req_core_pl-links]]
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/core/pl-links
 
 part::
