@@ -16,10 +16,12 @@ HTTP methods can be classified as
 [cols="30, 30, 30",options="header"]
 |===
 |HTTP Method  |Safe |Idempotent
+
 |GET        |yes  |yes
 |POST       |no   |no
 |DELETE     |no   |yes
 3+|Source <<rfc7231,RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content>>
+
 |===
 
 The following resources can be retrieved using the safe HTTP GET operation and can contain sensitive information:
@@ -56,12 +58,14 @@ Most of the operations defined in this standard are use the safe HTTP GET operat
 [cols="20,30,10,40",options="header"]
 |===
 |Resource |Path |HTTP method | Information delivered
+
 |Landing page |`/` |GET| General information about the service, links to API endpoints
 |Conformance classes |`/conformance` |GET| List of conformance classes
 |Process list |`/processes` |GET | Process identifiers, links to process descriptions
 |Process description |`/processes/{processID}` |GET | Information about a process, e.g. inputs/outputs
 |Job status info |`/jobs/{jobID}` |GET | Status info, links to results or exceptions
 |Job results |`/jobs/{jobID}/results` |GET | Job results
+
 |===
 
 The resources and contained information in more detail:
@@ -101,7 +105,9 @@ The execute operation uses HTTP POST to create new processing jobs (process exec
 [cols="20,30,10,40",options="header"]
 |===
 |Resource |Path |HTTP method | Information delivered
+
 |Job status info |`/jobs` |POST | Job id, status info, (links to) results or exceptions
+
 |===
 
 The ids that are used for new jobs and that are returned in the status info document should be created in a non-guessable way, for example using UUIDs. This will prevent random attempts to get job status information, results / exceptions or even cancel jobs / delete job artifacts.

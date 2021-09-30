@@ -1,11 +1,12 @@
 
 [appendix,obligation=informative]
-== Revision History
+== Revision history
 
 [%unnumbered]
 [options="header"]
 |===
 |Date |Release |Editor | Primary clauses modified |Description
+
 |2017-03-07 |0.1 |Benjamin Pross |all |initial version
 |2018-05-16 |0.1 |Stan Tillman | 1-5 |Update section 1-5
 |2018-07-25 |1.0-draft |Benjamin Pross | all |1.0-draft
@@ -273,4 +274,5 @@
 |2021-08-25|1.0-draft.7| Benjamin Pross|X | Fix ordering of requirements
 |2021-08-26|1.0-draft.7| Benjamin Pross|7 | Revert changes - replace GET methot with GET operation
 |2021-09-03|1.0-draft.7| Benjamin Pross|7 | Add informative text about execution paths
+
 |===

@@ -33,23 +33,28 @@ The following clause defines a JSON-encoding of the OGC process description.
 
 include::../requirements/ogc-process-description/REQ_json-encoding.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[Schema for a process (process.yaml):]
+.Schema for a process
 [source,yaml]
 ----
 include::../openapi/schemas/process.yaml[]
 ----
 
-(see also: <<schema-processSummary,processSummary.yaml>>)
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[`process.yaml`]
+
+NOTE: See also <<schema-processSummary,`processSummary.yaml`>>
 
 The schema imports the elements from the <<schema-processSummary, process summary>> and specifies an object for the definition of process inputs and another object for the definition of process outputs.
 
 include::../requirements/ogc-process-description/REQ_inputs-def.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[Schema for a process input (inputDescription.yaml)]
+.Schema for a process input
 [source,yaml]
 ----
 include::../openapi/schemas/inputDescription.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[`inputDescription.yaml`]
+
 
 include::../requirements/ogc-process-description/REQ_input-def.adoc[]
 
@@ -138,11 +143,13 @@ The following JSON Schema fragment illustrates the use of the `format` key to in
 }
 ----
 
-.link:https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[Schema for a process input (outputDescription.yaml)]
+.Schema for a process output
 [source,yaml]
 ----
 include::../openapi/schemas/outputDescription.yaml[]
 ----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[`outputDescription.yaml`]
 
 include::../requirements/ogc-process-description/REQ_outputs-def.adoc[]
 

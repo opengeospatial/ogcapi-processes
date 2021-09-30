@@ -12,15 +12,6 @@ This part extends the core capabilities specified in <<OAProc-1>> with the abili
 
 CAUTION: This is a DRAFT version of the 2nd part of the OGC API - Processes standards. This draft is not complete and there are open issues that are still under discussion.
 
-
-.Preface
-
-Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium Inc. shall not be held responsible for identifying any or all such patent rights.
-
-Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
-
-
-[.preface]
 == Submitters
 
 All questions regarding this submission should be directed to the editors or the submitters:
