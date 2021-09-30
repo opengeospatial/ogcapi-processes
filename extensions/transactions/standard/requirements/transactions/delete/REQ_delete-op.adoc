@@ -4,5 +4,5 @@
 [%metadata]
 label:: /req/transactions/delete/delete-op
 part:: For every dynamically added process (path '/processes/{processId}'), the server shall support the HTTP DELETE operation.
-part:: The parameter 'processId' is each 'id' property in the process collection response (JSONPath: '$.processes[*].id').
+part:: The parameter 'processId' is each 'id' property in the process collection response (JSONPath: `$.processes[*].id`).
 ====

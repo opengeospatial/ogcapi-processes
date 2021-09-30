@@ -4,5 +4,5 @@
 [%metadata]
 label:: /req/transactions/update/put-op
 part:: For every dynamically added processes (path '/processes/{processId}'), the server shall support the HTTP PUT operation.
-part:: The parameter 'processId' is each 'id' property in the process collection response (JSONPath: '$.processes[*].id').
+part:: The parameter 'processId' is each 'id' property in the process collection response (JSONPath: `$.processes[*].id`).
 ====
