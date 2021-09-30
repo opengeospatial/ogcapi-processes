@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/core/process-list
 
 The server SHALL support the HTTP GET operation at the path `/processes`.

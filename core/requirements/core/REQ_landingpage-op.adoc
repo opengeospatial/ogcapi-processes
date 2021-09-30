@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/core/landingpage-op
 
 The server SHALL support the HTTP GET operation at the path `/`.

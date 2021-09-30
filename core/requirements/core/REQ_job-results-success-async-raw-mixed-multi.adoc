@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/core/job-results-async-raw-mixed-multi
 
 The server SHALL respond as per requirement <<req_core_process-execute-sync-raw-mixed-multi,/req/core/process-execute-sync-raw-mixed-multi>>.

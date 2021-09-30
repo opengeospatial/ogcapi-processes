@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/core/job-results-async-raw-ref
 
 The server SHALL response as per requirement <<req_core_process-execute-sync-raw-ref,/req/core/process-execute-sync-raw-ref>>.

@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/core/process-exception/no-such-process
 
 If the operation is executed using an invalid process identifier, the response SHALL be HTTP status code 404.

@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/callback/job-callback
 
 The server SHALL support callback functions for jobs.

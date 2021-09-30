@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/transactions/insert/post-op
 part:: The server shall support the HTTP POST operation at the path '/processes'.
 ====

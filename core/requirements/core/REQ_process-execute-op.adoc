@@ -2,7 +2,6 @@
 [requirement]
 ====
 [%metadata]
-type:: general
 label:: /req/core/process-execute-op
 
 The server SHALL support the HTTP POST operation at the path `/processes/{processID}/execution`.
