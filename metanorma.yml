@@ -2,7 +2,7 @@
 metanorma:
   source:
     files:
-      - core/document.adoc
+      - core/18-062.adoc
 
   collection:
     organization: "OGC"
