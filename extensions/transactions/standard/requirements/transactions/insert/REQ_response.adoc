@@ -2,6 +2,7 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/transactions/insert/response* 
-^|A |A successful execution of the operation shall be reported as a response with a HTTP status code '201'.
-^|B |The response shall include a 'Location' header with the URL of the newly added processes with the path '/processes/{processId}'.
+^|A |A successful execution of the operation shall be reported as a response with a HTTP status code `201`.
+^|B |A response with HTTP status code `201` SHALL include a `Location` header with the URI of the newly added processes (path: `/processes/{processId}`).
+^|C |If the operation is not executed immediately, but is added to a processing queue, the response SHALL have a HTTP status code `202`.
 |===
