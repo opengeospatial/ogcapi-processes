@@ -38,7 +38,7 @@ If the server responds asynchronously, periodically retrieve the status of the a
 --
 When the job status is `successful`, get the results as per test <<ats_core_job-results-op,/conf/core/job-results>> and verify that they conform to requirement <<req_core_job-results-async-raw-ref,/req/core/job-results-async-ref>>.
 --
---
+=====
 
 NOTE: In the case where a process supports both `async-execute` and `sync-execute` job control options there is a possibility that the server responds synchronously even though the `Prefer` headers asserts a `respond-async` preference.  In this case, the following additional test should be performed.
 
