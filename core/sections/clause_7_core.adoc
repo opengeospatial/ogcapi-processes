@@ -289,7 +289,7 @@ So (using the default/maximum values of 10/1000 from the OpenAPI fragment in req
 
 * If you follow the next link from the previous response, you might get up to 1000 additional results and if there are more, a `next` link.
 
-This document make requirements and recommendations about links in general and the `next` link in particular at the approprate resource end points.
+This document make requirements and recommendations about links in general and the `next` link in particular at the appropriate resource end points.
 
 [[next-link-discussion]]
 This document does not mandate any specific implementation approach for the `next` links.
@@ -303,7 +303,7 @@ The API will return no `next` link, if it has returned all selected results, and
 Clients should not assume that paging is safe against changes to dataset while a client iterates through `next` links. If a server provides opaque links these could be safe and maintain the state during the original request. Using a parameter for the start index, however, will not be safe.
 
 [[prev-link-discussion]]
-This document also makes recommendations about include a `prev` link at the approriate resource end points.  Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
+This document also makes recommendations about include a `prev` link at the appropriate resource end points.  Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
 
 
 === Link headers

@@ -42,6 +42,6 @@ For outputs requested by reference, the `Content-Location` header SHALL be inclu
 
 [.component,class=part]
 --
-For outputs requested vy value, the body of the response SHALL contain the output value.
+For outputs requested by value, the body of the response SHALL contain the output value.
 --
 ====

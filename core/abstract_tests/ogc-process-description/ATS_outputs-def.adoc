@@ -22,7 +22,7 @@ Retrieve a description of each process according to test <<ats_core_process,/con
 
 [.component,class=step]
 --
-For each process, verify that the definition of the outputs confroms to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[outputDescription.yaml].
+For each process, verify that the definition of the outputs conforms to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[outputDescription.yaml].
 --
 =====
 ====
