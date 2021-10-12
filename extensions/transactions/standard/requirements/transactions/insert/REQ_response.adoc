@@ -3,6 +3,7 @@
 ====
 [%metadata]
 label:: /req/transactions/insert/response
-part:: A successful execution of the operation shall be reported as a response with a HTTP status code '201'.
-part:: The response shall include a 'Location' header with the URL of the newly added processes with the path '/processes/{processId}'.
+part:: A successful execution of the operation shall be reported as a response with a HTTP status code `201`.
+part:: A response with HTTP status code `201` SHALL include a `Location` header with the URI of the newly added processes (path: `/processes/{processId}`).
+part:: If the operation is not executed immediately, but is added to a processing queue, the response SHALL have a HTTP status code `202`.
 ====
