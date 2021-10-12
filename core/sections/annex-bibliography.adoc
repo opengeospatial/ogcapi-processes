@@ -6,9 +6,8 @@
 
 * [[[ogc15-022,OGC 15-022]]] Matheus, A.: OGC® Testbed 11 Engineering Report: Implementing Common Security Across the OGC Suite of Service Standards, https://portal.opengeospatial.org/files/?artifact_id=63312
 
-* [[[jsonschema-core,A Media Type]]] Hutton, B.: JSON Schema: A Media Type for Describing JSON Documents, https://json-schema.org/draft/2020-12/json-schema-core.html
+* [[[jsonschema-core,JSON Schema]]] Hutton, B.: JSON Schema: A Media Type for Describing JSON Documents, https://json-schema.org/draft/2020-12/json-schema-core.html
 
-* [[[jsonschema-validation, A Vocabulary]]] Hutton, B.: JSON Schema Validation: A Vocabulary for Structural Validation of JSON, https://json-schema.org/draft/2020-12/json-schema-validation.html
+* [[[jsonschema-validation,JSON Schema Validation]]] Hutton, B.: JSON Schema Validation: A Vocabulary for Structural Validation of JSON, https://json-schema.org/draft/2020-12/json-schema-validation.html
 
 * [[[jsonschema-pointers,Relative JSON Pointers]] Hutton, B.: Relative JSON Pointers, https://json-schema.org/draft/2020-12/relative-json-pointer.html
-
