@@ -4,7 +4,7 @@
 :edition: 1.0
 :language: en
 :docnumber: 18-062
-:status: draft
+:status: published
 :copyright-year: 2018
 :external-id: http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0
 :received-date: yyyy-mm-dd
