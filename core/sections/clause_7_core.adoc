@@ -984,6 +984,7 @@ The manner in which a server responds to a process execution request is determin
 
 The following table maps the possible responses based on the combinations of these execute parameters.
 
+[[table_core_execute_responses]]
 .Table mapping execute responses based on the input parameter values.
 [options="header"]
 |===
