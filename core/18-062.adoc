@@ -17,7 +17,7 @@
 :local-cache-only:
 :data-uri-image:
 :mn-document-class: ogc
-:mn-output-extensions: xml,html,pdf
+:mn-output-extensions: rxl,xml,html,pdf
 
 ////
 Make sure to complete each included document
