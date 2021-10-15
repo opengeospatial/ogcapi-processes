@@ -16,7 +16,7 @@ Manual Inspection
 
 [.component,class=step]
 --
-Create a job as per <<atd_core_job-creation-op,/req/core/job-creation-op>> but arrange a priori that the job will fail; note the {jobID} assigned to the job.
+Create a job as per <<ats_core_job-creation-op,/req/core/job-creation-op>> but arrange a priori that the job will fail; note the {jobID} assigned to the job.
 --
 
 [.component,class=step]
