@@ -1,8 +1,7 @@
 [[ats_job-list_limit-definition]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/job-list/limit-definition
 subject:: <<req_job-list-limit-definition,/req/job-list/limit-definition>>
 test-purpose:: Validate that the `limit` query parameter is constructed correctly.

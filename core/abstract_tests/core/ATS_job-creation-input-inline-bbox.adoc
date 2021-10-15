@@ -1,8 +1,7 @@
 [[ats_core_job-creation-input-inline-bbox]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/core/job-creation-input-inline-bbox
 subject:: <<req_core_job-creation-input-inline-bbox,/req/core/job-creation-input-inline-bbox>>
 test-purpose:: Validate that inputs with a bounding box schema encoded in-line in an execute request are correctly processed.

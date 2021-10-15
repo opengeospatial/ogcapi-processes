@@ -1,8 +1,7 @@
 [[ats_core_process-list]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/core/process-list
 subject:: <<req_core_process-list,/req/core/process-list>>
 test-purpose:: Validate that information about the processes can be retrieved from the expected location.

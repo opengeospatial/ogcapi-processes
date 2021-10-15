@@ -1,8 +1,7 @@
 [[ats_job-list_datetime-response]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/job-list/datetime-response
 subject:: <<req_job-list_datetime-response,/req/job-list/datetime-response>>
 test-purpose:: Validate that the `datetime` query parameter is processed correctly.

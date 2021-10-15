@@ -1,8 +1,7 @@
 [[ats_oas30]]
-[requirement]
+[conformance_class]
 ====
 [%metadata]
-type:: conformanceclass
 label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30
 subject:: <<rc_oas30,Requirements Class "OpenAPI Specification 3.0">>
 inherit:: <<ats_core,Conformance Class "Core">>

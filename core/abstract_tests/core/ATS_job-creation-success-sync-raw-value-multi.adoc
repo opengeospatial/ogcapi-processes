@@ -1,8 +1,7 @@
 [[ats_core_job-creation-sync-raw-value-multi]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/core/job-creation-sync-raw-value-multi
 subject:: <<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
 test-purpose:: Validate that the server responds as expected when synchronous execution is <<sc_execution_mode,negotiated>>, the response type is `raw` and the output transmission is `value`.

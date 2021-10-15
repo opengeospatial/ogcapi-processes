@@ -1,8 +1,7 @@
 [[ats_core_job-creation-input-ref]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/core/job-creation-input-ref
 subject:: <<req_core_job-creation-input-ref,/req/core/job-creation-input-ref>>
 test-purpose:: Validate that input values specified by reference in an execute request are correctly processed.

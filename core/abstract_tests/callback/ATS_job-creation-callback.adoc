@@ -1,8 +1,7 @@
 [[ats_callback_job-callback]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/callback/job-callback
 subject:: <<req_callback_job-callback,/req/callback/job-callback>>
 test-purpose:: Validate the passing of a subscriber-URL in an execute request.

@@ -1,8 +1,7 @@
 [[ats_job-list_type-definition]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/job-list/type-definition
 subject:: <<req_job-list-type-definition,/req/job-list/type-definition>>
 test-purpose:: Validate that the `type` query parameter is constructed correctly.

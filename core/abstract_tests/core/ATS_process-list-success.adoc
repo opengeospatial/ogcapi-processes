@@ -1,8 +1,7 @@
 [[ats_core_process-list-success]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/core/process-list-success
 subject:: <<req_core_process-list-success,/req/core/process-list-success>>
 test-purpose:: Validate that the process list content complies with the required structure and contents.

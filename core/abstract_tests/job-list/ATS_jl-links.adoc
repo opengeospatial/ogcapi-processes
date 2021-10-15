@@ -1,8 +1,7 @@
 [[ats_job-list_links]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/job-list/links
 subject:: <<req_job-list_links,/req/job-list/links>>
 test-purpose:: Validate that the proper links are included in a response.

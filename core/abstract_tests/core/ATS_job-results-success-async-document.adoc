@@ -1,8 +1,7 @@
 [[ats_core_job-results-async-document]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/core/job-results-async-document
 subject:: <<req_core_job-results-async-document,/req/core/job-results-async-document>>
 test-purpose:: Validate that the server responds as expected when the asynchronous execution is <<sc_execution_mode,negotiated>> and the response type is `document`.

@@ -1,8 +1,7 @@
 [[ats_core_job-results-async-raw-value-one]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/core/job-results-async-raw-value-one
 subject:: <<req_core_job-results-async-raw-value-one,/req/core/job-results-async-raw-value-one>>
 test-purpose:: Validate that the server responds as expected when asynchronous execution is <<sc_execution_mode,negotiated>>, one output is requested, the response type is `raw` and the output transmission is `value`.

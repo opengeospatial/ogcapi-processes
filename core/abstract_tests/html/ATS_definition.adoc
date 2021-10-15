@@ -1,8 +1,7 @@
 [[ats_html_definition]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/html/definition
 subject:: <<req_html_definition,/req/html/definition>>
 test-purpose:: Verify support for HTML

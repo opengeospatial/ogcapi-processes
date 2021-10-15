@@ -1,11 +1,10 @@
 [[ats_oas30_exceptions-codes]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/oas30/exceptions-codes
 subject:: <<req_oas30_exceptions-codes,/req/oas30/exceptions-codes>>
-test-purpose:: Verify that the OpenAPI document fully describes potential exception codes. 
+test-purpose:: Verify that the OpenAPI document fully describes potential exception codes.
 
 [.component,class=test method type]
 --

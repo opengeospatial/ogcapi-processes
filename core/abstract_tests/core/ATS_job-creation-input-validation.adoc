@@ -1,8 +1,7 @@
 [[ats_core_job-creation-input-validation]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/core/job-creation-input-validation
 subject:: <<req_core_job-creation-input-validation,/req/core/job-creation-input-validation>>
 test-purpose:: Verify that the server correctly validates process input values according to the definition obtained from the <<sc_process_description,process description>>.

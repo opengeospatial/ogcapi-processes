@@ -1,11 +1,10 @@
 [[ats_oas30_completeness]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/oas30/completeness
 subject:: <<req_oas30_completeness,/req/oas30/completeness>>
-test-purpose:: Verify the completeness of an OpenAPI document. 
+test-purpose:: Verify the completeness of an OpenAPI document.
 
 [.component,class=test method type]
 --

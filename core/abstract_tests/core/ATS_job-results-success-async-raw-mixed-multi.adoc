@@ -1,8 +1,7 @@
 [[ats_core_job-results-async-raw-mixed-multi]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/core/job-results-async-raw-mixed-multi
 subject:: <<req_core_job-results-async-raw-mixed-multi,/req/core/job-results-async-raw-mixed-multi>>
 test-purpose:: Validate that the server responds as expected when asynchronous execution is <<sc_execution_mode,negotiated>>, more than one output is requested, the response type is `raw` and the output transmission is a mix of `value` and `reference`.

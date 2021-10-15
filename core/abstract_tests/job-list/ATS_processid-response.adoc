@@ -1,8 +1,7 @@
 [[ats_job-list_processID-response]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/job-list/processID-response
 subject:: <<req_job-list_processID-response,/req/job-list/processID-response>>
 test-purpose:: Validate that the `processID` query parameter is processed correctly.

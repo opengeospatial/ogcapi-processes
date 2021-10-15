@@ -3,6 +3,7 @@
 ====
 [%metadata]
 label:: /req/job-list/limit-definition
+
 [.component,class=part]
 --
 The operation SHALL support a parameter `limit` with the following characteristics (using an OpenAPI Specification 3.0 fragment):

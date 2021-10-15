@@ -1,8 +1,7 @@
 [[ats_core_api-definition-op]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/core/api-definition-op
 subject:: <<req_core_api-definition-op,/req/core/api-definition-op>>
 test-purpose:: Validate that the API Definition document can be retrieved from the expected location.

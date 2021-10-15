@@ -1,8 +1,7 @@
 [[rc_transactions]]
-[requirement]
+[requirements_class]
 ====
 [%metadata]
-type:: class
 label:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/transactions
 obligation:: requirement
 subject:: Web API

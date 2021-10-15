@@ -1,8 +1,7 @@
 [[rc_callback]]
-[requirement]
+[requirements_class]
 ====
 [%metadata]
-type:: class
 label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/callback
 obligation:: requirement
 subject:: Web API

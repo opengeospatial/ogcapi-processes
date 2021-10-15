@@ -1,8 +1,7 @@
 [[rc_ogc-process-description]]
-[requirement]
+[requirements_class]
 ====
 [%metadata]
-type:: class
 label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description
 obligation:: requirement
 subject:: Web API

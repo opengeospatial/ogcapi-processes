@@ -1,8 +1,7 @@
 [[ats_html]]
-[requirement]
+[conformance_class]
 ====
 [%metadata]
-type:: conformanceclass
 label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
 subject:: <<rc_core,Requirements Class "Core">>
 inherit:: <<ats_core,Conformance Class "Core">>

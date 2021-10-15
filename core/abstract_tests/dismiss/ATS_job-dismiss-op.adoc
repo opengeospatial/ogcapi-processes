@@ -1,8 +1,7 @@
 [[ats_dismiss_job-dismiss-op]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/dismiss/job-dismiss-op
 subject:: <<req_dismiss_job-dismiss-op,/req/dismiss/job-dismiss-op>>
 test-purpose:: Validate that a running job can be dismissed.

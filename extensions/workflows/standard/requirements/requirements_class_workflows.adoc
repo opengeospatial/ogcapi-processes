@@ -1,8 +1,7 @@
 [[rc_workflows]]
-[requirement]
+[requirements_class]
 ====
 [%metadata]
-type:: class
 label:: http://www.opengis.net/spec/ogcapi-processes-3/1.0/req/workflows
 obligation:: requirement
 subject:: Web API

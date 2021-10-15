@@ -1,8 +1,7 @@
 [[rc_core]]
-[requirement]
+[requirements_class]
 ====
 [%metadata]
-type:: class
 label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core
 obligation:: requirement
 subject:: Web API

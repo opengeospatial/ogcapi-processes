@@ -1,8 +1,7 @@
 [[ats_ogc-process-description_input-def]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/ogc-process-description/input-def
 subject:: <<req_ogc-process-description_input-def,/req/ogc-process-description/input-def>>
 test-purpose:: Verify that the definition of each input for each process complies with the required structure and contents.

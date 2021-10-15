@@ -1,8 +1,7 @@
 [[ats_job-list_processid-mandatory]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/job-list/processID-mandatory
 subject:: <<req_job-list_processID-mandatory,/req/job-list/processID-mandatory>>
 test-purpose:: Validate that the `processID` property is present in every job.

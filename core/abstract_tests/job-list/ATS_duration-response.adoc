@@ -1,8 +1,7 @@
 [[ats_job-list_duration-response]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/job-list/duration-response
 subject:: <<req_job-list_duration-response,/req/job-list/duration-response>>
 test-purpose:: Validate that the `minDuration` and `maxDuration` query parameter are processed correctly.

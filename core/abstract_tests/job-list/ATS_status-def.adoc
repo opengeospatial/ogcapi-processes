@@ -1,8 +1,7 @@
 [[ats_job-list_status-definition]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/job-list/status-definition
 subject:: <<req_job-list-status-definition,/req/job-list/status-definition>>
 test-purpose:: Validate that the `status` query parameter is constructed correctly.

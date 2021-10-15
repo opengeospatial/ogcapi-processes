@@ -1,8 +1,7 @@
 [[ats_job-list]]
-[requirement]
+[conformance_class]
 ====
 [%metadata]
-type:: conformanceclass
 label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list
 subject:: <<rc_core,Requirements Class "Core">>
 classification:: Target Type:Web API

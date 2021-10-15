@@ -1,8 +1,7 @@
 [[ats_html_content]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/html/content
 subject:: <<req_html_content,/req/html/content>>
 test-purpose:: Verify the content of an HTML document given an input document and schema.

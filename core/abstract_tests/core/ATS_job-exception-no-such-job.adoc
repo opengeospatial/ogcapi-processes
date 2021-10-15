@@ -1,8 +1,7 @@
 [[ats_core_job-exception-no-such-job]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/core/job-exception-no-such-job
 subject:: <<req_core_job-exception-no-such-job,/req/core/job-exception-no-such-job>>
 test-purpose:: Validate that an invalid job identifier is handled correctly.

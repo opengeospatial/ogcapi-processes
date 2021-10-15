@@ -1,11 +1,10 @@
 [[ats_oas30_oas-impl]]
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/oas30/oas-impl
 subject:: <<req_oas30_oas-impl,/req/oas30/oas-impl>>
-test-purpose:: Verify that all capabilities specified in the OpenAPI definition are implemented by the API. 
+test-purpose:: Verify that all capabilities specified in the OpenAPI definition are implemented by the API.
 
 [.component,class=test method type]
 --

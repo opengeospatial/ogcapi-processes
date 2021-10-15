@@ -1,8 +1,7 @@
 
-[requirement]
+[abstract_test]
 ====
 [%metadata]
-type:: abstracttest
 label:: /conf/json/definition
 subject:: <<req_json_definition,/req/json/definition>>
 test-purpose:: Verify support for JSON.
