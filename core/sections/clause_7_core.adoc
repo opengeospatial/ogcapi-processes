@@ -1025,7 +1025,7 @@ The following table maps the possible responses based on the combinations of the
 .4+|200
 .4+|application/json
 .4+|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml]
-.4+|<<req_core_process-execute-success-document,/req/core/process-execute-success-document>>
+.4+|<<req_core_process-execute-sync-document,/req/core/process-execute-sync-document>>
 
 |*
 .2+|reference
@@ -1224,7 +1224,7 @@ The following table maps the possible responses based on the combinations of the
 .3+|application/json
 .3+|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml]
 
-.3+|<<req_core_process-execute-success-document,/req/core/process-execute-success-document>>
+.3+|<<req_core_process-execute-sync-document,/req/core/process-execute-sync-document>>
 
 |*
 
