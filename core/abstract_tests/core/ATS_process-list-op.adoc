@@ -1,4 +1,4 @@
-[[ats_core_process-list]]
+[[ats_core_process-list-op]]
 [abstract_test]
 ====
 [%metadata]
