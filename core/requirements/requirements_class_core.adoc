@@ -9,5 +9,5 @@ subject:: Web API
 inherit:: http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core[API - Common Core]
 inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
 inherit:: <<rfc2818,RFC 2818 (HTTP over TLS)>>
-inherit:: <<rfc5988,RFC 8288 (Web Linking)>>
+inherit:: <<rfc8288,RFC 8288 (Web Linking)>>
 ====
