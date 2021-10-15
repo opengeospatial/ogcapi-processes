@@ -57,7 +57,7 @@ Inspect the headers of the synchronous response and see if a `Link` header is in
 
 [.component,class=step]
 --
-If the link exists, get the job status as per test <<ats_core_job-op,/conf/cor e/job-op>> and ensure that the job status is set to `successful`.
+If the link exists, get the job status as per test <<ats_core_job-op,/conf/core/job-op>> and ensure that the job status is set to `successful`.
 --
 
 [.component,class=step]
