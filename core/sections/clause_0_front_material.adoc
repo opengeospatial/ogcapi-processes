@@ -38,7 +38,7 @@ Additionally, the /jobs endpoint can be used to grant access to a list of jobs.
 [cols="27,25,10,10,28",options="header"]
 |===
 |Resource |Path |HTTP method | Parameter| Document reference
-|Job list |`/jobs` |GET | N/A |<<Job_list>>
+|Job list |`/jobs` |GET | N/A |<<sc_job_list>>
 |===
 
 In addition to the operations accessible through HTTP GET and POST methods, the DELETE method can be used to cancel a job execution and/or remove traces of the job execution.

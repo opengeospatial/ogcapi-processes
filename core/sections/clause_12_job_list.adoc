@@ -1,4 +1,4 @@
-[[Job_list]]
+[[sc_job_list]]
 == Requirements Class "Job list"
 
 === Overview

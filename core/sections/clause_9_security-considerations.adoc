@@ -35,7 +35,7 @@ Requirements class "Core":
 
 Requirements class "Job list"
 
-* <<Job_list,list>>
+* <<sc_job_list,list>>
 
 The following API operations use unsafe HTTP methods, modify resources and therefore require special attention:
 
