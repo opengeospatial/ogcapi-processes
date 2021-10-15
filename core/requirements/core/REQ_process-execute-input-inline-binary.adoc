@@ -1,4 +1,4 @@
-[req_core_process-execute-input-inline-binary]]
+[[req_core_process-execute-input-inline-binary]]
 [requirement]
 ====
 [%metadata]
