@@ -13,3 +13,6 @@
 * [[[jsonschema-pointers,Relative JSON Pointers]] Hutton, B.: Relative JSON Pointers, https://json-schema.org/draft/2020-12/relative-json-pointer.html
 
 * [[[w3c-html5,W3C HTML 5]]], https://www.w3.org/TR/html5/
+
+* [[[OpenAPI-Spec,OpenAPI Specification 3.0.2]]] Open API Initiative. OpenAPI Specification 3.0.2. Available at:
+https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md.

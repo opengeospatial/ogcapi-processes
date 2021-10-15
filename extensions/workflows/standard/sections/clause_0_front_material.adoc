@@ -2,7 +2,7 @@
 [abstract]
 == Abstract
 
-OGC API standards define modular API building blocks to spatially enable Web APIs in a consistent way. The <<OpenAPI,OpenAPI specification>> is used to define the API building blocks.
+OGC API standards define modular API building blocks to spatially enable Web APIs in a consistent way. The <<OpenAPI-Spec,OpenAPI specification>> is used to define the API building blocks.
 
 OGC API Processes provides API building blocks to describe, execute, monitor
 and retrieve results of Web-accessible processes.  OGC API Processes is

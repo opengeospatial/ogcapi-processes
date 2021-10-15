@@ -5,5 +5,5 @@
 
 * [[[OAFeat-Guide,1]]] Heazel, Ch.: *Guide to OGC API - Features*, https://example.org/fixme
 
-* [[[OpenAPI,2]]] Open API Initiative: *OpenAPI Specification 3.0.2*,
-https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md
+* [[[OpenAPI-Spec,OpenAPI Specification 3.0.2]]] Open API Initiative. OpenAPI Specification 3.0.2. Available at:
+https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md.

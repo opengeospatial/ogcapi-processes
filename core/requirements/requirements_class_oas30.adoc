@@ -8,5 +8,5 @@ obligation:: requirement
 subject:: Web API
 inherit:: <<rc_core,OGC API - Processes 1.0 Core>>
 inherit:: http://www.opengis.net/spec/ogcapi_common-1/1.0/req/oas30[API - Common OpenAPI 3.0]
-inherit:: <<OpenAPI,OpenAPI Specification 3.0.1>>
+inherit:: <<OpenAPI-Spec,OpenAPI Specification 3.0.1>>
 ====

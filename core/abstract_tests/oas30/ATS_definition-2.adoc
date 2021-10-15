@@ -5,7 +5,7 @@
 type:: abstracttest
 label:: /conf/oas30/oas-definition-2
 subject:: <<req_oas30_oas-definition-2,/req/oas30/oas-definition-2>>
-test-purpose:: Verify that the OpenAPI document is valid JSON. 
+test-purpose:: Verify that the OpenAPI document is valid JSON.
 
 [.component,class=test method type]
 --
@@ -16,7 +16,7 @@ Manual Inspection
 =====
 [.component,class=step]
 --
-Verify that the JSON representation conforms to the <<OpenAPI,OpenAPI Specification, version 3.0>>.
+Verify that the JSON representation conforms to the <<OpenAPI-Spec,OpenAPI Specification, version 3.0>>.
 --
 =====
 ====
