@@ -5,7 +5,7 @@
 type:: abstracttest
 label:: /conf/html/content
 subject:: <<req_html_content,/req/html/content>>
-test-purpose:: Verify the content of an HTML document given an input document and schema. 
+test-purpose:: Verify the content of an HTML document given an input document and schema.
 
 [.component,class=test method type]
 --
@@ -16,7 +16,7 @@ Manual Inspection
 =====
 [.component,class=step]
 --
-Validate that the document is an link:https://www.w3.org/TR/html5/[HTML 5 document]
+Validate that the document is an <<w3c-html5>> document
 --
 
 [.component,class=step]

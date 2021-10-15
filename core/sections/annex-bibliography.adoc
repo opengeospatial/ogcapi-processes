@@ -11,3 +11,5 @@
 * [[[jsonschema-validation,JSON Schema Validation]]] Hutton, B.: JSON Schema Validation: A Vocabulary for Structural Validation of JSON, https://json-schema.org/draft/2020-12/json-schema-validation.html
 
 * [[[jsonschema-pointers,Relative JSON Pointers]] Hutton, B.: Relative JSON Pointers, https://json-schema.org/draft/2020-12/relative-json-pointer.html
+
+* [[[w3c-html5,W3C HTML 5]]], https://www.w3.org/TR/html5/

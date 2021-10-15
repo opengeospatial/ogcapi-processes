@@ -6,7 +6,7 @@ label:: /req/html/content
 
 
 Every `200`-response of the server with the media type "text/html" SHALL be a
-link:https://www.w3.org/TR/html5/[HTML 5 document] that includes the following
+<<w3c-html5>> document that includes the following
 information in the HTML body:
 
 * all information identified in the schemas of the
