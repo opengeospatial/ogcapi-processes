@@ -30,7 +30,7 @@ Validate that the document was returned with a status code 200.
 
 [.component,class=step]
 --
-Validate the contents of the returned document using the test <<ats_job-results-success,/conf/core/job-results-success>>.
+Validate the contents of the returned document using the test <<ats-job-results-success,/conf/core/job-results-success>>.
 --
 =====
 ====
