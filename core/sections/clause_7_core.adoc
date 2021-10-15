@@ -1215,7 +1215,7 @@ The following table maps the possible responses based on the combinations of the
 |200
 |multipart/related
 |[one output per part]
-|<<req_core_process-execute-async-raw-mixed-multi,/req/core/process-execute-async-raw-mixed-multi>>
+|<<req_core_process-execute-sync-raw-mixed-multi,/req/core/process-execute-sync-raw-mixed-multi>>
 
 .3+|document
 .2+|value
