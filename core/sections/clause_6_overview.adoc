@@ -12,8 +12,6 @@ The OGC API - Processes builds on the WPS 2.0 standard and is modularized. This 
 
 JSON is the encoding for requests and responses. The inputs and outputs of a process can be any format. The formats are defined at the time of job creation and are fixed for the specific job.
 
-<<rec_html,Support for HTML is recommended>> as HTML is the core language of the World Wide Web.
+<<rc_html,Support for HTML>> is recommended as HTML is the core language of the World Wide Web.
 A server that supports HTML will support browsing with a web browser
 and will enable search engines to crawl and index the processes.
-
-

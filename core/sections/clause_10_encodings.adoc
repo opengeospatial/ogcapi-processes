@@ -10,8 +10,8 @@ for now, normative statements are often included inline. This will be re-factore
 This clause specifies two pre-defined requirements classes for encodings to be
 used with the OGC API Processes.
 
-* <<rec_json,JSON>>
-* <<rc_html,HTML>>
+* <<sc_requirements_class_json,JSON>>
+* <<sc_requirements_class_html,HTML>>
 
 The JSON encoding is mandatory.
 
@@ -24,16 +24,17 @@ As clients simply need to dereference the URI of the link, the implementation de
 Two common approaches are:
 
 * an additional path for each encoding of each resource (this can be expressed,
-for example, using format specific suffixes like ".html");
+for example, using format specific suffixes like `.html`);
 
 * an additional query parameter (for example, "accept" or "f") that overrides
 the Accept header of the HTTP request.
 ====
 
 The <<rc_core,Core>> requirements class includes recommendations to support
-<<rec_html,HTML>> and <<rec_json,JSON>> as encodings, where practical.
+<<rc_html,HTML>> and <<rc_json,JSON>> as encodings, where practical.
 
 
+[[sc_requirements_class_json]]
 === Requirement Class "JSON"
 
 This section defines the requirements class JSON.
