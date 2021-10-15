@@ -279,7 +279,7 @@ Several resources defined in this specification (see <<sc_process_list,Retrieve 
 
 * If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
 
-So (using the default/maximum values of 10/1000 from the OpenAPI fragment in requirement <<req_core_pl-limit-definition,`/req/core/pl-limit-definition`>> or <<req_job-list_jl-limit-definition,`/req/job-list/jl-limit-definition`>>):
+So (using the default/maximum values of 10/1000 from the OpenAPI fragment in requirement <<req_core_pl-limit-definition,`/req/core/pl-limit-definition`>> or <<req_job-list_limit-definition,`/req/job-list/limit-definition`>>):
 
 * If you ask for 10 results, you will get 0 to 10 (as requested) and if there are more, a `next` link;
 
