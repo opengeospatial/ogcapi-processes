@@ -30,7 +30,7 @@ For each identified process construct an execute request according to test <<ats
 
 [.component,class=step]
 --
-Verify that each process executes successfully according to the <<ats_job-creation-success,relevant requirement based on the combination of execute parameters>>.
+Verify that each process executes successfully according to the <<ats-job-creation-success-sync,relevant requirement based on the combination of execute parameters>>.
 --
 =====
 ====
