@@ -1,9 +1,9 @@
-[[ats_job-list_processID-response]]
+[[ats_job-list_processid-response]]
 [abstract_test]
 ====
 [%metadata]
 label:: /conf/job-list/processID-response
-subject:: <<req_job-list_processID-response,/req/job-list/processID-response>>
+subject:: <<req_job-list_processid-response,/req/job-list/processID-response>>
 test-purpose:: Validate that the `processID` query parameter is processed correctly.
 
 [.component,class=test method type]
