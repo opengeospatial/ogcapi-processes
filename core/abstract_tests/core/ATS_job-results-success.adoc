@@ -1,4 +1,4 @@
-[[ats-job-results-success]]
+[[ats_job-results-success]]
 Retrieving the results of an asynchronously executed process depends on a number of parameters specified in the execute request.  The following table enumerates the relevant requirement that needs to be satisfied based on the various execute parameter combinations.
 
 [%unnumbered]

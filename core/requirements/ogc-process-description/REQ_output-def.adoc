@@ -5,7 +5,7 @@
 label:: /req/ogc-process-description/output-def
 [.component,class=part]
 --
-The schema of each <<sc_process_outputs-value-schema,process **output**>> SHALL be specified using the `schema` parameter.
+The schema of each <<sc_process_outputs,process **output**>> SHALL be specified using the `schema` parameter.
 --
 
 [.component,class=part]

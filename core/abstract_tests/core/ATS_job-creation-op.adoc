@@ -16,7 +16,7 @@ Manual Inspection
 
 [.component,class=step]
 --
-Issue an HTTP POST request to the URL '/processes/{processID}/execution' for each execution mode according to requirements <<req_core_job-creation-default-execution-mode,/conf/core/job-creation-default-execution-mode>> or <<req_core_job-creation-auto-execution-mode,/conf/core/job-creation-auto-execution-mode>>.
+Issue an HTTP POST request to the URL '/processes/{processID}/execution' for each execution mode according to requirements <<ats_core_job-creation-default-execution-mode,/conf/core/job-creation-default-execution-mode>> or <<ats_core_job-creation-auto-execution-mode,/conf/core/job-creation-auto-execution-mode>>.
 --
 
 [.component,class=step]
