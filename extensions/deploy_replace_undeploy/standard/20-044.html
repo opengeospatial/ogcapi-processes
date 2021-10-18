@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>OGC API - Processes - Part 2: Transactions</title>
+<title>OGC API - Processes - Part 2: Deploy, Replace, Undeploy</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book">
 <div id="header">
-<h1>OGC API - Processes - Part 2: Transactions</h1>
+<h1>OGC API - Processes - Part 2: Deploy, Replace, Undeploy</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -490,7 +490,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">OGC API - Processes - Part 2: Transactions</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">OGC API - Processes - Part 2: Deploy, Replace, Undeploy</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -576,14 +576,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_references">3. References</a></li>
 <li><a href="#_terms_and_definitions">4. Terms and Definitions</a></li>
 <li><a href="#_conventions_and_background">5. Conventions and background</a></li>
-<li><a href="#_requirements_class_transactions">6. Requirements Class "Transactions"</a>
+<li><a href="#_requirements_class_deploy_replace_undeploy">6. Requirements Class "Deploy, Replace, Undeploy"</a>
 <ul class="sectlevel2">
-<li><a href="#transactions-overview">6.1. Overview</a>
+<li><a href="#deploy-replace-undeploy-overview">6.1. Overview</a>
 <ul class="sectlevel3">
 <li><a href="#http_status_codes">6.1.1. HTTP status codes</a></li>
+<li><a href="#cross_origin">6.1.2. Cross-origin requests</a></li>
 </ul>
 </li>
-<li><a href="#transactions-insert">6.2. Adding a new processes to the API (deployProcess)</a>
+<li><a href="#deploy">6.2. Adding a new processes to the API (deployProcess)</a>
 <ul class="sectlevel3">
 <li><a href="#_sequence_diagram">6.2.1. Sequence diagram</a></li>
 <li><a href="#_operation">6.2.2. Operation</a></li>
@@ -592,7 +593,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_exceptions">6.2.5. Exceptions</a></li>
 </ul>
 </li>
-<li><a href="#transactions-update-put">6.3. Updating an existing processes (modifyProcess)</a>
+<li><a href="#replace">6.3. Replacing an existing processes (replaceProcess)</a>
 <ul class="sectlevel3">
 <li><a href="#_sequence_diagram_2">6.3.1. Sequence diagram</a></li>
 <li><a href="#_operation_2">6.3.2. Operation</a></li>
@@ -602,7 +603,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_exceptions_2">6.3.6. Exceptions</a></li>
 </ul>
 </li>
-<li><a href="#transactions-delete">6.4. Removing a process (undeployProcess)</a>
+<li><a href="#undeploy">6.4. Removing a processes from the API (undeployProcess)</a>
 <ul class="sectlevel3">
 <li><a href="#_sequence_diagram_3">6.4.1. Sequence diagram</a></li>
 <li><a href="#_operation_3">6.4.2. Operation</a></li>
@@ -610,7 +611,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_exceptions_3">6.4.4. Exceptions</a></li>
 </ul>
 </li>
-<li><a href="#_static_processes">6.5. Static processes</a></li>
+<li><a href="#_immutable_processes">6.5. Immutable processes</a></li>
 </ul>
 </li>
 <li><a href="#_requirements_class_ogc_application_package">7. Requirements Class "OGC Application Package"</a>
@@ -619,12 +620,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_ogc_application_package_schema">7.2. OGC Application Package schema</a>
 <ul class="sectlevel3">
 <li><a href="#_overview_3">7.2.1. Overview</a></li>
-<li><a href="#_immediatedeployment_property">7.2.2. immediateDeployment property</a></li>
-<li><a href="#_processdescription_property">7.2.3. processDescription property</a></li>
-<li><a href="#_executionunit_property">7.2.4. executionUnit property</a></li>
-<li><a href="#_deploymentprofile_property">7.2.5. deploymentProfile property</a></li>
-<li><a href="#_binding_the_process_description_to_the_invocation_of_the_execution_unit">7.2.6. Binding the process description to the invocation of the execution unit</a></li>
-<li><a href="#_providing_value_hints_for_process_inputs">7.2.7. Providing value hints for process inputs</a></li>
+<li><a href="#_processdescription_property">7.2.2. processDescription property</a></li>
+<li><a href="#executionUnit">7.2.3. executionUnit property</a></li>
+<li><a href="#_deploymentprofile_property">7.2.4. deploymentProfile property</a></li>
+<li><a href="#_binding_the_process_description_to_the_invocation_of_the_execution_unit">7.2.5. Binding the process description to the invocation of the execution unit</a></li>
+<li><a href="#_providing_value_hints_for_process_inputs">7.2.6. Providing value hints for process inputs</a></li>
 </ul>
 </li>
 </ul>
@@ -650,8 +650,7 @@ and retrieve results of Web-accessible processes.  OGC API Processes is
 comprised of multiple parts, each of them is a separate standard.</p>
 </div>
 <div class="paragraph">
-<p>This part extends the core capabilities specified in <a href="#OAProc-1">Part 1: Core</a> with the ability to dynamically add, modify and/or delete individual processes
-from a deployed processes API.</p>
+<p>This part extends the core capabilities specified in <a href="#OAProc-1">Part 1: Core</a> with the ability to dynamically deploy, replace and/or undeploy individual processes from an OGC API - Processes instance.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -672,7 +671,7 @@ This is a DRAFT version of the 2nd part of the OGC API - Processes standards. Th
 <p>The following are keywords to be used by search engines and document catalogues.</p>
 </div>
 <div class="paragraph">
-<p>process collection instance spatial data openapi transactions insert update delete add modify remove REST PUT POST DELETE</p>
+<p>process collection instance spatial data openapi transactions insert replace delete add remove deploy undeploy REST PUT POST DELETE</p>
 </div>
 <div class="paragraph">
 <p><strong class="big">iii.   Preface</strong></p>
@@ -726,8 +725,8 @@ This is a DRAFT version of the 2nd part of the OGC API - Processes standards. Th
 <div class="paragraph">
 <p>This document specifies an extension to the <a href="#OAProc-1">OGC API - Processes -
 Part 1: Core</a> standard that defines the behaviour of an implementation that
-supports the ability to dynamically add, update or remove processes from a
-deployed OGC processes API instance.</p>
+supports the ability to dynamically deploy, replace or undeploy processes
+from an OGC API - Processes instance.</p>
 </div>
 </div>
 </div>
@@ -746,7 +745,7 @@ deployed OGC processes API instance.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#rc_transactions">Transactions</a>.</p>
+<p><a href="#rc_deploy-replace-undeploy">Deploy, Replace, Undeploy</a>.</p>
 </li>
 </ul>
 </div>
@@ -754,9 +753,9 @@ deployed OGC processes API instance.</p>
 <p>This class specifies requirements that all Web APIs have to implement.</p>
 </div>
 <div class="paragraph">
-<p>The <code>Transactions</code> class does not mandate a specific encoding or format for
-the formal definition of a process.  However, this extension defines the
-following conformance class:</p>
+<p>The <code>Deploy, Replace, Undeploy</code> class does not mandate a specific encoding or
+format for the formal definition of a process.  However, this extension
+defines the following conformance class:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -773,8 +772,8 @@ about a process that is to be dynamically deployed through the API.</p>
 <div class="paragraph">
 <p>This encoding is not mandatory and an implementation of this extension may
 choose to implement some other process description instead.  That said, the
-<code>Transactions</code> conformance class includes recommendations to support the
-<code>OGC Application Package</code>.</p>
+<code>Deploy, Replace, Undeploy</code> conformance class includes recommendations to
+support the <code>OGC Application Package</code>.</p>
 </div>
 <div class="paragraph">
 <p>Conformance with this standard shall be checked using all the relevant tests
@@ -823,11 +822,11 @@ OGC Compliance Testing web site.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_requirements_class_transactions"><a class="anchor" href="#_requirements_class_transactions"></a>6. Requirements Class "Transactions"</h2>
+<h2 id="_requirements_class_deploy_replace_undeploy"><a class="anchor" href="#_requirements_class_deploy_replace_undeploy"></a>6. Requirements Class "Deploy, Replace, Undeploy"</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="transactions-overview"><a class="anchor" href="#transactions-overview"></a>6.1. Overview</h3>
-<table id="rc_transactions" class="tableblock frame-all grid-all" style="width: 90%;">
+<h3 id="deploy-replace-undeploy-overview"><a class="anchor" href="#deploy-replace-undeploy-overview"></a>6.1. Overview</h3>
+<table id="rc_deploy-replace-undeploy" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -837,7 +836,7 @@ OGC Compliance Testing web site.</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/transactions" class="bare">http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/transactions</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy" class="bare">http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -858,22 +857,23 @@ OGC Compliance Testing web site.</p>
 dynamically add, replace and remove processes from a deployed processes API.</p>
 </div>
 <div class="paragraph">
-<p>The HTTP POST method is used to add new processes to the API.</p>
+<p>The HTTP POST method is used to add or deploy new processes to the API.</p>
 </div>
 <div class="paragraph">
-<p>The HTTP PUT method is used to update the definition of a previously, dynamically added processes that is accessible via the API.</p>
+<p>The HTTP PUT method is used to replace the definition of a previously, dynamically added processes that is accessible via the API.</p>
 </div>
 <div class="paragraph">
-<p>Finally, the HTTP DELETE method is used to remove  a previously, dynamically added process that is accessible via the API.</p>
+<p>Finally, the HTTP DELETE method is used to remove or undeploy a previously, dynamically added process that is accessible via the API.</p>
 </div>
 <div class="paragraph">
-<p>Adding or updating a process requires that a formal description of the process
-to be added or changed be provided by the client.  This extension does not
+<p>Adding or replacing a process requires that a formal description of the new or
+replacement process be provided by the client.  This extension does not
 mandate that a specific processes description language or vocabulary be used.
 However, in order to promote interoperability, this extension defines a
 conformance class, <a href="#rc_ogcapppkg">OGC Application Package</a>, that defines a
-formal process description language encoded using JSON.  It is recommended
-that all implementations of this extension support the <code>OGC Application Package</code>.</p>
+formal process description language encoded using JSON.  A recommendation is
+made later in this specification that all implementations of this extension
+support the <code>OGC Application Package</code>.</p>
 </div>
 <div class="sect3">
 <h4 id="http_status_codes"><a class="anchor" href="#http_status_codes"></a>6.1.1. HTTP status codes</h4>
@@ -905,8 +905,12 @@ that all implementations of this extension support the <code>OGC Application Pac
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server has been fulfilled the operation and a new resource has been created.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>202</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>204</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A successful request with no expectation of content in the body.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A successful request with no additional content to send in the response.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>400</code></p></td>
@@ -933,8 +937,20 @@ that all implementations of this extension support the <code>OGC Application Pac
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Content negotiation failed. For example, the <code>Accept</code> header submitted in the request did not support any of the media types supported by the server for the requested resource.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>409</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conflict.  For example, the processes already exists.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>412</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The status code indicates that one or more conditions given in the request header fields evaluated to false when tested by the server.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>413</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server is refusing to process the request because the request content is larger than the server is willing or able to process.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>415</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server is refusing to service the request because the content is in a format not supported by this method on the target resource.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>422</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server understands the content type of the request content and the syntax of the request content is correct, but was unable to process the contained instructions. For example, the submitted resource does not meet a semantic constraint, e.g. a mandatory property is missing.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>500</code></p></td>
@@ -942,10 +958,22 @@ that all implementations of this extension support the <code>OGC Application Pac
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Status code <code>422</code> is not yet an official HTTP status code, but is expected to be added by the <a href="https://www.ietf.org/archive/id/draft-ietf-httpbis-semantics-14.html#name-422-unprocessable-content">draft IETF RFC "HTTP Semantics"</a>.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>More specific guidance is provided for each resource, where applicable.</p>
 </div>
-<table id="per_transactions_additional-status-codes" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_deploy-replace-undeploy_additional-status-codes" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -969,9 +997,15 @@ that all implementations of this extension support the <code>OGC Application Pac
 <p>The API Description Document describes the HTTP status codes generated by that API. This should not be an exhaustive list of all possible status codes. It is not reasonable to expect an API designer to control the use of HTTP status codes which are not generated by their software. Therefore, it is recommended that the API Description Document limit itself to describing HTTP status codes relevant to the proper operation of the API application logic. Client implementations should be prepared to receive HTTP status codes in addition to those described in the API Description Document.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="cross_origin"><a class="anchor" href="#cross_origin"></a>6.1.2. Cross-origin requests</h4>
+<div class="paragraph">
+<p>See <a href="#OAFeat-1">OGC API - Features - Part 1: Core</a>, section <a href="http://www.opengis.net/doc/IS/ogcapi-features-1/1.0#cross_origin">Support for cross-origin requests</a>, about the importance of supporting cross-origin requests, typically via <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">Cross-origin resource sharing (CORS)</a>.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="transactions-insert"><a class="anchor" href="#transactions-insert"></a>6.2. Adding a new processes to the API (deployProcess)</h3>
+<h3 id="deploy"><a class="anchor" href="#deploy"></a>6.2. Adding a new processes to the API (deployProcess)</h3>
 <div class="sect3">
 <h4 id="_sequence_diagram"><a class="anchor" href="#_sequence_diagram"></a>6.2.1. Sequence diagram</h4>
 <div class="paragraph">
@@ -997,7 +1031,7 @@ a new process to the API:</p>
 </div>
 <div class="sect3">
 <h4 id="_operation"><a class="anchor" href="#_operation"></a>6.2.2. Operation</h4>
-<table id="req_transaction_insert-post-op" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_deploy-replace-undeploy_deploy_post-op" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1006,13 +1040,13 @@ a new process to the API:</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/transactions/insert/post-op</strong></p>
+<p><strong>/req/deploy-replace-undeploy/deploy/post-op</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server shall support the HTTP POST operation at the path '/processes'.</p>
+<p>The server shall support the HTTP POST operation at the path <code>/processes</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1022,7 +1056,7 @@ a new process to the API:</p>
 <h4 id="_request_body"><a class="anchor" href="#_request_body"></a>6.2.3. Request body</h4>
 <div class="sect4">
 <h5 id="_overview"><a class="anchor" href="#_overview"></a>6.2.3.1. Overview</h5>
-<table id="req_transactions_insert_body" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_deploy-replace-undeploy_deploy_body" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1031,7 +1065,7 @@ a new process to the API:</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/transactions/insert/body</strong></p>
+<p><strong>/req/deploy-replace-undeploy/deploy/body</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1042,7 +1076,7 @@ a new process to the API:</p>
 </tr>
 </tbody>
 </table>
-<table id="per_transactions_insert_body" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_deploy-replace-undeploy_deploy_body" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1051,7 +1085,7 @@ a new process to the API:</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/transaction/insert/body</strong></p>
+<p><strong>/per/deploy-replace-undeploy/deploy/body</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1062,7 +1096,7 @@ a new process to the API:</p>
 </tr>
 </tbody>
 </table>
-<table id="req_transactions_insert-content-type" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_deploy-replace-undeploy_deploy_content-type" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1071,21 +1105,24 @@ a new process to the API:</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/transactions/insert/content-type</strong></p>
+<p><strong>/req/deploy-replace-undeploy/deploy/content-type</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>As per <a href="#rfc2616">HTTP 1.1</a> (<a href="https://tools.ietf.org/html/rfc2616#section-14.17" class="bare">https://tools.ietf.org/html/rfc2616#section-14.17</a>) the 'Content-Type' header shall be used to indicate the media type of a request body containing a description of the processes to be added to the API.</p>
+<p>The <code>Content-Type</code> <a href="https://tools.ietf.org/html/rfc2616#section-14.17">header</a> SHALL be used to declare the media type of the request body containing a description of the processes to be added to the API.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>See <a href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5">section 3.1.1.5 of RFC 7231</a> for details.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="_ogc_application_package_body"><a class="anchor" href="#_ogc_application_package_body"></a>6.2.3.2. OGC Application Package body</h5>
-<table id="rec_transactions_insert_body-ogcapppkg" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_deploy-replace-undeploy_deploy_body-ogcapppkg" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1094,7 +1131,7 @@ a new process to the API:</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/transactions/insert/body-ogcapppkg</strong></p>
+<p><strong>/rec/deploy-replace-undeploy/deploy/body-ogcapppkg</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1115,23 +1152,27 @@ a new process to the API:</p>
 </div>
 <div class="sect3">
 <h4 id="_response"><a class="anchor" href="#_response"></a>6.2.4. Response</h4>
-<table id="req_transactions_insert_response-pid" class="tableblock frame-all grid-all stretch">
+<table id="req_deploy-replace-undeploy_deploy_response-pid" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 25%;">
+<col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 4</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/transactions/insert/response-pid</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/deploy-replace-undeploy/deploy/response-pid</strong></p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">If the operation completes successfully, the server shall assign the processes identifier (i.e. {processId}) specified in the processes description to the newly added processes.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the operation completes successfully, the server shall assign the processes identifier (i.e. <code>{processId}</code>) specified in the processes description to the newly added processes.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
-<table id="req_transactions_insert_response" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_deploy-replace-undeploy_deploy_response" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1140,24 +1181,30 @@ a new process to the API:</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/transactions/insert/response</strong></p>
+<p><strong>/req/deploy-replace-undeploy/deploy/response</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A successful execution of the operation shall be reported as a response with a HTTP status code '201'.</p>
+<p>A successful execution of the operation shall be reported as a response with a HTTP status code <code>201</code>.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The response shall include a 'Location' header with the URL of the newly added processes with the path '/processes/{processId}'.</p>
+<p>A response with HTTP status code <code>201</code> SHALL include a <code>Location</code> header with the URI of the newly added processes (path: <code>/processes/{processId}</code>).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the operation is not executed immediately, but is added to a processing queue, the response SHALL have a HTTP status code <code>202</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
-<table id="req_transactions_insert_response-body" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_deploy-replace-undeploy_deploy_response-body" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1166,7 +1213,7 @@ a new process to the API:</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/transactions/insert/response-body</strong></p>
+<p><strong>/req/deploy-replace-undeploy/deploy/response-body</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1186,12 +1233,24 @@ a new process to the API:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="transactions-update-put"><a class="anchor" href="#transactions-update-put"></a>6.3. Updating an existing processes (modifyProcess)</h3>
+<h3 id="replace"><a class="anchor" href="#replace"></a>6.3. Replacing an existing processes (replaceProcess)</h3>
 <div class="sect3">
 <h4 id="_sequence_diagram_2"><a class="anchor" href="#_sequence_diagram_2"></a>6.3.1. Sequence diagram</h4>
 <div class="paragraph">
-<p>The following diagram illustrates the sequence diagram for updating a previously
-deployed processes.</p>
+<p>The following diagram illustrates the sequence diagram for replacing a
+previously deployed processes.  The identifier of the process does not change.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The new process definition replaced to old process definition; version control is not discussed in this standard.
+</td>
+</tr>
+</table>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1205,14 +1264,14 @@ deployed processes.</p>
      |      Package) ...                                           |
      |------------------------------------------------------------&gt;|
      |                                                             |
-     |  HTTP/1.1 200 OK                                            |
+     |  HTTP/1.1 204 OK                                            |
      |&lt;------------------------------------------------------------|</pre>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_operation_2"><a class="anchor" href="#_operation_2"></a>6.3.2. Operation</h4>
-<table id="req_transactions_update_put-op" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_deploy-replace-undeploy_replace_put-op" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1221,7 +1280,7 @@ deployed processes.</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/transactions/update/put-op</strong></p>
+<p><strong>/req/deploy-replace-undeploy/replace/put-op</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1245,7 +1304,7 @@ deployed processes.</p>
 </div>
 <div class="sect3">
 <h4 id="_overview_2"><a class="anchor" href="#_overview_2"></a>6.3.4. Overview</h4>
-<table id="req_transactions_update_body" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_deploy-replace-undeploy_replace_body" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1254,7 +1313,7 @@ deployed processes.</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/transactions/update/body</strong></p>
+<p><strong>/req/deploy-replace-undeploy/replace/body</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1265,7 +1324,7 @@ deployed processes.</p>
 </tr>
 </tbody>
 </table>
-<table id="per_transactions_update_body" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_deploy-replace-undeploy_replace_body" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1274,7 +1333,7 @@ deployed processes.</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/transaction/update/body</strong></p>
+<p><strong>/per/deploy-replace-undeploy/replace/body</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1285,7 +1344,7 @@ deployed processes.</p>
 </tr>
 </tbody>
 </table>
-<table id="req_transactions_update-content-type" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_deploy-replace-undeploy_replace_content-type" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1294,7 +1353,7 @@ deployed processes.</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/transactions/update/content-type</strong></p>
+<p><strong>/req/deploy-replace-undeploy/replace/content-type</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1307,7 +1366,7 @@ deployed processes.</p>
 </table>
 <div class="sect4">
 <h5 id="_ogc_application_package_body_2"><a class="anchor" href="#_ogc_application_package_body_2"></a>6.3.4.1. OGC Application Package body</h5>
-<table id="rec_transactions_update_body-ogcapppkg" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_deploy-replace-undeploy_reaplce_body-ogcapppkg" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1316,7 +1375,7 @@ deployed processes.</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/transactions/update/body-ogcapppkg</strong></p>
+<p><strong>/rec/deploy-replace-undeploy/replace/body-ogcapppkg</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1337,7 +1396,7 @@ deployed processes.</p>
 </div>
 <div class="sect3">
 <h4 id="_response_2"><a class="anchor" href="#_response_2"></a>6.3.5. Response</h4>
-<table id="req_transactions_update_response" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_deploy-replace-undeploy_replace_response" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1346,17 +1405,29 @@ deployed processes.</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/transactions/update/response</strong></p>
+<p><strong>/req/deploy-replace-undeploy/replace/response</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A successful execution of the operation shall be reported as a response with a HTTP status code '204'.</p>
+<p>A successful execution of the operation SHALL be reported as a response with a HTTP status code <code>200</code> or <code>204</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the operation is not executed immediately, but is added to a processing queue, the response SHALL have a HTTP status code <code>202</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>The status code depends on the server. If the server has replaced the process, the response is either <code>200</code>, if the response includes additional content, or <code>204</code>, if the response has no additional content.</p>
+</div>
+<div class="paragraph">
+<p>If the server will process the replace request later, it will return a <code>202</code>. In this case, the processing can succeed or fail, without further notification to the client.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_exceptions_2"><a class="anchor" href="#_exceptions_2"></a>6.3.6. Exceptions</h4>
@@ -1366,12 +1437,12 @@ deployed processes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="transactions-delete"><a class="anchor" href="#transactions-delete"></a>6.4. Removing a process (undeployProcess)</h3>
+<h3 id="undeploy"><a class="anchor" href="#undeploy"></a>6.4. Removing a processes from the API (undeployProcess)</h3>
 <div class="sect3">
 <h4 id="_sequence_diagram_3"><a class="anchor" href="#_sequence_diagram_3"></a>6.4.1. Sequence diagram</h4>
 <div class="paragraph">
-<p>The following diagram illustrates the sequence diagram for removing a previously
-deployed process.</p>
+<p>The following diagram illustrates the sequence diagram for undeploying a
+previously deployed process.</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1380,14 +1451,14 @@ deployed process.</p>
      |  DELETE /processes/{processId}   HTTP/1.1                   |
      |------------------------------------------------------------&gt;|
      |                                                             |
-     |  HTTP/1.1 200 OK                                            |
+     |  HTTP/1.1 204 OK                                            |
      |&lt;------------------------------------------------------------|</pre>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_operation_3"><a class="anchor" href="#_operation_3"></a>6.4.2. Operation</h4>
-<table id="req_transactions_delete_delete-op" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_deploy-replace-undeploy_undeploy_delete-op" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1396,19 +1467,19 @@ deployed process.</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/transactions/delete/delete-op</strong></p>
+<p><strong>/req/deploy-replace-undeploy/undeploy/delete-op</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>For every dynamically added process (path '/processes/{processId}'), the server shall support the HTTP DELETE operation.</p>
+<p>For every dynamically added process (path: <code>/processes/{processId}</code>), the server shall support the HTTP DELETE operation.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The parameter 'processId' is each 'id' property in the process collection response (JSONPath: '$.processes[*].id').</p>
+<p>The parameter <code>processId</code> is each <code>id</code> property in the process collection response (JSONPath: <code>$.processes[*].id</code>).</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1416,7 +1487,7 @@ deployed process.</p>
 </div>
 <div class="sect3">
 <h4 id="_response_3"><a class="anchor" href="#_response_3"></a>6.4.3. Response</h4>
-<table id="req_transactions_delete_response" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_deploy-replace-undeploy_undeploy_response" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1425,7 +1496,7 @@ deployed process.</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/transactions/delete/response</strong></p>
+<p><strong>/req/deploy-replace-undeploy/undeploy/response</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1445,7 +1516,7 @@ deployed process.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_static_processes"><a class="anchor" href="#_static_processes"></a>6.5. Static processes</h3>
+<h3 id="_immutable_processes"><a class="anchor" href="#_immutable_processes"></a>6.5. Immutable processes</h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1453,25 +1524,18 @@ deployed process.</p>
 <div class="title">Note</div>
 </td>
 <td class="content">
-I am not quite sure if we need to distinguish between processes that may be already part of a deployed OGC processes API, which I call static processes, and processes that are dynamically added via the API.  For example the CubeWerx processes API comes with a set of built-in processes that cannot be manipulated via the transaction API.  So, I include this section here for discussion.
+I am not quite sure if we need to distinguish between processes that may be already part of a deployed OGC processes API, which I call immutable (or static) processes, and processes that are dynamically added via this API.  For example the CubeWerx processes API comes with a set of built-in processes that cannot be manipulated via the deploy-replace-undeploy API.  So, I include this section here for discussion.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>This extension recognizes that an OGC web processing API may be deployed with
-a set of built-in processes that are static and cannot be removed or modified
-via the transaction API.  In an API Description Document of the API (e.g.
-OpenAPI), such process paths would not include support for the HTTP POST,
-PUT or DELETE methods.</p>
+<p>This extension recognizes that an OGC web processing API may be deployed with a set of static, built-in processes that are immutable and cannot be removed or modified via the deploy-replace-undeploy API.  In an API Description Document (e.g. OpenAPI), such process paths would not include support for the HTTP POST, PUT or DELETE methods.</p>
 </div>
 <div class="paragraph">
-<p>However, in order to make it clear which processes in a collection (accessible
-via the <code>/processes</code> path) are built-in and which have been dynamically
-deployed, the processes collection schema is modified to add a flag indicating
-this aspect of a process.</p>
+<p>However, in order to make it clear which processes in a collection (path: <code>/processes</code>) are built-in - and thus immutable - and which have been dynamically deployed, the processes collection schema is modified to add a flag indicating this aspect of a process.</p>
 </div>
-<table id="req_transactions_static_indicator" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_deploy-replace-undeploy_static_indicator" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1480,38 +1544,38 @@ this aspect of a process.</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/transactions/static/indicator</strong></p>
+<p><strong>/req/deploy-replace-undeploy/static/indicator</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The optional property <code>isStatic</code> shall be used to indicate whether a process is a static or built-in process or a dynamically added process.</p>
+<p>The optional property <code>mutable</code> shall be used to indicate whether a process is a static or built-in process that is immutable or a dynamically added process that is mutable.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A value of <code>true</code> shall be used to indicate that a processes is static or built-in and can thus not be manipulated through the API.</p>
+<p>A value of <code>true</code> shall be used to indicate that a processes is mutable and can thus be manipulated through the API.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A value of <code>false</code> shall be used to indicate that a processes has been dynamically added to the API and can thus be manipulated through the API.</p>
+<p>A value of <code>false</code> shall be used to indicate that a processes is immutable and can thus not be manupulated through the API.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The default value shall be <code>false</code>.</p>
+<p>The default value shall be <code>true</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
 <p>The following schema fragment extends the process summary accessible via the
-<code>/processes</code> path to add the <code>isStatic</code> property.</p>
+<code>/processes</code> path to add the <code>mutable</code> property.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1526,9 +1590,9 @@ this aspect of a process.</p>
         type: string
       version:
         type: string
-      isStatic:
+      mutable:
          type: boolean
-         default: false
+         default: true
       jobControlOptions:
         type: array
         items:
@@ -1561,7 +1625,7 @@ this aspect of a process.</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/transactions/ogcapppkg" class="bare">http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/transactions/ogcapppkg</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/ogcapppkg" class="bare">http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/ogcapppkg</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -1581,8 +1645,14 @@ this aspect of a process.</p>
 <p>This conformance class defines the schema of an <code>OGC Application Package</code>. An
 <code>OGC Application Package</code> is a document that describes a process in sufficient
 detail so that an implementation of this extension can dynamically deploy the
-process and make it available for execution via an OGC processes API.  An
-<code>OGC Application Package</code> document includes the following:</p>
+process and make it available for execution via an OGC processes API.</p>
+</div>
+<div class="paragraph">
+<p>An <code>OGC Application Package</code> document provides all the information necessary to
+deploy a process and make it accessible through the OGC API - Processes API.</p>
+</div>
+<div class="paragraph">
+<p>The information contains in an <code>OGC Application Package</code> can include:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1593,7 +1663,7 @@ process and make it available for execution via an OGC processes API.  An
 <p>Either inline or by reference an execution unit which is the <code>code</code> that the server needs to execute whenever the process is invoked.</p>
 </li>
 <li>
-<p>A declaration of the processes' deployment profile which indicates the type of execution unit (e.g. Docker, CWL, etc.)</p>
+<p>Additional resource information required by the execution unit.</p>
 </li>
 </ul>
 </div>
@@ -1627,50 +1697,62 @@ process and make it available for execution via an OGC processes API.  An
 <div class="content">
 <pre class="pygments highlight"><code data-lang="YAML"><span></span>type: object
 required:
-  - processDescription
   - executionUnit
-  - deploymentProfile
 properties:
-  immediateDeployment:
-    type: boolean
   processDescription:
-    $ref: &quot;../../../../core/openapi/schemas/process.yaml&quot;
+    $ref: https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/process.yaml
   executionUnit:
+    description: Resource containing an executable or runtime information for executing the process.
     type: array
-      minItems: 1
-      items:
-        type: object
-        example:
-          type: docker
-          image: mydocker/ndvi:latest
-  deploymentProfile:
-    type: string
-    format: uri
-    example: http://www.opengis.net/profiles/eoc/dockerizedApplication</code></pre>
+    minItems: 1
+    items:
+      type: object
+      properties:
+        config:
+          description: Hardware requirements and configuration properties for executing the process.
+          properties:
+            cpuMin:
+              description: Minimum number of CPUs required to run the process (unit is
+                CPU core).
+              type: number
+              minValue: 1
+            cpuMax:
+              description: Maximum number of CPU dedicated to the process (unit is CPU core)
+              type: number
+            memoryMin:
+              description: Minimum RAM memory required to run the application (unit is GB)
+              type: number
+            memoryMax:
+              description: Maximum RAM memory dedicated to the application (unit is GB)
+              type: number
+            storageTempMin:
+              description: Minimum required temporary storage size (unit is GB)
+              type: number
+            storageOutputsMin:
+              description: Minimum required output storage size (unit is GB)
+              type: number
+            jobTimeout:
+              description: Timeout delay for a job execution (in seconds)
+              type: number
+            additionalProperties: true
+        additionalProperties: true
+      example:
+        type: docker
+        image: mydocker/ndvi:latest
+        config:
+          cpuMin: 2
+          cpuMax: 5
+          memoryMin: 1
+          memoryMax: 3</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_immediatedeployment_property"><a class="anchor" href="#_immediatedeployment_property"></a>7.2.2. immediateDeployment property</h4>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Some text here about the immediateDeployment property; I don&#8217;t remember its purpose.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_processdescription_property"><a class="anchor" href="#_processdescription_property"></a>7.2.3. processDescription property</h4>
+<h4 id="_processdescription_property"><a class="anchor" href="#_processdescription_property"></a>7.2.2. processDescription property</h4>
 <div class="paragraph">
-<p>The formal process description (i.e. its inputs, its output, etc.) are provided,
-either in-line or by reference as the value of the <code>processDescription</code>
-property.</p>
+<p>The formal process description (i.e. its inputs, its output, etc.) is provided,
+either in-line using the <code>processDescription</code> property or may be infered from
+the information provided in the <a href="#executionUnit">execution unit</a>.</p>
 </div>
 <table id="req_ogcapppkg_process-description" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1687,47 +1769,41 @@ property.</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The value of the processDescription property shall be based upon the OpenAPI 3.0 schema <a href="http://fix.me">process.yaml</a>.</p>
+<p>If the <code>processDescription</code> key is specified then its value SHALL be based upon the OpenAPI 3.0 schema <a href="http://fix.me">process.yaml</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the <code>processDescription</code> key is NOT specified then the process description SHALL be infered from the information contained in the execute unit (key: <code>executionUnit</code>).</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Should this requirement be a recommendation?  Making it a recommendation opens up the possibility of using the <code>OGC Application Package</code> schema with alternative process description languages.
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect3">
-<h4 id="_executionunit_property"><a class="anchor" href="#_executionunit_property"></a>7.2.4. executionUnit property</h4>
+<h4 id="executionUnit"><a class="anchor" href="#executionUnit"></a>7.2.3. executionUnit property</h4>
 <div class="paragraph">
 <p>The execution unit is the <code>code</code> that an implementation of this extensions needs
 to execute whenever the deployed process is executed.  The execution unit can be
-either specified in-line or by reference.</p>
+either specified in-line (e.g. CWL script) or by reference (e.g. docker image reference).</p>
 </div>
-<table id="rec_ogcapppkg_execution-unit-docker" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_ogcapppkg_execution-unit-docker" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/ogcapppkg/execution-unit-docker</strong></p>
+<p><strong>/req/ogcapppkg/execution-unit-docker</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the execution unit is a Docker image then it is recommended that the contents of the execution unit be the properties <code>type</code> and <code>image</code>.</p>
+<p>If the execution unit is a Docker image then the keys <code>type</code> and <code>image</code> SHALL be specified.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1746,7 +1822,7 @@ either specified in-line or by reference.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_deploymentprofile_property"><a class="anchor" href="#_deploymentprofile_property"></a>7.2.5. deploymentProfile property</h4>
+<h4 id="_deploymentprofile_property"><a class="anchor" href="#_deploymentprofile_property"></a>7.2.4. deploymentProfile property</h4>
 <div class="paragraph">
 <p>The deploymentProfile property is used to indicate the type of execution unit
 that is being provided.</p>
@@ -1977,22 +2053,21 @@ I think we need to consult with the OGC NA to get a property identifier indicati
       "reference"
     ]
   },
-  "immediateDeployment": true,
   "executionUnit": [
     {
-      "unit": {
-        "type": "docker",
-        "image": "eoc/ndvi:latest"
-      }
+       "type": "docker",
+       "image": "eoc/ndvi:latest",
+       "config": {
+          "cpuMin": 2
+       }
     }
   ],
-  "deploymentProfileName": "http://www.opengis.net/profiles/eoc/dockerizedApplication"
 }</pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_binding_the_process_description_to_the_invocation_of_the_execution_unit"><a class="anchor" href="#_binding_the_process_description_to_the_invocation_of_the_execution_unit"></a>7.2.6. Binding the process description to the invocation of the execution unit</h4>
+<h4 id="_binding_the_process_description_to_the_invocation_of_the_execution_unit"><a class="anchor" href="#_binding_the_process_description_to_the_invocation_of_the_execution_unit"></a>7.2.5. Binding the process description to the invocation of the execution unit</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2019,7 +2094,7 @@ TBD. I envision this clause being composed of a series of recommendations (not r
 </div>
 </div>
 <div class="sect3">
-<h4 id="_providing_value_hints_for_process_inputs"><a class="anchor" href="#_providing_value_hints_for_process_inputs"></a>7.2.7. Providing value hints for process inputs</h4>
+<h4 id="_providing_value_hints_for_process_inputs"><a class="anchor" href="#_providing_value_hints_for_process_inputs"></a>7.2.6. Providing value hints for process inputs</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2147,7 +2222,7 @@ TBD. I envision this clause being composed of a series of recommendations (not r
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-09 10:50:43 -0400
+Last updated 2021-10-17 22:19:50 -0400
 </div>
 </div>
 <style>
