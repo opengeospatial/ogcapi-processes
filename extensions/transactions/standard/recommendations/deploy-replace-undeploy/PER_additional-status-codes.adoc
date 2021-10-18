@@ -1,4 +1,4 @@
-[[per_transactions_additional-status-codes]]
+[[per_deploy-replace-undeploy_additional-status-codes]]
 [width="90%",cols="2,6a"]
 |===
 ^|*Permission {counter:per-id}* |*/per/core/additional-status-codes*

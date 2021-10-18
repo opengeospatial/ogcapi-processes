@@ -1,5 +1,5 @@
-:Title: OGC API - Processes - Part 2: Transactions
-:titletext: OGC API - Processes - Part 2: Transactions
+:Title: OGC API - Processes - Part 2: Deploy, Replace, Undeploy
+:titletext: OGC API - Processes - Part 2: Deploy, Replace, Undeploy
 :doctype: book
 :encoding: utf-8
 :lang: en
@@ -101,7 +101,7 @@ include::clause_4_terms_and_definitions.adoc[]
 
 include::clause_5_conventions.adoc[]
 
-include::clause_6_transactions.adoc[]
+include::clause_6_deploy_replace_undeploy.adoc[]
 
 include::clause_7_apppkg.adoc[]
 

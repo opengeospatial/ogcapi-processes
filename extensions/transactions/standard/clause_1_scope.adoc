@@ -2,6 +2,5 @@
 
 This document specifies an extension to the <<OAProc-1,OGC API - Processes -
 Part 1: Core>> standard that defines the behaviour of an implementation that
-supports the ability to dynamically add, update or remove processes from a
-deployed OGC processes API instance.
-
+supports the ability to dynamically deploy, replace or undeploy processes
+from an OGC API - Processes instance.
