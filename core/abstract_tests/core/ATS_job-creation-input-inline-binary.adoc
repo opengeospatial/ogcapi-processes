@@ -3,7 +3,7 @@
 ====
 [%metadata]
 label:: /conf/core/job-creation-input-inline-binary
-subject:: <<req_core_job-creations-input-binary,/req/core/job-creation-input-binary>>
+subject:: <<req_core_job-creation-input-binary,/req/core/job-creation-input-binary>>
 test-purpose:: Validate that binary input values encoded as base-64 string in-line in an execute request are correctly processes.
 
 [.component,class=test method type]
