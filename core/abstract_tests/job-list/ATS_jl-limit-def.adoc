@@ -3,7 +3,7 @@
 ====
 [%metadata]
 label:: /conf/job-list/limit-definition
-subject:: <<req_job-list-limit-definition,/req/job-list/limit-definition>>
+subject:: <<req_job-list_limit-definition,/req/job-list/limit-definition>>
 test-purpose:: Validate that the `limit` query parameter is constructed correctly.
 
 [.component,class=test method type]
