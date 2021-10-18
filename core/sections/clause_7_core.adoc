@@ -996,7 +996,8 @@ The following table maps the possible responses based on the combinations of the
 |1
 |200
 |[as per output definition from process description]
-|[output in requested format]| <<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>
+|[output in requested format]
+|<<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>
 |*
 
 |200

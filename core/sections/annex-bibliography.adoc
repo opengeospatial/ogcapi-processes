@@ -2,7 +2,7 @@
 [bibliography]
 == Bibliography
 
-* [[[WFS20,OGC 09-025r2]]] Open Geospatial Consortium (OGC). OGC 09-025r2: **Web Feature Service 2.0** [online]. Edited by P. Vretanos. 2014 [viewed 2020-03-16]. Available at http://docs.opengeospatial.org/is/09-025r2/09-025r2.html
+* [[[WFS20,OGC 09-025r2]]] Open Geospatial Consortium (OGC). OGC 09-025r2: Web Feature Service 2.0 [online]. Edited by P. Vretanos. 2014 [viewed 2020-03-16]. Available at: http://docs.opengeospatial.org/is/09-025r2/09-025r2.html
 
 * [[[ogc15-022,OGC 15-022]]] Matheus, A.: OGC® Testbed 11 Engineering Report: Implementing Common Security Across the OGC Suite of Service Standards, https://portal.opengeospatial.org/files/?artifact_id=63312
 
