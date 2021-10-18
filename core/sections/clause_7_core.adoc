@@ -1093,7 +1093,7 @@ include::../requirements/core/REQ_process-execute-success-async.adoc[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier does not exist on the server, see requirement <<req_core_no-such-process,/req/core/process-exception/no-such-process>>.
+If the process with the specified identifier does not exist on the server, see requirement <<req_core_process-exception-no-such-process,/req/core/process-exception/no-such-process>>.
 
 
 [[sc_retrieve_status_info]]
@@ -1148,7 +1148,7 @@ include::../examples/json/StatusInfo.json[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier does not exist on the server, see requirement <<req_core_no-such-process,/req/core/process-exception/no-such-process>>.
+If the process with the specified identifier does not exist on the server, see requirement <<req_core_process-exception-no-such-process,/req/core/process-exception/no-such-process>>.
 
 include::../requirements/core/REQ_job-exception-no-such-job.adoc[]
 

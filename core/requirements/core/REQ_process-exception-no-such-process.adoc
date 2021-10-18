@@ -1,4 +1,4 @@
-[[req_core_no-such-process]]
+[[req_core_process-exception-no-such-process]]
 [requirement]
 ====
 [%metadata]

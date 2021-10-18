@@ -113,4 +113,4 @@ include::../examples/json/JobList.json[]
 
 See <<http_status_codes>> for general guidance.
 
-If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_no-such-process>>).
+If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_process-exception-no-such-process>>).
