@@ -3,7 +3,7 @@
 ====
 [%metadata]
 label:: /conf/job-list/datetime-definition
-subject:: <<req_job-list-datetime-definition,/req/job-list/datetime-definition>>
+subject:: <<req_job-list_datetime-definition,/req/job-list/datetime-definition>>
 test-purpose:: Validate that the `datetime` query parameter is constructed correctly.
 
 [.component,class=test method type]
