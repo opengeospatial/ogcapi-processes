@@ -2,5 +2,6 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/ogcapppkg/process-description*
-^|A |The value of the processDescription property shall be based upon the OpenAPI 3.0 schema http://fix.me[process.yaml].
+^|A |If the `processDescription` key is specified then its value SHALL be based upon the OpenAPI 3.0 schema http://fix.me[process.yaml].
+^|B |If the `processDescription` key is NOT specified then the process description SHALL be infered from the information contained in the execute unit (key: `executionUnit`).
 |===

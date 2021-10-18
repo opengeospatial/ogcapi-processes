@@ -8,12 +8,16 @@ include::requirements/requirements_class_ogcapppkg.adoc[]
 This conformance class defines the schema of an `OGC Application Package`. An
 `OGC Application Package` is a document that describes a process in sufficient
 detail so that an implementation of this extension can dynamically deploy the
-process and make it available for execution via an OGC processes API.  An 
-`OGC Application Package` document includes the following:
+process and make it available for execution via an OGC processes API.  
+
+An `OGC Application Package` document provides all the information necessary to
+deploy a process and make it accessible through the OGC API - Processes API.
+
+The information contains in an `OGC Application Package` can include:
 
 * A formal description of the process including what inputs the process takes and what outputs the process generates.
 * Either inline or by reference an execution unit which is the `code` that the server needs to execute whenever the process is invoked.
-* A declaration of the processes' deployment profile which indicates the type of execution unit (e.g. Docker, CWL, etc.)
+* Additional resource information required by the execution unit.
 
 === OGC Application Package schema
 
@@ -25,49 +29,23 @@ include::requirements/ogcapppkg/REQ_schema.adoc[]
 .link:http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[Schema for the OGC Application Package]
 [source,YAML]
 ----
-type: object
-required:
-  - processDescription
-  - executionUnit
-  - deploymentProfile
-properties:
-  immediateDeployment:
-    type: boolean
-  processDescription:
-    $ref: "../../../../core/openapi/schemas/process.yaml"
-  executionUnit:
-    type: array
-      minItems: 1
-      items:
-        type: object
-        example:
-          type: docker
-          image: mydocker/ndvi:latest
-  deploymentProfile:
-    type: string
-    format: uri
-    example: http://www.opengis.net/profiles/eoc/dockerizedApplication
+include::../openapi/schemas/ogcapppkg.yaml[]
 ----
-
-==== immediateDeployment property
-
-NOTE: Some text here about the immediateDeployment property; I don't remember its purpose.
 
 ==== processDescription property
 
-The formal process description (i.e. its inputs, its output, etc.) are provided,
-either in-line or by reference as the value of the `processDescription`
-property.
+The formal process description (i.e. its inputs, its output, etc.) is provided,
+either in-line using the `processDescription` property or may be infered from 
+the information provided in the <<executionUnit,execution unit>>.
 
 include::requirements/ogcapppkg/REQ_process-description.adoc[]
 
-NOTE: Should this requirement be a recommendation?  Making it a recommendation opens up the possibility of using the `OGC Application Package` schema with alternative process description languages.
-
+[[executionUnit]]
 ==== executionUnit property
 
 The execution unit is the `code` that an implementation of this extensions needs
 to execute whenever the deployed process is executed.  The execution unit can be
-either specified in-line or by reference.
+either specified in-line (e.g. CWL script) or by reference (e.g. docker image reference).
 
 include::requirements/ogcapppkg/REQ_execution-unit-docker.adoc[]
 
@@ -274,16 +252,15 @@ NOTE: I think we need to consult with the OGC NA to get a property identifier in
       "reference"
     ]
   },
-  "immediateDeployment": true,
   "executionUnit": [
     {
-      "unit": {
-        "type": "docker",
-        "image": "eoc/ndvi:latest"
-      }
+       "type": "docker",
+       "image": "eoc/ndvi:latest",
+       "config": {
+          "cpuMin": 2
+       }
     }
   ],
-  "deploymentProfileName": "http://www.opengis.net/profiles/eoc/dockerizedApplication"
 }
 ----
 
