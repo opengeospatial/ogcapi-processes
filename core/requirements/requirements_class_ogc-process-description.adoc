@@ -6,5 +6,5 @@ label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-descr
 obligation:: requirement
 subject:: Web API
 inherit:: <<rc_core,OGC API - Processes Core>>
-inherit:: <<JSON,JSON>>
+inherit:: <<rfc8259,JSON>>
 ====

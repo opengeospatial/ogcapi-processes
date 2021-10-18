@@ -28,4 +28,6 @@
 
 * [[[rfc8288,IETF RFC 8288]]], IETF RFC 8288: Web Linking https://tools.ietf.org/html/rfc8288
 
+* [[[rfc8259,IETF RFC 8259]]], IETF RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format. Available from: https://tools.ietf.org/html/rfc8259
+
 * [[[jsonschemavalidation,JSON Schema Validation]]] JSON Schema Validation: A Vocabulary for Structural Validation of JSON. https://json-schema.org/draft/2020-12/json-schema-validation.html
