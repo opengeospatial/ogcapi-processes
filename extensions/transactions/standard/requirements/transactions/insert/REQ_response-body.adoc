@@ -1,7 +1,0 @@
-[[req_transactions_insert_response-body]]
-[requirement]
-====
-[%metadata]
-label:: /req/transactions/insert/response-body
-part:: The response shall include a body that contains a summary description of the added process.
-====
