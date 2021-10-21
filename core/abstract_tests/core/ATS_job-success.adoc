@@ -6,11 +6,6 @@ label:: /conf/core/job-success
 subject:: <<req_core_job-success,/req/core/job-success>>
 test-purpose:: Validate that the job status info complies with the require structure and contents.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

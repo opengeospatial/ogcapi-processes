@@ -6,11 +6,6 @@ label:: /conf/core/job-creation-default-outputs
 subject:: <<req_core_job-creation-op,/req/core/job-creation-op>>
 test-purpose:: Validate that the server correctly handles the case where no `outputs` parameter is specified on an execute request.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

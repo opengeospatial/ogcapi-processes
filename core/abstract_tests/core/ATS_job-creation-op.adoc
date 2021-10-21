@@ -6,11 +6,6 @@ label:: /conf/core/job-creation-op
 subject:: <<req_core_job-creation-op,/req/core/job-creation-op>>
 test-purpose:: Validate the creation of a new job.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

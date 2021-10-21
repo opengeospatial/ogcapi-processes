@@ -6,11 +6,6 @@ label:: /conf/core/http
 subject:: <<req_core_http,/req/core/http>>
 test-purpose:: Validate that the resource paths advertised through the API conform with HTTP 1.1 and, where appropriate, TLS.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

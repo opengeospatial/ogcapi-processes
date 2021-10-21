@@ -6,11 +6,6 @@ label:: /conf/job-list/processID-mandatory
 subject:: <<req_job-list_processID-mandatory,/req/job-list/processID-mandatory>>
 test-purpose:: Validate that the `processID` property is present in every job.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

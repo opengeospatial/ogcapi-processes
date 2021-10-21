@@ -6,11 +6,6 @@ label:: /conf/dismiss/job-dismiss-op
 subject:: <<req_dismiss_job-dismiss-op,/req/dismiss/job-dismiss-op>>
 test-purpose:: Validate that a running job can be dismissed.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

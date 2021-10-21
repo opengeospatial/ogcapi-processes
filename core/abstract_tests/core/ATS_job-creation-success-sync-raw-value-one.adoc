@@ -6,11 +6,6 @@ label:: /conf/core/job-creation-sync-raw-value-one
 subject:: <<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
 test-purpose:: Validate that the server responds as expected when synchronous execution is <<sc_execution_mode,negotiated>>, a single output value is requested, the response type is `raw` and the output transmission is `value`.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

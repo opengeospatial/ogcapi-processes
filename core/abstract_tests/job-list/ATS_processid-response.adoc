@@ -6,11 +6,6 @@ label:: /conf/job-list/processID-response
 subject:: <<req_job-list_processid-response,/req/job-list/processID-response>>
 test-purpose:: Validate that the `processID` query parameter is processed correctly.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

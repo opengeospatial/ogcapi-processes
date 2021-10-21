@@ -6,11 +6,6 @@ label:: /conf/core/job-creation-input-inline-bbox
 subject:: <<req_core_job-creation-input-inline-bbox,/req/core/job-creation-input-inline-bbox>>
 test-purpose:: Validate that inputs with a bounding box schema encoded in-line in an execute request are correctly processed.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

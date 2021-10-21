@@ -6,11 +6,6 @@ label:: /conf/core/process-exception-no-such-process
 subject:: <<req_core_process-exception-no-such-process,/req/core/process-exception-no-such-process>>
 test-purpose:: Validate that an invalid process identifier is handled correctly.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

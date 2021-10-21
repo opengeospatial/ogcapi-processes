@@ -6,11 +6,6 @@ label:: /conf/core/job-results-exception-results-not-ready
 subject:: <<req_core_job-results-exception_results-not-ready,/req/core/job-results-exception-results-not-ready>>
 test-purpose:: Validate that the job results retrieved for an incomplete job complies with the require structure and contents.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

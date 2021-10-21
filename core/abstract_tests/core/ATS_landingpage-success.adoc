@@ -6,11 +6,6 @@ label:: /conf/core/landingpage-success
 subject:: <<req_core_landingpage-success,/req/core/landingpage-success>>
 test-purpose:: Validate that the landing page complies with the require structure and contents.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

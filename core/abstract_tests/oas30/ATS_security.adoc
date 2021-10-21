@@ -6,11 +6,6 @@ label:: /conf/oas30/security
 subject:: <<req_oas30_security,/req/oas30/security>>
 test-purpose:: Verify that any authentication protocols implemented by the API are documented in the OpenAPI document.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

@@ -6,11 +6,6 @@ label:: /conf/job-list/status-response
 subject:: <<req_job-list_status-response,/req/job-list/status-response>>
 test-purpose:: Validate that the `status` query parameter is processed correctly.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

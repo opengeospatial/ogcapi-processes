@@ -6,11 +6,6 @@ label:: /conf/core/api-definition-op
 subject:: <<req_core_api-definition-op,/req/core/api-definition-op>>
 test-purpose:: Validate that the API Definition document can be retrieved from the expected location.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

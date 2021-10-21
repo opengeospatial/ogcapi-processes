@@ -6,11 +6,6 @@ label:: /conf/core/process-list
 subject:: <<req_core_process-list,/req/core/process-list>>
 test-purpose:: Validate that information about the processes can be retrieved from the expected location.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

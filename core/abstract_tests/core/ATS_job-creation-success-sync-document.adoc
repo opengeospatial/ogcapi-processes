@@ -6,11 +6,6 @@ label:: /conf/core/job-creation-sync-document
 subject:: <<req_core_job-creation-sync-document,/req/core/job-creation-sync-document>>
 test-purpose:: Validate that the server responds as expected when synchronous execution is <<sc_execution_mode,negotiated>> and the response type is `document`.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

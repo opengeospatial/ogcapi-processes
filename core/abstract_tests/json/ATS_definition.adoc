@@ -6,11 +6,6 @@ label:: /conf/json/definition
 subject:: <<req_json_definition,/req/json/definition>>
 test-purpose:: Verify support for JSON.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

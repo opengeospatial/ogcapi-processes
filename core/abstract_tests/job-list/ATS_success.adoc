@@ -6,11 +6,6 @@ label:: /conf/job-list/job-list-success
 subject:: <<req_job-list_job-list-success,/req/job-list/job-list-success>>
 test-purpose:: Validate that the job list content complies with the required structure and contents.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

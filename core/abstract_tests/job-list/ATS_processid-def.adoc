@@ -6,11 +6,6 @@ label:: /conf/job-list/processID-definition
 subject:: <<req_job-list_processID-definition,/req/job-list/processID-definition>>
 test-purpose:: Validate that the `processID` query parameter is constructed correctly.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

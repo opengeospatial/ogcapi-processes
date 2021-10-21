@@ -6,11 +6,6 @@ label:: /conf/dismiss/job-dismiss-success
 subject:: <<req_dismiss_job-dismiss-success,/req/dismiss/job-dismiss-success>>
 test-purpose:: Validate that the content returned when dismissing a job complies with the required structure and contents.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

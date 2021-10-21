@@ -6,11 +6,6 @@ label:: /conf/core/conformance-op
 subject:: <<req_core_conformance-op,/req/core/conformance-op>>
 test-purpose:: Validate that a Conformance Declaration can be retrieved from the expected location.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

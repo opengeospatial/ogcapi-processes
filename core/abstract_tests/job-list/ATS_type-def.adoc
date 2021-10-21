@@ -6,11 +6,6 @@ label:: /conf/job-list/type-definition
 subject:: <<req_job-list_type-definition,/req/job-list/type-definition>>
 test-purpose:: Validate that the `type` query parameter is constructed correctly.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

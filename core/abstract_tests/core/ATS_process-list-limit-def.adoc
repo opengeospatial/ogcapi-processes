@@ -6,11 +6,6 @@ label:: /conf/core/pl-limit-definition
 subject:: <<req_core_pl-limit-definition,/req/core/pl-limit-definition>>
 test-purpose:: Validate that the `limit` query parameter is constructed correctly.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

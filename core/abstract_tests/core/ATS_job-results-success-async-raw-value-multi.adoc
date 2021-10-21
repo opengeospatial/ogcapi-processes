@@ -6,11 +6,6 @@ label:: /conf/core/job-results-async-raw-value-multi
 subject:: <<req_core_job-results-async-raw-value-multi,/req/core/job-results-async-raw-value-multi>>
 test-purpose:: Validate that the server responds as expected when asynchronous execution is <sc_execution_mode,negotiated>>, more than one output is requested, the response type is `raw` and the output transmission is `value`.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]
@@ -40,11 +35,6 @@ When the job status is `successful`, get the results as per test <<ats_core_job-
 =====
 
 NOTE: In the case where a process supports both `async-execute` and `sync-execute` job control options there is a possibility that the server responds synchronously even though the `Prefer` headers asserts a `respond-async` preference.  In this case, the following additional test should be performed.
-
-[.component,class=test method type]
---
-Manual Inspection
---
 
 [.component,class=test method]
 =====

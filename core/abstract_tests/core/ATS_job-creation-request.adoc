@@ -6,11 +6,6 @@ label:: /conf/core/job-creation-request
 subject:: <<req_core_job-creation-request,/req/core/job-creation-request>>
 test-purpose:: Validate that the body of a job creation operation complies with the required structure and contents.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

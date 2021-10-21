@@ -6,11 +6,6 @@ label:: /conf/job-list/job-list-op
 subject:: <<req_job-list_job-list-op,/req/job-list/job-list-op>>
 test-purpose:: Validate that information about jobs can be retrieved from the expected location.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

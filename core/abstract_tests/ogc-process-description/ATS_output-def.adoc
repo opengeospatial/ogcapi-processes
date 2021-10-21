@@ -6,11 +6,6 @@ label:: /conf/ogc-process-description/output-def
 subject:: <<req_ogc-process-description_output-def,/req/ogc-process-description/output-def>>
 test-purpose:: Verify that the definition of each output for each process complies with the required structure and contents.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

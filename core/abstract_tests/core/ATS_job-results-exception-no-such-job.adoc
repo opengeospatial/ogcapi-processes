@@ -6,11 +6,6 @@ label:: /conf/core/job-results-failed
 subject:: <<req_core_job-results-exception_no-such-job,/req/core/job-results-exception-no-such-job>>
 test-purpose:: Validate that the job results retrieved using an invalid job identifier complies with the require structure and contents.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

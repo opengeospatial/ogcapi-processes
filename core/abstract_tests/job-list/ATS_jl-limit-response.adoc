@@ -6,11 +6,6 @@ label:: /conf/job-list/limit-response
 subject:: <<req_job-list_limit-response,/req/job-list/limit-response>>
 test-purpose:: Validate that the `limit` query parameter is processed correctly.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

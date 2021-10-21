@@ -6,11 +6,6 @@ label:: /conf/core/pl-links
 subject:: <<req_core_pl-links,/req/core/pl-links>>
 test-purpose:: Validate that the proper links are included in a response.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

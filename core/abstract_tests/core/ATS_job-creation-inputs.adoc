@@ -6,11 +6,6 @@ label:: /conf/core/job-creation-inputs
 subject:: <<req_core_job-creation-inputs,/req/core/job-creation-inputs>>
 test-purpose:: Validate that servers can accept input values both inline and by reference.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

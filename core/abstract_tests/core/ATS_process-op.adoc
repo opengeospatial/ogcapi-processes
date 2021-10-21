@@ -6,11 +6,6 @@ label:: /conf/core/process
 subject:: <<req_core_process,/req/core/process>>
 test-purpose:: Validate that a process description can be retrieved from the expected location.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

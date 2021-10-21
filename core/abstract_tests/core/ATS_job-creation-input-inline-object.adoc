@@ -6,11 +6,6 @@ label:: /conf/core/job-creation-input-inline-object
 subject:: <<req_core_job-creation-input-inline-object,/req/core/job-creation-input-inline-object>>
 test-purpose:: Validate that inputs with a complex object schema encoded in-line in an execute request are correctly processed.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

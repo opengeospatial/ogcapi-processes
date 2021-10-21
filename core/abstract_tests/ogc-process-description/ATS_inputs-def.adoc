@@ -6,11 +6,6 @@ label:: /conf/ogc-process-description/inputs-def
 subject:: <<req_ogc-process-description_inputs-def,/req/ogc-process-description/inputs-def>>
 test-purpose:: Verify that the definition of `inputs` for each process complies with the required structure and contents.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

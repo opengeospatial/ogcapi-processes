@@ -6,11 +6,6 @@ label:: /conf/core/pl-limit-response
 subject:: <<req_core_pl-limit-response,/req/core/pl-limit-response>>
 test-purpose:: Validate that the `limit` query parameter is processed correctly.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

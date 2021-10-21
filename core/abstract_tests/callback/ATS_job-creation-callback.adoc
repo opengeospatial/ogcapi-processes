@@ -6,11 +6,6 @@ label:: /conf/callback/job-callback
 subject:: <<req_callback_job-callback,/req/callback/job-callback>>
 test-purpose:: Validate the passing of a subscriber-URL in an execute request.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

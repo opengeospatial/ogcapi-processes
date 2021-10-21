@@ -6,11 +6,6 @@ label:: /conf/job-list/type-response
 subject:: <<req_job-list_type-response,/req/job-list/type-response>>
 test-purpose:: Validate that the `type` query parameter is processed correctly.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

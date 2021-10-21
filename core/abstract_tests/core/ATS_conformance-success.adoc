@@ -6,11 +6,6 @@ label:: /conf/core/conformance-success
 subject:: <<req_core_conformance-success,/req/core/conformance-success>>
 test-purpose:: Validate that the Conformance Declaration response complies with the required structure and contents.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

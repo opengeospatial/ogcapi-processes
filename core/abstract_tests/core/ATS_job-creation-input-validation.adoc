@@ -6,11 +6,6 @@ label:: /conf/core/job-creation-input-validation
 subject:: <<req_core_job-creation-input-validation,/req/core/job-creation-input-validation>>
 test-purpose:: Verify that the server correctly validates process input values according to the definition obtained from the <<sc_process_description,process description>>.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

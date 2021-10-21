@@ -6,11 +6,6 @@ label:: /conf/core/job-op
 subject:: <<req_core_job,/req/core/job>>
 test-purpose:: Validate that the status info of a job can be retrieved.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

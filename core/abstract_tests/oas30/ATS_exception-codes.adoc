@@ -6,11 +6,6 @@ label:: /conf/oas30/exceptions-codes
 subject:: <<req_oas30_exceptions-codes,/req/oas30/exceptions-codes>>
 test-purpose:: Verify that the OpenAPI document fully describes potential exception codes.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

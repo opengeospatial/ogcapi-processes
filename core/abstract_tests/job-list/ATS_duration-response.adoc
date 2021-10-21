@@ -6,11 +6,6 @@ label:: /conf/job-list/duration-response
 subject:: <<req_job-list_duration-response,/req/job-list/duration-response>>
 test-purpose:: Validate that the `minDuration` and `maxDuration` query parameter are processed correctly.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

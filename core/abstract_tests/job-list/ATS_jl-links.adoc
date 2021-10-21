@@ -6,11 +6,6 @@ label:: /conf/job-list/links
 subject:: <<req_job-list_links,/req/job-list/links>>
 test-purpose:: Validate that the proper links are included in a response.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

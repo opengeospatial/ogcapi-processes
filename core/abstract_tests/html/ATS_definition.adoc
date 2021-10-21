@@ -6,11 +6,6 @@ label:: /conf/html/definition
 subject:: <<req_html_definition,/req/html/definition>>
 test-purpose:: Verify support for HTML
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

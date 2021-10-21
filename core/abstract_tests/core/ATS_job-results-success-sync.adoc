@@ -6,11 +6,6 @@ label:: /conf/core/job-results-sync
 subject:: <<req_core_job-results-sync,/req/core/job-results-sync>>
 test-purpose:: Validate that the server responds as expected when getting results from a job for a process that has been executed synchronously.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 

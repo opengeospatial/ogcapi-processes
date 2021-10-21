@@ -6,11 +6,6 @@ label:: /conf/html/content
 subject:: <<req_html_content,/req/html/content>>
 test-purpose:: Verify the content of an HTML document given an input document and schema.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 [.component,class=step]

@@ -6,11 +6,6 @@ label:: /conf/ogc-process-description/json-encoding
 subject:: <<req_ogc-process-description_json-encoding,/req/ogc-process-description/json-encoding>>
 test-purpose:: Verify that a JSON-encoded OGC Process Description complies with the required structure and contents.
 
-[.component,class=test method type]
---
-Manual Inspection
---
-
 [.component,class=test method]
 =====
 
