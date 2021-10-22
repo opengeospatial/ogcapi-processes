@@ -7,7 +7,7 @@ properties:
     example: Example processing server
   description:
     type: string
-    example: Example server implementing the OGC API - Processes 1.0
+    example: Example server implementing the OGC API - Processes 1.0 Standard
   links:
     type: array
     items:

@@ -1,0 +1,58 @@
+<bibdata type="standard">
+  <fetched>2021-10-22</fetched>
+  <title format="text/plain" language="en" script="Latn">Tags for Identifying Languages</title>
+  <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.4646.xml</uri>
+  <uri type="src">https://www.rfc-editor.org/info/rfc4646</uri>
+  <docidentifier type="IETF">RFC 4646</docidentifier>
+  <docidentifier type="rfc-anchor">RFC4646</docidentifier>
+  <docidentifier type="DOI">10.17487/RFC4646</docidentifier>
+  <date type="published">
+    <on>2006-09</on>
+  </date>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">A. Phillips</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Internet Engineering Task Force</name>
+          <abbreviation>IETF</abbreviation>
+        </organization>
+      </affiliation>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">M. Davis</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>Internet Engineering Task Force</name>
+          <abbreviation>IETF</abbreviation>
+        </organization>
+      </affiliation>
+    </person>
+  </contributor>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>Internet Engineering Task Force</name>
+      <abbreviation>IETF</abbreviation>
+    </organization>
+  </contributor>
+  <language>en</language>
+  <script>Latn</script>
+  <abstract format="text/plain" language="en" script="Latn">This document describes the structure, content, construction, and semantics of language tags for use in cases where it is desirable to indicate the language used in an information object.  It also describes how to register values for use in language tags and the creation of user-defined extensions for private interchange.  This document, in combination with RFC 4647, replaces RFC 3066, which replaced RFC 1766.  This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.</abstract>
+  <series type="main">
+    <title format="text/plain" language="en" script="Latn">RFC</title>
+    <number>4646</number>
+  </series>
+  <place>Fremont, CA</place>
+  <ext>
+    <doctype>rfc</doctype>
+  </ext>
+</bibdata>
