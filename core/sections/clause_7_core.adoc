@@ -8,9 +8,9 @@ The following section describes the core requirements class.
 
 include::../requirements/requirements_class_core.adoc[]
 
-A server that implements the OGC API - Processes provides access to processes.
+A server that implements the OGC API - Processes Standard provides access to processes.
 
-Each OGC API - Processes has a single `LandingPage` (path `/`) that provides links to
+Each implementation of the OGC API - Processes Standard has a single `LandingPage` (path `/`) that provides links to
 
 * The `APIDefinition` (no fixed path),
 * The `Conformance` statements (path `/conformance`),
@@ -26,7 +26,7 @@ HTTP GET returns a description of the API.
 Accessing `Conformance` using HTTP GET returns a list of URIs of
 requirements classes implemented by the server.
 
-The list of processes contains a summary of each process the OGC API - Processes offers, including the link to a more detailed description of the process.
+The list of processes contains a summary of each process offered by the OGC API - Processes implementation, including the link to a more detailed description of the process.
 
 The <<sc_process_description,process description>> contains information about inputs and outputs and a link to the execution-endpoint for the process.
 
@@ -40,18 +40,18 @@ After a process is finished (status = success/failed), the results/exceptions ca
 .Resources in the Core requirements class
 image::figures/PT1_FIG01.png[align="center"]
 
-The OGC API - Processes standard utilizes elements of <draft> the OGC API-Common standard. <<mapping-to-common>> Identifies the API-Common Requirements Classes which are applicable to each section of this standard.
+The OGC API - Processes Standard utilizes elements of <draft> the OGC API-Common standard. <<mapping-to-common>> Identifies the API-Common Requirements Classes which are applicable to each section of this standard.
 
 [[mapping-to-common]]
 .Mapping API - Processes Sections to API-Common Requirements Classes
 [cols="2,6"]
 |===
 ^|*API - Processes Section* ^|*API-Common Requirements Class*
-|<<sc_landing_page,API Landing Page>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
-|<<sc_api_definition,API Definition>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
-|<<sc_conformance_classes,Declaration of Conformance Classes>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
-|<<requirements-class-openapi_3_0-clause,OpenAPI 3.0>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/oas30
-|<<sc_requirements_class_html,HTML>>| http://www.opengis.net/spec/ogcapi_common-1/1.0/req/html
+|<<sc_landing_page,API Landing Page>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
+|<<sc_api_definition,API Definition>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
+|<<sc_conformance_classes,Declaration of Conformance Classes>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
+|<<requirements-class-openapi_3_0-clause,OpenAPI 3.0>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30
+|<<sc_requirements_class_html,HTML>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/html
 |===
 
 
@@ -77,7 +77,7 @@ The term "_...based upon the OpenAPI 3.0 schema..._" used in the requirements of
 * all the required properties of the respective request/response schema,
 * and any optional properties of the respective request/response schema.
 
-It also mean that unless explicitly excluded these schemas are extensible with additional properties not defined in the schema using the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#schemaObject[`additionalProperties`] mechanism defined in the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md[OpenAPI 3.0 specification].
+It also means that unless explicitly excluded these schemas are extensible with additional properties not defined in the schema using the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#schemaObject[`additionalProperties`] mechanism defined in the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md[OpenAPI 3.0 specification].
 ====
 
 .Schema for the landing page
@@ -119,7 +119,7 @@ The following section defines the requirements to retrieve an API definition.
 
 ==== Operation
 
-Every OGC API - Processes provides an API definition that describes the capabilities
+Every implementation of OGC API - Processes provides an API definition that describes the capabilities
 of the server. This definition is used by developers to understand the API,
 by software clients to connect to the server, or
 by development tools to support the implementation of servers and clients.
@@ -154,7 +154,7 @@ the Accept header of the HTTP request.
 The API definition document describes the API. In other words,
 there is no need to include the `/api` operation in the API definition itself.
 
-The idea is that any OGC API - Processes can be used by developers that are familiar with
+The idea is that any implementation of OGC API - Processes can be used by developers that are familiar with
 the API definition language(s) supported by the server. For example, if
 an OpenAPI definition is used, it should be possible to create a working
 client using the OpenAPI definition. The developer may need to learn a little
@@ -247,7 +247,7 @@ More specific guidance is provided for each resource, where applicable.
 
 include::../recommendations/core/PER_additional-status-codes.adoc[]
 
-When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be preferred. [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807) addresses this need by providing "Problem Details" response schemas for both JSON and XML.
+When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be preferred. https://datatracker.ietf.org/doc/html/rfc7807[RFC 7807] addresses this need by providing "Problem Details" response schemas for both JSON and XML.
 
 include::../recommendations/core/REC_problem-details.adoc[]
 

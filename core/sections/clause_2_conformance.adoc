@@ -24,7 +24,7 @@ The _Core_ does not mandate any encoding or format for the formal definition of 
 
 * <<rc_oas30,OpenAPI Specification 3.0>>.
 
-An implementation of the _Core_ requirements class may also decide to use other API definition representations in addition or instead of an OpenAPI 3.0 definition. Examples for alternative API definitions: OpenAPI 2.0 (Swagger), future versions of the OpenAPI specification, an OWS Common 2.0 capabilities document or WSDL.
+An implementation of the _Core_ requirements class may also decide to use other API definition representations in addition to, or instead of, an OpenAPI 3.0 definition. Examples for alternative API definitions: OpenAPI 2.0 (Swagger), future versions of the OpenAPI specification, an OWS Common 2.0 capabilities document or WSDL.
 
 [NOTE]
 ====

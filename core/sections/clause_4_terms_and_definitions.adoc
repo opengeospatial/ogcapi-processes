@@ -26,6 +26,13 @@ The (processing) job is a server-side object created by a processing service for
 
 JavaScript Object Notation is a lightweight data-interchange format. JSON is easy for humans to read and write and it is easy for machines to parse and generate.
 
+==== Link
+
+The term "link" is commonly used as substitute for URL or URI. In this standard, "link" refers to an element described by the schema for a link as shown at <<link-schema,link.yaml>>. This is a JSON element containing properties like "rel" (relation) and "href". The value of the "href" property is an URI.
+
+==== Link header
+
+HTTP Link header, as defined in <<rfc8288,RFC 8288 (Web Linking)>>.
 
 ==== process description
 
@@ -53,10 +60,8 @@ Process outputs are the results of a process and refer to data returned by a pro
 
 
 ==== REST
-alt:[RESTful]
 
-Representational state transfer.  REST-compliant Web services allow requesting systems to access and manipulate textual representations of Web resources using a uniform and predefined set of stateless operations.
-
+The Representational State Transfer (REST) style is an abstraction of the architectural elements within a distributed hypermedia system. REST focuses on the roles of components, the constraints upon their interaction with other components, and their interpretation of significant data elements. It encompasses the fundamental constraints upon components, connectors, and data that define the basis of the Web architecture, and thus the essence of its behavior as a network-based application. An API that conforms to the REST architectural principles/constraints is called a *RESTful API*. (Source: https://docs.ogc.org/is/18-088/18-088.html#_rest[OGC 18-088])
 
 === Abbreviated Terms
 
@@ -67,11 +72,11 @@ GML:: Geography Markup Language
 HTTP:: Hypertext Transfer Protocol
 ISO:: International Organization for Standardization
 JSON:: JavaScript Object Notation
-KVP:: Keyword Value Pair
+KVP:: Key-Value Pair
 MIME:: Multipurpose Internet Mail Extensions
 OGC:: Open Geospatial Consortium
 REST:: Representational State Transfer
-URI:: Universal Resource Identifier
+URI:: Uniform Resource Identifier
 URL:: Uniform Resource Locator
 WPS:: Web Processing Service
 XML:: Extensible Markup Language
