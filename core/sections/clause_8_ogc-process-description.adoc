@@ -103,7 +103,7 @@ The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-sc
 |http://www.opengis.net/def/ogcapi-processes/format/ogc-bbox |ogc-bbox |Indicates that the object is an instance of an OGC bounding box https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml[(bbox.yaml)].
 |===
 
-NOTE: This list of values has been submitted to the https://www.ogc.org/ogcna[OGC Naming Authority] for registration in their definition server.
+NOTE: This list of values has been submitted to the https://www.ogc.org/projects/groups/ogcnasc[OGC Naming Authority] for registration in their definition server.
 
 include::../recommendations/ogc-process-description/REC_format-short-code.adoc[]
 
