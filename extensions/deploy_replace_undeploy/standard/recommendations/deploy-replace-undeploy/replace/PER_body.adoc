@@ -1,6 +1,7 @@
 [[per_deploy-replace-undeploy_replace_body]]
-[width="90%",cols="2,6a"]
-|===
-^|*Permission {counter:per-id}* |*/per/deploy-replace-undeploy/replace/body*
-^|A |A server may support any processes description encoding in the body of a HTTP POST operation.
-|===
+[permission]
+====
+[%metadata]
+label:: /per/deploy-replace-undeploy/replace/body
+part:: A server may support any processes description encoding in the body of a HTTP POST operation.
+====

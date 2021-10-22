@@ -1,0 +1,7 @@
+
+== Scope
+
+This document specifies an extension to the <<OAProc-1>> standard that defines the behavior of an implementation that
+supports the ability to dynamically add, update or remove processes from a
+deployed OGC processes API instance.
+

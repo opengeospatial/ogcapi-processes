@@ -1,8 +1,16 @@
 [[ats_job-list_datetime-definition]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/job-list/datetime-definition*
-^|Test Purpose |Validate that the `datetime` query parameter is constructed correctly.
-^|Requirement |<<req_job-list-datetime-definition,/req/job-list/datetime-definition>>
-^|Test Method |Verify that the `datetime` query parameter complies with its definition in requirement <<req_job-list_datetime-definition,/req/job-list/datetime-definition>>.
-|===
+[abstract_test]
+====
+[%metadata]
+label:: /conf/job-list/datetime-definition
+subject:: <<req_job-list_datetime-definition,/req/job-list/datetime-definition>>
+test-purpose:: Validate that the `datetime` query parameter is constructed correctly.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Verify that the `datetime` query parameter complies with its definition in requirement <<req_job-list_datetime-definition,/req/job-list/datetime-definition>>.
+--
+=====
+====

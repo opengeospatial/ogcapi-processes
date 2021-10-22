@@ -1,25 +1,50 @@
 [[ats_core_landingpage-success]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/landingpage-success*
-^|Test Purpose |Validate that the landing page complies with the require structure and contents.
-^|Requirement |<<req_core_landingpage-success,/req/core/landingpage-success>>
-^|Test Method |. Validate that a document was returned with an HTTP status code or 200.
-. Validate the landing page for all supported media types using the resources and tests identified in <<landing-page-schema>>
-. For formats that require manual inspection, perform the following:
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/landingpage-success
+subject:: <<req_core_landingpage-success,/req/core/landingpage-success>>
+test-purpose:: Validate that the landing page complies with the require structure and contents.
 
-.. Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition.
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Validate that a document was returned with an HTTP status code or 200.
+--
 
-.. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration.
+[.component,class=step]
+--
+Validate the landing page for all supported media types using the resources and tests identified in <<landing-page-schema>>
+--
 
-.. Validate that the landing page includes a "processes" link to the list of processes.
-|===
+[.component,class=step]
+======
+For formats that require manual inspection, perform the following:
+
+[.component,class=step]
+--
+Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition.
+--
+
+[.component,class=step]
+--
+Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration.
+--
+
+[.component,class=step]
+--
+Validate that the landing page includes a "processes" link to the list of processes.
+--
+======
+=====
 
 The landing page may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the landing page against that schema. All supported formats should be exercised.
+====
 
 [[landing-page-schema]]
 .Schema and Tests for Landing Pages
-[width="90%",cols="3",options="header"]
+[cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
 |HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_html_content,/conf/html/content>>

@@ -1,0 +1,33 @@
+
+[bibliography]
+== References
+
+* [[[OGC_08-131r3,OGC 08-131r3]]], OGC 08-131r3 -- The Specification Model -- A Standard for Modular Specifications
+
+* [[[OGC_06-121r9,OGC 06-121r9]]], OGC 06-121r9, OGC Web Service Common Specification, version 2.0
+
+* [[[OGC_14-065,OGC 14-065]]], OGC 14-065, OGC WPS 2.0 Interface Standard, version 2.0.2
+
+* [[[rfc2246,IETF RFC 2246]]], IETF RFC 2246. Transport Layer Security. http://tools.ietf.org/html/rfc2246
+
+* [[[rfc2616,IETF RFC 2616]]], IETF RFC 2616. Hypertext Transfer Protocol - HTTP/1.1. http://tools.ietf.org/html/rfc2616
+
+* [[[rfc2617,IETF RFC 2617]]], IETF RFC 2617. HTTP Authentication: Basic and Digest Access Authentication. https://tools.ietf.org/html/rfc2617
+
+* [[[rfc2387,IETF RFC 2387]]], IETF RFC 2387, The MIME Multipart/Related Content-type. http://tools.ietf.org/html/rfc2387
+
+* [[[rfc2818,IETF RFC 2818]]], IETF RFC 2818. HTTP Over TLS. http://tools.ietf.org/html/rfc2818
+
+* [[[rfc3986,IETF RFC 3986]]], IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax. https://tools.ietf.org/html/rfc3986
+
+* [[[rfc4646,IETF RFC 4646]]], IETF RFC 4646: Tags for Identifying Languages. https://tools.ietf.org/html/rfc4646
+
+* [[[rfc7231,IETF RFC 7231]]], IETF RFC 7231: Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content. https://tools.ietf.org/html/rfc7231
+
+* [[[rfc7240,IETF RFC 7240]]], IETF RFC 7240: Prefer Header for HTTP. https://tools.ietf.org/html/rfc7240
+
+* [[[rfc8288,IETF RFC 8288]]], IETF RFC 8288: Web Linking https://tools.ietf.org/html/rfc8288
+
+* [[[rfc8259,IETF RFC 8259]]], IETF RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format. Available from: https://tools.ietf.org/html/rfc8259
+
+* [[[jsonschemavalidation,JSON Schema Validation]]] JSON Schema Validation: A Vocabulary for Structural Validation of JSON. https://json-schema.org/draft/2020-12/json-schema-validation.html

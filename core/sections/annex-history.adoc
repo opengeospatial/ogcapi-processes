@@ -1,0 +1,278 @@
+
+[appendix,obligation=informative]
+== Revision history
+
+[%unnumbered]
+[options="header"]
+|===
+|Date |Release |Editor | Primary clauses modified |Description
+
+|2017-03-07 |0.1 |Benjamin Pross |all |initial version
+|2018-05-16 |0.1 |Stan Tillman | 1-5 |Update section 1-5
+|2018-07-25 |1.0-draft |Benjamin Pross | all |1.0-draft
+|2018-08-15 |1.0-draft |Benjamin Pross | all |Restructuring, added requirements classes
+|2018-11-29 |1.0-draft |Benjamin Pross | 7 |Update schemas and examples
+|2019-02-20 |1.0-draft |Benjamin Pross | 7 |Fix for #3
+|2019-03-21 |1.0-draft |Benjamin Pross | 6,7,8,9,10 |Alignment with OAPI Common, adjust schemas
+|2019-03-27 |1.0-draft |Tom Kralidis, Benjamin Pross | 6,7,8,9,10 |Fix for #7, align bbox schema to WFS
+|2019-03-28 |1.0-draft |Benjamin Pross | 7 |Formatting
+|2019-03-29 |1.0-draft |Benjamin Pross | 7 |Adjust schemas and examples
+|2019-04-16 |1.0-draft |Benjamin Pross | 7 |Adjust schemas, fix validation errors, add more data types
+|2019-06-05 |1.0-draft |Gérald Fenoy | 7 |Allow unbounded for maxOccurs, Fix issue with ValueDefinition references
+|2019-06-12 |1.0-draft |Benjamin Pross | 7 |Possible solution for #26
+|2019-06-19 |1.0-draft |Gérald Fenoy | 7 |Add additionalParameter.yaml, update metadata.yaml and, descriptionType.yaml, fix indentation
+|2019-06-20 |1.0-draft |Brad Hards | 6,7 |Fix typo noted during OGC API presentation, fix for #34
+|2019-08-09 |1.0-draft.2 |Benjamin Pross| 7 |1.0-draft.2, use plural for results path, remove wrapper
+|2019-08-21 |1.0-draft.2 |Benjamin Pross| 7 |adjust schemas, examples and figures, remove section about web caching
+|2019-10-01 |1.0-draft.3 |Benjamin Pross| 7 |1.0-draft.3, minor edits
+|2019-10-10 |1.0-draft.3 |Gérald Fenoy, Tom Kralidis| 7 |Add implementations, Use status in place of infos in jobInfo definition
+|2019-10-22 |1.0-draft.3 |Benjamin Pross| 7 |Remove mandatory path /api, fix for #50
+|2020-01-06 |1.0-draft.3 |Francis Charette| 7 |Add implementation
+|2020-01-28 |1.0-draft.3 |Gérald Fenoy| 7 |Adjust schemas and examples
+|2020-02-03 |1.0-draft.3 |Benjamin Pross| 7 |Fix for #63
+|2020-02-18 |1.0-draft.3 |Chris Durbin| 7 |Fix for #61
+|2020-04-01 |1.0-draft.3 |Benjamin Pross| 7 |Add optional subscriber property to execute request, avoid duplication, create own type for entities with properties name and reference
+|2020-04-06 |1.0-draft.3 |Benjamin Pross| 5,7 |Abbreviate process-description link relation to process-desc, update example, alphabetical ordering of link relations
+|2020-04-09 |1.0-draft.3 |Benjamin Pross| 7 |Rename root.yaml to landingPage.yaml, add title and description to root.yaml
+|2020-04-28 |1.0-draft.3 |Benjamin Pross| 7 |Move examples, responses and parameters from core asciidoc to external files
+|2020-04-29 |1.0-draft.3 |Benjamin Pross| 11 |Add Requirements Class 'Callback'
+|2020-04-30 |1.0-draft.3 |Benjamin Pross| 6,11 |Move overview table to abstract, allow multiple URIs for callbacks
+|2020-05-05 |1.0-draft.3 |Gérald Fenoy | 12 |Add Requirements Class 'Dismiss', fix includes and section headers
+|2020-05-8 |1.0-draft.3 |Benjamin Pross | 14 |Add section with info about additional/alternative building blocks
+|2020-05-11 |1.0-draft.3 |Benjamin Pross | 12 |Move 'Job List' from core to separate Requirements Class
+|2020-05-12 |1.0-draft.3 |Panagiotis (Peter) A. Vretanos | N/A |Create a home for extensions to the core, initial check in of draft transactions extension, add placeholders for the quotation and billing APIs
+|2020-05-12 |1.0-draft.3 |Stan Tillman | 6,7,8,9,10 | Review
+|2020-05-20 |1.0-draft.3 |Panagiotis (Peter) A. Vretanos| 2,7 | Separate the OGC process description into its own conformance class.
+|2020-07-21 |1.0-draft.4 |Benjamin Pross| 2,6,10, Annex A |Editorial fixes, incorporated comments from Carl Reed, updated example
+|2020-07-23 |1.0-draft.4 |Benjamin Pross| 7,10,11 |Add dependency to API Common
+|2020-07-27 |1.0-draft.4 |Benjamin Pross| 9 |Add security considerations section
+|2020-07-30 |1.0-draft.4 |Benjamin Pross| 7,9 |Add section about HTTP and HTTPS, fix links to RFCs, add additional guidance to security considerations section
+|2020-08-10 |1.0-draft.4 |Panagiotis (Peter) A. Vretanos| all |Add ATS, adjust links throughout the document
+|2020-08-13 |1.0-draft.4 |Benjamin Pross| 9 |Work on security considerations section
+|2020-09-02 |1.0-draft.4 |Benjamin Pross| 9 |Incorporated further comments from Andreas Matheus
+|2020-10-08 |1.0-draft.5 |Benjamin Pross| All |Tag version 1.0-draft.4, continue work on version 1.0-draft.5
+|2020-10-22 |1.0-draft.5 |Benjamin Pross| Annex A |Continued to rename collection to list
+|2020-11-02 |1.0-draft.5 |Benjamin Pross| 7 |Fix issue #100
+|2020-11-13 |1.0-draft.5 |Benjamin Pross| 7 |Fix issue #103
+|2021-01-15 |1.0-draft.5 |Benjamin Pross| 7, 12 |Move /jobs endpoint to root level, changes in execute and result schema
+|2021-01-19|1.0-draft.6| Benjamin Pross|- | Set version to 1.0-draft.6-SNAPSHOT
+|2021-01-19|1.0-draft.6| Benjamin Pross|7 | Adjust example paths
+|2021-01-19|1.0-draft.6| Benjamin Pross|7 | Part B.x
+|2021-01-25|1.0-draft.6| Benjamin Pross|7 | Fix issue 3
+|2021-01-25|1.0-draft.6| Benjamin Pross|7 | Adjust links and replace WPS 2.0 SWG with OGC API - Processes SWG
+|2021-01-25|1.0-draft.6| Benjamin Pross|7 | Fix CNR3
+|2021-01-25|1.0-draft.6| Benjamin Pross|7 | CNR13
+|2021-01-25|1.0-draft.6| Benjamin Pross|7 | CNR19
+|2021-01-25|1.0-draft.6| Benjamin Pross|7 | CNR21
+|2021-01-25|1.0-draft.6| Benjamin Pross|7 | CNR23
+|2021-01-25|1.0-draft.6| Benjamin Pross|7 | CNR24
+|2021-02-01|1.0-draft.6| Benjamin Pross|7 | Fixes #87
+|2021-02-01|1.0-draft.6| Benjamin Pross|7 | Fixes #118
+|2021-02-02|1.0-draft.6| Benjamin Pross|7 | Adjust text for additional api building blocks
+|2021-02-02|1.0-draft.6| Benjamin Pross|7 | CNR9
+|2021-02-02|1.0-draft.6| Benjamin Pross|7 | Replace term Web Processing Service in core
+|2021-02-09|1.0-draft.6| Benjamin Pross|7 | CNR7, CNR14
+|2021-02-09|1.0-draft.6| Benjamin Pross|7 | CNR8
+|2021-02-09|1.0-draft.6| Benjamin Pross|7 | CNR25
+|2021-02-09|1.0-draft.6| Benjamin Pross|7 | CNR20]
+|2021-02-09|1.0-draft.6| Benjamin Pross|7 | CNR26
+|2021-02-22|1.0-draft.6| Benjamin Pross|7 | Editorial fixes
+|2021-02-22|1.0-draft.6| Benjamin Pross|7 | Fixes #130
+|2021-03-01|1.0-draft.6| Benjamin Pross|7 | Adjust texts to moved execute endpoint
+|2021-03-08|1.0-draft.6| Gérald Fenoy|10 | Fix old syntaxes in JobList example used from the file: clause_10_job_list.adoc
+|2021-03-08|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Modify process description to allow JSON-Schema to be used to describe inputs and outputs.  As a result of this change, a lot of the current structures, boundingBoxData, complexData, literalData, etc. can all be removed since these can be adequately described using JSON-Schema.
+|2021-03-11|1.0-draft.6| Benjamin Pross|X | Fix issue #143
+|2021-03-11|1.0-draft.6| Benjamin Pross|X | Fix links
+|2021-03-11|1.0-draft.6| Benjamin Pross|X | Fixes #148
+|2021-03-11|1.0-draft.6| Benjamin Pross|X | Fix #145
+|2021-03-17|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Refine the use of JSON Schema to describe input and output process parameters.
+|2021-03-17|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Update input/output description schema to convert the `inputs` and `outputs` keys in the process description from arrays to objects.  Each key in the updated `inputs`/`outputs` object is the identified for the corresponding process input/output.
+|2021-03-19|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Merge pull request #6 from opengeospatial/master
+|2021-03-24|1.0-draft.6| Benjamin Pross|- | Update UML
+|2021-03-24|1.0-draft.6| Benjamin Pross|- | Add eap and xmi files
+|2021-03-28|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove the ability to infinitely nest inputs.
+|2021-03-29|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | * Remove unnecessary schemas that can now be defined using JSON Schema   and propagate those changes to the other schemas. * Update some of the indentation in the yaml files so the yamllint does   not complain. * Further refine the examples. * Update the text of the specification accordingly.
+|2021-03-29|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Move additionalProperties from output.yaml to execute.yaml to be consistent with what was done with input.yaml.
+|2021-03-29|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Allow simple values to be encoded directly.  So, `"key": {"value":10}` becomes `"key": 10`.
+|2021-03-29|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add array, in additiona to string, number & boolean, to possible direct input types.
+|2021-04-09|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Update example to use new, more compact form for specifying simple scalar values.
+|2021-04-09|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | 1. Make mediateType optional 2. Modify the schema tag to be a reference to a schema or be an inline    JSON schema. 3. Change name of "encoding" tag to "characterEncoding" to make more    clear what it means.
+|2021-04-09|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add missing input type array.
+|2021-04-09|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Patch merge inconsistency between issues #122, #152 and #155.
+|2021-04-09|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Fix some spacing issues with the yaml files.
+|2021-04-09|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Patch dangling reference in result.yaml.
+|2021-04-12|1.0-draft.6| Benjamin Pross|X | This should fix #142
+|2021-04-12|1.0-draft.6| Benjamin Pross|X | Use upper case in bullet point list
+|2021-04-12|1.0-draft.6| Benjamin Pross|X | Add new requirement for inputs, this should fix #129
+|2021-04-12|1.0-draft.6| Benjamin Pross|X | Remove id from execute JSON schema
+|2021-04-12|1.0-draft.6| Benjamin Pross|X | Adjust requirement to new execute endpoint
+|2021-04-12|1.0-draft.6| Benjamin Pross|X | Adjust examples
+|2021-04-12|1.0-draft.6| Benjamin Pross|X | Adjust execute endpoint in ATS
+|2021-04-12|1.0-draft.6| Benjamin Pross|X | Add recommendation regarding access control for the /jobs endpoint
+|2021-04-13|1.0-draft.6| Gérald Fenoy|X | Update execute.yaml
+|2021-04-13|1.0-draft.6| Gérald Fenoy|X | Update format.yaml
+|2021-04-13|1.0-draft.6| Gérald Fenoy|X | Create referenceData.yaml
+|2021-04-13|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Patch JSON schema fragments in some of the example inputs.  All add a units of measure input example.
+|2021-04-13|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | A review after the merge of #122, #152 and #155 revealed an inconsistency in the input definition.  Specifically the merge overwrote the change that allow direct input values (i.e. "key": "value").  This commit fixes these inconsistencies.
+|2021-04-13|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove include path fragment that appears in clause 7.  For some reason it was commented out.  I uncommented it and clean up the format of the permission.
+|2021-04-13|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add some additional requirements around process inputs.  Specifically an input can be specified inline or by reference.  It it is specified inline than it shall conform to its schema in the process description. If by reference then a link.yaml link shall be used.
+|2021-04-14|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add requirements for input cardinality and for inlining or referencing input values.
+|2021-04-14|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add the schema for a standard bbox definition that process descriptions can reference.  This was everyone can uses the same bbox definition.
+|2021-04-14|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Update the bbox schema to enforce either 4 or 6 items (i.e. 5 is not allowed).
+|2021-04-14|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add a description indicating how this file can be used.
+|2021-04-15|1.0-draft.6| Benjamin Pross|X | Remove unnecessary oneOf
+|2021-04-15|1.0-draft.6| Benjamin Pross|X | Remove dash
+|2021-04-15|1.0-draft.6| Benjamin Pross|X | Use additionalProperties instead of patternProperties
+|2021-04-15|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove observedProperty as per SWG resolution of 29MAR2021. The observedProperty is useful for certain domains but seems out of scope for the core.
+|2021-04-15|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove file that does not seem to be referenced anywhere.
+|2021-04-15|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Patch reference to input and output descriptions.
+|2021-04-15|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add an additional requirement that if a value is specified by reference then its value type must match the type or types specified in the process description.  I suppose that an allOf could be used to constrain the type property of the link but that seem a bit heavy.
+|2021-04-15|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Rename the file name of the ATS so that it matched the requirement file name.
+|2021-04-15|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Update the description example.
+|2021-04-15|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Patch the $ref.
+|2021-04-15|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Clarify the language of the requirement a bit (I think).
+|2021-04-15|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Split the /req/core/job-creation-input-cardinality requirement into two requirements to make it easier to test in the ATS.
+|2021-04-15|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add tests for input cardinality handing.
+|2021-04-16|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Clarify the text of the requirements and the ATS about input multiplicity (i.e. issue #129).
+|2021-04-16|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove obsolete note.
+|2021-04-16|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Fix formatting.
+|2021-04-19|1.0-draft.6| Benjamin Pross|X | Add requirement and recommendation for testing. Should fix #157
+|2021-04-19|1.0-draft.6| Benjamin Pross|X | Adjust wording
+|2021-04-19|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | - Get rid on minOccurs/maxOccurs and rely instead on JSON Schema   structures to define the cardinality of a process input. - The schema object in the process description is too generic so add   three levels of JSON Schema conformance ranging from very simple to   full JSON schema.
+|2021-04-19|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Patch small $ref issues.
+|2021-04-20|1.0-draft.6| Benjamin Pross|X | Adjust path of execution endpoint
+|2021-04-20|1.0-draft.6| Benjamin Pross|X | Remove unused schema, fixes #173
+|2021-04-20|1.0-draft.6| Benjamin Pross|X | Remove link to execute endpoint from landing page
+|2021-04-20|1.0-draft.6| Benjamin Pross|X | Add recommendation to add link to job monitoring endpoint to the landing page
+|2021-04-25|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove the patternProperties key that allow JSON Schema extensions keys that begin with "x-".  Two point about this extension mechanism... (1) it breaks compatablity with swagger which is bad; (2) I can't really think of a good reason right now that we would want to extend the syntax of JSON Schema using this mechanism and so I think removing it is OK.
+|2021-04-26|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | - Update ATS to handle JSON Schema compliance levels. - Update examples to add a multi-type feature collection input. - Add a general inline value structure (qualifiedValue.yaml) that allows   selection of a specified input type of a multi-type input.
+|2021-04-26|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove duplicate facet definitions.
+|2021-04-29|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove the various schema levels and only support the full OpenApi 3.0 compatible version of JSON Schema (formerly called schemaLevel3.yaml).
+|2021-05-03|1.0-draft.6| Benjamin Pross|X | Merge pull request #172 from pvretano/issue-170
+|2021-05-03|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Patch invalid references the schemaFull.yaml/schemaLevel3.yaml.  All should be references to schema.yaml.
+|2021-05-05|1.0-draft.6| Gérald Fenoy|X | Fix typo
+|2021-05-05|1.0-draft.6| Gérald Fenoy|X | Use relative urls.
+|2021-05-05|1.0-draft.6| Gérald Fenoy|X | Ue correct reference for bbox
+|2021-05-05|1.0-draft.6| Gérald Fenoy|X | Fix typo
+|2021-05-05|1.0-draft.6| Gérald Fenoy|X | Few typo
+|2021-05-05|1.0-draft.6| Gérald Fenoy|X | Fix typo
+|2021-05-06|1.0-draft.6| Gérald Fenoy|X | Remove link.yaml references when schema.yaml is already referenced.
+|2021-05-06|1.0-draft.6| Gérald Fenoy|X | Get back enum items, default and, example.
+|2021-05-06|1.0-draft.6| Gérald Fenoy|X | Keep only items.
+|2021-05-06|1.0-draft.6| Gérald Fenoy|X | Fix typo
+|2021-05-06|1.0-draft.6| Gérald Fenoy|X | Go bak
+|2021-05-06|1.0-draft.6| Ubuntu|X | Make Swagger-UI working again and the api able to validate.
+|2021-05-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove the concept of Level 0,1,2,3 JSON schema and simply use what was called Level 3 which is the full JSON Schema.
+|2021-05-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Make the mode on execute options with the default being specified in the process description.
+|2021-05-10|1.0-draft.6| Ubuntu|X | Remove uneeded yaml file.
+|2021-05-11|1.0-draft.6| Ubuntu|X | Get the not, allOf, oneOf, anyOf, items and contentSchema available in the meta-schema.
+|2021-05-11|1.0-draft.6| Gérald Fenoy|X | Reset example despite warnings messages.
+|2021-05-11|1.0-draft.6| Gérald Fenoy|X | Reset additionalProperties in schema.yaml
+|2021-05-11|1.0-draft.6| Gérald Fenoy|X | Fix indentation
+|2021-05-11|1.0-draft.6| Gérald Fenoy|X | Reset properties/additionalProperties
+|2021-05-11|1.0-draft.6| Gérald Fenoy|X | Remove schema.yaml references from schema.yaml
+|2021-05-11|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add optional date-time fields that track milestones in the lifecycle of a job.
+|2021-05-11|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Fix small inconsistencies in the sequence diagrams.
+|2021-05-11|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Make sure result/results is consistently applied everywhere.  The schemas and the resource endpoints should be 'results' (plural).
+|2021-05-12|1.0-draft.6| Gérald Fenoy|X | Fix typo in example definition for ProcessDescription
+|2021-05-12|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Clarify some requirements that where flagged as ambiguous in issue 178.
+|2021-05-13|1.0-draft.6| Gérald Fenoy|X | Add schema_swagger.yaml for a minimal schema definition to be used from swagger-ui and schema.yaml for the full featured schema.
+|2021-05-14|1.0-draft.6| Gérald Fenoy|X | Add swagger relevant files for giving the opportunity to use the schema_swagger.yaml finally and be able to using your API from swagger-ui
+|2021-05-17|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove the ambiguity introduced by allowing process input values to be any object type.  If the process input schema is similar to one of the builtin schemas (link.yaml, qualifiedValue.yaml, etc.) a server may not be able ti disambiguate the input intent.
+|2021-05-18|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Update Execute.json
+|2021-05-18|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Update Result.json
+|2021-05-19|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Clarify the behavior for all the combinations of mode/response/transmissionMode/# of outputs.
+|2021-05-19|1.0-draft.6| Panagiotis (Peter) A. Vretanos|Annex A | Align ATS with all the changes made for issue #178.
+|2021-05-20|1.0-draft.6| Panagiotis (Peter) A. Vretanos|7 | Update clause_7_core.adoc
+|2021-05-22|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Change the job status "completed" to "successful".  The job status "completed" is not a value status.
+|2021-05-22|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Change the job status "completed" to "successful".  The job status "completed" is not a valid job status.
+|2021-05-22|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Update exception reporting to align with common which uses RFC 7807.
+|2021-05-22|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add OpenAPI example.  I following the pattern used in OGG API Features for the example OpenAPI files found there.
+|2021-05-22|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Simplify the response tables, for sync and async execution, by collapsing similarly responding paths into fewer rows.
+|2021-05-22|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Update the exception status codes referenced in the ATS to be the URIs defined as a result of RFC 7807.
+|2021-05-22|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Clarify that server must implement support for both in-line process input values and process input values specified by reference.
+|2021-05-22|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add abstract tests for verifying that a server can handle inputs by value and by reference.
+|2021-05-25|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Refactor the schemas execute.yaml, inlineOrRefData.yaml and qualifiedValue.yaml to better emphasize the validation relationship between the definition of a process input in the process description and an process input value in an execute request.  This, of course, cascaded into a whole bunch of other related clarifications.
+|2021-05-25|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Lint all the yaml and json files.
+|2021-05-26|1.0-draft.6| Benjamin Pross|X | Add Panagiotis (Peter) A. Vretanos as editor
+|2021-05-26|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Move bbox.yaml from inlineOrRefData.yaml to inputValue.yaml so that it is also a validation target.
+|2021-05-26|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | The intent was to add bbox.yaml to inputValueNoObject.yaml but not inputValue.yaml.
+|2021-05-26|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove references to the now obsolete Level 0, Level 1, etc. schema conformance classes.
+|2021-05-28|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove the mode parameter and instead rely on the HTTP Prefer header and defined default execution mode behavior.
+|2021-05-28|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add a recommendation to included the Preference-Applied header in the response if the request was accompanied with the HTTP Prefer header.
+|2021-06-02|1.0-draft.6| Jerome St-Louis|i. Abstract | Fixed mismatched sections in i. Abstract
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Initial integration of files require for use with swagger-ui
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Fix path for reference.yaml file
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Fix typos in process and exception. Try fixing the example ProcessDescription.
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Replace tabs with spaces, fix URLs for geometryGeoJSON schema which is available in yaml, add nullable and remove
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Replace tabs with spaces.
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Move ref to binaryInputValue.yaml from inlineOrRefData.yaml to inputValueNoObject.yaml
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Fix use of externalValue
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Fix 2 use of externalValue
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Try fixing issue with example ProcessDescription
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Fix issue with binaryInputValue.yaml
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | General fix  in ogcapi-process-1.yaml. Fix responses/Results to use relative path.
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Small fix in path.
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Try fixing issue with ProcessDescription example
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Try fixing issue with ProcessDescription example using allOf for value
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Try fixing issue with ProcessDescription example using basic object and a ref
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Fix the ProcessDescription example issue by using externalValue
+|2021-06-03|1.0-draft.6| Gérald Fenoy|X | Add the Preference-Applied header information's.
+|2021-06-08|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Path invalid reference to component file.
+|2021-06-08|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Patch type that is preventing swagger validation of example OpenAPI file.
+|2021-06-08|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | (1) Remove the consolidated building blocks YAML file. (2) Update the example OpenAPI definition file to reference each component individually from its corresponding schema file instead of referencing the component from the now-deleted building blocks YAML file.
+|2021-06-09|1.0-draft.6| Steve McDaniel|X | Indentation issue in process.yaml, outputs should be at the same level as inputs
+|2021-06-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|7 | Minor typo.
+|2021-06-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add missing default value for `response` parameter.  Should be `raw`.
+|2021-06-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add an informative statement about the default value for the `response` parameters.  This is normatively defined in the schema.
+|2021-06-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Update server URL to point to the correct endpoint.
+|2021-06-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Fix invalid reference to transmissionMode=ref.  Should be reference.
+|2021-06-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Make explicit the fact that omitting the "outputs" parameter in an execute request means that all defined outputs are being requested.
+|2021-06-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove file to conform to ATS file name pattern.
+|2021-06-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Update all OAPIR-specific link relations to use the pattern http://www.opengis.net/def/rel/ogc/1.0/{rel}.  Eventually there will be registered with the OGC-NA.
+|2021-06-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove unused link relation.
+|2021-06-11|1.0-draft.6| Jerome St-Louis|X | results.yaml: Removed array (#219)
+|2021-06-13|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add a light-weight query capability to the jobs list. Add paging to the jobs list. Add paging to the process list.
+|2021-06-13|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add requirements and abstract tests to handle the case where the negotiated execution mode is sync or async, the response mode is raw, more than one output is requested and a mix of transmission modes (value or reference) are requested.
+|2021-06-13|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add requirements and abstract tests to handle the case where the negotiated execution mode is sync or async, the requested response is raw, more that 1 output is requested and a mix of transmission modes (value or reference) are requested.
+|2021-06-14|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Change "processList" to "processes" and "jobsList" to "jobs" so that the key name matches the resource endpoint name.
+|2021-06-15|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove default value for job control options.  In the OGC process description the supported execution modes must be explicitly listed so there is no need for a default.
+|2021-06-15|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add the contentMediaType facet to the GeoJSON feature collection inputs/outputs.  Although this is not strictly necessary is makes parsing and interpreting the input/output easier.
+|2021-06-16|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Rel value should be 'job-list' not 'jobs-list'.
+|2021-06-17|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Extend the list of "format" values to provide semantic hints inputs and outputs.
+|2021-06-17|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Reword requirement for clarity.
+|2021-06-17|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Fix missing allOf[] in one of the examples outputs.
+|2021-06-18|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Oopsie!  Forgot to make processID mandatory if the server supports the Job List conformance class.
+|2021-06-18|1.0-draft.7| Benjamin Pross|X | Adjust version
+|2021-06-22|1.0-draft.7| Panagiotis (Peter) A. Vretanos|X | Housekeeping.
+|2021-06-28|1.0-draft.7| Benjamin Pross|X | Merge pull request #235 from pvretano/housekeeping
+|2021-07-05|1.0-draft.7| Benjamin Pross|X | Revert "Adjust version"
+|2021-07-21|1.0-draft.7| Gérald Fenoy|X | Small fix about parameters
+|2021-07-21|1.0-draft.7| Gérald Fenoy|X | Fix title headers
+|2021-07-21|1.0-draft.7| Gérald Fenoy|- | Update clause_0_front_material.adoc
+|2021-07-28|1.0-draft.7| Benjamin Pross|12 | Fix issue with empty chapter 12
+|2021-08-06|1.0-draft.7| Gérald Fenoy|X | Add enum to status.yaml
+|2021-08-06|1.0-draft.7| Gérald Fenoy|X | Add statuses.yaml in schema
+|2021-08-06|1.0-draft.7| Gérald Fenoy|X | Delete statuses.yaml
+|2021-08-06|1.0-draft.7| Gérald Fenoy|X | Create status.yaml
+|2021-08-06|1.0-draft.7| Gérald Fenoy|X | Add status.yaml
+|2021-08-06|1.0-draft.7| Gérald Fenoy|X | Try using status.yaml reference
+|2021-08-06|1.0-draft.7| Gérald Fenoy|X | Revert changes
+|2021-08-09|1.0-draft.7| Gérald Fenoy|X | Update status.yaml
+|2021-08-09|1.0-draft.7| Gérald Fenoy|X | Update statusInfo.yaml
+|2021-08-09|1.0-draft.7| Gérald Fenoy|X | Rename status.yaml to statusCode.yaml
+|2021-08-09|1.0-draft.7| Gérald Fenoy|X | Update status.yaml
+|2021-08-09|1.0-draft.7| Gérald Fenoy|X | Update statusInfo.yaml
+|2021-08-09|1.0-draft.7| Gérald Fenoy|X | Rename processId.yaml and processid.yaml to processIdPathParam.yaml and processIdQueryParam.yaml respectively
+|2021-08-09|1.0-draft.7| Gérald Fenoy|X | Add missing parameters to OpenAPI example
+|2021-08-19|1.0-draft.7| Gérald Fenoy|X | Add process value
+|2021-08-23|1.0-draft.7| Gérald Fenoy|X | Set format to date-time for more clarity
+|2021-08-23|1.0-draft.7| Gérald Fenoy|X | Update datetime.yaml
+|2021-08-24|1.0-draft.7| Benjamin Pross|X | Use HTTP GET method (instead of operation) throughout the document
+|2021-08-25|1.0-draft.7| Benjamin Pross|X | Add informative texts
+|2021-08-25|1.0-draft.7| Benjamin Pross|X | Merge branch 'comments-emmanuel-devys' into comments-amy-youmans
+|2021-08-25|1.0-draft.7| Benjamin Pross|X | Fix ordering of requirements
+|2021-08-26|1.0-draft.7| Benjamin Pross|7 | Revert changes - replace GET method with GET operation
+|2021-09-03|1.0-draft.7| Benjamin Pross|7 | Add informative text about execution paths
+
+|===

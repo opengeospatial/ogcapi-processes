@@ -1,10 +1,13 @@
 [[req_job-list_datetime-definition]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/job-list/datetime-definition*
-^|A |The operation SHALL support a parameter `datetime` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+[requirement]
+====
+[%metadata]
+label:: /req/job-list/datetime-definition
+[.component,class=part]
+--
+The operation SHALL support a parameter `datetime` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
-[source,YAML]
+[source,yaml]
 ----
 name: datetime
 in: query
@@ -12,8 +15,11 @@ required: false
 schema:
   type: string
 ----
+--
 
-^|B |The value of the `datetime` parameter is either a date-time value or a time interval. The parameter value SHALL conform to the following syntax (using link:https://tools.ietf.org/html/rfc2234[ABNF]):
+[.component,class=part]
+--
+The value of the `datetime` parameter is either a date-time value or a time interval. The parameter value SHALL conform to the following syntax (using link:https://tools.ietf.org/html/rfc2234[ABNF]):
 
 ```
 interval-closed     = date-time "/" date-time
@@ -22,7 +28,15 @@ interval-open-end   = date-time "/" [".."]
 interval            = interval-closed / interval-open-start / interval-open-end
 datetime            = date-time / interval
 ```
+--
 
-^|C |The syntax of `date-time` is specified by link:https://tools.ietf.org/html/rfc3339#section-5.6[RFC 3339, 5.6].
-^|D |Open ranges in time intervals at the start or end are supported using a double-dot (`..`) or an empty string for the start/end.
-|===
+[.component,class=part]
+--
+The syntax of `date-time` is specified by link:https://tools.ietf.org/html/rfc3339#section-5.6[RFC 3339, 5.6].
+--
+
+[.component,class=part]
+--
+Open ranges in time intervals at the start or end are supported using a double-dot (`..`) or an empty string for the start/end.
+--
+====

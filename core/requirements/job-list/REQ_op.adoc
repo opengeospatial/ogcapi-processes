@@ -1,7 +1,8 @@
 [[req_job-list_job-list-op]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/job-list/job-list-op +
+[requirement]
+====
+[%metadata]
+label:: /req/job-list/job-list-op
 
 The server SHALL support the HTTP GET operation at the path `/jobs`.
-|===
+====

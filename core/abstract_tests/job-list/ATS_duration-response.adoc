@@ -1,16 +1,56 @@
 [[ats_job-list_duration-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/job-list/duration-response*
-^|Test Purpose |Validate that the `minDuration` and `maxDuration` query parameter are processed correctly.
-^|Requirement |<<req_job-list_duration-response,/req/job-list/duration-response>>
-^|Test Method |. Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `minDuration` query parameter to the request.
-. Compute the duration of each job listed in the response document as per requirements <<req_job-list_duration-response,/req/job-list/status-response, E or F>> depending on the current status of the job.
-. Verify that the computed duration of each job listed in the response is at least as long as the specified value of the `minDuration` query parameter.
-. Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `maxDuration` query parameter to the request.
-. Compute the duration of each job listed in the response document as per requirements <<req_job-list_duration-response,/req/job-list/status-response, E or F>> depending on the current status of the job.
-. Verify that the computed duration of each job listed in the response is no longer than the specified value of the `maxDuration` query parameter.
-. Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `minDuration` and `maxDuration` query parameters to the request.
-. Compute the duration of each job listed in the response document as per requirements <<req_job-list_duration-response,/req/job-list/status-response, E or F>> depending on the current status of the job.
-. Verify that the computed duration of each job listed in the response is at least as long as the specified value of the `minDuration` query parameter AND no longer than the value of the  `maxDuration` query parameter.
-|===
+[abstract_test]
+====
+[%metadata]
+label:: /conf/job-list/duration-response
+subject:: <<req_job-list_duration-response,/req/job-list/duration-response>>
+test-purpose:: Validate that the `minDuration` and `maxDuration` query parameter are processed correctly.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `minDuration` query parameter to the request.
+--
+
+[.component,class=step]
+--
+Compute the duration of each job listed in the response document as per requirements <<req_job-list_duration-response,/req/job-list/status-response, E or F>> depending on the current status of the job.
+--
+
+[.component,class=step]
+--
+Verify that the computed duration of each job listed in the response is at least as long as the specified value of the `minDuration` query parameter.
+--
+
+[.component,class=step]
+--
+Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `maxDuration` query parameter to the request.
+--
+
+[.component,class=step]
+--
+Compute the duration of each job listed in the response document as per requirements <<req_job-list_duration-response,/req/job-list/status-response, E or F>> depending on the current status of the job.
+--
+
+[.component,class=step]
+--
+Verify that the computed duration of each job listed in the response is no longer than the specified value of the `maxDuration` query parameter.
+--
+
+[.component,class=step]
+--
+Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `minDuration` and `maxDuration` query parameters to the request.
+--
+
+[.component,class=step]
+--
+Compute the duration of each job listed in the response document as per requirements <<req_job-list_duration-response,/req/job-list/status-response, E or F>> depending on the current status of the job.
+--
+
+[.component,class=step]
+--
+Verify that the computed duration of each job listed in the response is at least as long as the specified value of the `minDuration` query parameter AND no longer than the value of the  `maxDuration` query parameter.
+--
+=====
+====

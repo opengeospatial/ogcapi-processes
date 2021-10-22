@@ -1,3 +1,0 @@
-== Conventions and background
-
-See <<OAProc-1,OGC API - Processes - Part 1: Core>>, Clauses 5.

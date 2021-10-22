@@ -1,10 +1,26 @@
 [[req_core_process-execute-sync-document]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/process-execute-sync-document +
-^|Conditions |. The <<sc_execution_mode,negotiated execution mode>> is synchronous, `response=document`, `transmissionMode=value` or `transmissionMode=reference`
+[requirement]
+====
+[%metadata]
+label:: /req/core/process-execute-sync-document
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is synchronous, `response=document`, `transmissionMode=value` or `transmissionMode=reference`
 . The number of requested outputs is 1 or more.
-^|A |The server SHALL respond with an HTTP status code of 200.
-^|B |The media type of the response SHALL be `application/json`
-^|C |The content of response SHALL conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] schema.
-|===
+--
+
+[.component,class=part]
+--
+The server SHALL respond with an HTTP status code of 200.
+--
+
+[.component,class=part]
+--
+The media type of the response SHALL be `application/json`
+--
+
+[.component,class=part]
+--
+The content of response SHALL conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] schema.
+--
+====

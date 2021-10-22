@@ -1,6 +1,7 @@
-[[req_deploy-replace-undeploy_deploy_post-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/deploy-replace-undeploy/deploy/post-op*
-^|A |The server shall support the HTTP POST operation at the path `/processes`.
-|===
+[[req_deploy-replace-undeploy_deploy-post-op]]
+[requirement]
+====
+[%metadata]
+label:: /req/deploy-replace-undeploy/deploy/post-op
+part:: The server shall support the HTTP POST operation at the path `/processes`.
+====

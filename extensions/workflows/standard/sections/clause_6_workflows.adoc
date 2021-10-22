@@ -1,0 +1,149 @@
+
+== Requirements Class "Workflows"
+
+[[workflows-overview]]
+=== Overview
+
+include::../requirements/requirements_class_workflows.adoc[]
+
+A server that implements this conformance class provides the ability to
+chain nested processes, refer to external processes and collections accessible via OGC API standards, and support triggering execution
+of processes through OGC API data delivery specifications such as OGC API - Features, Tiles, Maps and/or Coverages...
+
+An important design goal of this extension is to separate from the workflow definition the negotiation of formats, data transfer APIs,
+Area of Intererest, resolution, and selection of outputs, therefore greatly enhancing the re-usability of the workflow.
+This negotiation happens at each hop along a workflow chain,
+and the end-user client need only decide on these for the server it directly connnects to (immediate hop).
+For example, some hops may operate better using DGGS zone IDs, while other using subset requests, and yet others using tiles; or some hops
+may support and work best with some format or API, while others work best with another.
+
+The HTTP POST method is used to submit new workflows to the API.
+The API will respond either immediately with data resulting from the processing for dedicated synchronous end-points (e.g. /processes/{processId}/coverage),
+while for other end-points (e.g. /processes/{processId} or /processes/{processId}/tiles) it will return links (potentially templated) to trigger processing
+of the submitted workflow. In addition, a 303 _See Other_ code can also be returned from a POST to which a client could retrieve the same response to a
+submitted workflow via an HTTP GET method.
+
+When setting up a new workflow, if possible, the API should fully validate the immediate process and all nested inputs prior to returning a result.
+A successful result indicates a fully validated workflow which should normally succeed for requests within the range for which data is produced.
+It is expected that clients may make a large number of requests for the same workflow, e.g.
+using subset or tiles or DGGS zone ID to trigger processing of a specific Area of Interest or resolution, as a client pans and zooms around a map.
+
+A collection document resulting from a workflow may expose its source process (workflow) execution document.
+A service may also support deploying a workflow as a persistent collection by using a POST methods on the `/collections` end-point.
+
+==== Additions to the process execution document
+This extension introduces new specialized types of inputs: _processes_, _collections_ and _inputs_, identified as a properties (keys) whose value are the target URL.
+
+- The value for `process` points to an OGC API .../processes/{processID} and also has an inputs array property along with it (allowing nested processes).
+- The value for `collection` points to an OGC API .../collections/{collectionId}.
+- The value for `input` is a parameter allowing to use the workflow itself as a process by plugging in input parameters to the workflow,
+e.g. allowing to deploy the workflow itself using the Transactions to its own {processId}.
+
+It also allows specifying `process` at the top-level for the process executing the overall workflow
+(in effect the top-level document is like an inputs array element).
+This allows the processes execution schema to be self-describing and just load it in a GIS client or publish it as a new virtual collection to any OGC API service.
+This also means that there can be an id at the top level which would give a name to the resulting output.
+
+In addition, some properties of the process execution document are made optional.
+
+- `outputs` are not required. If a process results in multiple outputs, the outputs could potentially still be used to filter a single output of the workflow.
+However, the nesting nature of the workflows allows the invoking process to pick any or all of the resulting outputs, therefore not restricting which output
+can be selected higher up is preferable. All outputs are returned by default, resulting in multiple collections available to the invoking process.
+A mechanism to select an input from an upstream workflow still needs to be refined, but hierarchical collections as described in
+https://github.com/opengeospatial/oapi_common/issues/11#issuecomment-677947387 provides an elegant mechanism to refer to either an individual component
+collection or a set of multiple collections.
+- A `mode` is not required, as the same workflow could be re-used in any mode.
+By default, the Workflows extension end-points operates in either deferred execution mode, or synchronous mode,
+based on the end-point to which a workflow is being submitted via POST.
+- In general, formats, CRS, specific APIs, or specific APIs do not have to be specified and should not be, so as to maximize the re-usability of the workflow.
+e.g. the data requests triggering the processing would specify the output formats via content type negotiation, and tiles requests would provide the AoI
+and resolution for any specific request which would propagate upwards in the workflow request chain.
+
+This extension also depends on other improvements proposed to the _OGC API - Processes - Core_ process execution document schema, as discussed in
+https://github.com/opengeospatial/wps-rest-binding/issues/47#issuecomment-664508833[here].
+
+[[workflows_http_status_codes]]
+==== HTTP status codes
+
+API clients should be prepared to handle any legal HTTP or HTTPS status code.
+
+The *Status Codes* listed in <<workflows_http_status_codes_table>> are of particular relevance to implementors of this standard.
+Status codes 200, 303 and 404 are called out in API requirements. Therefore, support for these status codes is mandatory for all compliant implementations.
+The remainder of the status codes in <<workflows_http_status_codes_table>> are not mandatory, but are important for the implementation of a well functioning API.
+Support for these status codes is strongly encouraged for both client and server implementations.
+
+[[workflows_http_status_codes_table]]
+.Typical HTTP status codes
+[cols="15,85",options="header"]
+|===
+|Status code |Description
+|`200` |A successful request.
+|`201` |The server has been fulfilled the operation and a new resource has been created.
+|`204` |A successful request with no expectation of content in the body.
+|`303` |Redirect to where the resource can be accessed via GET.
+|`400` |The server cannot or will not process the request due to an apparent client error. For example, a query parameter had an incorrect value.
+|`401` |The request requires user authentication. The response includes a `WWW-Authenticate` header field containing a challenge applicable to the requested resource.
+|`403` |The server understood the request, but is refusing to fulfill it. While status code `401` indicates missing or bad authentication, status code `403` indicates that authentication is not the issue, but the client is not authorized to perform the requested operation on the resource.
+|`404` |The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
+|`405` |The request method is not supported. For example, a POST request was submitted, but the resource only supports GET requests.
+|`406` |Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+|`409` |Conflict.  For example, the processes already exists.
+|`500` |An internal error occurred in the server.
+|===
+
+More specific guidance is provided for each resource, where applicable.
+
+include::../recommendations/workflows/PER_additional-status-codes.adoc[]
+
+The API Description Document describes the HTTP status codes generated by that API.
+This should not be an exhaustive list of all possible status codes.
+It is not reasonable to expect an API designer to control the use of HTTP status codes which are not generated by their software.
+Therefore, it is recommended that the API Description Document limit itself to describing HTTP status codes relevant to the proper operation of the
+API application logic. Client implementations should be prepared to receive HTTP status codes in addition to those described in the API Description Document.
+
+[[workflows-collection]]
+=== Submitting a workflow for deferred execution
+
+==== Sequence diagram
+
+The following diagram illustrates the sequence diagram for dynamically deploying
+a new process to the API:
+
+....
+Client                                                        Server
+  |                                                             |
+  |  POST /processes/{processId}   HTTP/1.1                     |
+  |  Content-Type: application/json                             |
+  |                                                             |
+  |     Body contains a process (workflow) execution document   |
+  |------------------------------------------------------------>|
+  |                                                             |
+  |  HTTP/1.1 303 See Other                                     |
+  |  Location: /{customPath}/{internalID}                       |
+  |     Body contains a collection description document         |
+  |     which can also be retrieved via GET from the redirect   |
+  |     Location                                                |
+  |<------------------------------------------------------------|
+....
+
+==== Operation
+
+include::../requirements/workflows/collection/REQ_post-op.adoc[]
+
+==== Request body
+
+===== Overview
+
+include::../requirements/workflows/collection/REQ_body.adoc[]
+
+include::../requirements/workflows/collection/REQ_content-type.adoc[]
+
+==== Response
+
+include::../requirements/workflows/collection/REQ_response.adoc[]
+
+include::../requirements/workflows/collection/REQ_response-body.adoc[]
+
+==== Exceptions
+
+See <<workflows_http_status_codes>>.

@@ -1,10 +1,14 @@
 [[req_job-list_limit-definition]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/job-list/limit-definition*
-^|A |The operation SHALL support a parameter `limit` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+[requirement]
+====
+[%metadata]
+label:: /req/job-list/limit-definition
 
-[source,YAML]
+[.component,class=part]
+--
+The operation SHALL support a parameter `limit` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+
+[source,yaml]
 ----
 name: limit
 in: query
@@ -15,4 +19,5 @@ schema:
   maximum: 10000
   default: 10
 ----
-|===
+--
+====

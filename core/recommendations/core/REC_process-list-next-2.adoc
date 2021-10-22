@@ -1,6 +1,7 @@
 [[rec_core_next-2]]
-[width="90%",cols="2,6a"]
-|===
-^|*Recommendation {counter:rec-id}* |*/rec/core/next-2* 
-^|A |Dereferencing a `next` link SHOULD return additional process summaries from the set of selected process summaries that have not yet been returned.
-|===
+[recommendation]
+====
+[%metadata]
+label:: /rec/core/next-2
+part:: Dereferencing a `next` link SHOULD return additional process summaries from the set of selected process summaries that have not yet been returned.
+====

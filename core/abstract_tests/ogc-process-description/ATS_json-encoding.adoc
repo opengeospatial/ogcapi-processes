@@ -1,9 +1,22 @@
 [[ats_ogc-process-description_json-encoding]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/ogc-process-description/json-encoding*
-^|Test Purpose |Verify that a JSON-encoded OGC Process Description complies with the required structure and contents.
-^|Requirement |<<req_ogc-process-description_json-encoding,/req/ogc-process-description/json-encoding>>
-^|Test Method |. Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
-. For each process, verify the contents of the response body validate against the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[process.yaml].
-|===
+[abstract_test]
+====
+[%metadata]
+label:: /conf/ogc-process-description/json-encoding
+subject:: <<req_ogc-process-description_json-encoding,/req/ogc-process-description/json-encoding>>
+test-purpose:: Verify that a JSON-encoded OGC Process Description complies with the required structure and contents.
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
+--
+
+[.component,class=step]
+--
+For each process, verify the contents of the response body validate against the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[process.yaml].
+--
+=====
+====

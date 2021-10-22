@@ -1,10 +1,26 @@
 [[ats_job-list_links]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/job-list/links*
-^|Test Purpose |Validate that the proper links are included in a response.
-^|Requirement |<<req_job-list_links,/req/job-list/links>>
-^|Test Method |. Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>>.
-. Verify that the `links` section of the response contains a link with `rel=self`. 
-. Verify that the `links` section of the response contains a link with `rel=alternate` for each response representation the service claims to support in its <<sc_conformance,conformance document>>.
-|===
+[abstract_test]
+====
+[%metadata]
+label:: /conf/job-list/links
+subject:: <<req_job-list_links,/req/job-list/links>>
+test-purpose:: Validate that the proper links are included in a response.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>>.
+--
+
+[.component,class=step]
+--
+Verify that the `links` section of the response contains a link with `rel=self`.
+--
+
+[.component,class=step]
+--
+Verify that the `links` section of the response contains a link with `rel=alternate` for each response representation the service claims to support in its <<sc_conformance,conformance document>>.
+--
+=====
+====

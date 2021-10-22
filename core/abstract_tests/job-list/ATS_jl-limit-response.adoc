@@ -1,11 +1,32 @@
 [[ats_job-list_limit-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/job-list/limit-response*
-^|Test Purpose |Validate that the `limit` query parameter is processed correctly.
-^|Requirement |<<req_job-list_limit-response,/req/job-list/limit-response>>
-^|Test Method |. Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `limit` query parameter to the request.
-. Count the number of jobs listed in the response.
-. Verify that this count is not greater than the value specified by the `limit` parameter.
-. If the API definition specifies a maximum value for `limit` parameter, verify that the count does not exceed this maximum value.
-|===
+[abstract_test]
+====
+[%metadata]
+label:: /conf/job-list/limit-response
+subject:: <<req_job-list_limit-response,/req/job-list/limit-response>>
+test-purpose:: Validate that the `limit` query parameter is processed correctly.
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `limit` query parameter to the request.
+--
+
+[.component,class=step]
+--
+Count the number of jobs listed in the response.
+--
+
+[.component,class=step]
+--
+Verify that this count is not greater than the value specified by the `limit` parameter.
+--
+
+[.component,class=step]
+--
+If the API definition specifies a maximum value for `limit` parameter, verify that the count does not exceed this maximum value.
+--
+=====
+====

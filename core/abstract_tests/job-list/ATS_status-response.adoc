@@ -1,10 +1,27 @@
 [[ats_job-list_status-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/job-list/status-response*
-^|Test Purpose |Validate that the `status` query parameter is processed correctly.
-^|Requirement |<<req_job-list_status-response,/req/job-list/status-response>>
-^|Test Method |. Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `status` query parameter to the request.
-. Inspect the value of the `status` property (see: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml]) for each job listed in the response.
-. Verify that the value of the `status` property matches one of the values specified for the `status` query parameter.
-|===
+[abstract_test]
+====
+[%metadata]
+label:: /conf/job-list/status-response
+subject:: <<req_job-list_status-response,/req/job-list/status-response>>
+test-purpose:: Validate that the `status` query parameter is processed correctly.
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `status` query parameter to the request.
+--
+
+[.component,class=step]
+--
+Inspect the value of the `status` property (see: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml]) for each job listed in the response.
+--
+
+[.component,class=step]
+--
+Verify that the value of the `status` property matches one of the values specified for the `status` query parameter.
+--
+=====
+====

@@ -1,7 +1,10 @@
 [[rec_deploy-replace-undeploy_deploy_body-ogcapppkg]]
-[width="90%",cols="2,6a"]
-|===
-^|*Recommendation {counter:rec-id}* |*/rec/deploy-replace-undeploy/deploy/body-ogcapppkg*
-^|A |If a process can be represented for the intended use as an <<rc_ogcapppkg,OGC Application Package>>, implementations should consider supporting the <<rc_ogcapppkg,OGC Application Package>> encoding for describing the process to be added to the API.
-^|B |The media type `application/ogcapppkg+json` shall be used to indicate that request body contains a processes description encoded as an <<rc_ogcapppkg,OGC Application Package>>.
-|===
+[recommendation]
+====
+[%metadata]
+label:: /rec/deploy-replace-undeploy/deploy/body-ogcapppkg
+
+part:: If a process can be represented for the intended use as an <<rc_ogcapppkg,OGC Application Package>>, implementations should consider supporting the <<rc_ogcapppkg,OGC Application Package>> encoding for describing the process to be added to the API.
+
+part:: The media type `application/ogcapppkg+json` shall be used to indicate that request body contains a processes description encoded as an <<rc_ogcapppkg,OGC Application Package>>.
+====

@@ -1,0 +1,35 @@
+
+[[Dismiss]]
+== Requirements Class "Dismiss"
+
+The Dismiss requirement class specifies how to dismiss a job. Dismiss can be seen as cancelling a running job or removing artifacts of a finished job.
+
+include::../requirements/requirements_class_dismiss.adoc[]
+
+
+=== Operation
+
+include::../requirements/dismiss/REQ_job-dismiss-op.adoc[]
+
+
+=== Response
+
+include::../requirements/dismiss/REQ_job-dismiss-success.adoc[]
+
+.A dismissed job encoded as JSON.
+====
+[source,json]
+----
+include::../examples/json/StatusInfo-dismissed.json[]
+----
+====
+
+
+=== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_process-exception-no-such-process,/req/core/process-exception/no-such-process>>).
+
+If the job with the specified identifier does not exist, the status code of the
+response SHALL be `404` (see <<req_core_job-exception-no-such-job,/req/core/job-results-exception/no-such-job>>).

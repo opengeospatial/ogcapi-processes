@@ -1,6 +1,7 @@
 [[req_deploy-replace-undeploy_replace_body]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/deploy-replace-undeploy/replace/body*
-^|A |The body of a PUT request shall contain a formal description of the replacement process.
-|===
+[requirement]
+====
+[%metadata]
+label:: /req/deploy-replace-undeploy/replace/body*
+part:: The body of a PUT request shall contain a formal description of the replacement process.
+====

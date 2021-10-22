@@ -1,0 +1,78 @@
+
+[abstract]
+== Abstract
+
+This standard defines the OGC API - Processes API standard. This standard builds on the OGC Web Processing Service (WPS) 2.0 Standard and defines the processing interface to communicate over a RESTful protocol using JSON encodings.
+
+By way of background and context, in many cases geospatial or location data, including data from sensors, must be processed before the information can be effectively used. The OGC Web Processing Service (WPS) Interface Standard provides a standard interface that simplifies the task of making simple or complex computational geospatial processing services accessible via web services. Such services include well-known processes found in GIS software as well as specialized processes for spatiotemporal modeling and simulation. While the OGC WPS standard was designed with spatial processing in mind, the standard could also be used to readily insert non-spatial processing tasks into a web services environment.
+The WPS standard provides a robust, interoperable, and versatile protocol for process execution on web services. WPS supports both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time-consuming tasks. Moreover, the WPS standard defines a general process model that is designed to provide an interoperable description of processing functions. WPS is intended to support process cataloguing and discovery in a distributed environment.
+
+This API is a newer and more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.
+
+The resources that are provided by a server implementing the OGC API - Processes are listed in <<table_core_resources>> below and include information about the server, the list of available processes (Process list and Process description), jobs (running processes) and
+results of process executions.
+
+
+[[table_core_resources]]
+.Requirements class 'Core' - Overview of resources, applicable HTTP methods and links to the document sections
+[cols="27,25,10,10,28",options="header"]
+|===
+| Resource | Path | HTTP method | Parameter | Document reference
+
+|Landing page |`/` |GET| N/A | <<sc_landing_page>>
+|Conformance classes |`/conformance` |GET| N/A | <<sc_conformance_classes>>
+|Process list |`/processes` |GET | N/A | <<sc_process_list>>
+|Process description |`/processes/{processID}` |GET | processID (in path) | <<sc_process_description>>
+|Process execution |`/processes/{processID}/execution` |POST| processID (in path), Execute request (contained in body) |<<sc_create_job>>
+|Job status info |`/jobs/{jobID}` |GET | jobID (in path) |<<sc_retrieve_status_info>>
+|Job results |`/jobs/{jobID}/results` |GET |  jobID (in path) |<<sc_retrieve_job_results>>
+|===
+
+In general, the HTTP GET operation is used to provide access to the resources described above.
+However, in order to execute a process, the HTTP POST method is used to send an execution request to the server.
+
+Additionally, the /jobs endpoint can be used to grant access to a list of jobs.
+
+
+.Requirements class 'Job list' - Overview of resources, applicable HTTP methods and links to the document sections
+[cols="27,25,10,10,28",options="header"]
+|===
+|Resource |Path |HTTP method | Parameter| Document reference
+|Job list |`/jobs` |GET | N/A |<<sc_job_list>>
+|===
+
+In addition to the operations accessible through HTTP GET and POST methods, the DELETE method can be used to cancel a job execution and/or remove traces of the job execution.
+
+
+.Requirements class 'Dismiss' - Overview of resources, applicable HTTP methods and links to the document sections
+[cols="27,25,10,10,28",options="header"]
+|===
+|Resource |Path |HTTP method | Parameter| Document reference
+|Job status info |`/jobs/{jobID}` |DELETE| jobID (in path) | <<Dismiss>>
+|===
+
+
+.Preface
+
+The OGC API – Processing, hereafter referred to as the Processing API is a continuation of WPS 2.0, a standard for web-based processing of geospatial data. The Processing API defines how the interfaces for WPS 2.0 operations should be constructed and interpreted using a REST based protocol with JSON encoding.
+Within the current version of WPS 2.0, bindings are defined for HTTP/POST using XML encodings and HTTP/GET using KVP encodings. Also in the current WPS 2.0 standard, a core conceptual model is provided that may be used to specify a WPS in different architectures such as REST or SOAP. Therefore, the Processing API is a natural fit to what is already defined in the standard.
+
+
+== Submitters
+
+All questions regarding this submission should be directed to the editor or the submitters:
+
+[%unnumbered]
+|===
+| Name | Affiliation
+
+|Benjamin Pross _(editor)_ | 52°North GmbH
+|Stan Tillman|Hexagon
+|Panagiotis (Peter) A. Vretanos _(editor)_ |CubeWerx Inc.
+|Jérôme Jacovella-St-Louis|Ecere Corporation
+|Pedro Gonçalves|Terradue Srl
+|Gérald Fenoy| Gérald Fenoy (Individual Member)
+|Cristiano Lopes|European Space Agency (ESA)
+|Christophe Noel | Spacebel
+
+|===

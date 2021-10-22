@@ -1,0 +1,63 @@
+
+== Conventions
+
+This section provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
+
+
+=== Identifiers
+
+The normative provisions in this specification are denoted by the URI
+
+http://www.opengis.net/spec/ogcapi-processes-1/1.0
+
+All requirements, permission, recommendations and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
+
+
+=== Link relations
+
+To express relationships between resources, <<rfc8288,RFC 8288 (Web Linking)>> is used.
+
+The following <<link-relations,registered link relation types>> are used in this document.
+
+* **alternate**: Refers to a substitute for the link's context.
+
+* **license**: Refers to a license associated with the link's context.
+
+* **service-desc**: Identifies service description for the context that is primarily intended for consumption by machines.
+
+** API definitions are considered service descriptions.
+
+* **service-doc**: Identifies service documentation for the context that is primarily intended for human consumption.
+
+* **self**: Conveys an identifier for the link's context.
+
+* **status**: Identifies a resource that represents the context's status.
+
+* **up**: Refers to a parent document in a hierarchy of documents.
+
+In addition the following link relation types are used for which no applicable registered link relation type could be identified.
+
+* **http://www.opengis.net/def/rel/ogc/1.0/conformance**: Refers to a resource that identifies the specifications that the link's context conforms to.
+
+* **http://www.opengis.net/def/rel/ogc/1.0/exceptions**: The target URI points to exceptions of a failed process.
+
+* **http://www.opengis.net/def/rel/ogc/1.0/execute**: The target URI points to the execution endpoint of the server.
+
+* **http://www.opengis.net/def/rel/ogc/1.0/job-list**: The target URI points to the list of jobs.
+
+* **http://www.opengis.net/def/rel/ogc/1.0/processes**: The target URI points to the list of processes the API offers.
+
+* **http://www.opengis.net/def/rel/ogc/1.0/results**: The target URI points to the results of a job.
+
+Each resource representation includes an array of links. Implementations are free to add additional links for all resources provided by the API.
+
+
+=== Use of HTTPS
+
+For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. This is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>>, not <<rfc2616,HTTP>>.
+
+OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities which are not in common use could be an impediment to interoperability.
+
+=== HTTP URIs
+
+This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <<rfc2616,HTTP>> and <<rfc3986,URI Syntax>> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <<rfc3986,RFC 3986 (URI Syntax)>> for details.

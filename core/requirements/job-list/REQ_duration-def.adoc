@@ -1,12 +1,15 @@
 [[req_job-list_duration-definition]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/job-list/duration-definition*
-^|A |The operation SHALL support a parameter `minDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+[requirement]
+====
+[%metadata]
+label:: /req/job-list/duration-definition
+[.component,class=part]
+--
+The operation SHALL support a parameter `minDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
-[source,YAML]
+[source,yaml]
 ----
-name: minDuration 
+name: minDuration
 in: query
 required: false
 schema:
@@ -14,11 +17,15 @@ schema:
   items:
     type: integer
 ----
-^|B |The operation SHALL support a parameter `maxDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+--
 
-[source,YAML]
+[.component,class=part]
+--
+The operation SHALL support a parameter `maxDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+
+[source,yaml]
 ----
-name: maxDuration 
+name: maxDuration
 in: query
 required: false
 schema:
@@ -28,4 +35,5 @@ schema:
 style: form
 explode: false
 ----
-|===
+--
+====

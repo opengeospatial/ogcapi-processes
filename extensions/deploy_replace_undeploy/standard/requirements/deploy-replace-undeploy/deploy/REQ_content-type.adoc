@@ -1,7 +1,7 @@
 [[req_deploy-replace-undeploy_deploy_content-type]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/deploy-replace-undeploy/deploy/content-type*
-^|A |The `Content-Type` https://tools.ietf.org/html/rfc2616#section-14.17[header] SHALL be used to declare the media type of the request body containing a description of the processes to be added to the API.
-|===
-
+[requirement]
+====
+[%metadata]
+label:: /req/deploy-replace-undeploy/deploy/content-type
+part:: The `Content-Type` https://tools.ietf.org/html/rfc2616#section-14.17[header] SHALL be used to declare the media type of the request body containing a description of the processes to be added to the API.
+====

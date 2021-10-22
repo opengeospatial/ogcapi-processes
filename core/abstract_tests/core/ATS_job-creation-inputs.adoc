@@ -1,8 +1,16 @@
 [[ats_core_job-creation-inputs]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/job-creation-inputs*
-^|Test Purpose |Validate that servers can accept input values both inline and by reference.
-^|Requirement |<<req_core_job-creation-inputs,/req/core/job-creation-inputs>>
-^|Test Method |. Verify that the server passes tests <<ats_core_job-creation-input-inline,/conf/core/job-creation-input-inline>> and <<ats_core_job-creation-input-ref,/conf/core/job-creation-input-ref>> .
-|===
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/job-creation-inputs
+subject:: <<req_core_job-creation-inputs,/req/core/job-creation-inputs>>
+test-purpose:: Validate that servers can accept input values both inline and by reference.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Verify that the server passes tests <<ats_core_job-creation-input-inline,/conf/core/job-creation-input-inline>> and <<ats_core_job-creation-input-ref,/conf/core/job-creation-input-ref>> .
+--
+=====
+====

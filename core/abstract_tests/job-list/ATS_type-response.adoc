@@ -1,10 +1,26 @@
 [[ats_job-list_type-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/job-list/type-response*
-^|Test Purpose |Validate that the `type` query parameter is processed correctly.
-^|Requirement |<<req_job-list_type-response,/req/job-list/type-response>>
-^|Test Method |. Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `type` query parameter to the request.
-. Inspect the value of the `type` property for each job listed in the response.
-. Verify that that value of the `type` property matches one of the values specified for the `type` query parameter.
-|===
+[abstract_test]
+====
+[%metadata]
+label:: /conf/job-list/type-response
+subject:: <<req_job-list_type-response,/req/job-list/type-response>>
+test-purpose:: Validate that the `type` query parameter is processed correctly.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `type` query parameter to the request.
+--
+
+[.component,class=step]
+--
+Inspect the value of the `type` property for each job listed in the response.
+--
+
+[.component,class=step]
+--
+Verify that that value of the `type` property matches one of the values specified for the `type` query parameter.
+--
+=====
+====

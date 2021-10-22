@@ -1,7 +1,8 @@
 [[req_deploy-replace-undeploy_replace_put-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/deploy-replace-undeploy/replace/put-op*
-^|A |For every dynamically added processes (path '/processes/{processId}'), the server shall support the HTTP PUT operation.
-^|B |The parameter 'processId' is each 'id' property in the process collection response (JSONPath: '$.processes[*].id').
-|===
+[requirement]
+====
+[%metadata]
+label:: /req/deploy-replace-undeploy/replace/put-op
+part:: For every dynamically added processes (path '/processes/{processId}'), the server shall support the HTTP PUT operation.
+part:: The parameter 'processId' is each 'id' property in the process collection response (JSONPath: `$.processes[*].id`).
+====
