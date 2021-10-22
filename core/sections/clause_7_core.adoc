@@ -72,7 +72,7 @@ include::../requirements/core/REQ_landingpage-success.adoc[]
 
 [NOTE]
 ====
-The term "_...based upon the OpenAPI 3.0 schema..._" used in the requirements of this specification means that OpenAPI 3.0 is used to define:
+The term “_...based upon the OpenAPI 3.0 schema..._” used in the requirements of this specification means that OpenAPI 3.0 is used to define:
 
 * all the required properties of the respective request/response schema,
 * and any optional properties of the respective request/response schema.
