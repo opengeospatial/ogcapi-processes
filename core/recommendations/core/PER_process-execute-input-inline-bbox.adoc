@@ -1,7 +1,8 @@
 [[per_core_creation-input-inline-bbox]]
-[width="90%",cols="2,6a"]
-|===
-|Permission {counter:per-id} |/per/core/process-execute-input-inline-bbox +
+[permission]
+====
+[%metadata]
+label:: /per/core/process-execute-input-inline-bbox
 
 Servers MAY copy the contents of <<bbox-schema,bbox.yaml>> into another file and adjust the `default` and `enum` values are required.
-|===
+====

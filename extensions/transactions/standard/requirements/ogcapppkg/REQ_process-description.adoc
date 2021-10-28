@@ -1,6 +1,0 @@
-[[req_ogcapppkg_process-description]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/ogcapppkg/process-description*
-^|A |The value of the processDescription property shall be based upon the OpenAPI 3.0 schema http://fix.me[process.yaml].
-|===

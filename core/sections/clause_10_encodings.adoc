@@ -1,0 +1,59 @@
+
+== Requirements classes for encodings
+
+////
+for now, normative statements are often included inline. This will be re-factored later.
+////
+
+=== Overview
+
+This clause specifies two pre-defined requirements classes for encodings to be
+used with the OGC API Processes.
+
+* <<sc_requirements_class_json,JSON>>
+* <<sc_requirements_class_html,HTML>>
+
+The JSON encoding is mandatory.
+
+Note that any server that supports multiple encodings will have to support a mechanism to mint encoding-specific URIs for resources in order to express links, for example, to alternate representations of the same resource. This document does not mandate any particular approach how this is supported by the server.
+
+As clients simply need to dereference the URI of the link, the implementation details and the mechanism how the encoding is included in the URI of the link are not important. Developers interested in the approach of a particular implementation, for example, to manipulate ("hack") URIs in the browser address bar, can study the API definition.
+
+[NOTE]
+====
+Two common approaches are:
+
+* an additional path for each encoding of each resource (this can be expressed,
+for example, using format specific suffixes like `.html`);
+
+* an additional query parameter (for example, "accept" or "f") that overrides
+the Accept header of the HTTP request.
+====
+
+The <<rc_core,Core>> requirements class includes recommendations to support
+<<rc_html,HTML>> and <<rc_json,JSON>> as encodings, where practical.
+
+
+[[sc_requirements_class_json]]
+=== Requirement Class "JSON"
+
+This section defines the requirements class JSON.
+
+include::../requirements/requirements_class_json.adoc[]
+
+include::../requirements/json/REQ_definition.adoc[]
+
+
+[[sc_requirements_class_html]]
+=== Requirement Class "HTML"
+
+This section defines the requirements class HTML.
+
+include::../requirements/requirements_class_html.adoc[]
+
+include::../requirements/html/REQ_definition.adoc[]
+
+include::../requirements/html/REQ_content.adoc[]
+
+
+

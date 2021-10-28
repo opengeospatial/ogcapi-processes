@@ -1,7 +1,8 @@
 [[rec_core_process-execute-mode-auto]]
-[width="90%",cols="2,6a"]
-|===
-|*Recommendation {counter:rec-id}* |/rec/core/process-execute-mode-auto +
+[recommendation]
+====
+[%metadata]
+label:: /rec/core/process-execute-mode-auto
 
 A client that requests a process be executed in `auto` mode SHOULD be prepared to receive either an asynchronous or a synchronous response.
-|===
+====

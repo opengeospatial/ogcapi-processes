@@ -1,0 +1,8 @@
+[[req_deploy-replace-undeploy_replace_response]]
+[requirement]
+====
+[%metadata]
+label:: /req/deploy-replace-undeploy/replace/response
+part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code `200` or `204`.
+part:: If the operation is not executed immediately, but is added to a processing queue, the response SHALL have a HTTP status code `202`.
+====

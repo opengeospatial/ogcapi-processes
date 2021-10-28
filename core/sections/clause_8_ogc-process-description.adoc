@@ -1,0 +1,176 @@
+
+[[ogc_process_description]]
+== Requirements Class "OGC Process Description"
+
+The following section describes the `OGC Process Description` requirements
+class.
+
+
+=== Overview
+
+include::../requirements/requirements_class_ogc-process-description.adoc[]
+
+The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the http://docs.opengeospatial.org/is/14-065/14-065.html[OGC WPS 2.0.2 Interface Standard] but also include elements of the http://spec.openapis.org/oas/v3.0.3[OpenAPI Specification].  Specifically, this process description languages uses https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragments to define the input and output parameters of a process.  As such, this process description provides a bridge from legacy implementations to the OGC API Framework.
+
+The process description allows the following information to be specified:
+
+* An identifier for the process
+* Descriptive metadata about the process;
+** A title
+** A narrative description of the process
+** Keywords that can be associated with the process
+** References to additional metadata
+* A description of each process input specified using a https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragment.
+* A description of each process output specified using a https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragment.
+* A job control specification that indicates whether the process can be invoked synchronously, asynchronously, or either.
+* An output transmission specification that indicates how the results of a process are retrieved; either by value or by reference
+* A section for additional parameters that are intended for communities of use to extend the process description as required
+
+The following clause defines a JSON-encoding of the OGC process description.
+
+
+=== OGC process description
+
+include::../requirements/ogc-process-description/REQ_json-encoding.adoc[]
+
+.Schema for a process
+[source,yaml]
+----
+include::../openapi/schemas/process.yaml[]
+----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[`process.yaml`]
+
+NOTE: See also <<schema-processSummary,`processSummary.yaml`>>
+
+The schema imports the elements from the <<schema-processSummary, process summary>> and specifies an object for the definition of process inputs and another object for the definition of process outputs.
+
+include::../requirements/ogc-process-description/REQ_inputs-def.adoc[]
+
+.Schema for a process input
+[source,yaml]
+----
+include::../openapi/schemas/inputDescription.yaml[]
+----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[`inputDescription.yaml`]
+
+
+include::../requirements/ogc-process-description/REQ_input-def.adoc[]
+
+NOTE: The schema fragment specified as the value of the `schema` parameter can be used to validate the corresponding <<input-value-schema,process input value>> in an <<execute-request-body,execute request>>.
+
+include::../requirements/ogc-process-description/REQ_input-binary.adoc[]
+
+include::../requirements/ogc-process-description/REQ_input-mixed-type.adoc[]
+
+The following JSON Schema fragment illustrates how to define an input of mixed type.  In this case, the `imageInput` input can be one a couple of image media types.
+
+.Mixed type input example
+[source,json]
+----
+"imageInput": {
+  "schema": {
+    "oneOf": [
+      {
+        "type": "string",
+        "contentEncoding": "binary",
+        "contentMediaType": "application/tiff; application=geotiff"
+      },
+      {
+        "type": "string",
+        "contentEncoding": "binary",
+        "contentMediaType": "application/jp2"
+      }
+    ]
+  }
+}
+----
+
+include::../recommendations/ogc-process-description/REC_format-key.adoc[]
+
+The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7[set of values] for the `format` key.  This specification extends this list by defining the following additional key values for use specifically in OGC process descriptions.
+
+[[format-key-values]]
+.Additional values for the JSON schema format key for OGC Process Description
+[options="header"]
+|===
+^|Key value ^|Short code ^|Description
+
+|http://www.opengis.net/def/format/ogcapi-processes/0/geojson-feature-collection |geojson-feature-collection |Indicates that the object is an instance of a GeoJSON feature collection http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.yaml[(featureCollectionGeoJSON.yaml)].
+|http://www.opengis.net/def/format/ogcapi-processes/0/geojson-feature |geojson-feature |Indicates that the object is an instance of a GeoJSON feature http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureGeoJSON.yaml[(featureGeoJSON.yaml)].
+|http://www.opengis.net/def/format/ogcapi-processes/0/geojson-geometry |geojson-geometry |Indicates that the object is an instance of a GeoJSON geometry http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml[(geometryGeoJSON.yaml)].
+|http://www.opengis.net/def/format/ogcapi-processes/0/ogc-bbox |ogc-bbox |Indicates that the object is an instance of an OGC bounding box https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml[(bbox.yaml)].
+|===
+
+NOTE: This list of values has been submitted to the https://www.ogc.org/projects/groups/ogcnasc[OGC Naming Authority] for registration in their definition server.
+
+include::../recommendations/ogc-process-description/REC_format-short-code.adoc[]
+
+Situations might arise where communities of interest wish to extend this list of values for their own purposes.
+
+include::../recommendations/ogc-process-description/REC_format-value-registration.adoc[]
+
+The following JSON Schema fragment illustrates the use of the `format` key to include a semantic hint to a process input that is a geometry.
+
+.Example of semantic hints using the format key
+[source,json]
+----
+"geometryInput": {
+  "title": "Geometry input",
+  "description": "This is an example of a geometry input.  In this case the geometry can be expressed as a GML of GeoJSON geometry.",
+  "minOccurs": 2,
+  "maxOccurs": 5,
+  "schema": {
+    "oneOf": [
+      {
+        "type": "string",
+        "contentMediaType": "application/gml+xml; version=3.2",
+        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+      },
+      {
+        "allOf": [
+          {
+            "format": "geojson-geometry"
+          },
+          {
+            "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
+          }
+        ]
+      }
+    ]
+  }
+}
+----
+
+.Schema for a process output
+[source,yaml]
+----
+include::../openapi/schemas/outputDescription.yaml[]
+----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[`outputDescription.yaml`]
+
+include::../requirements/ogc-process-description/REQ_outputs-def.adoc[]
+
+include::../requirements/ogc-process-description/REQ_output-def.adoc[]
+
+include::../requirements/ogc-process-description/REQ_output-mixed-type.adoc[]
+
+.Example OGC Process Description.
+====
+The following URL is an example of retrieving a <<sc_process_description,process description>> from the `/processes/{processId}` endpoint.
+[source]
+----
+https://processing.example.org/processes/EchoProcess
+----
+
+The description of the example `EchoProcess` process might be:
+
+[source,json]
+----
+include::../examples/json/ProcessDescription.json[]
+----
+
+The `EchoProcess` process simply echoes each process input value it is given.
+====

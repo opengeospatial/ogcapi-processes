@@ -1,0 +1,82 @@
+
+== Terms, definitions and abbreviated terms
+
+=== Terms and definitions
+
+==== process
+
+A process p is a function that for each input returns a corresponding output
+
+[stem%unnumbered]
+++++
+p: X -> Y
+++++
+
+where stem:[X] denotes the domain of arguments stem:[x] and stem:[Y] denotes the co-domain of values y. Within this specification, process arguments are referred to as process inputs and result values are referred to as process outputs. Processes that have no process inputs represent value generators that deliver constant or random process outputs.
+
+The term process is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this specification uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the WPS 2.0 standard.
+
+
+==== job
+
+The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.
+
+
+==== JSON
+
+JavaScript Object Notation is a lightweight data-interchange format. JSON is easy for humans to read and write and it is easy for machines to parse and generate.
+
+==== Link
+
+The term "link" is commonly used as substitute for URL or URI. In this standard, "link" refers to an element described by the schema for a link as shown at <<link-schema,link.yaml>>. This is a JSON element containing properties like "rel" (relation) and "href". The value of the "href" property is an URI.
+
+==== Link header
+
+HTTP Link header, as defined in <<rfc8288,RFC 8288 (Web Linking)>>.
+
+==== process description
+
+A process description is an information model that specifies the interface of a process. A process description is used for a machine-readable description of the process itself but also provides some basic information about the process inputs and outputs.
+
+
+==== process execution
+
+The execution of a process is an action that calculates the outputs of a given process for a given set of data inputs.
+
+
+==== process input
+
+Process inputs are the arguments of a process and refer to data provided to a process. Each process input is an identifiable item.
+
+
+==== process offering
+
+A process offering is an identifiable process that may be executed on a particular service instance. A process offering contains a process description as well as service-specific information about the supported execution protocols (e.g. synchronous and asynchronous execution).
+
+
+==== process output
+
+Process outputs are the results of a process and refer to data returned by a process. Each process output is an identifiable item.
+
+
+==== REST
+
+The Representational State Transfer (REST) style is an abstraction of the architectural elements within a distributed hypermedia system. REST focuses on the roles of components, the constraints upon their interaction with other components, and their interpretation of significant data elements. It encompasses the fundamental constraints upon components, connectors, and data that define the basis of the Web architecture, and thus the essence of its behavior as a network-based application. An API that conforms to the REST architectural principles/constraints is called a *RESTful API*. (Source: https://docs.ogc.org/is/18-088/18-088.html#_rest[OGC 18-088])
+
+=== Abbreviated Terms
+
+API:: Application Programming Interface
+CITE:: Compliance Interoperability & Testing Evaluation
+CRS:: Coordinate Reference System
+GML:: Geography Markup Language
+HTTP:: Hypertext Transfer Protocol
+ISO:: International Organization for Standardization
+JSON:: JavaScript Object Notation
+KVP:: Key-Value Pair
+MIME:: Multipurpose Internet Mail Extensions
+OGC:: Open Geospatial Consortium
+REST:: Representational State Transfer
+URI:: Uniform Resource Identifier
+URL:: Uniform Resource Locator
+WPS:: Web Processing Service
+XML:: Extensible Markup Language

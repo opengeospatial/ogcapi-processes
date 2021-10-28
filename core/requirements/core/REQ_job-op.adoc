@@ -1,7 +1,8 @@
 [[req_core_job]]
-[width="90%",cols="2,6a"]
-|===
-|*Requirement {counter:req-id}* |/req/core/job +
+[requirement]
+====
+[%metadata]
+label:: /req/core/job
 
 The server SHALL support the HTTP GET operation at the path `/jobs/{jobID}`.
-|===
+====

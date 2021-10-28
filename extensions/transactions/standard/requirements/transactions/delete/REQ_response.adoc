@@ -1,6 +1,0 @@
-[[req_transactions_delete_response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/transactions/delete/response*     
-^|A |A successful execution of the operation shall be reported as a response with a HTTP status code '204'.
-|===

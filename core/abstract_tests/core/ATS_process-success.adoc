@@ -1,18 +1,31 @@
 [[ats_core_process-success]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/process-success*
-^|Test Purpose |Validate that the content complies with the required structure and contents.
-^|Requirement |<<req_core_process-success,/req/core/process-success>>
-^|Test Method |. Validate that a document was returned with an HTTP status code of 200.
-. Verify that the content of the response is valid description of the interface of the process for all supported process description models.
-|===
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/process-success
+subject:: <<req_core_process-success,/req/core/process-success>>
+test-purpose:: Validate that the content complies with the required structure and contents.
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Validate that a document was returned with an HTTP status code of 200.
+--
+
+[.component,class=step]
+--
+Verify that the content of the response is valid description of the interface of the process for all supported process description models.
+--
+=====
 
 The interface of a process may be describing using a number of different models or process description languages. The following table identifies the applicable schema document for each process description model described in this standard.
+====
 
 [[process-description-model]]
 .Schema and Tests for Process Description Models
-[width="90%",cols="3",options="header"]
+[cols="3",options="header"]
 |===
 |Model |Schema Document |Test ID
 |OGC Process Description JSON|link:http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/process.yaml[process.yaml] |<<req_ogc-process-description_json-encoding,/conf/ogc-process-description/json-encoding>>

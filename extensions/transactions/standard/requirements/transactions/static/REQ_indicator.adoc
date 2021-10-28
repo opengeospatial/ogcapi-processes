@@ -1,9 +1,0 @@
-[[req_transactions_static_indicator]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/transactions/static/indicator*
-^|A |The optional property `isStatic` shall be used to indicate whether a process is a static or built-in process or a dynamically added process.
-^|B |A value of `true` shall be used to indicate that a processes is static or built-in and can thus not be manipulated through the API.
-^|C |A value of `false` shall be used to indicate that a processes has been dynamically added to the API and can thus be manipulated through the API.
-^|D |The default value shall be `false`.
-|===

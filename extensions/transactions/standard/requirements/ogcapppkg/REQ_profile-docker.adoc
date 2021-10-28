@@ -1,6 +1,0 @@
-[[req_ogcapppkg_profile-docker]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/ogcapppkg/profile-docker*
-^|A |If the execution unit is a Docker image, the value of the `deploymentProfile` property shall be `http://www.opengis.net/profiles/eoc/dockerizedApplication`.
-|===

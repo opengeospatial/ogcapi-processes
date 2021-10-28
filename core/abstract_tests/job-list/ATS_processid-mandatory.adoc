@@ -1,9 +1,21 @@
 [[ats_job-list_processid-mandatory]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/job-list/processID-mandatory*
-^|Test Purpose |Validate that the `processID` property is present in every job.
-^|Requirement |<<req_job-list_processID-mandatory,/req/job-list/processID-mandatory>>
-^|Test Method |. Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>>.
-. Verify that each job includes a `processID` property.
-|===
+[abstract_test]
+====
+[%metadata]
+label:: /conf/job-list/processID-mandatory
+subject:: <<req_job-list_processID-mandatory,/req/job-list/processID-mandatory>>
+test-purpose:: Validate that the `processID` property is present in every job.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>>.
+--
+
+[.component,class=step]
+--
+Verify that each job includes a `processID` property.
+--
+=====
+====

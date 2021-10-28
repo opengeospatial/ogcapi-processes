@@ -1,7 +1,8 @@
 [[req_job-list_datetime-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/job-list/datetime-response*
+[requirement]
+====
+[%metadata]
+label:: /req/job-list/datetime-response
 
 If the parameter is specified with the operation, only jobs that have a value for the `created` property (see: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml] that intersects the temporal information in the `datetime` parameter SHALL be included in the response.
-|===
+====

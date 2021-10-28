@@ -1,10 +1,27 @@
 [[ats_ogc-process-description_input-mixed-type]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/ogc-process-description/input-mixed-type*
-^|Test Purpose |Validate that each input of mixed type complies with the required structure and contents.
-^|Requirement |<<req_ogc-process-description_input-mixed-type,/req/ogc-process-description/input-mixed-type>>
-^|Test Method |. Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
-. For each process identify if the process has one or more inputs of mixed type.
-. For each sub-schema of each identified input, verify that the definition validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
-|===
+[abstract_test]
+====
+[%metadata]
+label:: /conf/ogc-process-description/input-mixed-type
+subject:: <<req_ogc-process-description_input-mixed-type,/req/ogc-process-description/input-mixed-type>>
+test-purpose:: Validate that each input of mixed type complies with the required structure and contents.
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
+--
+
+[.component,class=step]
+--
+For each process identify if the process has one or more inputs of mixed type.
+--
+
+[.component,class=step]
+--
+For each sub-schema of each identified input, verify that the definition validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
+--
+=====
+====

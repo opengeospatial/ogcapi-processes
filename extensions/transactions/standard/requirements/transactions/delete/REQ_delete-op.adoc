@@ -1,7 +1,0 @@
-[[req_transactions_delete_delete-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/transactions/delete/delete-op*
-^|A |For every dynamically added process (path '/processes/{processId}'), the server shall support the HTTP DELETE operation.
-^|B |The parameter 'processId' is each 'id' property in the process collection response (JSONPath: '$.processes[*].id').
-|===

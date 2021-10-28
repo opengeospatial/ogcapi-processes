@@ -1,0 +1,7 @@
+[[req_ogcapppkg_process-description]]
+[requirement]
+====
+[%metadata]
+label:: /req/ogcapppkg/process-description
+part:: The value of the processDescription property shall be based upon the OpenAPI 3.0 schema http://fix.me[process.yaml].
+====

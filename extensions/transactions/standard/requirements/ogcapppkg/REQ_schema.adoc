@@ -1,6 +1,0 @@
-[[req_ogcapppkg_schema]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/ogcapppkg/schema*
-^|A |An `OGC Application Package` document shall be based upon the schema http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[ogcapppkg.yaml].
-|===

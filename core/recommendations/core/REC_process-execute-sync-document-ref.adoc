@@ -1,9 +1,17 @@
 [[rec_core_process-execute-sync-document-ref]]
-[width="90%",cols="2,6a"]
-|===
-|Recommendation {counter:rec-id} |/rec/core/process-execute-sync-document-ref +
-^|Conditions |. The <<sc_execution_mode,negotiated execution mode>> is synchronous, `response=document`, `transmissionMode=reference`
+[recommendation]
+====
+[%metadata]
+label:: /rec/core/process-execute-sync-document-ref
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is synchronous, `response=document`, `transmissionMode=reference`
 . The number of outputs requested is 1 or more.
 . The requested output value is a simple scalar value.
-^|A |For a simple scalar values servers SHOULD consider supporting links to `text/plain` files that contain the output values.
-|===
+--
+
+[.component,class=part]
+--
+For a simple scalar values servers SHOULD consider supporting links to `text/plain` files that contain the output values.
+--
+====

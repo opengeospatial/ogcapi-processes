@@ -1,6 +1,0 @@
-[[req_transactions_insert_body]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/transactions/insert/body*
-^|A |The body of the POST request shall contain a formal description of the process to be dynamically added to the API.
-|===

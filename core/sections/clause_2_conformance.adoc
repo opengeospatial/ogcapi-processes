@@ -1,0 +1,73 @@
+
+[[sc_conformance]]
+== Conformance
+
+This standard defines seven requirements / conformance classes.
+
+The standardization targets of all conformance classes are "Web APIs."
+
+The main requirements class is:
+
+* <<rc_core,Core>>.
+
+The _Core_ specifies requirements that all Web APIs have to implement.
+
+Two requirements classes depend on the _Core_ and specify representations for the resources specified in the _Core_:
+
+* <<rc_json,JSON>>, and
+
+* <<rc_html,HTML>>.
+
+The JSON encoding is mandatory.
+
+The _Core_ does not mandate any encoding or format for the formal definition of the API. OpenAPI 3.0 specification is one option for defining the Processing API. As such a requirements class has been specified for OpenAPI 3.0, which depends on the requirements class _Core_:
+
+* <<rc_oas30,OpenAPI Specification 3.0>>.
+
+An implementation of the _Core_ requirements class may also decide to use other API definition representations in addition to, or instead of, an OpenAPI 3.0 definition. Examples for alternative API definitions: OpenAPI 2.0 (Swagger), future versions of the OpenAPI specification, an OWS Common 2.0 capabilities document or WSDL.
+
+[NOTE]
+====
+OpenAPI 3.0 offers an open, powerful and vendor neutral description format.
+While the use of OpenAPI 3.0 for the formal definition of the API is not mandatory, the requests/responses of the API specified in this standard are defined using OpenAPI 3.0 schemas.
+See also the note regarding <<req_core_landingpage-success,/req/core/landingpage-success>>
+====
+
+The _Core_ is intended to be a minimal useful API for the execution of processes in the geospatial domain. The Core is designed to map the operations of a Web Processing Service 2.0 instance.
+
+The _Core_ does not mandate the use of any specific process description to
+specify the interface of a process. Instead this standard defines and
+recommends the use of the following conformance class:
+
+* <<rc_ogc-process-description,OGC Process Description>>
+
+This class defines an information model, encoded in JSON, which may be used to
+specify the interface of a process.
+
+Three additional conformance classes are specified that extend the basic functionality of an API:
+
+* <<rc_job-list,Job list>>, and
+
+* <<rc_callback,Callback>>, and
+
+* <<rc_dismiss,Dismiss>>.
+
+Additional capabilities such as support for transactions, extended job monitoring, etc., may be specified in future parts of the OGC API - Processes series or as vendor-specific extensions.
+
+Conformance with this standard SHALL be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
+
+
+.Conformance class URIs
+[cols="40,60",options="header"]
+|===
+| Conformance class | URI
+
+|<<ats_core,Core>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
+|<<ats_ogc-process-description,OGC Process Description>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description
+|<<ats_json,JSON>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json
+|<<ats_html,HTML>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html
+|<<ats_oas30,OpenAPI Specification 3.0>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30
+|<<ats_job-list,Job list>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list
+|<<ats_callback,Callback>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback
+|<<ats_dismiss,Dismiss>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
+|===

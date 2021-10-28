@@ -1,0 +1,10 @@
+[[req_deploy-replace-undeploy_static_indicator]]
+[requirement]
+====
+[%metadata]
+label:: /req/deploy-replace-undeploy/static/indicator
+part:: The optional property `mutable` shall be used to indicate whether a process is a static or built-in process that is immutable or a dynamically added process that is mutable.
+part:: A value of `true` shall be used to indicate that a processes is mutable and can thus be manipulated through the API.
+part:: A value of `false` shall be used to indicate that a processes is immutable and can thus not be manupulated through the API.
+part:: The default value shall be `true`.
+====

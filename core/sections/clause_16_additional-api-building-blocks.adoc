@@ -1,0 +1,39 @@
+
+[[additional-api-building-blocks]]
+== Additional API Building Blocks
+
+The core requirements classes of the Processes API standard are designed for the following workflow:
+
+. Access the list of available processes
+. Access the description of a specific process
+. Create an execute JSON request (based on the description) and send it to the server via POST
+. Process the status info and/or results
+
+This workflow is useful for generic clients that are implemented against the JSON schemas and paths specified in this standard. Generic clients can communicate with any server implementing the OGC API - Processes Standard. However, there may be limitations regarding the handling of input and output formats.
+
+The approach described above requires implementers of clients to have knowledge about the standard.
+
+This standard uses the OpenAPI specification to define the JSON schemas and OpenAPI MAY also be used to describe the concrete API (see <<sc_api_definition>>). A variety of tools for automatic code generation exist for the OpenAPI specification. This makes it very easy for client and server implementers to work with APIs defined using OpenAPI. However, as the OGC API - Processes Standard defines several JSON schemas and leaves the concrete data types for input and outputs open, the automatic code generation cannot be used to its full extent. To cope with this and thus make the implementation of clients / servers easier for those that are not familiar with OGC (API) standards, additional alternatives to the <<sc_process_description,process description>> and the paths to processes and jobs are permitted.
+
+The following permissions do not affect the mandatory core requirements.
+
+include::../recommendations/core/PER_alternative-process-description.adoc[]
+
+The alternative-process-description permission allows server implementations to describe a process, such as by defining the request and response body of a POST request to a process endpoint using the OpenAPI specification directly (see this  <<example-alternative-process-description, example>>).
+
+include::../recommendations/core/PER_alternative-process-paths.adoc[]
+
+The alternative-process-paths permission allows server implementations to specify alternative paths to processes and jobs.
+
+An example of an OpenAPI document making use of these building blocks is shown in the following:
+
+[[example-alternative-process-description]]
+[source,yaml]
+----
+include::../examples/yaml/alternative-api.yaml[]
+----
+
+The goals of these additional API building blocks are:
+
+* Enabling a more seamless integration of this API with other OGC API standards and
+* Enabling the use of tools to auto-generate clients / servers from the API description.

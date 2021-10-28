@@ -1,7 +1,8 @@
 [[per_core_process-execute-sync-job]]
-[width="90%",cols="2,6a"]
-|===
-|Permission {counter:per-id} |/per/core/process-execute-sync-job +
+[permission]
+====
+[%metadata]
+label:: /per/core/process-execute-sync-job
 
 Servers MAY support the creation of a job for synchronously executed processes.
-|===
+====

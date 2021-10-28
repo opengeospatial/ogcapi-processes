@@ -1,6 +1,0 @@
-[[req_transaction_insert-post-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/transactions/insert/post-op*
-^|A |The server shall support the HTTP POST operation at the path '/processes'.
-|===

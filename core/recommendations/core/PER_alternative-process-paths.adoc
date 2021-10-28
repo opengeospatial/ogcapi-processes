@@ -1,7 +1,8 @@
 [[per_core_alternative-process-paths]]
-[width="90%",cols="2,6a"]
-|===
-|Permission {counter:per-id} |/per/core/alternative-process-paths +
+[permission]
+====
+[%metadata]
+label:: /per/core/alternative-process-paths
 
 Servers MAY support alternative API paths.
-|===
+====

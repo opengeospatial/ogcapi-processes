@@ -1,0 +1,7 @@
+[[req_deploy-replace-undeploy_deploy-post-op]]
+[requirement]
+====
+[%metadata]
+label:: /req/deploy-replace-undeploy/deploy/post-op
+part:: The server shall support the HTTP POST operation at the path `/processes`.
+====

@@ -1,0 +1,126 @@
+
+[[sc_security_considerations]]
+== Security Considerations
+
+The OGC API - Processes Standard specifies a Web API that enables the execution of computing processes, the retrieval of metadata describing their purpose and functionality and the retrieval of the results of the process execution. The API makes use of different HTTP methods, namely GET, POST and DELETE. (Note that future extensions could introduce additional HTTP methods.)
+
+HTTP methods can be classified as
+
+* Safe, meaning that they do not alter the state of (a resource on) the server, and
+* Idempotent, meaning that can be executed an indefinite number of times and deliver the same result.
+
+<<http_methods_safety>> gives an overview of the classification of HTTP the methods used in this standard:
+
+[[http_methods_safety]]
+.Classification of HTTP methods
+[cols="30, 30, 30",options="header"]
+|===
+|HTTP Method  |Safe |Idempotent
+
+|GET        |yes  |yes
+|POST       |no   |no
+|DELETE     |no   |yes
+3+|Source <<rfc7231,RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content>>
+
+|===
+
+The following resources can be retrieved using the safe HTTP GET operation and can contain sensitive information:
+
+Requirements class "Core":
+
+* <<sc_process_list,Process list>>
+* <<sc_process_description,Process description>>
+* <<sc_retrieve_status_info,Job status info>>
+* <<sc_retrieve_job_results,Job results>>
+
+Requirements class "Job list"
+
+* <<sc_job_list,list>>
+
+The following API operations use unsafe HTTP methods, modify resources and therefore require special attention:
+
+Requirements class "Core":
+
+* <<sc_create_job,Execute>>, HTTP POST
+
+Requirements class "Dismiss"
+
+* <<Dismiss,Dismiss>>, HTTP DELETE
+
+
+=== Operations using HTTP GET
+
+Most of the operations defined in this standard are use the safe HTTP GET operation. However, the resources that are returned by these operations contain information that could be used to exploit the API. <<table_core_safe_operations_security>> gives an overview of the resources specified in this standard and what kind of information they contain.
+
+
+[[table_core_safe_operations_security]]
+.Requirements class 'Core' - Overview of core operations and returned sensitive information
+[cols="20,30,10,40",options="header"]
+|===
+|Resource |Path |HTTP method | Information delivered
+
+|Landing page |`/` |GET| General information about the service, links to API endpoints
+|Conformance classes |`/conformance` |GET| List of conformance classes
+|Process list |`/processes` |GET | Process identifiers, links to process descriptions
+|Process description |`/processes/{processID}` |GET | Information about a process, e.g. inputs/outputs
+|Job status info |`/jobs/{jobID}` |GET | Status info, links to results or exceptions
+|Job results |`/jobs/{jobID}/results` |GET | Job results
+
+|===
+
+The resources and contained information in more detail:
+
+* The landing page contains links to the API endpoints and so leads to all other resources the API offers.
+
+* The list of conformance classes could contain information about extensions like "dismiss" that pose additional security issues.
+
+* The process list contains process identifiers and links to the respective process descriptions.
+
+* The process description contains all necessary information needed to execute a process. This information can be used to send an JSON execute request to the API that will pass initial sanity checks, for example checks for the correct input/output identifiers. If this barrier is taken by an attacker, issues as discussed in section <<sec_cons_execute>> can occur.
+
+* The job status info contains not only status information, but for finished processes also links to results / exceptions. The results of a process execution are a valuable resource as well as the exceptions that could contain hints about why the execution has failed.
+
+
+[[table_job_list_operation_security]]
+.Requirements class 'Job List' - Overview of operations and returned sensitive information
+[cols="20,30,10,40",options="header"]
+|===
+|Resource |Path |HTTP method | Information delivered
+|Job list |`/jobs` |GET | List of job ids and status info, links to results or exceptions
+|===
+
+The retrieval of the job list of a process returns the job ids and links to the respective job status.
+
+
+[[sec_cons_execute]]
+=== Execute operation
+
+The execute operation uses HTTP POST to create new processing jobs (process executions). As discussed above, the HTTP POST method is not safe and it poses the following threats if misused:
+
+* The processing can use up considerable server resources, for example computing time, network traffic (when accessing referenced inputs) or storage space for inputs and outputs.
+* Malicious inputs can be provided. Either inline in the execute request JSON or referenced.
+
+[[table_core_execute_operation_security]]
+.Requirements class 'Core' - Overview of the execute operation and returned sensitive information
+[cols="20,30,10,40",options="header"]
+|===
+|Resource |Path |HTTP method | Information delivered
+
+|Job status info |`/jobs` |POST | Job id, status info, (links to) results or exceptions
+
+|===
+
+The ids that are used for new jobs and that are returned in the status info document should be created in a non-guessable way, for example using UUIDs. This will prevent random attempts to get job status information, results / exceptions or even cancel jobs / delete job artifacts.
+
+include::../recommendations/job-list/REC_access-control-job-list.adoc[]
+
+
+[[sec_cons_dismiss]]
+=== Dismiss operation
+
+The optional dismiss extension uses the HTTP DELETE method and can be used to
+
+* Cancel a running job, and
+* Remove artifacts of a finished job.
+
+Both usages pose security related issues. The cancellation of a running job (if not done on purpose) is wasting the resources that the job has used until it was cancelled. The same goes for the unwanted removal of artifacts of a finished job. If the dismiss extension is implemented, access control for the operation should be considered. The dismiss operation is idempotent, as it is specified by this standard to be called using a specific job identifier. The first dismiss request to that identifier will result in a HTTP 200 (OK) status code. Continued dismiss requests using the same identifier result in a HTTP 410 (Gone) error code, but nothing else is changed on the server. A successful dismiss request returns a status info document containing the job identifier and the status "dismissed". This status info document has no further security implications.

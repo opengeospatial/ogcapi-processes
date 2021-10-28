@@ -1,8 +1,0 @@
-[[rec_ogcapppkg_execution-unit-docker]]
-[width="90%",cols="2,6a"]
-|===
-^|*Recommendation {counter:rec-id}* |*/rec/ogcapppkg/execution-unit-docker*
-^|A |If the execution unit is a Docker image then it is recommended that the contents of the execution unit be the properties `type` and `image`.
-^|B |The value of the `type` property shall be `docker'.
-^|C |The value of the `image` property shall be a reference to the Docker image.
-|===

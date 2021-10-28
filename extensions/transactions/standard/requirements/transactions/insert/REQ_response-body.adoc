@@ -1,6 +1,0 @@
-[[req_transactions_insert_response-body]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/transactions/insert/response-body* 
-^|A |The response shall include a body that contains a summary description of the added process.
-|===

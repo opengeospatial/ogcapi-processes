@@ -1,11 +1,11 @@
 [[ats_ogc-process-description]]
-[cols="1,4",width="90%"]
-|===
-2+|*Conformance Class*
-2+|http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description
-|Target type |Web API
-|Requirements class |<<rc_ogc-process-description,Requirements Class "OGC Process Description">>
-|===
+[conformance_class]
+====
+[%metadata]
+label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description
+subject:: <<rc_ogc-process-description,Requirements Class "OGC Process Description">>
+classification:: Target Type:Web API
+====
 
 include::ogc-process-description/ATS_json-encoding.adoc[]
 
