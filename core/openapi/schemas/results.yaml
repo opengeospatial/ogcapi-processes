@@ -1,3 +1,2 @@
 additionalProperties:
-  oneOf:
-    - $ref: "inlineOrRefData.yaml"
+  $ref: "inlineOrRefData.yaml"
