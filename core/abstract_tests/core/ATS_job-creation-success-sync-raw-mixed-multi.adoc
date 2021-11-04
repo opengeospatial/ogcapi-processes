@@ -20,7 +20,7 @@ Inspect the description of each process and identify the subset of processes tha
 
 [.component,class=step]
 --
-For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that synchronous execution is <sc_execution_mode,negotiated>> according to test <<ats_core_job-creation-default-execution-mode,/conf/core/job-creation-default-execution-mode>>, that more than one output is requested, that the requested response type is `raw` (i.e. `"response": "raw"`) and the the transmission mode is a mix of `value` (i.e. `"transmissionMode": "value"`) and reference (i.e. `"transmissionMode": "reference"`) according to requirement <<req_core_job-creation-sync-raw-mixed-multi,/req/core/job-creation-sync-raw-mixed-multi>>.
+For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that synchronous execution is <<sc_execution_mode,negotiated>> according to test <<ats_core_job-creation-default-execution-mode,/conf/core/job-creation-default-execution-mode>>, that more than one output is requested, that the requested response type is `raw` (i.e. `"response": "raw"`) and the the transmission mode is a mix of `value` (i.e. `"transmissionMode": "value"`) and reference (i.e. `"transmissionMode": "reference"`) according to requirement <<req_core_job-creation-sync-raw-mixed-multi,/req/core/job-creation-sync-raw-mixed-multi>>.
 --
 
 [.component,class=step]
@@ -39,5 +39,3 @@ For each output requested with `"transmissionMode": "reference"` verify that the
 --
 =====
 ====
-
-
