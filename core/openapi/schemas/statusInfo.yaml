@@ -2,7 +2,6 @@ type: object
 required:
    - jobID
    - status
-   - processID
    - type
 properties:
    processID:
