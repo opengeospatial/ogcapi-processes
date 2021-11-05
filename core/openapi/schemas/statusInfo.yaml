@@ -2,9 +2,14 @@ type: object
 required:
    - jobID
    - status
+   - type
 properties:
    processID:
       type: string
+   type:
+      type: string
+      enum:
+        - process
    jobID:
       type: string
    status:

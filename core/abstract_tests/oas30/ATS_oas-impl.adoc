@@ -16,7 +16,7 @@ Construct a path from each URL template including all server URL options and all
 
 [.component,class=step]
 --
-For each path defined in the OpenAPI document, validate that the path performs in accordance with the API definition and the API-Features standard.
+For each path defined in the OpenAPI document, validate that the path performs in accordance with the API definition and the OGC API - Processes standard.
 --
 =====
 ====
