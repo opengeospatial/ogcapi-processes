@@ -1,4 +1,4 @@
-name: processID
+name: processId
 in: path
 required: true
 schema:
