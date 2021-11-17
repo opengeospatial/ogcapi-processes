@@ -64,7 +64,7 @@ include::../requirements/ogc-process-description/REQ_input-binary.adoc[]
 
 include::../requirements/ogc-process-description/REQ_input-mixed-type.adoc[]
 
-The following JSON Schema fragment illustrates how to define an input of mixed type.  In this case, the `imageInput` input can be one a couple of image media types.
+The following JSON Schema fragment illustrates how to define an input of mixed type.  In this case, the `imageInput` input can be one of a couple of image media types.
 
 .Mixed type input example
 [source,json]
