@@ -58,7 +58,7 @@
 
 | https://ecere.ca[GNOSIS Cartographer]
 | OGC API - Processes
-| https://ecere.ca/gnosis[Jerome St-Louis]
+| https://github.com/jerstlouis[Jerome St-Louis]
 
 | TBA
 | TBA
