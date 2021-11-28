@@ -1,0 +1,24 @@
+[[rec_core_process-execute-honor-prefer-return]]
+[recommendation]
+====
+[%metadata]
+label:: /rec/core/process-execute-honor-prefer-return
+
+If an execute request *is accompanied* with the HTTP https://datatracker.ietf.org/doc/html/rfc7240#section-2[`Prefer`] header asserting a https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[`return`] preference, then the server SHOULD honor that preference.
+
+See requirements: 
+--
+* <<req_core_process-execute-sync-one-small,/req/core/process-execute-sync-one-small>>
+--
+
+See recommendations:
+--
+* <<rec_core_process-execute-sync-one-big,/rec/core/process-execute-sync-one-big>>
+* <<rec_core_process-execute-sync-many-json-prefer-none,/rec/core/process-execute-sync-many-json-prefer-none>>
+* <<rec_core_process-execute-sync-many-json-prefer-minimal,/rec/core/process-execute-sync-many-json-prefer-minimal>>
+* <<rec_core_process-execute-sync-many-json-prefer-representation,/rec/core/process-execute-sync-many-json-prefer-representation>>
+* <<rec_core_job-results-async-many-json-prefer-none,/rec/core/job-results-async-many-json-prefer-none>>
+* <<rec_core_job-results-async-many-json-prefer-minimal,/rec/core/job-results-async-many-json-prefer-minimal>>
+* <<rec_core_job-results-async-many-json-prefer-representation,/rec/core/job-results-async-many-json-prefer-representation>>
+--
+====

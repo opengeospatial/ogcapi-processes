@@ -5,4 +5,8 @@
 label:: /req/core/job-results-success-sync
 conditions:: The server creates a job when a processes is executed synchronously.
 part:: A successful execution of the operation SHALL include an HTTP https://datatracker.ietf.org/doc/html/rfc8288#section-3[`Link`] header with `rel=monitor` pointing to the created job.
+
+part:: When resolving the `rel=monitor` link, the content type of response SHALL be `application/json`.
+
+part:: When resolving the `rel=monitor` link, the body of the response SHALL be based upon the JSON schema fragment https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml].
 ====

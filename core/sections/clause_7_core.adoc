@@ -211,6 +211,16 @@ See <<http_status_codes>> for general guidance.
 
 include::../requirements/core/REQ_http.adoc[]
 
+This include the correct use of status codes, headers. etc.
+
+include::../recommendations/core/REC_http-head.adoc[]
+
+Supporting the method HEAD in addition to GET can be useful for clients and is simple to implement.  In particular, the HEAD method is useful in determine the size of a potential response.
+
+include::../recommendations/core/REC_content-length.adoc[]
+
+Servers implementing https://docs.ogc.org/DRAFTS/17-069r4.html#cross_origin[CORS] will implement the method OPTIONS, too.
+
 [[http_status_codes]]
 ==== HTTP status codes
 
@@ -250,7 +260,6 @@ include::../recommendations/core/PER_additional-status-codes.adoc[]
 When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be preferred. https://datatracker.ietf.org/doc/html/rfc7807[RFC 7807] addresses this need by providing "Problem Details" response schemas for both JSON and XML.
 
 include::../recommendations/core/REC_problem-details.adoc[]
-
 
 === Support for cross-origin requests
 
@@ -492,8 +501,14 @@ include::../openapi/schemas/output.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/output.yaml[`output.yaml`].
 
-(see also: <<format-schema,format.yaml>>, <<tx-mode-schema,transmissionMode.yaml>>)
+[[format-schema]]
+.Schema for a format qualifier
+[source,yaml]
+----
+include::../openapi/schemas/format.yaml[]
+----
 
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/format.yaml[`format.yaml`].
 
 [[sc_process_inputs]]
 ===== Process inputs
@@ -504,8 +519,6 @@ Each process input is a name/value pair that appears in the `inputs` section of
 an execute request.
 
 The name of each input is its identifier as specified by the input's definition in the <<sc_process_description,process description>>.
-
-Process input values in an execute request can be specified in-line or by reference.
 
 include::../requirements/core/REQ_process-execute-inputs.adoc[]
 
@@ -620,7 +633,7 @@ An array of objects values:
 ],
 ----
 
-NOTE: In an execute request, as per requirement <<req_core_process-execute-input-inline-object,/req/core/process-execute-input-inline-object>>, object values must be encoded as <<qualified-value,qualified values>> to prevent unintended ambiguity with the built-in value types (i.e. <<bounding-box-value,bounding boxes>>, <<link-schema,links>> or <<qualified-value,qualified values>>).
+NOTE: In an execute request, as per requirement <<req_core_process-execute-input-inline-object,/req/core/process-execute-input-inline-object>>, object values must be encoded as <<qualified-value,qualified values>>.
 ====
 
 [[qualified-value]]
@@ -642,14 +655,7 @@ include::../openapi/schemas/qualifiedInputValue.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedInputValue.yaml[`qualifiedInputValue.yaml`].
 
-[[format-schema]]
-.Schema for a format qualifier
-[source,yaml]
-----
-include::../openapi/schemas/format.yaml[]
-----
-
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/format.yaml[`format.yaml`].
+(see also: <<format-schema,format.yaml>>)
 
 [[input-value-schema]]
 .Schema of a process input value
@@ -923,15 +929,6 @@ include::../recommendations/core/REC_process-execute-handle-prefer.adoc[]
 
 include::../recommendations/core/REC_process-execute-preference-applied.adoc[]
 
-===== Response type
-
-The `response` parameter selects the form used to present processing results.
-
-* A `response` value of `document` indicates that the server should generate a response document (see https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml]) that contains each of the requested process outputs.
-* A `response` value of `raw` indicates that the server should present the process responses in their native form without the use of a containing document.
-
-The default value, if the parameter is not specified is `raw`.
-
 [[sc_process_outputs]]
 ===== Process outputs
 
@@ -940,27 +937,24 @@ The default value, if the parameter is not specified is `raw`.
 Each process output is a named object that appears in the `outputs` section of
 an <<execute-request-body,execute request>>. The name of each output is its identifier as specified by the output's definition in the <<sc_process_description,process description>>.
 
-*_Default outputs_*
+*_Default outputs:_*
 
 include::../requirements/core/REQ_process-execute-default-outputs.adoc[]
 
-*_Output value transmission mode_*
-
-Like inputs, output values can be transmitted in-line in a result document or referenced using a <<link-schema,link>>.  The `transmissionMode` parameter in the execute request controls how the server <<sc_execute_response,responds>>.
-
-[[tx-mode-schema]]
-.Schema for the transmission mode
-[source,yaml]
-----
-include::../openapi/schemas/transmissionMode.yaml[]
-----
-
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/transmissionMode.yaml[`transmissionMode.yaml`].
-
-*_Output value format_*
+*_Output value format:_*
 
 A process output can be defined in the <<sc_process_description,process description>> as being of one or more media types.   In cases where a specific output can be presented in one of a number of media types, the `format` parameter in the <<output-schema,execute request>> can be used to indicate the format that should be used to present the process output value in the server's <<sc_execute_response,response>>.
 
+[[sc_output_value_size]]
+*_Output value size:_*
+
+Since a priori knowledge of the size of any given output is generally not known, hints can be provided to the server to prevent the inadvertant transmission of large outputs.
+
+Return preferences signal to a server how output values should be transmitted based on the size of the output and any accompanying https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[`return` preferences] as define defined in http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240].
+
+include::../recommendations/core/REC_process-execute-honor-return-preference.adoc[]
+
+include::../recommendations/core/REC_process-execute-handle-return-preference.adoc[]
 
 ==== Example
 
@@ -975,83 +969,97 @@ include::../examples/json/Execute.json[]
 [[sc_execute_response]]
 ==== Response
 
+===== Overview 
+
 The manner in which a server responds to a process execution request is determined by the following parameters:
 
 * the <<sc_execution_mode,negotiated execution mode>> (synchronous or asynchronous),
-* the `response` parameter (`document` or `raw`),
-* the `transmissionMode` parameter (`value` or `reference`)
-* and the number of outputs requested.
+* the number of outputs requested,
+* the negotiated content type for the response (via the HTTP Accept header),
+* and any negotiated client preferences (via the HTTP Prefer header).
 
-The following table maps the possible responses based on the combinations of these execute parameters.
+The following table maps the possible responses based on the combinations of these execute parameters.  The column headers denote:
+
+. Negotiated execute mode: see <<sc_execution_mode>>
+. Requested # outputs: the number of output requested in the <<execute-request-body,execute request>>
+. Return preference: the negotiated <<sc_output_value_size,return preferences>>
+. Response HTTP code: the https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context
+. Response headers: any additional https://datatracker.ietf.org/doc/html/rfc2616#section-14[HTTP headers] that the server should include in this context
+. Response media type: the value of the HTTP `Content-Type` header that the server should generate in this context
+. Response body: a description of the content of the response body in this context
+. Req./Rec.: the relevant requirements/recommendations as per this specification
 
 [[table_core_execute_responses]]
-.Table mapping execute responses based on the input parameter values.
-[options="header"]
+.Execute responses based on number of requested outputs, request HTTP headers and the size of output values.
+[cols=8,options="header"]
 |===
-|negotiated execution mode |response |transmission mode |# out |HTTP code |media type |body content |requirement
+|Negotiated execute mode
+|Requested # outputs
+|Return preference (`Prefer` header)
+|Response HTTP code
+|Response headers
+|Response media type (`Content-Type` header)
+|Response body
+|Req./Rec.
 
-.9+|sync
-.5+|raw
-.2+|value
-|1
-|200
-|[as per output definition from process description]
-|[output in requested format]
-|<<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>
-|*
+.5+|sync
+.2+|1
+.2+|_n/a_
+|200 (_small_)
+|_standard_
+|_as negotiated_
+|requested process output
+|See requirement: <<req_core_process-execute-sync-one-small,/req/core/process-execute-sync-one-small>>
 
-|200
-|multipart/related
-|[one output per part]
-|<<req_core_process-execute-sync-raw-value-multi,/req/core/process-execute-sync-raw-value-multi>>
+|204 (_large_)
+|_Link_ to output
+|_n/a_
+|_n/a_
+|See requrement: <<req_core_process-execute-sync-one-big,/req/core/process-execute-sync-one-big>>
 
-.2+|reference
-|1
-.2+|204
-.2+|none
-.2+|[empty with `Link` headers]
-.2+|<<req_core_process-execute-sync-raw-ref,/req/core/process-execute-sync-raw-ref>>
-|*
+1.3+|N
+|_none_
+.3+|200
+.3+|_standard_ 
+.3+|application/json
+|<<schema_results,results.yaml>>
+|See requirement: <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, +
+See recommendation: <<rec_core_process-execute-sync-many-json-prefer-none,/rec/core/process-execute-sync-many-json-prefer-none>>
 
-|mixed
-|*
-|200
-|multipart/related
-|[one output per part]
-|<<req_core_process-execute-sync-raw-mixed-multi,/req/core/process-execute-sync-raw-mixed-multi>>
+|minimal
+|<<schema_results,results.yaml>>
+|See requirement: <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, +
+See recommendation: <<rec_core_process-execute-sync-many-json-prefer-minimal,/rec/core/process-execute-sync-many-json-prefer-minimal>>
 
-.4+|document
-.2+|value
-|1
-.4+|200
-.4+|application/json
-.4+|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml]
-.4+|<<req_core_process-execute-sync-document,/req/core/process-execute-sync-document>>
-
-|*
-.2+|reference
-|1
-|*
+|representation
+|<<schema_results,results.yaml>>
+|See requirement: <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, +
+See recommendation: <<rec_core_process-execute-sync-many-json-prefer-representation,/rec/core/process-execute-sync-many-json-prefer-representation>>
 
 |async
-|_any_
-|_any_
-|_any_
-|201
+|_n/a_
+|_n/a_
+|200
+|_Location_ to newly created job
 |application/json
-|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml]
-|<<req_core_process-execute-success-async,/req/core/process-execute-success-async>>
-
+|<<schema-statusInfo,statusInfo.yaml>>
+|See requirement: <<req_core_process-execute-async,/req/core/process-execute-async>>
 |===
 
 [NOTE]
 ====
-The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
-
-This table shows all possible combinations of execute parameters that are specified by this standard.  Not all of these combinations need to be implemented by a server conforming to this standard.  For example, if a server only offers processes that support multiple outputs **by value**, then the server **must** support `multipart/related` responses as indicated in <<table_core_execute_responses>>.  If, on the other hand, the server only offers processes that support multiple outputs **by reference**, then the server does not need to support `multipart/related` responses.
+* The value *_n/a_* in a cell means that the corresponding parameter is not applicable, not specified, not required or can be ignored in this context.
+* The value *_standard_* in a means that the standard HTTP headers required in this context are generated for the response.  Any value other than *_standard_* indicates additional headers that should be included in the header.
+* The value *_as negotiated_* means that the output content type is as negotiated between the client and the server based on the value of the HTTP Accept header.
 ====
 
-.Schema for a processing results presented as a document
+[NOTE]
+====
+This table shows all possible combinations of execute parameters that are specified by this standard.  Not all of these combinations need to be implemented by a server conforming to this standard.  For example, a server that only offers processes that can be executed synchronously does not need to implement any of the asynchronous requirements.
+====
+
+[[schema_results]]
+.Schema for a processing results presented as a JSON document
 [source,yaml]
 ----
 include::../openapi/schemas/results.yaml[]
@@ -1061,19 +1069,32 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 
 This schema defines a map using the respective output identifier as the key. The value of an output can be returned as an in-line value or by reference.
 
-For a synchronous execution, the following requirements apply:
 
-include::../requirements/core/REQ_process-execute-success-sync-raw-value-one.adoc[]
+===== Response requesting a single processing output
 
-include::../requirements/core/REQ_process-execute-success-sync-raw-value-multi.adoc[]
+When a process is executed synchronously and a single processing output is requested, the following requirements and recommendations apply:
 
-include::../requirements/core/REQ_process-execute-success-sync-raw-ref.adoc[]
+include::../requirements/core/REQ_process-execute-success-sync-one-small.adoc[]
 
-include::../requirements/core/REQ_process-execute-success-sync-raw-mixed-multi.adoc[]
+include::../requirements/core/REQ_process-execute-success-sync-one-big.adoc[]
 
-include::../requirements/core/REQ_process-execute-success-sync-document.adoc[]
+NOTE: The size of a response may be determined without actually transmitting the entire response by using the <<rec_core_http-head,HTTP HEAD>> method to retrieve the <<rec_core_content-length,`Content-Length`>> header.
 
-include::../recommendations/core/REC_process-execute-sync-document-ref.adoc[]
+===== Response requesting multiple processing outputs
+
+When a process is executed synchronously and multiple processing outputs are requested, the following requirements and recommendations apply:
+
+include::../requirements/core/REQ_process-execute-success-sync-many-json.adoc[]
+
+include::../recommendations/core/REC_process-execute-success-sync-many-json-prefer-none.adoc[]
+
+include::../recommendations/core/REC_process-execute-success-sync-many-json-prefer-minimal.adoc[]
+
+include::../recommendations/core/REC_process-execute-success-sync-many-json-prefer-representation.adoc[]
+
+include::../recommendations/core/PER_process-execute-success-sync-many-other-formats.adoc[]
+
+===== Job creation on synchronous process execution
 
 This specification does not mandate that servers create a job as a result of executing a process synchronously.  However the following permission is given:
 
@@ -1085,10 +1106,11 @@ include::../requirements/core/REQ_job-results-success-sync.adoc[]
 
 The job reference in the header can then be used to <<async-fetch,re-fetch the results>> of the original synchronous execution.
 
+===== Response for asynchronous processes execution
+
 In the case of asynchronous execution, the following requirement applies:
 
 include::../requirements/core/REQ_process-execute-success-async.adoc[]
-
 
 ==== Error situations
 
@@ -1157,97 +1179,120 @@ include::../requirements/core/REQ_job-exception-no-such-job.adoc[]
 [[sc_retrieve_job_results]]
 === Retrieve job results
 
-The following section describes the requirements to retrieve the results of a job. In case the job execution failed, an exception is returned.
+A process can generate zero or more outputs.  This clause specifies how:
 
+* processing results can be retrieved individually in a single request,
+* a subset of processing results can be retrieved in a single request,
+* or all processing results can be retrieved in a single request.
 
-==== Operation
+[[sc_retrieve_job_results_one]]
+==== Retrieving results individually
+
+===== Operation
+
+include::../requirements/core/REQ_job-result-op.adoc[]
+
+NOTE: The size of a processing result may be determined without actually transmitting the entire result by using the <<rec_core_http-head,HTTP HEAD>> method to retrieve the <<rec_core_content-length,`Content-Length`>> header.
+
+[[sc_retrieve_job_results_many]]
+==== Retrieving multiple results
+
+===== Operation
 
 include::../requirements/core/REQ_job-results-op.adoc[]
 
+===== Parameters
+
+include::../requirements/core/REQ_job-results-param-outputs.adoc[]
+
+include::../requirements/core/REQ_job-results-param-outputs-response.adoc[]
+
+include::../requirements/core/REQ_job-results-param-outputs-omit.adoc[]
 
 ==== Response
 
-The manner in which a server responds when retrieving job results depends on the values of the following parameters used in the execute request that created the job:
+===== Overview
 
-* the <<sc_execution_mode,negotiated execution mode>> (synchronous or asynchronous),
-* the `response` parameter (`document` or `raw`),
-* the `transmissionMode` parameter (`value` or `reference`)
-* and the number of output requested.
+The manner in which a server responds when retrieving job results depends on:
+
+* the number of outputs requested,
+* the negotiated content type for the response (via the HTTP Accept header) or lack thereof,
+* and any negotiated client preferences (via the HTTP Prefer header).
 
 The following table maps the possible responses based on the combinations of these execute parameters.
 
+The column headers in the following table denote:
+
+. *Requested # outputs*: the number of outputs requested in the <<execute-request-body,execute request>>
+. *Access path*: the API endpoint from which the result(s) can be retrieved
+. *Return preference*: the negotiated <<sc_output_value_size,return preferences>>
+. *Response HTTP code*: the https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context
+. *Response media type*: the value of the HTTP `Content-Type` header that the server should generate in this context
+. *Response body*: a description of the content of the response body in this context
+. *Req. or Rec.*: the requirement or recommendation as per this specification
+
 [[table_core_getresults_responses]]
 .Table mapping get results responses based on the input parameter values used on the original execute request.
-[cols="9",options="header"]
+[cols=7,options="header"]
 |===
-|negotiated execute mode |response |transmission mode |# out |Required |HTTP code |media type |body content |requirement
+|Requested # outputs
+|Access path
+|Return preference (`Prefer` header)
+|Response HTTP code
+|Response media type (`Content-Type` header)
+|Response body
+|Req. or Rec.
 
-|sync
-|_any_
-|_any_
-|_any_
-|no
-4+|[if the server creates a job on synchronous execute, job results may be re-fetched at any time <<async-fetch,as per async>>]
-
-.8+| [[async-fetch]]async
-.5+|raw
-.2+|value
 |1
-.8+|yes
+|/jobs/{jobID}/results/{outputID}
+|_n/a_
 |200
-|[as per output definition from process description]
-|[output in requested output format]| <<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>
+|_as negotiated_
+|requested process output value
+|See requirement: <<req_core_job-results-async-one,/req/core/job-results-async-one>>
 
-|*
-|200
-|multipart/related
-|[one output per part]
-|<<req_core_process-execute-sync-raw-value-multi,/req/core/process-execute-sync-raw-value-multi>>
-
-.2+|reference
-|1
-.2+|204
-.2+|none
-.2+|[empty with `Link` headers]
-.2+|<<req_core_process-execute-sync-raw-ref,/req/core/process-execute-sync-raw-ref>>
-|*
-|mixed
-|*
-|200
-|multipart/related
-|[one output per part]
-|<<req_core_process-execute-sync-raw-mixed-multi,/req/core/process-execute-sync-raw-mixed-multi>>
-
-.3+|document
-.2+|value
-|1
+1.3+|N
+.3+|/jobs/{jobID}/results
+|_none_
 .3+|200
 .3+|application/json
-.3+|https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml]
+|<<schema_results,results.yaml>>
+|See requirement: <<req_core_job-results-async-many,/req/core/job-results-async-many>>, +
+See recommendation: <<rec_core_job-results-async-many-json-prefer-none,/rec/core/job-results-async-many-json-prefer-none>>.
 
-.3+|<<req_core_process-execute-sync-document,/req/core/process-execute-sync-document>>
+|minimal
+|<<schema_results,results.yaml>>
+|See requirement: <<req_core_job-results-async-many,/req/core/job-results-async-many>>, +
+See recommendation:<<rec_core_job-results-async-many-json-prefer-minimal,/rec/core/job-results-async-many-json-prefer-minimal>>.
 
-|*
-
-|reference
-|1
-|*
-
+|representation
+|<<schema_results,results.yaml>>
+|See requirement: <<req_core_job-results-async-many,/req/core/job-results-async-many>>, +
+See recommendation: <<rec_core_job-results-async-many-json-prefer-representation,/rec/core/job-results-async-many-json-prefer-representation>>.
 |===
 
-NOTE: The value _any_ in a cell means _"for any valid value of the execute parameter represented by that cell"_.
+[NOTE]
+====
+* The value *_n/a_* in a cell means value of the corresponding parameter is not applicable, not specified, not required or can be ignored in this context.
+* The value *_as negotiated_* means that the output content type is as negotiated between the client and the server based on the value of the HTTP Accept header.
+====
 
-The following requirements apply when retrieving the results of a job that was created by executing a process synchronously OR was created by execution a process synchronously on a server that creates a job even on synchronous execution:
+The following requirements apply when retrieving the results of a job that was created by executing a process asynchronously OR was created by executing a process synchronously on a server that creates a job even for synchronous execution:
 
-include::../requirements/core/REQ_job-results-success-async-raw-value-one.adoc[]
+===== Retrieving results individually
 
-include::../requirements/core/REQ_job-results-success-async-raw-value-multi.adoc[]
+include::../requirements/core/REQ_job-results-success-async-one.adoc[]
 
-include::../requirements/core/REQ_job-results-success-async-raw-mixed-multi.adoc[]
+===== Retrieving multiple results
 
-include::../requirements/core/REQ_job-results-success-async-raw-ref.adoc[]
+include::../requirements/core/REQ_job-results-success-async-many.adoc[]
 
-include::../requirements/core/REQ_job-results-success-async-document.adoc[]
+
+include::../recommendations/core/REC_job-results-success-async-many-json-prefer-none.adoc[]
+
+include::../recommendations/core/REC_job-results-success-async-many-json-prefer-minimal.adoc[]
+
+include::../recommendations/core/REC_job-results-success-async-many-json-prefer-representation.adoc[]
 
 .A HTTP GET request for retrieving the result a job encoded as JSON.
 ====

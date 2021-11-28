@@ -1,0 +1,20 @@
+[[rec_core_job-results-async-many-json-prefer-minimal]]
+[recommendation]
+====
+[%metadata]
+label:: /rec/core/job-results-async-many-json-prefer-minimal
+[.component,class=conditions]
+--
+The negotiated https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[return preference] is `minimal`.
+--
+
+[.component,class=part]
+--
+If the server deems that the size of an output value is _small_, that value SHOULD be included in-line in the response.
+--
+
+[.component,class=part]
+--
+If the server deems that the size of an output value is _large_, that value SHOULD be included by reference via hyperlink in the response.
+--
+====
