@@ -263,7 +263,7 @@
 |2021-08-09|1.0-draft.7| Gérald Fenoy|X | Rename status.yaml to statusCode.yaml
 |2021-08-09|1.0-draft.7| Gérald Fenoy|X | Update status.yaml
 |2021-08-09|1.0-draft.7| Gérald Fenoy|X | Update statusInfo.yaml
-|2021-08-09|1.0-draft.7| Gérald Fenoy|X | Rename processId.yaml and processid.yaml to processIdPathParam.yaml and processIdQueryParam.yaml respectively
+|2021-08-09|1.0-draft.7| Gérald Fenoy|X | Rename processId.yaml and processid.yaml to processIDPathParam.yaml and processIDQueryParam.yaml respectively
 |2021-08-09|1.0-draft.7| Gérald Fenoy|X | Add missing parameters to OpenAPI example
 |2021-08-19|1.0-draft.7| Gérald Fenoy|X | Add process value
 |2021-08-23|1.0-draft.7| Gérald Fenoy|X | Set format to date-time for more clarity
