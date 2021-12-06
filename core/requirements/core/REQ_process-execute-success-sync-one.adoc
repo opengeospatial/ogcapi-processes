@@ -1,13 +1,12 @@
-[[req_core_process-execute-sync-one-small]]
+[[req_core_process-execute-sync-one]]
 [requirement]
 ====
 [%metadata]
-label:: /req/core/process-execute-sync-one-small
+label:: /req/core/process-execute-sync-one
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous,
 . The number of requested outputs is 1.
-. The server deems that the size of the output value is _small_.
 --
 
 [.component,class=part]

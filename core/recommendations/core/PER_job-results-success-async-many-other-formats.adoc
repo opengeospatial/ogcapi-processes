@@ -1,11 +1,11 @@
-[[per_core_process-execute-sync-many-other-formats]]
+[[per_core_job-results-async-many-other-formats]]
 [permission]
 ====
 [%metadata]
-label:: /per/core/process-execute-sync-many-other-formats
+label:: /per/core/job-results-async-many-other-formats
 [.component,class=conditions]
 --
-. The <<sc_execution_mode,negotiated execution mode>> is synchronous.
+. The <<sc_execution_mode,negotiated execution mode>> is asynchronous.
 . The number of requested outputs is 2 or more.
 --
 

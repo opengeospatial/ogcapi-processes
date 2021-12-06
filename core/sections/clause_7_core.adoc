@@ -980,14 +980,14 @@ The manner in which a server responds to a process execution request is determin
 
 The following table maps the possible responses based on the combinations of these execute parameters.  The column headers denote:
 
-. Negotiated execute mode: see <<sc_execution_mode>>
-. Requested # outputs: the number of output requested in the <<execute-request-body,execute request>>
-. Return preference: the negotiated <<sc_output_value_size,return preferences>>
-. Response HTTP code: the https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context
-. Response headers: any additional https://datatracker.ietf.org/doc/html/rfc2616#section-14[HTTP headers] that the server should include in this context
-. Response media type: the value of the HTTP `Content-Type` header that the server should generate in this context
-. Response body: a description of the content of the response body in this context
-. Req./Rec.: the relevant requirements/recommendations as per this specification
+. *Negotiated execute mode*: see <<sc_execution_mode>>
+. *Requested # outputs*: the number of output requested in the <<execute-request-body,execute request>>
+. *Return preference*: the negotiated <<sc_output_value_size,return preferences>>
+. *Response HTTP code*: the https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context
+. *Response headers*: any required https://datatracker.ietf.org/doc/html/rfc2616#section-14[HTTP headers] that the server must include in this context
+. *Response media type*: the value of the HTTP `Content-Type` header that the server should generate in this context
+. *Response body*: a description of the content of the response body in this context
+. *Req./Rec./Perm.*: the corresponding requirements/recommendations/permission as per this specification
 
 [[table_core_execute_responses]]
 .Execute responses based on number of requested outputs, request HTTP headers and the size of output values.
@@ -1000,41 +1000,30 @@ The following table maps the possible responses based on the combinations of the
 |Response headers
 |Response media type (`Content-Type` header)
 |Response body
-|Req./Rec.
+|Req./Rec./Perm.
 
-.5+|sync
-.2+|1
-.2+|_n/a_
-|200 (_small_)
-|_standard_
+.4+|sync
+|1
+|_n/a_
+|200
+|
 |_as negotiated_
 |requested process output
 |See requirement: <<req_core_process-execute-sync-one-small,/req/core/process-execute-sync-one-small>>
 
-|204 (_large_)
-|_Link_ to output
-|_n/a_
-|_n/a_
-|See requrement: <<req_core_process-execute-sync-one-big,/req/core/process-execute-sync-one-big>>
-
 1.3+|N
 |_none_
 .3+|200
-.3+|_standard_ 
+.3+|
 .3+|application/json
-|<<schema_results,results.yaml>>
-|See requirement: <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, +
-See recommendation: <<rec_core_process-execute-sync-many-json-prefer-none,/rec/core/process-execute-sync-many-json-prefer-none>>
+.3+|<<schema_results,results.yaml>>
+|See <<sync_note_3,Note 3.>>,<<sync_note_4,Note 4>>
 
 |minimal
-|<<schema_results,results.yaml>>
-|See requirement: <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, +
-See recommendation: <<rec_core_process-execute-sync-many-json-prefer-minimal,/rec/core/process-execute-sync-many-json-prefer-minimal>>
+|See <<sync_note_3,Note 3.>>,<<sync_note_5,Note 5>>
 
 |representation
-|<<schema_results,results.yaml>>
-|See requirement: <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, +
-See recommendation: <<rec_core_process-execute-sync-many-json-prefer-representation,/rec/core/process-execute-sync-many-json-prefer-representation>>
+|See <<sync_note_3,Note 3.>>,<<sync_note_6,Note 6>>
 
 |async
 |_n/a_
@@ -1049,7 +1038,6 @@ See recommendation: <<rec_core_process-execute-sync-many-json-prefer-representat
 [NOTE]
 ====
 * The value *_n/a_* in a cell means that the corresponding parameter is not applicable, not specified, not required or can be ignored in this context.
-* The value *_standard_* in a means that the standard HTTP headers required in this context are generated for the response.  Any value other than *_standard_* indicates additional headers that should be included in the header.
 * The value *_as negotiated_* means that the output content type is as negotiated between the client and the server based on the value of the HTTP Accept header.
 ====
 
@@ -1058,8 +1046,33 @@ See recommendation: <<rec_core_process-execute-sync-many-json-prefer-representat
 This table shows all possible combinations of execute parameters that are specified by this standard.  Not all of these combinations need to be implemented by a server conforming to this standard.  For example, a server that only offers processes that can be executed synchronously does not need to implement any of the asynchronous requirements.
 ====
 
+[[sync_note_3]]
+[NOTE]
+====
+* See requirement: <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>
+* See permission: <<per_core_process-execute-sync-many-other-formats,/per/core/process-execute-sync-many-other-formats>>
+====
+
+[[sync_note_4]]
+[NOTE]
+====
+* See recommendation: <<rec_core_process-execute-sync-many-json-prefer-none,/rec/core/process-execute-sync-many-json-prefer-none>>
+====
+
+[[sync_note_5]]
+[NOTE]
+====
+* See recommendation: <<rec_core_process-execute-sync-many-json-prefer-minimal,/rec/core/process-execute-sync-many-json-prefer-minimal>>
+====
+
+[[sync_note_6]]
+[NOTE]
+====
+* See recommendation: <<rec_core_process-execute-sync-many-json-prefer-representation,/rec/core/process-execute-sync-many-json-prefer-representation>>
+====
+
 [[schema_results]]
-.Schema for a processing results presented as a JSON document
+.Schema for processing results presented as a JSON document
 [source,yaml]
 ----
 include::../openapi/schemas/results.yaml[]
@@ -1074,9 +1087,7 @@ This schema defines a map using the respective output identifier as the key. The
 
 When a process is executed synchronously and a single processing output is requested, the following requirements and recommendations apply:
 
-include::../requirements/core/REQ_process-execute-success-sync-one-small.adoc[]
-
-include::../requirements/core/REQ_process-execute-success-sync-one-big.adoc[]
+include::../requirements/core/REQ_process-execute-success-sync-one.adoc[]
 
 NOTE: The size of a response may be determined without actually transmitting the entire response by using the <<rec_core_http-head,HTTP HEAD>> method to retrieve the <<rec_core_content-length,`Content-Length`>> header.
 
@@ -1229,7 +1240,7 @@ The column headers in the following table denote:
 . *Response HTTP code*: the https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context
 . *Response media type*: the value of the HTTP `Content-Type` header that the server should generate in this context
 . *Response body*: a description of the content of the response body in this context
-. *Req. or Rec.*: the requirement or recommendation as per this specification
+. *Req./Rec./Perm.*: the corresponding requirements/recommendations/permission as per this specification
 
 [[table_core_getresults_responses]]
 .Table mapping get results responses based on the input parameter values used on the original execute request.
@@ -1241,7 +1252,7 @@ The column headers in the following table denote:
 |Response HTTP code
 |Response media type (`Content-Type` header)
 |Response body
-|Req. or Rec.
+|Req./Rec./Perm.
 
 |1
 |/jobs/{jobID}/results/{outputID}
@@ -1256,25 +1267,45 @@ The column headers in the following table denote:
 |_none_
 .3+|200
 .3+|application/json
-|<<schema_results,results.yaml>>
-|See requirement: <<req_core_job-results-async-many,/req/core/job-results-async-many>>, +
-See recommendation: <<rec_core_job-results-async-many-json-prefer-none,/rec/core/job-results-async-many-json-prefer-none>>.
+.3+|<<schema_results,results.yaml>>
+|See <<async_note_2,Note 2>>,<<async_note_3,Note 3>>
 
 |minimal
-|<<schema_results,results.yaml>>
-|See requirement: <<req_core_job-results-async-many,/req/core/job-results-async-many>>, +
-See recommendation:<<rec_core_job-results-async-many-json-prefer-minimal,/rec/core/job-results-async-many-json-prefer-minimal>>.
+|See <<async_note_2,Note 2>>,<<async_note_3,Note 4>>
 
 |representation
-|<<schema_results,results.yaml>>
-|See requirement: <<req_core_job-results-async-many,/req/core/job-results-async-many>>, +
-See recommendation: <<rec_core_job-results-async-many-json-prefer-representation,/rec/core/job-results-async-many-json-prefer-representation>>.
+|See <<async_note_2,Note 2>>,<<async_note_3,Note 5>>
 |===
 
 [NOTE]
 ====
 * The value *_n/a_* in a cell means value of the corresponding parameter is not applicable, not specified, not required or can be ignored in this context.
 * The value *_as negotiated_* means that the output content type is as negotiated between the client and the server based on the value of the HTTP Accept header.
+====
+
+[[async_note_2]]
+[NOTE]
+====
+* See requirement: <<req_core_job-results-async-many,/req/core/job-results-async-many>>
+* See permission: <<per_core_job-results-async-many-other-formats,/per/core/job-results-async-many-other-formats>>
+====
+
+[[async_note_3]]
+[NOTE]
+====
+* See recommendation: <<rec_core_job-results-async-many-json-prefer-none,/rec/core/job-results-async-many-json-prefer-none>>
+====
+
+[[async_note_4]]
+[NOTE]
+====
+* See recommendation: <<rec_core_job-results-async-many-json-prefer-minimal,/rec/core/job-results-async-many-json-prefer-minimal>>
+====
+
+[[async_note_5]]
+[NOTE]
+====
+* See recommendation: <<rec_core_job-results-async-many-json-prefer-representation,/rec/core/job-results-async-many-json-prefer-representation>>
 ====
 
 The following requirements apply when retrieving the results of a job that was created by executing a process asynchronously OR was created by executing a process synchronously on a server that creates a job even for synchronous execution:
@@ -1293,6 +1324,8 @@ include::../recommendations/core/REC_job-results-success-async-many-json-prefer-
 include::../recommendations/core/REC_job-results-success-async-many-json-prefer-minimal.adoc[]
 
 include::../recommendations/core/REC_job-results-success-async-many-json-prefer-representation.adoc[]
+
+include::../recommendations/core/PER_job-results-success-async-many-other-formats.adoc[]
 
 .A HTTP GET request for retrieving the result a job encoded as JSON.
 ====
