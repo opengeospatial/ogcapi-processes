@@ -1,11 +1,11 @@
-[[req_core_process-execute-success-async]]
+[[req_core_process-execute-async]]
 [requirement]
 ====
 [%metadata]
-label:: /req/core/process-execute-success-async
+label:: /req/core/process-execute-async
 [.component,class=conditions]
 --
-. The <<sc_execution_mode,negotiated execution mode>> is asynchronous.
+The <<sc_execution_mode,negotiated execution mode>> is asynchronous.
 --
 
 [.component,class=part]

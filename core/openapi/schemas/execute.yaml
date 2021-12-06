@@ -10,12 +10,5 @@ properties:
   outputs:
     additionalProperties:
       $ref: "output.yaml"
-  response:
-    type: string
-    enum:
-      - raw
-      - document
-    default:
-      - raw
   subscriber:
     $ref: "subscriber.yaml"

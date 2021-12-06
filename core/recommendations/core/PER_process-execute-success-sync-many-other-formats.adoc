@@ -1,0 +1,14 @@
+[[per_core_process-execute-sync-many-other-formats]]
+[permission]
+====
+[%metadata]
+label:: /per/core/process-execute-sync-many-other-formats
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is synchronous.
+. The number of requested outputs is 2 or more.
+--
+
+part:: Servers MAY support other response formats or encodings (e.g. ZIP or `multipart/*`) that do not conform to https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml].
+part:: This standard does not provide any guidance on these other formats or encodings.
+====

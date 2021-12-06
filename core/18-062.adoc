@@ -3,6 +3,9 @@
 :docsubtype: implementation
 :edition: 1.0
 :language: en
+:toc:
+:toc-placement!:
+:toclevels: 7
 :docnumber: 18-062
 :status: published
 :copyright-year: 2018

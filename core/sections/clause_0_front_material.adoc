@@ -25,7 +25,8 @@ results of process executions.
 |Process description |`/processes/{processID}` |GET | processID (in path) | <<sc_process_description>>
 |Process execution |`/processes/{processID}/execution` |POST| processID (in path), Execute request (contained in body) |<<sc_create_job>>
 |Job status info |`/jobs/{jobID}` |GET | jobID (in path) |<<sc_retrieve_status_info>>
-|Job results |`/jobs/{jobID}/results` |GET |  jobID (in path) |<<sc_retrieve_job_results>>
+|Job results |`/jobs/{jobID}/results` |GET |  jobID (in path) |<<sc_retrieve_job_results_many>>
+|Result |`/jobs/{jobID}/results/{outputID}` |GET |  jobID (in path), outputID (in path) |<<sc_retrieve_job_results_one>>
 |===
 
 In general, the HTTP GET operation is used to provide access to the resources described above.
