@@ -355,7 +355,7 @@ include::../openapi/schemas/processSummary.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/processSummary.yaml[`processSummary.yaml`].
 
-NOTE: See also https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/descriptionType.yaml[`descriptionType.yaml`]).
+(see also: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/descriptionType.yaml[`descriptionType.yaml`]).
 
 [[job-control-options-schema]]
 .Schema for the job control options
@@ -483,6 +483,8 @@ include::../openapi/schemas/inlineOrRefData.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inlineOrRefData.yaml[`inlineOrRefData.yaml`].
 
+(see also: <<input-value-noobject-schema,inputValueNoObject.yaml>>, <<qualified-value-schema,qualifiedInputValue.yaml>>, <<link-schema,link.yaml>>)
+
 [[output-schema]]
 .Schema for a process output
 [source,yaml]
@@ -530,6 +532,8 @@ include::../openapi/schemas/inputValueNoObject.yaml[]
 ----
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputValueNoObject.yaml[`inputValueNoObject.yaml`].
+
+(see also: <<binary-input-value-schema,binaryInputValue.yaml>>, <<bbox-schema,bbox.yaml>>)
 
 .Simple literal value examples.
 ====
@@ -586,6 +590,12 @@ An array of simple values:
 "arrayOfSimpleValues": [1, 2, 4, 10, 7]
 ----
 
+An array with a single simple value:
+[source]
+----
+"arrayOfSimpleValues": ["a"]
+----
+
 An array of arrays of simple values:
 [source]
 ----
@@ -634,6 +644,7 @@ Qualified values can also be used to encode object-valued process inputs in orde
 
 The actual _value_ in a qualified value object is specified using the `value` key.  The value of the `value` key is an instance of <<input-value-schema,inputValue.yaml>>.
 
+[[qualified-value-schema]]
 .Schema for a qualified value
 [source,yaml]
 ----
@@ -740,6 +751,7 @@ In this case, the `mediaType` parameter is used to indicate the specific type of
 
 In some cases, for example in order to pass through firewalls, binary input values need to be encoded in-line in an execute request as a string.
 
+[[binary-input-value-schema]]
 .Schema for an in-line binary value
 [source,yaml]
 ----
@@ -923,6 +935,7 @@ include::../recommendations/core/REC_process-execute-handle-prefer.adoc[]
 
 include::../recommendations/core/REC_process-execute-preference-applied.adoc[]
 
+[[sc_response_parameter]]
 ===== Response type
 
 The `response` parameter selects the form used to present processing results.
@@ -1107,7 +1120,6 @@ The following section describes the requirements to retrieve information about t
 
 include::../requirements/core/REQ_job-op.adoc[]
 
-
 ==== Response
 
 include::../requirements/core/REQ_job-success.adoc[]
@@ -1120,6 +1132,14 @@ include::../openapi/schemas/statusInfo.yaml[]
 ----
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[`statusInfo.yaml`].
+
+.Schema for status codes
+[source,yaml]
+----
+include::../openapi/schemas/statusCode.yaml[]
+----
+
+NOTE: This schema can also be obtained from http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusCode.yaml[`statusCode.yaml`].
 
 The job status information includes several optional date-time fields that represent milestones in the life cycle of a job.   The following are recommended for servers that decide to populate some or all of these date-time fields:
 
