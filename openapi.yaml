@@ -69,7 +69,7 @@ paths:
       responses:
         200:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ProcessList.yaml"
-  /processes/{processId}:
+  /processes/{processID}:
     get:
       summary: retrieve a process description
       description:  |
@@ -103,7 +103,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/JobList.yaml"
         404:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
-  /processes/{processId}/execution:
+  /processes/{processID}/execution:
     post:
       summary: execute a process.
       description: |
