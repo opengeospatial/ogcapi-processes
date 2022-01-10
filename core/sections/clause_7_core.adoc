@@ -869,7 +869,7 @@ Consider a process input named `complexObjectInput` with the following definitio
       },
       "property4": {
         "type": "string",
-        "format": "dateTime"
+        "format": "date-time"
       },
       "property5": {
         "type": "boolean"
