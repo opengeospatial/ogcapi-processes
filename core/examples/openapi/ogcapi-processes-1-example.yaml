@@ -82,7 +82,7 @@ paths:
             application/json:
               schema:
                 $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ServerError.yaml"
-  '/processes/{processId}':
+  '/processes/{processID}':
     get:
       operationId: getProcessDescription
       summary: retrieve a process description
@@ -103,7 +103,7 @@ paths:
             application/json:
               schema:
                 $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ServerError.yaml"
-  '/processes/{processId}/execution':
+  '/processes/{processID}/execution':
     post:
       summary: execute a process.
       description: Submits a new job.
@@ -187,7 +187,6 @@ paths:
       tags:
         - DismissJob
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/processIdPathParam.yaml"
         - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobId.yaml"
       responses:
         '200':
