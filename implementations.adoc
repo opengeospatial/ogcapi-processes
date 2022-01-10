@@ -33,6 +33,11 @@
 | OGC API - Processes
 | https://github.com/gardengeek99[Steve McDaniel]
 
+| https://maps.ecere.com/ogcapi/[GNOSIS Map Server]
+| OGC API - Processes
+| https://github.com/jerstlouis[Jerome St-Louis]
+
+
 | TBA
 | TBA
 | TBA
@@ -50,6 +55,10 @@
 | http://ogc.intergraph.com:8089[Hexagon]
 | OGC API - Processes
 | https://github.com/gardengeek99[Steve McDaniel]
+
+| https://ecere.ca[GNOSIS Cartographer]
+| OGC API - Processes
+| https://github.com/jerstlouis[Jerome St-Louis]
 
 | TBA
 | TBA
