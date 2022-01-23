@@ -13,4 +13,3 @@ content:
         - type: string
           format: binary
         - $ref: "../schemas/results.yaml"
-          description: Negotiate synchronous execution, response=document,any txMode and no. outputs

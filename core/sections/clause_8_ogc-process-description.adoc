@@ -144,6 +144,7 @@ The following JSON Schema fragment illustrates the use of the `format` key to in
 }
 ----
 
+[[output_description_schema]]
 .Schema for a process output
 [source,yaml]
 ----
