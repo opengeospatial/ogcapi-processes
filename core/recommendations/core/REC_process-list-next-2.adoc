@@ -3,5 +3,5 @@
 ====
 [%metadata]
 label:: /rec/core/next-2
-part:: Dereferencing a `next` link SHOULD return additional process summaries from the set of selected process summaries that have not yet been returned.
+part:: Dereferencing a next page link (relation: `next`) SHOULD return additional process summaries from the set of selected process summaries that have not yet been returned.
 ====

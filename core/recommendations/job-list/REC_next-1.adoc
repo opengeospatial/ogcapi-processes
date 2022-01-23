@@ -3,5 +3,5 @@
 ====
 [%metadata]
 label:: /rec/job-list/next-1
-part:: A `200`-response SHOULD include a link to the next "page" (relation: `next`), if more jobs have been selected than returned in the response.
+part:: A `200`-response SHOULD include a link to the next page (relation: `next`) of jobs, if more jobs have been selected than returned in the response.
 ====

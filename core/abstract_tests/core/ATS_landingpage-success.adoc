@@ -34,7 +34,7 @@ Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.
 
 [.component,class=step]
 --
-Validate that the landing page includes a "processes" link to the list of processes.
+Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/processes" link to the list of processes.
 --
 ======
 =====
@@ -48,5 +48,5 @@ The landing page may be retrieved in a number of different formats. The followin
 |===
 |Format |Schema Document |Test ID
 |HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_html_content,/conf/html/content>>
-|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_geojson_content,/conf/geojson/content>>
+|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_json_content,/conf/json/content>>
 |===

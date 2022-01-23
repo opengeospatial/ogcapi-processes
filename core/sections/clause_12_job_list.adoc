@@ -71,6 +71,8 @@ include::../openapi/schemas/jobList.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobList.yaml[`jobList.yaml`].
 
+(see also: <<schema-statusInfo,statusInfo.yaml>>, <<link-schema,link.yaml>>)
+
 The schema defines an array of <<schema-statusInfo,status info elements>> and includes a links section for navigation links within the API.
 
 The number of jobs returned depends on the server and the parameter `limit.`

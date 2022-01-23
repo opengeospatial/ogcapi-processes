@@ -1,7 +1,5 @@
 name: processID
-in: query
-required: false
+in: path
+required: true
 schema:
-  type: array
-  items:
-    type: string
+  type: string

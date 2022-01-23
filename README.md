@@ -57,13 +57,17 @@ Returns the result of a job of a process.
 
 ## Using the standard
 
-A draft of the OGC API - Processes is available:
 
-* [OGC API - Processes, Draft PDF](https://docs.ogc.org/DRAFTS/18-062.pdf)
+The standard is on the OGC website:
 
-* [OGC API - Processes, Draft HTML View](https://docs.ogc.org/DRAFTS/18-062.html)
+* OGC API - Processes - Part 1: Core
+  * [Version 1.0.0 (latest approved version)](https://docs.ogc.org/is/18-062r2/18-062r2.html)
 
-* [OGC API - Processes on Swaggerhub](https://app.swaggerhub.com/apis/geoprocessing/ogcapi-processes/1.0-draft.6-SNAPSHOT)
+Those who want to just see the endpoints and responses can explore [examples of
+developer-friendly OpenAPI definitions](https://ogcapi.ogc.org/processes).
+
+The reference version of the OpenAPI components and XML schemas are published
+in the [OGC schema repository](http://schemas.opengis.net/ogcapi/processes).
 
 Several implementations of the draft standard exist:
 
