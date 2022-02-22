@@ -779,7 +779,7 @@ This is an example of an image process input whose media type is defined in the
 "schema": {
   "type": "string",
   "contentEncoding": "binary",
-  "contentMediaType": "application/tiff; application=geotiff"
+  "contentMediaType": "image/tiff; application=geotiff"
 }
 ----
 
@@ -801,12 +801,12 @@ In this second example, the image input can be one of a number of value types de
     {
       "type": "string",
       "contentEncoding": "binary",
-      "contentMediaType": "application/tiff; application=geotiff"
+      "contentMediaType": "image/tiff; application=geotiff"
     },
     {
       "type": "string",
       "contentEncoding": "binary",
-      "contentMediaType": "application/jp2"
+      "contentMediaType": "image/jp2"
     }
   ]
 }
@@ -818,7 +818,7 @@ and a JPEG2000 instance example in an execute request might be:
 ----
 {
   "value": "VBORw0KGgoAAAANSUhEUgAABvwAAAa4CAYAAABMB35kAAABhGlDQ1BJQ0MgcHJvZmlsZQAA\nKJF9kT1Iw0AcxV9TpSL1A+xQxCFDdbIgKuKoVShChVArtOpgcumH0KQhSXFxFFwLDn4sVh1c\nnHV1cBUEwQ8QNzcnRRcp8X9JoUWMB8f9eHfvcfcOEOplplkdY4Cm22Y6mRCzuRUx9IogouhH\n ... \nj3Z5mX7/PCPVRJV92rpHK24xcJrzk20+tkeYlCPqcZNO3Lpni1OJWatPCcmgGDEqx7Om6lfa\nppM4k4BTe9+bsn3L9/9/yWhA0PwQGW8ipCZsnZt9lsdrYEM8z/M8z/M8z/M8z/M8z/MzLWY1\nAAAACUlEQVQ871H6P6JI+TxS5Wn2AAAAAElFTkSuQmCC",
-  "mediaType": "application/jp2"
+  "mediaType": "image/jp2"
 }
 ----
 ====
