@@ -158,12 +158,12 @@
           {
             "type": "string",
             "contentEncoding": "binary",
-            "contentMediaType": "application/tiff; application=geotiff"
+            "contentMediaType": "image/tiff; application=geotiff"
           },
           {
             "type": "string",
             "contentEncoding": "binary",
-            "contentMediaType": "application/jp2"
+            "contentMediaType": "image/jp2"
           }
         ]
       }
@@ -321,12 +321,12 @@
           {
             "type": "string",
             "contentEncoding": "binary",
-            "contentMediaType": "application/tiff; application=geotiff"
+            "contentMediaType": "image/tiff; application=geotiff"
           },
           {
             "type": "string",
             "contentEncoding": "binary",
-            "contentMediaType": "application/jp2"
+            "contentMediaType": "image/jp2"
           }
         ]
       }
