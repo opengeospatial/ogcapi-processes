@@ -1,9 +1,10 @@
-[[ats_core_process-execute-request]][abstract_test]
+[[ats_core_process-execute-request]]
+[abstract_test]
 ====
 [%metadata]
 label:: /conf/core/process-execute-request
 subject:: <<req_core_process-execute-request,/req/core/process-execute-request>>
-test-purpose:: Validate that the body of a job creation operation complies with the required structure and contents.
+test-purpose:: Validate that the body of a process execution operation complies with the required structure and contents.
 
 [.component,class=test method]
 =====

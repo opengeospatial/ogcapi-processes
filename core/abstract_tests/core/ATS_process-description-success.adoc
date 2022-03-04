@@ -1,8 +1,9 @@
-[[ats_core_process-success]][abstract_test]
+[[ats_core_process-description-success]]
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/core/process-success
-subject:: <<req_core_process-success,/req/core/process-success>>
+label:: /conf/core/process-description-success
+subject:: <<req_core_process-description-success,/req/core/process-description-success>>
 test-purpose:: Validate that the content complies with the required structure and contents.
 
 [.component,class=test method]

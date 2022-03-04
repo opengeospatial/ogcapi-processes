@@ -1,15 +1,16 @@
-[[ats_core_process-execute-default-outputs]][abstract_test]
+[[ats_core_process-execute-default-outputs]]
+[abstract_test]
 ====
 [%metadata]
 label:: /conf/core/process-execute-default-outputs
-subject:: <<req_core_process-execute-default-outputs,/req/core/process-execute-default-outputs>>
+subject:: <<req_core_process-execute-op,/req/core/process-execute-op>>
 test-purpose:: Validate that the server correctly handles the case where no `outputs` parameter is specified on an execute request.
 
 [.component,class=test method]
 =====
 [.component,class=step]
 --
-Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
+Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
 --
 
 [.component,class=step]
@@ -24,12 +25,12 @@ For each process construct an execute request according to test <<ats_core_proce
 
 [.component,class=step]
 --
-Verify that the server successfully executes each identified process according to the tests <<ats_core_process-execute-sync-one,/conf/core/process-execute-sync-one>>, <<ats_core_process-execute-sync-many-json,/conf/core/process-execute-sync-many-json>>, <<ats_core_process-execute-sync-one-default-content,/conf/core/process-execute-sync-one-default-content>> or <<ats_core_process-execute-success-async,/conf/core/process-execute-success-async>> based on the combination of execute parameters used in each case.
+Verify that each processes executed successfully according to the <<ats-process-execute-success-sync,relevant requirement based on the combination of execute parameters.>>
 --
 
 [.component,class=step]
 --
-Verify that the server includes all outputs, as defined in the <<sc_process_description,process description>>, in the response.
+Verify that each process includes all the outputs, as defined in the <<sc_process_description,process description>>, in the response.
 --
 =====
 ====

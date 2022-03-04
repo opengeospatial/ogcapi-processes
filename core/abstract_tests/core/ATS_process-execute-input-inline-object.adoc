@@ -1,4 +1,5 @@
-[[ats_core_process-execute-input-inline-object]][abstract_test]
+[[ats_core_process-execute-input-inline-object]]
+[abstract_test]
 ====
 [%metadata]
 label:: /conf/core/process-execute-input-inline-object
@@ -9,7 +10,7 @@ test-purpose:: Validate that inputs with a complex object schema encoded in-line
 =====
 [.component,class=step]
 --
-Get a description of each process offered by the server using test <<ats_core_process,/conf/core/process>>.
+Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
 --
 
 [.component,class=step]
@@ -24,7 +25,7 @@ For each identified process construct an execute request according to test <<ats
 
 [.component,class=step]
 --
-Verify that the server successfully executes each identified process according to the tests <<ats_core_process-execute-sync-one,/conf/core/process-execute-sync-one>>, <<ats_core_process-execute-sync-many-json,/conf/core/process-execute-sync-many-json>>, <<ats_core_process-execute-sync-one-default-content,/conf/core/process-execute-sync-one-default-content>> or <<ats_core_process-execute-success-async,/conf/core/process-execute-success-async>> based on the combination of execute parameters used in each case.
+Verify that each process executes successfully according to the <<ats-process-execute-success-sync,relevant requirement based on the combination of execute parameters.>>
 --
 =====
 ====

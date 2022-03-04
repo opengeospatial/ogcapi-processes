@@ -10,7 +10,7 @@ test-purpose:: Verify that the definition of `inputs` for each process complies 
 
 [.component,class=step]
 --
-Retrieve a description of each process according to test <<ats_core_process,/conf/core/process>>.
+Retrieve a description of each process according to test <<ats_core_process-description,/conf/core/process-description>>.
 --
 
 [.component,class=step]

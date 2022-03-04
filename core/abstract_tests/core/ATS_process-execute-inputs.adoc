@@ -1,4 +1,5 @@
-[[ats_core_process-execute-inputs]][abstract_test]
+[[ats_core_process-execute-inputs]]
+[abstract_test]
 ====
 [%metadata]
 label:: /conf/core/process-execute-inputs
@@ -7,16 +8,9 @@ test-purpose:: Validate that servers can accept input values both inline and by 
 
 [.component,class=test method]
 =====
-
 [.component,class=step]
 --
-For each process construct an execute request according to the test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to include process input values both in-line and by reference.
---
-
-[.component,class=step]
---
-Verify that the server successfully executes each process according to the tests <<ats_core_process-execute-sync-one,/conf/core/process-execute-sync-one>>, <<ats_core_process-execute-sync-many-json,/conf/core/process-execute-sync-many-json>>, <<ats_core_process-execute-sync-one-default-content,/conf/core/process-execute-sync-one-default-content>> or <<ats_core_process-execute-success-async,/conf/core/process-execute-success-async>> based on the combination of execute parameters used in each case.
+Verify that the server passes tests <<ats_core_process-execute-input-inline,/conf/core/process-execute-input-inline>> and <<ats_core_process-execute-input-ref,/conf/core/process-execute-input-ref>> .
 --
 =====
-
 ====
