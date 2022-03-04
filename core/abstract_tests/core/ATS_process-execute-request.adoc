@@ -4,13 +4,13 @@
 [%metadata]
 label:: /conf/core/process-execute-request
 subject:: <<req_core_process-execute-request,/req/core/process-execute-request>>
-test-purpose:: Validate that the body of a process execution operation complies with the required structure and contents.
+test-purpose:: Validate that the server supports a process execution operation complying with the required structure and contents.
 
 [.component,class=test method]
 =====
 [.component,class=step]
 --
-Verify the contents of the request body against the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
+Verify that the server supports a process execution request whose body conforms to the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
 --
 =====
 ====

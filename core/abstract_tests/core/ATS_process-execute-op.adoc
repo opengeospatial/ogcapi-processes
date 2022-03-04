@@ -16,7 +16,7 @@ Issue an HTTP POST request to the URL '/processes/{processID}/execution' for eac
 
 [.component,class=step]
 --
-Validate the contents of the POST request using the test <<ats_core_process-execute-request,/conf/core/process-execute-request>>.
+Validate that the server supports a POST request for that operation according to the test <<ats_core_process-execute-request,/conf/core/process-execute-request>>.
 --
 
 [.component,class=step]
