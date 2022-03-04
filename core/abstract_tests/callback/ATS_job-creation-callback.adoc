@@ -20,7 +20,7 @@ Create an asynchronous execute request that includes the optional `subscriber` k
 
 [.component,class=step]
 --
-Execute the asynchronous job using test <<ats_core_job-creation-op,/conf/core/job-creation-request>>.
+Execute the asynchronous job using test <<ats_core_process-execute-op,/conf/core/process-execute-request>>.
 --
 
 [.component,class=step]

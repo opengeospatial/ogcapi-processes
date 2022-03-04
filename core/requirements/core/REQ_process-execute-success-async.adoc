@@ -1,4 +1,4 @@
-[[req_core_process-execute-async]]
+[[req_core_process-execute-success-async]]
 [requirement]
 ====
 [%metadata]

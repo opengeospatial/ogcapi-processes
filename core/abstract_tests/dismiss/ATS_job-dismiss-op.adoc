@@ -11,7 +11,7 @@ test-purpose:: Validate that a running job can be dismissed.
 
 [.component,class=step]
 --
-Create an asynchronous job as per test <<ats_core_job-creation-op,/conf/core/job-creation-op>>; not the job identifier, {jobID}, assigned to the job.
+Create an asynchronous job as per test <<ats_core_process-execute-op,/conf/core/process-execute-op>>; not the job identifier, {jobID}, assigned to the job.
 --
 
 [.component,class=step]

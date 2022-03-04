@@ -1,4 +1,4 @@
-[[ats-job-creation-success-sync]]
+[[ats-process-execute-success-sync]]
 The response generated when executing a process depends on a number of parameters specified in the execute request.  The following table enumerates the relevant requirement that needs to be satisfied based on the various execute parameter combinations.
 
 [%unnumbered]
@@ -11,21 +11,21 @@ The response generated when executing a process depends on a number of parameter
 .2+|value
 
 |1
-|<<req_core_job-creation-sync-raw-value-one,/req/core/job-creation-sync-raw-value-one>>
+|<<req_core_process-execute-sync-raw-value-one,/req/core/process-execute-sync-raw-value-one>>
 
 |*
-|<<req_core_job-creation-sync-raw-value-multi,/req/core/job-creation-sync-raw-value-multi>>
+|<<req_core_process-execute-sync-raw-value-multi,/req/core/process-execute-sync-raw-value-multi>>
 
 .2+|ref
 |1
-.2+|<<req_core_job-creation-sync-raw-ref,/req/core/job-creation-sync-raw-ref>>
+.2+|<<req_core_process-execute-sync-raw-ref,/req/core/process-execute-sync-raw-ref>>
 
 |*
 
 .4+|document
 .2+|value
 |1
-.4+|<<req_core_job-creation-sync-document,/req/core/job-creation-sync-document>>
+.4+|<<req_core_process-execute-sync-document,/req/core/process-execute-sync-document>>
 |*
 
 .2+|ref
@@ -36,7 +36,7 @@ The response generated when executing a process depends on a number of parameter
 |_any_
 |_any_
 |_any_
-|<<req_core_job-creation-success-async,/req/core/job-creation-success-async>>
+|<<req_core_process-execute-success-async,/req/core/process-execute-success-async>>
 
 |===
 

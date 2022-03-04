@@ -1,0 +1,31 @@
+[[ats_core_process-execute-input-inline-binary]]
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/process-execute-input-inline-binary
+subject:: <<req_core_process-execute-input-inline-binary,/req/core/process-execute-input-inline-binary>>
+test-purpose:: Validate that binary input values encoded as base-64 string in-line in an execute request are correctly processes.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
+--
+
+[.component,class=step]
+--
+Inspect the description of each process and identify the subset of processes that have binary inputs.
+--
+
+[.component,class=step]
+--
+For each identified process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode binary input values in-line in the execute request according to requirement <<req_core_process-execute-input-inline-binary,/req/core/process-execute-input-inline-binary>>.
+--
+
+[.component,class=step]
+--
+Verify that each process executes successfully according to the <<ats-process-execute-success-sync,relevant requirement based on the combination of execute parameters.>>
+--
+=====
+====
