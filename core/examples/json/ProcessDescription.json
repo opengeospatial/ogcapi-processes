@@ -52,7 +52,7 @@
       "description": "This is an example of a DATE literal input.",
       "schema": {
         "type": "string",
-        "format": "dateTime"
+        "format": "date-time"
       }
     },
     "doubleInput": {
@@ -101,7 +101,7 @@
           },
           "property4": {
             "type": "string",
-            "format": "dateTime"
+            "format": "date-time"
           },
           "property5": {
             "type": "boolean"
@@ -158,12 +158,12 @@
           {
             "type": "string",
             "contentEncoding": "binary",
-            "contentMediaType": "application/tiff; application=geotiff"
+            "contentMediaType": "image/tiff; application=geotiff"
           },
           {
             "type": "string",
             "contentEncoding": "binary",
-            "contentMediaType": "application/jp2"
+            "contentMediaType": "image/jp2"
           }
         ]
       }
@@ -231,7 +231,7 @@
     "dateOutput": {
       "schema": {
         "type": "string",
-        "format": "dateTime"
+        "format": "date-time"
       }
     },
     "doubleOutput": {
@@ -274,7 +274,7 @@
           },
           "property4": {
             "type": "string",
-            "format": "dateTime"
+            "format": "date-time"
           },
           "property5": {
             "type": "boolean"
@@ -321,12 +321,12 @@
           {
             "type": "string",
             "contentEncoding": "binary",
-            "contentMediaType": "application/tiff; application=geotiff"
+            "contentMediaType": "image/tiff; application=geotiff"
           },
           {
             "type": "string",
             "contentEncoding": "binary",
-            "contentMediaType": "application/jp2"
+            "contentMediaType": "image/jp2"
           }
         ]
       }

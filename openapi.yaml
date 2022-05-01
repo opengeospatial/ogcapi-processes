@@ -69,7 +69,7 @@ paths:
       responses:
         200:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ProcessList.yaml"
-  /processes/{processId}:
+  /processes/{processID}:
     get:
       summary: retrieve a process description
       description:  |
@@ -103,7 +103,7 @@ paths:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/JobList.yaml"
         404:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/NotFound.yaml"
-  /processes/{processId}/execution:
+  /processes/{processID}/execution:
     post:
       summary: execute a process.
       description: |
@@ -154,7 +154,7 @@ paths:
       tags:
         - Status
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobID.yaml"
       responses:
         200:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/Status.yaml"
@@ -172,7 +172,7 @@ paths:
       tags:
         - Dismiss
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobID.yaml"
       responses:
         200:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/Status.yaml"
@@ -191,7 +191,7 @@ paths:
       tags:
         - Result
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobId.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/jobID.yaml"
       responses:
         200:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/Results.yaml"
