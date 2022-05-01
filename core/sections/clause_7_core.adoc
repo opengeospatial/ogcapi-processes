@@ -1022,7 +1022,6 @@ The following table maps the possible responses based on the combinations of the
 |_as negotiated_
 |requested process output
 |See requirement: <<req_core_process-execute-sync-one-small,/req/core/process-execute-sync-one-small>>
-
 1.3+|N
 |_none_
 .3+|200
