@@ -30,7 +30,7 @@
       "schema": {
         "type": "object",
         "required": [
-          "value",
+          "measurement",
           "uom"
         ],
         "properties": {
@@ -144,7 +144,7 @@
           },
           {
             "$ref": "../../openapi/schemas/bbox.yaml"
-          }  
+          }
         ]
       }
     },
@@ -211,7 +211,7 @@
       "schema": {
         "type": "object",
         "required": [
-          "value",
+          "measurement",
           "uom"
         ],
         "properties": {
