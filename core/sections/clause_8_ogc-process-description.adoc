@@ -47,6 +47,7 @@ The schema imports the elements from the <<schema-processSummary, process summar
 
 include::../requirements/ogc-process-description/REQ_inputs-def.adoc[]
 
+[[process-input-schema]]
 .Schema for a process input
 [source,yaml]
 ----

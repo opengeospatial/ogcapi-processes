@@ -1,10 +1,10 @@
 <bibdata type="standard">
-  <fetched>2021-09-14</fetched>
+  <fetched>2022-05-01</fetched>
   <title type="title-intro" format="text/plain" language="en" script="Latn">OGC® Web Feature Service 2.0 Interface Standard</title>
   <title type="title-main" format="text/plain" language="en" script="Latn">With Corrigendum</title>
   <title type="main" format="text/plain" language="en" script="Latn">OGC® Web Feature Service 2.0 Interface Standard - With Corrigendum</title>
   <uri type="obp">http://docs.opengeospatial.org/is/09-025r2/09-025r2.html</uri>
-  <docidentifier type="OGC">09-025r2</docidentifier>
+  <docidentifier type="OGC" primary="true">09-025r2</docidentifier>
   <date type="published">
     <on>2014-07-10</on>
   </date>
@@ -45,7 +45,7 @@ GetCapabilities (discovery operation)&#13;
 DescribeFeatureType (discovery operation)&#13;
 GetPropertyValue (query operation)&#13;
 GetFeature (query operation)&#13;
-GetFeatureWithLock (query &amp;amp; locking operation)&#13;
+GetFeatureWithLock (query &amp; locking operation)&#13;
 LockFeature (locking operation)&#13;
 Transaction (transaction operation)&#13;
 CreateStoredQuery (stored query operation)&#13;

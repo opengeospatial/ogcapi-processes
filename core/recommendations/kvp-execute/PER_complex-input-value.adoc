@@ -1,0 +1,12 @@
+[[per_kvp-execute_complex-input-value]]
+[permission]
+====
+[%metadata]
+label:: /per/kvp-execute/complex-input-value
+
+part:: The characteristics of a complex-valued input parameter MAY include additional https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-8[keywords for string-encoded data] (i.e. https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-8.3[`contentEncoding`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-8.5[`contentMediaType`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-8.6[`contentSchema`]).
+
+part:: The characteristics of a complex-valued input parameter MAY include additional https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.1[validation keywords] (i.e. https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.1.2[`enum`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.1.3[`const`]) that apply to any type.
+
+part:: The characteristics of a complex-valued input parameter MAY include https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-9[basic meta-data annotations] (i.e. https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-9.1[`title` and `description`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-9.2[`default`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-9.3[`deprecated`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-9.4[`readOnly`, `writeOnly`] and https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-9.5[`examples`].
+====

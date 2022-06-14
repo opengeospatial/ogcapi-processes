@@ -1,0 +1,12 @@
+[[per_kvp-execute_numeric-input-value]]
+[permission]
+====
+[%metadata]
+label:: /per/kvp-execute/numeric-input-value
+
+part:: The characteristics of a numeric input parameter MAY include additional https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.3[validation keywords] (i.e. https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.2.1[`multipleOf`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.2.2[`maximum`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.2.3[`exclusiveMaximum`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.2.4[`minimum`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.2.5[`exclusiveMinimum`]).
+
+part:: The characteristics of a numeric input parameter MAY include additional https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.1[validation keywords] (i.e. https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.1.2[`enum`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.1.2[`const`]) that apply to any type.
+
+part:: The characteristics of a numeric input parameter MAY include https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-9[basic meta-data annotations] (i.e. https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-9.1[`title`, `description`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-9.2[`default`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-9.3[`deprecated`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-9.4[`readOnly`, `writeOnly`] and https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-9.5[`examples`]).
+====

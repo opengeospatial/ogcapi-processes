@@ -1,0 +1,24 @@
+[[req_kvp-execute_bbox-crs-input-value]]
+[requirement]
+====
+[%metadata]
+label:: /req/kvp-execute/bbox-crs-input-value
+[.component,class=conditions]
+--
+. The server supports CRSs other than WGS84.
+. The process input value is specified in-line in an execute request.
+. The process defines an input parameter named `{bbox-input-name}`.
+--
+
+[.component,class=part]
+--
+A bbox-crs input parameter SHALL have the following characteristics:
+
+[source,yaml]
+----
+include::../../openapi/parameters/bbox-crs.yaml[]
+----
+
+where the token `{bbox-input-name}` represents the identifier of a bbox input parameter and the token  `{bbox-crs-input-name}` represents the identifier of a corresponding bbox-crs input that indicates which CRS is being used for the coordinates of the `{bbox-input-name}` parameter.
+--
+====

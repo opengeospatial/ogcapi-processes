@@ -1,26 +1,28 @@
 <bibdata type="standard">
-  <fetched>2021-10-22</fetched>
+  <fetched>2022-05-02</fetched>
   <title format="text/plain" language="en" script="Latn">HTTP Authentication: Basic and Digest Access Authentication</title>
   <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.2617.xml</uri>
   <uri type="src">https://www.rfc-editor.org/info/rfc2617</uri>
-  <docidentifier type="IETF">RFC 2617</docidentifier>
-  <docidentifier type="rfc-anchor">RFC2617</docidentifier>
+  <docidentifier type="RFC" primary="true">RFC 2617</docidentifier>
+  <docidentifier type="RFC" scope="anchor">RFC2617</docidentifier>
   <docidentifier type="DOI">10.17487/RFC2617</docidentifier>
+  <docnumber>RFC2617</docnumber>
   <date type="published">
     <on>1999-06</on>
   </date>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>Internet Engineering Task Force</name>
+      <abbreviation>IETF</abbreviation>
+    </organization>
+  </contributor>
   <contributor>
     <role type="author"/>
     <person>
       <name>
         <completename language="en">J. Franks</completename>
       </name>
-      <affiliation>
-        <organization>
-          <name>Internet Engineering Task Force</name>
-          <abbreviation>IETF</abbreviation>
-        </organization>
-      </affiliation>
     </person>
   </contributor>
   <contributor>
@@ -29,12 +31,6 @@
       <name>
         <completename language="en">P. Hallam-Baker</completename>
       </name>
-      <affiliation>
-        <organization>
-          <name>Internet Engineering Task Force</name>
-          <abbreviation>IETF</abbreviation>
-        </organization>
-      </affiliation>
     </person>
   </contributor>
   <contributor>
@@ -43,12 +39,6 @@
       <name>
         <completename language="en">J. Hostetler</completename>
       </name>
-      <affiliation>
-        <organization>
-          <name>Internet Engineering Task Force</name>
-          <abbreviation>IETF</abbreviation>
-        </organization>
-      </affiliation>
     </person>
   </contributor>
   <contributor>
@@ -57,12 +47,6 @@
       <name>
         <completename language="en">S. Lawrence</completename>
       </name>
-      <affiliation>
-        <organization>
-          <name>Internet Engineering Task Force</name>
-          <abbreviation>IETF</abbreviation>
-        </organization>
-      </affiliation>
     </person>
   </contributor>
   <contributor>
@@ -71,12 +55,6 @@
       <name>
         <completename language="en">P. Leach</completename>
       </name>
-      <affiliation>
-        <organization>
-          <name>Internet Engineering Task Force</name>
-          <abbreviation>IETF</abbreviation>
-        </organization>
-      </affiliation>
     </person>
   </contributor>
   <contributor>
@@ -85,12 +63,6 @@
       <name>
         <completename language="en">A. Luotonen</completename>
       </name>
-      <affiliation>
-        <organization>
-          <name>Internet Engineering Task Force</name>
-          <abbreviation>IETF</abbreviation>
-        </organization>
-      </affiliation>
     </person>
   </contributor>
   <contributor>
@@ -99,29 +71,17 @@
       <name>
         <completename language="en">L. Stewart</completename>
       </name>
-      <affiliation>
-        <organization>
-          <name>Internet Engineering Task Force</name>
-          <abbreviation>IETF</abbreviation>
-        </organization>
-      </affiliation>
     </person>
-  </contributor>
-  <contributor>
-    <role type="publisher"/>
-    <organization>
-      <name>Internet Engineering Task Force</name>
-      <abbreviation>IETF</abbreviation>
-    </organization>
   </contributor>
   <language>en</language>
   <script>Latn</script>
-  <abstract format="text/plain" language="en" script="Latn">This document provides the specification for HTTP's authentication framework, the original Basic authentication scheme and a scheme based on cryptographic hashes, referred to as "Digest Access Authentication". [STANDARDS-TRACK]</abstract>
+  <abstract format="text/html" language="en" script="Latn">
+    <p>This document provides the specification for HTTP's authentication framework, the original Basic authentication scheme and a scheme based on cryptographic hashes, referred to as "Digest Access Authentication". [STANDARDS-TRACK]</p>
+  </abstract>
   <series type="main">
     <title format="text/plain" language="en" script="Latn">RFC</title>
     <number>2617</number>
   </series>
-  <place>Fremont, CA</place>
   <ext>
     <doctype>rfc</doctype>
   </ext>

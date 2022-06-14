@@ -1,0 +1,16 @@
+[[req_core_process-execute-input-inline-binary]]
+[requirement]
+====
+[%metadata]
+label:: /req/core/process-execute-input-inline-binary
+[.component,class=conditions]
+--
+. The process input value is specified in-line in an execute request.
+. The process input value is binary.
+--
+
+[.component,class=part]
+--
+The service SHALL support binary values encoded as base64-encoded strings.
+--
+====

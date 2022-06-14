@@ -1,9 +1,9 @@
 <bibdata type="standard">
-  <fetched>2021-09-14</fetched>
+  <fetched>2022-05-01</fetched>
   <title type="title-main" format="text/plain" language="en" script="Latn">OGC Web Service Common Implementation Specification</title>
   <title type="main" format="text/plain" language="en" script="Latn">OGC Web Service Common Implementation Specification</title>
   <uri type="obp">https://portal.ogc.org/files/?artifact_id=38867</uri>
-  <docidentifier type="OGC">06-121r9</docidentifier>
+  <docidentifier type="OGC" primary="true">06-121r9</docidentifier>
   <date type="published">
     <on>2010-04-07</on>
   </date>

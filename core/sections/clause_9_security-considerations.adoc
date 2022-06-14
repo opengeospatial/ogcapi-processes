@@ -41,7 +41,7 @@ The following API operations use unsafe HTTP methods, modify resources and there
 
 Requirements class "Core":
 
-* <<sc_create_job,Execute>>, HTTP POST
+* <<sc_execute_process,Execute>>, HTTP POST
 
 Requirements class "Dismiss"
 
