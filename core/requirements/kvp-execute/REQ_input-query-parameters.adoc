@@ -6,7 +6,7 @@ label:: /req/kvp-execute/input-query-parameters
 
 part:: Each input defined in a <<sc_process_description,process description>> SHALL map to a URI query parameter on the <<req_kvp-execute_process-execute-op,process execution endpoint>>.
 
-part:: The name of this URI query parameter SHALL be the identifier of the corresponding process input as defined in the <<sc_process_description,a process description>>.
+part:: The name of this URI query parameter SHALL be the identifier of the corresponding process input as defined in the <<sc_process_description,process description>>.
 
 part:: The name of this URI query parameter SHALL be case in-sensitive. (??)
 ====

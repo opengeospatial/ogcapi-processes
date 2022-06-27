@@ -6,12 +6,12 @@ label:: /req/kvp-execute/array-input-value
 [.component,class=conditions]
 --
 . The process input value is specified in-line in an execute request.
-. A process input, with identifier `{input-name}`, is defined as an array in the the <<sc_process_description,process description>>.
+. A process input, with identifier `{input-name}`, is defined as type `array` in the the <<sc_process_description,process description>>.
 --
 
 [.component,class=part]
 --
-Arrays with simple element values SHALL be encoded as a comma-separated list of values as specified by the following OpenAPI fragment.
+Array-valued inputs SHALL be encoded as https://datatracker.ietf.org/doc/html/rfc3986#section-2[URL-encoded] string-data.
 --
 
 [.component,class=part]
@@ -24,24 +24,12 @@ name: {input-name}
 in: query
 required: false
 schema:
-  type: array
-  items:
-    oneOf:
-      - type: string
-      - type: number
-      - type: integer
-      - type: boolean
-      - type: null
+  type: string
 style: form
 explode: false
 ----
 
 where the token `{input-name}` represents the identifier of the input.
---
-
-[.component,class=part]
---
-Complex-valued array elements or embeded arrays SHALL be encoded as https://datatracker.ietf.org/doc/html/rfc3986#section-2[URL-encoded] string values.
 --
 
 ====
