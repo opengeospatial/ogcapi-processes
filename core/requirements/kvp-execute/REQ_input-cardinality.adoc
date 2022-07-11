@@ -12,7 +12,7 @@ label:: /req/kvp-execute/input-cardinality
 
 [.component,class=part]
 --
-A process input having more that one value SHALL be encoded as array.
+A process input having more that one value SHALL be encoded as an array.
 --
 
 [.component,class=part]
@@ -38,6 +38,16 @@ explode: false
 ----
 
 where the token `{input-name}` represents the identifier of the input.
+--
+
+[.component,class=part]
+--
+Array elements that are objects SHALL be encoded as <<kvp-complex-value-input,URL-encoded strings>>.
+--
+
+[.component,class=part]
+--
+Array elements that are themselves arrays SHALL be encoded as <<kvp-array-value-input,URL-encoded strings>>.
 --
 
 ====

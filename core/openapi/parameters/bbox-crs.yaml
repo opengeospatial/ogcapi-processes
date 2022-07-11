@@ -1,4 +1,4 @@
-name: {bbox-crs-parameter-name}
+name: {bbox-parameter-name}-crs
 description: |-
   Asserts the CRS used for the coordinate values of the bbox parameter. 
 in: query

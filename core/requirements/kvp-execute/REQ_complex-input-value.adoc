@@ -6,7 +6,7 @@ label:: /req/kvp-execute/complex-input-value
 [.component,class=conditions]
 --
 . The process input value is specified in-line in an execute request.
-. A process input, with identifier `{input-name}`, is defined as type `object` in the the <<sc_process_description,process description>>.
+. A process input, with identifier `{input-name}`, is defined as type `object` in the <<sc_process_description,process description>>.
 --
 
 [.component,class=part]

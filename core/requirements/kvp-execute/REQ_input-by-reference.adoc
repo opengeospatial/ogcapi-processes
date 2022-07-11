@@ -10,7 +10,7 @@ label:: /req/kvp-execute/input-by-reference
 
 [.component,class=part]
 --
-An input parameter SHALL have the following characteristics:
+If the input cardinality is 1 then the input parameter SHALL have the following characteristics:
 
 [source,YAML]
 ----
@@ -41,4 +41,10 @@ explode: true
 
 where the token `{input-name}` represented the identifier of the input.
 --
+
+[.component,class=part]
+--
+If the input cardinality is greater than 1 then the value of the input parameter SHALL be encoded as a <<link-schema,link object>> and appropriately <<kvp-complex-value-input,URL-encoded>> to a string.
+--
+
 ====

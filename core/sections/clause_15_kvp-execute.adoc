@@ -21,6 +21,32 @@ datetime=2019-08-09&
 variables=TMAX,TMIN,PRCP
 ----
 
+[source]
+----
+http://www.someserver.com/processes/echo/execution?
+stringInput=Value2&
+measureInput=%7B%22value%22%3A%7B%22measurement%22%3A10.3%2C%22uom%22%3A%22m%22%2C%22reference%22%3A%22https%3A%2F%2Fucum.org%2Fucum-essence.xml%22%7D%7D
+dateInput=2021-03-06T07:21:00&
+doubleInput=3.14159&
+arrayInput=%5B1%2C2%2C3%2C4%2C5%2C6%5D&
+complexObjectInput=%22value%22%3A%7B%22property1%22%3A%22value1%22%2C%22property2%22%3A%22value2%22%2C%22property5%22%3Atrue%7D%7D&
+geometryInput=%5B%7B%22value%22%3A%22%3Cgml%3APolygongml%3Aid%3D%5C%22GID1%5C%22srsName%3D%5C%22urn%3Aogc%3Adef%3Acrs%3AOGC%3A%3ACRS84%5C%22%3E%3Cgml%3Aexterior%3E%3Cgml%3ALinearRing%3E%3Cgml%3AposList%3E-77.02451938.810529-77.02463538.810973-77.02470438.810962-77.02477638.811239-77.02495738.81121-77.02490538.811012-77.02490538.811012-77.02486538.810857-77.02502438.810832-77.02507138.811012-77.02520338.810992-77.0250638.810444-77.02451938.810529%3C%2Fgml%3AposList%3E%3C%2Fgml%3ALinearRing%3E%3C%2Fgml%3Aexterior%3E%3C%2Fgml%3APolygon%3E%22%2C%22mediaType%22%3A%22application%2Fgml%2Bxml%3Bversion%3D3.2%22%7D%2C%7B%22value%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B-176.5814819%2C-44.10896301%5D%2C%5B-176.5818024%2C-44.10964584%5D%2C%5B-176.5844116%2C-44.11236572%5D%2C%5B-176.5935974%2C-44.11021805%5D%2C%5B-176.5973511%2C-44.10743332%5D%2C%5B-176.5950928%2C-44.10562134%5D%2C%5B-176.5858459%2C-44.1043396%5D%2C%5B-176.5811157%2C-44.10667801%5D%2C%5B-176.5814819%2C-44.10896301%5D%5D%5D%7D%7D%5D&
+imagesInput=%5B%7B%22href%22%3A%22https%3A%2F%2Fwww.someserver.com%2Fogcapi%2FDaraa%2Fcollections%2FDaraa_DTED%2Fstyles%2FTopographic%2Fcoverage%3F...%22%2C%22type%22%3A%22image%2Ftiff%3Bapplication%3Dgeotiff%22%7D%2C%7B%22value%22%3A%22VBORw0KGgoAAAANSUhEUgAABvwAAAa4CAYAAABMB35kAAABhGlDQ1BJQ0MgcHJvZmlsZQAA%5CnKJF9kT1Iw0AcxV9TpSL1A%2BxQxCFDdbIgKuKoVShChVArtOpgcumH0KQhSXFxFFwLDn4sVh1c%5CnnHV1cBUEwQ8QNzcnRRcp8X9JoUWMB8f9eHfvcfcOEOplplkdY4Cm22Y6mRCzuRUx9IogouhH%5Cn...%5Cnj3Z5mX7%2FPCPVRJV92rpHK24xcJrzk20%2BtkeYlCPqcZNO3Lpni1OJWatPCcmgGDEqx7Om6lfa%5CnppM4k4BTe9%2Bbsn3L9%2F9%2FyWhA0PwQGW8ipCZsnZt9lsdrYEM8z%2FM8z%2FM8z%2FM8z%2FM8z%2FMzLWY1%5CnAAAACUlEQVQ871H6P6JI%2BTxS5Wn2AAAAAElFTkSuQmCC%22%2C%22encoding%22%3A%22base64%22%2C%22mediaType%22%3A%22image%2Fjp2%22%7D%5D
+boundingBoxInput=51.9,7,52,7.1&
+boundingBoxInput-crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84&
+featureCollectionInput=%7B%22value%22%3A%22%3C%3Fxmlversion%3D%5C%221.0%5C%22encoding%3D%5C%22UTF-8%5C%22%3F%3E%3CFeatureCollectionxmlns%3D%5C%22http%3A%2F%2Fschemas.myserver.com%2Fnamespaces%2Fnull%5C%22xmlns%3Agml%3D%5C%22http%3A%2F%2Fwww.opengis.net%2Fgml%2F3.2%5C%22xmlns%3Axsi%3D%5C%22http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema-instance%5C%22xsi%3AschemaLocation%3D%5C%22http%3A%2F%2Fschemas.myserver.com%2Fnamespaces%2Fnullhttps%3A%2F%2Fwww.pvretano.com%2Fmyserver%2Fogcapi%2Fdaraa%2Fschema%3Ff%3DGML32%26amp%3Bcollectionids%3DTransportationGroundCrvhttp%3A%2F%2Fwww.opengis.net%2Fgml%2F3.2http%3A%2F%2Fschemas.opengis.net%2Fschemas%2Fgml%2F3.2.1%2Fgml.xsd%5C%22%3E...%22%2C%22mediaType%22%3A%22application%2Fgml%2Bxml%3Bversion%3D3.2%22%7D&
+stringOutput[include]=true&
+measureOutput[include]=true&
+dateOutput[include]=true&
+doubleOutput[include]=true&
+arrayOutput[include]=true&
+complexObjectOutput[include]=true&
+geometryOutput[include]=true&
+boundingBoxOutput[include]=true&
+imageOutput[include]=true&
+featureCollectionOutput[include]=true
+----
+
 NOTE: Add more examples!
 ====
 
@@ -148,9 +174,10 @@ A Boolean:
 booleanInput=true
 ----
 
+[[kvp-complex-value-input]]
 ====== Complex-valued input
 
-A complex value is a value with structure that is defined using a schema.  The schema of a complex process input is defined in the <<sc_process_description,process description>> and can be specified using <<process-input-schema,JSON-Schema>>.  
+A complex value is a value with structure that is defined using a schema.  The schema of a complex process input value is defined in the <<sc_process_description,process description>> and can be specified using <<process-input-schema,JSON-Schema>>.  
 
 include::../requirements/kvp-execute/REQ_complex-input-value.adoc[]
 
@@ -171,6 +198,7 @@ Decoded value is:
 ----
 ====
 
+[[kvp-array-value-input]]
 ====== Array-valued input
 
 include::../requirements/kvp-execute/REQ_array-input-value.adoc[]
@@ -238,7 +266,43 @@ arrayOfQualifiedValues=[
 An array of bounding box values:
 [source]
 ----
-T.B.D.
+bboxes=%7B%22bbox%22%3A%5B-160.2871383684127%2C21.77618201427491%2C-160.05226732350857%2C22.035461193553438%5D%7D%2C%7B%22bbox%22%3A%5B-159.8119271016866%2C21.868377883379342%2C-159.2728781199529%2C22.27253365936666%5D%7D%2C%7B%22bbox%22%3A%5B-158.2809447669924%2C21.257850724966435%2C-157.62449293560164%2C21.75719228424245%5D%7D%2C%7B%22bbox%22%3A%5B-157.3665805976117%2C21.056725789376443%2C-156.68744814385997%2C21.207484214479813%5D%7D%2C%7B%22bbox%22%3A%5B-157.0721466133514%2C20.73998198222469%2C-156.80164904228144%2C20.958125881743094%5D%7D%2C%7B%22bbox%22%3A%5B-156.67924097602452%2C20.599995119588588%2C-155.9289696479082%2C21.048822845802146%5D%7D%2C%7B%22bbox%22%3A%5B-156.72917922429528%2C20.49209982653643%2C-156.53052477930564%2C20.635403336088483%5D%7D%2C%7B%22bbox%22%3A%5B-156.07415148465623%2C18.89763704552276%2C-154.87280121907844%2C20.33421989495902%5D%7D
+
+Decoded value is:
+bboxes=[
+  {
+    "bbox":[-160.2871383684127,21.77618201427491,
+            -160.05226732350857,22.035461193553438]
+  },
+  {
+    "bbox":[-159.8119271016866,21.868377883379342,
+            -159.2728781199529,22.27253365936666]
+  },
+  {
+    "bbox":[-158.2809447669924,21.257850724966435,
+            -157.62449293560164,21.75719228424245]
+  },
+  {
+    "bbox":[-157.3665805976117,21.056725789376443,
+            -156.68744814385997,21.207484214479813]
+  },
+  {
+    "bbox":[-157.0721466133514,20.73998198222469,
+            -156.80164904228144,20.958125881743094]
+  },
+  {
+    "bbox":[-156.67924097602452,20.599995119588588,
+            -155.9289696479082,21.048822845802146]
+  },
+  {
+    "bbox":[-156.72917922429528,20.49209982653643,
+            -156.53052477930564,20.635403336088483]
+  },
+  {
+    "bbox":[-156.07415148465623,18.89763704552276,
+            -154.87280121907844,20.33421989495902]
+  }
+]
 ----
 
 An array of arrays:
@@ -253,7 +317,19 @@ arrayOfArrays=[[1,2,3,4],["a","b","c","d"]]
 An array of value references:
 [source]
 ----
-T.B.D.
+images=%5B%7B%22href%22%3A%22http%3A%2F%2Fwww.imagearchive.com%2Fimages%2Fimage01.tif%22%2C%22type%22%3A%22image%2Ftiff%3Bapplcation%3Dgeotiff%22%7D%2C%7B%22href%22%3A%22http%3A%2F%2Fwww.imagearchive.com%2Fimages%2Fimage19.jp2%2C%22type%22%3A%22image%2Fjp2%22%7D%5D
+
+Decoded value is:
+images=[
+  {
+    "href":"http://www.imagearchive.com/images/image01.tif",
+    "type":"image/tiff;applcation=geotiff"
+  },
+  {
+    "href":"http://www.imagearchive.com/images/image19.jp2,
+    "type":"image/jp2"
+  }
+]
 ----
 
 ====
@@ -261,7 +337,7 @@ T.B.D.
 [[kvp-binary-value]]
 ====== Binary-valued input
 
-NOTE: Not sure we should specify this since.  Binary input values should be by reference only in my opinion.
+NOTE: Not sure we should specify this.  Binary input values should be by reference only in my opinion.  It really makes no sense to specify a binary value by-value in a URL-encoded execute request.  Does it? Something small like icons ... maybe?
 
 In some cases, for example in order to pass through firewalls, binary input values need to be encoded in-line in an execute request as a string.
 
@@ -338,11 +414,11 @@ An example instance value for a bounding box input named `my_bbox` might be:
 my_bbox=-79.63732855116733,43.570691463538644,-79.10227279076784,43.86582298161152
 ----
 
-This is the same example as above but in a different CRS.  An input parameters names `my_bbox_crs` is used to convey the CRS of the `my_bbox` parameter.
+This is the same example as above but in a different CRS.  An input parameters names `my_bbox-crs` is used to convey the CRS of the `my_bbox` parameter.
 
 [source]
 ----
-my_bbox=43.570691463538644,-79.63732855116733,43.86582298161152,-79.10227279076784&my_bbox_crs=https://www.opengis.net/def/crs/EPSG/0/4326
+my_bbox=43.570691463538644,-79.63732855116733,43.86582298161152,-79.10227279076784&my_bbox-crs=https://www.opengis.net/def/crs/EPSG/0/4326
 ----
 
 ====
@@ -356,7 +432,7 @@ include::../requirements/kvp-execute/REQ_input-by-reference.adoc[]
 ====
 [source]
 ----
-imageInput[href]=http://www.someserver.com/image.tiff&imageInput[type]=application/geo+tiff
+imageInput[href]=http://www.someserver.com/image.tiff&imageInput[type]=image/tiff;application=geotiff
 ----
 ====
 
@@ -408,3 +484,7 @@ include::../requirements/kvp-execute/REQ_output.adoc[]
 ...&out1[include]=true&out1[mediaType]=application/geo+tiff&...
 ----
 ====
+
+=== Response
+
+Whether a processes is invoked using a <<req_core_process-execute-request,JSON-encoded request>> that is https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3[HTTP POST'ed] to the <<req_core_process-execute-op,execution endpoint>> or using a URL-encoded request, the behaviour of the server with regard to the response is the same.  The details of the response can be found in <<sc_execute_response>>.
