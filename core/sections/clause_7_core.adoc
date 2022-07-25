@@ -1039,7 +1039,7 @@ The following table maps the possible responses based on the combinations of the
 |async
 |_n/a_
 |_n/a_
-|200
+|201
 |_Location_ to newly created job
 |application/json
 |<<schema-statusInfo,statusInfo.yaml>>
