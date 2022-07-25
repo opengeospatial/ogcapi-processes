@@ -23,7 +23,7 @@ results of process executions.
 |Conformance classes |`/conformance` |GET| N/A | <<sc_conformance_classes>>
 |Process list |`/processes` |GET | N/A | <<sc_process_list>>
 |Process description |`/processes/{processID}` |GET | processID (in path) | <<sc_process_description>>
-|Process execution |`/processes/{processID}/execution` |POST| processID (in path), Execute request (contained in body) |<<sc_create_job>>
+|Process execution |`/processes/{processID}/execution` |POST| processID (in path), Execute request (contained in body) |<<sc_execute_process>>
 |Job status info |`/jobs/{jobID}` |GET | jobID (in path) |<<sc_retrieve_status_info>>
 |Job results |`/jobs/{jobID}/results` |GET |  jobID (in path) |<<sc_retrieve_job_results_many>>
 |Result |`/jobs/{jobID}/results/{outputID}` |GET |  jobID (in path), outputID (in path) |<<sc_retrieve_job_results_one>>

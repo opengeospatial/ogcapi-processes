@@ -55,9 +55,11 @@ include::sections/clause_13_callback.adoc[]
 
 include::sections/clause_14_dismiss.adoc[]
 
-include::sections/clause_15_media_types.adoc[]
+include::sections/clause_15_kvp-execute.adoc[]
 
-include::sections/clause_16_additional-api-building-blocks.adoc[]
+include::sections/clause_16_media_types.adoc[]
+
+include::sections/clause_17_additional-api-building-blocks.adoc[]
 
 ////
 add or remove annexes after "A" as necessary

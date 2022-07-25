@@ -1,0 +1,9 @@
+[[rc_kvp-execute]]
+[requirements_class]
+====
+[%metadata]
+label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/kvp-execute
+obligation:: requirement
+subject:: Web API
+inherit:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core
+====

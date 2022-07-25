@@ -1,26 +1,28 @@
 <bibdata type="standard">
-  <fetched>2021-10-22</fetched>
+  <fetched>2022-05-02</fetched>
   <title format="text/plain" language="en" script="Latn">Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</title>
   <uri type="xml">https://raw.githubusercontent.com/relaton/relaton-data-ietf/master/data/reference.RFC.7231.xml</uri>
   <uri type="src">https://www.rfc-editor.org/info/rfc7231</uri>
-  <docidentifier type="IETF">RFC 7231</docidentifier>
-  <docidentifier type="rfc-anchor">RFC7231</docidentifier>
+  <docidentifier type="RFC" primary="true">RFC 7231</docidentifier>
+  <docidentifier type="RFC" scope="anchor">RFC7231</docidentifier>
   <docidentifier type="DOI">10.17487/RFC7231</docidentifier>
+  <docnumber>RFC7231</docnumber>
   <date type="published">
     <on>2014-06</on>
   </date>
+  <contributor>
+    <role type="publisher"/>
+    <organization>
+      <name>Internet Engineering Task Force</name>
+      <abbreviation>IETF</abbreviation>
+    </organization>
+  </contributor>
   <contributor>
     <role type="editor"/>
     <person>
       <name>
         <completename language="en">R. Fielding</completename>
       </name>
-      <affiliation>
-        <organization>
-          <name>Internet Engineering Task Force</name>
-          <abbreviation>IETF</abbreviation>
-        </organization>
-      </affiliation>
     </person>
   </contributor>
   <contributor>
@@ -29,29 +31,17 @@
       <name>
         <completename language="en">J. Reschke</completename>
       </name>
-      <affiliation>
-        <organization>
-          <name>Internet Engineering Task Force</name>
-          <abbreviation>IETF</abbreviation>
-        </organization>
-      </affiliation>
     </person>
-  </contributor>
-  <contributor>
-    <role type="publisher"/>
-    <organization>
-      <name>Internet Engineering Task Force</name>
-      <abbreviation>IETF</abbreviation>
-    </organization>
   </contributor>
   <language>en</language>
   <script>Latn</script>
-  <abstract format="text/plain" language="en" script="Latn">The Hypertext Transfer Protocol (HTTP) is a stateless \%application- level protocol for distributed, collaborative, hypertext information systems.  This document defines the semantics of HTTP/1.1 messages, as expressed by request methods, request header fields, response status codes, and response header fields, along with the payload of messages (metadata and body content) and mechanisms for content negotiation.</abstract>
+  <abstract format="text/html" language="en" script="Latn">
+    <p>The Hypertext Transfer Protocol (HTTP) is a stateless \%application- level protocol for distributed, collaborative, hypertext information systems. This document defines the semantics of HTTP/1.1 messages, as expressed by request methods, request header fields, response status codes, and response header fields, along with the payload of messages (metadata and body content) and mechanisms for content negotiation.</p>
+  </abstract>
   <series type="main">
     <title format="text/plain" language="en" script="Latn">RFC</title>
     <number>7231</number>
   </series>
-  <place>Fremont, CA</place>
   <ext>
     <doctype>rfc</doctype>
   </ext>

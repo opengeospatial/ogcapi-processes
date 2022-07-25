@@ -1,9 +1,9 @@
 <bibdata type="standard">
-  <fetched>2021-09-14</fetched>
+  <fetched>2022-05-01</fetched>
   <title type="title-main" format="text/plain" language="en" script="Latn">OGC® Testbed 11 Engineering Report: Implementing Common Security Across the OGC Suite of Service Standards</title>
   <title type="main" format="text/plain" language="en" script="Latn">OGC® Testbed 11 Engineering Report: Implementing Common Security Across the OGC Suite of Service Standards</title>
   <uri type="obp">https://portal.ogc.org/files/?artifact_id=63312</uri>
-  <docidentifier type="OGC">15-022</docidentifier>
+  <docidentifier type="OGC" primary="true">15-022</docidentifier>
   <date type="published">
     <on>2015-08-19</on>
   </date>
@@ -23,8 +23,8 @@
   </contributor>
   <language>en</language>
   <script>Latn</script>
-  <abstract format="text/plain" language="en" script="Latn">This OGC Engineering Report (ER) focuses on describing Common Security for all OGC&#13;
-Web Service Standards. This work was performed as part of the OGC Testbed 11&#13;
+  <abstract format="text/plain" language="en" script="Latn">This OGC Engineering Report (ER) focuses on describing Common Security for all OGC
+Web Service Standards. This work was performed as part of the OGC Testbed 11
 activity.</abstract>
   <ext>
     <doctype>engineering-report</doctype>

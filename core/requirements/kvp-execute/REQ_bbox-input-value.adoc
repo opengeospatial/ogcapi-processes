@@ -1,0 +1,23 @@
+[[req_kvp-execute_bbox-input-value]]
+[requirement]
+====
+[%metadata]
+label:: /req/kvp-execute/bbox-input-value
+[.component,class=conditions]
+--
+. The process input value is specified in-line in an execute request.
+. The process input parameter is defined as a bbox in the <<sc_process_description,process description>>.
+--
+
+[.component,class=part]
+--
+A bbox input parameter SHALL have the following characteristics:
+
+[source,yaml]
+----
+include::../../openapi/parameters/bbox.yaml[]
+----
+
+where the token `{bbox-input-name}` represented the identifier of the input.
+--
+====

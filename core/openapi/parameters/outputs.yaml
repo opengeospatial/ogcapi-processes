@@ -1,7 +1,20 @@
-name: outputs
+name: output
 in: query
 required: false
 schema:
-  type: array
-  items:
-    type: string
+  type: object
+  required: output
+  properties:
+    output:
+      type: string
+    mediaType:
+      type: string
+    encoding:
+      type: string
+    schema:
+      oneOf:
+        - type: string
+          format: url
+        - type: object
+style: true
+explode: false

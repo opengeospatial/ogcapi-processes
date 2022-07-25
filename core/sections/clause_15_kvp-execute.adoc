@@ -1,0 +1,506 @@
+
+== Requirements Class "KVP-encoded Execute"
+
+
+=== Overview
+
+include::../requirements/requirements_class_kvp-execute.adoc[]
+
+The <<sc_execute_process,"Execute a process">> clause describes how to invoke a process by sending a <<execute-request-body,JSON-encoded execute request>> to the <<execute-op,execution endpoint>> of a server using the https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3[HTTP POST method].  This invocation pattern does not, however, allow dynamic execute requests to be embedded in other documents.  This clause describes a process invocation method that encodes an execute request as a URL with query parameters.
+
+The following examples illustrate KVP-encoded process execution requests.
+
+.Examples
+====
+[source]
+----
+https://www.someserver.com/processes/area:retrieve/execution?
+collections=observations&
+bbox=5.8,47.2,15.1,55.1&
+datetime=2019-08-09&
+variables=TMAX,TMIN,PRCP
+----
+
+[source]
+----
+http://www.someserver.com/processes/echo/execution?
+stringInput=Value2&
+measureInput=%7B%22value%22%3A%7B%22measurement%22%3A10.3%2C%22uom%22%3A%22m%22%2C%22reference%22%3A%22https%3A%2F%2Fucum.org%2Fucum-essence.xml%22%7D%7D
+dateInput=2021-03-06T07:21:00&
+doubleInput=3.14159&
+arrayInput=%5B1%2C2%2C3%2C4%2C5%2C6%5D&
+complexObjectInput=%22value%22%3A%7B%22property1%22%3A%22value1%22%2C%22property2%22%3A%22value2%22%2C%22property5%22%3Atrue%7D%7D&
+geometryInput=%5B%7B%22value%22%3A%22%3Cgml%3APolygongml%3Aid%3D%5C%22GID1%5C%22srsName%3D%5C%22urn%3Aogc%3Adef%3Acrs%3AOGC%3A%3ACRS84%5C%22%3E%3Cgml%3Aexterior%3E%3Cgml%3ALinearRing%3E%3Cgml%3AposList%3E-77.02451938.810529-77.02463538.810973-77.02470438.810962-77.02477638.811239-77.02495738.81121-77.02490538.811012-77.02490538.811012-77.02486538.810857-77.02502438.810832-77.02507138.811012-77.02520338.810992-77.0250638.810444-77.02451938.810529%3C%2Fgml%3AposList%3E%3C%2Fgml%3ALinearRing%3E%3C%2Fgml%3Aexterior%3E%3C%2Fgml%3APolygon%3E%22%2C%22mediaType%22%3A%22application%2Fgml%2Bxml%3Bversion%3D3.2%22%7D%2C%7B%22value%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B-176.5814819%2C-44.10896301%5D%2C%5B-176.5818024%2C-44.10964584%5D%2C%5B-176.5844116%2C-44.11236572%5D%2C%5B-176.5935974%2C-44.11021805%5D%2C%5B-176.5973511%2C-44.10743332%5D%2C%5B-176.5950928%2C-44.10562134%5D%2C%5B-176.5858459%2C-44.1043396%5D%2C%5B-176.5811157%2C-44.10667801%5D%2C%5B-176.5814819%2C-44.10896301%5D%5D%5D%7D%7D%5D&
+imagesInput=%5B%7B%22href%22%3A%22https%3A%2F%2Fwww.someserver.com%2Fogcapi%2FDaraa%2Fcollections%2FDaraa_DTED%2Fstyles%2FTopographic%2Fcoverage%3F...%22%2C%22type%22%3A%22image%2Ftiff%3Bapplication%3Dgeotiff%22%7D%2C%7B%22value%22%3A%22VBORw0KGgoAAAANSUhEUgAABvwAAAa4CAYAAABMB35kAAABhGlDQ1BJQ0MgcHJvZmlsZQAA%5CnKJF9kT1Iw0AcxV9TpSL1A%2BxQxCFDdbIgKuKoVShChVArtOpgcumH0KQhSXFxFFwLDn4sVh1c%5CnnHV1cBUEwQ8QNzcnRRcp8X9JoUWMB8f9eHfvcfcOEOplplkdY4Cm22Y6mRCzuRUx9IogouhH%5Cn...%5Cnj3Z5mX7%2FPCPVRJV92rpHK24xcJrzk20%2BtkeYlCPqcZNO3Lpni1OJWatPCcmgGDEqx7Om6lfa%5CnppM4k4BTe9%2Bbsn3L9%2F9%2FyWhA0PwQGW8ipCZsnZt9lsdrYEM8z%2FM8z%2FM8z%2FM8z%2FM8z%2FMzLWY1%5CnAAAACUlEQVQ871H6P6JI%2BTxS5Wn2AAAAAElFTkSuQmCC%22%2C%22encoding%22%3A%22base64%22%2C%22mediaType%22%3A%22image%2Fjp2%22%7D%5D
+boundingBoxInput=51.9,7,52,7.1&
+boundingBoxInput-crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84&
+featureCollectionInput=%7B%22value%22%3A%22%3C%3Fxmlversion%3D%5C%221.0%5C%22encoding%3D%5C%22UTF-8%5C%22%3F%3E%3CFeatureCollectionxmlns%3D%5C%22http%3A%2F%2Fschemas.myserver.com%2Fnamespaces%2Fnull%5C%22xmlns%3Agml%3D%5C%22http%3A%2F%2Fwww.opengis.net%2Fgml%2F3.2%5C%22xmlns%3Axsi%3D%5C%22http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema-instance%5C%22xsi%3AschemaLocation%3D%5C%22http%3A%2F%2Fschemas.myserver.com%2Fnamespaces%2Fnullhttps%3A%2F%2Fwww.pvretano.com%2Fmyserver%2Fogcapi%2Fdaraa%2Fschema%3Ff%3DGML32%26amp%3Bcollectionids%3DTransportationGroundCrvhttp%3A%2F%2Fwww.opengis.net%2Fgml%2F3.2http%3A%2F%2Fschemas.opengis.net%2Fschemas%2Fgml%2F3.2.1%2Fgml.xsd%5C%22%3E...%22%2C%22mediaType%22%3A%22application%2Fgml%2Bxml%3Bversion%3D3.2%22%7D&
+stringOutput[include]=true&
+measureOutput[include]=true&
+dateOutput[include]=true&
+doubleOutput[include]=true&
+arrayOutput[include]=true&
+complexObjectOutput[include]=true&
+geometryOutput[include]=true&
+boundingBoxOutput[include]=true&
+imageOutput[include]=true&
+featureCollectionOutput[include]=true
+----
+
+NOTE: Add more examples!
+====
+
+=== Execute a process
+
+This section describes the requirements for invoking a process with an execute request encoded as a URL with query parameters.
+
+==== Operation
+
+include::../requirements/kvp-execute/REQ_process-execute-op.adoc[]
+
+==== Parameters
+
+===== Format parameter
+
+include::../requirements/kvp-execute/REQ_f-definition.adoc[]
+
+include::../requirements/kvp-execute/REQ_f-response.adoc[]
+
+.Negotiating a respone format.
+====
+This is an execution example where an input image is provided, along with other parameters, to the `myProcess` process and the response format is requested to be either a PNG or JPEG image (in that order of preference).
+
+[source]
+----
+https://www.someserver.com/processes/myProcess/execution?
+inputImage=s3://mybucker/myInputImage.tif&
+bbox=5.8,47.2,15.1,55.1&
+datetime=2019-08-09&
+output=image&
+f=image%2Fjpeg%3B%20q%3D0.5%2Cimage%2Fpng%20q%3D0.8
+----
+====
+
+===== Prefer parameter
+
+include::../requirements/kvp-execute/REQ_prefer-definition.adoc[]
+
+include::../requirements/kvp-execute/REQ_prefer-response.adoc[]
+
+.Asynchronous execution.
+====
+In this example, the `prefer` parameter is used to indicate that asynchronous execution is prefered.
+
+[source]
+----
+https://www.someserver.com/processes/myProcess/execution?
+inputImage=s3://mybucker/myInputImage.tif&
+bbox=5.8,47.2,15.1,55.1&
+datetime=2019-08-09&
+output=image&
+f=image%2Fjpeg%3B%20q%3D0.5%2Cimage%2Fpng%20q%3D0.8&
+prefer=handling%3Dlenient%2C%20wait%3D100%2C%20respond-async
+----
+====
+
+===== Process inputs
+
+====== Overview
+
+include::../requirements/kvp-execute/REQ_input-query-parameters.adoc[]
+
+include::../requirements/kvp-execute/REQ_input-query-parameter-values.adoc[]
+
+The value of an input URI query parameter in a KVP-encoded execute request can be:
+
+* a simple value,
+* a complex value,
+* a binary value,
+* a bounding box value,
+* an array of values,
+* or a reference to a value.
+
+[[kvp-simple-value]]
+====== Simple string input
+
+include::../requirements/kvp-execute/REQ_string-input-value.adoc[]
+
+include::../recommendations/kvp-execute/PER_string-input-value.adoc[]
+
+.Simple string input examples.
+====
+A string literal:
+[source]
+----
+stringInput=String+value
+----
+
+A date string:
+[source]
+----
+dateInput=2021-05-24T20:40:13-05:00
+----
+====
+
+====== Simple numeric input
+
+include::../requirements/kvp-execute/REQ_numeric-input-value.adoc[]
+
+include::../recommendations/kvp-execute/PER_numeric-input-value.adoc[]
+
+.Simple numeric input examples.
+
+A number:
+[source]
+----
+numberInput=3.14159
+----
+
+An integer:
+[source]
+----
+integerInput=10
+----
+
+====== Simple boolean input
+
+include::../requirements/kvp-execute/REQ_boolean-input-value.adoc[]
+
+include::../recommendations/kvp-execute/PER_boolean-input-value.adoc[]
+
+A Boolean:
+[source]
+----
+booleanInput=true
+----
+
+[[kvp-complex-value-input]]
+====== Complex-valued input
+
+A complex value is a value with structure that is defined using a schema.  The schema of a complex process input value is defined in the <<sc_process_description,process description>> and can be specified using <<process-input-schema,JSON-Schema>>.  
+
+include::../requirements/kvp-execute/REQ_complex-input-value.adoc[]
+
+include::../recommendations/kvp-execute/PER_complex-input-value.adoc[]
+
+A complex-valued input parameter can be encoded as JSON, XML or some other text encoding of complex values such as Well Know Text (WKT).
+
+.Complex input value examples.
+====
+An example of a complex process input value.
+
+[source]
+----
+complexObjectInput=%22value%22%3A%7B%22property1%22%3A%22value1%22%2C%22property2%22%3A%22value2%22%2C%22property3%22%3A%22value3%22%7D%7D
+
+Decoded value is: 
+{"value":{"property1":"value1","property2":"value2","property3":"value3"}}
+----
+====
+
+[[kvp-array-value-input]]
+====== Array-valued input
+
+include::../requirements/kvp-execute/REQ_array-input-value.adoc[]
+
+The elements of an array input value can be:
+
+* a <<simple-value,simple value>>,
+* a <<qualified-value,complex value>>,
+* a <<kvp-binary-value,binary value>>,
+* a <<bounding-box-value,bounding box value>>,
+* an embeded array,
+* or references to values using <<link-schema,links>>.
+
+.Array input value examples.
+====
+An array of simple values:
+[source]
+----
+arrayOfSimpleValues=%5B1%2C2%2C4%2C10%2C7%5D
+
+Decoded value is:
+arrayOfSimpleValues=[1,2,4,10,7]
+----
+
+An array with a single simple value:
+[source]
+----
+arrayOfSimpleValues=%5Ba%5D
+
+Decoded value is:
+arrayOfSimpleValues=[a]
+----
+
+An array of complex values:
+[source]
+----
+arrayOfQualifiedValues=%5B%7B%22value%22%3A%7B%22measurement%22%3A10.3%2C%22uom%22%3A%22m%22%2C%22reference%22%3A%22https%3A%2F%2Fucum.org%2Fucum-essence.xml%22%7D%7D%2C%7B%22value%22%3A%7B%22measurement%22%3A10.5%2C%22uom%22%3A%22m%22%2C%22reference%22%3A%22https%3A%2F%2Fucum.org%2Fucum-essence.xml%22%7D%7D%2C%7B%22value%22%3A%7B%22measurement%22%3A10.9%2C%22uom%22%3A%22m%22%2C%22reference%22%3A%22https%3A%2F%2Fucum.org%2Fucum-essence.xml%22%7D%7D%5D
+
+Decoded value is:
+arrayOfQualifiedValues=[
+  {
+    "value": {
+      "measurement":10.3,
+      "uom":"m",
+      "reference":"https://ucum.org/ucum-essence.xml"
+    }
+  },
+  {
+    "value": {
+      "measurement":10.5,
+      "uom":"m",
+      "reference":"https://ucum.org/ucum-essence.xml"
+    }
+  },
+  {
+    "value": {
+      "measurement":10.9,
+      "uom":"m",
+      "reference":"https://ucum.org/ucum-essence.xml"
+    }
+  }
+]
+----
+
+An array of bounding box values:
+[source]
+----
+bboxes=%7B%22bbox%22%3A%5B-160.2871383684127%2C21.77618201427491%2C-160.05226732350857%2C22.035461193553438%5D%7D%2C%7B%22bbox%22%3A%5B-159.8119271016866%2C21.868377883379342%2C-159.2728781199529%2C22.27253365936666%5D%7D%2C%7B%22bbox%22%3A%5B-158.2809447669924%2C21.257850724966435%2C-157.62449293560164%2C21.75719228424245%5D%7D%2C%7B%22bbox%22%3A%5B-157.3665805976117%2C21.056725789376443%2C-156.68744814385997%2C21.207484214479813%5D%7D%2C%7B%22bbox%22%3A%5B-157.0721466133514%2C20.73998198222469%2C-156.80164904228144%2C20.958125881743094%5D%7D%2C%7B%22bbox%22%3A%5B-156.67924097602452%2C20.599995119588588%2C-155.9289696479082%2C21.048822845802146%5D%7D%2C%7B%22bbox%22%3A%5B-156.72917922429528%2C20.49209982653643%2C-156.53052477930564%2C20.635403336088483%5D%7D%2C%7B%22bbox%22%3A%5B-156.07415148465623%2C18.89763704552276%2C-154.87280121907844%2C20.33421989495902%5D%7D
+
+Decoded value is:
+bboxes=[
+  {
+    "bbox":[-160.2871383684127,21.77618201427491,
+            -160.05226732350857,22.035461193553438]
+  },
+  {
+    "bbox":[-159.8119271016866,21.868377883379342,
+            -159.2728781199529,22.27253365936666]
+  },
+  {
+    "bbox":[-158.2809447669924,21.257850724966435,
+            -157.62449293560164,21.75719228424245]
+  },
+  {
+    "bbox":[-157.3665805976117,21.056725789376443,
+            -156.68744814385997,21.207484214479813]
+  },
+  {
+    "bbox":[-157.0721466133514,20.73998198222469,
+            -156.80164904228144,20.958125881743094]
+  },
+  {
+    "bbox":[-156.67924097602452,20.599995119588588,
+            -155.9289696479082,21.048822845802146]
+  },
+  {
+    "bbox":[-156.72917922429528,20.49209982653643,
+            -156.53052477930564,20.635403336088483]
+  },
+  {
+    "bbox":[-156.07415148465623,18.89763704552276,
+            -154.87280121907844,20.33421989495902]
+  }
+]
+----
+
+An array of arrays:
+[source]
+----
+arrayOfArrays=%5B%5B1%2C2%2C3%2C4%5D%2C%5B%22a%22%2C%22b%22%2C%22c%22%2C%22d%22%5D%5D
+
+Decoded value is: 
+arrayOfArrays=[[1,2,3,4],["a","b","c","d"]]
+----
+
+An array of value references:
+[source]
+----
+images=%5B%7B%22href%22%3A%22http%3A%2F%2Fwww.imagearchive.com%2Fimages%2Fimage01.tif%22%2C%22type%22%3A%22image%2Ftiff%3Bapplcation%3Dgeotiff%22%7D%2C%7B%22href%22%3A%22http%3A%2F%2Fwww.imagearchive.com%2Fimages%2Fimage19.jp2%2C%22type%22%3A%22image%2Fjp2%22%7D%5D
+
+Decoded value is:
+images=[
+  {
+    "href":"http://www.imagearchive.com/images/image01.tif",
+    "type":"image/tiff;applcation=geotiff"
+  },
+  {
+    "href":"http://www.imagearchive.com/images/image19.jp2,
+    "type":"image/jp2"
+  }
+]
+----
+
+====
+
+[[kvp-binary-value]]
+====== Binary-valued input
+
+NOTE: Not sure we should specify this.  Binary input values should be by reference only in my opinion.  It really makes no sense to specify a binary value by-value in a URL-encoded execute request.  Does it? Something small like icons ... maybe?
+
+In some cases, for example in order to pass through firewalls, binary input values need to be encoded in-line in an execute request as a string.
+
+include::../requirements/kvp-execute/REQ_binary-input-value.adoc[]
+
+A binary value can be optionally <<qualified-value,qualified>> with a <<format-schema,format>> parameter.  This is usually done to identify one of a number of possible input types for the specified input parameter.
+
+include::../requirements/kvp-execute/REQ_binary-input-value-qualified.adoc[]
+
+.Binary value examples.
+====
+
+This is an example of an image process input whose media type is defined in the
+<<sc_process_description,process description>>.  The schema definition for this process input might be:
+
+[source,json]
+----
+"schema": {
+  "type": "string",
+  "contentEncoding": "binary",
+  "contentMediaType": "image/tiff; application=geotiff"
+}
+----
+
+and an example instance value in an execute request might be:
+
+[source,json]
+----
+imageInput="R0lGODdhNAHCAfcAAAcHDD+Gs4sLDQpDaqGFdaHE54dJPEoECUlGRteKgcdITgokG4hoVkpY\ngNzHwKKkqOLm7RRjlEgpHU9iZ44lHQYqVdmki6doVmhHOMOIeJG20HiDjCcKBglIeadISrso\nJGooFNbN2d2qr8aljyklHwQJQkdvkWaKxIdrb442LidLeGhMTp6LkeP1+Kh3aiUuVAoUHmlu\ngkcwNYdZRmkJDYGcsDFokElVYyk1NsWWhLEPDtmQldrUyoyFhrjo+Nna5d+4tMGstspoXgc4\n...qgu7sSu7qbtCs2u7t6u6rLsrp4u7veu76eO6vyu8w0u8xWu8x4u8yau8shu8y+u8zwu90Su9\n00u91Wu914u92au928u9whsQADs="
+----
+
+In this second example, the image input can be one of a number of value types denoted in JSON Schema by the use of the `oneOf[]` construct.  An example schema for this a process input might be:
+
+[source,json]
+----
+"schema": {
+  "oneOf": [
+    {
+      "type": "string",
+      "contentEncoding": "binary",
+      "contentMediaType": "image/tiff; application=geotiff"
+    },
+    {
+      "type": "string",
+      "contentEncoding": "binary",
+      "contentMediaType": "image/jp2"
+    }
+  ]
+}
+----
+
+and a JPEG2000 instance example in an execute request might be:
+
+[source,json]
+----
+imageInput[value]=VBORw0KGgoAAAANSUhEUgAABvwAAAa4CAYAAABMB35kAAABhGlDQ1BJQ0MgcHJvZmlsZQAA\nKJF9kT1Iw0AcxV9TpSL1A+xQxCFDdbIgKuKoVShChVArtOpgcumH0KQhSXFxFFwLDn4sVh1c\nnHV1cBUEwQ8QNzcnRRcp8X9JoUWMB8f9eHfvcfcOEOplplkdY4Cm22Y6mRCzuRUx9IogouhH\n ... \nj3Z5mX7/PCPVRJV92rpHK24xcJrzk20+tkeYlCPqcZNO3Lpni1OJWatPCcmgGDEqx7Om6lfa\nppM4k4BTe9+bsn3L9/9/yWhA0PwQGW8ipCZsnZt9lsdrYEM8z/M8z/M8z/M8z/M8z/MzLWY1\nAAAACUlEQVQ871H6P6JI+TxS5Wn2AAAAAElFTkSuQmCC&imageInput[mediaType]=image/jp2
+----
+====
+
+[[kvp-bbox-value]]
+====== Bounding box-valued input 
+
+include::../requirements/kvp-execute/REQ_bbox-input-value.adoc[]
+
+include::../requirements/kvp-execute/REQ_bbox-crs-input-value.adoc[]
+
+.Bounding box input examples.
+====
+
+An example instance value for a bounding box input named `my_bbox` might be:
+
+[source]
+----
+my_bbox=-79.63732855116733,43.570691463538644,-79.10227279076784,43.86582298161152
+----
+
+This is the same example as above but in a different CRS.  An input parameters names `my_bbox-crs` is used to convey the CRS of the `my_bbox` parameter.
+
+[source]
+----
+my_bbox=43.570691463538644,-79.63732855116733,43.86582298161152,-79.10227279076784&my_bbox-crs=https://www.opengis.net/def/crs/EPSG/0/4326
+----
+
+====
+
+[[kvp-value-by-ref]]
+====== Input parameters value by reference
+
+include::../requirements/kvp-execute/REQ_input-by-reference.adoc[]
+
+.Input-by-reference example
+====
+[source]
+----
+imageInput[href]=http://www.someserver.com/image.tiff&imageInput[type]=image/tiff;application=geotiff
+----
+====
+
+[[kvp-input-cardinality]]
+===== Input cardinality
+
+include::../requirements/kvp-execute/REQ_input-cardinality.adoc[]
+
+.Input value with cardinality greater than 1
+====
+An example of a string-value input with cardinality greater than 1.
+
+[source]
+----
+...&color=blue,green,red,yellow&...
+----
+
+An example of a object-valued input with cardinality greater than 1.  In this case, two geometries are specified as input.  The first geometry is encoded as GML object and the second geometry is encoded as GeoJSON object.
+
+[source]
+----
+...&geometryInput=%7B%22value%22%3A%22%3Cgml%3APolygon%20gml%3Aid%3D%5C%22GID1%5C%22%20srsName%3D%5C%22urn%3Aogc%3Adef%3Acrs%3AOGC%3A%3ACRS84%5C%22%3E%3Cgml%3Aexterior%3E%3Cgml%3ALinearRing%3E%3Cgml%3AposList%3E-77.024519%2038.810529%20-77.024635%2038.810973%20-77.024704%2038.810962%20-77.024776%2038.811239%20-77.024957%2038.81121%20-77.024905%2038.811012%20-77.024905%2038.811012%20-77.024865%2038.810857%20-77.025024%2038.810832%20-77.025071%2038.811012%20-77.025203%2038.810992%20-77.02506%2038.810444%20-77.024519%2038.810529%3C%2Fgml%3AposList%3E%3C%2Fgml%3ALinearRing%3E%3C%2Fgml%3Aexterior%3E%3C%2Fgml%3APolygon%3E%22%2C%22mediaType%22%3A%22application%2Fgml%2Bxml%3B%20version%3D3.2%22%7D,%7B%22value%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B-176.5814819%2C-44.10896301%5D%2C%5B-176.5818024%2C-44.10964584%5D%2C%5B-176.5844116%2C-44.11236572%5D%2C%5B-176.5935974%2C-44.11021805%5D%2C%5B-176.5973511%2C-44.10743332%5D%2C%5B-176.5950928%2C-44.10562134%5D%2C%5B-176.5858459%2C-44.1043396%5D%2C%5B-176.5811157%2C-44.10667801%5D%2C%5B-176.5814819%2C-44.10896301%5D%5D%5D%7D%2C%22mediaType%22%3A%22application%2Fgeo%2Bjson%22%7D%0A&....
+
+Decoded value is:
+geometryInputs=
+  {
+    "value":"<gml:Polygon gml:id=\"GID1\" srsName=\"urn:ogc:def:crs:OGC::CRS84\"><gml:exterior><gml:LinearRing><gml:posList>-77.024519 38.810529 -77.024635 38.810973 -77.024704 38.810962 -77.024776 38.811239 -77.024957 38.81121 -77.024905 38.811012 -77.024905 38.811012 -77.024865 38.810857 -77.025024 38.810832 -77.025071 38.811012 -77.025203 38.810992 -77.02506 38.810444 -77.024519 38.810529</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>",
+    "mediaType":"application/gml+xml; version=3.2"
+  },
+  {
+    "value": {
+      "type":"Polygon",
+      "coordinates":[[[-176.5814819,-44.10896301],[-176.5818024,-44.10964584],[-176.5844116,-44.11236572],[-176.5935974,-44.11021805],[-176.5973511,-44.10743332],[-176.5950928,-44.10562134],[-176.5858459,-44.1043396],[-176.5811157,-44.10667801],[-176.5814819,-44.10896301]]]
+    },
+    "mediaType":"application/geo+json"
+  }
+----
+
+An example of an array-value input with cardinality greater than 1.
+
+[source]
+----
+...&param1=%5B1%2C2%2C3%5D,%5B6%2C7%2C8%5D&...
+
+Decoded value is:
+param1=[1,2,3],[6,7,8]
+----
+====
+
+[[sc_kvp_process_outputs]]
+===== Process outputs
+
+include::../requirements/kvp-execute/REQ_output.adoc[]
+
+.Output examples
+====
+
+[source]
+----
+...&out1[include]=true&out2[include]true&out2[include]true&...
+----
+
+[source]
+----
+...&out1[include]=true&out1[mediaType]=application/geo+tiff&...
+----
+====
+
+=== Response
+
+Whether a processes is invoked using a <<req_core_process-execute-request,JSON-encoded request>> that is https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3[HTTP POST'ed] to the <<req_core_process-execute-op,execution endpoint>> or using a URL-encoded request, the behaviour of the server with regard to the response is the same.  The details of the response can be found in <<sc_execute_response>>.
