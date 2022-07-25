@@ -8,7 +8,7 @@ include::../requirements/requirements_class_kvp-execute.adoc[]
 
 The <<sc_execute_process,"Execute a process">> clause describes how to invoke a process by sending a <<execute-request-body,JSON-encoded execute request>> to the <<execute-op,execution endpoint>> of a server using the https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3[HTTP POST method].  This invocation pattern does not, however, allow dynamic execute requests to be embedded in other documents.  This clause describes a process invocation method that encodes an execute request as a URL with query parameters.
 
-The following examples 
+The following examples illustrate KVP-encoded process execution requests.
 
 .Examples
 ====
@@ -68,7 +68,7 @@ include::../requirements/kvp-execute/REQ_f-response.adoc[]
 
 .Negotiating a respone format.
 ====
-This is an execution example where are input image is provided, along with other parameters, to the `myProcess` process and the response format is requested to be either a PNG or JPEG image (in that order of preference).
+This is an execution example where an input image is provided, along with other parameters, to the `myProcess` process and the response format is requested to be either a PNG or JPEG image (in that order of preference).
 
 [source]
 ----
@@ -99,7 +99,7 @@ bbox=5.8,47.2,15.1,55.1&
 datetime=2019-08-09&
 output=image&
 f=image%2Fjpeg%3B%20q%3D0.5%2Cimage%2Fpng%20q%3D0.8&
-prefer=response-async
+prefer=handling%3Dlenient%2C%20wait%3D100%2C%20respond-async
 ----
 ====
 
