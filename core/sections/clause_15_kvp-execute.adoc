@@ -443,11 +443,18 @@ include::../requirements/kvp-execute/REQ_input-cardinality.adoc[]
 
 .Input value with cardinality greater than 1
 ====
-An example of a geometry-valued input with cardinality greater than 1.  In this case, two geometries are specified as input.  The first geometry is encoded as GML and the second geometry is encoded as GeoJSON.
+An example of a string-value input with cardinality greater than 1.
 
 [source]
 ----
-geometryInput=%7B%22value%22%3A%22%3Cgml%3APolygon%20gml%3Aid%3D%5C%22GID1%5C%22%20srsName%3D%5C%22urn%3Aogc%3Adef%3Acrs%3AOGC%3A%3ACRS84%5C%22%3E%3Cgml%3Aexterior%3E%3Cgml%3ALinearRing%3E%3Cgml%3AposList%3E-77.024519%2038.810529%20-77.024635%2038.810973%20-77.024704%2038.810962%20-77.024776%2038.811239%20-77.024957%2038.81121%20-77.024905%2038.811012%20-77.024905%2038.811012%20-77.024865%2038.810857%20-77.025024%2038.810832%20-77.025071%2038.811012%20-77.025203%2038.810992%20-77.02506%2038.810444%20-77.024519%2038.810529%3C%2Fgml%3AposList%3E%3C%2Fgml%3ALinearRing%3E%3C%2Fgml%3Aexterior%3E%3C%2Fgml%3APolygon%3E%22%2C%22mediaType%22%3A%22application%2Fgml%2Bxml%3B%20version%3D3.2%22%7D,%7B%22value%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B-176.5814819%2C-44.10896301%5D%2C%5B-176.5818024%2C-44.10964584%5D%2C%5B-176.5844116%2C-44.11236572%5D%2C%5B-176.5935974%2C-44.11021805%5D%2C%5B-176.5973511%2C-44.10743332%5D%2C%5B-176.5950928%2C-44.10562134%5D%2C%5B-176.5858459%2C-44.1043396%5D%2C%5B-176.5811157%2C-44.10667801%5D%2C%5B-176.5814819%2C-44.10896301%5D%5D%5D%7D%2C%22mediaType%22%3A%22application%2Fgeo%2Bjson%22%7D%0A
+...&color=blue,green,red,yellow&...
+----
+
+An example of a object-valued input with cardinality greater than 1.  In this case, two geometries are specified as input.  The first geometry is encoded as GML object and the second geometry is encoded as GeoJSON object.
+
+[source]
+----
+...&geometryInput=%7B%22value%22%3A%22%3Cgml%3APolygon%20gml%3Aid%3D%5C%22GID1%5C%22%20srsName%3D%5C%22urn%3Aogc%3Adef%3Acrs%3AOGC%3A%3ACRS84%5C%22%3E%3Cgml%3Aexterior%3E%3Cgml%3ALinearRing%3E%3Cgml%3AposList%3E-77.024519%2038.810529%20-77.024635%2038.810973%20-77.024704%2038.810962%20-77.024776%2038.811239%20-77.024957%2038.81121%20-77.024905%2038.811012%20-77.024905%2038.811012%20-77.024865%2038.810857%20-77.025024%2038.810832%20-77.025071%2038.811012%20-77.025203%2038.810992%20-77.02506%2038.810444%20-77.024519%2038.810529%3C%2Fgml%3AposList%3E%3C%2Fgml%3ALinearRing%3E%3C%2Fgml%3Aexterior%3E%3C%2Fgml%3APolygon%3E%22%2C%22mediaType%22%3A%22application%2Fgml%2Bxml%3B%20version%3D3.2%22%7D,%7B%22value%22%3A%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B-176.5814819%2C-44.10896301%5D%2C%5B-176.5818024%2C-44.10964584%5D%2C%5B-176.5844116%2C-44.11236572%5D%2C%5B-176.5935974%2C-44.11021805%5D%2C%5B-176.5973511%2C-44.10743332%5D%2C%5B-176.5950928%2C-44.10562134%5D%2C%5B-176.5858459%2C-44.1043396%5D%2C%5B-176.5811157%2C-44.10667801%5D%2C%5B-176.5814819%2C-44.10896301%5D%5D%5D%7D%2C%22mediaType%22%3A%22application%2Fgeo%2Bjson%22%7D%0A&....
 
 Decoded value is:
 geometryInputs=
@@ -464,6 +471,15 @@ geometryInputs=
   }
 ----
 
+An example of an array-value input with cardinality greater than 1.
+
+[source]
+----
+...&param1=%5B1%2C2%2C3%5D,%5B6%2C7%2C8%5D&...
+
+Decoded value is:
+param1=[1,2,3],[6,7,8]
+----
 ====
 
 [[sc_kvp_process_outputs]]
