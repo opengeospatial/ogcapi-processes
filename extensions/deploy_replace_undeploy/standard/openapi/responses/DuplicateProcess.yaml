@@ -1,8 +1,8 @@
 description: the processes being added is already deployed (i.e. duplicate)
 content:
-  application/json:
+  application/problem+json:
     schema:
-      $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml"
+      $ref: "../../../../../core/openapi/schemas/exception.yaml"
   text/html:
     schema:
       type: string
