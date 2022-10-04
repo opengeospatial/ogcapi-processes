@@ -1,0 +1,13 @@
+description: the process is deployed
+headers:
+  Location:
+    schema:
+      type: string
+    description: URL to fetch the processDescription of the deployed process
+content:
+  application/json:
+    schema:
+      content:
+        application/json:
+      schema:
+        $ref: "../schemas/staticIndicator.yaml"

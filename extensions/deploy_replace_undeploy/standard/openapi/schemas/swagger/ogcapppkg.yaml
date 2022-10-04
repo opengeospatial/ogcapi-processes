@@ -3,7 +3,7 @@ required:
   - executionUnit
 properties:
   processDescription:
-    $ref: ../../../../../core/openapi/schemas/process.yaml
+    $ref: ../../../../../../core/openapi/schemas/swagger/process.yaml
   executionUnit:
     description: Resource containing an executable or runtime information for executing the process.
     type: array
