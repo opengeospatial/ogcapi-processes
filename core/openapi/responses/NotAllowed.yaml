@@ -1,6 +1,6 @@
 description: The method is not allowed at the path.
 content:
-  application/json:
+  application/problem+json:
     schema:
       $ref: "../schemas/exception.yaml"
   text/html:
