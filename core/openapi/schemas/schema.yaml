@@ -6,18 +6,15 @@ oneOf:
         type: string
       multipleOf:
         type: number
-        minimum: 0
-        exclusiveMinimum: true
+        exclusiveMinimum: 0
       maximum:
         type: number
       exclusiveMaximum:
-        type: boolean
-        default: false
+        type: number
       minimum:
         type: number
       exclusiveMinimum:
-        type: boolean
-        default: false
+        type: number
       maxLength:
         type: integer
         minimum: 0
