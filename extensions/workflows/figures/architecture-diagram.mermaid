@@ -1,0 +1,39 @@
+flowchart TB
+
+      Client("<b>Client</b>") --> AdHoc{{<b>Ad-hoc Workflow<br/>Definition</b>}} --> Service["<b>Workflows<br/>Implementation</b>"]
+      %% Maps><b>OGC API - Maps</b>] --> Client
+
+      Nested>Nested Process<br/>]
+      Core><b>OGC API - Processes</b><br/><i>Part 1: Core</i>]
+      Input>Collection Input]
+
+      Client <--> Core
+
+      Nested -.- AdHoc
+      Core -.- AdHoc
+      Input -.- AdHoc
+
+      Core <--> Service
+      Input --> Service
+      Service --> Output>Collection Output]
+
+      Access><b>OGC API Data Values Access Mechanisms<br/>for Area/Resolution of Interest</b></br></br><i><b>DGGS</b> / ISEA3H-Rhombus<br/><b>DGGS</b> / ISEA3H-PIXYS<br/><b>DGGS</b> / GNOSISGlobalGrid</br>Tiles</br>Coverages<br/>Features<br/>EDR<br/>Maps]
+
+      Core -.- Processes[[Processes]] -.- RemoteP
+      Core -.- RemoteP
+      Processes -.- Nested
+
+      Collections[("Collections")]
+      Collections -.- RemoteC
+      Collections -.- Input
+
+      RemoteC><i>Remote Collection</i>]
+      RemoteP><i>Remote Process</i>]
+      RemoteC --> Access
+      Input --> RemoteP --> Output
+      RemoteP -.- Nested
+
+      %% Output --> Maps
+      Output --> Access --> Input
+
+      Access --> Client

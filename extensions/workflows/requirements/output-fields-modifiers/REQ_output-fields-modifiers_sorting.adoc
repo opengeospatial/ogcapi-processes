@@ -1,0 +1,8 @@
+[requirement]
+====
+[%metadata]
+label:: /req/output-fields-modifiers/sorting
+description:: For sorting the data returned as an output from a process according to its data fields:
+part:: The Implementation SHALL support specifying a `"sortby"` key and a corresponding comma-separated sequence of expressions defining the order in which to sort the data returned as part of a nested process or top-level execution request.
+part:: The Implementation SHALL support one or more expression languages to defined the sorting expressions, such as the OGC Common Query Language (CQL2).
+====

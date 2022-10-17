@@ -1,0 +1,8 @@
+[requirement]
+====
+[%metadata]
+label:: /req/collection-input/referenced-collection
+description:: For referencing a collection as an input to a process:
+part:: The Implementation SHALL support execution requests containing a `"collection"` key and a corresponding URI or Relative-URI value identifying an OGC API collection as an input to a process.
+part:: The Implementation SHALL interpret Relative-URIs as relative to the parent process within which the containing collection object is nested.
+====

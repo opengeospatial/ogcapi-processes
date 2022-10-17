@@ -1,0 +1,45 @@
+[[section_deployable_workflows]]
+== Deployable Workflows Conformance Class
+
+=== Requirement Class _Deployable Workflows_
+
+The _Deployable Workflows_ conformance class specifies how a workflow execution request as defined in
+_OGC API - Processes - Part 1: Core_, with or without the capabilities defined in other conformance classes
+of this _Part 3_ extension, can be used as an application package payload to deploy new processes using
+_OGC API - Processes - Part 2: Deploy, Replace, Undeploy_.
+
+It also specifies how to parameterize inputs to the workflow as inputs to the deployed process,
+and how to select specific outputs from the processes involved to be returned as outputs of the deployed process.
+
+include::../requirements/requirements_class_deployable-workflows.adoc[]
+
+The following requirements describe the ability of an implementation to deploy a new process
+defined as an _OGC API - Processes - Part 1: Core_ execution request with
+_OGC API - Processes - Part 2: Deploy, Replace, Undeploy_,
+including parameterizing inputs as external inputs to the deployed process using `{ "$input" : "{input name}" }` as input objects (in `"inputs"`),
+and selecting specific outputs to be returned from the deployed process using `{ "$output" : "{output name}" } as output objects  (in `"outputs"`).
+If no `"$output"` object is used within a deployed workflow definition, the deployed process is
+assumed to return all outputs from the top-level process with the same names as that process.
+
+A minimal but adequate process description for the resulting process can automatically be generated
+based on the context where the `"$input"` and `"$output"` objects appear within the workflow definition, allowing
+to describe all inputs to the process and its outputs by inferrence from the source process descriptions
+and/or input data.
+
+The workflow definition could either directly be the payload of the `POST` request to `/processes` (using `Content-Type: application/json`),
+or be part of the `executionUnit` of an OGC Application Package as defined in Part 2's _OGC Application Package_
+conformance class (using `Content-Type: application/ogcapppkg+json`).
+
+NOTE: The `application/ogcapppkg+json` media type needs to be registered with IANA.
+
+==== Parameterized inputs
+
+include::../requirements/deployable-workflows/REQ_deployable-workflows_parameterized-inputs.adoc[]
+
+==== Selected outputs
+
+include::../requirements/deployable-workflows/REQ_deployable-workflows_selected-outputs.adoc[]
+
+==== Deploying workflow as process
+
+include::../requirements/deployable-workflows/REQ_deployable-workflows_deploying-workflow.adoc[]

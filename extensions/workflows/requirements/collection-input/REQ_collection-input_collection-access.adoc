@@ -1,0 +1,9 @@
+[requirement]
+====
+[%metadata]
+label:: /req/collection-input/collection-access
+description:: For executing workflow definitions referencing a collection as an input to a process:
+part:: The Implementation SHALL support accessing local collections (as defined by _OGC API - Common - Part 2: Geospatial data_) accessible using at least one OGC API data access mechanisms (e.g., _OGC API - Tiles, Coverages, DGGS, Features, EDR, Maps_) as an input to a process.
+====
+
+NOTE: For local collections, the specification is agnostic to how data flows from the collection to the process.

@@ -1,0 +1,24 @@
+[[section_openeo_workflows]]
+== OpenEO Process Graphs Workflow Conformance Class
+
+=== Requirement Class _OpenEO Process Graphs Workflow_
+
+The _OpenEO Process Graphs Workflow_ conformance class specifies the use of
+https://openeo.org/documentation/1.0/developers/api/reference.html#section/Processes/Process-Graphs[OpenEO Process Graphs] to define workflows as an alternative to an extended
+_OGC API - Processes - Part 1: Core_ execution request, to be executed in an ad-hoc manner
+(a workflow that is not first required to be deployed as a process before being executed).
+
+The capability to deploy an OpenEO workflow definition as a process using _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_
+is already covered by a conformance class of Part 2.
+
+*TODO*: Verify that an OpenEO conformance class already exists or is planned for _Part 2_.
+
+*TODO*: Verify and describe which (if any) of the other conformance classes defined in this extension applies to ad-hoc OpenEO workflows.
+
+include::../requirements/requirements_class_openeo-workflows.adoc[]
+
+The following requirements describe the ability of an implementation to execute a CWL workflow in an ad-hoc manner and return its output, without requiring a prior deployment.
+
+==== Ad-hoc OpenEO Workflow Execution
+
+include::../requirements/openeo-workflows/REQ_openeo-workflows_adhoc-openeo-execution.adoc[]

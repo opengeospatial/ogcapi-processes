@@ -1,0 +1,16 @@
+[[section_media_types]]
+== Media Types
+
+The following follow media types are referenced by this specification.
+
+* `application/json`: As with _OGC API - Processes - Part 1: Core_, used for the `Content-Type` of execution requests posted (`POST`) to `/processes/{processId}/execution`,
+  as well as to deploy workflow definitions using _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_ by posting (`POST`) to `/processes`.
+   ** A new media type (`application/ogcemoaw+json` -- Modular OGC API Workflow JSON, `application/ogcexec+json`, `application/ogcexecreq+json`?) could be registered with IANA to specifically
+      reference _OGC API - Processes_ execution requests.
+
+* `application/ogcapppkg+json`: For deploying workflows for which an execution request is embedded in the executionUnit of an OGC Application Package as defined
+  in the relevant class of _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_.
+
+* `application/cwl+json`: Common Workflow Language JSON workflow definition, for ad-hoc execution of CWL.
+
+In addition, media types referenced by other OGC specifications normatively referenced by this specification are also relevant.

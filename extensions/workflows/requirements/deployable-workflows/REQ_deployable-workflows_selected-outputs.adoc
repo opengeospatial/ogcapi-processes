@@ -1,0 +1,8 @@
+[requirement]
+====
+[%metadata]
+label:: /req/deployable-workflows/parameterized-outputs
+description:: For deploying workflow definitions defined as an execution request:
+part:: The Implementation SHALL support selecting specific outputs of processess involved in workflow definition using the `"$output"` key and a corresponding output name value as part of an output of a process.
+part:: If no "$output" key appears in a workflow definition, the Implementation SHALL assume that all outputs from the top-level process are returned, using the same name as specified in the description of that top-level process.
+====

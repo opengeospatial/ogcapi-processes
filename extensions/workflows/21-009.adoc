@@ -1,0 +1,74 @@
+= OGC API - Processes - Part 3: Workflows and Chaining
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: swg-draft
+:committee: technical
+:draft: 1.0
+:external-id: http://www.opengis.net/doc/is/ogcapi-processes-3/0.0
+:docnumber: 21-009
+:received-date: 2029-03-30
+:issued-date: 2029-03-30
+:published-date: 2029-03-30
+:fullname: Jérôme Jacovella-St-Louis
+:fullname_2: Panagiotis (Peter) A. Vretanos
+:docsubtype: implementation
+:keywords: ogcdoc, OGC document, API, openapi, html, ogcapi
+:submitting-organizations: Ecere Corporation; CubeWerx Inc.; GeoLabs; University of Calgary; Pangaea Innovations Pty. Ltd.; Natural Resources Canada; EOX IT Services GmbH; Universitat Autònoma de Barcelona (CREAF); Centre de Recherche en Informatique de Montréal (CRIM); 52°North Spatial Information Research GmbH
+:docfile: document.adoc
+:mn-document-class: ogc
+:mn-output-extensions: xml,html,doc,pdf
+:local-cache-only:
+:data-uri-image:
+:pdf-uri: ./21-009.pdf
+:xml-uri: ./21-009.xml
+:doc-uri: ./21-009.doc
+:edition: 1.0
+
+////
+Make sure to complete each included document
+////
+include::sections/clause_0_front_material.adoc[]
+
+include::sections/clause_1_scope.adoc[]
+
+include::sections/clause_2_conformance.adoc[]
+
+include::sections/clause_3_references.adoc[]
+
+include::sections/clause_4_terms_and_definitions.adoc[]
+
+include::sections/clause_5_conventions.adoc[]
+
+include::sections/clause_6_overview.adoc[]
+
+include::sections/clause_7_nested_processes.adoc[]
+
+include::sections/clause_8_collection_input.adoc[]
+
+include::sections/clause_9_input_output_fields_modifiers.adoc[]
+
+include::sections/clause_10_deployable_workflow.adoc[]
+
+include::sections/clause_11_collection_output.adoc[]
+
+include::sections/clause_12_cwl_workflows.adoc[]
+
+include::sections/clause_13_openeo_workflows.adoc[]
+
+include::sections/clause_14_media_types.adoc[]
+
+////
+add or remove annexes after "A" as necessary
+////
+include::sections/annex-a.adoc[]
+
+include::sections/annex-b-coastal-erosion.adoc[]
+
+////
+Revision History should be the last annex before the Bibliography
+Bibliography should be the last annex
+////
+include::sections/annex-history.adoc[]
+
+include::sections/annex-bibliography.adoc[]

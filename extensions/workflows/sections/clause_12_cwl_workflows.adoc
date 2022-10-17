@@ -1,0 +1,24 @@
+[[section_cwl_workflows]]
+== Common Workflow Language Definitions Conformance Class
+
+=== Requirement Class _Common Workflow Language Definitions_
+
+The _Common Workflow Language Definitions_ conformance class specifies the use of the
+https://www.commonwl.org/v1.2/Workflow.html[Common Workflow Language (CWL) Workflow Description] as an alternative to an extended
+_OGC API - Processes - Part 1: Core_ execution request to define an ad-hoc workflow
+(a workflow that is not first required to be deployed as a process before being executed).
+
+The capability to deploy a CWL workflow as a process using _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_
+is already covered by a conformance class of Part 2.
+
+*TODO*: Verify that a CWL conformance class already exists or is planned for _Part 2_.
+
+*TODO*: Verify and describe which (if any) of the other conformance classes defined in this extension applies to ad-hoc CWL workflows.
+
+include::../requirements/requirements_class_cwl-workflows.adoc[]
+
+The following requirements describe the ability of an implementation to execute a CWL workflow in an ad-hoc manner and return its output, without requiring a prior deployment.
+
+==== Ad-hoc Common Workflow Language Execution
+
+include::../requirements/cwl-workflows/REQ_cwl-workflows_adhoc-cwl-execution.adoc[]

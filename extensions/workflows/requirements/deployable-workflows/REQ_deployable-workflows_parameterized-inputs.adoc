@@ -1,0 +1,7 @@
+[requirement]
+====
+[%metadata]
+label:: /req/deployable-workflows/parameterized-inputs
+description:: For deploying workflow definitions defined as an execution request:
+part:: The Implementation SHALL support defining a parameterizable input using the `"$input"` key and a corresponding input name value as part of an input to a process.
+====

@@ -1,0 +1,9 @@
+[requirement]
+====
+[%metadata]
+label:: /req/collection-output/collection-response
+description:: For initiating the execution of a workflow and retrieving its output as an OGC API collection:
+part:: For requests generating or selecting a single output, the Implementation SHALL return a collection description document as defined in _OGC API - Common - Part 2: Geospatial data_ as a response to a request specifying a `response=collection` query parameter.
+part:: For requests generating multiple outputs which do not select a particular output, the Implementation SHALL return a 400 status error as a response to a request specifying a `response=collection` query parameter.
+part:: The returned collection description SHALL contain at least one link to at least one OGC API data access mechanism such as _OGC API - Tiles, DGGS, Coverages, Features, EDR, Maps_...
+====

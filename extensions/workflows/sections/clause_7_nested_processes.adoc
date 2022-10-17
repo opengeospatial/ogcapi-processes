@@ -1,0 +1,43 @@
+[[section_nested_processes]]
+== Nested Processes and Remote Processes Conformance Classes
+
+=== Requirement Class _Nested Processes_
+
+The _Nested Processes_ conformance class allows to use the output of a process as an input to another process.
+Unless an implementation also conforms to the _Remote Processes_ conformance class, only local processes are supported.
+
+Specifying a full process URI at the top-level for a process execution request is optional, since the execution request
+will be posted to a specific `{processId}`, but allows the workflow definition to be self-describing and reusable, enabling GIS clients to easily
+load the workflow definition as a data source, or publish it as a new virtual collection to any OGC API supporting execution requests as a content type for a `POST`
+method to `/collections`.
+
+include::../requirements/requirements_class_nested-processes.adoc[]
+
+The following requirements describe how an execution request references an OGC API process
+and how an implementation executes that process to use its output as an input to another process.
+
+==== Referencing a process
+
+include::../requirements/nested-processes/REQ_nested-processes_referenced-process.adoc[]
+
+==== Executing a nested process
+
+include::../requirements/nested-processes/REQ_nested-processes_process-execution.adoc[]
+
+=== Requirement Class _Remote Core Processes_
+
+The _Remote Core Processes_ conformance class allows to reference and execute a remote OGC API process
+using the _Core_ conformance class of _OGC API - Processes - Part 1: Core_ in addition to any local process.
+
+include::../requirements/requirements_class_remote-core-processes.adoc[]
+
+The following requirements describe how an execution request references a remote OGC API process
+and how an implementation executes that remote process to use as an input to another process.
+
+==== Referencing a remote process
+
+include::../requirements/remote-core-processes/REQ_remote-core-processes_referenced-process.adoc[]
+
+==== Executing a nested remote process
+
+include::../requirements/remote-core-processes/REQ_remote-core-processes_process-execution.adoc[]
