@@ -1,0 +1,5 @@
+allOf:
+  - type: object
+    required:
+      - process
+  - $ref: "execute-workflows.yaml"

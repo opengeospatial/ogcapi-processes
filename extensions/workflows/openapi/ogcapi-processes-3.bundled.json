@@ -180,7 +180,117 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/execute"
+                "type": "object",
+                "properties": {
+                  "process": {
+                    "type": "string",
+                    "format": "uri-reference",
+                    "description": "URI to the process execution end point (ie. /processes/{processId}/execution)"
+                  },
+                  "inputs": {
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "oneOf": [
+                            {
+                              "oneOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "integer"
+                                },
+                                {
+                                  "type": "boolean"
+                                },
+                                {
+                                  "type": "array",
+                                  "items": {}
+                                },
+                                {
+                                  "$ref": "#/components/schemas/binaryInputValue"
+                                },
+                                {
+                                  "$ref": "#/components/schemas/bbox-processes"
+                                },
+                                {
+                                  "type": "object",
+                                  "required": [
+                                    "collection"
+                                  ],
+                                  "properties": {
+                                    "collection": {
+                                      "type": "string",
+                                      "format": "uri-reference"
+                                    }
+                                  }
+                                },
+                                {
+                                  "allOf": [
+                                    {
+                                      "type": "object",
+                                      "required": [
+                                        "process"
+                                      ]
+                                    },
+                                    {
+                                      "$ref": "#/paths/~1processes~1%7BprocessId%7D~1execution/post/requestBody/content/application~1json/schema"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "allOf": [
+                                {
+                                  "$ref": "#/components/schemas/format"
+                                },
+                                {
+                                  "type": "object",
+                                  "required": [
+                                    "value"
+                                  ],
+                                  "properties": {
+                                    "value": {
+                                      "oneOf": [
+                                        {
+                                          "$ref": "#/paths/~1processes~1%7BprocessId%7D~1execution/post/requestBody/content/application~1json/schema/properties/inputs/additionalProperties/oneOf/0/oneOf/0"
+                                        },
+                                        {
+                                          "type": "object"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "$ref": "#/components/schemas/link"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/paths/~1processes~1%7BprocessId%7D~1execution/post/requestBody/content/application~1json/schema/properties/inputs/additionalProperties/oneOf/0"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "outputs": {
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/output"
+                    }
+                  },
+                  "subscriber": {
+                    "$ref": "#/components/schemas/subscriber"
+                  }
+                }
               }
             }
           }

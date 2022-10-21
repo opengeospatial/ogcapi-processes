@@ -2,11 +2,7 @@ type: object
 properties:
   inputs:
     additionalProperties:
-      oneOf:
-        - $ref: "inlineOrRefData.yaml"
-        - type: array
-          items:
-            $ref: "inlineOrRefData.yaml"
+      $ref: "input.yaml"
   outputs:
     additionalProperties:
       $ref: "output.yaml"

@@ -34,7 +34,7 @@ paths:
       $ref: 'paths/processes-core/pProcessDescription.yaml'
 
    /processes/{processId}/execution:
-      $ref: 'paths/processes-core/pExecution.yaml'
+      $ref: 'paths/processes-workflows/pExecution-workflows.yaml'
 
    # OGC API - Processes - Part 1: Core (Jobs, required for ASync execution)
    /jobs:
