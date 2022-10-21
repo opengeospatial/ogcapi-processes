@@ -9,3 +9,4 @@ oneOf:
   - $ref: "../processes-core/bbox.yaml"
   - $ref: "inputCollection.yaml"
   - $ref: "inputProcess.yaml"
+  - $ref: "inputParameterized.yaml"

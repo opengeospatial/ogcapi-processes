@@ -1,0 +1,6 @@
+type: object
+properties:
+  format:
+    $ref: "../processes-core/format.yaml"
+  "$output":
+    type: string

@@ -1,7 +1,9 @@
-type: object
-required:
-  - collection
-properties:
-  collection:
-    type: string
-    format: uri-reference
+allOf:
+ - type: object
+   required:
+     - collection
+   properties:
+     collection:
+        type: string
+        format: uri-reference
+ - $ref: fieldsModifiers.yaml

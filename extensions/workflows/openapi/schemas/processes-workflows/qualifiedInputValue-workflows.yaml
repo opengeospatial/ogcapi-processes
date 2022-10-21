@@ -1,5 +1,6 @@
 allOf:
   - $ref: "../processes-core/format.yaml"
+  - $ref: "fieldsModifiers.yaml"
   - type: object
     required:
       - value
