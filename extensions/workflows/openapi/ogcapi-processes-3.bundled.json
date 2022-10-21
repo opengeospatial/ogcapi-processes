@@ -1,0 +1,2507 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "0.1",
+    "title": "OGC API - Processes - Part 3: Workflows & Chaining",
+    "description": "Example API Definition for OGC API - Part 3: Workflows & Chaining",
+    "contact": {
+      "name": "Open Geospatial Consortium",
+      "email": "info@ogc.org"
+    },
+    "license": {
+      "name": "OGC License",
+      "url": "http://www.opengeospatial.org/legal/"
+    }
+  },
+  "servers": [
+    {
+      "description": "Example Processes - Workflows server",
+      "url": "https://maps.gnosis.earth/ogcapi"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Landing Page"
+        ],
+        "operationId": "getLandingPage",
+        "summary": "Retrieve the OGC API landing page for this service.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/f-metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/LandingPage"
+          },
+          "406": {
+            "$ref": "#/components/responses/NotAcceptable"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/conformance": {
+      "get": {
+        "tags": [
+          "Conformance"
+        ],
+        "operationId": "getConformance",
+        "summary": "Retrieve the set of OGC API conformance classes that are supported by this service.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/f-metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Conformance"
+          },
+          "406": {
+            "$ref": "#/components/responses/NotAcceptable"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/api": {
+      "get": {
+        "tags": [
+          "API"
+        ],
+        "operationId": "getAPI",
+        "summary": "Retrieve this API definition.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/f-metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/API"
+          },
+          "406": {
+            "$ref": "#/components/responses/NotAcceptable"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/api/processes-list": {
+      "get": {
+        "tags": [
+          "API"
+        ],
+        "operationId": "getAPIProcesses",
+        "summary": "Retrieve the list of processes available from this API implementation & deployment.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/f-metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Enumeration"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "406": {
+            "$ref": "#/components/responses/NotAcceptable"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/processes": {
+      "get": {
+        "summary": "retrieve the list of available processes",
+        "description": "The list of processes contains a summary of each process the OGC API - Processes offers, including the link to a more detailed description of the process.\n\nFor more information, see [Section 7.7]https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_process_list).\n",
+        "operationId": "getProcesses",
+        "tags": [
+          "Processes"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ProcessList"
+          }
+        }
+      }
+    },
+    "/processes/{processId}": {
+      "get": {
+        "summary": "retrieve a process description",
+        "description": "The process description contains information about inputs and outputs and a link to the execution-endpoint for the process. The Core does not mandate the use of a specific process description to specify the interface of a process. That said, the Core requirements class makes the following recommendation:\n\nImplementations SHOULD consider supporting the OGC process description.\n\nFor more information, see [Section 7.8](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_process_description).\n",
+        "operationId": "getProcessDescription",
+        "tags": [
+          "Processes"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/processId-path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ProcessDescription"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/processes/{processId}/execution": {
+      "post": {
+        "summary": "execute a process.",
+        "description": "Create a new job.\n\nFor more information, see [Section 7.9](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_create_job).\n",
+        "operationId": "execute",
+        "tags": [
+          "Processes"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/processId-path"
+          }
+        ],
+        "requestBody": {
+          "description": "Mandatory execute request JSON",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/execute"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ExecuteSync"
+          },
+          "201": {
+            "$ref": "#/components/responses/ExecuteAsync"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        },
+        "callbacks": {
+          "jobCompleted": {
+            "{$request.body#/subscriber/successUri}": {
+              "post": {
+                "requestBody": {
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/results"
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "Results received successfully"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jobs": {
+      "get": {
+        "summary": "retrieve the list of jobs.",
+        "description": "Lists available jobs.\n\nFor more information, see [Section 12](https://docs.ogc.org/is/18-062r2/18-062r2.html#Job_list).\n",
+        "operationId": "getJobs",
+        "tags": [
+          "Jobs"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/JobList"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/jobs/{jobId}": {
+      "get": {
+        "summary": "retrieve the status of a job",
+        "description": "Shows the status of a job.\n\n For more information, see [Section 7.10](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_retrieve_status_info).\n",
+        "operationId": "getStatus",
+        "tags": [
+          "Jobs"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/jobId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Status"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      },
+      "delete": {
+        "summary": "cancel a job execution, remove a finished job",
+        "description": "Cancel a job execution and remove it from the jobs list.\n\nFor more information, see [Section 14]https://docs.ogc.org/is/18-062r2/18-062r2.html#Dismiss).\n",
+        "operationId": "dismiss",
+        "tags": [
+          "Jobs"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/jobId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Status"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/jobs/{jobId}/results": {
+      "get": {
+        "summary": "retrieve the result(s) of a job",
+        "description": "Lists available results of a job. In case of a failure, lists exceptions instead.\n\nFor more information, see [Section 7.11](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_retrieve_job_results).\n",
+        "operationId": "getResult",
+        "tags": [
+          "Jobs"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/jobId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Results"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "confClasses": {
+        "type": "object",
+        "required": [
+          "conformsTo"
+        ],
+        "properties": {
+          "conformsTo": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core"
+            }
+          }
+        }
+      },
+      "link": {
+        "type": "object",
+        "required": [
+          "href"
+        ],
+        "properties": {
+          "href": {
+            "type": "string"
+          },
+          "rel": {
+            "type": "string",
+            "example": "service"
+          },
+          "type": {
+            "type": "string",
+            "example": "application/json"
+          },
+          "hreflang": {
+            "type": "string",
+            "example": "en"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "landingPage": {
+        "type": "object",
+        "required": [
+          "links"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "Example processing server"
+          },
+          "description": {
+            "type": "string",
+            "example": "Example server implementing the OGC API - Processes 1.0 Standard"
+          },
+          "attribution": {
+            "type": "string",
+            "title": "attribution for the API",
+            "description": "The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup."
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/link"
+            }
+          }
+        }
+      },
+      "exception": {
+        "title": "Exception Schema",
+        "description": "JSON schema for exceptions based on RFC 7807",
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      },
+      "collections": {
+        "type": "object",
+        "required": [
+          "links",
+          "collections"
+        ],
+        "properties": {
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/link"
+            }
+          },
+          "timeStamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "numberMatched": {
+            "type": "integer",
+            "minimum": 0,
+            "example": 1
+          },
+          "numberReturned": {
+            "type": "integer",
+            "minimum": 0,
+            "example": 1
+          },
+          "collections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/collectionInfo"
+            }
+          }
+        }
+      },
+      "collectionInfo": {
+        "type": "object",
+        "required": [
+          "id",
+          "links"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "identifier of the collection used, for example, in URIs",
+            "example": "dem"
+          },
+          "title": {
+            "type": "string",
+            "description": "human readable title of the collection",
+            "example": "Digital Elevation Model"
+          },
+          "description": {
+            "type": "string",
+            "description": "a description of the data in the collection",
+            "example": "A Digital Elevation Model."
+          },
+          "links": {
+            "type": "array",
+            "example": [
+              {
+                "href": "http://data.example.org/collections/dem?f=json",
+                "rel": "self",
+                "type": "application/json",
+                "title": "Digital Elevation Model"
+              },
+              {
+                "href": "http://data.example.org/collections/dem?f=html",
+                "rel": "alternate",
+                "type": "application/json",
+                "title": "Digital Elevation Model"
+              },
+              {
+                "href": "http://data.example.org/collections/dem/coverage",
+                "rel": "coverage",
+                "type": "image/tiff; application=geotiff",
+                "title": "Digital Elevation Model"
+              },
+              {
+                "href": "http://data.example.org/collections/dem/coverage/domainset",
+                "rel": "domainset",
+                "type": "application/json",
+                "title": "Digital Elevation Model"
+              },
+              {
+                "href": "http://data.example.org/collections/dem/coverage/rangetype",
+                "rel": "rangetype",
+                "type": "application/json",
+                "title": "Digital Elevation Model"
+              },
+              {
+                "href": "http://data.example.org/collections/dem/coverage/metadata",
+                "rel": "metadata",
+                "type": "application/json",
+                "title": "Digital Elevation Model"
+              }
+            ],
+            "items": {
+              "$ref": "#/components/schemas/link"
+            }
+          },
+          "extent": {
+            "$ref": "#/components/schemas/extent-uad"
+          },
+          "itemType": {
+            "description": "indicator about the type of the items in the collection if the collection has an accessible /collections/{collectionId}/items endpoint",
+            "type": "string",
+            "default": "unknown"
+          },
+          "crs": {
+            "description": "the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+            ],
+            "example": [
+              "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+              "http://www.opengis.net/def/crs/EPSG/0/4326"
+            ]
+          },
+          "dataType": {
+            "allOf": [
+              {
+                "description": "Type of data represented in the collection"
+              },
+              {
+                "$ref": "#/components/schemas/dataType"
+              }
+            ]
+          },
+          "geometryDimension": {
+            "description": "The geometry dimension of the features shown in this layer (0: points, 1: curves, 2: surfaces, 3: solids), unspecified: mixed or unknown",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          },
+          "minScaleDenominator": {
+            "description": "Minimum scale denominator for usage of the collection",
+            "type": "number"
+          },
+          "maxScaleDenominator": {
+            "description": "Maximum scale denominator for usage of the collection",
+            "type": "number"
+          },
+          "minCellSize": {
+            "description": "Minimum cell size for usage of the collection",
+            "type": "number"
+          },
+          "maxCellSize": {
+            "description": "Maximum cell size for usage of the collection",
+            "type": "number"
+          }
+        }
+      },
+      "extent": {
+        "description": "The extent of the data in the collection. In the Core only spatial and temporal\nextents are specified. Extensions may add additional members to represent other\nextents, for example, thermal or pressure ranges.\n\nThe first item in the array describes the overall extent of\nthe data. All subsequent items describe more precise extents,\ne.g., to identify clusters of data.\nClients only interested in the overall extent will only need to\naccess the first item in each array.",
+        "type": "object",
+        "properties": {
+          "spatial": {
+            "description": "The spatial extent of the data in the collection.",
+            "type": "object",
+            "properties": {
+              "bbox": {
+                "description": "One or more bounding boxes that describe the spatial extent of the dataset.\nIn the Core only a single bounding box is supported.\n\nExtensions may support additional areas.\nThe first bounding box describes the overall spatial\nextent of the data. All subsequent bounding boxes describe\nmore precise bounding boxes, e.g., to identify clusters of data.\nClients only interested in the overall spatial extent will\nonly need to access the first item in each array.",
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "description": "Each bounding box is provided as four or six numbers, depending on\nwhether the coordinate reference system includes a vertical axis\n(height or depth):\n\n* Lower left corner, coordinate axis 1\n* Lower left corner, coordinate axis 2\n* Minimum value, coordinate axis 3 (optional)\n* Upper right corner, coordinate axis 1\n* Upper right corner, coordinate axis 2\n* Maximum value, coordinate axis 3 (optional)\n\nIf the value consists of four numbers, the coordinate reference system is\nWGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)\nunless a different coordinate reference system is specified in a parameter `bbox-crs`.\n\nIf the value consists of six numbers, the coordinate reference system is WGS 84\nlongitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h)\nunless a different coordinate reference system is specified in a parameter `bbox-crs`.\n\nFor WGS 84 longitude/latitude the values are in most cases the sequence of\nminimum longitude, minimum latitude, maximum longitude and maximum latitude.\nHowever, in cases where the box spans the antimeridian the first value\n(west-most box edge) is larger than the third value (east-most box edge).\n\nIf the vertical axis is included, the third and the sixth number are\nthe bottom and the top of the 3-dimensional bounding box.\n\nIf a feature has multiple spatial geometry properties, it is the decision of the\nserver whether only a single spatial geometry property is used to determine\nthe extent or all relevant geometries.",
+                  "type": "array",
+                  "oneOf": [
+                    {
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    {
+                      "minItems": 6,
+                      "maxItems": 6
+                    }
+                  ],
+                  "items": {
+                    "type": "number"
+                  },
+                  "example": [
+                    -180,
+                    -90,
+                    180,
+                    90
+                  ]
+                }
+              },
+              "crs": {
+                "description": "Coordinate reference system of the coordinates in the spatial extent\n(property `bbox`). The default reference system is WGS 84 longitude/latitude.\nIn the Core the only other supported coordinate reference system is\nWGS 84 longitude/latitude/ellipsoidal height for coordinates with height.\nExtensions may support additional coordinate reference systems and add\nadditional enum values.",
+                "type": "string",
+                "enum": [
+                  "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+                  "http://www.opengis.net/def/crs/OGC/0/CRS84h"
+                ],
+                "default": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+              },
+              "grid": {
+                "description": "Provides information about the limited availability of data within the collection organized\nas a grid (regular or irregular) along each spatial dimension.",
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "coordinates": {
+                      "description": "List of coordinates along the dimension for which data organized as an irregular grid in the collection is available\n(e.g., 2, 10, 80, 100).",
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      },
+                      "example": [
+                        2,
+                        10,
+                        80,
+                        100
+                      ]
+                    },
+                    "cellsCount": {
+                      "description": "Number of samples available along the dimension for data organized as a regular grid.\nFor values representing the whole area of contiguous cells spanning _resolution_ units along the dimension, this will be (_upperBound_ - _lowerBound_) / _resolution_.\nFor values representing infinitely small point cells spaced by _resolution_ units along the dimension, this will be (_upperBound_ - _lowerBound_) / _resolution_ + 1.",
+                      "type": "integer",
+                      "example": 50
+                    },
+                    "resolution": {
+                      "description": "Resolution of regularly gridded data along the dimension in the collection",
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ],
+                      "example": 0.0006866455078
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "temporal": {
+            "description": "The temporal extent of the features in the collection.",
+            "type": "object",
+            "properties": {
+              "interval": {
+                "description": "One or more time intervals that describe the temporal extent of the dataset.\nIn the Core only a single time interval is supported.\n\nExtensions may support multiple intervals.\nThe first time interval describes the overall\ntemporal extent of the data. All subsequent time intervals describe\nmore precise time intervals, e.g., to identify clusters of data.\nClients only interested in the overall extent will only need\nto access the first item in each array.",
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "description": "Begin and end times of the time interval. The timestamps are in the\ntemporal coordinate reference system specified in `trs`. By default\nthis is the Gregorian calendar.\n\nThe value `null` for start or end time is supported and indicates a half-bounded time interval.",
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "example": [
+                    "2011-11-11T12:22:11Z",
+                    null
+                  ]
+                }
+              },
+              "trs": {
+                "description": "Coordinate reference system of the coordinates in the temporal extent\n(property `interval`). The default reference system is the Gregorian calendar.\nIn the Core this is the only supported temporal coordinate reference system.\nExtensions may support additional temporal coordinate reference systems and add\nadditional enum values.",
+                "type": "string",
+                "enum": [
+                  "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+                ],
+                "default": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+              },
+              "grid": {
+                "type": "object",
+                "description": "Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the temporal dimension.",
+                "properties": {
+                  "coordinates": {
+                    "description": "List of coordinates along the temporal dimension for which data organized as an irregular grid in the collection is available\n(e.g., \"2017-11-14T09:00Z\",\"2017-11-14T12:00Z\",\"2017-11-14T15:00Z\",\"2017-11-14T18:00Z\",\"2017-11-14T21:00Z\").",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "example": [
+                      [
+                        "2020-11-12T12:15Z",
+                        "2020-11-12T12:30Z",
+                        "2020-11-12T12:45Z"
+                      ]
+                    ]
+                  },
+                  "cellsCount": {
+                    "description": "Number of samples available along the temporal dimension for data organized as a regular grid.\nFor values representing the whole area of contiguous cells spanning _resolution_ units along the dimension, this will be (_upperBound_ - _lowerBound_) / _resolution_.\nFor values representing infinitely small point cells spaced by _resolution_ units along the dimension, this will be (_upperBound_ - _lowerBound_) / _resolution_ + 1.",
+                    "type": "integer",
+                    "example": 50
+                  },
+                  "resolution": {
+                    "description": "Resolution of regularly gridded data along the temporal dimension in the collection",
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ],
+                    "example": "PT1H"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "extent-uad": {
+        "title": "Extent with Uniform Additional Dimensions Schema",
+        "description": "The extent module only addresses spatial and temporal extents. This module extends extent by specifying how\nintervals and crs properties can be used to specify additional geometries.",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/extent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": {
+              "description": "The domain intervals for any additional dimensions of the extent (envelope) beyond those described in temporal and spatial.",
+              "type": "object",
+              "oneOf": [
+                {
+                  "required": [
+                    "interval",
+                    "crs"
+                  ]
+                },
+                {
+                  "required": [
+                    "interval",
+                    "trs"
+                  ]
+                },
+                {
+                  "required": [
+                    "interval",
+                    "vrs"
+                  ]
+                }
+              ],
+              "properties": {
+                "interval": {
+                  "description": "One or more intervals that describe the extent for this dimension of the dataset.\nThe value `null` is supported and indicates an unbounded or half-bounded interval.\nThe first interval describes the overall extent of the data for this dimension.\nAll subsequent intervals describe more precise intervals, e.g., to identify clusters of data.\nClients only interested in the overall extent will only need\nto access the first item (a pair of lower and upper bound values).",
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "description": "Lower and upper bound values of the interval. The values\nare in the coordinate reference system specified in `crs`, `trs` or `vrs`.",
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
+                    },
+                    "example": [
+                      "2011-11-11T12:22:11Z",
+                      32.5,
+                      null
+                    ]
+                  }
+                },
+                "crs": {
+                  "type": "string",
+                  "description": "generic coordinate reference system suitable for any type of dimensions"
+                },
+                "trs": {
+                  "type": "string",
+                  "description": "temporal coordinate reference system (e.g. as defined by Features for 'temporal')"
+                },
+                "vrs": {
+                  "type": "string",
+                  "description": "vertical coordinate reference system (e.g. as defined in EDR for 'vertical')"
+                },
+                "grid": {
+                  "type": "object",
+                  "description": "Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the dimension.",
+                  "properties": {
+                    "coordinates": {
+                      "description": "List of coordinates along the temporal dimension for which data organized as an irregular grid in the collection is available\n(e.g., 2, 10, 80, 100).",
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      },
+                      "example": [
+                        2,
+                        10,
+                        80,
+                        100
+                      ]
+                    },
+                    "cellsCount": {
+                      "description": "Number of samples available along the dimension for data organized as a regular grid.\nFor values representing the whole area of contiguous cells spanning _resolution_ units along the dimension, this will be (_upperBound_ - _lowerBound_) / _resolution_.\nFor values representing infinitely small point cells spaced by _resolution_ units along the dimension, this will be (_upperBound_ - _lowerBound_) / _resolution_ + 1.",
+                      "type": "integer",
+                      "example": 50
+                    },
+                    "resolution": {
+                      "description": "Resolution of regularly gridded data along the dimension in the collection",
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ],
+                      "example": [
+                        "PT1H",
+                        0.0006866455078
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "crs": {
+        "title": "CRS",
+        "oneOf": [
+          {
+            "description": "Simplification of the object into a url if the other properties are not present",
+            "type": "string"
+          },
+          {
+            "type": "object",
+            "oneOf": [
+              {
+                "required": [
+                  "uri"
+                ],
+                "properties": {
+                  "uri": {
+                    "description": "Reference to one coordinate reference system (CRS)",
+                    "type": "string",
+                    "format": "uri"
+                  }
+                }
+              },
+              {
+                "required": [
+                  "wkt"
+                ],
+                "properties": {
+                  "wkt": {
+                    "allOf": [
+                      {
+                        "description": "An object defining the CRS using the JSON encoding for Well-known text representation of coordinate reference systems 2.0"
+                      },
+                      {
+                        "type": "object"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "required": [
+                  "referenceSystem"
+                ],
+                "properties": {
+                  "referenceSystem": {
+                    "description": "A reference system data structure as defined in the MD_ReferenceSystem of the ISO 19115",
+                    "type": "object"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "dataType": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "map",
+              "vector",
+              "coverage"
+            ]
+          }
+        ]
+      },
+      "timeStamp": {
+        "description": "This property indicates the time and date when the response was generated using RFC 3339 notation.",
+        "type": "string",
+        "format": "date-time",
+        "example": "2017-08-17T08:05:32Z"
+      },
+      "numberReturned": {
+        "description": "The number of features in the feature collection.\nA server may omit this information in a response, if the information\nabout the number of features is not known or difficult to compute.\nIf the value is provided, the value shall be identical to the number\nof items in the \"features\" array.",
+        "type": "integer",
+        "minimum": 0,
+        "example": 10
+      },
+      "numberMatched": {
+        "description": "The number of features of the feature type that match the selection\nparameters like `bbox`.",
+        "type": "integer",
+        "minimum": 0,
+        "example": 127
+      },
+      "enumeration": {
+        "type": "object",
+        "required": [
+          "type",
+          "enum"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "enum"
+            ]
+          },
+          "enum": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "processes-list": {
+        "type": "string",
+        "enum": [
+          "RenderMap",
+          "ElevationContours",
+          "OSMERE"
+        ]
+      },
+      "processSummary": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/descriptionType"
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "version"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              },
+              "jobControlOptions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/jobControlOptions"
+                }
+              },
+              "outputTransmission": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/transmissionMode"
+                }
+              },
+              "links": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/link"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "process": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/processSummary"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "inputs": {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/inputDescription"
+                }
+              },
+              "outputs": {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/outputDescription"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "processList": {
+        "type": "object",
+        "required": [
+          "processes",
+          "links"
+        ],
+        "properties": {
+          "processes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/processSummary"
+            }
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/link"
+            }
+          }
+        }
+      },
+      "jobList": {
+        "type": "object",
+        "required": [
+          "jobs",
+          "links"
+        ],
+        "properties": {
+          "jobs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/statusInfo"
+            }
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/link"
+            }
+          }
+        }
+      },
+      "additionalParameter": {
+        "type": "object",
+        "required": [
+          "name",
+          "value"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "array",
+                  "items": {}
+                },
+                {
+                  "type": "object"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "bbox-processes": {
+        "type": "object",
+        "required": [
+          "bbox"
+        ],
+        "properties": {
+          "bbox": {
+            "type": "array",
+            "oneOf": [
+              {
+                "minItems": 4,
+                "maxItems": 4
+              },
+              {
+                "minItems": 6,
+                "maxItems": 6
+              }
+            ],
+            "items": {
+              "type": "number"
+            }
+          },
+          "crs": {
+            "type": "string",
+            "format": "uri",
+            "default": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+            "enum": [
+              "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+              "http://www.opengis.net/def/crs/OGC/0/CRS84h"
+            ]
+          }
+        }
+      },
+      "descriptionType": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/metadata"
+            }
+          },
+          "additionalParameters": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/metadata"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "parameters": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/additionalParameter"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "binaryInputValue": {
+        "type": "string",
+        "format": "byte"
+      },
+      "execute": {
+        "type": "object",
+        "properties": {
+          "inputs": {
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/inlineOrRefData"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/inlineOrRefData"
+                  }
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/output"
+            }
+          },
+          "subscriber": {
+            "$ref": "#/components/schemas/subscriber"
+          }
+        }
+      },
+      "format": {
+        "type": "object",
+        "properties": {
+          "mediaType": {
+            "type": "string"
+          },
+          "encoding": {
+            "type": "string"
+          },
+          "schema": {
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "url"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        }
+      },
+      "inputDescription": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/descriptionType"
+          },
+          {
+            "type": "object",
+            "required": [
+              "schema"
+            ],
+            "properties": {
+              "minOccurs": {
+                "type": "integer",
+                "default": 1
+              },
+              "maxOccurs": {
+                "oneOf": [
+                  {
+                    "type": "integer",
+                    "default": 1
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "unbounded"
+                    ]
+                  }
+                ]
+              },
+              "schema": {
+                "$ref": "#/components/schemas/schema"
+              }
+            }
+          }
+        ]
+      },
+      "inputValue": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/inputValueNoObject"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "inputValueNoObject": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "array",
+            "items": {}
+          },
+          {
+            "$ref": "#/components/schemas/binaryInputValue"
+          },
+          {
+            "$ref": "#/components/schemas/bbox-processes"
+          }
+        ]
+      },
+      "jobControlOptions": {
+        "type": "string",
+        "enum": [
+          "sync-execute",
+          "async-execute",
+          "dismiss"
+        ]
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "$ref": "#/components/schemas/format"
+          }
+        }
+      },
+      "outputDescription": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/descriptionType"
+          },
+          {
+            "type": "object",
+            "required": [
+              "schema"
+            ],
+            "properties": {
+              "schema": {
+                "$ref": "#/components/schemas/schema"
+              }
+            }
+          }
+        ]
+      },
+      "qualifiedInputValue": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/format"
+          },
+          {
+            "type": "object",
+            "required": [
+              "value"
+            ],
+            "properties": {
+              "value": {
+                "$ref": "#/components/schemas/inputValue"
+              }
+            }
+          }
+        ]
+      },
+      "reference": {
+        "type": "object",
+        "required": [
+          "$ref"
+        ],
+        "properties": {
+          "$ref": {
+            "type": "string",
+            "format": "uri-reference"
+          }
+        }
+      },
+      "results": {
+        "additionalProperties": {
+          "$ref": "#/components/schemas/inlineOrRefData"
+        }
+      },
+      "schema": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/reference"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "multipleOf": {
+                "type": "number",
+                "minimum": 0,
+                "exclusiveMinimum": true
+              },
+              "maximum": {
+                "type": "number"
+              },
+              "exclusiveMaximum": {
+                "type": "boolean",
+                "default": false
+              },
+              "minimum": {
+                "type": "number"
+              },
+              "exclusiveMinimum": {
+                "type": "boolean",
+                "default": false
+              },
+              "maxLength": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minLength": {
+                "type": "integer",
+                "minimum": 0,
+                "default": 0
+              },
+              "pattern": {
+                "type": "string",
+                "format": "regex"
+              },
+              "maxItems": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minItems": {
+                "type": "integer",
+                "minimum": 0,
+                "default": 0
+              },
+              "uniqueItems": {
+                "type": "boolean",
+                "default": false
+              },
+              "maxProperties": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minProperties": {
+                "type": "integer",
+                "minimum": 0,
+                "default": 0
+              },
+              "required": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "enum": {
+                "type": "array",
+                "items": {},
+                "minItems": 1,
+                "uniqueItems": false
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "array",
+                  "boolean",
+                  "integer",
+                  "number",
+                  "object",
+                  "string"
+                ]
+              },
+              "not": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/reference"
+                  }
+                ]
+              },
+              "allOf": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/reference"
+                    }
+                  ]
+                }
+              },
+              "oneOf": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/reference"
+                    }
+                  ]
+                }
+              },
+              "anyOf": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/reference"
+                    }
+                  ]
+                }
+              },
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/reference"
+                  }
+                ]
+              },
+              "properties": {
+                "type": "object",
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/reference"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/reference"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ],
+                "default": true
+              },
+              "description": {
+                "type": "string"
+              },
+              "format": {
+                "type": "string"
+              },
+              "default": {},
+              "nullable": {
+                "type": "boolean",
+                "default": false
+              },
+              "readOnly": {
+                "type": "boolean",
+                "default": false
+              },
+              "writeOnly": {
+                "type": "boolean",
+                "default": false
+              },
+              "example": {},
+              "deprecated": {
+                "type": "boolean",
+                "default": false
+              },
+              "contentMediaType": {
+                "type": "string"
+              },
+              "contentEncoding": {
+                "type": "string"
+              },
+              "contentSchema": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "statusCode": {
+        "type": "string",
+        "nullable": false,
+        "enum": [
+          "accepted",
+          "running",
+          "successful",
+          "failed",
+          "dismissed"
+        ]
+      },
+      "subscriber": {
+        "description": "Optional URIs for callbacks for this job.\n\nSupport for this parameter is not required and the parameter may be\nremoved from the API definition, if conformance class **'callback'**\nis not listed in the conformance declaration under `/conformance`.",
+        "type": "object",
+        "required": [
+          "successUrl"
+        ],
+        "properties": {
+          "successUri": {
+            "type": "string",
+            "format": "uri"
+          },
+          "inProgressUri": {
+            "type": "string",
+            "format": "uri"
+          },
+          "failedUri": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "transmissionMode": {
+        "type": "string",
+        "enum": [
+          "value",
+          "reference"
+        ],
+        "default": "value"
+      },
+      "inlineOrRefData": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/inputValueNoObject"
+          },
+          {
+            "$ref": "#/components/schemas/qualifiedInputValue"
+          },
+          {
+            "$ref": "#/components/schemas/link"
+          }
+        ]
+      },
+      "statusInfo": {
+        "type": "object",
+        "required": [
+          "jobID",
+          "status",
+          "type"
+        ],
+        "properties": {
+          "processID": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "process"
+            ]
+          },
+          "jobID": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/statusCode"
+          },
+          "message": {
+            "type": "string"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "started": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "finished": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "progress": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/link"
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "f-metadata": {
+        "name": "f",
+        "in": "query",
+        "description": "The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "json",
+            "html"
+          ]
+        },
+        "style": "form",
+        "explode": false
+      },
+      "datetime": {
+        "name": "datetime",
+        "in": "query",
+        "description": "Either a date-time or an interval, half-bounded or bounded. Date and time expressions\nadhere to RFC 3339. Half-bounded intervals are expressed using double-dots.\n\nExamples:\n\n* A date-time: \"2018-02-12T23:20:50Z\"\n* A bounded interval: \"2018-02-12T00:00:00Z/2018-03-18T12:31:12Z\"\n* Half-bounded intervals: \"2018-02-12T00:00:00Z/..\" or \"../2018-03-18T12:31:12Z\"\n\nOnly features that have a temporal property that intersects the value of\n`datetime` are selected.\n\nIf a feature has multiple temporal properties, it is the decision of the\nserver whether only a single temporal property is used to determine\nthe extent or all relevant temporal properties.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": false
+      },
+      "crs": {
+        "name": "crs",
+        "in": "query",
+        "description": "reproject the output to the given crs",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "subset-crs": {
+        "name": "subset-crs",
+        "in": "query",
+        "description": "crs for the specified subset",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "processId-path": {
+        "name": "processId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/processes-list"
+        }
+      },
+      "outputId": {
+        "name": "outputID",
+        "in": "path",
+        "description": "identifier of an output",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "jobId": {
+        "name": "jobId",
+        "in": "path",
+        "description": "local identifier of a job",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "processId-query": {
+        "name": "processID",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "name": "output",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "object",
+          "required": [
+            "output"
+          ],
+          "properties": {
+            "output": {
+              "type": "string"
+            },
+            "mediaType": {
+              "type": "string"
+            },
+            "encoding": {
+              "type": "string"
+            },
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "format": "url"
+                },
+                {
+                  "type": "object"
+                }
+              ]
+            }
+          }
+        },
+        "explode": false
+      },
+      "limit": {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000,
+          "default": 10
+        }
+      },
+      "type": {
+        "name": "type",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "process"
+            ]
+          }
+        }
+      },
+      "status": {
+        "name": "status",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/statusCode"
+          }
+        }
+      },
+      "minDuration": {
+        "name": "minDuration",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "maxDuration": {
+        "name": "maxDuration",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "responses": {
+      "NotFound": {
+        "description": "The requested resource does not exist on the server. For example, a path parameter had an incorrect value.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "NotAcceptable": {
+        "description": "Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ServerError": {
+        "description": "A server error occurred.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "InvalidParameter": {
+        "description": "A query parameter has an invalid value.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "NotAllowed": {
+        "description": "The method is not allowed at the path.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Exception": {
+        "description": "An error occured.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "LandingPage": {
+        "description": "The landing page provides links to the API definition (link relation `service-desc`, in this case path `/api`),\nto the Conformance declaration (path `/conformance`, link relation `http://www.opengis.net/def/rel/ogc/1.0/conformance`), and to other resources.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/landingPage"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Conformance": {
+        "description": "The URIs of all conformance classes supported by the server\n\nTo support \"generic\" clients that want to access multiple\nOGC API - Processes implementations - and not \"just\" a specific\nAPI / server, the server declares the conformance\nclasses it implements and conforms to.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/confClasses"
+                }
+              ],
+              "example": {
+                "conformsTo": [
+                  "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core",
+                  "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json",
+                  "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html",
+                  "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas30",
+                  "http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections",
+                  "http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core",
+                  "http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/nested-processes",
+                  "http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/remote-core-processes",
+                  "http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/collection-input",
+                  "http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/remote-collections",
+                  "http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/input-fields-modifiers",
+                  "http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/output-fields-modifiers",
+                  "http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/deployable-workflows",
+                  "http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/collection-output",
+                  "http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/cwl-workflows",
+                  "http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/openeo-workflows",
+                  "http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/core",
+                  "http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tileset",
+                  "http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tilesets-list",
+                  "http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geodata-tilesets",
+                  "http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/dataset-tilesets",
+                  "http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geodata-selection",
+                  "http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/jpeg",
+                  "http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/png",
+                  "http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/mvt",
+                  "http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geojson",
+                  "http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tiff",
+                  "http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/netcdf"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "API": {
+        "description": "The OpenAPI definition of the API.",
+        "content": {
+          "application/vnd.oai.openapi+json;version=3.0": {
+            "schema": {
+              "type": "object"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Enumeration": {
+        "description": "An enumerated list of valid string values for API parameters.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/enumeration"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ProcessList": {
+        "description": "Information about the available processes",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/processList"
+            }
+          }
+        }
+      },
+      "ProcessDescription": {
+        "description": "A process description.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/process"
+            }
+          }
+        }
+      },
+      "Results": {
+        "description": "The processing results of a job.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/results"
+            }
+          }
+        }
+      },
+      "Status": {
+        "description": "The status of a job.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/statusInfo"
+            }
+          }
+        }
+      },
+      "JobList": {
+        "description": "A list of jobs for this process.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/jobList"
+            }
+          }
+        }
+      },
+      "ExecuteAsync": {
+        "description": "Started asynchronous execution. Created job.",
+        "headers": {
+          "Location": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "URL to check the status of the execution/job."
+          },
+          "Preference-Applied": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "The preference applied to execute the process asynchronously (see. RFC 2740)."
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/statusInfo"
+            }
+          }
+        }
+      },
+      "ExecuteSync": {
+        "description": "Result of synchronous execution",
+        "content": {
+          "application/json": {
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "object",
+                  "nullable": true
+                },
+                {
+                  "type": "array",
+                  "items": {}
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string",
+                  "format": "binary"
+                },
+                {
+                  "$ref": "#/components/schemas/results"
+                }
+              ]
+            }
+          },
+          "image/png": {
+            "schema": {
+              "type": "string",
+              "format": "binary"
+            }
+          },
+          "image/jpeg": {
+            "schema": {
+              "type": "string",
+              "format": "binary"
+            }
+          },
+          "image/tiff; application=geotiff": {
+            "schema": {
+              "type": "string",
+              "format": "binary"
+            }
+          },
+          "application/geo+json": {
+            "schema": {
+              "allOf": [
+                {
+                  "format": "geojson-feature-collection"
+                },
+                {
+                  "title": "GeoJSON FeatureCollection",
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "features"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "FeatureCollection"
+                      ]
+                    },
+                    "features": {
+                      "type": "array",
+                      "items": {
+                        "title": "GeoJSON Feature",
+                        "type": "object",
+                        "required": [
+                          "type",
+                          "properties",
+                          "geometry"
+                        ],
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "Feature"
+                            ]
+                          },
+                          "id": {
+                            "oneOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          "properties": {
+                            "type": "object",
+                            "nullable": true
+                          },
+                          "geometry": {
+                            "oneOf": [
+                              {
+                                "title": "GeoJSON Point",
+                                "type": "object",
+                                "nullable": true,
+                                "required": [
+                                  "type",
+                                  "coordinates"
+                                ],
+                                "properties": {
+                                  "type": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Point"
+                                    ]
+                                  },
+                                  "coordinates": {
+                                    "type": "array",
+                                    "minItems": 2,
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "bbox": {
+                                    "type": "array",
+                                    "minItems": 4,
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "title": "GeoJSON LineString",
+                                "type": "object",
+                                "required": [
+                                  "type",
+                                  "coordinates"
+                                ],
+                                "properties": {
+                                  "type": {
+                                    "type": "string",
+                                    "enum": [
+                                      "LineString"
+                                    ]
+                                  },
+                                  "coordinates": {
+                                    "type": "array",
+                                    "minItems": 2,
+                                    "items": {
+                                      "type": "array",
+                                      "minItems": 2,
+                                      "items": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  },
+                                  "bbox": {
+                                    "type": "array",
+                                    "minItems": 4,
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "title": "GeoJSON Polygon",
+                                "type": "object",
+                                "required": [
+                                  "type",
+                                  "coordinates"
+                                ],
+                                "properties": {
+                                  "type": {
+                                    "type": "string",
+                                    "enum": [
+                                      "Polygon"
+                                    ]
+                                  },
+                                  "coordinates": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "array",
+                                      "minItems": 4,
+                                      "items": {
+                                        "type": "array",
+                                        "minItems": 2,
+                                        "items": {
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "bbox": {
+                                    "type": "array",
+                                    "minItems": 4,
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "title": "GeoJSON MultiPoint",
+                                "type": "object",
+                                "required": [
+                                  "type",
+                                  "coordinates"
+                                ],
+                                "properties": {
+                                  "type": {
+                                    "type": "string",
+                                    "enum": [
+                                      "MultiPoint"
+                                    ]
+                                  },
+                                  "coordinates": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "array",
+                                      "minItems": 2,
+                                      "items": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  },
+                                  "bbox": {
+                                    "type": "array",
+                                    "minItems": 4,
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "title": "GeoJSON MultiLineString",
+                                "type": "object",
+                                "required": [
+                                  "type",
+                                  "coordinates"
+                                ],
+                                "properties": {
+                                  "type": {
+                                    "type": "string",
+                                    "enum": [
+                                      "MultiLineString"
+                                    ]
+                                  },
+                                  "coordinates": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "array",
+                                      "minItems": 2,
+                                      "items": {
+                                        "type": "array",
+                                        "minItems": 2,
+                                        "items": {
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "bbox": {
+                                    "type": "array",
+                                    "minItems": 4,
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "title": "GeoJSON MultiPolygon",
+                                "type": "object",
+                                "required": [
+                                  "type",
+                                  "coordinates"
+                                ],
+                                "properties": {
+                                  "type": {
+                                    "type": "string",
+                                    "enum": [
+                                      "MultiPolygon"
+                                    ]
+                                  },
+                                  "coordinates": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "minItems": 4,
+                                        "items": {
+                                          "type": "array",
+                                          "minItems": 2,
+                                          "items": {
+                                            "type": "number"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "bbox": {
+                                    "type": "array",
+                                    "minItems": 4,
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          "bbox": {
+                            "type": "array",
+                            "minItems": 4,
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "bbox": {
+                      "type": "array",
+                      "minItems": 4,
+                      "items": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "ExecuteSyncRawRef": {
+        "description": "Synchronous execution response.",
+        "headers": {
+          "Link": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "One or more Link headers pointing to each raw output."
+          }
+        }
+      }
+    }
+  }
+}

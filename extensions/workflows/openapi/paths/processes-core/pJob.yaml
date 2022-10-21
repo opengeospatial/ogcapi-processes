@@ -1,0 +1,36 @@
+get:
+   summary: retrieve the status of a job
+   description: |
+     Shows the status of a job.
+
+      For more information, see [Section 7.10](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_retrieve_status_info).
+   operationId: getStatus
+   tags:
+     - Jobs
+   parameters:
+     - $ref: "../../parameters/processes-core/jobId.yaml"
+   responses:
+     200:
+       $ref: "../../responses/processes-core/rStatus.yaml"
+     404:
+       $ref: "../../responses/common-core/rNotFound.yaml"
+     500:
+       $ref: "../../responses/common-core/rServerError.yaml"
+delete:
+   summary: cancel a job execution, remove a finished job
+   description: |
+     Cancel a job execution and remove it from the jobs list.
+
+     For more information, see [Section 14]https://docs.ogc.org/is/18-062r2/18-062r2.html#Dismiss).
+   operationId: dismiss
+   tags:
+     - Jobs
+   parameters:
+     - $ref: "../../parameters/processes-core/jobId.yaml"
+   responses:
+     200:
+       $ref: "../../responses/processes-core/rStatus.yaml"
+     404:
+       $ref: "../../responses/common-core/rNotFound.yaml"
+     500:
+       $ref: "../../responses/common-core/rServerError.yaml"

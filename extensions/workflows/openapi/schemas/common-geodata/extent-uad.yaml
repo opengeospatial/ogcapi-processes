@@ -1,0 +1,85 @@
+title: Extent with Uniform Additional Dimensions Schema
+description: |-
+  The extent module only addresses spatial and temporal extents. This module extends extent by specifying how
+  intervals and crs properties can be used to specify additional geometries.
+allOf:
+  - $ref: 'extent.yaml'
+  - type: object
+    additionalProperties:
+       description: |-
+         The domain intervals for any additional dimensions of the extent (envelope) beyond those described in temporal and spatial.
+       type: object
+       oneOf:
+         - required: [ interval, crs ]
+         - required: [ interval, trs ]
+         - required: [ interval, vrs ]
+       properties:
+         interval:
+           description: |-
+             One or more intervals that describe the extent for this dimension of the dataset.
+             The value `null` is supported and indicates an unbounded or half-bounded interval.
+             The first interval describes the overall extent of the data for this dimension.
+             All subsequent intervals describe more precise intervals, e.g., to identify clusters of data.
+             Clients only interested in the overall extent will only need
+             to access the first item (a pair of lower and upper bound values).
+           type: array
+           minItems: 1
+           items:
+             description: |-
+               Lower and upper bound values of the interval. The values
+               are in the coordinate reference system specified in `crs`, `trs` or `vrs`.
+             type: array
+             minItems: 2
+             maxItems: 2
+             items:
+               oneOf:
+                  - type: string
+                    nullable: true
+                  - type: number
+             example:
+               - '2011-11-11T12:22:11Z'
+               - 32.5
+               - null
+         crs:
+           type: string
+           description: generic coordinate reference system suitable for any type of dimensions
+         trs:
+           type: string
+           description: temporal coordinate reference system (e.g. as defined by Features for 'temporal')
+         vrs:
+           type: string
+           description: vertical coordinate reference system (e.g. as defined in EDR for 'vertical')
+         grid:
+           type: object
+           description: |-
+             Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the dimension.
+           properties:
+             coordinates:
+               description: |-
+                 List of coordinates along the temporal dimension for which data organized as an irregular grid in the collection is available
+                 (e.g., 2, 10, 80, 100).
+               type: array
+               minItems: 1
+               items:
+                 oneOf:
+                   - type: string
+                     nullable: true
+                   - type: number
+               example: [2, 10, 80, 100]
+             cellsCount:
+               description: |-
+                 Number of samples available along the dimension for data organized as a regular grid.
+                 For values representing the whole area of contiguous cells spanning _resolution_ units along the dimension, this will be (_upperBound_ - _lowerBound_) / _resolution_.
+                 For values representing infinitely small point cells spaced by _resolution_ units along the dimension, this will be (_upperBound_ - _lowerBound_) / _resolution_ + 1.
+               type: integer
+               example: 50
+             resolution:
+               description: |-
+                 Resolution of regularly gridded data along the dimension in the collection
+               oneOf:
+                 - type: string
+                   nullable: true
+                 - type: number
+               example:
+                 - "PT1H"
+                 - 0.0006866455078

@@ -1,0 +1,7 @@
+name: {input-name}
+in: query
+required: false
+schema:
+  type: {numeric-type}
+style: form
+explode: false

@@ -1,0 +1,11 @@
+type: object
+properties:
+  mediaType:
+    type: string
+  encoding:
+    type: string
+  schema:
+    oneOf:
+      - type: string
+        format: url
+      - type: object

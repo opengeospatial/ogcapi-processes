@@ -1,0 +1,14 @@
+type: object
+properties:
+  inputs:
+    additionalProperties:
+      oneOf:
+        - $ref: "inlineOrRefData.yaml"
+        - type: array
+          items:
+            $ref: "inlineOrRefData.yaml"
+  outputs:
+    additionalProperties:
+      $ref: "output.yaml"
+  subscriber:
+    $ref: "subscriber.yaml"

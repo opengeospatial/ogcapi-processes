@@ -1,0 +1,5 @@
+description: The processing results of a job.
+content:
+  application/json:
+    schema:
+      $ref: "../../schemas/processes-core/results.yaml"

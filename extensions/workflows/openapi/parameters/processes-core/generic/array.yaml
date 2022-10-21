@@ -1,0 +1,18 @@
+name: {array-parameter-name}
+in: query
+description: |-
+  Schema for array-valued process input parameters for KVP encoded process
+  execution requests.  Complex-valued array elements or embedded array values
+  are specified as URL-encoded strings.
+required: false
+schema:
+  type: array
+  items:
+    oneOf:
+      - type: string
+      - type: number
+      - type: integer
+      - type: boolean
+      - type: null
+style: form
+explode: false

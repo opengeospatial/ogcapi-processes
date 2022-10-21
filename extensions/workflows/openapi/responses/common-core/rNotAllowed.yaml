@@ -1,0 +1,8 @@
+description: The method is not allowed at the path.
+content:
+  application/json:
+    schema:
+      $ref: "../../schemas/common-core/exception.yaml"
+  text/html:
+    schema:
+      type: string

@@ -1,0 +1,6 @@
+description: >-
+  Information about the available processes
+content:
+  application/json:
+    schema:
+      $ref: "../../schemas/processes-core/processList.yaml"

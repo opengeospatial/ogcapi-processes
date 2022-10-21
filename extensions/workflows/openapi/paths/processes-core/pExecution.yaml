@@ -1,0 +1,39 @@
+post:
+   summary: execute a process.
+   description: |
+     Create a new job.
+
+     For more information, see [Section 7.9](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_create_job).
+   operationId: execute
+   tags:
+     - Processes
+   parameters:
+     - $ref: "../../parameters/processes-core/processId-path.yaml"
+   requestBody:
+     description: Mandatory execute request JSON
+     required: true
+     content:
+       application/json:
+         schema:
+           $ref: "../../schemas/processes-core/execute.yaml"
+   responses:
+     200:
+       $ref: "../../responses/processes-core/rExecuteSync.yaml"
+     201:
+       $ref: "../../responses/processes-core/rExecuteAsync.yaml"
+     404:
+       $ref: "../../responses/common-core/rNotFound.yaml"
+     500:
+       $ref: "../../responses/common-core/rServerError.yaml"
+   callbacks:
+     jobCompleted:
+       "{$request.body#/subscriber/successUri}":
+         post:
+           requestBody:
+             content:
+               application/json:
+                 schema:
+                   $ref: "../../schemas/processes-core/results.yaml"
+           responses:
+             200:
+               description: Results received successfully
