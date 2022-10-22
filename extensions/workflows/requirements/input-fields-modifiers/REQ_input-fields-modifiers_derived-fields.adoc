@@ -3,6 +3,7 @@
 [%metadata]
 label:: /req/input-fields-modifiers/derived-fields
 description:: For selecting and/or deriving new fields from the input data to a process:
-part:: The Implementation SHALL support specifying a `"properties"` key and a corresponding set of selected fields and/or derived fields expressions as part of an input to a process.
-part:: The Implementation SHALL support one or more expression languages to defined the derive fields, such as the OGC Common Query Language (CQL2).
+part:: As part of an input to a process, the Implementation SHALL support specifying a `"properties"` key and a corresponding set of selected fields as an array of field names.
+part:: As part of an input to a process, the Implementation SHALL support specifying a `"properties"` key and a corresponding set of derived fields expressions as a key / value pair object mapping expressions to field names.
+part:: The Implementation SHALL support one or more expression languages to define the derived fields, such as the OGC Common Query Language (CQL2).
 ====

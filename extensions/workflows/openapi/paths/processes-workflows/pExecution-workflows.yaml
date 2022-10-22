@@ -1,7 +1,7 @@
 post:
    summary: execute a process.
    description: |
-     Create a new job.
+     Executes a process (this may result in the creation of a job resource e.g., for _asynchronous execution_).
 
      For more information, see [Section 7.9](https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_create_job).
    operationId: execute
@@ -9,8 +9,9 @@ post:
      - Processes
    parameters:
      - $ref: "../../parameters/processes-core/processId-path.yaml"
+     - $ref: "../../parameters/processes-workflows/response.yaml"
    requestBody:
-     description: Mandatory execute request JSON
+     description: An execution request specifying any inputs for the process to execute, and optionally to select specific outputs.
      required: true
      content:
        application/json:
@@ -21,6 +22,8 @@ post:
        $ref: "../../responses/processes-core/rExecuteSync.yaml"
      201:
        $ref: "../../responses/processes-core/rExecuteAsync.yaml"
+     303:
+       $ref: "../../responses/processes-workflows/rExecuteCollectionRedirect.yaml"
      404:
        $ref: "../../responses/common-core/rNotFound.yaml"
      500:

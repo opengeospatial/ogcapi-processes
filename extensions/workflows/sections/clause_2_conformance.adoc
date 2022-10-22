@@ -32,13 +32,13 @@ If _Nested Processes_ are also supported, this also extends to remote processes 
 
 The _Input Fields Modifiers_ conformance class extends the execution request of _OGC API - Processes - Part 1: Core_ with the ability to filter or sort data used as an input
 to a process according to field values, as well as to select specific fields from the data or derive new fields from existing ones, using an expression language such as the OGC Common Query Language 2.0 (CQL2).
-Those modifiers are defined by the `"filter"`, `"properties"` and `"sortby"` keys.
+Those modifiers are defined by the `"filter"`, `"properties"` and `"sortBy"` keys.
 
 *<<rc_output-fields-modifiers,Requirements Class "Output Fields Modifiers">>* (http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/output-fields-modifiers)
 
 The _Output Fields Modifiers_ conformance class extends the execution request of _OGC API - Processes - Part 1: Core_ with the ability to filter or sort data returned as an output
 from a process according to field values, as well as to select specific fields from the data or derive new fields from existing ones, using an expression language such as the OGC Common Query Language 2.0 (CQL2).
-Those modifiers are defined by the `"filter"`, `"properties"` and `"sortby"` keys.
+Those modifiers are defined by the `"filter"`, `"properties"` and `"sortBy"` keys.
 
 *<<rc_deployable-workflows,Requirements Class "Deployable Workflows">>* (http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/deployable-workflows)
 

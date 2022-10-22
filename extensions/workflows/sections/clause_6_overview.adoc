@@ -6,7 +6,7 @@ As an extension to https://docs.ogc.org/is/18-062r2/18-062r2.html[_OGC API - Pro
 * extending execution requests submitted to `/processes/{processId}/execution`
    ** referencing local and remote nested processes as inputs (`"process"`) (<<section_nested_processes,Section 7>>),
    ** referencing local and remote OGC API collections as inputs (`"collection"`) (<<section_collection_input,Section 8>>),
-   ** modifying data accessed as inputs and returned as outputs (filtering with `"filter"`, selecting and deriving fields with `"properties"`, sorting with `"sortby"`) (<<section_fields_modifiers,Section 9>>),
+   ** modifying data accessed as inputs and returned as outputs (filtering with `"filter"`, selecting and deriving fields with `"properties"`, sorting with `"sortBy"`) (<<section_fields_modifiers,Section 9>>),
    ** deploying workflows defined using such execution request as processes using https://github.com/opengeospatial/ogcapi-processes/tree/master/extensions/deploy_replace_undeploy/standard[_OGC API - Processes - Part 2: Deploy, Replace, Undeploy_], with the ability to paremeterize inputs (`"$input"`) and select outputs (`"$output"`) (<<section_deployable_workflows,Section 10>>),
 * requesting output data from OGC API data collections to trigger processing execution (<<section_collection_output,Section 11>>),
 * ad-hoc execution of workflows defined using the Common Workflow Language (<<section_cwl_workflows,Section 12>>), and

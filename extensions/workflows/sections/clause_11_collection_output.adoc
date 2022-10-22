@@ -30,9 +30,10 @@ method for the `/collections` end-point accepting a JSON workflow definition (ex
 
 include::../requirements/requirements_class_collection-output.adoc[]
 
-The following requirements describe an execution mechanism where an OGC API landing page
-or collection description document is returned to a client, providing links to request
-output data using standard OGC API data access mechanisms, triggering on-demand processing
+The following requirements describe an execution mechanism where a client is redirected (using a `303` _See Other_ HTTP
+status code and a `Location:` header)
+to an OGC API landing page or collection description document,
+which provides links to request output data using standard OGC API data access mechanisms, triggering on-demand processing
 for a particular area, time and resolution of interest.
 
 ==== `response` query parameter
@@ -52,6 +53,10 @@ A request for a landing page response is valid for an execution request generati
 which can be retrieved using an OGC API data access mechanism.
 
 include::../requirements/collection-output/REQ_collection-output_landing-page-response.adoc[]
+
+==== Collection Output expiry
+
+include::../recommendations/collection-output/PER_collection-output_expiry.adoc[]
 
 ==== Data Access Mechanisms
 

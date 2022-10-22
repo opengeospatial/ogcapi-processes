@@ -7,7 +7,7 @@ in the context of the OGC Federated Marine SDI Phase 3 Innovation Program initia
 
 It demonstrates the use of the _Nested Processes_, _Collection Input_, _Input fields modifiers_ and _Output fields modifiers_ conformance classes.
 
-The expressions used to derive field values (`"properties`") are written using the CQL2 language extended with a ternary conditional operator as found
+The expressions used to derive field values (`"properties"`) are written using the CQL2 language extended with a ternary conditional operator as found
 in the C programming language and its derivatives, as well as with the ability to return not only boolean values, but also numeric values.
 
 Note that in the case of remote processes, the derived fields (`"properties"`) specified for the _Slope_ and Aspect processes could be using either the

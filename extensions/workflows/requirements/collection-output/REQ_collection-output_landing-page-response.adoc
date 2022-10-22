@@ -3,7 +3,7 @@
 [%metadata]
 label:: /req/collection-output/landing-page-response
 description:: For initiating the execution of a workflow and retrieving its output as an OGC API dataset landing page:
-part:: The Implementation SHALL return an OGC API dataset landing page as defined in _OGC API - Common - Part 1: Core_ as a response to a request specifying a `response=landingPage` query parameter.
-part:: The returned landing page SHALL contain at link to a list of available collections at `../collections` as defined in _OGC API - Processes - Part 2: Geospatial data_.
-part:: The returned landing page and the linked collections SHALL link to at least one OGC API data access mechanism such as _OGC API - Tiles, DGGS, Coverages, Features, EDR, Maps_...
+part:: The Implementation SHALL return a 303 _See Other_ HTTP status code together with a _Location:_ response header redirecting to an OGC API dataset landing page as defined in _OGC API - Common - Part 1: Core_ as a response to a request specifying a `response=landingPage` query parameter.
+part:: The landing page towards which the client is redirected SHALL contain at link to a list of available collections at `../collections` as defined in _OGC API - Processes - Part 2: Geospatial data_.
+part:: The collections linked from the landing page towards which the client is redirected SHALL link to at least one OGC API data access mechanism such as _OGC API - Tiles, DGGS, Coverages, Features, EDR, Maps_...
 ====
