@@ -9,6 +9,7 @@ get:
      - Jobs
    parameters:
      - $ref: "../../parameters/processes-core/jobId.yaml"
+     - $ref: "../../parameters/processes-core/prefer-header-results.yaml"
    responses:
      200:
        $ref: "../../responses/processes-core/rResults.yaml"

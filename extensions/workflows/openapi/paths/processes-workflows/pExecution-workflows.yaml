@@ -10,6 +10,7 @@ post:
    parameters:
      - $ref: "../../parameters/processes-core/processId-path.yaml"
      - $ref: "../../parameters/processes-workflows/response.yaml"
+     - $ref: "../../parameters/processes-core/prefer-header-execution.yaml"
    requestBody:
      description: An execution request specifying any inputs for the process to execute, and optionally to select specific outputs.
      required: true

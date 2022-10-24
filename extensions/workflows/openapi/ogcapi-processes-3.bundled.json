@@ -185,6 +185,14 @@
                 "landingPage"
               ]
             }
+          },
+          {
+            "in": "header",
+            "description": "Indicates client preferences, including whether the client is capable of asynchronous processing.\nA `respond-async` preference indicates a preference for asynchronous processing.\nA `wait: <x>s` preference indicates that the client prefers to wait up to x seconds to receive a reponse synchronously before the server falls back to asynchronous processing.",
+            "name": "Prefer",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -506,6 +514,14 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/jobId"
+          },
+          {
+            "in": "header",
+            "description": "Indicates client preferences, such as whether the client wishes a self-contained or minimal response.\nA `return=minimal` preference indicates that the client would prefer that links be returned to larger object to minimize the response payload.\nA `return=representation` indicates that the client would prefer if the server can return a self-contained response.",
+            "name": "Prefer",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
