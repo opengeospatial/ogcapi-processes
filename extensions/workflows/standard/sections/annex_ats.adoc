@@ -1,7 +1,0 @@
-[[ats]]
-[appendix,obligation="normative"]
-== Abstract Test Suite
-
-(( add test cases ))
-
-include::../abstract_tests/cc/TEST001.adoc[]

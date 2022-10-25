@@ -1,0 +1,10 @@
+[appendix]
+== Revision History
+
+.Revision history
+[width="90%",options="header"]
+|===
+|Date |Release |Editor | Primary clauses modified |Description
+|2020-10-19 |0.1 |J. St-Louis |all |initial draft
+|2022-10-19 |0.2 |J. St-Louis |all |reorganized into multiple conformance classes, using metanorma template, with more detailed descriptions and requirements
+|===

@@ -1,0 +1,42 @@
+description: |-
+  The URIs of all conformance classes supported by the server
+
+  To support "generic" clients that want to access multiple
+  OGC API - Processes implementations - and not "just" a specific
+  API / server, the server declares the conformance
+  classes it implements and conforms to.
+content:
+   application/json:
+     schema:
+       allOf:
+         - $ref: '../../schemas/common-core/confClasses.yaml'
+       example:
+         conformsTo:
+           - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core
+           - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json
+           - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html
+           - http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas30
+           - http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
+           - http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
+           - http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/nested-processes
+           - http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/remote-core-processes
+           - http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/collection-input
+           - http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/remote-collections
+           - http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/input-fields-modifiers
+           - http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/output-fields-modifiers
+           - http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/deployable-workflows
+           - http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/collection-output
+           - http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/cwl-workflows
+           - http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/openeo-workflows
+           - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/core
+           - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tileset
+           - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tilesets-list
+           - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geodata-tilesets
+           - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/dataset-tilesets
+           - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geodata-selection
+           - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/jpeg
+           - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/png
+           - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/mvt
+           - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geojson
+           - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/tiff
+           - http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/netcdf

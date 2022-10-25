@@ -1,0 +1,21 @@
+name: output
+in: query
+required: false
+schema:
+  type: object
+  required:
+    - output
+  properties:
+    output:
+      type: string
+    mediaType:
+      type: string
+    encoding:
+      type: string
+    schema:
+      oneOf:
+        - type: string
+          format: url
+        - type: object
+# style: true
+explode: false

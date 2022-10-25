@@ -1,0 +1,14 @@
+description: Started asynchronous execution. Created job.
+headers:
+  Location:
+    schema:
+      type: string
+    description: URL to check the status of the execution/job.
+  Preference-Applied:
+    schema:
+      type: string
+    description: The preference applied to execute the process asynchronously (see. RFC 2740).
+content:
+  application/json:
+    schema:
+      $ref: "../../schemas/processes-core/statusInfo.yaml"

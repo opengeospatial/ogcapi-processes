@@ -1,0 +1,10 @@
+allOf:
+  - $ref: "processSummary.yaml"
+  - type: object
+    properties:
+      inputs:
+        additionalProperties:
+          $ref: "inputDescription.yaml"
+      outputs:
+        additionalProperties:
+          $ref: "outputDescription.yaml"

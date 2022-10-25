@@ -1,0 +1,15 @@
+# API definition
+get:
+   tags:
+     - API
+   operationId: getAPI
+   summary: Retrieve this API definition.
+   parameters:
+     - $ref: '../../parameters/unspecified/f-metadata.yaml'
+   responses:
+     '200':
+       $ref: '../../responses/common-core/rAPI.yaml'
+     '406':
+       $ref: '../../responses/common-core/rNotAcceptable.yaml'
+     '500':
+       $ref: '../../responses/common-core/rServerError.yaml'

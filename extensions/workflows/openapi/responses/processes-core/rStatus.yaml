@@ -1,0 +1,5 @@
+description: The status of a job.
+content:
+  application/json:
+    schema:
+      $ref: "../../schemas/processes-core/statusInfo.yaml"

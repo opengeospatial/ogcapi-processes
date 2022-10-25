@@ -1,0 +1,6 @@
+# This can be implemented as a dynamic enumeration type
+# returning all processes available on the server:
+$ref: ../../api/processes-list.json
+
+# Standardizing this capability would enable to generate and compile generic clients
+# from OpenAPI definitions which are not tied to a particular implementation.

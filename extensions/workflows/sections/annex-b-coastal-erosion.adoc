@@ -1,0 +1,64 @@
+[appendix,obligation="informative"]
+== Coastal Erosion Susceptibility Example Workflow
+
+This annex presents a sample workflow predicting the susceptibility of coastal erosion from four data sources.
+This workflow (purely intended as a demonstrative example, not to be scientificaly accurate in any way), was assembled in collaboration with Perry Peterson and Marta Padilla Ruiz from the University of Calgary
+in the context of the OGC Federated Marine SDI Phase 3 Innovation Program initiative.
+
+It demonstrates the use of the _Nested Processes_, _Collection Input_, _Input fields modifiers_ and _Output fields modifiers_ conformance classes.
+
+The expressions used to derive field values (`"properties"`) are written using the CQL2 language extended with a ternary conditional operator as found
+in the C programming language and its derivatives, as well as with the ability to return not only boolean values, but also numeric values.
+
+Note that in the case of remote processes, the derived fields (`"properties"`) specified for the _Slope_ and Aspect processes could be using either the
+_Input_ or _Output field modifiers_ conformance class,
+depending on whether the _Slope_ and _Aspect_ processes generating the data, or the _PassThrough_ process receiving the data, support the capability.
+
+.Coastal Erosion Example Workflow Diagram
+[#img-coastal-erosion-workflow]
+image::figures/coastal-erosion-workflow.png[Coastal Erosion Example Workflow]
+
+.Coastal Erosion Example Workflow Exectution Request
+[source,json]
+----
+{
+   "process": "https://example.com/ogcapi/processes/PassThrough",
+   "inputs": {
+      "data": [
+         {
+            "process": "https://example.com/ogcapi/processes/Slope",
+            "inputs": {
+               "dem": { "collection": "https://example.com/ogcapi/collections/DEM" }
+            },
+            "properties": { "s" : "slope >= 36.4 ? 10 : slope >= 17.6 : 7 : slope >= 8.7 ? 5 : slope >= 3.5 ? 3 : 1" }
+         },
+         {
+            "process": "https://example.com/ogcapi/processes/Aspect",
+            "inputs": {
+               "dem": { "collection": "https://example.com/ogcapi/collections/DEM" }
+            },
+            "properties": { "a" : "aspect >= 315 or aspect < 45 ? 1 : aspect >= 225 or aspect < 135 : 5 : 10" }
+         },
+         {
+            "collection": "https://example.com/ogcapi/collections/ArcticPermafrost",
+            "properties": {
+               "e" : "extent = 'c' ? 1 : extent = 'd' ? 5 : extent = 's' ? 7 : extent = 'i' ? 10 : null"
+               "c" : "content = 'l' ? 1 : content = 'm' ? 5 : content = 'h' ? 10 : 0"
+            }
+         },
+         {
+            "collection": "https://example.com/ogcapi/collections/Landsat7LandCover",
+            "properties": { "l" : "lc in(0,1,2,3,4,5,11,13,15) ? 1 : lc in(6,7,8,9,10,12,14) ? 5 : lc = 16 ? 10 : 0" }
+         },
+         {
+            "collection": "https://example.com/ogcapi/collections/AlaskaSurficialGeology",
+            "properties": {
+               "g" :
+               "qcode = 'Ql' ? 0 : qcode in ('Qra','Qi','Qrc', 'Qrd', 'Qre') ? 1 : qcode in ('Qrb','Qaf', 'Qat', 'Qcb','Qfp','Qgmr') ? 3 : qcode in ('Qcc','Qcd','Qel','Qm1', 'Qm2','Qm3','Qm4','Qw1','Qw2') ? 5 : qcode in ('Qes','Qgm') ? 7 : qcode in ('Qed','Qgl','Qu') ? 10 : 0"
+            }
+         }
+      ]
+   },
+   "properties": { "susceptibility" : "0.30 * s + 0.05 * a + 0.05 * e + 0.20 * c + 0.10 * l + 0.30 * g" }
+}
+----

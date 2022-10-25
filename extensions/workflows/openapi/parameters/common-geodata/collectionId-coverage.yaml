@@ -1,0 +1,9 @@
+name: collectionId
+in: path
+description: Local identifier of a coverage collection
+required: true
+allowEmptyValue: false
+schema:
+  $ref: '../../schemas/dynamic/coverage-collections.yaml'
+style: simple
+explode: false

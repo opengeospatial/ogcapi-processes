@@ -1,0 +1,101 @@
+== Conformance
+This standard defines ten requirements conformance classes.
+
+The standardization targets of all conformance classes are "Web APIs".
+
+The requirements classes are:
+
+=== Requirements classes extending _Part 1: Core_ execution requests
+
+*<<rc_nested-processes,Requirements Class "Nested Processes">>* (http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/nested-processes)
+
+The _Nested Processes_ conformance class extends the execution request of _OGC API - Processes - Part 1: Core_ with the ability to specify another process as an input.
+A `"process"` key is used to define such an input.
+
+*<<rc_remote-core-processes,Requirements Class "Remote Core Processes">>* (http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/remote-core-processes)
+
+The _Remote Core Processes_ conformance class extends the capability defined in the _Nested Processes_ conformance class to the execution of remote processes using the _Core_ conformance class of
+_OGC API - Processes - Core: Part 1_ in addition to local processes.
+Remote processes supporting the _Collection Output_ conformance class can also be executed with support for the _Remote Collections_ as an alternative to this conformance class.
+
+*<<rc_collection-input,Requirements Class "Collection Input">>* (http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/collection-input)
+
+The _Collection Input_ conformance class extends the capability defined in _OGC API - Processes - Part 1: Core_ with the ability to reference an OGC API collection as input.
+A `"collection"` key is used to define such an input.
+
+*<<rc_remote-collections,Requirements Class "Remote Collections">>* (http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/remote-collections)
+
+The _Remote Collections_ conformance class extends the capability defined in the _Collection Input_ conformance class to remote collections in addition to local collections.
+If _Nested Processes_ are also supported, this also extends to remote processes supporting the _Collection Output_ conformance classes, specified using the `"process"` key.
+
+*<<rc_input-fields-modifiers,Requirements Class "Input Fields Modifiers">>* (http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/input-fields-modifiers)
+
+The _Input Fields Modifiers_ conformance class extends the execution request of _OGC API - Processes - Part 1: Core_ with the ability to filter or sort data used as an input
+to a process according to field values, as well as to select specific fields from the data or derive new fields from existing ones, using an expression language such as the OGC Common Query Language 2.0 (CQL2).
+Those modifiers are defined by the `"filter"`, `"properties"` and `"sortBy"` keys.
+
+*<<rc_output-fields-modifiers,Requirements Class "Output Fields Modifiers">>* (http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/output-fields-modifiers)
+
+The _Output Fields Modifiers_ conformance class extends the execution request of _OGC API - Processes - Part 1: Core_ with the ability to filter or sort data returned as an output
+from a process according to field values, as well as to select specific fields from the data or derive new fields from existing ones, using an expression language such as the OGC Common Query Language 2.0 (CQL2).
+Those modifiers are defined by the `"filter"`, `"properties"` and `"sortBy"` keys.
+
+*<<rc_deployable-workflows,Requirements Class "Deployable Workflows">>* (http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/deployable-workflows)
+
+The _Deployable Workflows_ conformance class extends the execution request of _OGC API - Processes - Part 1: Core_ with the ability to define parameterized inputs and select outputs in the context of deploying
+the workflow as a new process using _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_.
+An `"$input"` key is used to define an external input to the deployed process, and an `"$output"` key is used to select an output from the deployed process.
+The extended JSON execution request defining the workflow can either be the direct payload of deployment `POST` request,
+or the execution unit of an _OGC Application Package_, if the implementation supports the associated _Part 2_ conformance class.
+
+=== Requirements class specifying a new on-demand, client-driven execution mechanism
+
+*<<rc_collection-output,Requirements Class "Collection Output">>* (http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/collection-output)
+
+The _Collection Output_ conformance class specifies a new execution mechanism allowing to trigger the execution of the process of workflow for a specific area, time and resolution of interest as a direct result of requests for output data
+using OGC API data access mechanisms such as those defined by _OGC API - Tiles_, _DGGS_, _Coverages_, _Features_, _EDR_ or _Maps_, in a manner completely agnostic to process execution.
+With this execution mechanism, selected by a new query parameter, the implementation's initial response is either a collection description document (`response=collection`), or an OGC API landing page (`response=landingPage`).
+
+=== Requirements classes specifying alternative ad-hoc workflow definitions
+
+*<<rc_cwl-workflows,Requirements Class "Common Workflow Language Definitions">>* (http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/cwl-workflows)
+
+The _Common Workflow Language Definitions_ conformance class specifies the ability to execute Common Workflow Language (CWL) workflows in an ad-hoc manner
+i.e., without first requiring to deploy the workflow as a process (see also the relevant _Part 2_ conformance class to deploy CWL workflow as a process).
+
+*<<rc_openeo-workflows,Requirements Class "OpenEO Process Graphs Workflows">>* (http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/openeo-workflows)
+
+The _OpenEO Process Graphs Definitions_ conformance class specifies the ability to execute workflows defined using OpenEO Process Graphs in an ad-hoc manner
+i.e., without first requiring to deploy the workflow as a process (see also the relevant _Part 2_ conformance class to deploy OpenEO process graphs as a process).
+
+'''
+
+All these conformance classes act as building blocks that should be implemented in combination with _OGC API - Processes - Part 1: Core_, as well as with _Part 2: Deploy, Replace, Undeploy_ and/or
+OGC API data access specifications such as _OGC API - Tiles_, _DGGS_, _Coverages_, _Features_, _EDR_, _Maps_, when applicable.
+
+All requirements-classes and conformance-classes described in this document are owned by the standard(s) identified.
+
+=== Declaration of conformance
+
+In order to conform to this OGC® interface standard, a software implementation shall choose to implement any one of the conformance levels specified in Annex A (normative).
+Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document if the respective conformance URLs listed in <<table_conformance_urls>> is present
+in the conformance response.
+
+The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
+
+[#table_conformance_urls,reftext='{table-caption} {counter:table-num}']
+.Conformance class URIs
+[cols="30,70",options="header"]
+|===
+| Conformance class | URI
+|<<rc_nested-processes,Nested Processes>>                  |http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/nested-processes
+|<<rc_remote-core-processes,Remote Core Processes>>        |http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/remote-core-processes
+|<<rc_collection-input,Collection Input>>                  |http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/collection-input
+|<<rc_remote-collections,Remote Collections>>              |http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/remote-collections
+|<<rc_input-fields-modifiers,Input Fields Modifiers>>      |http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/input-fields-modifiers
+|<<rc_output-fields-modifiers,Output Fields Modifiers>>    |http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/output-fields-modifiers
+|<<rc_deployable-workflows,Deployable Workflows>>          |http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/deployable-workflows
+|<<rc_collection-output,Collection Output>>                |http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/collection-output
+|<<rc_cwl-workflows,Common Workflow Language Definitions>> |http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/cwl-workflows
+|<<rc_openeo-workflows,OpenEO Process Graphs Definitions>> |http://www.opengis.net/spec/ogcapi-processes-3/0.0/conf/openeo-workflows
+|===

@@ -1,0 +1,4 @@
+oneOf:
+  - $ref: "inputValueNoObject.yaml"
+  - $ref: "qualifiedInputValue.yaml"
+  - $ref: "../common-core/link.yaml"

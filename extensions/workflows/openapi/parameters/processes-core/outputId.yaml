@@ -1,0 +1,6 @@
+name: outputID
+in: path
+description: identifier of an output
+required: true
+schema:
+  type: string

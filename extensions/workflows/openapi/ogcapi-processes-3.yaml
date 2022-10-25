@@ -1,0 +1,235 @@
+openapi: 3.0.0
+info:
+   version: '0.1'
+   title: "OGC API - Processes - Part 3: Workflows & Chaining"
+   description: |-
+      Example API Definition for OGC API - Part 3: Workflows & Chaining
+   contact:
+      name: Open Geospatial Consortium
+      email: info@ogc.org
+   license:
+      name: OGC License
+      url: http://www.opengeospatial.org/legal/
+servers:
+  - description: Example Processes - Workflows server
+    url: https://maps.gnosis.earth/ogcapi
+paths:
+   # OGC API - Common - Part 1: Core
+   /:
+      $ref: 'paths/common-core/pLandingPage.yaml'
+   /conformance:
+      $ref: 'paths/common-core/pConformance.yaml'
+   /api:
+      $ref: 'paths/common-core/pAPI.yaml'
+
+   # Dynamic enumeration of resources specific to this implementation
+   /api/processes-list:
+      $ref: 'paths/dynamic/pAllProcesses.yaml'
+
+   # OGC API - Processes - Part 1: Core
+   /processes:
+      $ref: 'paths/processes-core/pProcessList.yaml'
+
+   /processes/{processId}:
+      $ref: 'paths/processes-core/pProcessDescription.yaml'
+
+   /processes/{processId}/execution:
+      $ref: 'paths/processes-workflows/pExecution-workflows.yaml'
+
+   # OGC API - Processes - Part 1: Core (Jobs, required for ASync execution)
+   /jobs:
+      $ref: 'paths/processes-core/pJobsList.yaml'
+
+   /jobs/{jobId}:
+      $ref: 'paths/processes-core/pJob.yaml'
+
+   /jobs/{jobId}/results:
+      $ref: 'paths/processes-core/pJobResults.yaml'
+
+components:
+   schemas:
+      # $ref: './schemas/index.yaml' # Not supported?
+      # https://davidgarcia.dev/posts/how-to-split-open-api-spec-into-multiple-files/ vs.
+      # https://stackoverflow.com/questions/64940379/ref-ing-multiple-files-at-the-components-schemas-top-level-in-openapi-3
+
+      # Common - Core
+      confClasses:
+         $ref: 'schemas/common-core/confClasses.yaml'
+      link:
+         $ref: 'schemas/common-core/link.yaml'
+      landingPage:
+         $ref: 'schemas/common-core/landingPage.yaml'
+      exception:
+         $ref: 'schemas/common-core/exception.yaml'
+
+      # Common - Geospatial Data
+      collections:
+         $ref: 'schemas/common-geodata/collections.yaml'
+      collectionInfo:
+         $ref: 'schemas/common-geodata/collectionInfo.yaml'
+      extent:
+         $ref: 'schemas/common-geodata/extent.yaml'
+      extent-uad:
+         $ref: 'schemas/common-geodata/extent-uad.yaml'
+      crs:
+         $ref: 'schemas/common-geodata/crs.yaml'
+      dataType:
+         $ref: 'schemas/common-geodata/dataType.yaml'
+      timeStamp:
+         $ref: 'schemas/common-geodata/timeStamp.yaml'
+      # projJSON:
+      #   $ref: 'schemas/common-geodata/projJSON.yaml'
+      numberReturned:
+         $ref: 'schemas/common-geodata/numberReturned.yaml'
+      numberMatched:
+         $ref: 'schemas/common-geodata/numberMatched.yaml'
+
+      # Dynamic (or implementation-specific)
+      enumeration:
+         $ref: 'schemas/dynamic/enumeration.yaml'
+      processes-list:
+         $ref: 'schemas/dynamic/processes-list.yaml'
+
+      # Processes - Core
+      processSummary:
+         $ref: 'schemas/processes-core/processSummary.yaml'
+      process:
+         $ref: 'schemas/processes-core/process.yaml'
+      processList:
+         $ref: 'schemas/processes-core/processList.yaml'
+      jobList:
+         $ref: 'schemas/processes-core/jobList.yaml'
+
+      additionalParameter:
+         $ref: 'schemas/processes-core/additionalParameter.yaml'
+      bbox-processes:
+         $ref: 'schemas/processes-core/bbox.yaml'
+      descriptionType:
+         $ref: 'schemas/processes-core/descriptionType.yaml'
+      binaryInputValue:
+         $ref: 'schemas/processes-core/binaryInputValue.yaml'
+      execute:
+         $ref: 'schemas/processes-core/execute.yaml'
+      format:
+         $ref: 'schemas/processes-core/format.yaml'
+      inputDescription:
+         $ref: 'schemas/processes-core/inputDescription.yaml'
+      inputValue:
+         $ref: 'schemas/processes-core/inputValue.yaml'
+      inputValueNoObject:
+         $ref: 'schemas/processes-core/inputValueNoObject.yaml'
+      jobControlOptions:
+         $ref: 'schemas/processes-core/jobControlOptions.yaml'
+      metadata:
+         $ref: 'schemas/processes-core/metadata.yaml'
+      output:
+         $ref: 'schemas/processes-core/output.yaml'
+      outputDescription:
+         $ref: 'schemas/processes-core/outputDescription.yaml'
+      qualifiedInputValue:
+         $ref: 'schemas/processes-core/qualifiedInputValue.yaml'
+      reference:
+         $ref: 'schemas/processes-core/reference.yaml'
+      results:
+         $ref: 'schemas/processes-core/results.yaml'
+      schema:
+         $ref: 'schemas/processes-core/schema.yaml'
+      statusCode:
+         $ref: 'schemas/processes-core/statusCode.yaml'
+      subscriber:
+         $ref: 'schemas/processes-core/subscriber.yaml'
+      transmissionMode:
+         $ref: 'schemas/processes-core/transmissionMode.yaml'
+      inlineOrRefData:
+         $ref: 'schemas/processes-core/inlineOrRefData.yaml'
+      statusInfo:
+         $ref: 'schemas/processes-core/statusInfo.yaml'
+
+   parameters:
+      # Common - Core
+      f-metadata:
+         $ref: 'parameters/unspecified/f-metadata.yaml'
+
+      # Common - Geospatial data
+      datetime:
+         $ref: 'parameters/common-geodata/datetime.yaml'
+
+      # Common - CRS
+      crs:
+         $ref: 'parameters/common-crs/crs.yaml'
+      subset-crs:
+         $ref: 'parameters/common-crs/subset-crs.yaml'
+
+      # Processes - Core
+      processId-path:
+         $ref: 'parameters/processes-core/processId-path.yaml'
+      # Processes - Core (1.1?)
+      outputId:
+         $ref: 'parameters/processes-core/outputId.yaml'
+
+      # Processes - Core (Jobs)
+      jobId:
+         $ref: 'parameters/processes-core/jobId.yaml'
+
+      # Processes - Core (Querying Jobs)
+      processId-query:
+         $ref: 'parameters/processes-core/processId-query.yaml'
+      output:
+         $ref: 'parameters/processes-core/output.yaml'
+      limit:
+         $ref: 'parameters/processes-core/limit.yaml'
+      type:
+         $ref: 'parameters/processes-core/type.yaml'
+      status:
+         $ref: 'parameters/processes-core/status.yaml'
+      minDuration:
+         $ref: 'parameters/processes-core/minDuration.yaml'
+      maxDuration:
+         $ref: 'parameters/processes-core/maxDuration.yaml'
+
+   responses:
+      # Generic Errors
+      NotFound:
+         $ref: 'responses/common-core/rNotFound.yaml'
+      NotAcceptable:
+         $ref: 'responses/common-core/rNotAcceptable.yaml'
+      ServerError:
+         $ref: 'responses/common-core/rServerError.yaml'
+      InvalidParameter:
+         $ref: 'responses/common-core/rInvalidParameter.yaml'
+      NotAllowed:
+         $ref: 'responses/common-core/rNotAllowed.yaml'
+      Exception:
+         $ref: 'responses/common-core/rException.yaml'
+
+      # Common - Core
+      LandingPage:
+         $ref: 'responses/common-core/rLandingPage.yaml'
+      Conformance:
+         $ref: 'responses/common-core/rConformance.yaml'
+      API:
+         $ref: 'responses/common-core/rAPI.yaml'
+
+      # Dynamic enumeration of resources specific to this implementation
+      Enumeration:
+         $ref: 'responses/dynamic/rEnumeration.yaml'
+
+      # Processes - Core
+      ProcessList:
+         $ref: 'responses/processes-core/rProcessList.yaml'
+
+      ProcessDescription:
+         $ref: 'responses/processes-core/rProcessDescription.yaml'
+
+      Results:
+         $ref: 'responses/processes-core/rResults.yaml'
+      Status:
+         $ref: 'responses/processes-core/rStatus.yaml'
+      JobList:
+         $ref: 'responses/processes-core/rJobList.yaml'
+      ExecuteAsync:
+         $ref: 'responses/processes-core/rExecuteAsync.yaml'
+      ExecuteSync:
+         $ref: 'responses/processes-core/rExecuteSync.yaml'
+      ExecuteSyncRawRef:
+         $ref: 'responses/processes-core/rExecuteSyncRawRef.yaml'

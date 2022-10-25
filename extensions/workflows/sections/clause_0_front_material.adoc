@@ -1,0 +1,64 @@
+.Preface
+
+OGC API standards define modular API building blocks to spatially enable Web APIs in a consistent way. The OpenAPI specification is used to define the API building blocks.
+
+_OGC API - Processes_ provides API building blocks to describe, execute, monitor and retrieve results of Web-accessible processes. _OGC API - Processes_ is
+comprised of multiple parts, each of them is a separate standard. The conformance classes defined in this _Part 3_ document leverage conformance classes defined in _Part 1: Core_, and in some cases
+conformance classes defined in _Part 2: Deploy, Replace, Undeploy_.
+
+The development of this extension has been financially supported by GeoConnections, a national collaborative initiative led by Natural Resources Canada.
+GeoConnections supports the integration and use of the Canadian Geospatial Data Infrastructure (CGDI), an on-line resource that improves the sharing,
+access and use of open geospatial information.
+
+////
+*OGC Declaration*
+////
+
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
+
+Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
+
+////
+NOTE: Uncomment ISO section if necessary
+
+*ISO Declaration*
+
+ISO (the International Organization for Standardization) is a worldwide federation of national standards bodies (ISO member bodies). The work of preparing International Standards is normally carried out through ISO technical committees. Each member body interested in a subject for which a technical committee has been established has the right to be represented on that committee. International organizations, governmental and non-governmental, in liaison with ISO, also take part in the work. ISO collaborates closely with the International Electrotechnical Commission (IEC) on all matters of electrotechnical standardization.
+
+International Standards are drafted in accordance with the rules given in the ISO/IEC Directives, Part 2.
+
+The main task of technical committees is to prepare International Standards. Draft International Standards adopted by the technical committees are circulated to the member bodies for voting. Publication as an International Standard requires approval by at least 75 % of the member bodies casting a vote.
+
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. ISO shall not be held responsible for identifying any or all such patent rights.
+////
+
+[abstract]
+== Abstract
+
+This specification extends the core capabilities specified in _OGC API - Processes - Part 1: Core_ with the ability to chain nested processes,
+refer to both local and external processes and collections of data accessible via OGC API standards as inputs to a process, and trigger execution of processes
+through OGC API data delivery specifications such as _OGC API - Tiles_, _DGGS_, _Coverages_, _Features_, _EDR_ and _Maps_.
+Conformance classes defined in this specification enable clients to integrate discovered data and processes as a workflow in an ad-hoc manner
+(without first requiring to deploy the workflow as a process), then drive the execution on-demand for a particular area, time and resolution of interest using
+a "pull" mechanism (pulling the final required output from the client, as opposed to a batch execution starting from source inputs of the first processing step).
+The workflows defined with this specification can also be deployed as processes using the _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_ extension.
+
+== Submitters
+
+All questions regarding this submission should be directed to the editors or the submitters:
+
+[%unnumbered]
+|===
+| *Name*                                  | *Affiliation*
+| Jérôme Jacovella-St-Louis (editor)      | Ecere Corporation
+| Panagiotis (Peter) A. Vretanos (editor) | CubeWerx Inc.
+| Gérald Fenoy                            | GeoLabs
+| Perry Peterson                          | University of Calgary
+| Marta Padilla Ruiz                      | University of Calgary
+| Matthew B.J. Purss                      | Pangaea Innovations Pty. Ltd.
+| Ryan Ahola                              | Natural Resources Canada
+| Stephan Meißl                           | EOX IT Services GmbH
+| Joan Masó Pau                           | Universitat Autònoma de Barcelona (CREAF)
+| Francis Charette Migneault              | Centre de Recherche en Informatique de Montréal (CRIM)
+| Benjamin Proß                           | 52°North Spatial Information Research GmbH
+|===

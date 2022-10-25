@@ -1,0 +1,43 @@
+[[section_collection_input]]
+== Collection Input and Remote Collections Conformance Classes
+
+=== Requirement Class _Collection Input_
+
+The _Collection Input_ conformance class allows to specify an OGC API collection available using
+one or more OGC API data access mechanism specification as an input to a process. Unless an implementation
+also conforms to the _Remote Collections_ conformance class, only local collections are supported.
+
+include::../requirements/requirements_class_collection-input.adoc[]
+
+The following requirements describe how an execution request references an OGC API collection
+and how an implementation requests data from that collection to use as an input to a process.
+
+==== Referencing a collection
+
+include::../requirements/collection-input/REQ_collection-input_referenced-collection.adoc[]
+
+==== Accessing data from a collection
+
+include::../requirements/collection-input/REQ_collection-input_collection-access.adoc[]
+
+=== Requirement Class _Remote Collections_
+
+The _Remote Collections_ conformance class allows to reference a remote OGC API collection
+in addition to any local collections.
+
+If the _Nested Processes_ conformance class is also supported, but _Remote Processes_ is not,
+an implementation still provides the ability to substitute a collection by remote nested processes
+supporting the _Collection Output_ conformance class as input to a process.
+
+include::../requirements/requirements_class_remote-collections.adoc[]
+
+The following requirements describe how an execution request references a remote OGC API collection
+and how an implementation requests data from that collection to use as an input to a process.
+
+==== Referencing a remote collection
+
+include::../requirements/remote-collections/REQ_remote-collections_referenced-collection.adoc[]
+
+==== Accessing data from a remote collection
+
+include::../requirements/remote-collections/REQ_remote-collections_collection-access.adoc[]

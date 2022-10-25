@@ -1,7 +1,0 @@
-[[req_workflows_collection-post-op]]
-[requirement]
-====
-[%metadata]
-label:: /req/workflows/collection/post-op
-part:: The server shall support the HTTP POST operation at the path '/processes/{processId}'.
-====

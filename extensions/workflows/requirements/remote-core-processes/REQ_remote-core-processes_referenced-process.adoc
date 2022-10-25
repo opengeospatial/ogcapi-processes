@@ -1,0 +1,9 @@
+[requirement]
+====
+[%metadata]
+label:: /req/nested-processes/referenced-process
+description:: For referencing a remote process as an input to another process:
+part:: The Implementation SHALL support execution requests containing a `"process"` key and a corresponding URI or Relative-URI value identifying an authorized remote process as an input to another process.
+====
+
+NOTE: The specification is agnostic to how an implementation determines whether a remote process is authorized or not. This may be based e.g., on allow/disallow lists, credentials and/or federations.

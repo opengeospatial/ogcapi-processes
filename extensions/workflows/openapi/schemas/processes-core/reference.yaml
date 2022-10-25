@@ -1,0 +1,7 @@
+type: object
+required:
+  - "$ref"
+properties:
+  "$ref":
+    type: string
+    format: uri-reference
