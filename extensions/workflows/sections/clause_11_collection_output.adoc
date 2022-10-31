@@ -22,10 +22,10 @@ pipeline. Parsing the execution request, validating inputs, and handshakes with 
 only need to be performed once. An implementation could also preempt future requests based on past requests,
 offsetting the latency of a complex distributed workflow.
 
-A collection document resulting from a workflow MAY provide a link to its source the definition of the
-workflow dgenerating it (link relation type: `http://www.opengis.net/def/rel/ogc/1.0/workflow`).
+A collection document for the result generated from a workflow MAY provide a link to the source definition of that
+workflow (link relation type: `http://www.opengis.net/def/rel/ogc/1.0/workflow`).
 
-A service MAY also support deploying a workflow as a persistent collection e.g., by supporting a `POST`
+A service MAY also implement the capability to deploy a workflow as a persistent collection e.g., by supporting a `POST`
 method for the `/collections` end-point accepting a JSON workflow definition (execution request) as payload.
 
 include::../requirements/requirements_class_collection-output.adoc[]
