@@ -111,9 +111,10 @@ The conformance classes defined in this specification allow to:
    ** select formats and access mechanisms outside workflow definition, negotiating at each hop of a workflow, therefore making them more interoperable and re-usable,
    ** making workflows definitions agnostic of area, time and region of interest, therefore easier to re-use;
 
-* _**trigger on-demand processing with OGC API data access requests by**_
-   ** allowing regular OGC API data access clients to readily support processing while requiring very minimal processing-specific code (performing a single POST request),
-   ** prioritizing client requests, which means always accessing the latest available data,
+* _**trigger on-demand processing with OGC API data access requests**_
+   ** making it easy for OGC API data access clients to readily support processing while requiring very minimal processing-specific code (performing a single POST request),
+   ** making it possible to prioritize processing based on client requests and their importance based on credentials,
+   ** ensuring the latest available data is always used,
    ** enabling instant feedback allowing to validate and tweak input parameters based on initial small requests tailored to the area and resolution of interest of a given view (or preview) of the results;
 
 * _**minimize data exchange bandwidth requirements by**_
