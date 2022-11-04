@@ -61,4 +61,6 @@ All questions regarding this submission should be directed to the editors or the
 | Joan Masó Pau                           | Universitat Autònoma de Barcelona (CREAF)
 | Francis Charette Migneault              | Centre de Recherche en Informatique de Montréal (CRIM)
 | Benjamin Proß                           | 52°North Spatial Information Research GmbH
+| Claudio Iacopino                        | European Space Agency (ESA)
+| Jeff Harrison                           | US Army Geospatial Center (AGC)
 |===
