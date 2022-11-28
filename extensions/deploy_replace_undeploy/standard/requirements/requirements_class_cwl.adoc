@@ -1,10 +1,11 @@
-[[rc_ogcapppkg]]
+[[rc_cwl]]
 [requirements_class]
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg
+label:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl
 obligation:: requirement
 subject:: Web API
 inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core>>
 inherit:: <<rc_deploy-replace-undeploy,http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy>>
+inherit:: Common Workflow Language <<Common_Workflow_Language>>
 ====

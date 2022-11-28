@@ -1,0 +1,14 @@
+[[rec_ogcapppkg_execution-unit-cwl]]
+[recommendation]
+====
+[%metadata]
+label:: /rec/ogcapppkg/execution-unit-cwl
+
+part:: If the execution unit is encoded in CWL then it is recommended that the contents of the execution unit be the properties:
+ * `type`  and `href` if passed by reference
+ * `value` and `mediaType` if passed by value
+
+part:: The value of the `type` or `mediaType` property shall be `application/cwl'.
+
+part:: The value of the `href` property shall be a reference to the CWL encoded file, the `value` shall be the content encoded as CWL.
+====

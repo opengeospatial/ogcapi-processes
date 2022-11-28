@@ -4,11 +4,9 @@
 
 OGC API standards define modular API building blocks to spatially enable Web APIs in a consistent way. The <<OpenAPI-Spec,OpenAPI specification>> is used to define the API building blocks.
 
-OGC API Processes provides API building blocks to describe, execute, monitor
-and retrieve results of Web-accessible processes.  OGC API Processes is
-comprised of multiple parts, each of them is a separate standard.
+OGC API Processes provides API building blocks to describe, execute, monitor and retrieve results of Web-accessible processes. OGC API Processes is comprised of multiple parts, each of them is a separate standard.
 
-This part extends the core capabilities specified in <<OAProc-1>> with the ability to dynamically add, modify and/or delete individual processes from a deployed processes API.
+This part extends the core capabilities specified in <<OAProc-1>> with the ability to dynamically add, modify and/or delete individual processes from a processes API endpoint.
 
 CAUTION: This is a DRAFT version of the 2nd part of the OGC API - Processes standards. This draft is not complete and there are open issues that are still under discussion.
 
@@ -20,5 +18,6 @@ All questions regarding this submission should be directed to the editors or the
 |===
 | Name | Affiliation
 | Panagiotis (Peter) A. Vretanos _(editor)_ | CubeWerx Inc.
+| Gérald Fenoy _(editor)_ | GeoLabs
 |===
 

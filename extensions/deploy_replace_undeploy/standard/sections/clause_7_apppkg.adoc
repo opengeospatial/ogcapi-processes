@@ -50,6 +50,23 @@ either specified in-line (e.g. CWL script) or by reference (e.g. docker image re
 
 include::../requirements/ogcapppkg/REQ_execution-unit-docker.adoc[]
 
+When CWL encoding is used, the execution unit can be either passed by value (in-line) or by reference.
+
+include::../recommendations/ogcapppkg/REC_ogcapppkg_execution-unit-cwl.adoc[]
+
+Below is an example of a deploy body request using a CWL-encoded execution unit by reference.
+
+[[example1]]
+[source%unnumbered]
+----
+{
+  "executionUnit": {
+    "href": "https://raw.githubusercontent.com/EOEPCA/app-snuggs/main/app-package.cwl",
+    "type": "application/cwl"
+  }
+}
+----
+
 ==== deploymentProfile property
 
 The deploymentProfile property is used to indicate the type of execution unit
@@ -59,7 +76,7 @@ include::../requirements/ogcapppkg/REQ_profile-docker.adoc[]
 
 NOTE: I think we need to consult with the OGC NA to get a property identifier indicating that the profile is "dockerized application".
 
-[[example1]]
+[[example2]]
 [source%unnumbered]
 ----
 {
@@ -254,15 +271,13 @@ NOTE: I think we need to consult with the OGC NA to get a property identifier in
       "reference"
     ]
   },
-  "executionUnit": [
-    {
-       "type": "docker",
-       "image": "eoc/ndvi:latest",
-       "config": {
-          "cpuMin": 2
-       }
+  "executionUnit": {
+    "type": "docker",
+    "image": "eoc/ndvi:latest",
+    "config": {
+      "cpuMin": 2
     }
-  ],
+  },
 }
 ----
 

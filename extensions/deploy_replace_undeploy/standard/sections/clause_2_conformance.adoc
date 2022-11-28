@@ -1,7 +1,7 @@
 
 == Conformance
 
-This standard defines two requirements / conformance class.
+This standard defines the following requirements classes.
 
 The standardization target is "Web APIs".
 
@@ -25,6 +25,11 @@ This encoding is not mandatory and an implementation of this extension may
 choose to implement some other process description instead.  That said, the
 `Deploy, Replace, Undeploy` conformance class includes recommendations to
 support the `OGC Application Package`.
+
+In addition to the previous encoding, another conformance class is provided to
+enable support for the Common Workflow Language (CWL):
+
+* <<rc_cwl>>
 
 Conformance with this standard shall be checked using all the relevant tests
 specified in <<ats>> of this document. The framework, concepts, and

@@ -1,0 +1,10 @@
+[[rec_deploy-replace-undeploy_deploy_body-cwl]]
+[recommendation]
+====
+[%metadata]
+label:: /rec/deploy-replace-undeploy/deploy/body-cwl
+
+part:: If a process can be represented for the intended use as a <<rc_cwl,CWL Application>>, implementations should consider supporting the <<rc_cwl,CWL>> encoding for describing the process to be deployed to the API.
+
+part:: The media type `application/cwl` shall be used to indicate that request body contains a processes description encoded as a <<rc_cwl,CWL Application>>.
+====
