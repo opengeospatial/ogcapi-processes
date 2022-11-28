@@ -63,4 +63,5 @@ All questions regarding this submission should be directed to the editors or the
 | Benjamin Proß                           | 52°North Spatial Information Research GmbH
 | Claudio Iacopino                        | European Space Agency (ESA)
 | Jeff Harrison                           | US Army Geospatial Center (AGC)
+| Stan Tillman                            | Hexagon
 |===

@@ -12,7 +12,7 @@ References are to follow the Springer LNCS style, with the exception that option
 * [[[OGC18-062r2,OGC 18-062r2]]], OGC API - Processes - Part 1: Core
 
 // * [[[OGC20-057,OGC 20-057]]], OGC API - Tiles - Part 1: Core (2022)
-* [[[OGC20-057,OGC 20-057]]], Joan Masó, Jérôme St-Louis: OGC API - Tiles - Part 1: Core (Draft). OGC 20-057, Open Geospatial Consortium, https://opengeospatial.github.io/ogcna-auto-review/20-057.html[https://opengeospatial.github.io/ogcna-auto-review/20-057.html]
+* [[[OGC20-057,OGC 20-057]]], Joan Masó, Jérôme Jacovella-St-Louis: OGC API - Tiles - Part 1: Core. OGC 20-057, Open Geospatial Consortium, https://docs.ogc.org/is/20-057/20-057.html[https://docs.ogc.org/is/20-057/20-057.html]
 
 * [[[OGC17-069r3,OGC 17-069r3]]], OGC API - Features - Part 1: Core (2019)
 
@@ -28,9 +28,9 @@ References are to follow the Springer LNCS style, with the exception that option
 
 * [[[OGC19-079r1,OGC 19-079r1]]] Panagiotis (Peter) A. Vretano, Clemens Portele: OGC API - Features - Part 3: Filtering (Draft). OGC 19-079r1, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/19-079r1.html[http://docs.ogc.org/DRAFTS/19-079r1.html]
 
-* [[[OGC19-087,OGC 19-087]]], Charles Heazel, Jérôme St-Louis: OGC API - Coverages - Part 1: Core (Draft). OGC 19-087, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/19-087.html[http://docs.ogc.org/DRAFTS/19-087.html]
+* [[[OGC19-087,OGC 19-087]]], Charles Heazel, Jérôme Jacovella-St-Louis: OGC API - Coverages - Part 1: Core (Draft). OGC 19-087, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/19-087.html[http://docs.ogc.org/DRAFTS/19-087.html]
 
-// * [[[OGC20-058,OGC 20-058]]], Joan Masó: OGC API - Maps - Part 1: Core (Draft). OGC 19-058, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/20-058.html[http://docs.ogc.org/DRAFTS/20-058.html]
-* [[[OGC20-058-fixme,OGC 20-058-fixme]]], Joan Masó: OGC API - Maps - Part 1: Core (Draft). OGC 19-058, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/20-058.html[http://docs.ogc.org/DRAFTS/20-058.html]
+// * [[[OGC20-058,OGC 20-058]]], Joan Masó, Jérôme Jacovella-St-Louis: OGC API - Maps - Part 1: Core (Draft). OGC 19-058, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/20-058.html[http://docs.ogc.org/DRAFTS/20-058.html]
+* [[[OGC20-058-fixme,OGC 20-058-fixme]]], Joan Masó, Jérôme Jacovella-St-Louis: OGC API - Maps - Part 1: Core (Draft). OGC 19-058, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/20-058.html[http://docs.ogc.org/DRAFTS/20-058.html]
 
-* [[[OGC21-038,OGC 21-038]]], Matthew B.J. Purss: OGC API - Discrete Global Grid Systems - Part 1: Core (Draft). OGC 21-038, Open Geospatial Consortium, https://opengeospatial.github.io/ogcna-auto-review/21-038.html[https://opengeospatial.github.io/ogcna-auto-review/21-038.html]
+* [[[OGC21-038,OGC 21-038]]], Matthew B.J. Purss, Jérôme Jacovella-St-Louis: OGC API - Discrete Global Grid Systems - Part 1: Core (Draft). OGC 21-038, Open Geospatial Consortium, https://opengeospatial.github.io/ogcna-auto-review/21-038.html[https://opengeospatial.github.io/ogcna-auto-review/21-038.html]
