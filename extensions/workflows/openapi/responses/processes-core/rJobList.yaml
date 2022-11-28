@@ -1,0 +1,5 @@
+description: A list of jobs for this process.
+content:
+  application/json:
+    schema:
+      $ref: "../../schemas/processes-core/jobList.yaml"

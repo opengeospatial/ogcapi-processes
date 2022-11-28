@@ -1,0 +1,8 @@
+[permission]
+====
+[%metadata]
+label:: /per/collection-output/expiry
+description:: Collection output resources are ephemeral in nature:
+part:: An Implementation MAY return a _410 Gone_ HTTP status code for resources associated with a previous _Collection Output_ response (i.e., a landing page, a collection, or any resources linked from either) if a significant period of time has elapsed since both the original request and any further associated data access request from the client.
+part:: An Implementation MAY redirect a client re-posting an identical or equivalent execution request for _Collection Output_ (e.g., after having received a 410 gone status) to the same location as a previous execution (expired and reinstated, or still valid), or to a new location.
+====

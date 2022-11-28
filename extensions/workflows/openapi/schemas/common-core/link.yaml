@@ -1,0 +1,17 @@
+type: object
+required:
+  - href
+properties:
+  href:
+    type: string
+  rel:
+    type: string
+    example: service
+  type:
+    type: string
+    example: application/json
+  hreflang:
+    type: string
+    example: en
+  title:
+    type: string

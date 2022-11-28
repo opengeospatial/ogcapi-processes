@@ -1,0 +1,12 @@
+[[rc_nested-processes]]
+[requirements_class]
+====
+[%metadata]
+label:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/nested-processes
+subject:: Nested Processes
+inherit:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core
+inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/input-fields-modifiers (optional)
+inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/output-fields-modifiers (optional)
+inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/collection-input (optional)
+inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/remote-collections (optional)
+====

@@ -1,0 +1,2 @@
+additionalProperties:
+  $ref: "inlineOrRefData.yaml"

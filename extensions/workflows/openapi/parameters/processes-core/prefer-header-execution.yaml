@@ -1,0 +1,8 @@
+in: header
+description: |-
+   Indicates client preferences, including whether the client is capable of asynchronous processing.
+   A `respond-async` preference indicates a preference for asynchronous processing.
+   A `wait: <x>s` preference indicates that the client prefers to wait up to x seconds to receive a reponse synchronously before the server falls back to asynchronous processing.
+name: Prefer
+schema:
+   type: string

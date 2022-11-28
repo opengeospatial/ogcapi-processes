@@ -1,0 +1,8 @@
+name: subset-crs
+in: query
+description: crs for the specified subset
+required: false
+style: form
+explode: true
+schema:
+  type: string

@@ -1,0 +1,65 @@
+description: |-
+  The collections of (mostly geospatial) data available from this API. The dataset contains one or more collections. This resource provides information about and access to the collections. The response contains the list of collections. Each collection is accessible via one or more OGC API set of specifications, for which a link to relevant accessible resources, e.g. /collections/{collectionId}/(items, coverage, map, tiles...) is provided, with the corresponding relation type, as well as key information about the collection. This information includes:
+  * a local identifier for the collection that is unique for the dataset;
+  * a list of coordinate reference systems (CRS) in which data may be returned by the server. The first CRS is the default coordinate reference system (the default is always WGS 84 with axis order longitude/latitude);
+  * an optional title and description for the collection;
+  * an optional extent that can be used to provide an indication of the spatial and temporal extent of the collection - typically derived from the data;
+  * for collections accessible via the Features or Records API, an optional indicator about the type of the items in the collection (the default value, if the indicator is not provided, is 'feature').
+content:
+  application/json:
+    schema:
+      $ref: '../../schemas/common-geodata/collections.yaml'
+    example:
+      links:
+        - href: http://data.example.org/collections.json
+          rel: self
+          type: application/json
+          title: this document
+        - href: http://data.example.org/collections.html
+          rel: alternate
+          type: text/html
+          title: this document as HTML
+        - href: http://schemas.example.org/1.0/buildings.xsd
+          rel: describedby
+          type: application/xml
+          title: GML application schema for Acme Corporation building data
+        - href: http://download.example.org/buildings.gpkg
+          rel: enclosure
+          type: application/geopackage+sqlite3
+          title: Bulk download (GeoPackage)
+          length: 472546
+      collections:
+        - id: buildings
+          title: Buildings
+          description: Buildings in the city of Bonn.
+          extent:
+            spatial:
+              bbox:
+                - - 7.01
+                  - 50.63
+                  - 7.22
+                  - 50.78
+            temporal:
+              interval:
+                - - '2010-02-15T12:34:56Z'
+                  - null
+          links:
+            - href: http://data.example.org/collections/buildings/items
+              rel: items
+              type: application/geo+json
+              title: Buildings
+            - href: http://data.example.org/collections/buildings/items.html
+              rel: items
+              type: text/html
+              title: Buildings
+            - href: https://creativecommons.org/publicdomain/zero/1.0/
+              rel: license
+              type: text/html
+              title: CC0-1.0
+            - href: https://creativecommons.org/publicdomain/zero/1.0/rdf
+              rel: license
+              type: application/rdf+xml
+              title: CC0-1.0
+  text/html:
+    schema:
+      type: string

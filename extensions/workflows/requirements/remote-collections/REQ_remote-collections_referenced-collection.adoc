@@ -1,0 +1,9 @@
+[requirement]
+====
+[%metadata]
+label:: /req/remote-collections/referenced-collection
+description:: For referencing a remote collection as an input to a process:
+part:: The Implementation SHALL support execution requests containing a `"collection"` key and a corresponding URI or Relative-URI value identifying an authorized OGC API collection as an input to a process.
+part:: If the Implementation conforms to the _Nested Process_ conformance class, it SHALL also support execution requests containing a `"process"` key and a corresponding URI or Relative-URI value identifying an authorized remote process supporting the _Collection Output_ conformance class as an input to another process.
+part:: The Implementation SHALL interpret Relative-URIs as relative to the parent process within which the containing collection or process object is nested.
+====

@@ -1,0 +1,11 @@
+name: f
+in: query
+description: The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.
+required: false
+schema:
+  type: string
+  enum:
+    - json
+    - html
+style: form
+explode: false

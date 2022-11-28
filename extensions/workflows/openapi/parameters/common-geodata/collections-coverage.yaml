@@ -1,0 +1,10 @@
+name: collections
+in: query
+style: form
+description: The collections that should be included in the response. The parameter value is a comma-separated list of collection identifiers. If the parameters is missing, some or all collections will be included. The collection will be rendered in the order specified, with the last one showing on top, unless the priority is overridden by styling rules.
+required: false
+explode: false
+schema:
+  type: array
+  items:
+    $ref: '../../schemas/dynamic/coverage-collections.yaml'

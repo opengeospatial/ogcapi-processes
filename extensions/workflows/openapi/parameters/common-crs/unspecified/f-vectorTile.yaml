@@ -1,0 +1,11 @@
+name: f
+in: query
+description: The format of the vector tile response (e.g. json). Accepted values are 'mvt' (Mapbox Vector Tiles) or 'json' (GeoJSON).
+required: false
+schema:
+  type: string
+  enum:
+    - mvt
+    - json
+style: form
+explode: false

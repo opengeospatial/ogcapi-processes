@@ -1,0 +1,11 @@
+get:
+   tags:
+     - Data Collections
+   operationId: getCollection
+   summary: Retrieve the description of a collection available from this service.
+   parameters:
+     - $ref: '../../parameters/common-geodata/collectionId-all.yaml'
+     - $ref: '../../parameters/unspecified/f-metadata.yaml'
+   responses:
+     '200':
+       $ref: '../../responses/common-geodata/rCollection.yaml'

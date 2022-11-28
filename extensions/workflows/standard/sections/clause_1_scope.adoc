@@ -1,7 +1,0 @@
-
-== Scope
-
-This document specifies an extension to the <<OAProc-1,OGC API - Processes -
-Part 1: Core>> standard that defines the behavior of an implementation that
-supports the ability to chain nested processes, refer to external processes and collections accessible via OGC API standards, and trigger execution
-of processes through OGC API data delivery specifications such as OGC API - Features, Tiles, Maps and Coverages...

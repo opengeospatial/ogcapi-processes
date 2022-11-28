@@ -1,0 +1,8 @@
+in: header
+description: |-
+   Indicates client preferences, such as whether the client wishes a self-contained or minimal response.
+   A `return=minimal` preference indicates that the client would prefer that links be returned to larger object to minimize the response payload.
+   A `return=representation` indicates that the client would prefer if the server can return a self-contained response.
+name: Prefer
+schema:
+   type: string
