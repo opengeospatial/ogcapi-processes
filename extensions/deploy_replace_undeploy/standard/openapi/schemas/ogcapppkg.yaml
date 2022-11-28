@@ -7,6 +7,11 @@ properties:
   executionUnit:
     oneOf:
       - $ref: executionUnit.yaml
+      - $ref: https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/link.yaml
+      - $ref: https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/qualifiedInputValue.yaml
       - type: array
         items:
-	  $ref: executionUnit.yaml
+	  oneOf:
+	    - $ref: executionUnit.yaml
+	    - $ref: https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/link.yaml
+	    - $ref: https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/qualifiedInputValue.yaml
