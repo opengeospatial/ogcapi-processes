@@ -29,6 +29,6 @@ jobs:
           key: fontist-${{ runner.os }}
           restore-keys: fontist-${{ runner.os }}
 
-      - uses: actions-mn/setup@master
+      - uses: actions-mn/setup@main
 
       - run: metanorma site generate --agree-to-terms
