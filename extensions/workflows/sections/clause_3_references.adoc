@@ -11,8 +11,7 @@ References are to follow the Springer LNCS style, with the exception that option
 
 * [[[OGC18-062r2,OGC 18-062r2]]], OGC API - Processes - Part 1: Core
 
-// * [[[OGC20-057,OGC 20-057]]], OGC API - Tiles - Part 1: Core (2022)
-* [[[OGC20-057,OGC 20-057]]], Joan Masó, Jérôme Jacovella-St-Louis: OGC API - Tiles - Part 1: Core. OGC 20-057, Open Geospatial Consortium, https://docs.ogc.org/is/20-057/20-057.html[https://docs.ogc.org/is/20-057/20-057.html]
+* [[[OGC20-057,OGC 20-057]]], OGC API - Tiles - Part 1: Core (2022)
 
 * [[[OGC17-069r3,OGC 17-069r3]]], OGC API - Features - Part 1: Core (2019)
 
