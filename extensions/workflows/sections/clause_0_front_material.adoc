@@ -64,4 +64,6 @@ All questions regarding this submission should be directed to the editors or the
 | Claudio Iacopino                        | European Space Agency (ESA)
 | Jeff Harrison                           | US Army Geospatial Center (AGC)
 | Stan Tillman                            | Hexagon
+| Olivier Ertz                            | Haute École d'Ingénierie et de Gestion du Canton de Vaud (HEIG-VD)
+| Erwan Bocher                            | Laboratoire des Sciences et Techniques de l'information de la Communication et de la Connaissance / Centre national de la recherche scientifique (Lab-STICC CNRS)
 |===
