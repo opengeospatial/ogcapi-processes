@@ -2,7 +2,7 @@ description: the processes being added is already deployed (i.e. duplicate)
 content:
   application/json:
     schema:
-      $ref: "https://raw.githubusercontent.com/opengeospatial/wps-rest-binding/master/core/openapi/schemas/exception.yaml"
+      $ref: https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml
   text/html:
     schema:
       type: string

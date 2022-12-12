@@ -11,8 +11,8 @@
 :issued-date: yyyy-mm-dd
 :external-id: http://www.opengis.net/doc/IS/ogcapi-processes-2/1.0
 :keywords: process, collection, instance, spatial, data, openapi, transactions, insert, update, delete, add, remove, deploy, undeploy, REST, PUT, POST, DELETE
-:submitting-organizations: CubeWerx Inc.
-:editor: Panagiotis (Peter) A. Vretanos
+:submitting-organizations: Geolabs; CubeWerx Inc.
+:editor: Panagiotis (Peter) A. Vretanos, Gérald Fenoy
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf
 
@@ -35,11 +35,13 @@ include::sections/clause_6_deploy_replace_undeploy.adoc[]
 
 include::sections/clause_7_apppkg.adoc[]
 
-include::sections/clause_8_oas.adoc[]
+include::sections/clause_8_cwl.adoc[]
 
-include::sections/clause_9_media_types.adoc[]
+include::sections/clause_9_oas.adoc[]
 
-include::sections/clause_10_security_considerations.adoc[]
+include::sections/clause_10_media_types.adoc[]
+
+include::sections/clause_11_security_considerations.adoc[]
 
 include::sections/annex_ats.adoc[]
 
