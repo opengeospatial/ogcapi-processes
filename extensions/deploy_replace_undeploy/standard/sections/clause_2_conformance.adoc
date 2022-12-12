@@ -15,7 +15,7 @@ The `Deploy, Replace, Undeploy` class does not mandate a specific encoding or
 format for the formal definition of a process.  However, this extension
 defines the following conformance class:
 
-* <<rc_ogcapppkg>>
+* <<rc_ogcapppkg,OGC Application Package>>
 
 for this purpose.  The `OGC Application Package` class defines the schema of a
 document that formally defines the inputs, outputs and other necessary metadata
@@ -29,7 +29,7 @@ support the `OGC Application Package`.
 In addition to the previous encoding, another conformance class is provided to
 enable support for the Common Workflow Language (CWL):
 
-* <<rc_cwl>>
+* <<rc_cwl,CWL>>
 
 Conformance with this standard shall be checked using all the relevant tests
 specified in <<ats>> of this document. The framework, concepts, and

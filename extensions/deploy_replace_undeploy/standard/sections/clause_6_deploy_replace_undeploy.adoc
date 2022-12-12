@@ -216,7 +216,7 @@ See <<deploy-replace-undeploy-http_status_codes>> for general guidance.
 
 If the process with the specified identifier does not exist on the server, see requirement /req/core/process-exception/no-such-process from <<OAProc-1>>.
 
-If the process exist but is immutable then <<req_deploy-replace-undeploy_deploy_response-immutable>> applies.
+If the process exist but is immutable then <<req_deploy-replace-undeploy_deploy_response-immutable,/req/deploy-replace-undeploy/deploy/response-immutable>> applies.
 
 [[undeploy]]
 === Removing a processes from the API (undeployProcess)
@@ -251,4 +251,4 @@ See <<deploy-replace-undeploy-http_status_codes,HTTP status codes>> for general 
 
 If the process with the specified identifier does not exist on the server, see requirement /req/core/process-exception/no-such-process from <<OAProc-1>>.
 
-If the process exist but is immutable then <<req_deploy-replace-undeploy_deploy_response-immutable>> applies.
+If the process exist but is immutable then <<req_deploy-replace-undeploy_deploy_response-immutable,/req/deploy-replace-undeploy/deploy/response-immutable>> applies.
