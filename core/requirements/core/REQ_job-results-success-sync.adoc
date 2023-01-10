@@ -8,5 +8,5 @@ part:: A successful execution of the operation SHALL include an HTTP https://dat
 
 part:: When resolving the `rel=monitor` link, the content type of response SHALL be `application/json`.
 
-part:: When resolving the `rel=monitor` link, the body of the response SHALL be based upon the JSON schema fragment https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml].
+part:: When resolving the `rel=monitor` link, the body of the response SHALL be based upon the JSON schema fragment https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[statusInfo.yaml].
 ====

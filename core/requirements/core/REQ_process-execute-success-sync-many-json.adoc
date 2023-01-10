@@ -21,6 +21,6 @@ The media type of the response SHALL be `application/json`
 
 [.component,class=part]
 --
-The content of response SHALL conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/results.yaml[results.yaml] schema.
+The content of response SHALL conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[results.yaml] schema.
 --
 ====

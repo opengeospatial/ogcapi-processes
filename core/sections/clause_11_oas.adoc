@@ -37,7 +37,7 @@ description: An error occurred.
 content:
   application/json:
     schema:
-      $ref: https://raw.githubusercontent.com/opengeospatial/OAPI/openapi/schemas/exception.yaml
+      $ref: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/openapi/schemas/common-core/exception.yaml
   text/html:
     schema:
       type: string
