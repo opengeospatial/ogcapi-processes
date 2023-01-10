@@ -1,0 +1,75 @@
+= OGC API - Processes - Part 1: Core
+:doctype: standard
+:docsubtype: implementation
+:edition: 1.0
+:language: en
+:toc:
+:toc-placement!:
+:toclevels: 7
+:docnumber: 18-062
+:status: published
+:copyright-year: 2018
+:external-id: http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0
+:received-date: yyyy-mm-dd
+:issued-date: yyyy-mm-dd
+:published-date: yyyy-mm-dd
+:fullname: Benjamin Pross
+:fullname_2: Panagiotis (Peter) A. Vretanos
+:keywords: ogcdoc, OGC document, OGC API, Geospatial API, processes, Web Processing Service, WPS, JSON, HTML, geoprocessing, API, OpenAPI, HTML
+:submitting-organizations: 52°North GmbH; Hexagon; CubeWerx Inc.; Ecere Corporation; Terradue Srl; European Space Agency (ESA); Spacebel
+:local-cache-only:
+:data-uri-image:
+:mn-document-class: ogc
+:mn-output-extensions: rxl,xml,html,pdf
+
+////
+Make sure to complete each included document
+////
+include::core/sections/clause_0_front_material.adoc[]
+
+include::core/sections/clause_1_scope.adoc[]
+
+include::core/sections/clause_2_conformance.adoc[]
+
+include::core/sections/clause_3_references.adoc[]
+
+include::core/sections/clause_4_terms_and_definitions.adoc[]
+
+include::core/sections/clause_5_conventions.adoc[]
+
+include::core/sections/clause_6_overview.adoc[]
+
+include::core/sections/clause_7_core.adoc[]
+
+include::core/sections/clause_8_ogc-process-description.adoc[]
+
+include::core/sections/clause_9_security-considerations.adoc[]
+
+include::core/sections/clause_10_encodings.adoc[]
+
+include::core/sections/clause_11_oas.adoc[]
+
+include::core/sections/clause_12_job_list.adoc[]
+
+include::core/sections/clause_13_callback.adoc[]
+
+include::core/sections/clause_14_dismiss.adoc[]
+
+include::core/sections/clause_15_kvp-execute.adoc[]
+
+include::core/sections/clause_16_media_types.adoc[]
+
+include::core/sections/clause_17_additional-api-building-blocks.adoc[]
+
+////
+add or remove annexes after "A" as necessary
+////
+include::core/sections/annex-ats.adoc[]
+
+////
+Revision History should be the last annex before the Bibliography
+Bibliography should be the last annex
+////
+include::core/sections/annex-history.adoc[]
+
+include::core/sections/annex-bibliography.adoc[]

@@ -38,7 +38,7 @@ After a process is finished (status = success/failed), the results/exceptions ca
 
 [[img_core]]
 .Resources in the Core requirements class
-image::figures/PT1_FIG01.png[align="center"]
+image::core/figures/PT1_FIG01.png[align="center"]
 
 The OGC API - Processes Standard utilizes elements of <draft> the OGC API-Common standard. <<mapping-to-common>> Identifies the API-Common Requirements Classes which are applicable to each section of this standard.
 

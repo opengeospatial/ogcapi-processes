@@ -2,7 +2,7 @@
 metanorma:
   source:
     files:
-      - core/18-062.adoc
+      - 18-062.adoc
       - extensions/workflows/21-009.adoc
       - extensions/deploy_replace_undeploy/standard/20-044.adoc
 
