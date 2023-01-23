@@ -1,8 +1,0 @@
-name: {input-name}
-in: query
-required: false
-schema:
-  type: boolean
-style: form
-explode: false
-

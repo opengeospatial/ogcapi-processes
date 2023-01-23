@@ -15,7 +15,7 @@ A bbox input parameter SHALL have the following characteristics:
 
 [source,yaml]
 ----
-include::../../openapi/parameters/bbox.yaml[]
+include::../../../openapi/parameters/common-geodata/bbox.yaml[]
 ----
 
 where the token `{bbox-input-name}` represented the identifier of the input.

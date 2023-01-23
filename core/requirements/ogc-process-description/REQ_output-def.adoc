@@ -10,6 +10,6 @@ The schema of each <<sc_process_outputs,process **output**>> SHALL be specified 
 
 [.component,class=part]
 --
-The value of the `schema` parameter SHALL be a JSON fragment that validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
+The value of the `schema` parameter SHALL be a JSON fragment that validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/schema-original.yaml[schema.yaml].
 --
 ====

@@ -10,7 +10,7 @@ An input that can be of mixed type SHALL be defined using the https://tools.ietf
 
 [.component,class=part]
 --
-Each sub-schema SHALL be a JSON fragment that validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
+Each sub-schema SHALL be a JSON fragment that validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/schema-original.yaml[schema.yaml].
 --
 
 [.component,class=part]

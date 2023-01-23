@@ -66,10 +66,10 @@ include::../requirements/job-list/REQ_success.adoc[]
 .Schema for the job list
 [source,yaml]
 ----
-include::../openapi/schemas/jobList.yaml[]
+include::../../openapi/schemas/processes-core/jobList.yaml[]
 ----
 
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/jobList.yaml[`jobList.yaml`].
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/jobList.yaml[`jobList.yaml`].
 
 (see also: <<schema-statusInfo,statusInfo.yaml>>, <<link-schema,link.yaml>>)
 
