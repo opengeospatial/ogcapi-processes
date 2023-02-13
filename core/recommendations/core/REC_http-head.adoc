@@ -4,9 +4,5 @@
 [%metadata]
 label:: /rec/core/http-head
 
-part::
-+
---
 The server SHOULD support the HTTP 1.1 method HEAD for all resources that support the method GET.
---
 ====
