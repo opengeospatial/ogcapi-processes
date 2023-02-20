@@ -10,6 +10,8 @@ include::dismiss/ATS_job-dismiss-op.adoc[]
 
 include::dismiss/ATS_job-dismiss-success.adoc[]
 
+NOTE: The response to dismissing a job can be presented in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate against that schema. All supported formats should be exercised.
+
 [[job-dismiss-schema]]
 .Schema and Tests for Dismissing a Job
 [cols="3",options="header"]
