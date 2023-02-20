@@ -1,4 +1,3 @@
-[[rec_job-list_access-control-job-list]]
 [recommendation]
 ====
 [%metadata]
