@@ -9,3 +9,12 @@ classification:: Target Type:Web API
 include::dismiss/ATS_job-dismiss-op.adoc[]
 
 include::dismiss/ATS_job-dismiss-success.adoc[]
+
+[[job-dismiss-schema]]
+.Schema and Tests for Dismissing a Job
+[cols="3",options="header"]
+|===
+|Format |Schema Document |Test ID
+|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_html_content,/conf/html/content>>
+|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_json_content,/conf/json/content>>
+|===

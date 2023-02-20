@@ -36,4 +36,13 @@ include::job-list/ATS_jl-limit-response.adoc[]
 
 include::job-list/ATS_success.adoc[]
 
+[[job-list-schema]]
+.Schema and Tests for Job List Content
+[cols="3",options="header"]
+|===
+|Format |Schema Document |Test ID
+|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/jobList.yaml[jobList.yaml] |<<ats_html_content,/conf/html/content>>
+|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/jobList.yaml[jobList.yaml] |<<ats_json_content,/conf/json/content>>
+|===
+
 include::job-list/ATS_jl-links.adoc[]
