@@ -30,7 +30,6 @@ Validate the document for all supported media types using the resources and test
 =====
 
 The job results page for a job may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the job results for a non-existent job against that schema.  All supported formats should be exercised.
-====
 
 [[job-results-exception-no-such-job]]
 .Schema and Tests for the Job Result for Non-existent Job
@@ -40,3 +39,5 @@ The job results page for a job may be retrieved in a number of different formats
 |HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_html_content,/conf/html/content>>
 |JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_json_content,/conf/json/content>>
 |===
+
+====
