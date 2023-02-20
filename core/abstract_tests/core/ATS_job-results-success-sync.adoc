@@ -1,9 +1,8 @@
-[[ats_core_job-results-sync]]
-[abstract_test]
+[[ats_core_job-results-success-sync]][abstract_test]
 ====
 [%metadata]
-label:: /conf/core/job-results-sync
-subject:: <<req_core_job-results-sync,/req/core/job-results-sync>>
+label:: /conf/core/job-results-success-sync
+subject:: <<req_core_job-results-success-sync,/req/core/job-results-success-sync>>
 test-purpose:: Validate that the server responds as expected when getting results from a job for a process that has been executed synchronously.
 
 [.component,class=test method]
@@ -21,7 +20,7 @@ Inspect the description of each process and identify the subset of processes tha
 
 [.component,class=step]
 --
-For each identified process construct an execute request according to test <<ats_core_job-creation-request,/conf/core/job-creation-request>> ensuring that synchronous execution is <<sc_execution_mode,negotiated>> according to test <<ats_core_job-creation-default-execution-mode,/conf/core/job-creation-default-execution-mode>>.
+For each identified process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> ensuring that synchronous execution is <<sc_execution_mode,negotiated>> according to test <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>>.
 --
 
 [.component,class=step]

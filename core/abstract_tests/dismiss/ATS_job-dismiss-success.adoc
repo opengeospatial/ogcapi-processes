@@ -1,5 +1,4 @@
-[[ats_dismiss_job-dismiss-success]]
-[abstract_test]
+[[ats_dismiss_job-dismiss-success]][abstract_test]
 ====
 [%metadata]
 label:: /conf/dismiss/job-dismiss-success
@@ -25,8 +24,7 @@ Validate the process list content for all supported media types using the resour
 --
 =====
 
-The response to dismissing a job can be presented in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.
-====
+NOTE: The response to dismissing a job can be presented in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate against that schema. All supported formats should be exercised.
 
 [[job-dismiss-schema]]
 .Schema and Tests for Dismissing a Job

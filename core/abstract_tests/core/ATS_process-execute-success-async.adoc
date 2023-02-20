@@ -1,0 +1,26 @@
+[[ats_core_process-execute-success-async]][abstract_test]
+====
+[%metadata]
+label:: /conf/core/process-execute-success-async
+subject:: <<req_core_process-execute-success-async,/req/core/process-execute-success-async>>
+test-purpose:: Validate the results of a job that has been created using the `async` execution mode.
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Validate that results of the job was returned with an HTTP status code 201.
+--
+
+[.component,class=step]
+--
+Validate that the response header contains a `Location` header that contains a link to the newly created job.
+--
+
+[.component,class=step]
+--
+Verify the contents of the response body against the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml].
+--
+=====
+====

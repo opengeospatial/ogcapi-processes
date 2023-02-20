@@ -64,8 +64,8 @@ Conformance with this standard SHALL be checked using all the relevant tests spe
 
 |<<ats_core,Core>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
 |<<ats_ogc-process-description,OGC Process Description>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description
-|<<ats_json,JSON>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json
-|<<ats_html,HTML>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html
+|<<ats_json_content,JSON>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/json
+|<<ats_html_content,HTML>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html
 |<<ats_oas30,OpenAPI Specification 3.0>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30
 |<<ats_job-list,Job list>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list
 |<<ats_callback,Callback>> |http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback

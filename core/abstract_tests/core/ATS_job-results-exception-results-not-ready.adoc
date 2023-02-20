@@ -1,5 +1,4 @@
-[[ats_core_job-results-exception-results-not-ready]]
-[abstract_test]
+[[ats_core_job-results-exception-results-not-ready]][abstract_test]
 ====
 [%metadata]
 label:: /conf/core/job-results-exception-results-not-ready
@@ -11,7 +10,7 @@ test-purpose:: Validate that the job results retrieved for an incomplete job com
 
 [.component,class=step]
 --
-Create a job as per <<ats_core_job-creation-op,/req/core/job-creation-op>> and note the {jobID} assigned to the job; ensure that the job is long-running.
+Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the {jobID} assigned to the job; ensure that the job is long-running.
 --
 
 [.component,class=step]

@@ -1,5 +1,4 @@
-[[ats_oas30_security]]
-[abstract_test]
+[[ats_oas30_security]][abstract_test]
 ====
 [%metadata]
 label:: /conf/oas30/security

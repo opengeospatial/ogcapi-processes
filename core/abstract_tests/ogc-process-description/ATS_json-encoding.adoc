@@ -1,5 +1,4 @@
-[[ats_ogc-process-description_json-encoding]]
-[abstract_test]
+[[ats_ogc-process-description_json-encoding]][abstract_test]
 ====
 [%metadata]
 label:: /conf/ogc-process-description/json-encoding

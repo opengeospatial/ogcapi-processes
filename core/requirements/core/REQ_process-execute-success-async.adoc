@@ -1,8 +1,8 @@
-[[req_core_process-execute-async]]
+[[req_core_process-execute-success-async]]
 [requirement]
 ====
 [%metadata]
-label:: /req/core/process-execute-async
+label:: /req/core/process-execute-success-async
 [.component,class=conditions]
 --
 The <<sc_execution_mode,negotiated execution mode>> is asynchronous.

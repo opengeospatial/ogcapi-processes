@@ -1,4 +1,3 @@
-
 [[req_core_conformance-op]]
 [requirement]
 ====

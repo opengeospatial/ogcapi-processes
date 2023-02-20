@@ -1,0 +1,15 @@
+[[ats_core_job-results-param-outputs-response]][abstract_test]
+====
+[%metadata]
+label:: /conf/core/job-results-param-outputs-response
+subject:: <<req_core_job-results-param-outputs-response,/req/core/job-results-param-outputs-response>>
+test-purpose:: Validate that only the requested processing results are included in the response when the `outputs` parameter is specified on an execution request.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Include the `outputs` parameter on a process execution request that enumerates a list of process outputs to include the response.  Verify that the response includes the requested process outputs.
+--
+=====
+====

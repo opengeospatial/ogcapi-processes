@@ -1,5 +1,4 @@
-[[ats_core_process-success]]
-[abstract_test]
+[[ats_core_process-success]][abstract_test]
 ====
 [%metadata]
 label:: /conf/core/process-success

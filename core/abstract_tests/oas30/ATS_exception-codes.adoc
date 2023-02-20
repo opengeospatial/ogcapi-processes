@@ -1,5 +1,4 @@
-[[ats_oas30_exceptions-codes]]
-[abstract_test]
+[[ats_oas30_exceptions-codes]][abstract_test]
 ====
 [%metadata]
 label:: /conf/oas30/exceptions-codes

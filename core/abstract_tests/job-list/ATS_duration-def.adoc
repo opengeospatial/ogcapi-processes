@@ -1,5 +1,4 @@
-[[ats_job-list_duration-definition]]
-[abstract_test]
+[[ats_job-list_duration-definition]][abstract_test]
 ====
 [%metadata]
 label:: /conf/job-list/duration-definition

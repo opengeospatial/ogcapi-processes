@@ -1,5 +1,4 @@
-[[ats_core_http]]
-[abstract_test]
+[[ats_core_http]][abstract_test]
 ====
 [%metadata]
 label:: /conf/core/http

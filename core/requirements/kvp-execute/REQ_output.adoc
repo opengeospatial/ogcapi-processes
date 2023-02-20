@@ -38,4 +38,5 @@ explode: true
 ----
 
 where the token `{output-name}` represents the identifier of the output.
+--
 ====

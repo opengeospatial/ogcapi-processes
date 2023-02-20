@@ -1,5 +1,4 @@
-
-[abstract_test]
+[[ats_json_content]][abstract_test]
 ====
 [%metadata]
 label:: /conf/json/definition

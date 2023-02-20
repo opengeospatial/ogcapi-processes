@@ -1,0 +1,16 @@
+[[ats_core_job-results-param-outputs]][abstract_test]
+====
+[%metadata]
+label:: /conf/core/job-results-param-outputs
+subject:: <<req_core_job-results-param-outputs,/req/core/job-results-param-outputs>>
+test-purpose:: Validate that the `outputs` parameter is constructed correctly.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Verify that the `outputs` parameter complies with its definition in requirement <<req_core_job-results-param-outputs,req/core/job-results-param-outputs>>.
+--
+
+Note that the API can define different values for "minimum", "maximum" and "default".
+=====

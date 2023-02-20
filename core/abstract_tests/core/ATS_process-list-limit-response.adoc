@@ -1,5 +1,4 @@
-[[ats_core_pl-limit-response]]
-[abstract_test]
+[[ats_core_pl-limit-response]][abstract_test]
 ====
 [%metadata]
 label:: /conf/core/pl-limit-response

@@ -1,5 +1,4 @@
-[[ats_html_definition]]
-[abstract_test]
+[[ats_html_definition]][abstract_test]
 ====
 [%metadata]
 label:: /conf/html/definition

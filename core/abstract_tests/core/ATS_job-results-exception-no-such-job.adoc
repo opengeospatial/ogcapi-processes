@@ -1,5 +1,4 @@
-[[ats_core_job-results-exception-no-such-job]]
-[abstract_test]
+[[ats_core_job-results-exception-no-such-job]][abstract_test]
 ====
 [%metadata]
 label:: /conf/core/job-results-failed
