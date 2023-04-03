@@ -1,0 +1,31 @@
+[[ats_core_process-execute-input-inline-bbox]]
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/process-execute-input-inline-bbox
+subject:: <<req_core_process-execute-input-inline-bbox,/req/core/process-execute-input-inline-bbox>>
+test-purpose:: Validate that inputs with a bounding box schema encoded in-line in an execute request are correctly processed.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
+--
+
+[.component,class=step]
+--
+Inspect the description of each process and identify the subset of processes that have bounding box inputs that are supposed to conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml[bbox.yaml] schema.
+--
+
+[.component,class=step]
+--
+For each identified process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode values for the identified bounding box inputs in-line in the execute request.
+--
+
+[.component,class=step]
+--
+Verify that each process executes successfully according to the <<ats-process-execute-success-sync,relevant requirement based on the combination of execute parameters>>.
+--
+=====
+====

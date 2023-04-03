@@ -1,4 +1,4 @@
-[[req-creation-input-inline-bbox]]
+[[req_core-process-execute-input-inline-bbox]]
 [requirement]
 ====
 [%metadata]

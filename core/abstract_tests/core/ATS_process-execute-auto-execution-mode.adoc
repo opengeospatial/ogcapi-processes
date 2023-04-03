@@ -1,0 +1,41 @@
+[[ats_core_process-execute-auto-execution-mode]]
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/process-execute-auto-execution-mode
+subject:: <<req_core_process-execute-op,/req/core/process-execute-op>>
+test-purpose:: Validate that the server correctly handles the execution mode for a process.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
+--
+
+[.component,class=step]
+--
+Inspect the description of each process and take note of the job control options for the process.
+--
+
+[.component,class=step]
+--
+Setting the HTTP `Prefer` header to include the `respond-sync` preference, construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>>.
+--
+
+[.component,class=step]
+--
+For processes that are supposed to execute asynchronously according to the <<req_core_process-execute-auto-execution-mode,/req/core/process-execute-auto-execution-mode>> requirement, verify the successful execution according to the <<ats_core_process-execute-success-async,/conf/core/process-execute-success-async>> test.
+--
+
+[.component,class=step]
+--
+For processes that are supposed to execute synchronously according to the <<req_core_process-execute-auto-execution-mode,/req/core/process-execute-auto-execution-mode>> requirement, verify the successful execution according to the <<ats-process-execute-success-sync,relevant requirement based on the combination of execute parameters.>>
+--
+
+[.component,class=step]
+--
+For processes that may execute either synchronously or asynchronously according to the <<req_core_process-execute-auto-execution-mode,/req/core/process-execute-auto-execution-mode>> requirement, verify that successful execution according to the <<ats-process-execute-success-sync,relevant requirement based on the combination of execute parameters.>>
+--
+=====
+====

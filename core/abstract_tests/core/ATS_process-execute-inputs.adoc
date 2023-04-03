@@ -1,0 +1,16 @@
+[[ats_core_process-execute-inputs]]
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/process-execute-inputs
+subject:: <<req_core_process-execute-inputs,/req/core/process-execute-inputs>>
+test-purpose:: Validate that servers can accept input values both inline and by reference.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Verify that the server passes tests <<ats_core_process-execute-input-inline,/conf/core/process-execute-input-inline>> and <<ats_core_process-execute-input-ref,/conf/core/process-execute-input-ref>> .
+--
+=====
+====

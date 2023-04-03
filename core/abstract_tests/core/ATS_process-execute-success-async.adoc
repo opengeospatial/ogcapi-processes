@@ -1,0 +1,22 @@
+[[ats_core_process-execute-success-async]]
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/process-execute-success-async
+subject:: <<req_core_process-execute-success-async,/req/core/process-execute-success-async>>
+test-purpose:: Validate the results of a job that has been created using the `async` execution mode.
+
+[.component,class=test method]
+=====
+
+[.component,class=step]
+--
+Validate that results of the job was returned with an HTTP status code 201.
+--
+
+[.component,class=step]
+--
+Validate the HTTP headers of the results using the test <<ats_core_process-execute-success-header-async,/conf/core/process-execute-success-header-async>>.
+--
+=====
+====

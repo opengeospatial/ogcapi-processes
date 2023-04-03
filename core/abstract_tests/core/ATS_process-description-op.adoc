@@ -1,9 +1,9 @@
-[[ats_core_process]]
+[[ats_core_process-description]]
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/process
-subject:: <<req_core_process,/req/core/process>>
+label:: /conf/core/process-description
+subject:: <<req_core_process-description,/req/core/process-description>>
 test-purpose:: Validate that a process description can be retrieved from the expected location.
 
 [.component,class=test method]
@@ -14,7 +14,7 @@ For every Process described in the process list content, issue an HTTP GET reque
 
 [.component,class=step]
 --
-Validate the response using the test <<ats_core_process-success,/conf/core/process-success>>.
+Validate the response using the test <<ats_core_process-description-success,/conf/core/process-description-success>>.
 --
 ======
 =====

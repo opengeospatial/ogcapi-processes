@@ -45,57 +45,57 @@ include::core/ATS_process-list-limit-response.adoc[]
 
 ===== Process description /processes/{processID}
 
-include::core/ATS_process-op.adoc[]
+include::core/ATS_process-description-op.adoc[]
 
-include::core/ATS_process-success.adoc[]
+include::core/ATS_process-description-success.adoc[]
 
 ===== Process exception
 
 include::core/ATS_process-exception-no-such-process.adoc[]
 
+==== Process execution /processes/{processID}/execution
+
+include::core/ATS_process-execute-op.adoc[]
+
+include::core/ATS_process-execute-auto-execution-mode.adoc[]
+
+include::core/ATS_process-execute-default-execution-mode.adoc[]
+
+include::core/ATS_process-execute-request.adoc[]
+
+include::core/ATS_process-execute-inputs.adoc[]
+
+include::core/ATS_process-execute-input-inline.adoc[]
+
+include::core/ATS_process-execute-input-ref.adoc[]
+
+include::core/ATS_process-execute-input-array.adoc[]
+
+include::core/ATS_process-execute-input-inline-object.adoc[]
+
+include::core/ATS_process-execute-input-inline-mixed.adoc[]
+
+include::core/ATS_process-execute-input-inline-binary.adoc[]
+
+include::core/ATS_process-execute-input-inline-bbox.adoc[]
+
+include::core/ATS_process-execute-input-validation.adoc[]
+
+include::core/ATS_process-execute-success.adoc[]
+
+include::core/ATS_process-execute-success-sync-raw-value-one.adoc[]
+
+include::core/ATS_process-execute-success-sync-raw-value-multi.adoc[]
+
+include::core/ATS_process-execute-success-sync-raw-ref.adoc[]
+
+include::core/ATS_process-execute-success-sync-raw-mixed-multi.adoc[]
+
+include::core/ATS_process-execute-success-sync-document.adoc[]
+
+include::core/ATS_process-execute-success-async.adoc[]
+
 ==== Jobs
-
-===== Job creation /processes/{processID}/execution
-
-include::core/ATS_job-creation-op.adoc[]
-
-include::core/ATS_job-creation-auto-execution-mode.adoc[]
-
-include::core/ATS_job-creation-default-execution-mode.adoc[]
-
-include::core/ATS_job-creation-request.adoc[]
-
-include::core/ATS_job-creation-inputs.adoc[]
-
-include::core/ATS_job-creation-input-inline.adoc[]
-
-include::core/ATS_job-creation-input-ref.adoc[]
-
-include::core/ATS_job-creation-input-array.adoc[]
-
-include::core/ATS_job-creation-input-inline-object.adoc[]
-
-include::core/ATS_job-creation-input-inline-mixed.adoc[]
-
-include::core/ATS_job-creation-input-inline-binary.adoc[]
-
-include::core/ATS_job-creation-input-inline-bbox.adoc[]
-
-include::core/ATS_job-creation-input-validation.adoc[]
-
-include::core/ATS_job-creation-success.adoc[]
-
-include::core/ATS_job-creation-success-sync-raw-value-one.adoc[]
-
-include::core/ATS_job-creation-success-sync-raw-value-multi.adoc[]
-
-include::core/ATS_job-creation-success-sync-raw-ref.adoc[]
-
-include::core/ATS_job-creation-success-sync-raw-mixed-multi.adoc[]
-
-include::core/ATS_job-creation-success-sync-document.adoc[]
-
-include::core/ATS_job-creation-success-async.adoc[]
 
 ===== Job status /jobs/{jobID}
 

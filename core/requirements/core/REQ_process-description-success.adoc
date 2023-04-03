@@ -1,8 +1,8 @@
-[[req_core_process-success]]
+[[req_core_process-description-success]]
 [requirement]
 ====
 [%metadata]
-label:: /req/core/process-success
+label:: /req/core/process-description-success
 part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.
 part:: The content of the response SHALL be a process description.
 ====
