@@ -1,0 +1,16 @@
+ type: object
+ properties:
+   filter:
+      type: string
+   properties:
+      oneOf:
+         - type: object
+           additionalProperties:
+             type: string
+         - type: array
+           items:
+             type: string
+   sortBy:
+      type: array
+      items:
+         type: string

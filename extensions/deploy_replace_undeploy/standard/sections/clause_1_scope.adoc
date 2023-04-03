@@ -1,7 +1,37 @@
-
 == Scope
 
-This document specifies an extension to the <<OAProc-1>> standard that defines the behavior of an implementation that
-supports the ability to dynamically add, update or remove processes from a
-deployed OGC processes API instance.
+This specification is an extension to the <<OAProc-1>> standard that defines the behavior of a server that
+supports the ability to dynamically add, replace or undeploy processes from an OGC API - Processes instance.
+
+
+This document specifies an extension that defines the behaviour of a server
+that supports operations to deploy, replace or undeploy individual processes 
+from an OGC API Processes.
+
+Specifically, this document specifies:
+
+* How to deploy a new process.
+
+* How to replace an existing process.
+
+* How to undeploy an existing process.
+
+The following table crosswalks each of the resource endpoints discussed in this
+standard with the HTTP methods POST, PUT and DELETE. Each intersecting
+cell in the table either contains the name of the operation for that 
+combination of resource endpoint and HTTP method, or it contains the
+phrase "n/a" which is used to indicate that this specification does not
+specify any behaviour for that combination of resource endpoint and HTTP
+method.
+
+[#endpoint_method_matrix,reftext='{table-caption} {counter:table-num}']
+.Supported HTTP methods by resource
+[cols="50,12,13,12",options="header"]
+|===
+|Resource endpoint 3+|HTTP method
+| |**POST** |**PUT** |**DELETE**
+|`/processes` |<<deploy,deploy>> |n/a |n/a
+|`/processes/{processId}` |n/a |<<replace,replace>> |<<undeploy,undeploy>>
+|===
+
 

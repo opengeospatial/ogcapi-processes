@@ -1,0 +1,12 @@
+[[req_deploy-replace-undeploy_deploy_response-immutable]]
+[requirement]
+====
+[%metadata]
+label:: /req/deploy-replace-undeploy/deploy/response-immutable
+
+part:: If a process with the same identifier already exists on the server and is immutable, the satus code of the response SHALL be `303`.
+part:: A response with HTTP status code `303` SHALL include a `Location` header with the URI of the existing process (path: `/processes/{processId}`).
+part:: The content of that response SHALL be based upon the OpenAPI
+3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml[exception.yaml].
+part:: The `type` of the exception SHALL be "http://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/immutable-process".
+====

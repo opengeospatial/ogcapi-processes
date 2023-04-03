@@ -1,0 +1,7 @@
+== Scope
+
+This document specifies an extension to _OGC API - Processes - Part 1: Core_ that defines the behavior of an implementation that supports the ability to define
+ad-hoc workflows, chain nested processes, refer to both local and external processes and collections of data accessible via OGC API standards as inputs to a process,
+and trigger execution of processes through OGC API data delivery specifications such as _OGC API - Tiles_, _DGGS_, _Coverages_, _Features_, _EDR_ and _Maps_.
+This extension also defines the behavior of an implementation that supports the ability to deploy a workflow defined using the mechanisms it describes
+through the _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_ extension.

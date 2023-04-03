@@ -1,0 +1,9 @@
+[requirement]
+====
+[%metadata]
+label:: /req/collection-input/collection-access
+description:: For executing workflow definitions referencing a collection as an input to a process:
+part:: The Implementation SHALL support accessing a remote OGC API collection using one or more OGC API data access mechanisms (e.g., _OGC API - Tiles, Coverages, DGGS, Features, EDR, Maps_...) as an input to a process.
+====
+
+TODO: Separate conformance classes may need to be defined for each specification to clarify for which processing services can act as a client to supporting collection access to avoid clients defining invalid workflows.

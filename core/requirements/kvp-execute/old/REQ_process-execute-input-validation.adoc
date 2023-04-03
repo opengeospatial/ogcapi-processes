@@ -1,0 +1,15 @@
+[[req_core_process-execute-input-validation]]
+[requirement]
+====
+[%metadata]
+label:: /req/core/process-execute-input-validation
+[.component,class=part]
+--
+For process input values specified in-line in an execute request, the server SHALL validate each component of a process input value that is an instance of <<input-value-schema,inputValue.yaml>> using the definition of the corresponding input from the <<sc_process_description,process description>>.
+--
+
+[.component,class=part]
+--
+For process input values specified by reference in an execute request, the server SHALL resolve the value and then validate it as if the value had been specified in-line in the execute request (i.e. as per requirement *_A_*).
+--
+====

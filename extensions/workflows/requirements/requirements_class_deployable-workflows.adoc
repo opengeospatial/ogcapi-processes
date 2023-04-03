@@ -1,0 +1,15 @@
+[[rc_deployable-workflows]]
+[requirements_class]
+====
+[%metadata]
+label:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/deployable-workflows
+subject:: Deployable Workflows
+inherit:: http://www.opengis.net/spec/ogcapi-processes-2/0.0/req/deploy-replace-undeploy
+inherit:: http://www.opengis.net/spec/ogcapi-processes-2/0.0/req/ogcapppkg (optional)
+inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/nested-processes (optional)
+inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/remote-processes (optional)
+inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/collection-input (optional)
+inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/remote-collections (optional)
+inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/input-fields-modifiers (optional)
+inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/output-fields-modifiers (optional)
+====

@@ -11,7 +11,7 @@ label:: /req/core/process-execute-input-inline-object
 
 [.component,class=part]
 --
-The server SHALL support process input values encoded as qualified values (https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/qualifiedValue.yaml[qualifiedValue.yaml]).
+The server SHALL support process input values encoded as qualified values (https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/qualifiedValue.yaml[qualifiedValue.yaml]).
 --
 
 [.component,class=part]

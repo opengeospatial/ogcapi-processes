@@ -1,0 +1,41 @@
+[[req_kvp-execute_output]]
+[requirement]
+====
+[%metadata]
+label:: /req/kvp-execute/output
+[.component,class=conditions]
+--
+. A process output, with identifier `{output-name}`, is defined in the <<sc_process_description,process description>>.
+--
+
+[.component,class=part]
+--
+The output parameter SHALL have the following characteristics:
+
+[source,yaml]
+----
+name: {output-name}
+in: query
+required: false
+schema:
+  type: object
+  required:
+    - include
+  properties:
+    include
+      type: boolean
+    mediaType:
+      type: string
+    encoding:
+      type: string
+    schema:
+      oneOf:
+        - type: string
+          format: url
+        - type: object
+style: deepObject
+explode: true
+----
+
+where the token `{output-name}` represents the identifier of the output.
+====

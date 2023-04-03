@@ -1,0 +1,52 @@
+[[req_kvp-execute_input-cardinality]]
+[requirement]
+====
+[%metadata]
+label:: /req/kvp-execute/input-cardinality
+[.component,class=conditions]
+--
+. The process input value is specified in-line in an execute request.
+. A process input, with identifier `{input-name}`, is defined as having a cardinality greater than one (i.e. `minOccurs` > 1) in the <<sc_process_description,process description>>.
+. The number of input values specified for the `{input-name}` process input is greater than one.
+--
+
+[.component,class=part]
+--
+A process input having more that one value SHALL be encoded as a list of values according to the query parameter serialization rules of the https://spec.openapis.org/oas/v3.0.3#parameter-object[OpenAPI Specification v3.0.3].  The default list value separator is the comma (",") but other values are possible too.
+--
+
+[.component,class=part]
+--
+The input parameter SHALL have the following characteristics:
+
+[source,yaml]
+----
+name: {input-name}
+in: query
+required: false
+schema:
+  type: array
+  items:
+    oneOf:
+      - type: string
+      - type: number
+      - type: integer
+      - type: boolean
+      - type: null
+style: form
+explode: false
+----
+
+where the token `{input-name}` represents the identifier of the input.
+--
+
+[.component,class=part]
+--
+List elements that are objects SHALL be encoded as <<kvp-complex-value-input,URL-encoded strings>>.
+--
+
+[.component,class=part]
+--
+List elements that are arrays SHALL be encoded as <<kvp-array-value-input,URL-encoded strings>>.
+--
+====

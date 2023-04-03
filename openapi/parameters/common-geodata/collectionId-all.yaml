@@ -1,0 +1,6 @@
+name: collectionId
+in: path
+description: Local identifier of a collection
+required: true
+schema:
+  $ref: '../../schemas/dynamic/all-collections.yaml'

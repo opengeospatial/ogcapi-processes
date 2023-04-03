@@ -1,0 +1,63 @@
+[[section_collection_output]]
+== Collection Output Conformance Class
+
+=== Requirement Class _Collection Output_
+
+The _Collection Output_ conformance class specifies how clients can trigger the
+execution of a process or workflow for a specific area, time and resolution of interest
+as a result of requesting output data using OGC API data access mechanisms, such as
+_OGC API - Tiles_, _DGGS_, _Coverages_, _Features_, _EDR_, or _Maps_.
+
+This provides an alternative to the synchronous and asynchronous execution mechanisms
+defined in _OGC API - Processes - Part 1: Core_ for which area, time and resolution of interest
+are hardcoded in the execution request. With _Core_, when lengthy batch processing is not desirable,
+completely new execution requests returning a partial output must continuously be re-submitted.
+
+This conformance class allows to submit an execution request once and then access the output
+using mechanisms widely supported by clients in a manner completely agnostic of process execution.
+
+Compared to separate execution requests, this mechanism makes it easier for implementations to optimize
+for scenarios where clients will stream small partial outputs from the same pre-established processing
+pipeline. Parsing the execution request, validating inputs, and handshakes with remote components of a workflow
+only need to be performed once. An implementation could also preempt future requests based on past requests,
+offsetting the latency of a complex distributed workflow.
+
+A collection document for the result generated from a workflow MAY provide a link to the source definition of that
+workflow (link relation type: `http://www.opengis.net/def/rel/ogc/1.0/workflow`).
+
+A service MAY also implement the capability to deploy a workflow as a persistent collection e.g., by supporting a `POST`
+method for the `/collections` end-point accepting a JSON workflow definition (execution request) as payload.
+
+include::../requirements/requirements_class_collection-output.adoc[]
+
+The following requirements describe an execution mechanism where a client is redirected (using a `303` _See Other_ HTTP
+status code and a `Location:` header)
+to an OGC API landing page or collection description document,
+which provides links to request output data using standard OGC API data access mechanisms, triggering on-demand processing
+for a particular area, time and resolution of interest.
+
+==== `response` query parameter
+
+include::../requirements/collection-output/REQ_collection-output_response-query-parameter.adoc[]
+
+==== Collection Response
+
+A request for a collection response is only valid for an execution request generating or selecting a single output
+which can be retrieved using an OGC API data access mechanism.
+
+include::../requirements/collection-output/REQ_collection-output_collection-response.adoc[]
+
+==== Landing Page Response
+
+A request for a landing page response is valid for an execution request generating one or more outputs
+which can be retrieved using an OGC API data access mechanism.
+
+include::../requirements/collection-output/REQ_collection-output_landing-page-response.adoc[]
+
+==== Collection Output expiry
+
+include::../recommendations/collection-output/PER_collection-output_expiry.adoc[]
+
+==== Data Access Mechanisms
+
+include::../requirements/collection-output/REQ_collection-output_data-access-mechanisms.adoc[]

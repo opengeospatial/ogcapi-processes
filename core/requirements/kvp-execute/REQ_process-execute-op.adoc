@@ -1,0 +1,8 @@
+[[req_kvp-execute_process-execute-op]]
+[requirement]
+====
+[%metadata]
+label:: /req/kvp-execute/process-execute-op
+
+The server SHALL support the HTTP GET operation at the path `/processes/{processID}/execution`.
+====

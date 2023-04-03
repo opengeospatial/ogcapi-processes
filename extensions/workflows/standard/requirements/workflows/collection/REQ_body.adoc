@@ -1,7 +1,0 @@
-[[req_workflows_collection_insert_body]]
-[requirement]
-====
-[%metadata]
-label:: /req/workflows/collection/body
-part:: The body of the POST request shall contain a process (workflow) execution document describing the workflow to set up.
-====

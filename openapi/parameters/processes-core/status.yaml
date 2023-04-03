@@ -1,0 +1,7 @@
+name: status
+in: query
+required: false
+schema:
+  type: array
+  items:
+    $ref: "../../schemas/processes-core/statusCode.yaml"

@@ -1,0 +1,7 @@
+name: collectionId
+in: path
+description: Local identifier of a vector tile collection
+required: true
+allowEmptyValue: false
+schema:
+  $ref: '../../schemas/dynamic/vectorTiles-collections.yaml'

@@ -1,0 +1,8 @@
+[requirement]
+====
+[%metadata]
+label:: /req/input-fields-modifiers/sorting
+description:: For sorting the input data to a process according to its data fields:
+part:: The Implementation SHALL support specifying a `"sortBy"` key and a corresponding comma-separated sequence of expressions defining the order in which to sort the data coming in as an input to a process.
+part:: The Implementation SHALL support one or more expression languages to define the sorting expressions, such as the OGC Common Query Language (CQL2).
+====

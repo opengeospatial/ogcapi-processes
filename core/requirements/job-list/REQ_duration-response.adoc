@@ -32,16 +32,16 @@ The value of the `minDuration` and `maxDuration` parameters SHALL be number of s
 
 [.component,class=part]
 --
-For running jobs, the duration SHALL be computed at runtime as the time the operation was invoked minus the value of the `started` parameter  (see: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml]).
+For running jobs, the duration SHALL be computed at runtime as the time the operation was invoked minus the value of the `started` parameter  (see: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[statusInfo.yaml]).
 --
 
 [.component,class=part]
 --
-For completed jobs, the duration SHALL be computed as the value of the `finished` parameter minus the value of the `started` parameter  (see: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[statusInfo.yaml]).
+For completed jobs, the duration SHALL be computed as the value of the `finished` parameter minus the value of the `started` parameter  (see: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[statusInfo.yaml]).
 --
 
 [.component,class=part]
 --
-Jobs for which runtime statistics are not included in the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/statusInfo.yaml[status information] or are incomplete for computing the duration of the job SHALL be omitted from the response.
+Jobs for which runtime statistics are not included in the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[status information] or are incomplete for computing the duration of the job SHALL be omitted from the response.
 --
 ====

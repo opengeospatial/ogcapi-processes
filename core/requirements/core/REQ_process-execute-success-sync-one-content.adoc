@@ -7,7 +7,7 @@ label:: /req/core/process-execute-sync-one-content
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous,
 . The number of requested outputs is 1.
-. No content negotiation has been sepcified using either HTTP headers or other methods. 
+. No content negotiation has been sepcified using either HTTP headers or other methods.
 --
 
 [.component,class=part]

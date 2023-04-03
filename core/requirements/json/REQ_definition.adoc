@@ -18,7 +18,7 @@ for the following API endpoints:
 
 and for the following API endpoint:
 
-* <<sc_create_job,`/processes/{processID}/execution`>>
+* <<sc_execute_process,`/processes/{processID}/execution`>>
 
 when the <<sc_response_parameter,`response`>> parameter is set to the value `document` and/or the <<sc_execution_mode,negotiated execution mode>> is asynchronous.
 

@@ -2,9 +2,9 @@
 [requirements_class]
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy/ogcapppkg
+label:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg
 obligation:: requirement
 subject:: Web API
 inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core>>
-inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
+inherit:: <<rc_deploy-replace-undeploy,http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy>>
 ====

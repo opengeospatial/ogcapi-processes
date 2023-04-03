@@ -1,0 +1,18 @@
+[[req_kvp-execute_prefer-definition]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/kvp-execute/prefer-definition*
+^|A |The operation SHALL support a parameter `prefer` with the following characteristics:
+
+[source,YAML]
+----
+name: prefer
+in: query
+required: false
+schema:
+  type: string
+  format: uri
+style: form
+explode: false
+----
+|===

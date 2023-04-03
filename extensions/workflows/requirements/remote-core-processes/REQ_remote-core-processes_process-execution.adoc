@@ -1,0 +1,11 @@
+[requirement]
+====
+[%metadata]
+label:: /req/nested-processes/process-execution
+description:: For executing workflow definitions referencing a nested remote process:
+part:: The Implementation SHALL support executing remote processes which can be executed using _OGC API - Process - Part 1: Core_ as a process nested as an input to another process.
+part:: The Implementation SHALL support executing remote processes and retrieving their output using the _Core_ conformance class of the _OGC API - Processes - Part 1: Core_.
+====
+
+NOTE: The ability to support nested remote processes whose services support the _Collection Output_ conformance class can also be achieved without conformance to this requirements class,
+through the _Nested Processes_ and _Remote Collections_ conformance classes.

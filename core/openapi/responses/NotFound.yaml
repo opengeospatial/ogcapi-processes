@@ -1,8 +1,0 @@
-description: The requested URI was not found.
-content:
-  application/json:
-    schema:
-      $ref: "../schemas/exception.yaml"
-  text/html:
-    schema:
-      type: string

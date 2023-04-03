@@ -1,0 +1,9 @@
+oneOf:
+  - type: string
+  - type: number
+  - type: integer
+  - type: boolean
+  - type: array
+    items: {}
+  - $ref: "binaryInputValue.yaml"
+  - $ref: "bbox.yaml"

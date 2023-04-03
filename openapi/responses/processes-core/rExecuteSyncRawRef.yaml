@@ -1,0 +1,7 @@
+description: |-
+  Synchronous execution response.
+headers:
+  Link:
+    schema:
+      type: string
+    description: One or more Link headers pointing to each raw output.

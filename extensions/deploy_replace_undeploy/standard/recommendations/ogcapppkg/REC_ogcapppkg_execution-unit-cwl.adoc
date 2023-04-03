@@ -1,0 +1,19 @@
+[[rec_ogcapppkg_execution-unit-cwl]]
+[recommendation]
+====
+[%metadata]
+label:: /rec/ogcapppkg/execution-unit-cwl
+
+part:: If the execution unit is encoded in CWL then it is recommended that the contents of the execution unit be the properties:
+ * `type`  and `href` if passed by reference
+ * `value` and `mediaType` if passed by value
+
+part:: The value of the `type` property shall be `application/cwl`, when for `mediaType` it should be `application/cwl+json`.
+
+part:: The value of the `href` property shall be a reference to the CWL encoded file. The value of the `value` property shall be the CWL encoded in json format.
+
+part:: If the CWL contains more than a single workflow identifier, an addition `w` query parameter may be used to target a specific workflow id to be deployed.
+
+part:: The server should validate the CWL at the request time. In case, the server cannot find the `w` identifier within the workflow from the CWL provided, a 400 status code is expected with the type "cwl-worflow-not-exist".
+
+====

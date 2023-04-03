@@ -36,10 +36,10 @@ include::../requirements/ogc-process-description/REQ_json-encoding.adoc[]
 .Schema for a process
 [source,yaml]
 ----
-include::../openapi/schemas/process.yaml[]
+include::../../openapi/schemas/processes-core/process.yaml[]
 ----
 
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[`process.yaml`]
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/process.yaml[`process.yaml`]
 
 (see also <<schema-processSummary,`processSummary.yaml`>>)
 
@@ -47,15 +47,16 @@ The schema imports the elements from the <<schema-processSummary, process summar
 
 include::../requirements/ogc-process-description/REQ_inputs-def.adoc[]
 
+[[process-input-schema]]
 .Schema for a process input
 [source,yaml]
 ----
-include::../openapi/schemas/inputDescription.yaml[]
+include::../../openapi/schemas/processes-core/inputDescription.yaml[]
 ----
 
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/inputDescription.yaml[`inputDescription.yaml`]
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml[`inputDescription.yaml`]
 
-(see also: http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/descriptionType.yaml[`descriptionType.yaml`]).
+(see also: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/descriptionType.yaml[`descriptionType.yaml`]).
 
 include::../requirements/ogc-process-description/REQ_input-def.adoc[]
 
@@ -101,7 +102,7 @@ The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-sc
 |http://www.opengis.net/def/format/ogcapi-processes/0/geojson-feature-collection |geojson-feature-collection |Indicates that the object is an instance of a GeoJSON feature collection http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.yaml[(featureCollectionGeoJSON.yaml)].
 |http://www.opengis.net/def/format/ogcapi-processes/0/geojson-feature |geojson-feature |Indicates that the object is an instance of a GeoJSON feature http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureGeoJSON.yaml[(featureGeoJSON.yaml)].
 |http://www.opengis.net/def/format/ogcapi-processes/0/geojson-geometry |geojson-geometry |Indicates that the object is an instance of a GeoJSON geometry http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml[(geometryGeoJSON.yaml)].
-|http://www.opengis.net/def/format/ogcapi-processes/0/ogc-bbox |ogc-bbox |Indicates that the object is an instance of an OGC bounding box https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml[(bbox.yaml)].
+|http://www.opengis.net/def/format/ogcapi-processes/0/ogc-bbox |ogc-bbox |Indicates that the object is an instance of an OGC bounding box https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/bbox.yaml[(bbox.yaml)].
 |===
 
 NOTE: This list of values has been submitted to the https://www.ogc.org/projects/groups/ogcnasc[OGC Naming Authority] for registration in their definition server.
@@ -148,12 +149,12 @@ The following JSON Schema fragment illustrates the use of the `format` key to in
 .Schema for a process output
 [source,yaml]
 ----
-include::../openapi/schemas/outputDescription.yaml[]
+include::../../openapi/schemas/processes-core/outputDescription.yaml[]
 ----
 
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/outputDescription.yaml[`outputDescription.yaml`]
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/outputDescription.yaml[`outputDescription.yaml`]
 
-(see also: http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/descriptionType.yaml[`descriptionType.yaml`]).
+(see also: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/descriptionType.yaml[`descriptionType.yaml`]).
 
 include::../requirements/ogc-process-description/REQ_outputs-def.adoc[]
 

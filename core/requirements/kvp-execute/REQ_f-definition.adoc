@@ -1,0 +1,18 @@
+[[req_kvp-execute_f-definition]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/kvp-execute/f-definition*
+^|A |The operation SHALL support a parameter `f` with the following characteristics:
+
+[source,YAML]
+----
+name: f
+in: query
+required: false
+schema:
+  type: string
+  format: uri
+style: form
+explode: false
+----
+|===

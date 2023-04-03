@@ -1,0 +1,30 @@
+[[req_kvp-execute_binary-input-value]]
+[requirement]
+====
+[%metadata]
+label:: /req/kvp-execute/binary-input-value
+[.component,class=conditions]
+--
+. The process input value is specified in-line in an execute request.
+. A process input, with identifier `{input-name}`, is defined as <<fix.me,binary>> type in the <<sc_process_description,process description>>.
+. The input value does not need to qualified with a <<fix-me,format>> specification.
+--
+
+[.component,class=part]
+--
+The input parameter SHALL have the following characteristics:
+
+[source,YAML]
+----
+name: {input-name}
+in: query
+required: false
+schema:
+  type: string
+  format: byte
+style: form
+explode: false
+----
+
+where the token `{input-name}` represents the identifier of the input.
+====

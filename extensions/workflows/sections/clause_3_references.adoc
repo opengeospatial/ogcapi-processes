@@ -1,0 +1,35 @@
+[bibliography]
+== References
+
+The following normative documents contain provisions that, through reference in this text, constitute provisions of this document.
+For dated references, subsequent amendments to, or revisions of, any of these publications do not apply.
+For undated references, the latest edition of the normative document referred to applies.
+
+////
+References are to follow the Springer LNCS style, with the exception that optional information may be appended to references: DOIs are added after the date and web resource references may include an access date at the end of the reference in parentheses. See examples from Springer and OGC below.
+////
+
+* [[[OGC18-062r2,OGC 18-062r2]]], OGC API - Processes - Part 1: Core
+
+* [[[OGC20-057,OGC 20-057]]], OGC API - Tiles - Part 1: Core (2022)
+
+* [[[OGC17-069r3,OGC 17-069r3]]], OGC API - Features - Part 1: Core (2019)
+
+* [[[OGC19-086r5,OGC 19-086r5]]], OGC API - Environmental Data Retrieval - Part 1: Core (2022)
+
+* [[[OGC20-044,OGC 20-044]]] Panagiotis (Peter) A. Vretanos: OGC API - Processes - Part 2: Deploy, Replace, Undeploy (Draft). OGC 20-044, Open Geospatial Consortium, https://github.com/opengeospatial/ogcapi-processes/tree/master/extensions/deploy_replace_undeploy/standard[https://github.com/opengeospatial/ogcapi-processes/tree/master/extensions/deploy_replace_undeploy/standard]
+
+* [[[OGC19-072,OGC 19-072]]] Charles Heazel: OGC API - Common - Part 1: Core (Draft). OGC 19-072, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/19-072.html[http://docs.ogc.org/DRAFTS/19-072.html]
+
+* [[[OGC20-024,OGC 20-024]]] Charles Heazel: OGC API - Common - Part 2: Geospatial Data (Draft). OGC 20-024, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/20-024.html[http://docs.ogc.org/DRAFTS/20-024.html]
+
+* [[[OGC20-065,OGC 21-065]]] Panagiotis (Peter) A. Vretanos: OGC Common Query Language (CQL2) (Draft). OGC 21-065, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/21-065.html[http://docs.ogc.org/DRAFTS/21-065.html]
+
+* [[[OGC19-079r1,OGC 19-079r1]]] Panagiotis (Peter) A. Vretano, Clemens Portele: OGC API - Features - Part 3: Filtering (Draft). OGC 19-079r1, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/19-079r1.html[http://docs.ogc.org/DRAFTS/19-079r1.html]
+
+* [[[OGC19-087,OGC 19-087]]], Charles Heazel, Jérôme Jacovella-St-Louis: OGC API - Coverages - Part 1: Core (Draft). OGC 19-087, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/19-087.html[http://docs.ogc.org/DRAFTS/19-087.html]
+
+// * [[[OGC20-058,OGC 20-058]]], Joan Masó, Jérôme Jacovella-St-Louis: OGC API - Maps - Part 1: Core (Draft). OGC 19-058, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/20-058.html[http://docs.ogc.org/DRAFTS/20-058.html]
+* [[[OGC20-058-fixme,OGC 20-058-fixme]]], Joan Masó, Jérôme Jacovella-St-Louis: OGC API - Maps - Part 1: Core (Draft). OGC 19-058, Open Geospatial Consortium, http://docs.ogc.org/DRAFTS/20-058.html[http://docs.ogc.org/DRAFTS/20-058.html]
+
+* [[[OGC21-038,OGC 21-038]]], Matthew B.J. Purss, Jérôme Jacovella-St-Louis: OGC API - Discrete Global Grid Systems - Part 1: Core (Draft). OGC 21-038, Open Geospatial Consortium, https://opengeospatial.github.io/ogcna-auto-review/21-038.html[https://opengeospatial.github.io/ogcna-auto-review/21-038.html]

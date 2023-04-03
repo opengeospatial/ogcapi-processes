@@ -1,0 +1,39 @@
+description: Resource containing an executable or runtime information for executing the process.
+type: object
+properties:
+  config:
+    type: object
+    description: Hardware requirements and configuration properties for executing the process.
+    properties:
+      cpuMin:
+        description: Minimum number of CPUs required to run the process (unit is CPU core).
+        type: number
+        minimum: 1
+      cpuMax:
+        description: Maximum number of CPU dedicated to the process (unit is CPU core)
+        type: number
+      memoryMin:
+        description: Minimum RAM memory required to run the application (unit is GB)
+        type: number
+      memoryMax:
+        description: Maximum RAM memory dedicated to the application (unit is GB)
+        type: number
+      storageTempMin:
+        description: Minimum required temporary storage size (unit is GB)
+        type: number
+      storageOutputsMin:
+        description: Minimum required output storage size (unit is GB)
+        type: number
+      jobTimeout:
+        description: Timeout delay for a job execution (in seconds)
+        type: number
+    additionalProperties: true
+additionalProperties: true
+example:
+  type: docker
+  image: mydocker/ndvi:latest
+  config:
+    cpuMin: 2
+    cpuMax: 5
+    memoryMin: 1
+    memoryMax: 3

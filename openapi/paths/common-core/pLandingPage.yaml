@@ -1,0 +1,15 @@
+# Landing Page
+get:
+   tags:
+     - Landing Page
+   operationId: getLandingPage
+   summary: Retrieve the OGC API landing page for this service.
+   parameters:
+     - $ref: '../../parameters/unspecified/f-metadata.yaml'
+   responses:
+     '200':
+       $ref: '../../responses/common-core/rLandingPage.yaml'
+     '406':
+       $ref: '../../responses/common-core/rNotAcceptable.yaml'
+     '500':
+       $ref: '../../responses/common-core/rServerError.yaml'

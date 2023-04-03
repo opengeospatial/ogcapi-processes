@@ -1,0 +1,8 @@
+description: An enumerated list of valid string values for API parameters.
+content:
+   application/json:
+     schema:
+       $ref: '../../schemas/dynamic/enumeration.yaml'
+   text/html:
+     schema:
+       type: string

@@ -1,0 +1,14 @@
+name: subset
+in: query
+description: |
+   Retrieve only part of the data by slicing or trimming along one or more axis
+   For trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality)
+      An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value.
+   For slicing:  {axisAbbrev}({value})      (reduces dimensionality)
+style: form
+explode: false
+required: false
+schema:
+  type: array
+  items:
+    type: string

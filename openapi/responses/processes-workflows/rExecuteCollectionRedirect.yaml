@@ -1,0 +1,18 @@
+description: For _Collection Output_ execution, redirection to an OGC API landing page or collection.
+headers:
+  Location:
+    schema:
+      type: string
+    description: |-
+      Location for redirection to an  [OGC API landing page](https://schemas.opengis.net/ogcapi/tiles/part1/1.0/openapi/schemas/common-core/landingPage.yaml) (for `response=landingPage`) as described in
+      [OGC API - Common - Part 1: Core](http://docs.ogc.org/DRAFTS/19-072.html#_landing_page_requirements_class) or
+      an [OGC API collection description](https://schemas.opengis.net/ogcapi/tiles/part1/1.0/openapi/schemas/common-geodata/collectionInfo.yaml) (for `response=landingPage`) as described in
+      [OGC API - Common - Part 2: Geospatial data](http://docs.ogc.org/DRAFTS/20-024.html#collection-description).
+      The collection redirected to or the collections linked from the landing page redirected to
+      must contain links to at least one data access mechanism (such as [_OGC API - Tiles_](https://opengeospatial.github.io/ogcna-auto-review/20-057.html),
+      [_DGGS_](https://opengeospatial.github.io/ogcna-auto-review/21-038.html),
+      [_Coverages_](http://docs.ogc.org/DRAFTS/19-087.html),
+      [_Features_](https://docs.opengeospatial.org/is/17-069r4/17-069r4.html),
+      [_EDR_](https://docs.ogc.org/is/19-086r5/19-086r5.html), or
+      [_Maps_](http://docs.ogc.org/DRAFTS/20-058.html)...) to retrieve output results, which may
+      trigger on-demand processing.

@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: The OGC API - Processes
-  version: 1.0-draft.7-SNAPSHOT
+  version: 1.0
   description: |-
     WARNING - THIS IS WORK IN PROGRESS
   contact:
@@ -82,7 +82,7 @@ paths:
       tags:
         - ProcessDescription
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/processIdPathParam.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/processIDPathParam.yaml"
       responses:
         200:
           $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ProcessDescription.yaml"
@@ -114,7 +114,7 @@ paths:
       tags:
         - Execute
       parameters:
-        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/processIdPathParam.yaml"
+        - $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/parameters/processIDPathParam.yaml"
       requestBody:
         description: Mandatory execute request JSON
         required: true

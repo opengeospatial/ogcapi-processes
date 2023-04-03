@@ -1,0 +1,139 @@
+[[overview]]
+== Overview
+
+As an extension to https://docs.ogc.org/is/18-062r2/18-062r2.html[_OGC API - Processes - Part 1: Core_], this specification defines conformance classes for:
+
+* extending execution requests submitted to `/processes/{processId}/execution`
+   ** referencing local and remote nested processes as inputs (`"process"`) (<<section_nested_processes,Section 7>>),
+   ** referencing local and remote OGC API collections as inputs (`"collection"`) (<<section_collection_input,Section 8>>),
+   ** modifying data accessed as inputs and returned as outputs (filtering with `"filter"`, selecting and deriving fields with `"properties"`, sorting with `"sortBy"`) (<<section_fields_modifiers,Section 9>>),
+   ** deploying workflows defined using such execution request as processes using https://github.com/opengeospatial/ogcapi-processes/tree/master/extensions/deploy_replace_undeploy/standard[_OGC API - Processes - Part 2: Deploy, Replace, Undeploy_], with the ability to paremeterize inputs (`"$input"`) and select outputs (`"$output"`) (<<section_deployable_workflows,Section 10>>),
+* requesting output data from OGC API data collections to trigger processing execution (<<section_collection_output,Section 11>>),
+* ad-hoc execution of workflows defined using the Common Workflow Language (<<section_cwl_workflows,Section 12>>), and
+* ad-hoc execution of workflows defined using the OpenEO Process Graphs (<<section_openeo_workflows,Section 13>>).
+
+=== Architecture Diagram
+
+The following diagram illustrates how the conformance classes defined in this specification
+extending _OGC API - Processes - Part 1: Core_ execution request as well as describing a new
+"Collection Output" execution mechanism work together with OGC API data access specifications.
+
+.Workflows extension architecture diagram
+[#img-architecture-diagram]
+image::figures/architecture-diagram.png[Architecture Diagram]
+
+////
+[mermaid]
+----
+flowchart TB
+
+      Client("<b>Client</b>") --> AdHoc{{<b>Ad-hoc Workflow<br/>Definition</b>}} --> Service["<b>Workflows<br/>Implementation</b>"]
+      %% Maps><b>OGC API - Maps</b>] --> Client
+
+      Nested>Nested Process<br/>]
+      Core><b>OGC API - Processes</b><br/><i>Part 1: Core</i>]
+      Input>Collection Input]
+
+      Client <--> Core
+
+      Nested -.- AdHoc
+      Core -.- AdHoc
+      Input -.- AdHoc
+
+      Core <--> Service
+      Input --> Service
+      Service --> Output>Collection Output]
+
+      Access><b>OGC API Data Values Access Mechanisms<br/>for Area/Resolution of Interest</b></br></br><i><b>DGGS</b> / ISEA3H-Rhombus<br/><b>DGGS</b> / ISEA3H-PIXYS<br/><b>DGGS</b> / GNOSISGlobalGrid</br>Tiles</br>Coverages<br/>Features<br/>EDR<br/>Maps]
+
+      Core -.- Processes[[Processes]] -.- RemoteP
+      Core -.- RemoteP
+      Processes -.- Nested
+
+      Collections[("Collections")]
+      Collections -.- RemoteC
+      Collections -.- Input
+
+      RemoteC><i>Remote Collection</i>]
+      RemoteP><i>Remote Process</i>]
+      RemoteC --> Access
+      Input --> RemoteP --> Output
+      RemoteP -.- Nested
+
+      %% Output --> Maps
+      Output --> Access --> Input
+
+      Access --> Client
+----
+////
+
+=== Design goals
+
+==== Objective
+
+This specification aims to enable instant integration of geospatial data and processing capabilities available from anywhere for visualization and analysis.
+
+==== Obstacles addressed
+
+===== Long batch processing times
+
+The conformance classes defined in this specification aim to avoid long batch processing times, because they present several drawbacks:
+
+* long feedback loops (configuring and adjusting parameters, retrieving and preparing input data, processing, visualizing / validating output for entire large datasets) slow down research and products deployment,
+* processing results may be outdated by the time they are ready,
+* batch processing entire datasets makes it difficult to prioritize more important processing (e.g., higher priority clients, emergency response) over less important requests
+  (e.g., flooding attacks, high volume of requests from low priority clients),
+* inefficient use of storage, bandwidth, computing, time, and therefore financial resources (large portions of datasets may be processed without the results ever getting used).
+
+===== Integration of diverse data and processes
+
+The conformance classes defined in this specification aim to address the following challenges bringing together datasets and processes from different origins:
+
+* the suitability and compatility of data sources and processing capabilities,
+* the added complexity of deploying processes or workflow definitions in order to execute them, and associated authentication requirements,
+* the interoperability issues associated with specific expectations in terms of format or API as part of a workflow definition,
+* the possibility of re-using a workflow definition with similar datasets, and multiple areas, times or regions of interest.
+
+==== Framework
+
+These challenges are addressed within the consistent framework of the OGC API family of standards, as defined by _OGC API - Common - Part 1: Core_ and _Part 2: Geospatial data_,
+by extending the processing capabilities defined in _OGC API - Processes - Part 1: Core_ and _Part 2: Deploy, Replace, Undeploy_ with the ability to seamlessly and effortlessly
+integrate with the access capabilities defined in OGC API data access specifications (such as _OGC API - Tiles, DGGS, Coverages, Features, EDR, Maps_...).
+
+==== Approach
+
+The conformance classes defined in this specification allow to:
+
+* _**easily connect data and processes from anywhere in a re-usable and interoperable manner by**_
+   ** leveraging the consistency of the OGC API family of standards, making it easy to find relevant processes and data collections regardless of access mechanisms,
+   ** leveraging the concept of a https://github.com/opengeospatial/styles-and-symbology/issues/12[_GeoDataClass_], to easily establish the compatibility of a given data as an input to a particular process,
+   ** allowing ad-hoc execution of workflows definitions, without first needing to deploy the workflow as a process, making it more accessible for integration,
+   ** select formats and access mechanisms outside workflow definition, negotiating at each hop of a workflow, therefore making them more interoperable and re-usable,
+   ** making workflows definitions agnostic of area, time and region of interest, therefore easier to re-use;
+
+* _**trigger on-demand processing with OGC API data access requests**_
+   ** making it easy for OGC API data access clients to readily support processing while requiring very minimal processing-specific code (performing a single POST request),
+   ** making it possible to prioritize processing based on client requests and their importance based on credentials,
+   ** ensuring the latest available data is always used,
+   ** enabling instant feedback allowing to validate and tweak input parameters based on initial small requests tailored to the area and resolution of interest of a given view (or preview) of the results;
+
+* _**minimize data exchange bandwidth requirements by**_
+   ** requesting subset and downsampled data focusing on area, time, resolution and fields/bands of interests,
+   ** allowing to optimize usage of processing and bandwidth resources while decreasing wait times.
+
+==== Considerations for collection input / output
+
+An important design goal of this extension is to separate from the workflow definition the negotiation of formats,
+data transfer APIs, area, time and resolution of intererest, and selection of outputs, therefore greatly enhancing the re-usability of the workflows.
+This negotiation happens at each hop along a workflow chain, and the end-user client need only decide on these for the server it directly connnects to (immediate hop).
+For example, some hops may operate better using DGGS zone IDs, while other using subset requests, and yet others using tiles; or some hops may support and work best with some format or API,
+while others work best with another.
+
+When setting up a new workflow for collection output our asynchronous execution, if possible, the API should fully validate the immediate process and all nested inputs prior to returning a result.
+A successful result indicates a fully validated workflow which should normally succeed for requests within the range for which data is produced.
+It is expected that clients may make a large number of requests for the same workflow e.g., using subset or tiles or DGGS zone ID to trigger processing of a specific Area of Interest or resolution,
+as a client pans and zooms around a map.
+
+With _collection input / output_, formats, CRS, specific APIs, or specific APIs do not have to be specified and should not be, so as to maximize the re-usability of the workflow.
+e.g., the data requests triggering the processing would specify the output formats via content type negotiation, and tiles requests would provide the AoI and resolution for any specific request which
+would propagate upwards in the workflow request chain.

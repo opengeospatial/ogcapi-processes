@@ -1,0 +1,8 @@
+allOf:
+ - type: object
+   required:
+     - $input
+   properties:
+     $input:
+       type: string
+ - $ref: fieldsModifiers.yaml

@@ -1,0 +1,20 @@
+[[req_core_process-execute-input-array]]
+[requirement]
+====
+[%metadata]
+label:: /req/core/process-execute-input-array
+[.component,class=conditions]
+--
+The process input is defined in the <<sc_process_description,process description>> as having a maximum cardinality of greater than one (maxOccurs>1).
+--
+
+[.component,class=part]
+--
+The server SHALL support process input values encoded as an array.
+--
+
+[.component,class=part]
+--
+This SHALL be true even if the input consists of a single value.
+--
+====

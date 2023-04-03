@@ -1,0 +1,8 @@
+# This list may be extended (e.g. point clouds, meshes)
+oneOf:
+ - type: string
+ - type: string
+   enum:
+   - map
+   - vector
+   - coverage

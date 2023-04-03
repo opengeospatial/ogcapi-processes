@@ -1,0 +1,16 @@
+allOf:
+   - type: object
+     properties:
+        process:
+          type: string
+          format: uri-reference
+          description: URI to the process execution end point (i.e., `.../processes/{processId}/execution`)
+        inputs:
+          additionalProperties:
+            $ref: "input-workflows.yaml"
+        outputs:
+          additionalProperties:
+            $ref: "output-workflows.yaml"
+        subscriber:
+          $ref: "../processes-core/subscriber.yaml"
+   - $ref: "fieldsModifiers.yaml"

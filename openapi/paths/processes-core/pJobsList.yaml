@@ -1,0 +1,14 @@
+get:
+   summary: retrieve the list of jobs.
+   description: |
+     Lists available jobs.
+
+     For more information, see [Section 12](https://docs.ogc.org/is/18-062r2/18-062r2.html#Job_list).
+   operationId: getJobs
+   tags:
+     - Jobs
+   responses:
+     200:
+       $ref: "../../responses/processes-core/rJobList.yaml"
+     404:
+       $ref: "../../responses/common-core/rNotFound.yaml"

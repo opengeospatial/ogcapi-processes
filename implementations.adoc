@@ -21,7 +21,7 @@
 | OGC API - Processes
 | https://github.com/fmigneault[Francis Charette Migneault]
 
-| https://demo.mapmint.com/swagger-ui/dist/[ZOO-Project]
+| https://www.zoo-project.org/[ZOO-Project] , see the http://tb17.geolabs.fr:8119/ogc-api/[demo].
 | OGC API - Processes
 | https://github.com/gfenoy[Gérald Fenoy]
 
