@@ -842,7 +842,7 @@ This schema is meant to be a template for defining bounding box process inputs. 
 
 include::../recommendations/core/PER_process-execute-input-inline-bbox.adoc[]
 
-NOTE: The `crs` property has been defined using a `oneOf` of either an enumeration or a generic URI string to allow execution requests making use of a CRS other than CRS84 and CRS84h that may be supported by the server to validate with the canonical OGC schema.
+NOTE: The `crs` property has been defined using an `anyOf` of either an enumeration or a generic URI string to allow execution requests making use of a CRS other than CRS84 and CRS84h that may be supported by the server to validate with the canonical OGC schema.
 
 *_Input validation_*
 
