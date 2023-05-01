@@ -843,6 +843,8 @@ This schema is meant to be a template for defining bounding box process inputs. 
 
 include::../recommendations/core/PER_process-execute-input-inline-bbox.adoc[]
 
+NOTE: The `crs` property has been defined using a `oneOf` of either an enumeration or a generic URI string to allow execution requests making use of a CRS other than CRS84 and CRS84h that may be supported by the server to validate with the canonical OGC schema.
+
 *_Input validation_*
 
 Process inputs in an execute request and the corresponding process input definition in the <<sc_process_description,process description>> have a validation relationship.  That is to say, that the schema of a process input definition from the <<sc_process_description,process description>> can be used to validate the component of the corresponding process input value in an execute request that is an instance of <<input-value-schema,inputValue.yaml>>.
