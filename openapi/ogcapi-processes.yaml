@@ -11,7 +11,8 @@ info:
       name: OGC License
       url: http://www.opengeospatial.org/legal/
 servers:
-  - description: Example Server 1 (GNOSIS, supporting Part 1: Core /Sync and Part 3: Workflows)
+  - description: |-
+       Example Server 1 (GNOSIS, supporting Part 1: Core /Sync and Part 3: Workflows)
     url: https://maps.gnosis.earth/ogcapi
 paths:
    # OGC API - Common - Part 1: Core
