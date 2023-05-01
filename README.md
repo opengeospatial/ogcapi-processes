@@ -3,6 +3,14 @@
 This GitHub repository contains the OGC API - Processes for processing geospatial information on the web. It focuses on a simple RESTful core specified
 as reusable [OpenAPI](http://openapis.org) components with responses in JSON and HTML.
 
+The latest published version of _OGC API - Processes - Part 1: Core_ is found here in [HTML](https://docs.ogc.org/is/18-062r2/18-062r2.html) or [PDF](https://docs.ogc.org/is/18-062r2/18-062r2.pdf).
+
+The latest Editor's Draft version of _OGC API - Processes - Part 1: Core_ (1.1 or 2.0) is found here in [HTML](https://opengeospatial.github.io/ogcna-auto-review) or [PDF](https://opengeospatial.github.io/ogcna-auto-review).
+
+The latest Draft of _OGC API - Processes - Part 2: Deploy, Replace, Update_ is found here in [HTML](http://docs.ogc.org/DRAFTS/20-044.html) or [PDF](http://docs.ogc.org/DRAFTS/20-044.pdf).
+
+The latest Draft of _OGC API - Processes - Part 3: Workflows and Chaining_ is found here in [HTML](https://opengeospatial.github.io/ogcna-auto-review/21-009.html) or [PDF](https://opengeospatial.github.io/ogcna-auto-review/21-009.pdf).
+
 [OGC API standards](https://ogcapi.ogc.org) define modular API building blocks to spatially enable Web APIs
 in a consistent way. [OpenAPI](http://openapis.org) is used to define the reusable
 API building blocks.
