@@ -2,8 +2,8 @@
   "openapi": "3.0.0",
   "info": {
     "version": "0.1",
-    "title": "OGC API - Processes - Part 3: Workflows & Chaining",
-    "description": "Example API Definition for OGC API - Part 3: Workflows & Chaining",
+    "title": "OGC API - Processes",
+    "description": "Example API Definition for OGC API - Processes",
     "contact": {
       "name": "Open Geospatial Consortium",
       "email": "info@ogc.org"
@@ -15,7 +15,7 @@
   },
   "servers": [
     {
-      "description": "Example Processes - Workflows server",
+      "description": "Example Server 1 (GNOSIS, supporting Part 1: Core /Sync and Part 3: Workflows)",
       "url": "https://maps.gnosis.earth/ogcapi"
     }
   ],
