@@ -29,15 +29,36 @@ paths:
 
    # OGC API - Processes - Part 1: Core
    /processes:
-      oneOf:
-      - $ref: 'paths/processes-core/pProcessList.yaml'
-      - $ref: 'paths/processes-dru/pDeploy.yaml'
+      # If OGC API - Part 1 only uncomment the line below
+      #$ref: 'paths/processes-core/pProcessList.yaml'
+
+      # OGC API - Processes Part 2: Deploy, Replace, Undeploy
+      # The file below is produced with the following command:
+      # 
+      # rm paths/processes-dru/pProcessListDeploy.yaml ; \
+      # for i in processes-core/pProcessList.yaml \
+      #    processes-dru/pDeploy.yaml ; \
+      # do \
+      #   cat paths/$i >> paths/processes-dru/pProcessListDeploy.yaml;
+      # done
+      #
+      $ref: 'paths/processes-dru/pProcessListDeploy.yaml'
 
    /processes/{processId}:
-      oneOf:
-      - $ref: 'paths/processes-core/pProcessDescription.yaml'
-      - $ref: 'paths/processes-dru/pReplace.yaml'
-      - $ref: 'paths/processes-dru/pUndeploy.yaml'
+      # OGC API - Processes Part 1: Core
+      #$ref: 'paths/processes-core/pProcessDescription.yaml'
+      
+      # OGC API - Processes Part 2: Deploy, Replace, Undeploy
+      # Use the following command to generate the file :
+      #
+      # rm paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml; \
+      # for i in processes-core/pProcessDescription.yaml \
+      #    processes-dru/pReplace.yaml \
+      #    processes-dru/pUndeploy.yaml ; \
+      # do \
+      #   cat paths/$i >> paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml ;\
+      # done
+      $ref: 'paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml'
 
    /processes/{processId}/execution:
       $ref: 'paths/processes-workflows/pExecution-workflows.yaml'

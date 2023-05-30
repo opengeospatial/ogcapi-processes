@@ -4,7 +4,7 @@ delete:
      Undeploys a process.
 
      For more information, see [Section 6.5](http://docs.ogc.org/DRAFTS/20-044.html#_16391f9e-538f-4a84-9710-72a6bab82842).
-   operationId: execute
+   operationId: undeploy
    tags:
      - DRU
    parameters:

@@ -4,7 +4,7 @@ put:
      Replaces a process.
 
      For more information, see [Section 6.4](http://docs.ogc.org/DRAFTS/20-044.html#_18582f42-ebc6-4284-9333-c089068f62b6).
-   operationId: execute
+   operationId: replace
    tags:
      - DRU
    parameters:
@@ -14,12 +14,13 @@ put:
        An OGC Application Package used to deploy a new process.
      required: true
      content:
-       oneOf:
-         - application/ogcapppkg+json:
-           schema:
-             $ref: "../../schemas/processes-dru/ogcapppkg.yaml"
-         - application/cwl
-         - application/cwl+json
+       application/ogcapppkg+json:
+         schema:
+           $ref: "../../schemas/processes-dru/ogcapppkg.yaml"
+       application/cwl:
+         example: "empty"
+       application/cwl+json:
+         example: "{empty}"
    responses:
      204:
        $ref: "../../responses/processes-dru/rEmpty.yaml"
