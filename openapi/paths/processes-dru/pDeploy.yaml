@@ -21,7 +21,7 @@ post:
      201:
        $ref: "../../schemas/processes-core/processSummary.yaml"
      403:
-       $ref: "../../responses/processes-dru/ImmutableProcess.yaml"
+       $ref: "../../responses/processes-dru/rImmutableProcess.yaml"
      409:
        $ref: "../../responses/processes-dru/DuplicateProcess.yaml"
      500:

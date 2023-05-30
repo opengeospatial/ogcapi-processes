@@ -3,7 +3,7 @@ delete:
    description: |
      Undeploys a process.
 
-     For more information, see [Section 6.3](http://docs.ogc.org/DRAFTS/20-044.html#_87a6983e-d060-458c-95ab-27e232e64822).
+     For more information, see [Section 6.5](http://docs.ogc.org/DRAFTS/20-044.html#_16391f9e-538f-4a84-9710-72a6bab82842).
    operationId: execute
    tags:
      - DRU
@@ -11,9 +11,9 @@ delete:
      - $ref: "../../parameters/processes-core/processId-path.yaml"
    responses:
      204:
-       $ref: "../../responses/processes-dru/empty.yaml"
+       $ref: "../../responses/processes-dru/rEmpty.yaml"
      403:
-       $ref: "../../responses/processes-dru/ImmutableProcess.yaml"
+       $ref: "../../responses/processes-dru/rImmutableProcess.yaml"
      404:
        $ref: "../../responses/common-core/rNotFound.yaml"
      500:
