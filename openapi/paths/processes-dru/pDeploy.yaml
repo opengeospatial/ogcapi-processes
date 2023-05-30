@@ -23,6 +23,6 @@ post:
      403:
        $ref: "../../responses/processes-dru/rImmutableProcess.yaml"
      409:
-       $ref: "../../responses/processes-dru/DuplicateProcess.yaml"
+       $ref: "../../responses/processes-dru/rDuplicateProcess.yaml"
      500:
        $ref: "../../responses/common-core/rServerError.yaml"
