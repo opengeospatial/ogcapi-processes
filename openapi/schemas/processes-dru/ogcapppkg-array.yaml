@@ -1,0 +1,6 @@
+type: array
+items:
+  oneOf:
+    - $ref: "executionUnit.yaml"
+    - $ref: "../common-core/link.yaml"
+    - $ref: "../processes-core/qualifiedInputValue.yaml"

@@ -32,12 +32,12 @@ paths:
       oneOf:
       - $ref: 'paths/processes-core/pProcessList.yaml'
       - $ref: 'paths/processes-dru/pDeploy.yaml'
-      - $ref: 'paths/processes-dru/pDelete.yaml'
 
    /processes/{processId}:
       oneOf:
       - $ref: 'paths/processes-core/pProcessDescription.yaml'
       - $ref: 'paths/processes-dru/pReplace.yaml'
+      - $ref: 'paths/processes-dru/pUndeploy.yaml'
 
    /processes/{processId}/execution:
       $ref: 'paths/processes-workflows/pExecution-workflows.yaml'

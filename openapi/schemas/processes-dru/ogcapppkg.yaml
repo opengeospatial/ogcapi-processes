@@ -3,15 +3,10 @@ required:
   - executionUnit
 properties:
   processDescription:
-    $ref: ../processes-core/process.yaml
+    $ref: "../processes-core/process.yaml"
   executionUnit:
     oneOf:
-      - $ref: executionUnit.yaml
-      - $ref: ../common-core/link.yaml
-      - $ref: ../processes-core/qualifiedInputValue.yaml
-      - type: array
-        items:
-	  oneOf:
-	    - $ref: executionUnit.yaml
-	    - $ref: ../common-core/link.yaml
-	    - $ref: ../processes-core/qualifiedInputValue.yaml
+      - $ref: "executionUnit.yaml"
+      - $ref: "../common-core/link.yaml"
+      - $ref: "../processes-core/qualifiedInputValue.yaml"
+      - $ref: "ogcapppkg-array.yaml"

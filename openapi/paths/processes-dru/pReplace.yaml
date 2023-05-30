@@ -19,12 +19,12 @@ put:
            $ref: "../../schemas/processes-dru/ogcapppkg.yaml"
    responses:
      204:
-       $ref: "../../response/processes-dru/empty.yaml"
-     303:
-       anyOf:
-       - $ref: "../../response/processes-dru/DuplicateProcess.yaml"
-       - $ref: "../../response/processes-dru/ImmutableProcess.yaml"
+       $ref: "../../responses/processes-dru/empty.yaml"
+     403:
+       $ref: "../../responses/processes-dru/ImmutableProcess.yaml"
      404:
        $ref: "../../responses/common-core/rNotFound.yaml"
+     409:
+       $ref: "../../responses/processes-dru/DuplicateProcess.yaml"
      500:
        $ref: "../../responses/common-core/rServerError.yaml"
