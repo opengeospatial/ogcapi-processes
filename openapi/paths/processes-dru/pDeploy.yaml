@@ -1,7 +1,7 @@
 post:
    summary: deploy a process.
    description: |
-     Deployss a process.
+     Deploys a process.
 
      For more information, see [Section 6.3](http://docs.ogc.org/DRAFTS/20-044.html#_87a6983e-d060-458c-95ab-27e232e64822).
    operationId: execute
@@ -14,9 +14,12 @@ post:
        An OGC Application Package used to deploy a new process.
      required: true
      content:
-       application/json:
-         schema:
-           $ref: "../../schemas/processes-dru/ogcapppkg.yaml"
+       oneOf:
+         - application/ogcapppkg+json:
+           schema:
+             $ref: "../../schemas/processes-dru/ogcapppkg.yaml"
+         - application/cwl
+         - application/cwl+json
    responses:
      201:
        $ref: "../../schemas/processes-core/processSummary.yaml"
