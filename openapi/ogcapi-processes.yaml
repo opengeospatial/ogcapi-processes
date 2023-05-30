@@ -47,6 +47,14 @@ paths:
    /jobs/{jobId}/results:
       $ref: 'paths/processes-core/pJobResults.yaml'
 
+   # OGC API - Common - Part 2: Deploy, Replace, Undeploy
+   /processes:
+      $ref: 'paths/processes-dru/pDeploy.yaml'
+   /processes/{processId}:
+      $ref: 'paths/processes-dru/pReplace.yaml'
+   /processes/{processId}:
+      $ref: 'paths/processes-dru/pDelete.yaml'
+
 components:
    schemas:
       # $ref: './schemas/index.yaml' # Not supported?
@@ -146,6 +154,12 @@ components:
       statusInfo:
          $ref: 'schemas/processes-core/statusInfo.yaml'
 
+      # OGC API - Common - Part 2: Deploy, Replace, Undeploy
+      ogcapppkg:
+         $ref: 'schemas/processes-dru/ogcapppkg.yaml'
+      staticIndicator:
+         $ref: 'schemas/processes-dru/staticIndicator.yaml'
+
    parameters:
       # Common - Core
       f-metadata:
@@ -187,6 +201,10 @@ components:
          $ref: 'parameters/processes-core/minDuration.yaml'
       maxDuration:
          $ref: 'parameters/processes-core/maxDuration.yaml'
+
+      # OGC API - Common - Part 2: Deploy, Replace, Undeploy
+      w:
+         $ref: 'parameters/processes-dru/w-param.yaml'      
 
    responses:
       # Generic Errors
@@ -234,3 +252,15 @@ components:
          $ref: 'responses/processes-core/rExecuteSync.yaml'
       ExecuteSyncRawRef:
          $ref: 'responses/processes-core/rExecuteSyncRawRef.yaml'
+
+      # OGC API - Common - Part 2: Deploy, Replace, Undeploy
+      DeployProcess:
+         $ref: 'responses/processes-core/DeployProcess.yaml'
+      EmptyResponse:
+         $ref: 'responses/processes-core/empty.yaml'
+
+      # Part 2 additional excepions
+      DuplicateProcess:
+         $ref: 'responses/processes-core/DuplicateProcess.yaml'
+      ImmutableProcess:
+         $ref: 'responses/processes-core/ImmutableProcess.yaml'

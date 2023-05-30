@@ -1,0 +1,30 @@
+put:
+   summary: deploy a process.
+   description: |
+     Deployss a process.
+
+     For more information, see [Section 6.3](http://docs.ogc.org/DRAFTS/20-044.html#_87a6983e-d060-458c-95ab-27e232e64822).
+   operationId: execute
+   tags:
+     - DRU
+   parameters:
+     - $ref: "../../parameters/processes-core/processId-path.yaml"
+   requestBody:
+     description: |-
+       An OGC Application Package used to deploy a new process.
+     required: true
+     content:
+       application/json:
+         schema:
+           $ref: "../../schemas/processes-dru/ogcapppkg.yaml"
+   responses:
+     204:
+       $ref: "../../response/processes-dru/empty.yaml"
+     303:
+       anyOf:
+       - $ref: "../../response/processes-dru/DuplicateProcess.yaml"
+       - $ref: "../../response/processes-dru/ImmutableProcess.yaml"
+     404:
+       $ref: "../../responses/common-core/rNotFound.yaml"
+     500:
+       $ref: "../../responses/common-core/rServerError.yaml"
