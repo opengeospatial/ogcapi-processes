@@ -10,4 +10,4 @@ content:
       content:
         application/json:
       schema:
-        $ref: "../schemas/staticIndicator.yaml"
+        $ref: "../../schemas/processes-dru/staticIndicator.yaml"
