@@ -29,10 +29,15 @@ paths:
 
    # OGC API - Processes - Part 1: Core
    /processes:
-      $ref: 'paths/processes-core/pProcessList.yaml'
+      oneOf:
+      - $ref: 'paths/processes-core/pProcessList.yaml'
+      - $ref: 'paths/processes-dru/pDeploy.yaml'
+      - $ref: 'paths/processes-dru/pDelete.yaml'
 
    /processes/{processId}:
-      $ref: 'paths/processes-core/pProcessDescription.yaml'
+      oneOf:
+      - $ref: 'paths/processes-core/pProcessDescription.yaml'
+      - $ref: 'paths/processes-dru/pReplace.yaml'
 
    /processes/{processId}/execution:
       $ref: 'paths/processes-workflows/pExecution-workflows.yaml'
@@ -47,13 +52,6 @@ paths:
    /jobs/{jobId}/results:
       $ref: 'paths/processes-core/pJobResults.yaml'
 
-   # OGC API - Common - Part 2: Deploy, Replace, Undeploy
-   /processes:
-      $ref: 'paths/processes-dru/pDeploy.yaml'
-   /processes/{processId}:
-      $ref: 'paths/processes-dru/pReplace.yaml'
-   /processes/{processId}:
-      $ref: 'paths/processes-dru/pDelete.yaml'
 
 components:
    schemas:
@@ -255,12 +253,12 @@ components:
 
       # OGC API - Common - Part 2: Deploy, Replace, Undeploy
       DeployProcess:
-         $ref: 'responses/processes-core/DeployProcess.yaml'
+         $ref: 'responses/processes-dru/DeployProcess.yaml'
       EmptyResponse:
-         $ref: 'responses/processes-core/empty.yaml'
+         $ref: 'responses/processes-dru/empty.yaml'
 
       # Part 2 additional excepions
       DuplicateProcess:
-         $ref: 'responses/processes-core/DuplicateProcess.yaml'
+         $ref: 'responses/processes-dru/DuplicateProcess.yaml'
       ImmutableProcess:
-         $ref: 'responses/processes-core/ImmutableProcess.yaml'
+         $ref: 'responses/processes-dru/ImmutableProcess.yaml'
