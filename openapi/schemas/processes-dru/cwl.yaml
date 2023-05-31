@@ -1,0 +1,1656 @@
+$schema: "http://json-schema.org/draft-07/schema#"
+$author: "Francis Charette-Migneault <francis.charette-migneault@crim.ca>"
+$id: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-dru/cwl.yaml"
+
+$definitions:
+  DeployCWL:
+    oneOf:
+      - $ref: "#/$definitions/CWL"
+      - $ref: "#/$definitions/DeployOGCAppPackageCWL"
+  DeployOGCAppPackageCWL:
+    type: object
+    title: DeployOGCAppPackage
+    description: Deployment using standard OGC Application Package definition.
+    properties:
+      processDescription:
+        $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/process.yaml"
+      immediateDeployment:
+        type: boolean
+        title: immediateDeployment
+        default: true
+      deploymentProfileName:
+        type: string
+        format: uri
+        enum: 
+        - "http://www.opengis.net/profiles/eoc/workflow"
+      executionUnit:
+        oneOf:
+          - $ref: "#/$definitions/CWLExecutionUnit"
+          - type: array
+            items: "#/$definitions/CWLExecutionUnit"
+    required:
+      - executionUnit
+      - processDescription
+    additionalProperties: false
+  CWLExecutionUnit:
+    description: CWL definition use to deploy a process.
+    type: object
+    properties:
+      unit:
+        $ref: '#/$definitions/CWL'
+  CWL:
+    oneOf:
+      - $ref: '#/$definitions/CWLAtomic'
+      - $ref: '#/$definitions/CWLGraph'
+  CWLKeywordList:
+    type: array
+    title: KeywordList
+    description: Keywords applied to the process for search and categorization purposes.
+    default: []
+    items:
+      type: string
+      title: keyword
+      minLength: 1
+  CWLIdentifier:
+    anyOf:
+    - type: string
+      title: UUID
+      description: Unique identifier.
+      format: uuid
+      pattern: ^[a-f0-9]{8}(?:-?[a-f0-9]{4}){3}-?[a-f0-9]{12}$
+    - type: string
+      title: ID
+      description: |
+        Generic identifier. This is a user-friendly slug-name.
+        This will represent the process to be deployed.
+      pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
+    title: CWLIdentifier
+    description: Reference to the process identifier. If CWL is provided within
+      a process deployment payload, this can be omitted. If used in a deployment
+      with only CWL details, this information is required.
+  CWLIntent:
+    type: array
+    title: CWLIntent
+    items:
+      type: string
+      title: item
+      description: |
+        Identifier URL to a concept for the type of computational operation accomplished by this process
+        (see example operations: http://edamontology.org/operation_0004).
+      format: url
+      pattern: "^((?:http|ftp)s?://)?(?!.*//.*$)(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|localhost|\[[a-f0-9:]+\]|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:/?|[/?]\S+)$"
+  CWLRequirements:
+    oneOf:
+    - $ref: '#/$definitions/CWLRequirementsMap'
+    - $ref: '#/$definitions/CWLRequirementsList'
+    title: CWLRequirements
+    description: Explicit requirement to execute the application package.
+  CWLRequirementsMap:
+    anyOf:
+    - $ref: '#/$definitions/DockerRequirementMap'
+    - $ref: '#/$definitions/DockerGpuRequirementMap'
+    - $ref: '#/$definitions/InitialWorkDirRequirementMap'
+    - $ref: '#/$definitions/InlineJavascriptRequirementMap'
+    - $ref: '#/$definitions/InplaceUpdateRequirementMap'
+    - $ref: '#/$definitions/LoadListingRequirementMap'
+    - $ref: '#/$definitions/NetworkAccessRequirementMap'
+    - $ref: '#/$definitions/ResourceRequirementMap'
+    - $ref: '#/$definitions/ScatterFeatureRequirementMap'
+    - $ref: '#/$definitions/ToolTimeLimitRequirementMap'
+    - $ref: '#/$definitions/WorkReuseRequirementMap'
+    - $ref: '#/$definitions/UnknownRequirementMap'
+    title: CWLRequirementsMap
+  DockerRequirement:
+    type: object
+    title: DockerRequirement
+    properties:
+      dockerPull:
+        type: string
+        title: Docker pull reference
+        description: Reference package that will be retrieved and executed by CWL.
+        example: docker-registry.host.com/namespace/image:1.2.3
+    required:
+    - dockerPull
+    additionalProperties: {}
+  DockerRequirementMap:
+    type: object
+    title: DockerRequirementMap
+    properties:
+      DockerRequirement:
+        $ref: '#/$definitions/DockerRequirement'
+    required:
+    - DockerRequirement
+    additionalProperties: {}
+  InitialWorkDirListing:
+    type: array
+    title: InitialWorkDirListing
+    items:
+      $ref: '#/$definitions/DirectoryListingItem'
+  DirectoryListingItem:
+    type: object
+    title: DirectoryListingItem
+    properties:
+      entry:
+        type: string
+        title: entry
+      entryname:
+        type: string
+        title: entryname
+      writable:
+        type: boolean
+        title: writable
+    additionalProperties: {}
+  InitialWorkDirRequirementSpecification:
+    type: object
+    title: InitialWorkDirRequirementSpecification
+    properties:
+      listing:
+        $ref: '#/$definitions/InitialWorkDirListing'
+    required:
+    - listing
+    additionalProperties: {}
+  InitialWorkDirRequirementMap:
+    type: object
+    title: InitialWorkDirRequirementMap
+    properties:
+      InitialWorkDirRequirement:
+        $ref: '#/$definitions/InitialWorkDirRequirementSpecification'
+    required:
+    - InitialWorkDirRequirement
+    additionalProperties: {}
+  InlineJavascriptLibraries:
+    type: array
+    title: InlineJavascriptLibraries
+    description: |
+      Additional code fragments that will also be inserted before executin the expression code.
+      Allows for function definitions that may be called from CWL expressions.
+    items:
+      type: string
+      title: exp_lib
+  InlineJavascriptRequirementSpecification:
+    type: object
+    title: InlineJavascriptRequirementSpecification
+    description: |
+      Indicates that the workflow platform must support inline Javascript expressions.
+
+      If this requirement is not present, the workflow platform must not perform expression interpolation
+      (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#InlineJavascriptRequirement).
+    properties:
+      expressionLib:
+        $ref: '#/$definitions/InlineJavascriptLibraries'
+    additionalProperties: {}
+  InlineJavascriptRequirementMap:
+    type: object
+    title: InlineJavascriptRequirementMap
+    properties:
+      InlineJavascriptRequirement:
+        $ref: '#/$definitions/InlineJavascriptRequirementSpecification'
+    required:
+    - InlineJavascriptRequirement
+    additionalProperties: {}
+  InplaceUpdateRequirementSpecification:
+    type: object
+    title: InplaceUpdateRequirementSpecification
+    description: |
+      If 'inplaceUpdate' is true, then an implementation supporting this feature may permit tools to directly
+      update files with 'writable: true' in 'InitialWorkDirRequirement'. That is, as an optimization,
+      files may be destructively modified in place as opposed to copied and updated
+      (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#InplaceUpdateRequirement).
+    properties:
+      inplaceUpdate:
+        type: boolean
+        title: inplaceUpdate
+    required:
+    - inplaceUpdate
+    additionalProperties: {}
+  InplaceUpdateRequirementMap:
+    type: object
+    title: InplaceUpdateRequirementMap
+    properties:
+      InplaceUpdateRequirement:
+        $ref: '#/$definitions/InplaceUpdateRequirementSpecification'
+    required:
+    - InplaceUpdateRequirement
+    additionalProperties: {}
+  LoadListingRequirementSpecification:
+    type: object
+    title: LoadListingRequirementSpecification
+    description: |
+      Specify the desired behavior for loading the listing field of a 'Directory' object for use by expressions
+      (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#LoadListingRequirement).
+    properties:
+      loadListing:
+        type: string
+        title: LoadListingEnum
+        enum:
+        - no_listing
+        - shallow_listing
+        - deep_listing
+    required:
+    - loadListing
+    additionalProperties: {}
+  LoadListingRequirementMap:
+    type: object
+    title: LoadListingRequirementMap
+    properties:
+      LoadListingRequirement:
+        $ref: '#/$definitions/LoadListingRequirementSpecification'
+    required:
+    - LoadListingRequirement
+    additionalProperties: {}
+  NetworkAccess:
+    type: object
+    title: NetworkAccess
+    properties:
+      networkAccess:
+        type: boolean
+        title: Network Access
+        description: Indicate whether a process requires outgoing IPv4/IPv6 network
+          access.
+        example: true
+    required:
+    - networkAccess
+    additionalProperties: {}
+  NetworkAccessRequirementMap:
+    type: object
+    title: NetworkAccessRequirementMap
+    properties:
+      NetworkAccess:
+        $ref: '#/$definitions/NetworkAccess'
+    required:
+    - NetworkAccess
+    additionalProperties: {}
+  CWLExpression:
+    type: string
+    title: CWLExpression
+    description: |
+      When combined with 'InlineJavascriptRequirement', this field allows runtime parameter references
+      (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#Expression).
+  ResourceCoresMinimum:
+    oneOf:
+    - type: number
+      title: ''
+      minimum: 0.0
+    - type: integer
+      title: ''
+      minimum: 1
+    - $ref: '#/$definitions/CWLExpression'
+    title: ResourceCoresMinimum
+    summary: Minimum reserved number of CPU cores.
+    description: |
+      Minimum reserved number of CPU cores.
+      
+      May be a fractional value to indicate to a scheduling algorithm that one core can be allocated to
+      multiple jobs. For example, a value of 0.25 indicates that up to 4 jobs
+      may run in parallel on 1 core. A value of 1.25 means that up to 3 jobs
+      can run on a 4 core system (4/1.25 \u2248 3).
+      
+      Processes can only share a core allocation if the sum of each of their 'ramMax', 'tmpdirMax', and
+      'outdirMax' requests also do not exceed the capacity of the node.
+      
+      Processes sharing a core must have the same level of isolation (typically a container
+      or VM) that they would normally have.
+      
+      The reported number of CPU cores reserved for the process, which is available to expressions 
+      on the 'CommandLineTool' as 'runtime.cores', must be a non-zero integer, and may be calculated by
+      rounding up the cores request to the next whole number.
+      
+      Scheduling systems may allocate fractional CPU resources by setting quotas or scheduling weights.
+      Scheduling systems that do not support fractional CPUs may round up the request to the next whole number.
+    default: 1
+  ResourceCoresMaximum:
+    oneOf:
+    - type: number
+      title: ''
+      minimum: 0.0
+    - type: integer
+      title: ''
+      minimum: 1
+    - $ref: '#/$definitions/CWLExpression'
+    title: ResourceCoresMaximum
+    summary: Maximum reserved number of CPU cores.
+    description: |
+      Maximum reserved number of CPU cores.
+      See ''coresMin'' for discussion about fractional CPU requests.
+  ResourceRAMMinimum:
+    oneOf:
+    - type: number
+      title: ''
+      minimum: 0.0
+    - type: integer
+      title: ''
+      minimum: 1
+    - $ref: '#/$definitions/CWLExpression'
+    title: ResourceRAMMinimum
+    summary: Minimum reserved RAM in mebibytes.
+    description: |
+      Minimum reserved RAM in mebibytes (2**20).
+
+      May be a fractional value. If so, the actual RAM request must be rounded up
+      to the next whole number.
+
+      The reported amount of RAM reserved for the process, which is available to
+      expressions on the 'CommandLineTool' as 'runtime.ram', must be a non-zero integer.
+    default: 256
+  ResourceRAMMaximum:
+    oneOf:
+    - type: number
+      title: ''
+      minimum: 0.0
+    - type: integer
+      title: ''
+      minimum: 1
+    - $ref: '#/$definitions/CWLExpression'
+    title: ResourceRAMMaximum
+    summary: Maximum reserved RAM in mebibytes.
+    description: |
+      Maximum reserved RAM in mebibytes (2**20).
+      See 'ramMin' for discussion about fractional RAM requests.
+  ResourceTmpDirMinimum:
+    oneOf:
+    - type: number
+      title: ''
+      minimum: 0.0
+    - type: integer
+      title: ''
+      minimum: 1
+    - $ref: '#/$definitions/CWLExpression'
+    title: ResourceTmpDirMinimum
+    summary: Minimum reserved filesystem based storage for the designated temporary
+      directory in mebibytes.
+    description: | 
+      Minimum reserved filesystem based storage for the designated temporary
+      directory in mebibytes (2**20).
+
+      May be a fractional value. If so, the actual storage request must be rounded
+      up to the next whole number.
+
+      The reported amount of storage reserved for the process, which is available
+      to expressions on the 'CommandLineTool' as 'runtime.tmpdirSize', must be a non-zero integer.
+    default: 1024
+  ResourceTmpDirMaximum:
+    oneOf:
+    - type: number
+      title: ''
+      minimum: 0.0
+    - type: integer
+      title: ''
+      minimum: 1
+    - $ref: '#/$definitions/CWLExpression'
+    title: ResourceTmpDirMaximum
+    summary: Maximum reserved filesystem based storage for the designated temporary directory in mebibytes.
+    description: |
+      Maximum reserved filesystem based storage for the designated temporary directory in mebibytes (2**20).
+      See 'tmpdirMin' for discussion about fractional storage requests.
+  ResourceOutDirMinimum:
+    oneOf:
+    - type: number
+      title: ''
+      minimum: 0.0
+    - type: integer
+      title: ''
+      minimum: 1
+    - $ref: '#/$definitions/CWLExpression'
+    title: ResourceOutDirMinimum
+    summary: Minimum reserved filesystem based storage for the designated output
+      directory in mebibytes.
+    description: |
+      Minimum reserved filesystem based storage for the designated output
+      directory in mebibytes (2**20).
+
+      May be a fractional value. If so, the actual storage request must be rounded
+      up to the next whole number.
+
+      The reported amount of storage reserved for the process, which is available
+      to expressions on the 'CommandLineTool' as 'runtime.outdirSize', must be a non-zero integer.
+    default: 1024
+  ResourceOutDirMaximum:
+    oneOf:
+    - type: number
+      title: ''
+      minimum: 0.0
+    - type: integer
+      title: ''
+      minimum: 1
+    - $ref: '#/$definitions/CWLExpression'
+    title: ResourceOutDirMaximum
+    summary: Maximum reserved filesystem based storage for the designated output
+      directory in mebibytes.
+    description: |
+      Maximum reserved filesystem based storage for the designated output
+      directory in mebibytes (2**20).
+      See 'outdirMin' for discussion about fractional storage requests.
+    default: 1
+  ResourceRequirement:
+    type: object
+    title: ResourceRequirement
+    description: |
+      Specify basic hardware resource requirements
+      (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#ResourceRequirement).
+    properties:
+      coresMin:
+        $ref: '#/$definitions/ResourceCoresMinimum'
+      coresMax:
+        $ref: '#/$definitions/ResourceCoresMaximum'
+      ramMin:
+        $ref: '#/$definitions/ResourceRAMMinimum'
+      ramMax:
+        $ref: '#/$definitions/ResourceRAMMaximum'
+      tmpdirMin:
+        $ref: '#/$definitions/ResourceTmpDirMinimum'
+      tmpdirMax:
+        $ref: '#/$definitions/ResourceTmpDirMaximum'
+      outdirMin:
+        $ref: '#/$definitions/ResourceOutDirMinimum'
+      outdirMax:
+        $ref: '#/$definitions/ResourceOutDirMaximum'
+    additionalProperties: {}
+  ResourceRequirementMap:
+    type: object
+    title: ResourceRequirementMap
+    properties:
+      ResourceRequirement:
+        $ref: '#/$definitions/ResourceRequirement'
+    required:
+    - ResourceRequirement
+    additionalProperties: {}
+  Scatter:
+    oneOf:
+    - type: string
+      title: ''
+      description: Slug name pattern.
+      pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
+    - $ref: '#/$definitions/IdentifierArray'
+    title: Scatter
+    description: |
+      The scatter field specifies one or more input parameters which will be scattered.
+
+      An input parameter may be listed more than once. The declared type of each
+      input parameter implicitly becomes an array of items of the input parameter type.
+      If a parameter is listed more than once, it becomes a nested array. As a result,
+      upstream parameters which are connected to scattered parameters must be arrays.
+
+      All output parameter types are also implicitly wrapped in arrays. Each job
+      in the scatter results in an entry in the output array.
+
+      If any scattered parameter runtime value is an empty array, all outputs are
+      set to empty arrays and no work is done for the step, according to applicable scattering rules.
+  IdentifierArray:
+    type: array
+    title: IdentifierArray
+    items:
+      type: string
+      title: item
+      description: Slug name pattern.
+      pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
+    minItems: 1
+  ScatterFeatureRequirementSpecification:
+    type: object
+    title: ScatterFeatureRequirementSpecification
+    description: |
+      A 'scatter' operation specifies that the associated Workflow step should execute separately over a list of
+      input elements. Each job making up a scatter operation is independent and may be executed concurrently
+      (see also: https://www.commonwl.org/v1.2/Workflow.html#WorkflowStep).
+    properties:
+      scatter:
+        $ref: '#/$definitions/Scatter'
+      scatterMethod:
+        $ref: '#/$definitions/ScatterMethod'
+    required:
+    - scatter
+    additionalProperties: {}
+  ScatterFeatureRequirementMap:
+    type: object
+    title: ScatterFeatureRequirementMap
+    properties:
+      ScatterFeatureRequirement:
+        $ref: '#/$definitions/ScatterFeatureRequirementSpecification'
+    required:
+    - ScatterFeatureRequirement
+    additionalProperties: {}
+  TimeLimitValue:
+    oneOf:
+    - type: number
+      title: ''
+      minimum: 0.0
+    - type: integer
+      title: ''
+      minimum: 0
+    - $ref: '#/$definitions/CWLExpression'
+    title: TimeLimitValue
+    description: |
+      The time limit, in seconds.
+
+      A time limit of zero means no time limit.
+      Negative time limits are an error.
+  ToolTimeLimitRequirementSpecification:
+    type: object
+    title: ToolTimeLimitRequirementSpecification
+    description: |
+      Set an upper limit on the execution time of a CommandLineTool.
+
+      A CommandLineTool whose execution duration exceeds the time limit may be preemptively
+      terminated and considered failed. May also be used by batch systems to make scheduling decisions.
+
+      The execution duration excludes external operations, such as staging of files,
+      pulling a docker image etc., and only counts wall-time for the execution of the command line itself.
+    properties:
+      timelimit:
+        $ref: '#/$definitions/TimeLimitValue'
+    required:
+    - timelimit
+    additionalProperties: {}
+  ToolTimeLimitRequirementMap:
+    type: object
+    title: ToolTimeLimitRequirementMap
+    properties:
+      ToolTimeLimit:
+        $ref: '#/$definitions/ToolTimeLimitRequirementSpecification'
+    required:
+    - ToolTimeLimit
+    additionalProperties: {}
+  EnableReuseValue:
+    oneOf:
+    - type: boolean
+      title: ''
+    - $ref: '#/$definitions/CWLExpression'
+    title: EnableReuseValue
+    description: |
+      Indicates if reuse is enabled for this tool.
+
+      Can be an expression when combined with 'InlineJavascriptRequirement'
+      (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#Expression).
+  WorkReuseRequirementSpecification:
+    type: object
+    title: WorkReuseRequirementSpecification
+    description: |
+      For implementations that support reusing output from past work
+      (on the assumption that same code and same input produce same results),
+      control whether to enable or disable the reuse behavior for a particular tool
+      or step (to accommodate situations where that assumption is incorrect).
+
+      A reused step is not executed but instead returns the same output as the original execution.
+
+      If 'WorkReuse' is not specified, correct tools should assume it is enabled by default.
+    properties:
+      enableReuse:
+        $ref: '#/$definitions/EnableReuseValue'
+    required:
+    - enableReuse
+    additionalProperties: {}
+  WorkReuseRequirementMap:
+    type: object
+    title: WorkReuseRequirementMap
+    properties:
+      WorkReuse:
+        $ref: '#/$definitions/WorkReuseRequirementSpecification'
+    required:
+    - WorkReuse
+    additionalProperties: {}
+  UnknownRequirementMap:
+    type: object
+    title: UnknownRequirementMap
+    description: Generic schema to allow alternative CWL requirements/hints not
+      explicitly defined in schemas.
+    additionalProperties: {}
+  CWLRequirementsList:
+    type: array
+    title: CWLRequirementsList
+    items:
+      $ref: '#/$definitions/CWLRequirementsItem'
+  CWLRequirementsItem:
+    oneOf:
+    - $ref: '#/$definitions/DockerRequirementClass'
+    - $ref: '#/$definitions/InitialWorkDirRequirementClass'
+    - $ref: '#/$definitions/InlineJavascriptRequirementClass'
+    - $ref: '#/$definitions/InplaceUpdateRequirementClass'
+    - $ref: '#/$definitions/LoadListingRequirementClass'
+    - $ref: '#/$definitions/NetworkAccessRequirementClass'
+    - $ref: '#/$definitions/ResourceRequirementClass'
+    - $ref: '#/$definitions/ScatterFeatureRequirementClass'
+    - $ref: '#/$definitions/ToolTimeLimitRequirementClass'
+    - $ref: '#/$definitions/WorkReuseRequirementClass'
+    - $ref: '#/$definitions/UnknownRequirementClass'
+    title: CWLRequirementsItem
+    discriminator:
+      propertyName: class
+      mapping:
+        DockerRequirement: DockerRequirementClass
+        InitialWorkDirRequirement: InitialWorkDirRequirementClass
+        InlineJavascriptRequirement: InlineJavascriptRequirementClass
+        InplaceUpdateRequirement: InplaceUpdateRequirementClass
+        LoadListingRequirement: LoadListingRequirementClass
+        NetworkAccess: NetworkAccessRequirementClass
+        ResourceRequirement: ResourceRequirementClass
+        ScatterFeatureRequirement: ScatterFeatureRequirementClass
+        ToolTimeLimit: ToolTimeLimitRequirementClass
+        WorkReuse: WorkReuseRequirementClass
+        UnknownRequirement: UnknownRequirementClass
+  DockerRequirementClass:
+    type: object
+    title: DockerRequirementClass
+    properties:
+      dockerPull:
+        type: string
+        title: Docker pull reference
+        description: Reference package that will be retrieved and executed by CWL.
+        example: docker-registry.host.com/namespace/image:1.2.3
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: DockerRequirement
+        enum:
+        - DockerRequirement
+    required:
+    - dockerPull
+    - class
+    additionalProperties: {}
+  InitialWorkDirRequirementClass:
+    type: object
+    title: InitialWorkDirRequirementClass
+    properties:
+      listing:
+        $ref: '#/$definitions/InitialWorkDirListing'
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: InitialWorkDirRequirement
+        enum:
+        - InitialWorkDirRequirement
+    required:
+    - listing
+    - class
+    additionalProperties: {}
+  InlineJavascriptRequirementClass:
+    type: object
+    title: InlineJavascriptRequirementClass
+    description: |
+      Indicates that the workflow platform must support inline Javascript expressions.
+
+      If this requirement is not present, the workflow platform must not perform expression interpolation
+      (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#InlineJavascriptRequirement).
+    properties:
+      expressionLib:
+        $ref: '#/$definitions/InlineJavascriptLibraries'
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: InlineJavascriptRequirement
+        enum:
+        - InlineJavascriptRequirement
+    required:
+    - class
+    additionalProperties: {}
+  InplaceUpdateRequirementClass:
+    type: object
+    title: InplaceUpdateRequirementClass
+    description: |
+      If 'inplaceUpdate' is true, then an implementation supporting
+      this feature may permit tools to directly
+
+      update files with 'writable: true' in 'InitialWorkDirRequirement'. That
+      is, as an optimization, files may be destructively modified in place as opposed to copied and updated
+      (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#InplaceUpdateRequirement).
+    properties:
+      inplaceUpdate:
+        type: boolean
+        title: inplaceUpdate
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: InplaceUpdateRequirement
+        enum:
+        - InplaceUpdateRequirement
+    required:
+    - inplaceUpdate
+    - class
+    additionalProperties: {}
+  LoadListingRequirementClass:
+    type: object
+    title: LoadListingRequirementClass
+    description: |
+      Specify the desired behavior for loading the listing field of
+      a 'Directory' object for use by expressions 
+      (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#LoadListingRequirement).
+    properties:
+      loadListing:
+        type: string
+        title: LoadListingEnum
+        enum:
+        - no_listing
+        - shallow_listing
+        - deep_listing
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: LoadListingRequirement
+        enum:
+        - LoadListingRequirement
+    required:
+    - loadListing
+    - class
+    additionalProperties: {}
+  NetworkAccessRequirementClass:
+    type: object
+    title: NetworkAccessRequirementClass
+    properties:
+      networkAccess:
+        type: boolean
+        title: Network Access
+        description: Indicate whether a process requires outgoing IPv4/IPv6 network access.
+        example: true
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: NetworkAccess
+        enum:
+        - NetworkAccess
+    required:
+    - networkAccess
+    - class
+    additionalProperties: {}
+  ResourceRequirementClass:
+    type: object
+    title: ResourceRequirementClass
+    description: |
+      Specify basic hardware resource requirements
+
+      (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#ResourceRequirement).
+    properties:
+      coresMin:
+        $ref: '#/$definitions/ResourceCoresMinimum'
+      coresMax:
+        $ref: '#/$definitions/ResourceCoresMaximum'
+      ramMin:
+        $ref: '#/$definitions/ResourceRAMMinimum'
+      ramMax:
+        $ref: '#/$definitions/ResourceRAMMaximum'
+      tmpdirMin:
+        $ref: '#/$definitions/ResourceTmpDirMinimum'
+      tmpdirMax:
+        $ref: '#/$definitions/ResourceTmpDirMaximum'
+      outdirMin:
+        $ref: '#/$definitions/ResourceOutDirMinimum'
+      outdirMax:
+        $ref: '#/$definitions/ResourceOutDirMaximum'
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: ResourceRequirement
+        enum:
+        - ResourceRequirement
+    required:
+    - class
+    additionalProperties: {}
+  ScatterMethod:
+    type: string
+    title: scatterMethod
+    description: |
+      If 'scatter' declares more than one input parameter, 'scatterMethod'
+      describes how to decompose the input into a discrete set of jobs.
+      
+      - dotproduct: specifies that each of the input arrays are aligned and
+        one element taken from each array to construct each job. It is an
+        error if all input arrays are not the same length.
+      
+      - nested_crossproduct: specifies the Cartesian product of the inputs, producing 
+        a job for every combination of the scattered inputs. The output must be nested 
+        arrays for each level of scattering, in the order that the input arrays
+        are listed in the 'scatter' field.
+      
+      - flat_crossproduct: specifies the Cartesian product of the inputs, producing a 
+        job for every combination of the scattered inputs. The output arrays must be 
+        flattened to a single level, but otherwise listed in the order that the input 
+        arrays are listed in the 'scatter' field.
+    default: dotproduct
+    enum:
+    - dotproduct
+    - nested_crossproduct
+    - flat_crossproduct
+  ScatterFeatureRequirementClass:
+    type: object
+    title: ScatterFeatureRequirementClass
+    description: |
+      A 'scatter' operation specifies that the associated Workflow step should execute separately over a list of
+      input elements. Each job making up a scatter operation is independent and may be executed concurrently
+      (see also: https://www.commonwl.org/v1.2/Workflow.html#WorkflowStep).
+    properties:
+      scatter:
+        $ref: '#/$definitions/Scatter'
+      scatterMethod:
+        $ref: "#/$definitions/ScatterMethod"
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: ScatterFeatureRequirement
+        enum:
+        - ScatterFeatureRequirement
+    required:
+    - scatter
+    - class
+    additionalProperties: {}
+  ToolTimeLimitRequirementClass:
+    type: object
+    title: ToolTimeLimitRequirementClass
+    description: |
+      Set an upper limit on the execution time of a CommandLineTool.
+
+      A CommandLineTool whose execution duration exceeds the time limit may be preemptively
+      terminated and considered failed. May also be used by batch systems to make scheduling decisions.
+
+      The execution duration excludes external operations, such as staging of files,
+      pulling a docker image etc., and only counts wall-time for the execution of the command line itself.
+    properties:
+      timelimit:
+        $ref: '#/$definitions/TimeLimitValue'
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: ToolTimeLimit
+        enum:
+        - ToolTimeLimit
+    required:
+    - timelimit
+    - class
+    additionalProperties: {}
+  WorkReuseRequirementClass:
+    type: object
+    title: WorkReuseRequirementClass
+    description: |
+      For implementations that support reusing output from past work
+      (on the assumption that same code and same input produce same results),
+      control whether to enable or disable the reuse behavior for a particular tool
+      or step (to accommodate situations where that assumption is incorrect).
+
+      A reused step is not executed but instead returns the same output as the original execution.
+
+      If 'WorkReuse' is not specified, correct tools should assume it is enabled by default.
+    properties:
+      enableReuse:
+        $ref: '#/$definitions/EnableReuseValue'
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: WorkReuse
+        enum:
+        - WorkReuse
+    required:
+    - enableReuse
+    - class
+    additionalProperties: {}
+  UnknownRequirementClass:
+    type: object
+    title: UnknownRequirementClass
+    properties:
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: UnknownRequirement
+    required:
+    - class
+    additionalProperties: {}
+  CWLHints:
+    oneOf:
+    - $ref: '#/$definitions/CWLHintsMap'
+    - $ref: '#/$definitions/CWLHintsList'
+    title: CWLHints
+    description: Non-failing additional hints that can help resolve extra requirements.
+  CWLHintsMap:
+    anyOf:
+    - $ref: '#/$definitions/BuiltinRequirementMap'
+    - $ref: '#/$definitions/CUDARequirementMap'
+    - $ref: '#/$definitions/DockerRequirementMap'
+    - $ref: '#/$definitions/InitialWorkDirRequirementMap'
+    - $ref: '#/$definitions/InlineJavascriptRequirementMap'
+    - $ref: '#/$definitions/InplaceUpdateRequirementMap'
+    - $ref: '#/$definitions/LoadListingRequirementMap'
+    - $ref: '#/$definitions/NetworkAccessRequirementMap'
+    - $ref: '#/$definitions/ResourceRequirementMap'
+    - $ref: '#/$definitions/ScatterFeatureRequirementMap'
+    - $ref: '#/$definitions/ToolTimeLimitRequirementMap'
+    - $ref: '#/$definitions/WorkReuseRequirementMap'
+    - $ref: '#/$definitions/OGCAPIRequirementMap'
+    - $ref: '#/$definitions/WPS1RequirementMap'
+    - $ref: '#/$definitions/UnknownRequirementMap'
+    title: CWLHintsMap
+  BuiltinRequirement:
+    type: object
+    title: BuiltinRequirement
+    description: 'Hint indicating that the Application Package corresponds to a
+      builtin process of this instance. (note: can only be an ''hint'' as it is
+      unofficial CWL specification).'
+    properties:
+      process:
+        type: string
+        title: process
+        description: Builtin process identifier.
+        pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: BuiltinRequirement
+        enum:
+        - BuiltinRequirement
+    required:
+    - process
+    - class
+    additionalProperties: {}
+  BuiltinRequirementMap:
+    type: object
+    title: BuiltinRequirementMap
+    properties:
+      BuiltinRequirement:
+        $ref: '#/$definitions/BuiltinRequirement'
+    required:
+    - BuiltinRequirement
+    additionalProperties: {}
+  CUDAComputeCapability:
+    oneOf:
+    - type: string
+      title: CUDA compute capability
+      description: The compute capability supported by the GPU hardware.
+      pattern: ^\d+\.\d+$
+    - $ref: '#/$definitions/CUDAComputeCapabilityArray'
+    title: CUDA compute capability
+    description: |
+      The compute capability supported by the GPU hardware.
+      
+      * If this is a single value, it defines only the minimum compute capability.
+        GPUs with higher capability are also accepted.
+      * If it is an array value, then only select GPUs with compute capabilities that explicitly
+        appear in the array.
+        See https://docs.nvidia.com/deploy/cuda-compatibility/#faq and
+        https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#cuda-compute-capability
+        for details.
+  CUDAComputeCapabilityArray:
+    type: array
+    title: CUDAComputeCapabilityArray
+    items:
+      type: string
+      title: CUDA compute capability
+      description: The compute capability supported by the GPU hardware.
+      pattern: ^\d+\.\d+$
+    minItems: 1
+  cwltool:CUDARequirement:
+    type: object
+    title: cwltool:CUDARequirement
+    properties:
+      cudaVersionMin:
+        type: string
+        title: CUDA version minimum
+        description: | 
+          The minimum CUDA version required to run the software. This corresponds to a CUDA SDK release.
+
+          When run in a container, the container image should provide the CUDA runtime,
+          and the host driver is injected into the container.  In this case, because CUDA drivers
+          are backwards compatible, it is possible to use an older SDK with a newer driver across major versions.
+
+          See https://docs.nvidia.com/deploy/cuda-compatibility/ for details.
+        example: '11.4'
+        pattern: ^\d+\.\d+$
+      cudaComputeCapability:
+        $ref: '#/$definitions/CUDAComputeCapability'
+      cudaDeviceCountMin:
+        type: integer
+        title: CUDA device count minimum
+        description: The minimum amount of devices required.
+        default: 1
+        example: 1
+        minimum: 1
+      cudaDeviceCountMax:
+        type: integer
+        title: CUDA device count maximum
+        description: The maximum amount of devices required.
+        default: 1
+        example: 8
+        minimum: 1
+    required:
+    - cudaVersionMin
+    - cudaComputeCapability
+    additionalProperties: {}
+  CUDARequirementMap:
+    type: object
+    title: CUDARequirementMap
+    properties:
+      cwltool:CUDARequirement:
+        $ref: '#/$definitions/cwltool:CUDARequirement'
+    required:
+    - cwltool:CUDARequirement
+    additionalProperties: {}
+  OGCAPIRequirement:
+    type: object
+    title: OGCAPIRequirement
+    description: | 
+      Hint indicating that the Application Package corresponds to an
+      OGC API - Processes providerthat should be remotely executed and monitored
+      by this instance. (note: can only be an ''hint'' as it is unofficial CWL specification).
+    properties:
+      process:
+        $ref: '#/$definitions/ReferenceURL'
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: OGCAPIRequirement
+        enum:
+        - OGCAPIRequirement
+    required:
+    - process
+    - class
+    additionalProperties: {}
+  OGCAPIRequirementMap:
+    type: object
+    title: OGCAPIRequirementMap
+    properties:
+      OGCAPIRequirement:
+        $ref: '#/$definitions/OGCAPIRequirement'
+    required:
+    - OGCAPIRequirement
+    additionalProperties: {}
+  WPS1Requirement:
+    type: object
+    title: WPS1Requirement
+    description: |
+      Hint indicating that the Application Package corresponds to a
+      WPS-1 provider processthat should be remotely executed and monitored by this
+      instance. (note: can only be an ''hint'' as it is unofficial CWL specification).
+    properties:
+      process:
+        type: string
+        title: process
+        description: Process identifier of the remote WPS provider.
+        pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
+      provider:
+        type: string
+        title: provider
+        description: WPS provider endpoint.
+        format: url
+        pattern: ^((?:http|ftp)s?://)?(?!.*//.*$)(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|localhost|\[[a-f0-9:]+\]|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:/?|[/?]\S+)$
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: WPS1Requirement
+        enum:
+        - WPS1Requirement
+    required:
+    - process
+    - provider
+    - class
+    additionalProperties: {}
+  WPS1RequirementMap:
+    type: object
+    title: WPS1RequirementMap
+    properties:
+      WPS1Requirement:
+        $ref: '#/$definitions/WPS1Requirement'
+    required:
+    - WPS1Requirement
+    additionalProperties: {}
+  CWLHintsList:
+    type: array
+    title: CWLHintsList
+    items:
+      $ref: '#/$definitions/CWLHintsItem'
+  CWLHintsItem:
+    oneOf:
+    - $ref: '#/$definitions/BuiltinRequirement'
+    - $ref: '#/$definitions/CUDARequirementClass'
+    - $ref: '#/$definitions/DockerRequirementClass'
+    - $ref: '#/$definitions/InitialWorkDirRequirementClass'
+    - $ref: '#/$definitions/InlineJavascriptRequirementClass'
+    - $ref: '#/$definitions/InplaceUpdateRequirementClass'
+    - $ref: '#/$definitions/LoadListingRequirementClass'
+    - $ref: '#/$definitions/NetworkAccessRequirementClass'
+    - $ref: '#/$definitions/ResourceRequirementClass'
+    - $ref: '#/$definitions/ScatterFeatureRequirementClass'
+    - $ref: '#/$definitions/ToolTimeLimitRequirementClass'
+    - $ref: '#/$definitions/WorkReuseRequirementClass'
+    - $ref: '#/$definitions/OGCAPIRequirement'
+    - $ref: '#/$definitions/WPS1Requirement'
+    - $ref: '#/$definitions/UnknownRequirementClass'
+    title: CWLHintsItem
+    discriminator:
+      propertyName: class
+      mapping:
+        BuiltinRequirement: BuiltinRequirement
+        cwltool:CUDARequirement: CUDARequirementClass
+        DockerRequirement: DockerRequirementClass
+        InitialWorkDirRequirement: InitialWorkDirRequirementClass
+        InlineJavascriptRequirement: InlineJavascriptRequirementClass
+        InplaceUpdateRequirement: InplaceUpdateRequirementClass
+        LoadListingRequirement: LoadListingRequirementClass
+        NetworkAccess: NetworkAccessRequirementClass
+        ResourceRequirement: ResourceRequirementClass
+        ScatterFeatureRequirement: ScatterFeatureRequirementClass
+        ToolTimeLimit: ToolTimeLimitRequirementClass
+        WorkReuse: WorkReuseRequirementClass
+        OGCAPIRequirement: OGCAPIRequirement
+        WPS1Requirement: WPS1Requirement
+        UnknownRequirement: UnknownRequirementClass
+  CUDARequirementClass:
+    type: object
+    title: CUDARequirementClass
+    properties:
+      cudaVersionMin:
+        type: string
+        title: CUDA version minimum
+        description: |
+          The minimum CUDA version required to run the software. This corresponds to a CUDA SDK release.
+
+          When run in a container, the container image should provide the CUDA runtime,
+          and the host driver is injected into the container.  In this case, because CUDA drivers
+          are backwards compatible, it is possible to use an older SDK with a newer driver across major versions.
+
+          See https://docs.nvidia.com/deploy/cuda-compatibility/ for details.
+        example: '11.4'
+        pattern: ^\d+\.\d+$
+      cudaComputeCapability:
+        $ref: '#/$definitions/CUDA compute capability'
+      cudaDeviceCountMin:
+        type: integer
+        title: CUDA device count minimum
+        description: The minimum amount of devices required.
+        default: 1
+        example: 1
+        minimum: 1
+      cudaDeviceCountMax:
+        type: integer
+        title: CUDA device count maximum
+        description: The maximum amount of devices required.
+        default: 1
+        example: 8
+        minimum: 1
+      class:
+        type: string
+        title: RequirementClass
+        description: CWL requirement class specification.
+        example: cwltool:CUDARequirement
+        enum:
+        - cwltool:CUDARequirement
+    required:
+    - cudaVersionMin
+    - cudaComputeCapability
+    - class
+    additionalProperties: {}
+  CWLCommand:
+    oneOf:
+    - type: string
+      title: String command.
+    - $ref: '#/$definitions/Command Parts'
+    title: CWLCommand
+    description: |
+      Command called in the docker image or on shell according to requirements
+      and hints specifications. Can be omitted if already defined in the docker
+      image.
+  Command Parts:
+    type: array
+    title: Command Parts
+    items:
+      type: string
+      title: cmd
+  CWLArguments:
+    type: array
+    title: CWLArguments
+    description: Base arguments passed to the command.
+    items:
+      type: string
+      title: argument
+  CWLInputsDefinition:
+    oneOf:
+    - $ref: '#/$definitions/CWLInputList'
+    - $ref: '#/$definitions/CWLInputMap'
+    - $ref: '#/$definitions/CWLInputEmpty'
+    title: CWLInputsDefinition
+    description: All inputs available to the Application Package.
+  CWLInputList:
+    type: array
+    title: CWLInputList
+    description: Package inputs defined as items.
+    items:
+      $ref: '#/$definitions/CWLInputItem'
+  CWLType:
+    oneOf:
+    - $ref: '#/$definitions/CWLTypeBase'
+    - $ref: '#/$definitions/CWLTypeList'
+    title: CWL Type
+  CWLTypeDefinition:
+    type: string
+    title: CWL type string definition
+    summary: CWL type string definition.
+    description: Field type definition.
+    enum:
+      - 'null'
+      - Any
+      - Directory
+      - Directory?
+      - Directory[]
+      - Directory[]?
+      - File
+      - File?
+      - File[]
+      - File[]?
+      - boolean
+      - boolean?
+      - boolean[]
+      - boolean[]?
+      - double
+      - double?
+      - double[]
+      - double[]?
+      - enum?
+      - enum[]
+      - enum[]?
+      - float
+      - float?
+      - float[]
+      - float[]?
+      - int
+      - int?
+      - int[]
+      - int[]?
+      - integer
+      - integer?
+      - integer[]
+      - integer[]?
+      - long
+      - long?
+      - long[]
+      - long[]?
+      - string
+      - string?
+      - string[]
+      - string[]?
+  CWLTypeBase:
+    oneOf:
+    - $ref: '#/$definitions/CWLTypeDefinition'
+    - $ref: '#/$definitions/CWLTypeArray'
+    - $ref: '#/$definitions/CWLTypeEnum'
+    title: CWLTypeBase
+  CWLTypeArray:
+    type: object
+    title: CWLTypeArray
+    summary: CWL type as list of items.
+    properties:
+      type:
+        type: string
+        title: type
+        example: array
+        enum:
+        - array
+      items:
+        type: string
+        title: CWLTypeArrayItems
+        description: Field type definition.
+        enum:
+        - File
+        - float
+        - enum
+        - double
+        - long
+        - boolean
+        - int
+        - integer
+        - string
+        - Directory
+    required:
+    - type
+    - items
+    additionalProperties: {}
+  CWLTypeSymbols:
+    type: array
+    title: CWLTypeSymbols
+    summary: Allowed values composing the enum.
+    items:
+      $ref: '#/$definitions/CWLTypeSymbolValues'
+  CWLTypeSymbolValues:
+    oneOf:
+    - type: number
+      title: ''
+    - type: integer
+      title: ''
+    - type: string
+      title: ''
+    title: CWLTypeSymbolValues
+  CWLTypeEnum:
+    type: object
+    title: CWLTypeEnum
+    summary: CWL type as enum of values.
+    properties:
+      type:
+        type: string
+        title: type
+        example: enum
+        enum:
+        - enum
+      symbols:
+        $ref: '#/$definitions/CWLTypeSymbols'
+    required:
+    - type
+    - symbols
+    additionalProperties: {}
+  CWLTypeList:
+    type: array
+    title: CWLTypeList
+    summary: Combination of allowed CWL types.
+    items:
+      $ref: '#/$definitions/CWLTypeBase'
+  CWLDefault:
+    oneOf:
+    - $ref: '#/$definitions/AnyLiteralType'
+    - $ref: '#/$definitions/AnyLiteralList'
+    title: CWLDefault
+    description: Default value of input if not provided for task execution.
+  AnyLiteralType:
+    oneOf:
+      - type: number
+      - type: boolean
+      - type: string
+  AnyLiteralList:
+    type: array
+    title: AnyLiteralList
+    items:
+      $ref: '#/$definitions/AnyLiteralType'
+  InputBinding:
+    type: object
+    title: Input Binding
+    description: Defines how to specify the input for the command.
+    additionalProperties: {}
+  CWLInputItem:
+    type: object
+    title: Input
+    description: Input specification. Note that multiple formats are supported and
+      not all specification variants or parameters are presented here. Please refer
+      to official CWL documentation for more details (https://www.commonwl.org).
+    properties:
+      type:
+        $ref: '#/$definitions/CWLType'
+      default:
+        $ref: '#/$definitions/CWLDefault'
+      inputBinding:
+        $ref: '#/$definitions/InputBinding'
+      id:
+        type: string
+        title: id
+        description: Identifier of the CWL input. To merge details between corresponding
+          CWL and WPS input specifications, this is the value that will be used
+          to associate them together.
+        pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
+    required:
+    - type
+    - id
+    additionalProperties: {}
+  CWLInputObject:
+    - type: object
+      title: CWLInputObject
+      summary: CWL type definition with parameters.
+      properties:
+        type:
+          $ref: '#/$definitions/CWLType'
+        default:
+          $ref: '#/$definitions/CWLDefault'
+        inputBinding:
+          $ref: '#/$definitions/InputBinding'
+          additionalProperties: { }
+      required:
+        - type
+      additionalProperties: { }
+  CWLInputMap:
+    type: object
+    title: CWLInputMap
+    description: Package inputs defined as mapping.
+    properties: {}
+    required: []
+    additionalProperties:
+      oneOf:
+      - $ref: '#/$definitions/CWLTypeDefinition'
+      - type: array
+        title: CWLTypeStringList
+        summary: List of allowed CWL type strings.
+        description: List of allowed direct CWL type specifications as strings.
+        items:
+          $ref: '#/$definitions/CWLType'
+      - $ref: "#/$definitions/CWLInputObject"
+  CWLInputEmpty:
+    type: object
+    title: CWLInputEmpty
+    description: Package inputs as empty mapping when it takes no arguments.
+    additionalProperties: {}
+  CWLOutputsDefinition:
+    oneOf:
+    - $ref: '#/$definitions/CWLOutputList'
+    - $ref: '#/$definitions/CWLOutputMap'
+    title: CWLOutputsDefinition
+    description: All outputs produced by the Application Package.
+  CWLOutputList:
+    type: array
+    title: CWLOutputList
+    description: Package outputs defined as items.
+    items:
+      $ref: '#/$definitions/CWLOutputItem'
+  OutputBinding:
+    type: object
+    title: OutputBinding
+    description: Defines how to retrieve the output result from the command.
+    properties:
+      glob:
+        type: string
+        title: glob
+        description: Glob pattern to find the output on disk or mounted docker volume.
+    additionalProperties: {}
+  CWLOutputItem:
+    type: object
+    title: CWLOutputItem
+    description: Output specification. Note that multiple formats are supported
+      and not all specification variants or parameters are presented here. Please
+      refer to official CWL documentation for more details (https://www.commonwl.org).
+    properties:
+      type:
+        $ref: '#/$definitions/CWLType'
+      outputBinding:
+        $ref: '#/$definitions/OutputBinding'
+      id:
+        type: string
+        title: id
+        description: Identifier of the CWL output. To merge details between corresponding
+          CWL and WPS output specifications, this is the value that will be used
+          to associate them together.
+        pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
+    required:
+    - type
+    - id
+    additionalProperties: {}
+  CWLOutputObject:
+    type: object
+    title: CWLOutputObject
+    summary: CWL type definition with parameters.
+    properties:
+      type:
+        $ref: '#/$definitions/CWLType'
+      outputBinding:
+        $ref: '#/$definitions/OutputBinding'
+    required:
+    - type
+    additionalProperties: {}
+  CWLOutputMap:
+    type: object
+    title: CWLOutputMap
+    description: Package outputs defined as mapping.
+    properties: {}
+    required: []
+    additionalProperties:
+      oneOf:
+      - $ref: '#/$definitions/CWLTypeDefinition'
+      - type: array
+        title: CWLTypeStringList
+        summary: List of allowed CWL type strings.
+        description: List of allowed direct CWL type specifications as strings.
+        items:
+          $ref: '#/$definitions/CWLType'
+      - $ref: "#/$definitions/CWLOutputObject"
+  CWLScatter:
+    oneOf:
+    - $ref: '#/$definitions/CWLIdentifier'
+    - $ref: '#/$definitions/CWLScatterMulti'
+    title: CWLScatter
+    description: One or more input identifier of an application step within a Workflow
+      were an array-based input to that Workflow should be scattered across multiple
+      instances of the step application.
+  CWLScatterMulti:
+    type: array
+    title: CWLScatterMulti
+    items:
+      $ref: '#/$definitions/CWLIdentifier'
+  CWLScatterMethod:
+    type: string
+    title: scatterMethod
+    description: Describes how to decompose the scattered input into a discrete
+      set of jobs. When 'dotproduct', specifies that each of the input arrays
+      are aligned and one element taken from each array to construct each job.
+      It is an error if all input arrays are of different length. When 'nested_crossproduct',
+      specifies the Cartesian product of the inputs, producing a job for every
+      combination of the scattered inputs. The output must be nested arrays
+      for each level of scattering, in the order that the input arrays are listed
+      in the scatter field. When 'flat_crossproduct', specifies the Cartesian
+      product of the inputs, producing a job for every combination of the scattered
+      inputs. The output arrays must be flattened to a single level, but otherwise
+      listed in the order that the input arrays are listed in the scatter field.
+    enum:
+      - dotproduct
+      - nested_crossproduct
+      - flat_crossproduct
+  CWLAtomic:
+    type: object
+    title: CWL atomic definition
+    description: Direct CWL definition instead of the graph representation.
+    properties:
+      cwlVersion:
+        type: string
+        title: cwlVersion
+        description: CWL version of the described application package.
+        pattern: ^v\d+(\.\d+(\.\d+)*)*$
+      id:
+        $ref: '#/$definitions/CWLIdentifier'
+      version:
+        type: string
+        title: version
+        description: "Version of the process."
+        example: 1.2.3
+        pattern: ^\d+(\.\d+(\.\d+(\.[a-zA-Z0-9\-_]+)*)*)*$
+      class:
+        type: string
+        title: Class
+        description: CWL class specification. This is used to differentiate between
+          single Application Package (AP)definitions and Workflow that chains multiple
+          packages.
+        enum:
+        - CommandLineTool
+        - ExpressionTool
+        - Workflow
+      intent:
+        $ref: '#/$definitions/CWLIntent'
+      requirements:
+        $ref: '#/$definitions/CWLRequirements'
+      hints:
+        $ref: '#/$definitions/CWLHints'
+      baseCommand:
+        $ref: '#/$definitions/CWLCommand'
+      arguments:
+        $ref: '#/$definitions/CWLArguments'
+      inputs:
+        $ref: '#/$definitions/CWLInputsDefinition'
+      outputs:
+        $ref: '#/$definitions/CWLOutputsDefinition'
+      scatter:
+        $ref: '#/$definitions/CWLScatter'
+      scatterMethod:
+        $ref: '#/$definitions/CWLScatterMethod'
+    required:
+    - class
+    - inputs
+    - outputs
+    - cwlVersion
+    additionalProperties: {}
+  CWLGraphList:
+    type: array
+    title: CWLGraphList
+    description: Graph definition that defines *exactly one* CWL application package
+      represented as list. Multiple definitions simultaneously deployed is NOT supported
+      currently.
+    items:
+      $ref: '#/$definitions/CWLGraphItem'
+    maxItems: 1
+    minItems: 1
+  CWLGraphItem:
+    type: object
+    title: CWLGraphItem
+    properties:
+      class:
+        type: string
+        title: Class
+        description: CWL class specification. This is used to differentiate between
+          single Application Package (AP)definitions and Workflow that chains multiple
+          packages.
+        enum:
+        - CommandLineTool
+        - ExpressionTool
+        - Workflow
+      id:
+        $ref: '#/$definitions/CWLIdentifier'
+      intent:
+        $ref: '#/$definitions/CWLIntent'
+      requirements:
+        $ref: '#/$definitions/CWLRequirements'
+      hints:
+        $ref: '#/$definitions/CWLHints'
+      baseCommand:
+        $ref: '#/$definitions/CWLCommand'
+      arguments:
+        $ref: '#/$definitions/CWLArguments'
+      inputs:
+        $ref: '#/$definitions/CWLInputsDefinition'
+      outputs:
+        $ref: '#/$definitions/CWLOutputsDefinition'
+      scatter:
+        $ref: '#/$definitions/CWLScatter'
+      scatterMethod:
+        $ref: '#/$definitions/CWLScatterMethod'
+    required:
+    - class
+    - id
+    - inputs
+    - outputs
+    additionalProperties: {}
+  CWLGraph:
+    type: object
+    title: CWL Graph
+    properties:
+      cwlVersion:
+        type: string
+        title: cwlVersion
+        description: CWL version of the described application package.
+        pattern: ^v\d+(\.\d+(\.\d+)*)*$
+      version:
+        type: string
+        title: version
+        description: "Version of the process."
+        example: 1.2.3
+        pattern: ^\d+(\.\d+(\.\d+(\.[a-zA-Z0-9\-_]+)*)*)*$
+      $graph:
+        $ref: '#/$definitions/CWLGraphList'
+    required:
+    - $graph
+    - cwlVersion
+    additionalProperties: {}
