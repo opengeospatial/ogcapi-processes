@@ -21,7 +21,10 @@ $definitions:
       deploymentProfileName:
         type: string
         format: uri
-        enum: 
+        enum:
+        # if the CWL has a DockerRequirement and is a 'class: CommandLineTool'
+        - "http://www.opengis.net/profiles/eoc/dockerizedApplication"
+        # when the CWL is a 'class: Workflow'
         - "http://www.opengis.net/profiles/eoc/workflow"
       executionUnit:
         oneOf:
