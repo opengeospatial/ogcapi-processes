@@ -33,15 +33,6 @@ paths:
       #$ref: 'paths/processes-core/pProcessList.yaml'
 
       # OGC API - Processes Part 2: Deploy, Replace, Undeploy
-      # The file below is produced with the following command:
-      # 
-      # rm paths/processes-dru/pProcessListDeploy.yaml ; \
-      # for i in processes-core/pProcessList.yaml \
-      #    processes-dru/pDeploy.yaml ; \
-      # do \
-      #   cat paths/$i >> paths/processes-dru/pProcessListDeploy.yaml;
-      # done
-      #
       $ref: 'paths/processes-dru/pProcessListDeploy.yaml'
 
    /processes/{processId}:
@@ -49,15 +40,6 @@ paths:
       #$ref: 'paths/processes-core/pProcessDescription.yaml'
       
       # OGC API - Processes Part 2: Deploy, Replace, Undeploy
-      # Use the following command to generate the file :
-      #
-      # rm paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml; \
-      # for i in processes-core/pProcessDescription.yaml \
-      #    processes-dru/pReplace.yaml \
-      #    processes-dru/pUndeploy.yaml ; \
-      # do \
-      #   cat paths/$i >> paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml ;\
-      # done
       $ref: 'paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml'
 
    /processes/{processId}/execution:

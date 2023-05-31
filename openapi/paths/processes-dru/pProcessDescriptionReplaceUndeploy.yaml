@@ -37,9 +37,11 @@ put:
          schema:
            $ref: "../../schemas/processes-dru/ogcapppkg.yaml"
        application/cwl:
-         example: "empty"
+         schema:
+	   type: string
        application/cwl+json:
-         example: "{empty}"
+         schema:
+	   $ref: 'https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/1.2.1_proposed/CommonWorkflowLanguage.yml'
    responses:
      204:
        $ref: "../../responses/processes-dru/rEmpty.yaml"
