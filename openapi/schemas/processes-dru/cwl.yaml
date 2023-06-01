@@ -91,7 +91,6 @@ $definitions:
   CWLRequirementsMap:
     anyOf:
     - $ref: '#/$definitions/DockerRequirementMap'
-    - $ref: '#/$definitions/DockerGpuRequirementMap'
     - $ref: '#/$definitions/InitialWorkDirRequirementMap'
     - $ref: '#/$definitions/InlineJavascriptRequirementMap'
     - $ref: '#/$definitions/InplaceUpdateRequirementMap'
