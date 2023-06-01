@@ -1192,13 +1192,13 @@ $definitions:
     oneOf:
     - type: string
       title: String command.
-    - $ref: '#/$definitions/Command Parts'
+    - $ref: '#/$definitions/CommandParts'
     title: CWLCommand
     description: |
       Command called in the docker image or on shell according to requirements
       and hints specifications. Can be omitted if already defined in the docker
       image.
-  Command Parts:
+  CommandParts:
     type: array
     title: Command Parts
     items:
@@ -1211,6 +1211,60 @@ $definitions:
     items:
       type: string
       title: argument
+  CWLInputStdInDefinition:
+    description: |
+      Indicates that the value passed to this CWL input will be redirected to the standard input stream of the command.
+      Can be defined for only one input and must not be combined with 'stdin' at the root of the CWL document.
+    type: string
+    enum:
+      - stdin
+  CWLInputStdInObjectType:
+    type: object
+    properties:
+      type:
+        $ref: '#/$definitions/CWLInputStdInDefinition'
+    required:
+      - type
+  CWLInputStdIn:
+    oneOf:
+      - $ref: '#/$definitions/CWLInputStdInDefinition'
+      - $ref: '#/$definitions/CWLInputStdInObjectType'
+  CWLOutputStdOutDefinition:
+    description: |
+      Indicates that the data pushed to the standard output stream by the command will be redirected to this CWL output.
+      Can be defined for only one output and must not be combined with 'stdout' at the root of the CWL document.
+    type: string
+    enum:
+      - stdout
+  CWLOutputStdOutObjectType:
+    type: object
+    properties:
+      type:
+        $ref: '#/$definitions/CWLOutputStdOutDefinition'
+    required:
+      - type
+  CWLOutputStdOut:
+    oneOf:
+      - $ref: '#/$definitions/CWLOutputStdOutDefinition'
+      - $ref: '#/$definitions/CWLOutputStdOutObjectType'
+  CWLOutputStdErrDefinition:
+    description: |
+      Indicates that the data pushed to the standard error stream by the command will be redirected to this CWL output.
+      Can be defined for only one output and must not be combined with 'stderr' at the root of the CWL document.
+    type: string
+    enum:
+      - stderr
+  CWLOutputStdErrObjectType:
+    type: object
+    properties:
+      type:
+        $ref: '#/$definitions/CWLOutputStdErrDefinition'
+    required:
+      - type
+  CWLOutputStdErr:
+    oneOf:
+      - $ref: '#/$definitions/CWLOutputStdErrDefinition'
+      - $ref: '#/$definitions/CWLOutputStdErrObjectType'
   CWLInputsDefinition:
     oneOf:
     - $ref: '#/$definitions/CWLInputList'
@@ -1375,7 +1429,9 @@ $definitions:
       to official CWL documentation for more details (https://www.commonwl.org).
     properties:
       type:
-        $ref: '#/$definitions/CWLType'
+        oneOf:
+        - $ref: '#/$definitions/CWLType'
+        - $ref: '#/$definitions/CWLInputStdIn'
       default:
         $ref: '#/$definitions/CWLDefault'
       inputBinding:
@@ -1383,9 +1439,7 @@ $definitions:
       id:
         type: string
         title: id
-        description: Identifier of the CWL input. To merge details between corresponding
-          CWL and WPS input specifications, this is the value that will be used
-          to associate them together.
+        description: Identifier of the CWL input.
         pattern: '^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$'
     required:
     - type
@@ -1402,10 +1456,10 @@ $definitions:
         $ref: '#/$definitions/CWLDefault'
       inputBinding:
         $ref: '#/$definitions/InputBinding'
-        additionalProperties: { }
+        additionalProperties: {}
     required:
       - type
-    additionalProperties: { }
+    additionalProperties: {}
   CWLInputMap:
     type: object
     title: CWLInputMap
@@ -1422,6 +1476,7 @@ $definitions:
         items:
           $ref: '#/$definitions/CWLType'
       - $ref: "#/$definitions/CWLInputObject"
+      - $ref: '#/$definitions/CWLInputStdIn'
   CWLOutputsDefinition:
     oneOf:
     - $ref: '#/$definitions/CWLOutputList'
@@ -1452,15 +1507,16 @@ $definitions:
       refer to official CWL documentation for more details (https://www.commonwl.org).
     properties:
       type:
-        $ref: '#/$definitions/CWLType'
+        oneOf:
+        - $ref: '#/$definitions/CWLType'
+        - $ref: '#/$definitions/CWLOutputStdOut'
+        - $ref: '#/$definitions/CWLOutputStdErr'
       outputBinding:
         $ref: '#/$definitions/OutputBinding'
       id:
         type: string
         title: id
-        description: Identifier of the CWL output. To merge details between corresponding
-          CWL and WPS output specifications, this is the value that will be used
-          to associate them together.
+        description: Identifier of the CWL output.
         pattern: '^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$'
     required:
     - type
@@ -1494,6 +1550,8 @@ $definitions:
         items:
           $ref: '#/$definitions/CWLType'
       - $ref: "#/$definitions/CWLOutputObject"
+      - $ref: '#/$definitions/CWLOutputStdOut'
+      - $ref: '#/$definitions/CWLOutputStdErr'
   CWLScatter:
     oneOf:
     - $ref: '#/$definitions/CWLIdentifier'
@@ -1567,6 +1625,21 @@ $definitions:
         $ref: '#/$definitions/CWLInputsDefinition'
       outputs:
         $ref: '#/$definitions/CWLOutputsDefinition'
+      stdin:
+        description: |
+          Source of the input stream. 
+          Typically, an expression referring to an existing file name or an input of the CWL document.
+        $ref: '#/$definitions/CWLExpression'
+      stdout:
+        description: |
+          Destination of the output stream.
+          Typically, an expression referring to a desired file name or provided by a CWL input reference.
+        $ref: '#/$definitions/CWLExpression'
+      stderr:
+        description: |
+          Destination of the error stream.
+          Typically, an expression referring to a desired file name or provided by a CWL input reference.
+        $ref: '#/$definitions/CWLExpression'
       scatter:
         $ref: '#/$definitions/CWLScatter'
       scatterMethod:
