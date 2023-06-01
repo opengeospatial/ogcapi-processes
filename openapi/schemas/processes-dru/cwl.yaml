@@ -1215,7 +1215,6 @@ $definitions:
     oneOf:
     - $ref: '#/$definitions/CWLInputList'
     - $ref: '#/$definitions/CWLInputMap'
-    - $ref: '#/$definitions/CWLInputEmpty'
     title: CWLInputsDefinition
     description: All inputs available to the Application Package.
   CWLInputList:
@@ -1298,16 +1297,16 @@ $definitions:
         title: CWLTypeArrayItems
         description: Field type definition.
         enum:
+        - Directory
         - File
-        - float
-        - enum
-        - double
-        - long
         - boolean
+        - double
+        - enum
+        - float
         - int
         - integer
+        - long
         - string
-        - Directory
     required:
     - type
     - items
@@ -1321,11 +1320,8 @@ $definitions:
   CWLTypeSymbolValues:
     oneOf:
     - type: number
-      title: ''
     - type: integer
-      title: ''
     - type: string
-      title: ''
     title: CWLTypeSymbolValues
   CWLTypeEnum:
     type: object
@@ -1426,11 +1422,6 @@ $definitions:
         items:
           $ref: '#/$definitions/CWLType'
       - $ref: "#/$definitions/CWLInputObject"
-  CWLInputEmpty:
-    type: object
-    title: CWLInputEmpty
-    description: Package inputs as empty mapping when it takes no arguments.
-    additionalProperties: {}
   CWLOutputsDefinition:
     oneOf:
     - $ref: '#/$definitions/CWLOutputList'
