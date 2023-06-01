@@ -165,7 +165,7 @@ $definitions:
     type: array
     title: InlineJavascriptLibraries
     description: |
-      Additional code fragments that will also be inserted before executin the expression code.
+      Additional code fragments that will also be inserted before executing the expression code.
       Allows for function definitions that may be called from CWL expressions.
     items:
       type: string
