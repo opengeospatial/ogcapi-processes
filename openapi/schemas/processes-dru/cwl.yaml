@@ -1396,20 +1396,20 @@ $definitions:
     - id
     additionalProperties: {}
   CWLInputObject:
-    - type: object
-      title: CWLInputObject
-      summary: CWL type definition with parameters.
-      properties:
-        type:
-          $ref: '#/$definitions/CWLType'
-        default:
-          $ref: '#/$definitions/CWLDefault'
-        inputBinding:
-          $ref: '#/$definitions/InputBinding'
-          additionalProperties: { }
-      required:
-        - type
-      additionalProperties: { }
+    type: object
+    title: CWLInputObject
+    summary: CWL type definition with parameters.
+    properties:
+      type:
+        $ref: '#/$definitions/CWLType'
+      default:
+        $ref: '#/$definitions/CWLDefault'
+      inputBinding:
+        $ref: '#/$definitions/InputBinding'
+        additionalProperties: { }
+    required:
+      - type
+    additionalProperties: { }
   CWLInputMap:
     type: object
     title: CWLInputMap
