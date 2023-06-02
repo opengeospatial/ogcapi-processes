@@ -61,13 +61,11 @@ $definitions:
       title: UUID
       description: Unique identifier.
       format: uuid
-      pattern: ^[a-f0-9]{8}(?:-?[a-f0-9]{4}){3}-?[a-f0-9]{12}$
+      pattern: '^[a-f0-9]{8}(?:-?[a-f0-9]{4}){3}-?[a-f0-9]{12}$'
     - type: string
       title: ID
-      description: |
-        Generic identifier. This is a user-friendly slug-name.
-        This will represent the process to be deployed.
-      pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
+      description: Generic identifier.
+      pattern: '^[#.]?[A-Za-z0-9]+(?:[-_.][A-Za-z0-9]+)*$'
     title: CWLIdentifier
     description: Reference to the process identifier.
   CWLIntent:
@@ -124,22 +122,37 @@ $definitions:
         title: Docker pull reference
         description: Reference package that will be retrieved and executed by CWL.
         example: docker-registry.host.com/namespace/image:1.2.3
-    required:
-    - dockerPull
+      dockerImport:
+        type: string
+      dockerLoad:
+        type: string
+      dockerFile:
+        type: string
+      dockerImageId:
+        type: string
+      dockerOutputDirectory:
+        type: string
+    oneOf:
+      - required: [dockerPull]
+      - required: [dockerImport]
+      - required: [dockerLoad]
+      - required: [dockerFile]
     additionalProperties: {}
   DockerRequirementClass:
     type: object
     properties:
       type: string
       enum:
-        - DockerRequirementMap
+      - DockerRequirement
     required:
       - class
-    additionalProperties: false
   DockerRequirementItem:
     allOf:
     - $ref: '#/$definitions/DockerRequirementClass'
     - $ref: '#/$definitions/DockerRequirement'
+    - $comment: Additional properties added here to avoid error by any of the other object individually.
+      type: object
+      additionalProperties: false
   InitialWorkDirListing:
     type: array
     title: InitialWorkDirListing
@@ -150,8 +163,7 @@ $definitions:
     title: DirectoryListingItem
     properties:
       entry:
-        type: string
-        title: entry
+        $ref: '#/$definitions/CWLExpression'
       entryname:
         type: string
         title: entryname
@@ -177,11 +189,22 @@ $definitions:
           - InitialWorkDirRequirement
     required:
     - class
-    additionalProperties: false
   InitialWorkDirRequirementItem:
     allOf:
       - $ref: '#/$definitions/InitialWorkDirRequirementClass'
       - $ref: '#/$definitions/InitialWorkDirRequirement'
+  InlineJavascriptLibObject:
+    type: object
+    properties:
+      '$include':
+        type: string
+    required:
+      - '$include'
+    additionalProperties: false
+  InlineJavascriptLibItem:
+    oneOf:
+      - type: string
+      - $ref: '#/$definitions/InlineJavascriptLibObject'
   InlineJavascriptLibraries:
     type: array
     title: InlineJavascriptLibraries
@@ -189,8 +212,8 @@ $definitions:
       Additional code fragments that will also be inserted before executing the expression code.
       Allows for function definitions that may be called from CWL expressions.
     items:
-      type: string
       title: exp_lib
+      $ref: '#/$definitions/InlineJavascriptLibItem'
   InlineJavascriptRequirement:
     type: object
     title: InlineJavascriptRequirement
@@ -202,6 +225,8 @@ $definitions:
     properties:
       expressionLib:
         $ref: '#/$definitions/InlineJavascriptLibraries'
+      required:
+        - expressionLib
     additionalProperties: {}
   InlineJavascriptRequirementClass:
     type: object
@@ -212,7 +237,6 @@ $definitions:
           - InlineJavascriptRequirement
     required:
     - class
-    additionalProperties: false
   InlineJavascriptRequirementItem:
     allOf:
       - $ref: '#/$definitions/InlineJavascriptRequirementClass'
@@ -241,7 +265,6 @@ $definitions:
           - InplaceUpdateRequirement
     required:
       - class
-    additionalProperties: false
   InplaceUpdateRequirementItem:
     allOf:
       - $ref: '#/$definitions/InplaceUpdateRequirementClass'
@@ -272,7 +295,6 @@ $definitions:
         - LoadListingRequirement
     required:
     - class
-    additionalProperties: false
   LoadListingRequirementItem:
     allOf:
       - $ref: '#/$definitions/LoadListingRequirementClass'
@@ -308,7 +330,6 @@ $definitions:
           - NetworkAccessRequirement
     required:
       - class
-    additionalProperties: false
   NetworkAccessRequirementItem:
     allOf:
       - $ref: '#/$definitions/NetworkAccessRequirementClass'
@@ -507,7 +528,6 @@ $definitions:
           - ResourceRequirement
     required:
       - class
-    additionalProperties: false
   ResourceRequirementItem:
     allOf:
       - $ref: '#/$definitions/ResourceRequirementClass'
@@ -561,7 +581,6 @@ $definitions:
           - ScatterFeatureRequirement
     required:
       - class
-    additionalProperties: false
   ScatterFeatureRequirementItem:
     allOf:
     - $ref: '#/$definitions/ScatterFeatureRequirementClass'
@@ -653,7 +672,6 @@ $definitions:
           - WorkReuseRequirement
     required:
       - class
-    additionalProperties: false
   WorkReuseRequirementItem:
     allOf:
       - $ref: '#/$definitions/WorkReuseRequirementClass'
@@ -686,7 +704,6 @@ $definitions:
             - WorkReuseRequirement
     required:
       - class
-    additionalProperties: false
   UnknownRequirementItem:
     allOf:
       - $ref: '#/$definitions/UnknownRequirementClass'
@@ -892,7 +909,6 @@ $definitions:
           - cwltool:CUDARequirement
     required:
       - class
-    additionalProperties: false
   cwltool:CUDARequirementItem:
     allOf:
     - $ref: '#/$definitions/cwltool:CUDARequirementClass'
@@ -906,17 +922,13 @@ $definitions:
       by this instance. (note: can only be an 'hint' as it is unofficial CWL specification).
     properties:
       process:
+        description: Process location.
         $ref: '#/$definitions/ReferenceURL'
-      class:
-        type: string
-        title: RequirementClass
-        description: CWL requirement class specification.
-        example: OGCAPIRequirement
-        enum:
-        - OGCAPIRequirement
+    not:
+      required:
+      - provider
     required:
     - process
-    - class
     additionalProperties: {}
   OGCAPIRequirementClass:
     type: object
@@ -927,11 +939,13 @@ $definitions:
         - OGCAPIRequirement
     required:
     - class
-    additionalProperties: false
   OGCAPIRequirementItem:
     allOf:
     - $ref: '#/$definitions/OGCAPIRequirementClass'
     - $ref: '#/$definitions/OGCAPIRequirement'
+    - $comment: Additional properties added here to avoid error by any of the other object individually.
+      type: object
+      additionalProperties: false
   WPS1Requirement:
     type: object
     title: WPS1Requirement
@@ -946,23 +960,11 @@ $definitions:
         description: Process identifier of the remote WPS provider.
         pattern: '^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$'
       provider:
-        type: string
-        title: provider
         description: WPS provider endpoint.
-        format: url
-        pattern: '^((?:http|ftp)s?://)?(?!.*//.*$)(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|localhost|\[[a-f0-9:]+\]|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:/?|[/?]\S+)$'
-      class:
-        type: string
-        title: RequirementClass
-        description: CWL requirement class specification.
-        example: WPS1Requirement
-        enum:
-        - WPS1Requirement
+        $ref: '#/$definitions/ReferenceURL'
     required:
     - process
     - provider
-    - class
-    additionalProperties: {}
   WPS1RequirementClass:
     type: object
     properties:
@@ -972,11 +974,13 @@ $definitions:
           - WPS1Requirement
     required:
       - class
-    additionalProperties: false
   WPS1RequirementItem:
     allOff:
       - $ref: '#/$definitions/WPS1RequirementClass'
       - $ref: '#/$definitions/WPS1Requirement'
+      - $comment: Additional properties added here to avoid error by any of the other object individually.
+        type: object
+        additionalProperties: false
   CWLHintsList:
     type: array
     title: CWLHintsList
@@ -1023,7 +1027,6 @@ $definitions:
         type: string
       position:
         type: integer
-        minimum: 0
       valueFrom:
         type: string
     additionalProperties: {}
@@ -1228,6 +1231,7 @@ $definitions:
     oneOf:
     - $ref: '#/$definitions/AnyLiteralType'
     - $ref: '#/$definitions/AnyLiteralList'
+    - $ref: '#/$definitions/CWLDefaultLocation'
     title: CWLDefault
     description: Default value of input if not provided for task execution.
   AnyLiteralType:
@@ -1240,6 +1244,24 @@ $definitions:
     title: AnyLiteralList
     items:
       $ref: '#/$definitions/AnyLiteralType'
+  ReferenceURL:
+    type: string
+    format: url
+    pattern: '^((?:http|ftp)s?://)?(?!.*//.*$)(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|localhost|\[[a-f0-9:]+\]|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:/?|[/?]\S+)$'
+  CWLDefaultLocation:
+    type: object
+    properties:
+      class:
+        type: string
+        enum:
+          - File
+          - Directory
+      location:
+        type: string
+    required:
+      - class
+      - location
+    additionalProperties: {}
   InputBinding:
     type: object
     title: Input Binding
@@ -1249,8 +1271,9 @@ $definitions:
         type: string
       position:
         type: integer
-        minimum: 0
       valueFrom:
+        type: string
+      itemSeparator:
         type: string
     additionalProperties: {}
   CWLInputItem:
@@ -1269,10 +1292,8 @@ $definitions:
       inputBinding:
         $ref: '#/$definitions/InputBinding'
       id:
-        type: string
-        title: id
         description: Identifier of the CWL input.
-        pattern: '^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$'
+        $ref: '#/$definitions/CWLIdentifier'
     required:
     - type
     - id
@@ -1346,10 +1367,8 @@ $definitions:
       outputBinding:
         $ref: '#/$definitions/OutputBinding'
       id:
-        type: string
-        title: id
         description: Identifier of the CWL output.
-        pattern: '^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$'
+        $ref: '#/$definitions/CWLIdentifier'
     required:
     - type
     - id
