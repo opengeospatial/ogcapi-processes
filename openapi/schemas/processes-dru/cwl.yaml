@@ -831,11 +831,13 @@ $definitions:
         - BuiltinRequirement
     required:
     - class
-    additionalProperties: false
   BuiltinRequirementItem:
     allOf:
       - $ref: '#/$definitions/BuiltinRequirementClass'
       - $ref: '#/$definitions/BuiltinRequirement'
+      - $comment: Additional properties added here to avoid error by any of the other object individually.
+        type: object
+        additionalProperties: false
   CUDAComputeCapability:
     oneOf:
     - type: string
@@ -1117,6 +1119,7 @@ $definitions:
     enum:
       - 'null'
       - Any
+      - Any[]
       - Directory
       - Directory?
       - Directory[]
@@ -1441,7 +1444,6 @@ $definitions:
         $ref: '#/$definitions/Scatter'
       scatterMethod:
         $ref: '#/$definitions/ScatterMethod'
-    additionalProperties: false
   CWLWorkflowStepRun:
     description: Nested CWL definition to run as Workflow step.
     oneOf:
@@ -1480,10 +1482,14 @@ $definitions:
       - in
       - run
       - out
+  CWLWorkflowStepObject:
+    allOf:
+    - $ref: '#/$definitions/CWLWorkflowStepDefinition'
+    - $ref: '#/$definitions/CWLWorkflowStepScatter'
   CWLWorkflowStepItem:
     allOf:
-      - $ref: '#/$definitions/CWLWorkflowStepDefinition'
-      - $ref: '#/$definitions/CWLWorkflowStepScatter'
+      - $ref: '#/$definitions/CWLWorkflowStepId'
+      - $ref: '#/$definitions/CWLWorkflowStepObject'
   CWLWorkflowStepId:
     type: object
     properties:
@@ -1491,32 +1497,14 @@ $definitions:
         $ref: '#/$definitions/CWLIdentifier'
     required:
       - id
-    additionalProperties: false
   CWLWorkflowStepMap:
+    type: object
     additionalProperties:
-      allOf:
-        - $ref: '#/$definitions/CWLWorkflowStepId'
-        - $ref: '#/$definitions/CWLWorkflowStepItem'
+      $ref: '#/$definitions/CWLWorkflowStepObject'
   CWLWorkflowStepList:
     type: array
     items:
       $ref: '#/$definitions/CWLWorkflowStepItem'
-  CWLWorkflowSteps:
-    oneOf:
-      - $ref: '#/$definitions/CWLWorkflowStepMap'
-      - $ref: '#/$definitions/CWLWorkflowStepList'
-  CWLWorkflowRequirements:
-    type: object
-    properties:
-      requirements:
-        $comment: Technically a different subset, but lots of redefinitions to be done.
-        $ref: '#/$definitions/CWLRequirements'
-  CWLWorkflowHints:
-    type: object
-    properties:
-      hints:
-        $comment: Technically a different subset, but lots of redefinitions to be done.
-        $ref: '#/$definitions/CWLHints'
   CWLWorkflowClass:
     type: object
     properties:
@@ -1524,32 +1512,52 @@ $definitions:
         type: string
         enum:
           - Workflow
+  CWLWorkflowSteps:
+    oneOf:
+      - $ref: '#/$definitions/CWLWorkflowStepMap'
+      - $ref: '#/$definitions/CWLWorkflowStepList'
+  CWLWorkflowBase:
+    type: object
+    properties:
+      steps:
+        $ref: '#/$definitions/CWLWorkflowSteps'
+      inputs:
+        $ref: '#/$definitions/CWLInputsDefinition'
+      outputs:
+        $ref: '#/$definitions/CWLOutputsDefinition'
+      requirements:
+        $comment: Technically a different subset, but lots of redefinitions to be done.
+        $ref: '#/$definitions/CWLRequirements'
+      hints:
+        $comment: Technically a different subset, but lots of redefinitions to be done.
+        $ref: '#/$definitions/CWLHints'
   CWLWorkflow:
     allOf:
+      - $ref: '#/$definitions/CWLVersion'
       - $ref: '#/$definitions/CWLWorkflowClass'
-      - $ref: '#/$definitions/CWLWorkflowSteps'
-      - $ref: '#/$definitions/CWLInputsDefinition'
-      - $ref: '#/$definitions/CWLOutputsDefinition'
-      - $ref: '#/$definitions/CWLWorkflowRequirements'
-      - $ref: '#/$definitions/CWLWorkflowHints'
-  CWLAtomic:
+      - $ref: '#/$definitions/CWLWorkflowBase'
+  CWLVersion:
     type: object
-    title: CWL atomic definition
-    description: Direct CWL definition instead of the graph representation.
     properties:
-      cwlVersion:
+      clwVersion:
         type: string
         title: cwlVersion
         description: CWL version of the described application package.
         pattern: '^v\d+(\.\d+(\.\d+)*)*$'
+    required:
+      - cwlVersion
+  CWLAtomic:
+    allOf:
+      - $ref: '#/$definitions/CWLVersion'
+      - $ref: '#/$definitions/AppVersion'
+      - $ref: '#/$definitions/CWLAtomicBase'
+  CWLAtomicBase:
+    type: object
+    title: CWL atomic definition
+    description: Direct CWL definition instead of the graph representation.
+    properties:
       id:
         $ref: '#/$definitions/CWLIdentifier'
-      version:
-        type: string
-        title: version
-        description: "Version of the process."
-        example: "1.2.3"
-        pattern: '^\d+(\.\d+(\.\d+(\.[a-zA-Z0-9\-_]+)*)*)*$'
       class:
         type: string
         title: Class
@@ -1596,7 +1604,6 @@ $definitions:
     - class
     - inputs
     - outputs
-    - cwlVersion
     additionalProperties: {}
   CWLGraphList:
     type: array
@@ -1648,24 +1655,26 @@ $definitions:
     - inputs
     - outputs
     additionalProperties: {}
-  CWLGraph:
+  CWLGraphBase:
     type: object
-    title: CWL Graph
     properties:
-      cwlVersion:
-        type: string
-        title: cwlVersion
-        description: CWL version of the described application package.
-        pattern: '^v\d+(\.\d+(\.\d+)*)*$'
+      $graph:
+        $ref: '#/$definitions/CWLGraphList'
+    required:
+    - $graph
+    additionalProperties: {}
+  CWLGraph:
+    title: CWLGraph
+    allOf:
+      - $ref: '#/$definitions/CWLVersion'
+      - $ref: '#/$definitions/AppVersion'
+      - $ref: '#/$definitions/CWLGraphBase'
+  AppVersion:
+    type: object
+    properties:
       version:
         type: string
         title: version
         description: "Version of the process."
         example: "1.2.3"
         pattern: '^\d+(\.\d+(\.\d+(\.[a-zA-Z0-9\-_]+)*)*)*$'
-      $graph:
-        $ref: '#/$definitions/CWLGraphList'
-    required:
-    - $graph
-    - cwlVersion
-    additionalProperties: {}
