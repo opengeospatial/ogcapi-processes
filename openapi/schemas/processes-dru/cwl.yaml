@@ -45,6 +45,7 @@ $definitions:
     oneOf:
       - $ref: '#/$definitions/CWLAtomic'
       - $ref: '#/$definitions/CWLGraph'
+      - $ref: '#/$definitions/CWLWorkflow'
   CWLKeywordList:
     type: array
     title: KeywordList
@@ -68,9 +69,7 @@ $definitions:
         This will represent the process to be deployed.
       pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
     title: CWLIdentifier
-    description: Reference to the process identifier. If CWL is provided within
-      a process deployment payload, this can be omitted. If used in a deployment
-      with only CWL details, this information is required.
+    description: Reference to the process identifier.
   CWLIntent:
     type: array
     title: CWLIntent
@@ -115,7 +114,7 @@ $definitions:
       WorkReuseRequirement:
         $ref: '#/$definitions/WorkReuseRequirement'
     additionalProperties:
-      $ref: '#/$definitions/UnknownRequirementMap'
+      $ref: '#/$definitions/UnknownRequirement'
   DockerRequirement:
     type: object
     title: DockerRequirement
@@ -550,14 +549,8 @@ $definitions:
       A 'scatter' operation specifies that the associated Workflow step should execute separately over a list of
       input elements. Each job making up a scatter operation is independent and may be executed concurrently
       (see also: https://www.commonwl.org/v1.2/Workflow.html#WorkflowStep).
-    properties:
-      scatter:
-        $ref: '#/$definitions/Scatter'
-      scatterMethod:
-        $ref: '#/$definitions/ScatterMethod'
-    required:
-    - scatter
-    additionalProperties: {}
+    $comment: Fields 'scatter' and 'scatterMethod' at the root of a 'WorkflowStep', not within the requirement.
+    additionalProperties: false
   ScatterFeatureRequirementClass:
     type: object
     properties:
@@ -788,7 +781,7 @@ $definitions:
       WPS1Requirement:
         $ref: '#/$definitions/WPS1Requirement'
     additionalProperties:
-      $ref: '#/$definitions/UnknownRequirementMap'
+      $ref: '#/$definitions/UnknownRequirement'
   BuiltinRequirement:
     type: object
     title: BuiltinRequirement
@@ -1422,6 +1415,104 @@ $definitions:
       - dotproduct
       - nested_crossproduct
       - flat_crossproduct
+  CWLWorkflowStepScatter:
+    type: object
+    properties:
+      scatter:
+        $ref: '#/$definitions/Scatter'
+      scatterMethod:
+        $ref: '#/$definitions/ScatterMethod'
+    additionalProperties: false
+  CWLWorkflowStepRun:
+    description: Nested CWL definition to run as Workflow step.
+    oneOf:
+      - type: string
+        description: Reference to a CWL tool definition.
+      - $ref: '#/$definitions/CWL'
+  CWLWorkflowStepWhen:
+    description: Condition to execute a step that must evaluate to a boolean-like value.
+    $ref: '#/$definitions/CWLExpression'
+  CWLWorkflowStepIn:
+    description: Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.
+    additionalProperties:
+      oneOf:
+        - type: string
+        - type: array
+          items: string
+  CWLWorkflowStepOut:
+    description: Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.
+    additionalProperties:
+      oneOf:
+        - type: string
+        - type: array
+          items: string
+  CWLWorkflowStepDefinition:
+    type: object
+    properties:
+      in:
+        $ref: '#/$definitions/CWLWorkflowStepIn'
+      run:
+        $ref: '#/$definitions/CWLWorkflowStepRun'
+      when:
+        $ref: '#/$definitions/CWLWorkflowStepWhen'
+      out:
+        $ref: '#/$definitions/CWLWorkflowStepOut'
+    required:
+      - in
+      - run
+      - out
+  CWLWorkflowStepItem:
+    allOf:
+      - $ref: '#/$definitions/CWLWorkflowStepDefinition'
+      - $ref: '#/$definitions/CWLWorkflowStepScatter'
+  CWLWorkflowStepId:
+    type: object
+    properties:
+      id:
+        $ref: '#/$definitions/CWLIdentifier'
+    required:
+      - id
+    additionalProperties: false
+  CWLWorkflowStepMap:
+    additionalProperties:
+      allOf:
+        - $ref: '#/$definitions/CWLWorkflowStepId'
+        - $ref: '#/$definitions/CWLWorkflowStepItem'
+  CWLWorkflowStepList:
+    type: array
+    items:
+      $ref: '#/$definitions/CWLWorkflowStepItem'
+  CWLWorkflowSteps:
+    oneOf:
+      - $ref: '#/$definitions/CWLWorkflowStepMap'
+      - $ref: '#/$definitions/CWLWorkflowStepList'
+  CWLWorkflowRequirements:
+    type: object
+    properties:
+      requirements:
+        $comment: Technically a different subset, but lots of redefinitions to be done.
+        $ref: '#/$definitions/CWLRequirements'
+  CWLWorkflowHints:
+    type: object
+    properties:
+      hints:
+        $comment: Technically a different subset, but lots of redefinitions to be done.
+        $ref: '#/$definitions/CWLHints'
+  CWLWorkflowClass:
+    type: object
+    properties:
+      class:
+        type: string
+        enum:
+          - Workflow
+  CWLWorkflow:
+    allOf:
+      - $ref: '#/$definitions/CWLWorkflowClass'
+      - $ref: '#/$definitions/CWLWorkflowSteps'
+      - $ref: '#/$definitions/CWLInputsDefinition'
+      - $ref: '#/$definitions/CWLOutputsDefinition'
+      - $ref: '#/$definitions/CWLWorkflowRequirements'
+      - $ref: '#/$definitions/CWLWorkflowHints'
   CWLAtomic:
     type: object
     title: CWL atomic definition
@@ -1449,7 +1540,6 @@ $definitions:
         enum:
         - CommandLineTool
         - ExpressionTool
-        - Workflow
       intent:
         $ref: '#/$definitions/CWLIntent'
       requirements:
