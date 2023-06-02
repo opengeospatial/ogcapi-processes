@@ -1446,27 +1446,66 @@ $definitions:
         $ref: '#/$definitions/ScatterMethod'
   CWLWorkflowStepRun:
     description: Nested CWL definition to run as Workflow step.
+    $comment: SubWorkflowRequirement not supported yet, but technically possible.
     oneOf:
-      - type: string
-        description: Reference to a CWL tool definition.
-      - $ref: '#/$definitions/CWL'
+      - description: File or URL reference to a CWL tool definition.
+        type: string
+      - description: Nested CWL tool definition for the step.
+        $ref: '#/$definitions/CWLAtomicNested'
   CWLWorkflowStepWhen:
     description: Condition to execute a step that must evaluate to a boolean-like value.
     $ref: '#/$definitions/CWLExpression'
+  LinkMergeMethod:
+    type: string
+    enum:
+      - merge_nested
+      - merge_flattened
+  CWLWorkflowStepInput:
+    type: object
+    properties:
+      source:
+        oneOf:
+          - type: string
+          - type: array
+            items: string
+      linkMerge:
+        $ref: '#/$definitions/LinkMergeMethod'
+      default:
+        $ref: '#/$definitions/CWLDefault'
+      valueFrom:
+        $ref: '#/$definitions/CWLExpression'
+  CWLWorkflowStepInItem:
+    allOf:
+      - $ref: '#/$definitions/CWLIdentifier'
+      - $ref: '#/$definitions/CWLWorkflowStepInput'
+      - required:
+        - id
+  CWLWorkflowStepInList:
+    type: array
+    items:
+      $ref: '#/$definitions/CWLWorkflowStepInItem'
+  CWLWorkflowStepInMap:
+    additionalProperties:
+      oneOf:
+        - type: string
+        - $ref: '#/$definitions/CWLWorkflowStepInput'
   CWLWorkflowStepIn:
     description: Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.
-    additionalProperties:
-      oneOf:
-        - type: string
-        - type: array
-          items: string
+    oneOf:
+      - $ref: '#/$definitions/CWLWorkflowStepInMap'
+      - $ref: '#/$definitions/CWLWorkflowStepInList'
   CWLWorkflowStepOut:
     description: Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.
-    additionalProperties:
+    type: array
+    items:
       oneOf:
-        - type: string
-        - type: array
-          items: string
+        - $ref: '#/$definitions/CWLIdentifier'
+        - type: object
+          properties:
+            id:
+              $ref: '#/$definitions/CWLIdentifier'
+          required:
+            - id
   CWLWorkflowStepDefinition:
     type: object
     properties:
@@ -1549,8 +1588,13 @@ $definitions:
   CWLAtomic:
     allOf:
       - $ref: '#/$definitions/CWLVersion'
-      - $ref: '#/$definitions/AppVersion'
+      - $ref: '#/$definitions/CWLMetadata'
       - $ref: '#/$definitions/CWLAtomicBase'
+  CWLAtomicNested:
+    $comment: Same as 'CWLAtomic', but 'cwlVersion' not repeated (only at root).
+    allOf:
+    - $ref: '#/$definitions/CWLMetadata'
+    - $ref: '#/$definitions/CWLAtomicBase'
   CWLAtomicBase:
     type: object
     title: CWL atomic definition
@@ -1667,9 +1711,9 @@ $definitions:
     title: CWLGraph
     allOf:
       - $ref: '#/$definitions/CWLVersion'
-      - $ref: '#/$definitions/AppVersion'
+      - $ref: '#/$definitions/CWLMetadata'
       - $ref: '#/$definitions/CWLGraphBase'
-  AppVersion:
+  CWLMetadata:
     type: object
     properties:
       version:
