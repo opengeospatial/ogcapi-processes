@@ -94,6 +94,14 @@ $definitions:
         $ref: '#/$definitions/cwltool:CUDARequirement'
       DockerRequirement:
         $ref: '#/$definitions/DockerRequirement'
+      SoftwareRequirement:
+        $ref: '#/$definitions/SoftwareRequirement'
+      ShellCommandRequirement:
+        $ref: '#/$definitions/ShellCommandRequirement'
+      EnvVarRequirement:
+        $ref: '#/$definitions/EnvVarRequirement'
+      SchemaDefRequirement:
+        $ref: '#/$definitions/SchemaDefRequirement'
       InitialWorkDirRequirement:
         $ref: '#/$definitions/InitialWorkDirRequirement'
       InlineJavascriptRequirement:
@@ -231,6 +239,13 @@ $definitions:
     required:
     - inplaceUpdate
     additionalProperties: false
+  LoadListingEnum:
+    type: string
+    title: LoadListingEnum
+    enum:
+    - no_listing
+    - shallow_listing
+    - deep_listing
   LoadListingRequirement:
     type: object
     title: LoadListingRequirement
@@ -243,12 +258,7 @@ $definitions:
         enum:
         - LoadListingRequirement
       loadListing:
-        type: string
-        title: LoadListingEnum
-        enum:
-        - no_listing
-        - shallow_listing
-        - deep_listing
+        $ref: '#/$definitions/LoadListingEnum'
     required:
     - loadListing
     additionalProperties: false
@@ -483,6 +493,184 @@ $definitions:
         enum:
           - ScatterFeatureRequirement
     additionalProperties: false
+  CWLTypeRecordSecondaryFileSchema:
+    type: object
+    properties:
+      pattern:
+        $ref: '#/$definitions/CWLExpression'
+      required:
+        oneOf:
+          - type: boolean
+          - $ref: '#/$definitions/CWLExpression'
+    required:
+      - pattern
+    additionalProperties: false
+  CWLTypeRecordSecondaryFiles:
+    oneOf:
+      - $ref: '#/$definitions/CWLTypeRecordSecondaryFileSchema'
+      - type: array
+        items:
+          $ref: '#/$definitions/CWLTypeRecordSecondaryFileSchema'
+  CWLTypeRecordFieldDef:
+    type: object
+    properties:
+      name:
+        type: string
+      type:
+        $ref: '#/$definitions/CWLType'
+      secondaryFiles:
+        $ref: '#/$definitions/CWLTypeRecordSecondaryFiles'
+      streamable:
+        type: boolean
+      format:
+        $ref: '#/$definitions/CWLFormat'
+      loadContents:
+        type: boolean
+      loadListing:
+        $ref: '#/$definitions/LoadListingEnum'
+    required:
+      - name
+      - type
+  CWLTypeRecordFieldsMap:
+    type: object
+    additionalProperties:
+      oneOf:
+        - $ref: '#/$definitions/CWLType'
+        - $ref: '#/$definitions/CWLTypeRecordFieldDef'
+  CWLTypeRecordFieldsList:
+    type: array
+    items:
+      $ref: '#/$definitions/CWLTypeRecordFieldDef'
+  CWLTypeRecordFields:
+    oneOf:
+      - $ref: '#/$definitions/CWLTypeRecordFieldsMap'
+      - $ref: '#/$definitions/CWLTypeRecordFieldsList'
+  CWLTypeRecordSchema:
+    type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - record
+      fields:
+        $ref: '#/$definitions/CWLTypeRecordFields'
+      name:
+        type: string
+    required:
+      - type
+  CWLTypeRecordArray:
+    type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - array
+      items:
+        $ref: '#/$definitions/CWLType'
+    required:
+      - type
+      - items
+  SchemaDefRequirement:
+    type: object
+    properties:
+      class:
+        type: string
+        enum:
+          - SchemaDefRequirement
+      types:
+        type: array
+        items:
+          oneOf:
+            - $ref: '#/$definitions/CWLTypeEnum'
+            - $ref: '#/$definitions/CWLTypeRecordSchema'
+            - $ref: '#/$definitions/CWLTypeRecordArray'
+    required:
+      - types
+    additionalProperties: false
+  SoftwarePackageSpecs:
+    type: array
+    items:
+      type: string
+  SoftwarePackage:
+    type: object
+    properties:
+      package:
+        type: string
+      version:
+        type: array
+        items:
+          type: string
+      specs:
+        type: array
+        items:
+          $ref: '#/$definitions/ReferenceURL'
+    required:
+      - package
+    additionalProperties: false
+  SoftwareRequirement:
+    type: object
+    properties:
+      class:
+        type: string
+        enum:
+          - SoftwareRequirement
+      packages:
+        oneOf:
+          - type: array
+            items:
+              $ref: '#/$definitions/SoftwarePackage'
+          - type: object
+            description: Mapping of 'package' name to its specifications.
+            additionalProperties:
+              oneOf:
+                - $ref: '#/$definitions/SoftwarePackageSpecs'
+                - $ref: '#/$definitions/SoftwarePackage'
+    required:
+      - packages
+    additionalProperties: false
+  ShellCommandRequirement:
+    type: object
+    properties:
+      class:
+        type: string
+        enum:
+          - ShellCommandRequirement
+    additionalProperties: false
+  EnvironmentDef:
+    type: object
+    properties:
+      envName:
+        type: string
+        minLength: 1
+      envValue:
+        type:
+          $ref: '#/$definitions/CWLExpression'
+    required:
+      - envName
+      - envValue
+    additionalProperties: false
+  EnvVarRequirement:
+    type: object
+    properties:
+      class:
+        type: string
+        enum:
+          - EnvVarRequirement
+      envDef:
+        oneOf:
+          - type: array
+            items:
+              $ref: '#/$definitions/EnvironmentDef'
+          - type: object
+            description: Mapping of 'envName' to environment value or definition.
+            additionalProperties:
+              oneOf:
+                - description: The 'envValue' specified directly
+                  $ref: '#/$definitions/CWLExpression'
+                - $ref: '#/$definitions/EnvironmentDef'
+    required:
+      - envDef
+    additionalProperties: false
   TimeLimitValue:
     oneOf:
     - type: number
@@ -561,6 +749,10 @@ $definitions:
           enum:
             - cwltool:CUDARequirement
             - DockerRequirement
+            - SoftwareRequirement
+            - ShellCommandRequirement
+            - EnvVarRequirement
+            - SchemaDefRequirement
             - InitialWorkDirRequirement
             - InlineJavascriptRequirement
             - InplaceUpdateRequirement
@@ -570,6 +762,10 @@ $definitions:
             - ScatterFeatureRequirement
             - ToolTimeLimitRequirement
             - WorkReuseRequirement
+            # FIXME: to implement
+            # - MultipleInputFeatureRequirement
+            # - StepInputExpressionRequirement
+            # - SubworkflowFeatureRequirement
     additionalProperties: {}
   CWLRequirementsList:
     type: array
@@ -590,6 +786,10 @@ $definitions:
     oneOf:
       - $ref: '#/$definitions/cwltool:CUDARequirement'
       - $ref: '#/$definitions/DockerRequirement'
+      - $ref: '#/$definitions/SoftwareRequirement'
+      - $ref: '#/$definitions/ShellCommandRequirement'
+      - $ref: '#/$definitions/EnvVarRequirement'
+      - $ref: '#/$definitions/SchemaDefRequirement'
       - $ref: '#/$definitions/InitialWorkDirRequirement'
       - $ref: '#/$definitions/InlineJavascriptRequirement'
       - $ref: '#/$definitions/InplaceUpdateRequirement'
@@ -642,6 +842,14 @@ $definitions:
         $ref: '#/$definitions/cwltool:CUDARequirement'
       DockerRequirement:
         $ref: '#/$definitions/DockerRequirement'
+      SoftwareRequirement:
+        $ref: '#/$definitions/SoftwareRequirement'
+      ShellCommandRequirement:
+        $ref: '#/$definitions/ShellCommandRequirement'
+      EnvVarRequirement:
+        $ref: '#/$definitions/EnvVarRequirement'
+      SchemaDefRequirement:
+        $ref: '#/$definitions/SchemaDefRequirement'
       InitialWorkDirRequirement:
         $ref: '#/$definitions/InitialWorkDirRequirement'
       InlineJavascriptRequirement:
@@ -819,6 +1027,10 @@ $definitions:
     oneOf:
     - $ref: '#/$definitions/cwltool:CUDARequirement'
     - $ref: '#/$definitions/DockerRequirement'
+    - $ref: '#/$definitions/SoftwareRequirement'
+    - $ref: '#/$definitions/ShellCommandRequirement'
+    - $ref: '#/$definitions/EnvVarRequirement'
+    - $ref: '#/$definitions/SchemaDefRequirement'
     - $ref: '#/$definitions/InitialWorkDirRequirement'
     - $ref: '#/$definitions/InlineJavascriptRequirement'
     - $ref: '#/$definitions/InplaceUpdateRequirement'
@@ -857,6 +1069,8 @@ $definitions:
         type: integer
       valueFrom:
         type: string
+      shellQuote:
+        type: boolean
     additionalProperties: false
   CWLArguments:
     type: array
@@ -932,6 +1146,12 @@ $definitions:
     description: Package inputs defined as items.
     items:
       $ref: '#/$definitions/CWLInputItem'
+  CWLFormat:
+    oneOf:
+      - $ref: '#/$definitions/CWLExpression'
+      - type: array
+        items:
+          $ref: '#/$definitions/CWLExpression'
   CWLType:
     oneOf:
     - $ref: '#/$definitions/CWLTypeBase'
@@ -990,6 +1210,8 @@ $definitions:
     - $ref: '#/$definitions/CWLTypeDefinition'
     - $ref: '#/$definitions/CWLTypeArray'
     - $ref: '#/$definitions/CWLTypeEnum'
+    - $ref: '#/$definitions/CWLTypeRecordRef'
+    - $ref: '#/$definitions/CWLTypeRecordSchema'
     title: CWLTypeBase
   CWLTypeArray:
     type: object
@@ -1049,6 +1271,11 @@ $definitions:
     - type
     - symbols
     additionalProperties: {}
+  CWLTypeRecordRef:
+    description: An IRI with minimally a '#{Record}' identifier to look for a schema definition locally or remotely.
+    type: string
+    format: url
+    pattern: '^(((?:http|ftp)s?:\/\/)?(?!.*\/\/.*$)(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+(?:[A-Za-z]{2,6}\.?|[A-Za-z0-9-]{2,}\.?)|localhost|\[[a-f0-9:]+\]|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:\/?|[/?]\S+))?#\w+$'
   CWLTypeList:
     type: array
     title: CWLTypeList
@@ -1292,47 +1519,58 @@ $definitions:
         oneOf:
           - type: string
           - type: array
-            items: string
+            items:
+              type: string
       linkMerge:
         $ref: '#/$definitions/LinkMergeMethod'
       default:
         $ref: '#/$definitions/CWLDefault'
       valueFrom:
         $ref: '#/$definitions/CWLExpression'
+  CWLWorkflowStepInputId:
+    type: object
+    properties:
+      id:
+        $ref: '#/$definitions/CWLIdentifier'
+    required:
+      - id
   CWLWorkflowStepInItem:
     allOf:
-      - $ref: '#/$definitions/CWLIdentifier'
+      - $ref: '#/$definitions/CWLWorkflowStepInputId'
       - $ref: '#/$definitions/CWLWorkflowStepInput'
-      - required:
-        - id
   CWLWorkflowStepInList:
     type: array
     items:
       $ref: '#/$definitions/CWLWorkflowStepInItem'
   CWLWorkflowStepInMap:
+    type: object
     additionalProperties:
       oneOf:
         - type: string
         - type: array
-          item: string
+          items:
+            type: string
         - $ref: '#/$definitions/CWLWorkflowStepInput'
   CWLWorkflowStepIn:
     description: Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.
     oneOf:
       - $ref: '#/$definitions/CWLWorkflowStepInMap'
       - $ref: '#/$definitions/CWLWorkflowStepInList'
+  CWLWorkflowStepOutId:
+    type: object
+    properties:
+      id:
+        $ref: '#/$definitions/CWLIdentifier'
+    required:
+      - id
+    additionalProperties: false
   CWLWorkflowStepOut:
     description: Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.
     type: array
     items:
       oneOf:
         - $ref: '#/$definitions/CWLIdentifier'
-        - type: object
-          properties:
-            id:
-              $ref: '#/$definitions/CWLIdentifier'
-          required:
-            - id
+        - $ref: '#/$definitions/CWLWorkflowStepOutId'
   CWLWorkflowStepDefinition:
     type: object
     properties:
@@ -1397,7 +1635,6 @@ $definitions:
       hints:
         $comment: Technically a different subset, but lots of redefinitions to be done.
         $ref: '#/$definitions/CWLHints'
-    additionalProperties: false
   CWLWorkflow:
     allOf:
       - $ref: '#/$definitions/CWLVersion'
