@@ -117,6 +117,10 @@ $definitions:
     type: object
     title: DockerRequirement
     properties:
+      class:
+        type: string
+        enum:
+          - DockerRequirement
       dockerPull:
         type: string
         title: Docker pull reference
@@ -138,21 +142,6 @@ $definitions:
       - required: [dockerLoad]
       - required: [dockerFile]
     additionalProperties: {}
-  DockerRequirementClass:
-    type: object
-    properties:
-      type: string
-      enum:
-      - DockerRequirement
-    required:
-      - class
-  DockerRequirementItem:
-    allOf:
-    - $ref: '#/$definitions/DockerRequirementClass'
-    - $ref: '#/$definitions/DockerRequirement'
-    - $comment: Additional properties added here to avoid error by any of the other object individually.
-      type: object
-      additionalProperties: false
   InitialWorkDirListing:
     type: array
     title: InitialWorkDirListing
@@ -175,24 +164,15 @@ $definitions:
     type: object
     title: InitialWorkDirRequirement
     properties:
+      class:
+        type: string
+        enum:
+          - InitialWorkDirRequirement
       listing:
         $ref: '#/$definitions/InitialWorkDirListing'
     required:
     - listing
     additionalProperties: {}
-  InitialWorkDirRequirementClass:
-    type: object
-    properties:
-      class:
-        type: string
-        enum:
-          - InitialWorkDirRequirement
-    required:
-    - class
-  InitialWorkDirRequirementItem:
-    allOf:
-      - $ref: '#/$definitions/InitialWorkDirRequirementClass'
-      - $ref: '#/$definitions/InitialWorkDirRequirement'
   InlineJavascriptLibObject:
     type: object
     properties:
@@ -223,24 +203,15 @@ $definitions:
       If this requirement is not present, the workflow platform must not perform expression interpolation
       (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#InlineJavascriptRequirement).
     properties:
+      class:
+        type: string
+        enum:
+          - InlineJavascriptRequirement
       expressionLib:
         $ref: '#/$definitions/InlineJavascriptLibraries'
       required:
         - expressionLib
     additionalProperties: {}
-  InlineJavascriptRequirementClass:
-    type: object
-    properties:
-      class:
-        type: string
-        enum:
-          - InlineJavascriptRequirement
-    required:
-    - class
-  InlineJavascriptRequirementItem:
-    allOf:
-      - $ref: '#/$definitions/InlineJavascriptRequirementClass'
-      - $ref: '#/$definitions/InlineJavascriptRequirement'
   InplaceUpdateRequirement:
     type: object
     title: InplaceUpdateRequirement
@@ -250,25 +221,16 @@ $definitions:
       files may be destructively modified in place as opposed to copied and updated
       (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#InplaceUpdateRequirement).
     properties:
+      class:
+        type: string
+        enum:
+          - InplaceUpdateRequirement
       inplaceUpdate:
         type: boolean
         title: inplaceUpdate
     required:
     - inplaceUpdate
     additionalProperties: {}
-  InplaceUpdateRequirementClass:
-    type: object
-    properties:
-      class:
-        type: string
-        enum:
-          - InplaceUpdateRequirement
-    required:
-      - class
-  InplaceUpdateRequirementItem:
-    allOf:
-      - $ref: '#/$definitions/InplaceUpdateRequirementClass'
-      - $ref: '#/$definitions/InplaceUpdateRequirement'
   LoadListingRequirement:
     type: object
     title: LoadListingRequirement
@@ -276,6 +238,10 @@ $definitions:
       Specify the desired behavior for loading the listing field of a 'Directory' object for use by expressions
       (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#LoadListingRequirement).
     properties:
+      class:
+        type: string
+        enum:
+        - LoadListingRequirement
       loadListing:
         type: string
         title: LoadListingEnum
@@ -286,19 +252,6 @@ $definitions:
     required:
     - loadListing
     additionalProperties: {}
-  LoadListingRequirementClass:
-    type: object
-    properties:
-      class:
-        type: string
-        enum:
-        - LoadListingRequirement
-    required:
-    - class
-  LoadListingRequirementItem:
-    allOf:
-      - $ref: '#/$definitions/LoadListingRequirementClass'
-      - $ref: '#/$definitions/LoadListingRequirement'
   NetworkAccess:
     type: object
     title: NetworkAccess
@@ -316,24 +269,15 @@ $definitions:
     type: object
     title: NetworkAccessRequirement
     properties:
+      class:
+        type: string
+        enum:
+          - NetworkAccessRequirement
       NetworkAccess:
         $ref: '#/$definitions/NetworkAccess'
     required:
     - NetworkAccess
     additionalProperties: {}
-  NetworkAccessRequirementClass:
-    type: object
-    properties:
-      class:
-        type: string
-        enum:
-          - NetworkAccessRequirement
-    required:
-      - class
-  NetworkAccessRequirementItem:
-    allOf:
-      - $ref: '#/$definitions/NetworkAccessRequirementClass'
-      - $ref: '#/$definitions/NetworkAccessRequirement'
   CWLExpression:
     type: string
     title: CWLExpression
@@ -502,6 +446,10 @@ $definitions:
       Specify basic hardware resource requirements
       (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#ResourceRequirement).
     properties:
+      class:
+        type: string
+        enum:
+          - ResourceRequirement
       coresMin:
         $ref: '#/$definitions/ResourceCoresMinimum'
       coresMax:
@@ -519,19 +467,6 @@ $definitions:
       outdirMax:
         $ref: '#/$definitions/ResourceOutDirMaximum'
     additionalProperties: {}
-  ResourceRequirementClass:
-    type: object
-    properties:
-      class:
-        type: string
-        enum:
-          - ResourceRequirement
-    required:
-      - class
-  ResourceRequirementItem:
-    allOf:
-      - $ref: '#/$definitions/ResourceRequirementClass'
-      - $ref: '#/$definitions/ResourceRequirement'
   Scatter:
     oneOf:
     - type: string
@@ -570,21 +505,12 @@ $definitions:
       input elements. Each job making up a scatter operation is independent and may be executed concurrently
       (see also: https://www.commonwl.org/v1.2/Workflow.html#WorkflowStep).
     $comment: Fields 'scatter' and 'scatterMethod' at the root of a 'WorkflowStep', not within the requirement.
-    additionalProperties: false
-  ScatterFeatureRequirementClass:
-    type: object
     properties:
       class:
         type: string
         description: CWL requirement class specification.
         enum:
           - ScatterFeatureRequirement
-    required:
-      - class
-  ScatterFeatureRequirementItem:
-    allOf:
-    - $ref: '#/$definitions/ScatterFeatureRequirementClass'
-    - $ref: '#/$definitions/ScatterFeatureRequirement'
   TimeLimitValue:
     oneOf:
     - type: number
@@ -612,27 +538,15 @@ $definitions:
       The execution duration excludes external operations, such as staging of files,
       pulling a docker image etc., and only counts wall-time for the execution of the command line itself.
     properties:
-      timelimit:
-        $ref: '#/$definitions/TimeLimitValue'
-    required:
-    - timelimit
-    additionalProperties: {}
-  ToolTimeLimitRequirementClass:
-    type: object
-    properties:
       class:
         type: string
         $comment: not 'ToolTimeLimitRequirement'
         enum:
           - ToolTimeLimit
+      timelimit:
+        $ref: '#/$definitions/TimeLimitValue'
     required:
-      - class
-  ToolTimeLimitRequirementItem:
-    allOf:
-      - $ref: '#/$definitions/ToolTimeLimitRequirementClass'
-      - $ref: '#/$definitions/ToolTimeLimitRequirement'
-    required:
-    - ToolTimeLimit
+    - timelimit
     additionalProperties: {}
   EnableReuseValue:
     oneOf:
@@ -658,35 +572,22 @@ $definitions:
 
       If 'WorkReuse' is not specified, correct tools should assume it is enabled by default.
     properties:
+      class:
+        type: string
+        enum:
+          - WorkReuseRequirement
       enableReuse:
         $ref: '#/$definitions/EnableReuseValue'
     required:
     - enableReuse
     additionalProperties: {}
-  WorkReuseRequirementClass:
-    type: object
-    properties:
-      class:
-        type: string
-        enum:
-          - WorkReuseRequirement
-    required:
-      - class
-  WorkReuseRequirementItem:
-    allOf:
-      - $ref: '#/$definitions/WorkReuseRequirementClass'
-      - $ref: '#/$definitions/WorkReuseRequirement'
   UnknownRequirement:
     type: object
     description: Generic schema to allow alternative CWL requirements/hints not explicitly defined in schemas.
-    additionalProperties: {}
-  UnknownRequirementClass:
-    type: object
-    title: UnknownRequirementClass
     properties:
       class:
         type: string
-        title: RequirementClass
+        title: Requirement Class Identifier
         description: CWL requirement class specification.
         example: UnknownRequirement
         not:
@@ -695,40 +596,44 @@ $definitions:
             - DockerRequirement
             - InitialWorkDirRequirement
             - InlineJavascriptRequirement
-            - InplaceUpdateRequirementItem
+            - InplaceUpdateRequirement
             - LoadListingRequirement
             - NetworkAccessRequirement
             - ResourceRequirement
             - ScatterFeatureRequirement
             - ToolTimeLimitRequirement
             - WorkReuseRequirement
-    required:
-      - class
-  UnknownRequirementItem:
-    allOf:
-      - $ref: '#/$definitions/UnknownRequirementClass'
-      - $ref: '#/$definitions/UnknownRequirement'
+    additionalProperties: {}
   CWLRequirementsList:
     type: array
     title: CWLRequirementsList
     items:
-      $ref: '#/$definitions/CWLRequirementsItem'
+      allOf:
+        - $comment: |
+            When using the list representation, 'class' is required to indicate which one is being represented.
+            When using the mapping representation, 'class' is optional since it's the key, but it must match by name.
+          type: object
+          required:
+            - class
+        - $ref: '#/$definitions/CWLRequirementsItem'
   CWLRequirementsItem:
-    $comment: For any new items added, ensure they are added to 'UnknownRequirementClass' as well
-    oneOf:
-    - $ref: '#/$definitions/cwltool:CUDARequirementItem'
-    - $ref: '#/$definitions/DockerRequirementItem'
-    - $ref: '#/$definitions/InitialWorkDirRequirementItem'
-    - $ref: '#/$definitions/InlineJavascriptRequirementItem'
-    - $ref: '#/$definitions/InplaceUpdateRequirementItem'
-    - $ref: '#/$definitions/LoadListingRequirementItem'
-    - $ref: '#/$definitions/NetworkAccessRequirementItem'
-    - $ref: '#/$definitions/ResourceRequirementItem'
-    - $ref: '#/$definitions/ScatterFeatureRequirementItem'
-    - $ref: '#/$definitions/ToolTimeLimitRequirementItem'
-    - $ref: '#/$definitions/WorkReuseRequirementItem'
-    - $ref: '#/$definitions/UnknownRequirementItem'
     title: CWLRequirementsItem
+    $comment: |
+      For any new items added, ensure they are added under 'class' of 'UnknownRequirement' as well.
+      Otherwise, insufficiently restrictive classes could cause multiple matches, failing the 'oneOf' condition.
+    oneOf:
+      - $ref: '#/$definitions/cwltool:CUDARequirement'
+      - $ref: '#/$definitions/DockerRequirement'
+      - $ref: '#/$definitions/InitialWorkDirRequirement'
+      - $ref: '#/$definitions/InlineJavascriptRequirement'
+      - $ref: '#/$definitions/InplaceUpdateRequirement'
+      - $ref: '#/$definitions/LoadListingRequirement'
+      - $ref: '#/$definitions/NetworkAccessRequirement'
+      - $ref: '#/$definitions/ResourceRequirement'
+      - $ref: '#/$definitions/ScatterFeatureRequirement'
+      - $ref: '#/$definitions/ToolTimeLimitRequirement'
+      - $ref: '#/$definitions/WorkReuseRequirement'
+      - $ref: '#/$definitions/UnknownRequirement'
   ScatterMethod:
     type: string
     title: scatterMethod
@@ -802,42 +707,24 @@ $definitions:
   BuiltinRequirement:
     type: object
     title: BuiltinRequirement
-    description: 'Hint indicating that the Application Package corresponds to a
-      builtin process of this instance. (note: can only be an ''hint'' as it is
-      unofficial CWL specification).'
+    description: |
+      Hint indicating that the Application Package corresponds to a
+      builtin process of this instance. (note: can only be an 'hint'
+      as it is unofficial CWL specification).
     properties:
+      class:
+        type: string
+        enum:
+        - BuiltinRequirement
       process:
         type: string
         title: process
         description: Builtin process identifier.
         pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
-      class:
-        type: string
-        title: RequirementClass
-        description: CWL requirement class specification.
-        example: BuiltinRequirement
-        enum:
-        - BuiltinRequirement
     required:
     - process
     - class
     additionalProperties: {}
-  BuiltinRequirementClass:
-    type: object
-    properties:
-      class:
-        type: string
-        enum:
-        - BuiltinRequirement
-    required:
-    - class
-  BuiltinRequirementItem:
-    allOf:
-      - $ref: '#/$definitions/BuiltinRequirementClass'
-      - $ref: '#/$definitions/BuiltinRequirement'
-      - $comment: Additional properties added here to avoid error by any of the other object individually.
-        type: object
-        additionalProperties: false
   CUDAComputeCapability:
     oneOf:
     - type: string
@@ -869,6 +756,10 @@ $definitions:
     type: object
     title: cwltool:CUDARequirement
     properties:
+      class:
+        type: string
+        enum:
+          - cwltool:CUDARequirement
       cudaVersionMin:
         type: string
         title: CUDA version minimum
@@ -902,19 +793,6 @@ $definitions:
     - cudaVersionMin
     - cudaComputeCapability
     additionalProperties: {}
-  cwltool:CUDARequirementClass:
-    type: object
-    properties:
-      class:
-        type: string
-        enum:
-          - cwltool:CUDARequirement
-    required:
-      - class
-  cwltool:CUDARequirementItem:
-    allOf:
-    - $ref: '#/$definitions/cwltool:CUDARequirementClass'
-    - $ref: '#/$definitions/cwltool:CUDARequirement'
   OGCAPIRequirement:
     type: object
     title: OGCAPIRequirement
@@ -923,31 +801,16 @@ $definitions:
       OGC API - Processes provider that should be remotely executed and monitored
       by this instance. (note: can only be an 'hint' as it is unofficial CWL specification).
     properties:
-      process:
-        description: Process location.
-        $ref: '#/$definitions/ReferenceURL'
-    not:
-      required:
-      - provider
-    required:
-    - process
-    additionalProperties: {}
-  OGCAPIRequirementClass:
-    type: object
-    properties:
       class:
         type: string
         enum:
         - OGCAPIRequirement
+      process:
+        description: Process location.
+        $ref: '#/$definitions/ReferenceURL'
     required:
-    - class
-  OGCAPIRequirementItem:
-    allOf:
-    - $ref: '#/$definitions/OGCAPIRequirementClass'
-    - $ref: '#/$definitions/OGCAPIRequirement'
-    - $comment: Additional properties added here to avoid error by any of the other object individually.
-      type: object
-      additionalProperties: false
+    - process
+    additionalProperties: {}
   WPS1Requirement:
     type: object
     title: WPS1Requirement
@@ -956,6 +819,10 @@ $definitions:
       WPS-1 provider process that should be remotely executed and monitored by this
       instance. (note: can only be an ''hint'' as it is unofficial CWL specification).
     properties:
+      class:
+        type: string
+        enum:
+          - WPS1Requirement
       process:
         type: string
         title: process
@@ -967,45 +834,39 @@ $definitions:
     required:
     - process
     - provider
-  WPS1RequirementClass:
-    type: object
-    properties:
-      class:
-        type: string
-        enum:
-          - WPS1Requirement
-    required:
-      - class
-  WPS1RequirementItem:
-    allOff:
-      - $ref: '#/$definitions/WPS1RequirementClass'
-      - $ref: '#/$definitions/WPS1Requirement'
-      - $comment: Additional properties added here to avoid error by any of the other object individually.
-        type: object
-        additionalProperties: false
   CWLHintsList:
     type: array
     title: CWLHintsList
     items:
-      $ref: '#/$definitions/CWLHintsItem'
+      allOf:
+        - $comment: |
+            When using the list representation, 'class' is required to indicate which one is being represented.
+            When using the mapping representation, 'class' is optional since it's the key, but it must match by name.
+          type: object
+          required:
+            - class
+        - $ref: '#/$definitions/CWLHintsItem'
   CWLHintsItem:
     title: CWLHintsItem
+    $comment: |
+      For any new items added, ensure they are added under 'class' of 'UnknownRequirement' as well.
+      Otherwise, insufficiently restrictive classes could cause multiple matches, failing the 'oneOf' condition.
     oneOf:
-    - $ref: '#/$definitions/cwltool:CUDARequirementItem'
-    - $ref: '#/$definitions/DockerRequirementItem'
-    - $ref: '#/$definitions/InitialWorkDirRequirementItem'
-    - $ref: '#/$definitions/InlineJavascriptRequirementItem'
-    - $ref: '#/$definitions/InplaceUpdateRequirementItem'
-    - $ref: '#/$definitions/LoadListingRequirementItem'
-    - $ref: '#/$definitions/NetworkAccessRequirementItem'
-    - $ref: '#/$definitions/ResourceRequirementItem'
-    - $ref: '#/$definitions/ScatterFeatureRequirementItem'
-    - $ref: '#/$definitions/ToolTimeLimitRequirementItem'
-    - $ref: '#/$definitions/WorkReuseRequirementItem'
-    - $ref: '#/$definitions/BuiltinRequirementItem'
-    - $ref: '#/$definitions/OGCAPIRequirementItem'
-    - $ref: '#/$definitions/WPS1RequirementItem'
-    - $ref: '#/$definitions/UnknownRequirementItem'
+    - $ref: '#/$definitions/cwltool:CUDARequirement'
+    - $ref: '#/$definitions/DockerRequirement'
+    - $ref: '#/$definitions/InitialWorkDirRequirement'
+    - $ref: '#/$definitions/InlineJavascriptRequirement'
+    - $ref: '#/$definitions/InplaceUpdateRequirement'
+    - $ref: '#/$definitions/LoadListingRequirement'
+    - $ref: '#/$definitions/NetworkAccessRequirement'
+    - $ref: '#/$definitions/ResourceRequirement'
+    - $ref: '#/$definitions/ScatterFeatureRequirement'
+    - $ref: '#/$definitions/ToolTimeLimitRequirement'
+    - $ref: '#/$definitions/WorkReuseRequirement'
+    - $ref: '#/$definitions/BuiltinRequirement'
+    - $ref: '#/$definitions/OGCAPIRequirement'
+    - $ref: '#/$definitions/WPS1Requirement'
+    - $ref: '#/$definitions/UnknownRequirement'
   CWLCommand:
     oneOf:
     - type: string
