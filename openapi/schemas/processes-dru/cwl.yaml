@@ -1488,6 +1488,8 @@ $definitions:
     additionalProperties:
       oneOf:
         - type: string
+        - type: array
+          item: string
         - $ref: '#/$definitions/CWLWorkflowStepInput'
   CWLWorkflowStepIn:
     description: Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.
