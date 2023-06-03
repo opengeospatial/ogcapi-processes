@@ -30,7 +30,8 @@ $definitions:
         oneOf:
           - $ref: "#/$definitions/CWLExecutionUnit"
           - type: array
-            items: "#/$definitions/CWLExecutionUnit"
+            items:
+              $ref: "#/$definitions/CWLExecutionUnit"
     required:
       - executionUnit
       - processDescription
@@ -65,7 +66,7 @@ $definitions:
     - type: string
       title: ID
       description: Generic identifier.
-      pattern: '^[#.]?[A-Za-z0-9]+(?:[-_.][A-Za-z0-9]+)*$'
+      pattern: '^[#.]?[A-Za-zA-Za-z0-9]+(?:[-_.][A-Za-zA-Za-z0-9]+)*$'
     title: CWLIdentifier
     description: Reference to the process identifier.
   CWLIntent:
@@ -78,7 +79,7 @@ $definitions:
         Identifier URL to a concept for the type of computational operation accomplished by this process
         (see example operations: http://edamontology.org/operation_0004).
       format: url
-      pattern: '^((?:http|ftp)s?://)?(?!.*//.*$)(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|localhost|\[[a-f0-9:]+\]|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:/?|[/?]\S+)$'
+      pattern: '^((?:http|ftp)s?://)?(?!.*//.*$)(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+(?:[A-Za-z]{2,6}\.?|[A-Za-z0-9-]{2,}\.?)|localhost|\[[a-f0-9:]+\]|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:/?|[/?]\S+)$'
   CWLRequirements:
     oneOf:
     - $ref: '#/$definitions/CWLRequirementsMap'
@@ -111,8 +112,7 @@ $definitions:
         $ref: '#/$definitions/ToolTimeLimitRequirement'
       WorkReuseRequirement:
         $ref: '#/$definitions/WorkReuseRequirement'
-    additionalProperties:
-      $ref: '#/$definitions/UnknownRequirement'
+    additionalProperties: false
   DockerRequirement:
     type: object
     title: DockerRequirement
@@ -279,19 +279,26 @@ $definitions:
     - NetworkAccess
     additionalProperties: false
   CWLExpression:
+    $comment: |
+      Whenever this option is applicable for a parameter, any other 'normal' string should not be specified.
+      For JSON schema validation, there is no easy way to distinguish them unless using complicated string patterns.
     type: string
     title: CWLExpression
     description: |
       When combined with 'InlineJavascriptRequirement', this field allows runtime parameter references
       (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#Expression).
+  ResourceQuantityOrFractional:
+    description: An item quantity that can also represent a proportion of use by resources.
+    $comment: |
+      Technically should be minimum=1, but fractional for scheduling algorithms are allowed.
+      There is no way to distinguish between float/long simultaneously in JSON schema (multi-match oneOf).
+      Therefore, only validate that it is greater than zero.
+    type: number
+    exclusiveMinimum: 0
+    default: 1
   ResourceCoresMinimum:
     oneOf:
-    - type: number
-      title: ''
-      minimum: 0.0
-    - type: integer
-      title: ''
-      minimum: 1
+    - $ref: '#/$definitions/ResourceQuantityOrFractional'
     - $ref: '#/$definitions/CWLExpression'
     title: ResourceCoresMinimum
     summary: Minimum reserved number of CPU cores.
@@ -318,12 +325,7 @@ $definitions:
     default: 1
   ResourceCoresMaximum:
     oneOf:
-    - type: number
-      title: ''
-      minimum: 0.0
-    - type: integer
-      title: ''
-      minimum: 1
+    - $ref: '#/$definitions/ResourceQuantityOrFractional'
     - $ref: '#/$definitions/CWLExpression'
     title: ResourceCoresMaximum
     summary: Maximum reserved number of CPU cores.
@@ -332,12 +334,7 @@ $definitions:
       See 'coresMin' for discussion about fractional CPU requests.
   ResourceRAMMinimum:
     oneOf:
-    - type: number
-      title: ''
-      minimum: 0.0
-    - type: integer
-      title: ''
-      minimum: 1
+    - $ref: '#/$definitions/ResourceQuantityOrFractional'
     - $ref: '#/$definitions/CWLExpression'
     title: ResourceRAMMinimum
     summary: Minimum reserved RAM in mebibytes.
@@ -352,12 +349,7 @@ $definitions:
     default: 256
   ResourceRAMMaximum:
     oneOf:
-    - type: number
-      title: ''
-      minimum: 0.0
-    - type: integer
-      title: ''
-      minimum: 1
+    - $ref: '#/$definitions/ResourceQuantityOrFractional'
     - $ref: '#/$definitions/CWLExpression'
     title: ResourceRAMMaximum
     summary: Maximum reserved RAM in mebibytes.
@@ -366,12 +358,7 @@ $definitions:
       See 'ramMin' for discussion about fractional RAM requests.
   ResourceTmpDirMinimum:
     oneOf:
-    - type: number
-      title: ''
-      minimum: 0.0
-    - type: integer
-      title: ''
-      minimum: 1
+    - $ref: '#/$definitions/ResourceQuantityOrFractional'
     - $ref: '#/$definitions/CWLExpression'
     title: ResourceTmpDirMinimum
     summary: Minimum reserved filesystem based storage for the designated temporary
@@ -388,12 +375,7 @@ $definitions:
     default: 1024
   ResourceTmpDirMaximum:
     oneOf:
-    - type: number
-      title: ''
-      minimum: 0.0
-    - type: integer
-      title: ''
-      minimum: 1
+    - $ref: '#/$definitions/ResourceQuantityOrFractional'
     - $ref: '#/$definitions/CWLExpression'
     title: ResourceTmpDirMaximum
     summary: Maximum reserved filesystem based storage for the designated temporary directory in mebibytes.
@@ -402,12 +384,7 @@ $definitions:
       See 'tmpdirMin' for discussion about fractional storage requests.
   ResourceOutDirMinimum:
     oneOf:
-    - type: number
-      title: ''
-      minimum: 0.0
-    - type: integer
-      title: ''
-      minimum: 1
+    - $ref: '#/$definitions/ResourceQuantityOrFractional'
     - $ref: '#/$definitions/CWLExpression'
     title: ResourceOutDirMinimum
     summary: Minimum reserved filesystem based storage for the designated output
@@ -424,12 +401,7 @@ $definitions:
     default: 1024
   ResourceOutDirMaximum:
     oneOf:
-    - type: number
-      title: ''
-      minimum: 0.0
-    - type: integer
-      title: ''
-      minimum: 1
+    - $ref: '#/$definitions/ResourceQuantityOrFractional'
     - $ref: '#/$definitions/CWLExpression'
     title: ResourceOutDirMaximum
     summary: Maximum reserved filesystem based storage for the designated output
@@ -470,9 +442,8 @@ $definitions:
   Scatter:
     oneOf:
     - type: string
-      title: ''
       description: Slug name pattern.
-      pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
+      pattern: ^[A-Za-zA-Za-z0-9]+(?:[-_][A-Za-zA-Za-z0-9]+)*$
     - $ref: '#/$definitions/IdentifierArray'
     title: Scatter
     description: |
@@ -495,7 +466,7 @@ $definitions:
       type: string
       title: item
       description: Slug name pattern.
-      pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
+      pattern: ^[A-Za-zA-Za-z0-9]+(?:[-_][A-Za-zA-Za-z0-9]+)*$
     minItems: 1
   ScatterFeatureRequirement:
     type: object
@@ -515,11 +486,7 @@ $definitions:
   TimeLimitValue:
     oneOf:
     - type: number
-      title: ''
       minimum: 0.0
-    - type: integer
-      title: ''
-      minimum: 0
     - $ref: '#/$definitions/CWLExpression'
     title: TimeLimitValue
     description: |
@@ -552,7 +519,6 @@ $definitions:
   EnableReuseValue:
     oneOf:
     - type: boolean
-      title: ''
     - $ref: '#/$definitions/CWLExpression'
     title: EnableReuseValue
     description: |
@@ -613,7 +579,6 @@ $definitions:
         - $comment: |
             When using the list representation, 'class' is required to indicate which one is being represented.
             When using the mapping representation, 'class' is optional since it's the key, but it must match by name.
-          type: object
           required:
             - class
         - $ref: '#/$definitions/CWLRequirementsItem'
@@ -634,7 +599,6 @@ $definitions:
       - $ref: '#/$definitions/ScatterFeatureRequirement'
       - $ref: '#/$definitions/ToolTimeLimitRequirement'
       - $ref: '#/$definitions/WorkReuseRequirement'
-      - $ref: '#/$definitions/UnknownRequirement'
   ScatterMethod:
     type: string
     title: scatterMethod
@@ -721,7 +685,7 @@ $definitions:
         type: string
         title: process
         description: Builtin process identifier.
-        pattern: ^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$
+        pattern: ^[A-Za-zA-Za-z0-9]+(?:[-_][A-Za-zA-Za-z0-9]+)*$
     required:
     - process
     - class
@@ -828,7 +792,7 @@ $definitions:
         type: string
         title: process
         description: Process identifier of the remote WPS provider.
-        pattern: '^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$'
+        pattern: '^[A-Za-zA-Za-z0-9]+(?:[-_][A-Za-zA-Za-z0-9]+)*$'
       provider:
         description: WPS provider endpoint.
         $ref: '#/$definitions/ReferenceURL'
@@ -844,7 +808,6 @@ $definitions:
         - $comment: |
             When using the list representation, 'class' is required to indicate which one is being represented.
             When using the mapping representation, 'class' is optional since it's the key, but it must match by name.
-          type: object
           required:
             - class
         - $ref: '#/$definitions/CWLHintsItem'
@@ -1067,7 +1030,6 @@ $definitions:
   CWLTypeSymbolValues:
     oneOf:
     - type: number
-    - type: integer
     - type: string
     title: CWLTypeSymbolValues
   CWLTypeEnum:
@@ -1113,7 +1075,7 @@ $definitions:
   ReferenceURL:
     type: string
     format: url
-    pattern: '^((?:http|ftp)s?://)?(?!.*//.*$)(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|localhost|\[[a-f0-9:]+\]|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:/?|[/?]\S+)$'
+    pattern: '^((?:http|ftp)s?:\/\/)?(?!.*\/\/.*$)(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+(?:[A-Za-z]{2,6}\.?|[A-Za-z0-9-]{2,}\.?)|localhost|\[[a-f0-9:]+\]|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:\/?|[/?]\S+)$'
   CWLDefaultLocation:
     type: object
     properties:
@@ -1435,6 +1397,7 @@ $definitions:
       hints:
         $comment: Technically a different subset, but lots of redefinitions to be done.
         $ref: '#/$definitions/CWLHints'
+    additionalProperties: false
   CWLWorkflow:
     allOf:
       - $ref: '#/$definitions/CWLVersion'
@@ -1513,7 +1476,6 @@ $definitions:
     - class
     - inputs
     - outputs
-    additionalProperties: {}
   CWLGraphList:
     type: array
     title: CWLGraphList
@@ -1586,4 +1548,4 @@ $definitions:
         title: version
         description: "Version of the process."
         example: "1.2.3"
-        pattern: '^\d+(\.\d+(\.\d+(\.[a-zA-Z0-9\-_]+)*)*)*$'
+        pattern: '^\d+(\.\d+(\.\d+(\.[A-Za-zA-Za-z0-9\-_]+)*)*)*$'
