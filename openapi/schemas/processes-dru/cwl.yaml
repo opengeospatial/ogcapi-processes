@@ -141,7 +141,7 @@ $definitions:
       - required: [dockerImport]
       - required: [dockerLoad]
       - required: [dockerFile]
-    additionalProperties: {}
+    additionalProperties: false
   InitialWorkDirListing:
     type: array
     title: InitialWorkDirListing
@@ -159,7 +159,7 @@ $definitions:
       writable:
         type: boolean
         title: writable
-    additionalProperties: {}
+    additionalProperties: false
   InitialWorkDirRequirement:
     type: object
     title: InitialWorkDirRequirement
@@ -172,7 +172,7 @@ $definitions:
         $ref: '#/$definitions/InitialWorkDirListing'
     required:
     - listing
-    additionalProperties: {}
+    additionalProperties: false
   InlineJavascriptLibObject:
     type: object
     properties:
@@ -211,7 +211,7 @@ $definitions:
         $ref: '#/$definitions/InlineJavascriptLibraries'
       required:
         - expressionLib
-    additionalProperties: {}
+    additionalProperties: false
   InplaceUpdateRequirement:
     type: object
     title: InplaceUpdateRequirement
@@ -230,7 +230,7 @@ $definitions:
         title: inplaceUpdate
     required:
     - inplaceUpdate
-    additionalProperties: {}
+    additionalProperties: false
   LoadListingRequirement:
     type: object
     title: LoadListingRequirement
@@ -251,7 +251,7 @@ $definitions:
         - deep_listing
     required:
     - loadListing
-    additionalProperties: {}
+    additionalProperties: false
   NetworkAccess:
     type: object
     title: NetworkAccess
@@ -264,7 +264,7 @@ $definitions:
         example: true
     required:
     - networkAccess
-    additionalProperties: {}
+    additionalProperties: false
   NetworkAccessRequirement:
     type: object
     title: NetworkAccessRequirement
@@ -277,7 +277,7 @@ $definitions:
         $ref: '#/$definitions/NetworkAccess'
     required:
     - NetworkAccess
-    additionalProperties: {}
+    additionalProperties: false
   CWLExpression:
     type: string
     title: CWLExpression
@@ -466,7 +466,7 @@ $definitions:
         $ref: '#/$definitions/ResourceOutDirMinimum'
       outdirMax:
         $ref: '#/$definitions/ResourceOutDirMaximum'
-    additionalProperties: {}
+    additionalProperties: false
   Scatter:
     oneOf:
     - type: string
@@ -511,6 +511,7 @@ $definitions:
         description: CWL requirement class specification.
         enum:
           - ScatterFeatureRequirement
+    additionalProperties: false
   TimeLimitValue:
     oneOf:
     - type: number
@@ -547,7 +548,7 @@ $definitions:
         $ref: '#/$definitions/TimeLimitValue'
     required:
     - timelimit
-    additionalProperties: {}
+    additionalProperties: false
   EnableReuseValue:
     oneOf:
     - type: boolean
@@ -580,7 +581,7 @@ $definitions:
         $ref: '#/$definitions/EnableReuseValue'
     required:
     - enableReuse
-    additionalProperties: {}
+    additionalProperties: false
   UnknownRequirement:
     type: object
     description: Generic schema to allow alternative CWL requirements/hints not explicitly defined in schemas.
@@ -662,7 +663,7 @@ $definitions:
     required:
     - timelimit
     - class
-    additionalProperties: {}
+    additionalProperties: false
   CWLHints:
     oneOf:
     - $ref: '#/$definitions/CWLHintsMap'
@@ -724,7 +725,7 @@ $definitions:
     required:
     - process
     - class
-    additionalProperties: {}
+    additionalProperties: false
   CUDAComputeCapability:
     oneOf:
     - type: string
@@ -792,7 +793,7 @@ $definitions:
     required:
     - cudaVersionMin
     - cudaComputeCapability
-    additionalProperties: {}
+    additionalProperties: false
   OGCAPIRequirement:
     type: object
     title: OGCAPIRequirement
@@ -810,7 +811,7 @@ $definitions:
         $ref: '#/$definitions/ReferenceURL'
     required:
     - process
-    additionalProperties: {}
+    additionalProperties: false
   WPS1Requirement:
     type: object
     title: WPS1Requirement
@@ -834,6 +835,7 @@ $definitions:
     required:
     - process
     - provider
+    additionalProperties: false
   CWLHintsList:
     type: array
     title: CWLHintsList
@@ -892,7 +894,7 @@ $definitions:
         type: integer
       valueFrom:
         type: string
-    additionalProperties: {}
+    additionalProperties: false
   CWLArguments:
     type: array
     title: CWLArguments
@@ -1125,7 +1127,7 @@ $definitions:
     required:
       - class
       - location
-    additionalProperties: {}
+    additionalProperties: false
   InputBinding:
     type: object
     title: Input Binding
@@ -1139,7 +1141,7 @@ $definitions:
         type: string
       itemSeparator:
         type: string
-    additionalProperties: {}
+    additionalProperties: false
   CWLInputItem:
     type: object
     title: Input
