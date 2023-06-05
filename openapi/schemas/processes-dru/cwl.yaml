@@ -66,7 +66,7 @@ $definitions:
     - type: string
       title: ID
       description: Generic identifier.
-      pattern: '^[#.]?[A-Za-zA-Za-z0-9]+(?:[-_.][A-Za-zA-Za-z0-9]+)*$'
+      pattern: '^[#.]?[A-Za-z0-9]+(?:[-_.][A-Za-z0-9]+)*$'
     title: CWLIdentifier
     description: Reference to the process identifier.
   CWLIntent:
@@ -453,7 +453,7 @@ $definitions:
     oneOf:
     - type: string
       description: Slug name pattern.
-      pattern: ^[A-Za-zA-Za-z0-9]+(?:[-_][A-Za-zA-Za-z0-9]+)*$
+      pattern: '^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$'
     - $ref: '#/$definitions/IdentifierArray'
     title: Scatter
     description: |
@@ -476,7 +476,7 @@ $definitions:
       type: string
       title: item
       description: Slug name pattern.
-      pattern: ^[A-Za-zA-Za-z0-9]+(?:[-_][A-Za-zA-Za-z0-9]+)*$
+      pattern: '^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$'
     minItems: 1
   ScatterFeatureRequirement:
     type: object
@@ -893,7 +893,7 @@ $definitions:
         type: string
         title: process
         description: Builtin process identifier.
-        pattern: ^[A-Za-zA-Za-z0-9]+(?:[-_][A-Za-zA-Za-z0-9]+)*$
+        pattern: '^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$'
     required:
     - process
     - class
@@ -1000,7 +1000,7 @@ $definitions:
         type: string
         title: process
         description: Process identifier of the remote WPS provider.
-        pattern: '^[A-Za-zA-Za-z0-9]+(?:[-_][A-Za-zA-Za-z0-9]+)*$'
+        pattern: '^[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*$'
       provider:
         description: WPS provider endpoint.
         $ref: '#/$definitions/ReferenceURL'
@@ -1785,4 +1785,4 @@ $definitions:
         title: version
         description: "Version of the process."
         example: "1.2.3"
-        pattern: '^\d+(\.\d+(\.\d+(\.[A-Za-zA-Za-z0-9\-_]+)*)*)*$'
+        pattern: '^\d+(\.\d+(\.\d+(\.[A-Za-z0-9\-_]+)*)*)*$'
