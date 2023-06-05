@@ -1397,10 +1397,10 @@ $defs:
     - $ref: '#/$defs/AnyLiteralType'
     - $ref: '#/$defs/AnyLiteralList'
     - $ref: '#/$defs/CWLDefaultLocation'
+    - $ref: '#/$defs/CWLDefaultObject'
     - type: array
       items:
-        $ref: '#/$defs/AnyType'
-    - $ref: '#/$defs/CWLDefaultObject'
+        $ref: '#/$defs/CWLDefaultObject'
   CWLDefaultTypedConditional:
     $comment: |
       Validate that the 'default' value, if specified, is of same type as the CWL 'type'.
@@ -1610,12 +1610,7 @@ $defs:
             default:
               type: array
               items:
-                enum:
-                  - double
-                  - float
-                  - int
-                  - integer
-                  - long
+                type: number
       - $comment: Required anything (single).
         if:
           properties:
