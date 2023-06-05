@@ -542,10 +542,100 @@ $defs:
         enum:
           - StepInputExpressionRequirement
     additionalProperties: false
+  CWLFileOnlyParameters:
+    type: object
+    properties:
+      secondaryFiles:
+        $ref: '#/$defs/CWLTypeRecordSecondaryFiles'
+      streamable:
+        type: boolean
+      format:
+        $ref: '#/$defs/CWLFormat'
+      loadContents:
+        type: boolean
+  CWLFileOnlyParametersConditional:
+    description: Parameters that are only valid when 'type' or 'items' evaluates to 'File'.
+    $comment: |
+      Explicitly disallow these parameters when non-File type is detected.
+      Otherwise, validate their schema definitions according to what is permitted.
+    type: object
+    if:
+      properties:
+        oneOf:
+        - $comment: Single required or optional 'File'.
+          type:
+            enum:
+            - File
+            - File?
+            - File[]
+            - File[]?
+        - $comment: Array of required or optional 'File'.
+          type:
+            const: array
+          items:
+            oneOf:
+              - type:
+                - const: File
+                - const: File?
+              - type: array
+                contains:
+                  type:
+                    - const: File
+                    - const: File?
+    then:
+      $ref: '#/$defs/CWLFileOnlyParameters'
+    else:
+      not:
+        properties:
+          secondaryFiles: {}
+          streamable: {}
+          format: {}
+          loadContents: {}
+  CWLDirectoryOnlyParameters:
+    type: object
+    properties:
+      loadListing:
+        $ref: '#/$defs/LoadListingEnum'
+  CWLDirectoryOnlyParametersConditional:
+    description: Parameters that are only valid when 'type' or 'items' evaluates to 'Directory'.
+    $comment: |
+      Explicitly disallow these parameters when non-Directory type is detected.
+      Otherwise, validate their schema definitions according to what is permitted.
+    type: object
+    if:
+      properties:
+        oneOf:
+        - $comment: Single required or optional 'Directory'.
+          type:
+            enum:
+            - Directory
+            - Directory?
+            - Directory[]
+            - Directory[]?
+        - $comment: Array of required or optional 'Directory'.
+          type:
+            const: array
+          items:
+            oneOf:
+              - type:
+                - const: Directory
+                - const: Directory?
+              - type: array
+                contains:
+                  type:
+                    - const: Directory
+                    - const: Directory?
+    then:
+      $ref: '#/$defs/CWLDirectoryOnlyParameters'
+    else:
+      not:
+        properties:
+          loadListing: {}
   CWLTypeRecordSecondaryFileSchema:
     type: object
     properties:
       pattern:
+        $comment: Either an expression or the regex pattern directly.
         $ref: '#/$defs/CWLExpression'
       required:
         oneOf:
@@ -556,40 +646,48 @@ $defs:
     additionalProperties: false
   CWLTypeRecordSecondaryFiles:
     oneOf:
+      - $comment: Either an expression or the regex pattern directly.
+        $ref: '#/$defs/CWLExpression'
       - $ref: '#/$defs/CWLTypeRecordSecondaryFileSchema'
       - type: array
         items:
+          $comment: Either an expression or the regex pattern directly.
+          $ref: '#/$defs/CWLExpression'
+      - type: array
+        items:
           $ref: '#/$defs/CWLTypeRecordSecondaryFileSchema'
-  CWLTypeRecordFieldDef:
+  CWLTypeRecordFieldDefBase:
     type: object
     properties:
       name:
+        $comment: |
+          Required if list item. Otherwise, optional since it is the mapping key.
+          This requirement is defined in 'CWLTypeRecordFieldsItem' to allow reuse of this schema.
         type: string
       type:
         $ref: '#/$defs/CWLType'
-      secondaryFiles:
-        $ref: '#/$defs/CWLTypeRecordSecondaryFiles'
-      streamable:
-        type: boolean
-      format:
-        $ref: '#/$defs/CWLFormat'
-      loadContents:
-        type: boolean
-      loadListing:
-        $ref: '#/$defs/LoadListingEnum'
     required:
-      - name
       - type
+  CWLTypeRecordFieldDef:
+    allOf:
+      - $ref: '#/$defs/CWLTypeRecordFieldDefBase'
+      - $ref: '#/$defs/CWLFileOnlyParametersConditional'
+      - $ref: '#/$defs/CWLDirectoryOnlyParametersConditional'
   CWLTypeRecordFieldsMap:
     type: object
     additionalProperties:
       oneOf:
         - $ref: '#/$defs/CWLType'
         - $ref: '#/$defs/CWLTypeRecordFieldDef'
+  CWLTypeRecordFieldsItem:
+    allOf:
+      - $ref: '#/$defs/CWLTypeRecordFieldDef'
+      - required:
+        - name
   CWLTypeRecordFieldsList:
     type: array
     items:
-      $ref: '#/$defs/CWLTypeRecordFieldDef'
+      $ref: '#/$defs/CWLTypeRecordFieldsItem'
   CWLTypeRecordFields:
     oneOf:
       - $ref: '#/$defs/CWLTypeRecordFieldsMap'
@@ -1657,7 +1755,7 @@ $defs:
     additionalProperties:
       oneOf:
       - $ref: '#/$defs/CWLType'
-      - $ref: "#/$defs/CWLInputObject"
+      - $ref: '#/$defs/CWLInputObject'
       - $ref: '#/$defs/CWLInputStdIn'
       - $ref: '#/$defs/CWLImport'
   CWLOutputsDefinition:
@@ -1686,7 +1784,8 @@ $defs:
   CWLOutputItem:
     type: object
     title: CWLOutputItem
-    description: Output specification. Note that multiple formats are supported
+    description: |
+      Output specification. Note that multiple formats are supported
       and not all specification variants or parameters are presented here. Please
       refer to official CWL documentation for more details (https://www.commonwl.org).
     properties:
@@ -1725,7 +1824,7 @@ $defs:
     additionalProperties:
       oneOf:
       - $ref: '#/$defs/CWLType'
-      - $ref: "#/$defs/CWLOutputObject"
+      - $ref: '#/$defs/CWLOutputObject'
       - $ref: '#/$defs/CWLOutputStdOut'
       - $ref: '#/$defs/CWLOutputStdErr'
       - $ref: '#/$defs/CWLImport'
@@ -1734,7 +1833,8 @@ $defs:
     - $ref: '#/$defs/CWLIdentifier'
     - $ref: '#/$defs/CWLScatterMulti'
     title: CWLScatter
-    description: One or more input identifier of an application step within a Workflow
+    description: |
+      One or more input identifier of an application step within a Workflow
       were an array-based input to that Workflow should be scattered across multiple
       instances of the step application.
   CWLScatterMulti:
@@ -1745,7 +1845,8 @@ $defs:
   CWLScatterMethod:
     type: string
     title: scatterMethod
-    description: Describes how to decompose the scattered input into a discrete
+    description: |
+      Describes how to decompose the scattered input into a discrete
       set of jobs. When 'dotproduct', specifies that each of the input arrays
       are aligned and one element taken from each array to construct each job.
       It is an error if all input arrays are of different length. When 'nested_crossproduct',
