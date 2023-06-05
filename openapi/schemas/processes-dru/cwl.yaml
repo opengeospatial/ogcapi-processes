@@ -1609,7 +1609,7 @@ $defs:
             default:
               type: array
               items:
-                type:
+                enum:
                   - double
                   - float
                   - int
