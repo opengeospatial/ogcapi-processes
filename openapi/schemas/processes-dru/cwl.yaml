@@ -155,10 +155,12 @@ $definitions:
       - required: [dockerFile]
     additionalProperties: false
   InitialWorkDirListing:
-    type: array
-    title: InitialWorkDirListing
-    items:
-      $ref: '#/$definitions/DirectoryListingItem'
+    oneOf:
+      - $ref: '#/$definitions/CWLExpression'
+      - type: array
+        title: InitialWorkDirListing
+        items:
+          $ref: '#/$definitions/DirectoryListingItem'
   DirectoryListingItem:
     type: object
     title: DirectoryListingItem
@@ -181,7 +183,9 @@ $definitions:
         enum:
           - InitialWorkDirRequirement
       listing:
-        $ref: '#/$definitions/InitialWorkDirListing'
+        oneOf:
+        - $ref: '#/$definitions/CWLExpression'
+        - $ref: '#/$definitions/InitialWorkDirListing'
     required:
     - listing
     additionalProperties: false
