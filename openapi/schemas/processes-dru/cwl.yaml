@@ -1399,8 +1399,7 @@ $defs:
     - $ref: '#/$defs/CWLDefaultLocation'
     - type: array
       items:
-        type:
-          $ref: '#/$defs/AnyType'
+        $ref: '#/$defs/AnyType'
     - $ref: '#/$defs/CWLDefaultObject'
   CWLDefaultTypedConditional:
     $comment: |
