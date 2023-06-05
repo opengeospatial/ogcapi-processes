@@ -124,7 +124,8 @@ $defs:
         $ref: '#/$defs/InplaceUpdateRequirement'
       LoadListingRequirement:
         $ref: '#/$defs/LoadListingRequirement'
-      NetworkAccessRequirement:
+      NetworkAccess:
+        $comment: Not 'NetworkAccessRequirement'
         $ref: '#/$defs/NetworkAccessRequirement'
       ResourceRequirement:
         $ref: '#/$defs/ResourceRequirement'
@@ -308,8 +309,9 @@ $defs:
     properties:
       class:
         type: string
+        $comment: Not 'NetworkAccessRequirement'
         enum:
-          - NetworkAccessRequirement
+          - NetworkAccess
       NetworkAccess:
         $ref: '#/$defs/NetworkAccess'
     required:
@@ -907,7 +909,7 @@ $defs:
             - InlineJavascriptRequirement
             - InplaceUpdateRequirement
             - LoadListingRequirement
-            - NetworkAccessRequirement
+            - NetworkAccess
             - ResourceRequirement
             - ScatterFeatureRequirement
             - ToolTimeLimit
