@@ -130,9 +130,11 @@ $defs:
         $ref: '#/$defs/ResourceRequirement'
       ScatterFeatureRequirement:
         $ref: '#/$defs/ScatterFeatureRequirement'
-      ToolTimeLimitRequirement:
+      ToolTimeLimit:
+        $comment: Not 'ToolTimeLimitRequirement'.
         $ref: '#/$defs/ToolTimeLimitRequirement'
-      WorkReuseRequirement:
+      WorkReuse:
+        $comment: Not 'WorkReuseRequirement'.
         $ref: '#/$defs/WorkReuseRequirement'
       MultipleInputFeatureRequirement:
         $ref: '#/$defs/MultipleInputFeatureRequirement'
@@ -876,8 +878,9 @@ $defs:
     properties:
       class:
         type: string
+        $comment: Not 'WorkReuseRequirement'.
         enum:
-          - WorkReuseRequirement
+          - WorkReuse
       enableReuse:
         $ref: '#/$defs/EnableReuseValue'
     required:
@@ -907,8 +910,8 @@ $defs:
             - NetworkAccessRequirement
             - ResourceRequirement
             - ScatterFeatureRequirement
-            - ToolTimeLimitRequirement
-            - WorkReuseRequirement
+            - ToolTimeLimit
+            - WorkReuse
             - MultipleInputFeatureRequirement
             - StepInputExpressionRequirement
             # FIXME: to implement
