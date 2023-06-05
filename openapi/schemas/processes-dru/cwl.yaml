@@ -169,12 +169,15 @@ $defs:
       - required: [dockerFile]
     additionalProperties: false
   InitialWorkDirListing:
+    title: InitialWorkDirListing
     oneOf:
       - $ref: '#/$defs/CWLExpression'
       - type: array
-        title: InitialWorkDirListing
+        title: InitialWorkDirListingItems
         items:
-          $ref: '#/$defs/DirectoryListingItem'
+          oneOf:
+            - $ref: '#/$defs/CWLExpression'
+            - $ref: '#/$defs/DirectoryListingItem'
   DirectoryListingItem:
     type: object
     title: DirectoryListingItem
@@ -187,6 +190,8 @@ $defs:
       writable:
         type: boolean
         title: writable
+    required:
+      - entry
     additionalProperties: false
   InitialWorkDirRequirement:
     type: object
@@ -197,9 +202,7 @@ $defs:
         enum:
           - InitialWorkDirRequirement
       listing:
-        oneOf:
-        - $ref: '#/$defs/CWLExpression'
-        - $ref: '#/$defs/InitialWorkDirListing'
+        $ref: '#/$defs/InitialWorkDirListing'
     required:
     - listing
     additionalProperties: false
@@ -1285,12 +1288,261 @@ $defs:
     items:
       $ref: '#/$defs/CWLTypeBase'
   CWLDefault:
+    title: CWLDefault
+    description: Default value of input if not provided for task execution.
     oneOf:
     - $ref: '#/$defs/AnyLiteralType'
     - $ref: '#/$defs/AnyLiteralList'
     - $ref: '#/$defs/CWLDefaultLocation'
-    title: CWLDefault
-    description: Default value of input if not provided for task execution.
+    - type: array
+      items:
+        type:
+          $ref: '#/$defs/AnyType'
+    - $ref: '#/$defs/CWLDefaultObject'
+  CWLDefaultTypedConditional:
+    $comment: |
+      Validate that the 'default' value, if specified, is of same type as the CWL 'type'.
+      This avoids over-accepting anything that does not match the intended type.
+      However, validation limits itself to data literals and arrays.
+      Nested type and multi-type definitions will validate against 'Any'.
+    allOf:
+      - $comment: Object structure with minimally 'type' and 'default'. Otherwise, no point to continue testing.
+        type: object
+        properties:
+          type:
+            $ref: '#/$defs/AnyType'
+          default:
+            $ref: '#/$defs/AnyType'
+        required:
+          - type
+      - $comment: Explicit null.
+        if:
+          properties:
+            type:
+              const: 'null'
+        then:
+          properties:
+            default:
+              type: 'null'
+      - $comment: Required string.
+        if:
+          properties:
+            type:
+              const: string
+        then:
+          properties:
+            default:
+              type: string
+      - $comment: Optional string.
+        if:
+          properties:
+            type:
+              const: string?
+        then:
+          properties:
+            default:
+              type:
+              - string
+              - 'null'
+      - $comment: Required boolean.
+        if:
+          properties:
+            type:
+              const: boolean
+        then:
+          properties:
+            default:
+              type: boolean
+      - $comment: Optional boolean.
+        if:
+          properties:
+            type:
+              enum:
+                - double?
+                - float?
+                - int?
+                - integer?
+                - long?
+        then:
+          properties:
+            default:
+              type:
+              - number
+              - 'null'
+      - $comment: Required numeric.
+        if:
+          properties:
+            type:
+              enum:
+                - double
+                - float
+                - int
+                - integer
+                - long
+        then:
+          properties:
+            default:
+              type: number
+      - $comment: Optional numeric.
+        if:
+          properties:
+            type:
+              enum:
+                - double?
+                - float?
+                - int?
+                - integer?
+                - long?
+        then:
+          properties:
+            default:
+              type:
+              - number
+              - 'null'
+      - $comment: Required enum.
+        if:
+          properties:
+            type:
+              const: enum
+            symbols:
+              $ref: '#/$defs/CWLTypeSymbols'
+        then:
+          properties:
+            default:
+              type:
+                $ref: '#/$defs/CWLTypeSymbolValues'
+      - $comment: Optional enum.
+        if:
+          properties:
+            type:
+              const: enum?
+            symbols:
+              $ref: '#/$defs/CWLTypeSymbols'
+        then:
+          properties:
+            default:
+              oneOf:
+                - $ref: '#/$defs/CWLTypeSymbolValues'
+                - type: 'null'
+      - $comment: Required File or Directory.
+        if:
+          properties:
+            type:
+              enum:
+              - Directory
+              - File
+        then:
+          properties:
+            default:
+              $ref: '#/$defs/CWLDefaultLocation'
+      - $comment: Optional File or Directory.
+        if:
+          properties:
+            type:
+              enum:
+              - Directory?
+              - File?
+        then:
+          properties:
+            default:
+              oneOf:
+              - $ref: '#/$defs/CWLDefaultLocation'
+              - type: 'null'
+      - $comment: Required array of string.
+        if:
+          oneOf:
+          - properties:
+              type:
+                const: string[]
+          - properties:
+              type:
+                const: array
+              items:
+                const: string
+        then:
+          properties:
+            default:
+              type: array
+              items:
+                type: string
+      - $comment: Required array of boolean.
+        if:
+          oneOf:
+          - properties:
+              type:
+                const: boolean[]
+          - properties:
+              type:
+                const: array
+              items:
+                const: boolean
+        then:
+          properties:
+            default:
+              type: array
+              items:
+                type: boolean
+      - $comment: Required array of numeric.
+        if:
+          oneOf:
+            - properties:
+                type:
+                  enum:
+                  - double[]
+                  - float[]
+                  - int[]
+                  - integer[]
+                  - long[]
+            - properties:
+                type:
+                  const: array
+                items:
+                  enum:
+                    - double
+                    - float
+                    - int
+                    - integer
+                    - long
+        then:
+          properties:
+            default:
+              type: array
+              items:
+                type:
+                  - double
+                  - float
+                  - int
+                  - integer
+                  - long
+      - $comment: Required anything (single).
+        if:
+          properties:
+            type:
+              const: Any
+        then:
+          properties:
+            default:
+              $comment: Match anything.
+              $ref: '#/$defs/AnyType'
+      - $comment: Required array of anything.
+        if:
+          properties:
+            type:
+              const: Any[]
+        then:
+          properties:
+            default:
+              $comment: Match anything as long as under array.
+              type: array
+              items:
+                $ref: '#/$defs/AnyType'
+  AnyType:
+    type:
+      - boolean
+      - number
+      - string
+      - array
+      - object
   AnyLiteralType:
     oneOf:
       - type: number
@@ -1313,12 +1565,33 @@ $defs:
         enum:
           - File
           - Directory
+      path:
+        type: string
       location:
+        type: string
+      basename:
+        type: string
+      nameroot:
         type: string
     required:
       - class
+    oneOf:
+    - required:
+      - path
+    - required:
       - location
     additionalProperties: false
+  CWLDefaultObject:
+    type: object
+    not:
+      $comment: Avoid false-positive match of default File or Directory location definition.
+      properties:
+        class:
+          type: string
+          enum:
+            - File
+            - Directory
+    additionalProperties: {}
   InputBinding:
     type: object
     title: Input Binding
@@ -1333,43 +1606,48 @@ $defs:
       itemSeparator:
         type: string
     additionalProperties: false
-  CWLInputItem:
+  CWLInputItemBase:
     type: object
-    title: Input
-    description: Input specification. Note that multiple formats are supported and
-      not all specification variants or parameters are presented here. Please refer
-      to official CWL documentation for more details (https://www.commonwl.org).
     properties:
       type:
         oneOf:
-        - $ref: '#/$defs/CWLType'
-        - $ref: '#/$defs/CWLInputStdIn'
-      default:
-        $ref: '#/$defs/CWLDefault'
+          - $ref: '#/$defs/CWLType'
+          - $ref: '#/$defs/CWLInputStdIn'
       inputBinding:
         $ref: '#/$defs/InputBinding'
       id:
         description: Identifier of the CWL input.
         $ref: '#/$defs/CWLIdentifier'
     required:
-    - type
-    - id
-    additionalProperties: {}
-  CWLInputObject:
+      - type
+      - id
+    additionalProperties: { }
+  CWLInputItem:
+    title: Input
+    description: |
+      Input specification. Note that multiple formats are supported and
+      not all specification variants or parameters are presented here. Please refer
+      to official CWL documentation for more details (https://www.commonwl.org).
+    allOf:
+    - $ref: '#/$defs/CWLInputItemBase'
+    - $ref: '#/$defs/CWLDefaultTypedConditional'
+  CWLInputObjectBase:
     type: object
-    title: CWLInputObject
-    summary: CWL type definition with parameters.
     properties:
       type:
         $ref: '#/$defs/CWLType'
-      default:
-        $ref: '#/$defs/CWLDefault'
       inputBinding:
         $ref: '#/$defs/InputBinding'
-        additionalProperties: {}
+        additionalProperties: { }
     required:
       - type
-    additionalProperties: {}
+    additionalProperties: { }
+  CWLInputObject:
+    title: CWLInputObject
+    summary: CWL type definition with parameters.
+    allOf:
+    - $ref: '#/$defs/CWLInputObjectBase'
+    - $ref: '#/$defs/CWLDefaultTypedConditional'
   CWLInputMap:
     type: object
     title: CWLInputMap
@@ -1505,7 +1783,7 @@ $defs:
     enum:
       - merge_nested
       - merge_flattened
-  CWLWorkflowStepInput:
+  CWLWorkflowStepInputBase:
     type: object
     properties:
       source:
@@ -1516,10 +1794,21 @@ $defs:
               type: string
       linkMerge:
         $ref: '#/$defs/LinkMergeMethod'
-      default:
-        $ref: '#/$defs/CWLDefault'
       valueFrom:
         $ref: '#/$defs/CWLExpression'
+  CWLWorkflowStepInputDefault:
+    $comment: |
+      CWL 'type' is not specified at this level for step inputs
+      (it is provided by the mapped input of the nested tool instead).
+      Therefore, cannot validate against 'CWLDefaultTypedConditional'.
+    type: object
+    properties:
+      default:
+        $ref: '#/$defs/CWLDefault'
+  CWLWorkflowStepInput:
+    allOf:
+      - $ref: '#/$defs/CWLWorkflowStepInputBase'
+      - $ref: '#/$defs/CWLWorkflowStepInputDefault'
   CWLWorkflowStepInputId:
     type: object
     properties:
@@ -1530,7 +1819,8 @@ $defs:
   CWLWorkflowStepInItem:
     allOf:
       - $ref: '#/$defs/CWLWorkflowStepInputId'
-      - $ref: '#/$defs/CWLWorkflowStepInput'
+      - $ref: '#/$defs/CWLWorkflowStepInputBase'
+      - $ref: '#/$defs/CWLWorkflowStepInputDefault'
   CWLWorkflowStepInList:
     type: array
     items:
