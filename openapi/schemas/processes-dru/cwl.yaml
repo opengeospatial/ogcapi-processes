@@ -754,6 +754,7 @@ $defs:
             - $ref: '#/$defs/CWLTypeEnum'
             - $ref: '#/$defs/CWLTypeRecordSchema'
             - $ref: '#/$defs/CWLTypeRecordArray'
+            - $ref: '#/$defs/CWLImport'
     required:
       - types
     additionalProperties: false
