@@ -93,6 +93,8 @@ $defs:
     properties:
       '$import':
         type: string
+    required:
+      - '$import'
     additionalProperties: false
   CWLRequirements:
     title: CWLRequirements
