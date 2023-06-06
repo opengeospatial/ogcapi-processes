@@ -1176,17 +1176,6 @@ $defs:
     items:
       type: string
       title: cmd
-  CWLArgumentObject:
-    type: object
-    properties:
-      prefix:
-        type: string
-      position:
-        type: integer
-      valueFrom:
-        type: string
-      shellQuote:
-        type: boolean
     additionalProperties: false
   CWLArguments:
     type: array
@@ -1195,7 +1184,7 @@ $defs:
     items:
       oneOf:
       - type: string
-      - $ref: '#/$defs/CWLArgumentObject'
+      - $ref: '#/$defs/InputBinding'
   CWLInputStdInDefinition:
     description: |
       Indicates that the value passed to this CWL input will be redirected to the standard input stream of the command.
@@ -1693,11 +1682,15 @@ $defs:
       prefix:
         type: string
       position:
-        type: integer
+        oneOf:
+        - type: integer
+        - $ref: '#/$defs/CWLExpression'
       valueFrom:
-        type: string
+        $ref: '#/$defs/CWLExpression'
       itemSeparator:
         type: string
+      shellQuote:
+        type: boolean
     additionalProperties: false
   CWLInputItemBase:
     type: object
