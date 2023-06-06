@@ -291,18 +291,12 @@ $defs:
     - loadListing
     additionalProperties: false
   NetworkAccess:
-    type: object
     title: NetworkAccess
-    properties:
-      networkAccess:
-        type: boolean
-        title: Network Access
-        description: Indicate whether a process requires outgoing IPv4/IPv6 network
-          access.
-        example: true
-    required:
-    - networkAccess
-    additionalProperties: false
+    description: Indicate whether a process requires outgoing IPv4/IPv6 network access.
+    example: true
+    oneOf:
+    - type: boolean
+    - $ref: '#/$defs/CWLExpression'
   NetworkAccessRequirement:
     type: object
     title: NetworkAccessRequirement
@@ -315,7 +309,7 @@ $defs:
       networkAccess:
         $ref: '#/$defs/NetworkAccess'
     required:
-    - NetworkAccess
+    - networkAccess
     additionalProperties: false
   CWLExpression:
     $comment: |
