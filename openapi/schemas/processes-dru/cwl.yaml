@@ -312,7 +312,7 @@ $defs:
         $comment: Not 'NetworkAccessRequirement'
         enum:
           - NetworkAccess
-      NetworkAccess:
+      networkAccess:
         $ref: '#/$defs/NetworkAccess'
     required:
     - NetworkAccess
