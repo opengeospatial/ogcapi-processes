@@ -143,6 +143,8 @@ $defs:
         $ref: '#/$defs/MultipleInputFeatureRequirement'
       StepInputExpressionRequirement:
         $ref: '#/$defs/StepInputExpressionRequirement'
+      SubworkflowFeatureRequirement:
+        $ref: '#/$defs/SubworkflowFeatureRequirement'
     additionalProperties: false
   DockerRequirement:
     type: object
@@ -565,6 +567,17 @@ $defs:
         enum:
           - StepInputExpressionRequirement
     additionalProperties: false
+  SubworkflowFeatureRequirement:
+    type: object
+    title: SubworkflowFeatureRequirement
+    description: Indicates that the 'Workflow' must support nested workflows in the 'run' field of 'WorkflowStep'.
+    properties:
+      class:
+        type: string
+        description: CWL requirement class specification.
+        enum:
+          - SubworkflowFeatureRequirement
+    additionalProperties: false
   CWLFileOnlyParameters:
     type: object
     properties:
@@ -936,8 +949,7 @@ $defs:
             - WorkReuse
             - MultipleInputFeatureRequirement
             - StepInputExpressionRequirement
-            # FIXME: to implement
-            # - SubworkflowFeatureRequirement
+            - SubworkflowFeatureRequirement
     additionalProperties: {}
   CWLRequirementsList:
     type: array
@@ -975,6 +987,7 @@ $defs:
       - $ref: '#/$defs/WorkReuseRequirement'
       - $ref: '#/$defs/MultipleInputFeatureRequirement'
       - $ref: '#/$defs/StepInputExpressionRequirement'
+      - $ref: '#/$defs/SubworkflowFeatureRequirement'
   ScatterMethod:
     type: string
     title: scatterMethod
@@ -1747,6 +1760,7 @@ $defs:
     allOf:
     - $ref: '#/$defs/CWLInputItemBase'
     - $ref: '#/$defs/CWLDefaultTypedConditional'
+    - $ref: '#/$defs/CWLDocumentation'
   CWLInputObjectBase:
     type: object
     properties:
@@ -1764,6 +1778,7 @@ $defs:
     allOf:
     - $ref: '#/$defs/CWLInputObjectBase'
     - $ref: '#/$defs/CWLDefaultTypedConditional'
+    - $ref: '#/$defs/CWLDocumentation'
   CWLInputMap:
     type: object
     title: CWLInputMap
@@ -1824,7 +1839,7 @@ $defs:
     - type
     - id
     additionalProperties: {}
-  CWLOutputObject:
+  CWLOutputObjectBase:
     type: object
     title: CWLOutputObject
     summary: CWL type definition with parameters.
@@ -1836,6 +1851,10 @@ $defs:
     required:
     - type
     additionalProperties: {}
+  CWLOutputObject:
+    allOf:
+      - $ref: '#/$defs/CWLDocumentation'
+      - $ref: '#/$defs/CWLOutputObjectBase'
   CWLOutputMap:
     type: object
     title: CWLOutputMap
@@ -1891,12 +1910,13 @@ $defs:
         $ref: '#/$defs/ScatterMethod'
   CWLWorkflowStepRun:
     description: Nested CWL definition to run as Workflow step.
-    $comment: SubWorkflowRequirement not supported yet, but technically possible.
     oneOf:
       - description: File or URL reference to a CWL tool definition.
         type: string
       - description: Nested CWL tool definition for the step.
         $ref: '#/$defs/CWLAtomicNested'
+      - description: Nested CWL Workflow definition for the step.
+        $ref: '#/$defs/CWLWorkflowNested'
   CWLWorkflowStepWhen:
     description: Condition to execute a step that must evaluate to a boolean-like value.
     $ref: '#/$defs/CWLExpression'
@@ -2040,9 +2060,18 @@ $defs:
       hints:
         $comment: Technically a different subset, but lots of redefinitions to be done.
         $ref: '#/$defs/CWLHints'
+  CWLWorkflowNested:
+    $comment: Same as 'CWLWorkflow', but 'cwlVersion' not repeated (only at root).
+    allOf:
+      - $ref: '#/$defs/CWLMetadata'
+      - $ref: '#/$defs/CWLDocumentation'
+      - $ref: '#/$defs/CWLWorkflowClass'
+      - $ref: '#/$defs/CWLWorkflowBase'
   CWLWorkflow:
     allOf:
       - $ref: '#/$defs/CWLVersion'
+      - $ref: '#/$defs/CWLMetadata'
+      - $ref: '#/$defs/CWLDocumentation'
       - $ref: '#/$defs/CWLWorkflowClass'
       - $ref: '#/$defs/CWLWorkflowBase'
   CWLVersion:
@@ -2059,11 +2088,13 @@ $defs:
     allOf:
       - $ref: '#/$defs/CWLVersion'
       - $ref: '#/$defs/CWLMetadata'
+      - $ref: '#/$defs/CWLDocumentation'
       - $ref: '#/$defs/CWLAtomicBase'
   CWLAtomicNested:
     $comment: Same as 'CWLAtomic', but 'cwlVersion' not repeated (only at root).
     allOf:
     - $ref: '#/$defs/CWLMetadata'
+    - $ref: '#/$defs/CWLDocumentation'
     - $ref: '#/$defs/CWLAtomicBase'
   CWLAtomicBase:
     type: object
@@ -2129,6 +2160,11 @@ $defs:
     maxItems: 1
     minItems: 1
   CWLGraphItem:
+    allOf:
+      - $ref: '#/$defs/CWLMetadata'
+      - $ref: '#/$defs/CWLDocumentation'
+      - $ref: '#/$defs/CWLGraphItemBase'
+  CWLGraphItemBase:
     type: object
     title: CWLGraphItem
     properties:
@@ -2181,10 +2217,26 @@ $defs:
     allOf:
       - $ref: '#/$defs/CWLVersion'
       - $ref: '#/$defs/CWLMetadata'
+      - $ref: '#/$defs/CWLDocumentation'
       - $ref: '#/$defs/CWLGraphBase'
+  CWLDocumentation:
+    type: object
+    properties:
+      label:
+        type: string
+      doc:
+        oneOf:
+          - type: string
+          - type: array
+            items:
+              type: string
   CWLMetadata:
     type: object
     properties:
+      s:keywords:
+        type: array
+        items:
+          type: string
       version:
         type: string
         title: version
