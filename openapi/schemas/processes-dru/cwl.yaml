@@ -1243,7 +1243,9 @@ $defs:
   CWLOutputStdOutDefinition:
     description: |
       Indicates that the data pushed to the standard output stream by the command will be redirected to this CWL output.
-      Can be defined for only one output and must not be combined with 'stdout' at the root of the CWL document.
+      Can be defined for only one output. If combined with 'stdout' at the root of the CWL document, that definition
+      will indicate the desired name of the output file where the output stream will be written to. A random name will
+      be applied for the file of this output unless otherwise specified.
     type: string
     enum:
       - stdout
@@ -1261,7 +1263,9 @@ $defs:
   CWLOutputStdErrDefinition:
     description: |
       Indicates that the data pushed to the standard error stream by the command will be redirected to this CWL output.
-      Can be defined for only one output and must not be combined with 'stderr' at the root of the CWL document.
+      Can be defined for only one output. If combined with 'stderr' at the root of the CWL document, that definition
+      will indicate the desired name of the output file where the error stream will be written to.  A random name will
+      be applied for the file of this output unless otherwise specified.
     type: string
     enum:
       - stderr
