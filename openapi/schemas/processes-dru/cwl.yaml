@@ -1770,9 +1770,12 @@ $defs:
     description: Defines how to retrieve the output result from the command.
     properties:
       glob:
-        type: string
-        title: glob
         description: Glob pattern to find the output on disk or mounted docker volume.
+        oneOf:
+        - $ref: '#/$defs/CWLExpression'
+        - type: array
+          items:
+            $ref: '#/$defs/CWLExpression'
     additionalProperties: {}
   CWLOutputItem:
     type: object
