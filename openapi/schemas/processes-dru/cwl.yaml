@@ -181,20 +181,43 @@ $defs:
         title: InitialWorkDirListingItems
         items:
           oneOf:
+            - type: 'null'
             - $ref: '#/$defs/CWLExpression'
-            - $ref: '#/$defs/DirectoryListingItem'
-  DirectoryListingItem:
+            - $ref: '#/$defs/DirectoryListingDirent'
+            - $ref: '#/$defs/DirectoryListingFileOrDirectory'
+            - type: array
+              items:
+                $ref: '#/$defs/DirectoryListingFileOrDirectory'
+  DirectoryListingFileOrDirectory:
     type: object
-    title: DirectoryListingItem
+    properties:
+      class:
+        type: string
+        enum:
+          - File
+          - Directory
+      location:
+        type: string
+      checksum:
+        $ref: '#/$defs/Checksum'
+      size:
+        type: integer
+        minimum: 0
+    required:
+      - class
+      - location
+    additionalProperties: false
+  DirectoryListingDirent:
+    $comment: Called 'Dirent' in documentation.
+    type: object
+    title: DirectoryListingDirent
     properties:
       entry:
         $ref: '#/$defs/CWLExpression'
       entryname:
-        type: string
-        title: entryname
+        $ref: '#/$defs/CWLExpression'
       writable:
         type: boolean
-        title: writable
     required:
       - entry
     additionalProperties: false
@@ -1635,6 +1658,12 @@ $defs:
     title: AnyLiteralList
     items:
       $ref: '#/$defs/AnyLiteralType'
+  Checksum:
+    $comment: |
+      Minimal pattern check to know which hash algorithm to apply,
+      but don't check too harshly for the rest (length, allowed characters, etc.).
+    type: string
+    pattern: '^[a-z0-9\-]+\$\w+$'
   ReferenceURL:
     type: string
     format: url
