@@ -1,4 +1,4 @@
-$schema: "http://json-schema.org/draft-07/schema#"
+$schema: "https://json-schema.org/draft/2019-09/schema#"
 $author: "Francis Charette-Migneault <francis.charette-migneault@crim.ca>"
 $id: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-dru/cwl.yaml"
 
