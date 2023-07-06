@@ -15,9 +15,9 @@ To register, please create a Pull Request adding your details to this page.
 | Hexagon
 | https://github.com/sptillma[sptillma]
 
-| FirstName LastName
-| Affiliation
-| https://example.org[GitHub Handle]
+| Francis Charette-Migneault
+| Computer Research Institute of Montréal (CRIM)
+| https://github.com/fmigneault[fmigneault]
 
 | FirstName LastName
 | Affiliation
