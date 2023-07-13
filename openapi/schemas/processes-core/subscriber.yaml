@@ -6,7 +6,7 @@ description: |-
   is not listed in the conformance declaration under `/conformance`.
 type: object
 required:
-  - successUrl
+  - successUri
 properties:
   successUri:
     type: string

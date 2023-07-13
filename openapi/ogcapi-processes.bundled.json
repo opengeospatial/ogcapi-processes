@@ -1845,7 +1845,7 @@
         "description": "Optional URIs for callbacks for this job.\n\nSupport for this parameter is not required and the parameter may be\nremoved from the API definition, if conformance class **'callback'**\nis not listed in the conformance declaration under `/conformance`.",
         "type": "object",
         "required": [
-          "successUrl"
+          "successUri"
         ],
         "properties": {
           "successUri": {
