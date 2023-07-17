@@ -1,5 +1,4 @@
-[[ats_oas30]]
-[conformance_class]
+[[ats_oas30]][conformance_class]
 ====
 [%metadata]
 label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30

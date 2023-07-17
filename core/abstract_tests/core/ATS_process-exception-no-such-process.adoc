@@ -1,5 +1,4 @@
-[[ats_core_process-exception-no-such-process]]
-[abstract_test]
+[[ats_core_process-exception-no-such-process]][abstract_test]
 ====
 [%metadata]
 label:: /conf/core/process-exception-no-such-process

@@ -8,12 +8,11 @@ If an execute request *is accompanied* with the HTTP https://datatracker.ietf.or
 
 See requirements: 
 --
-* <<req_core_process-execute-sync-one-small,/req/core/process-execute-sync-one-small>>
+* <<req_core_process-execute-sync-one,/req/core/process-execute-sync-one>>
 --
 
 See recommendations:
 --
-* <<rec_core_process-execute-sync-one-big,/rec/core/process-execute-sync-one-big>>
 * <<rec_core_process-execute-sync-many-json-prefer-none,/rec/core/process-execute-sync-many-json-prefer-none>>
 * <<rec_core_process-execute-sync-many-json-prefer-minimal,/rec/core/process-execute-sync-many-json-prefer-minimal>>
 * <<rec_core_process-execute-sync-many-json-prefer-representation,/rec/core/process-execute-sync-many-json-prefer-representation>>

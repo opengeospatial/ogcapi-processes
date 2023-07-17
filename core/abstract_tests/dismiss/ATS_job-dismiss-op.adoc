@@ -1,5 +1,4 @@
-[[ats_dismiss_job-dismiss-op]]
-[abstract_test]
+[[ats_dismiss_job-dismiss-op]][abstract_test]
 ====
 [%metadata]
 label:: /conf/dismiss/job-dismiss-op

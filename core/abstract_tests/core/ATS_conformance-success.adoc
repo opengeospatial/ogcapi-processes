@@ -1,5 +1,4 @@
-[[ats_core_conformance-success]]
-[abstract_test]
+[[ats_core_conformance-success]][abstract_test]
 ====
 [%metadata]
 label:: /conf/core/conformance-success

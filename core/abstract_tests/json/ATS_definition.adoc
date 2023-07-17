@@ -1,4 +1,3 @@
-
 [[ats_json_content]]
 [abstract_test]
 ====
