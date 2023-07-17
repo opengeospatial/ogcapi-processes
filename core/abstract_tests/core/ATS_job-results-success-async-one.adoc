@@ -1,0 +1,29 @@
+[[ats_core_job-results-async-one]][abstract_test]
+====
+[%metadata]
+label:: /conf/core/job-results-async-one
+subject:: <<req_core_job-results-async-one,/req/core/job-results-async-one>>
+test-purpose:: Validate that only the requested processing result is included in the response when the `outputs` parameter requesting output with identifier `{outputID}` is specified on an execution request.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Negotiate asynchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/req/core/process-execute-op>>.
+--
+[.component,class=step]
+--
+Request a single process output with output identifier `{outputID}` as per test <<ats_core_job-results-param-outputs,/req/core/job-results-param-outputs>>.
+--
+
+[.component,class=step]
+--
+Retrieve the processing response from the `/jobs/{jobID}/results/{outputID}` endpoint.
+--
+
+[.component,class=step]
+--
+Validate that the response conforms to the requirement <<req_core_job-results-async-one,/req/core/job-results-async-one>>.
+--
+=====
+====

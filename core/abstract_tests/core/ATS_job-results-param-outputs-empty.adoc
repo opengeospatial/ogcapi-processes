@@ -1,0 +1,16 @@
+[[ats_core_job-results-param-outputs-empty]]
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/job-results-param-outputs-empty
+subject:: <<req_core_job-results-param-outputs-empty,/req/core/job-results-param-outputs-empty>>
+test-purpose:: Validate that no processing results are available when the `outputs` parameter is present in an execution request but is empty.
+
+[.component,class=test method]
+=====
+[.component,class=step]
+--
+Verify that the server responds with a 204 HTTP status code and an empty response body when an output is requested.
+--
+=====
+====

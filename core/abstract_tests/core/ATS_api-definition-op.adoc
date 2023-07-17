@@ -1,5 +1,4 @@
-[[ats_core_api-definition-op]]
-[abstract_test]
+[[ats_core_api-definition-op]][abstract_test]
 ====
 [%metadata]
 label:: /conf/core/api-definition-op

@@ -1,5 +1,4 @@
-[[ats_job-list_type-definition]]
-[abstract_test]
+[[ats_job-list_type-definition]][abstract_test]
 ====
 [%metadata]
 label:: /conf/job-list/type-definition

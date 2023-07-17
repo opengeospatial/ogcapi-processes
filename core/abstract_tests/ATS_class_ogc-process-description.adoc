@@ -1,5 +1,4 @@
-[[ats_ogc-process-description]]
-[conformance_class]
+[[ats_ogc-process-description]][conformance_class]
 ====
 [%metadata]
 label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description

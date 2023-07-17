@@ -1,5 +1,4 @@
-[[ats_html_content]]
-[abstract_test]
+[[ats_html_content]][abstract_test]
 ====
 [%metadata]
 label:: /conf/html/content

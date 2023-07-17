@@ -1,5 +1,4 @@
-[[ats_callback_job-callback]]
-[abstract_test]
+[[ats_callback_job-callback]][abstract_test]
 ====
 [%metadata]
 label:: /conf/callback/job-callback

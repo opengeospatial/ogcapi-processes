@@ -1,5 +1,4 @@
-[[ats_job-list_status-definition]]
-[abstract_test]
+[[ats_job-list_status-definition]][abstract_test]
 ====
 [%metadata]
 label:: /conf/job-list/status-definition

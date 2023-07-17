@@ -1,5 +1,4 @@
-[[ats_ogc-process-description_input-mixed-type]]
-[abstract_test]
+[[ats_ogc-process-description_input-mixed-type]][abstract_test]
 ====
 [%metadata]
 label:: /conf/ogc-process-description/input-mixed-type

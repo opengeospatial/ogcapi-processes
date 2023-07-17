@@ -1,4 +1,3 @@
-
 [[req_core_api-definition-op]]
 [requirement]
 ====

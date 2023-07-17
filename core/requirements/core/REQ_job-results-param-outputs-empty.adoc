@@ -1,0 +1,10 @@
+[[req_core_job-results-param-outputs-empty]]
+[requirement]
+====
+[%metadata]
+label:: /req/core/job-results-param-outputs-empty
+[.component,class=part]
+--
+If the `outputs` parameter is empty in an <<execute-request-body,execute request>>, this SHALL cause the server to respond with a HTTP status code 204 and an empty response body.
+--
+====

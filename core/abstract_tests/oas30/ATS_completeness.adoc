@@ -1,5 +1,4 @@
-[[ats_oas30_completeness]]
-[abstract_test]
+[[ats_oas30_completeness]][abstract_test]
 ====
 [%metadata]
 label:: /conf/oas30/completeness

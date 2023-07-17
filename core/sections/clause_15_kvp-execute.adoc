@@ -6,7 +6,7 @@
 
 include::../requirements/requirements_class_kvp-execute.adoc[]
 
-The <<sc_execute_process,"Execute a process">> clause describes how to invoke a process by sending a <<execute-request-body,JSON-encoded execute request>> to the <<execute-op,execution endpoint>> of a server using the https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3[HTTP POST method].  This invocation pattern does not, however, allow dynamic execute requests to be embedded in other documents.  This clause describes a process invocation method that encodes an execute request as a URL with query parameters.
+The <<sc_execute_process,"Execute a process">> clause describes how to invoke a process by sending a <<execute-request-body,JSON-encoded execute request>> to the <<req_core_process-execute-op,execution endpoint>> of a server using the https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3[HTTP POST method].  This invocation pattern does not, however, allow dynamic execute requests to be embedded in other documents.  This clause describes a process invocation method that encodes an execute request as a URL with query parameters.
 
 The following examples illustrate KVP-encoded process execution requests.
 
@@ -205,7 +205,7 @@ include::../requirements/kvp-execute/REQ_array-input-value.adoc[]
 
 The elements of an array input value can be:
 
-* a <<simple-value,simple value>>,
+* a <<kvp-simple-value,simple value>>,
 * a <<qualified-value,complex value>>,
 * a <<kvp-binary-value,binary value>>,
 * a <<bounding-box-value,bounding box value>>,

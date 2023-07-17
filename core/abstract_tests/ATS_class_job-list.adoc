@@ -1,5 +1,4 @@
-[[ats_job-list]]
-[conformance_class]
+[[ats_job-list]][conformance_class]
 ====
 [%metadata]
 label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list
@@ -11,30 +10,41 @@ include::job-list/ATS_op.adoc[]
 
 include::job-list/ATS_type-def.adoc[]
 
-include::job-list/ATS_processid-def.adoc[]
-
-include::job-list/ATS_status-def.adoc[]
-
-include::job-list/ATS_datetime-def.adoc[]
-
-include::job-list/ATS_duration-def.adoc[]
-
-include::job-list/ATS_jl-limit-def.adoc[]
-
-include::job-list/ATS_success.adoc[]
-
-include::job-list/ATS_jl-links.adoc[]
-
 include::job-list/ATS_type-response.adoc[]
 
 include::job-list/ATS_processid-mandatory.adoc[]
 
+include::job-list/ATS_processid-def.adoc[]
+
 include::job-list/ATS_processid-response.adoc[]
+
+include::job-list/ATS_status-def.adoc[]
 
 include::job-list/ATS_status-response.adoc[]
 
+include::job-list/ATS_datetime-def.adoc[]
+
 include::job-list/ATS_datetime-response.adoc[]
+
+include::job-list/ATS_duration-def.adoc[]
 
 include::job-list/ATS_duration-response.adoc[]
 
+include::job-list/ATS_jl-limit-def.adoc[]
+
 include::job-list/ATS_jl-limit-response.adoc[]
+
+include::job-list/ATS_success.adoc[]
+
+NOTE: A job list may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.
+
+[[job-list-schema]]
+.Schema and Tests for Job List Content
+[cols="3",options="header"]
+|===
+|Format |Schema Document |Test ID
+|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/jobList.yaml[jobList.yaml] |<<ats_html_content,/conf/html/content>>
+|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/jobList.yaml[jobList.yaml] |<<ats_json_content,/conf/json/content>>
+|===
+
+include::job-list/ATS_jl-links.adoc[]

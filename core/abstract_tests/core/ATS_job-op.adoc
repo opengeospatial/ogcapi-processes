@@ -1,5 +1,4 @@
-[[ats_core_job-op]]
-[abstract_test]
+[[ats_core_job-op]][abstract_test]
 ====
 [%metadata]
 label:: /conf/core/job-op

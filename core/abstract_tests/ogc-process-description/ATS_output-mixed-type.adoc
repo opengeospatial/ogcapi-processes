@@ -1,5 +1,4 @@
-[[ats_ogc-process-description_output-mixed-type]]
-[abstract_test]
+[[ats_ogc-process-description_output-mixed-type]][abstract_test]
 ====
 [%metadata]
 label:: /conf/ogc-process-description/output-mixed-type
