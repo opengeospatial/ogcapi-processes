@@ -3,7 +3,7 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/core/job-results-failed
+identifier:: /conf/core/job-results-exception-no-such-job
 target:: <<req_core_job-results-exception_no-such-job,/req/core/job-results-exception-no-such-job>>
 test-purpose:: Validate that the job results retrieved using an invalid job identifier complies with the require structure and contents.
 test-method::
