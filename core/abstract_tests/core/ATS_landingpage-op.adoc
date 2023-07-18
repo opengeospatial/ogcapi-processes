@@ -1,20 +1,16 @@
-[[ats_core_landingpage-op]][abstract_test]
+[[ats_core_landingpage-op]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/core/landingpage-op
-subject:: <<req_core_landingpage-op,/req/core/landingpage-op>>
+identifier:: /conf/core/landingpage-op
+target:: <<req_core_landingpage-op,/req/core/landingpage-op>>
 test-purpose:: Validate that a landing page can be retrieved from the expected location.
+test-method::
++
+--
+1. Issue an HTTP GET request to the root URL `/`.
 
-[.component,class=test method]
-=====
-[.component,class=step]
+2. Validate the contents of the returned document using test <<ats_core_landingpage-success,/conf/core/landingpage-success>>.
 --
-Issue an HTTP GET request to the root URL `/`.
---
-
-[.component,class=step]
---
-Validate the contents of the returned document using test <<ats_core_landingpage-success,/conf/core/landingpage-success>>.
---
-=====
 ====

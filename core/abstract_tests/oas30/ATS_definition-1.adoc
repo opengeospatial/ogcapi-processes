@@ -1,21 +1,16 @@
-[[ats_oas30_oas-definition-1]][abstract_test]
+[[ats_oas30_oas-definition-1]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/oas30/oas-definition-1
-subject:: <<req_oas30_oas-definition-1,/req/oas30/oas-definition-1>>
+identifier:: /conf/oas30/oas-definition-1
+target:: <<req_oas30_oas-definition-1,/req/oas30/oas-definition-1>>
 test-purpose:: Verify that JSON and HTML versions of the OpenAPI document are available.
+test-method::
++
+--
+1. Verify that an OpenAPI definition in JSON is available using the media type `application/vnd.oai.openapi+json;version=3.0` and link relation `service-desc`
 
-[.component,class=test method]
-=====
-
-[.component,class=step]
+2. Verify that an HTML version of the API definition is available using the media type `text/html` and link relation `service-doc`.
 --
-Verify that an OpenAPI definition in JSON is available using the media type `application/vnd.oai.openapi+json;version=3.0` and link relation `service-desc`
---
-
-[.component,class=step]
---
-Verify that an HTML version of the API definition is available using the media type `text/html` and link relation `service-doc`.
---
-=====
 ====

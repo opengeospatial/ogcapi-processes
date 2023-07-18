@@ -1,15 +1,14 @@
-[[ats_html_definition]][abstract_test]
+[[ats_html_definition]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/html/definition
-subject:: <<req_html_definition,/req/html/definition>>
+identifier:: /conf/html/definition
+target:: <<req_html_definition,/req/html/definition>>
 test-purpose:: Verify support for HTML
-
-[.component,class=test method]
-=====
-[.component,class=step]
+test-method::
++
 --
 Verify that every `200` response of every operation of the API where HTML was requested is of media type `text/html`.
 --
-=====
 ====

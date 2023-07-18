@@ -1,21 +1,16 @@
-[[ats_oas30_security]][abstract_test]
+[[ats_oas30_security]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/oas30/security
-subject:: <<req_oas30_security,/req/oas30/security>>
+identifier:: /conf/oas30/security
+target:: <<req_oas30_security,/req/oas30/security>>
 test-purpose:: Verify that any authentication protocols implemented by the API are documented in the OpenAPI document.
+test-method::
++
+--
+1. Identify all authentication protocols supported by the API.
 
-[.component,class=test method]
-=====
-
-[.component,class=step]
+2. Validate that each authentication protocol is described in the OpenAPI document by a Security Schema Object and its use is specified by a Security Requirement Object.
 --
-Identify all authentication protocols supported by the API.
---
-
-[.component,class=step]
---
-Validate that each authentication protocol is described in the OpenAPI document by a Security Schema Object and its use is specified by a Security Requirement Object.
---
-=====
 ====

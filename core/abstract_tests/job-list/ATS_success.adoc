@@ -1,22 +1,16 @@
 [[ats_job-list_job-list-success]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/job-list/job-list-success
-subject:: <<req_job-list_job-list-success,/req/job-list/job-list-success>>
+identifier:: /conf/job-list/job-list-success
+target:: <<req_job-list_job-list-success,/req/job-list/job-list-success>>
 test-purpose:: Validate that the job list content complies with the required structure and contents.
+test-method::
++
+--
+1. Validate that a document was returned with an HTTP status code of 200.
 
-[.component,class=test method]
-=====
-[.component,class=step]
+2. Validate the job list content for all supported media types using the resources and tests identified in <<job-list-schema>>
 --
-Validate that a document was returned with an HTTP status code of 200.
---
-
-[.component,class=step]
---
-Validate the job list content for all supported media types using the resources and tests identified in <<job-list-schema>>
---
-=====
-
 ====

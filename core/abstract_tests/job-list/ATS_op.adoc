@@ -1,21 +1,16 @@
-[[ats_job-list_job-list-op]][abstract_test]
+[[ats_job-list_job-list-op]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/job-list/job-list-op
-subject:: <<req_job-list_job-list-op,/req/job-list/job-list-op>>
+identifier:: /conf/job-list/job-list-op
+target:: <<req_job-list_job-list-op,/req/job-list/job-list-op>>
 test-purpose:: Validate that information about jobs can be retrieved from the expected location.
+test-method::
++
+--
+1. Issue an HTTP GET request to the URL /jobs.
 
-[.component,class=test method]
-=====
-
-[.component,class=step]
+2. Validate the contents of the returned document using test <<ats_job-list_job-list-success,/conf/job-list/job-list-success>>.
 --
-Issue an HTTP GET request to the URL /jobs.
---
-
-[.component,class=step]
---
-Validate the contents of the returned document using test <<ats_job-list_job-list-success,/conf/job-list/job-list-success>>.
---
-=====
 ====

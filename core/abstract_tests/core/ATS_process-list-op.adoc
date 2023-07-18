@@ -1,20 +1,16 @@
-[[ats_core_process-list-op]][abstract_test]
+[[ats_core_process-list-op]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/core/process-list
-subject:: <<req_core_process-list,/req/core/process-list>>
+identifier:: /conf/core/process-list
+target:: <<req_core_process-list,/req/core/process-list>>
 test-purpose:: Validate that information about the processes can be retrieved from the expected location.
+test-method::
++
+--
+1. Issue an HTTP GET request to the URL {root}/processes
 
-[.component,class=test method]
-=====
-[.component,class=step]
+2. Validate the contents of the returned document using test <<ats_core_process-list-success,/conf/core/process-list-success>>.
 --
-Issue an HTTP GET request to the URL {root}/processes
---
-
-[.component,class=step]
---
-Validate the contents of the returned document using test <<ats_core_process-list-success,/conf/core/process-list-success>>.
---
-=====
 ====

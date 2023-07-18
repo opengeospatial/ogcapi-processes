@@ -1,30 +1,20 @@
-[[ats_core_conformance-success]][abstract_test]
+[[ats_core_conformance-success]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/core/conformance-success
-subject:: <<req_core_conformance-success,/req/core/conformance-success>>
+identifier:: /conf/core/conformance-success
+target:: <<req_core_conformance-success,/req/core/conformance-success>>
 test-purpose:: Validate that the Conformance Declaration response complies with the required structure and contents.
+test-method::
++
+--
+1.Validate that a document was returned with an HTTP status code of 200.
 
-[.component,class=test method]
-=====
-[.component,class=step]
---
-Validate that a document was returned with an HTTP status code of 200.
---
+2. Validate the response document against OpenAPI 3.0 schema link: http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/confClasses.yaml[confClasses.yaml]
 
-[.component,class=step]
---
-Validate the response document against OpenAPI 3.0 schema link: http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/confClasses.yaml[confClasses.yaml]
---
+3. Validate that the document includes the conformance class "http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core"
 
-[.component,class=step]
+4. Validate that the document list all OGC API conformance classes that the API implements.
 --
-Validate that the document includes the conformance class "http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core"
---
-
-[.component,class=step]
---
-Validate that the document list all OGC API conformance classes that the API implements.
---
-=====
 ====

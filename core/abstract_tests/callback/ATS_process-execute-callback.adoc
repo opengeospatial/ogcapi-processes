@@ -1,30 +1,20 @@
-[[ats_callback_job-callback]][abstract_test]
+[[ats_callback_job-callback]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/callback/job-callback
-subject:: <<req_callback_job-callback,/req/callback/job-callback>>
+identifier:: /conf/callback/job-callback
+target:: <<req_callback_job-callback,/req/callback/job-callback>>
 test-purpose:: Validate the passing of a subscriber-URL in an execute request.
+test-method::
++
+--
+1. Configure a URL endpoint to accept message body from the server.
 
-[.component,class=test method]
-=====
-[.component,class=step]
---
-Configure a URL endpoint to accept message body from the server.
---
+2. Create an asynchronous execute request that includes the optional `subscriber` key (see https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
 
-[.component,class=step]
---
-Create an asynchronous execute request that includes the optional `subscriber` key (see https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
---
+3. Execute the asynchronous job using test <<ats_core_process-execute-op,/conf/core/process-execute-request>>.
 
-[.component,class=step]
+4. Validate the job results are received by the specified callback URL.
 --
-Execute the asynchronous job using test <<ats_core_process-execute-op,/conf/core/process-execute-request>>.
---
-
-[.component,class=step]
---
-Validate the job results are received by the specified callback URL.
---
-=====
 ====
