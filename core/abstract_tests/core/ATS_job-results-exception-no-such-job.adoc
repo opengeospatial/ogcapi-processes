@@ -7,7 +7,6 @@ test-purpose:: Validate that the job results retrieved using an invalid job iden
 
 [.component,class=test method]
 =====
-
 [.component,class=step]
 --
 Issue an HTTP GET request to the URL '/jobs/{jobID}/results' using an invalid {jobID}.

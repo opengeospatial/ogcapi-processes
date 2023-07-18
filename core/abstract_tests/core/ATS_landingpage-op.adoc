@@ -7,10 +7,9 @@ test-purpose:: Validate that a landing page can be retrieved from the expected l
 
 [.component,class=test method]
 =====
-
 [.component,class=step]
 --
-Issue an HTTP GET request to the root URL `/`
+Issue an HTTP GET request to the root URL `/`.
 --
 
 [.component,class=step]

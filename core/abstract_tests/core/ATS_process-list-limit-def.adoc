@@ -12,6 +12,6 @@ test-purpose:: Validate that the `limit` query parameter is constructed correctl
 Verify that the `limit` query parameter complies with its definition in requirement <<req_core_pl-limit-definition,/req/core/pl-limit-definition>>.
 --
 
-Note that the API can define different values for "minimum", "maximum" and "default".
+NOTE: that the API can define different values for "minimum", "maximum" and "default".
 =====
 ====

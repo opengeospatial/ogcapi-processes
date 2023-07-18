@@ -1,4 +1,4 @@
-[[req_core_test-process]][requirement]
+[[ats_core_test-process]][requirement]
 ====
 [%metadata]
 label:: /req/core/test-process

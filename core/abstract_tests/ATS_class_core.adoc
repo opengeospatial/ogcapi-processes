@@ -6,6 +6,10 @@ subject:: <<rc_core,Requirements Class "Core">>
 classification:: Target Type:Web API
 ====
 
+=== Abstract test suite
+
+// include::core/ATS_test-process.adoc[]
+
 === Retrieve the API landing page
 
 include::core/ATS_landingpage-op.adoc[]
@@ -54,17 +58,9 @@ include::core/ATS_process-exception-no-such-process.adoc[]
 
 include::core/ATS_process-execute-op.adoc[]
 
-include::core/ATS_process-execute-auto-execution-mode.adoc[]
-
-include::core/ATS_process-execute-default-execution-mode.adoc[]
-
 include::core/ATS_process-execute-request.adoc[]
 
 include::core/ATS_process-execute-inputs.adoc[]
-
-include::core/ATS_process-execute-input-inline.adoc[]
-
-include::core/ATS_process-execute-input-ref.adoc[]
 
 include::core/ATS_process-execute-input-array.adoc[]
 
@@ -78,17 +74,19 @@ include::core/ATS_process-execute-input-inline-bbox.adoc[]
 
 include::core/ATS_process-execute-input-validation.adoc[]
 
-include::core/ATS_process-execute-success.adoc[]
+include::core/ATS_process-execute-default-execution-mode.adoc[]
 
-include::core/ATS_process-execute-success-sync-raw-value-one.adoc[]
+include::core/ATS_process-execute-auto-execution-mode.adoc[]
 
-include::core/ATS_process-execute-success-sync-raw-value-multi.adoc[]
+include::core/ATS_process-execute-default-outputs.adoc[]
 
-include::core/ATS_process-execute-success-sync-raw-ref.adoc[]
+include::core/ATS_process-execute-success-sync-one.adoc[]
 
-include::core/ATS_process-execute-success-sync-raw-mixed-multi.adoc[]
+include::core/ATS_process-execute-success-sync-one-default-content.adoc[]
 
-include::core/ATS_process-execute-success-sync-document.adoc[]
+include::core/ATS_process-execute-success-sync-many-json.adoc[]
+
+include::core/ATS_job-results-success-sync.adoc[]
 
 include::core/ATS_process-execute-success-async.adoc[]
 

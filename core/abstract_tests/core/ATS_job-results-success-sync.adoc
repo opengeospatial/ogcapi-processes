@@ -7,7 +7,6 @@ test-purpose:: Validate that the server responds as expected when getting result
 
 [.component,class=test method]
 =====
-
 [.component,class=step]
 --
 Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.

@@ -30,7 +30,7 @@ For processes that are supposed to execute asynchronously according to the <<req
 
 [.component,class=step]
 --
-For processes that are supposed to execute synchronously according to the <<req_core_process-execute-auto-execution-mode,/req/core/process-execute-auto-execution-mode>> requirement, verify the successful synchronous execution according to the <<ats-process-execute-success-sync,relevant requirement based on the combination of execute parameters.>>
+For processes that are supposed to execute synchronously according to the <<req_core_process-execute-auto-execution-mode,/req/core/process-execute-auto-execution-mode>> requirement, verify the successful synchronous execution according to the relevant requirement (one of: <<ats_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, <<ats_core_process-execute-sync-one,/req/core/process-execute-sync-one>>, <<ats_core_process-execute-sync-one-default-content,/req/core/process-execute-sync-one-default-content>>) base on the combination of execute parameters.
 --
 =====
 ====

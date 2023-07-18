@@ -11,12 +11,17 @@ test-purpose:: Validate the results of a job that has been created using the `as
 
 [.component,class=step]
 --
-Validate that results of the job was returned with an HTTP status code 201.
+Validate that the response returned with an HTTP status code of 201.
 --
 
 [.component,class=step]
 --
-Validate the HTTP headers of the results using the test <<ats_core_process-execute-success-header-async,/conf/core/process-execute-success-header-async>>.
+Validate that the response includes the HTTP https://datatracker.ietf.org/doc/html/rfc7231#page-68[`Location`] header and that the link points to the newly created job.
+--
+
+[.component,class=step]
+--
+Validate that the response body conforms to the JSON Schema fragment https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[statusInfo.yaml].
 --
 =====
 ====

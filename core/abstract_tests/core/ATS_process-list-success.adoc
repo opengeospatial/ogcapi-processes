@@ -7,7 +7,6 @@ test-purpose:: Validate that the process list content complies with the required
 
 [.component,class=test method]
 =====
-
 [.component,class=step]
 --
 Validate that a document was returned with an HTTP status code of 200.
