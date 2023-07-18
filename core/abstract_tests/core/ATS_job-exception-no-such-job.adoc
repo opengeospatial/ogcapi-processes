@@ -27,7 +27,6 @@ Validate that the document contains the exception type "http://www.opengis.net/d
 Validate the document for all supported media types using the resources and tests identified in <<job-exception-no-such-job>>
 --
 =====
-
 An exception response caused by the use of an invalid job identifier may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the response. All supported formats should be exercised.
 ====
 
@@ -39,4 +38,3 @@ An exception response caused by the use of an invalid job identifier may be retr
 |HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_html_content,/conf/html/content>>
 |JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_json_content,/conf/json/content>>
 |===
-

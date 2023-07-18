@@ -7,7 +7,6 @@ test-purpose:: Validate that the `limit` query parameter is processed correctly.
 
 [.component,class=test method]
 =====
-
 [.component,class=step]
 --
 Get a list of processes as per test <<ats_core_process-list-op,/conf/core/process-list-op>> and append the `limit` query parameter to the request.

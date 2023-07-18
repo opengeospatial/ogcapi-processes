@@ -7,7 +7,6 @@ test-purpose:: Validate that information about the processes can be retrieved fr
 
 [.component,class=test method]
 =====
-
 [.component,class=step]
 --
 Issue an HTTP GET request to the URL {root}/processes

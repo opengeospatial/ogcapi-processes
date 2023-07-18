@@ -28,9 +28,3 @@ Depending on the number of outputs requested, the negotiated content type of the
 --
 =====
 ====
-
-
-
-
-
-

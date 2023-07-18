@@ -7,7 +7,6 @@ test-purpose:: Validate that an invalid process identifier is handled correctly.
 
 [.component,class=test method]
 =====
-
 [.component,class=step]
 --
 Issue an HTTP GET request to a URL that includes the `{processID}` as a path element using a non-existent process identifier.
@@ -28,7 +27,6 @@ Validate that the document contains the exception `type` "http://www.opengis.net
 Validate the document for all supported media types using the resources and tests identified in <<no-such-process>>
 --
 =====
-
 An exception response caused by the use of an invalid process identifier may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the response. All supported formats should be exercised.
 ====
 

@@ -20,7 +20,7 @@ Request a single output with identifier `{outputID}` as per test <<ats_core_job-
 
 [.component,class=step]
 --
-Negotiate an output format that is supported for the requested output according to the process' description that has been retrieved as per test <<ats_core_process,/conf/core/process>>.
+Negotiate an output format that is supported for the requested output according to the process' description that has been retrieved as per test <<ats_core_process-description,/req/core/process-description>>.
 --
 
 [.component,class=step]

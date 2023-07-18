@@ -7,7 +7,6 @@ test-purpose:: Validate that the job results for a failed job complies with the 
 
 [.component,class=test method]
 =====
-
 [.component,class=step]
 --
 Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> but arrange a priori that the job will fail; note the {jobID} assigned to the job.
