@@ -1,28 +1,18 @@
 [[ats_dismiss_job-dismiss-success]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/dismiss/job-dismiss-success
-subject:: <<req_dismiss_job-dismiss-success,/req/dismiss/job-dismiss-success>>
+identifier:: /conf/dismiss/job-dismiss-success
+target:: <<req_dismiss_job-dismiss-success,/req/dismiss/job-dismiss-success>>
 test-purpose:: Validate that the content returned when dismissing a job complies with the required structure and contents.
+test-method::
++
+--
+1. Validate that a document was returned with an HTTP status code of 200.
 
-[.component,class=test method]
-=====
+2. Validate that the status is the response is set to "dismissed".
 
-[.component,class=step]
+3. Validate the process list content for all supported media types using the resources and tests identified in <<job-dismiss-schema>>.
 --
-Validate that a document was returned with an HTTP status code of 200.
---
-
-[.component,class=step]
---
-Validate that the status is the response is set to "dismissed".
---
-
-[.component,class=step]
---
-Validate the process list content for all supported media types using the resources and tests identified in <<job-dismiss-schema>>.
---
-=====
-
 ====

@@ -1,25 +1,17 @@
-[[ats_job-list_processid-response]][abstract_test]
+[[ats_job-list_processid-response]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/job-list/processID-response
-subject:: <<req_job-list_processid-response,/req/job-list/processID-response>>
+identifier:: /conf/job-list/processID-response
+target:: <<req_job-list_processid-response,/req/job-list/processID-response>>
 test-purpose:: Validate that the `processID` query parameter is processed correctly.
+test-method::
++
+--
+1. Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `processID` parameter to the request.
 
-[.component,class=test method]
-=====
-[.component,class=step]
---
-Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `processID` parameter to the request.
---
+2. Inspect the value of the `processID` property for each job listed in the response.
 
-[.component,class=step]
---
-Inspect the value of the `processID` property for each job listed in the response.
---
-
-[.component,class=step]
---
-Verify that that value of the `processID` property matches one of the values specified for the `processID` query parameter.
---
-=====
+3. Verify that that value of the `processID` property matches one of the values specified for the `processID` query parameter.
 ====

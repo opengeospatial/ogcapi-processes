@@ -1,15 +1,14 @@
-[[ats_core_job-results-param-outputs-omit]][abstract_test]
+[[ats_core_job-results-param-outputs-omit]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/core/job-results-param-outputs-omit
-subject:: <<req_core_job-results-param-outputs-omit,/req/core/job-results-param-outputs-omit>>
+identifier:: /conf/core/job-results-param-outputs-omit
+target:: <<req_core_job-results-param-outputs-omit,/req/core/job-results-param-outputs-omit>>
 test-purpose:: Validate that all processing results are included in the response when the `outputs` parameter is omitted from an execution request.
-
-[.component,class=test method]
-=====
-[.component,class=step]
+test-method::
++
 --
 Omit the `outputs` parameter from a process execution request and verify that all processing results are included in the response.
 --
-=====
 ====

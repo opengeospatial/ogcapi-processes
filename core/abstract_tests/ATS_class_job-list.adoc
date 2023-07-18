@@ -30,11 +30,12 @@ include::job-list/ATS_duration-def.adoc[]
 
 include::job-list/ATS_duration-response.adoc[]
 
-include::job-list/ATS_jl-limit-def.adoc[]
+include::job-list/ATS_limit-def.adoc[]
 
-include::job-list/ATS_jl-limit-response.adoc[]
+include::job-list/ATS_limit-response.adoc[]
 
-include::job-list/ATS_success.adoc[]
+include::job-list/ATS_links.adoc[]
+
 
 NOTE: A job list may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.
 
@@ -47,4 +48,4 @@ NOTE: A job list may be retrieved in a number of different formats. The followin
 |JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/jobList.yaml[jobList.yaml] |<<ats_json_content,/conf/json/content>>
 |===
 
-include::job-list/ATS_jl-links.adoc[]
+include::job-list/ATS_success.adoc[]

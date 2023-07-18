@@ -1,25 +1,19 @@
-[[ats_core_job-results-async-many]][abstract_test]
+[[ats_core_job-results-async-many]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/core/job-results-async-many
-subject:: <<req_core_job-results-async-many,/req/core/job-results-async-many>>
+identifier:: /conf/core/job-results-async-many
+target:: <<req_core_job-results-async-many,/req/core/job-results-async-many>>
 test-purpose:: Validate that only the requested processing results are included in the response when the `outputs` parameter is specified on an execution request.
+test-method::
++
+--
+1. Negotiate asynchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/req/core/process-execute-op>>.
 
-[.component,class=test method]
-=====
-[.component,class=step]
---
-Negotiate asynchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/req/core/process-execute-op>>.
---
-[.component,class=step]
---
-Request at least 2 process outputs as per test <<ats_core_job-results-param-outputs,/req/core/job-results-param-outputs>>.
---
+2. Request at least 2 process outputs as per test <<ats_core_job-results-param-outputs,/req/core/job-results-param-outputs>>.
 
-[.component,class=step]
+3. Validate that the processing results retrieved from the `/jobs/{jobID}/results` endpoint conform to requirement <<req_core_job-results-async-many,/req/core/job-results-async-many>>.
 --
-Validate that the processing results retrieved from the `/jobs/{jobID}/results` endpoint conform to requirement <<req_core_job-results-async-many,/req/core/job-results-async-many>>.
---
-=====
 ====
 

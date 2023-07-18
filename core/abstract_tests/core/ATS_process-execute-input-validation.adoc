@@ -1,42 +1,24 @@
 [[ats_core_process-execute-input-validation]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/process-execute-input-validation
-subject:: <<req_core_process-execute-input-validation,/req/core/process-execute-input-validation>>
+identifier:: /conf/core/process-execute-input-validation
+target:: <<req_core_process-execute-input-validation,/req/core/process-execute-input-validation>>
 test-purpose:: Verify that the server correctly validates process input values according to the definition obtained from the <<sc_process_description,process description>>.
+test-method::
++
+--
+1. Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
 
-[.component,class=test method]
-=====
+2. Inspect the description of each process taking note of the definition of each process input and specifically the schema of each process input.
 
-[.component,class=step]
---
-Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
---
+3. For each process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode the input values according to the schema from the definition of each input.
 
-[.component,class=step]
---
-Inspect the description of each process taking note of the definition of each process input and specifically the schema of each process input.
---
+4. Verify that each process execute successfully according to the relevant requirement (one of: <<ats_core_process-execute-success-async,/req/core/process-execute-success-async>>, <<ats_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, <<ats_core_process-execute-sync-one,/req/core/process-execute-sync-one>>, <<ats_core_process-execute-sync-one-default-content,/req/core/process-execute-sync-one-default-content>>) base on the combination of execute parameters.
 
-[.component,class=step]
---
-For each process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode the input values according to the schema from the definition of each input.
---
+5. For each process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode some of the input values in violation of the schema from the definition of the selected input.
 
-[.component,class=step]
+6. Verify that each process generates an exception report that identifies the improperly specified input value(s).
 --
-Verify that each process execute successfully according to the relevant requirement (one of: <<ats_core_process-execute-success-async,/req/core/process-execute-success-async>>, <<ats_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, <<ats_core_process-execute-sync-one,/req/core/process-execute-sync-one>>, <<ats_core_process-execute-sync-one-default-content,/req/core/process-execute-sync-one-default-content>>) base on the combination of execute parameters.
---
-
-[.component,class=step]
---
-For each process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode some of the input values in violation of the schema from the definition of the selected input.
---
-
-[.component,class=step]
---
-Verify that each process generates an exception report that identifies the improperly specified input value(s).
---
-=====
 ====

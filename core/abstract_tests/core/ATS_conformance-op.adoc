@@ -1,25 +1,18 @@
-[[ats_core_conformance-op]][abstract_test]
+[[ats_core_conformance-op]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/core/conformance-op
-subject:: <<req_core_conformance-op,/req/core/conformance-op>>
+identifier:: /conf/core/conformance-op
+target:: <<req_core_conformance-op,/req/core/conformance-op>>
 test-purpose:: Validate that a Conformance Declaration can be retrieved from the expected location.
+test-method::
++
+--
+1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/conformance" link on the landing page as well as for the {root}/conformance path.
 
-[.component,class=test method]
-=====
-[.component,class=step]
---
-Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/conformance" link on the landing page as well as for the {root}/conformance path.
---
+2. Issue an HTTP GET request on each path
 
-[.component,class=step]
+3. Validate the contents of the returned document using test <<ats_core_conformance-success,/conf/core/conformance-success>>.
 --
-Issue an HTTP GET request on each path
---
-
-[.component,class=step]
---
-Validate the contents of the returned document using test <<ats_core_conformance-success,/conf/core/conformance-success>>.
---
-=====
 ====

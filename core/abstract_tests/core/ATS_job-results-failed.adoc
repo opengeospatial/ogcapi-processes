@@ -1,44 +1,29 @@
-[[ats_core_job-results-failed]][abstract_test]
+[[ats_core_job-results-failed]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/core/job-results-failed
-subject:: <<req_core_job-results-failed,/req/core/job-results-failed>>
+identifier:: /conf/core/job-results-failed
+target:: <<req_core_job-results-failed,/req/core/job-results-failed>>
 test-purpose:: Validate that the job results for a failed job complies with the require structure and contents.
+test-method::
++
+--
+1. Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> but arrange a priori that the job will fail; note the {jobID} assigned to the job.
 
-[.component,class=test method]
-=====
-[.component,class=step]
---
-Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> but arrange a priori that the job will fail; note the {jobID} assigned to the job.
---
+2. Ensure that the failed job will not result in an HTTP error code of 404.
 
-[.component,class=step]
---
-Ensure that the failed job will not result in an HTTP error code of 404.
---
+3. Issue an HTTP GET request to the URL '/jobs/{jobID}/results'.
 
-[.component,class=step]
---
-Issue an HTTP GET request to the URL '/jobs/{jobID}/results'.
---
+4. Validate that the document was returned with a HTTP error code (4XX or 5XX).
 
-[.component,class=step]
---
-Validate that the document was returned with a HTTP error code (4XX or 5XX).
---
+5. Validate that the document contains an exception `type` that corresponds to the reason the job failed (e.g. InvalidParameterValue for invalid input data).
 
-[.component,class=step]
+6. Validate the document for all supported media types using the resources and tests identified in <<job-results-failed-schema>>
 --
-Validate that the document contains an exception `type` that corresponds to the reason the job failed (e.g. InvalidParameterValue for invalid input data).
---
+====
 
-[.component,class=step]
---
-Validate the document for all supported media types using the resources and tests identified in <<job-results-failed-schema>>
---
-=====
-
-The job results page for a job may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the job results for a failed job against that schema.  All supported formats should be exercised.
+NOTE: The job results page for a job may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the job results for a failed job against that schema.  All supported formats should be exercised.
 
 [[job-results-failed-schema]]
 .Schema and Tests for the Job Result for a Failed Job
@@ -47,6 +32,4 @@ The job results page for a job may be retrieved in a number of different formats
 |Format |Schema Document |Test ID
 |HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_html_content,/conf/html/content>>
 |JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_json_content,/conf/json/content>>
-====
-
 |===

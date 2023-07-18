@@ -1,15 +1,14 @@
-[[ats_job-list_type-definition]][abstract_test]
+[[ats_job-list_type-definition]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/job-list/type-definition
-subject:: <<req_job-list_type-definition,/req/job-list/type-definition>>
+identifier:: /conf/job-list/type-definition
+target:: <<req_job-list_type-definition,/req/job-list/type-definition>>
 test-purpose:: Validate that the `type` query parameter is constructed correctly.
-
-[.component,class=test method]
-=====
-[.component,class=step]
+test-method::
++
 --
 Verify that the `type` query parameter complies with its definition in requirement <<req_job-list_type-definition,/req/job-list/type-definition>>.
 --
-=====
 ====

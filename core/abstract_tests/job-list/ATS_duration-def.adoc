@@ -1,21 +1,16 @@
-[[ats_job-list_duration-definition]][abstract_test]
+[[ats_job-list_duration-definition]]
+
+[abstract_test]
 ====
 [%metadata]
-label:: /conf/job-list/duration-definition
-subject:: <<req_job-list_duration-definition,/req/job-list/duration-definition>>
+identifier:: /conf/job-list/duration-definition
+target:: <<req_job-list_duration-definition,/req/job-list/duration-definition>>
 test-purpose:: Validate that the `minDuration` and `maxDuration` query parameter are constructed correctly.
+test-method::
++
+--
+1. Verify that the `minDuration` query parameter complies with its definition in requirement <<req_job-list_duration-definition,/req/job-list/duration-definition, A>>.
 
-[.component,class=test method]
-=====
-
-[.component,class=step]
+2. Verify that the `maxDuration` query parameter complies with its definition in requirement <<req_job-list_duration-definition,/req/job-list/duration-definition, B>>.
 --
-Verify that the `minDuration` query parameter complies with its definition in requirement <<req_job-list_duration-definition,/req/job-list/duration-definition, A>>.
---
-
-[.component,class=step]
---
-Verify that the `maxDuration` query parameter complies with its definition in requirement <<req_job-list_duration-definition,/req/job-list/duration-definition, B>>.
---
-=====
 ====
