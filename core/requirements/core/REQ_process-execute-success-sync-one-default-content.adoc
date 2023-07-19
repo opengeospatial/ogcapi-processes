@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/process-execute-sync-one-default-content
+identifier:: /req/core/process-execute-sync-one-default-content
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous,

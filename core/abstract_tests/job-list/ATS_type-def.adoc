@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/job-list/type-definition
-target:: <<req_job-list_type-definition,/req/job-list/type-definition>>
+target:: /req/job-list/type-definition
 test-purpose:: Validate that the `type` query parameter is constructed correctly.
 test-method::
 +

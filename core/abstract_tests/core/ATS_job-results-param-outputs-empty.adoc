@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/job-results-param-outputs-empty
-target:: <<req_core_job-results-param-outputs-empty,/req/core/job-results-param-outputs-empty>>
+target:: /req/core/job-results-param-outputs-empty
 test-purpose:: Validate that no processing results are available when the `outputs` parameter is present in an execution request but is empty.
 test-method::
 +

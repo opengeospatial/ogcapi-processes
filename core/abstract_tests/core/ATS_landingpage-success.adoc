@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/landingpage-success
-target:: <<req_core_landingpage-success,/req/core/landingpage-success>>
+target:: /req/core/landingpage-success
 test-purpose:: Validate that the landing page complies with the require structure and contents.
 test-method::
 +

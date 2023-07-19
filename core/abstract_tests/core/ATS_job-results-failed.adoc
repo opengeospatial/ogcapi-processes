@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/job-results-failed
-target:: <<req_core_job-results-failed,/req/core/job-results-failed>>
+target:: /req/core/job-results-failed
 test-purpose:: Validate that the job results for a failed job complies with the require structure and contents.
 test-method::
 +

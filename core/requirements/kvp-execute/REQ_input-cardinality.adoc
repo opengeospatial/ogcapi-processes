@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/kvp-execute/input-cardinality
+identifier:: /req/kvp-execute/input-cardinality
 [.component,class=conditions]
 --
 . The process input value is specified in-line in an execute request.

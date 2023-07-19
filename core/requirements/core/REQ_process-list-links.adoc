@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/pl-links
+identifier:: /req/core/pl-links
 
 part::
 +

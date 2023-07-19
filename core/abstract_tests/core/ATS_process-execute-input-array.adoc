@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-execute-input-array
-target:: <<req_core_process-execute-input-array,/req/core/process-execute-input-array>>
+target:: /req/core/process-execute-input-array
 test-purpose:: Verify that the server correctly recognizes the encoding of parameter values for input parameters with a maximum cardinality greater than one.
 test-method::
 +

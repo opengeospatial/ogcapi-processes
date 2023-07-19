@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/kvp-execute/input-query-parameter-values
+identifier:: /req/kvp-execute/input-query-parameter-values
 [.component,class=part]
 --
 The server SHALL support process input values specified in-line as the value of the corresponding URI query parameter in the KVP-encoded execute request (i.e. by value).

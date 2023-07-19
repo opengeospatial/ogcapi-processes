@@ -1,8 +1,5 @@
 [[rec_core_problem-details]]
-[recommendation]
+[recommendation,type="general",id="/rec/core/problem-details",label="/rec/core/problem-details"]
 ====
-[%metadata]
-label:: /rec/core/problem-details
-
 A server SHOULD include a "Problem Details" report in an error response in accordance with https://datatracker.ietf.org/doc/html/rfc7807[RFC 7807].
 ====

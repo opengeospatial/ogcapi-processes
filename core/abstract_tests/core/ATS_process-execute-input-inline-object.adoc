@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-execute-input-inline-object
-target:: <<req_core_process-execute-input-inline-object,/req/core/process-execute-input-inline-object>>
+target:: /req/core/process-execute-input-inline-object
 test-purpose:: Validate that inputs with a complex object schema encoded in-line in an execute request are correctly processed.
 test-method::
 +

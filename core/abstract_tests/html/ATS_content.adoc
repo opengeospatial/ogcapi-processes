@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/html/content
-target:: <<req_html_content,/req/html/content>>
+target:: /req/html/content
 test-purpose:: Verify the content of an HTML document given an input document and schema.
 test-method::
 +

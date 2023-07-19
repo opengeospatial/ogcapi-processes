@@ -1,8 +1,5 @@
 [[rec_core_ogc-process-description]]
-[recommendation]
+[recommendation,type="general",id="/rec/core/ogc-process-description",label="/rec/core/ogc-process-description"]
 ====
-[%metadata]
-label:: /rec/core/ogc-process-description
-
 Implementations SHOULD consider supporting the <<ogc_process_description,OGC process description>>.
 ====

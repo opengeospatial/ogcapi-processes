@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/job-op
-target:: <<req_core_job,/req/core/job>>
+target:: /req/core/job-op
 test-purpose:: Validate that the status info of a job can be retrieved.
 test-method::
 +

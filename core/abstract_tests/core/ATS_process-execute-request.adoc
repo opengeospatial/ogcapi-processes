@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-execute-request
-target:: <<req_core_process-execute-request,/req/core/process-execute-request>>
+target:: /req/core/process-execute-request
 test-purpose:: Validate that the server supports a process execution operation complying with the required structure and contents.
 test-method::
 +

@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-execute-sync-one-default-content
-target:: <<req_core_process-execute-sync-one-default-content,/req/core/process-execute-sync-one-default-content>>
+target:: /req/core/process-execute-sync-one-default-content
 test-purpose:: Validate that the default output format is generated upon process execution when a single output is requested but no specific supported format is negotiated.
 test-method::
 +

@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/http
-target:: <<req_core_http,/req/core/http>>
+target:: /req/core/http
 test-purpose:: Validate that the resource paths advertised through the API conform with HTTP 1.1 and, where appropriate, TLS.
 test-method::
 +

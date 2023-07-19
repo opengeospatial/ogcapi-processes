@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/pl-limit-response
-target:: <<req_core_pl-limit-response,/req/core/pl-limit-response>>
+target:: /req/core/pl-limit-response
 test-purpose:: Validate that the `limit` query parameter is processed correctly.
 test-method::
 +

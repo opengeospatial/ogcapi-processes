@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/oas30/exceptions-codes
+identifier:: /req/oas30/exceptions-codes
 
 
 For error situations that originate from the server, the API definition

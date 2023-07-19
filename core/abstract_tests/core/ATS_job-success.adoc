@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/job-success
-target:: <<req_core_job-success,/req/core/job-success>>
+target:: /req/core/job-success
 test-purpose:: Validate that the job status info complies with the require structure and contents.
 test-method::
 +

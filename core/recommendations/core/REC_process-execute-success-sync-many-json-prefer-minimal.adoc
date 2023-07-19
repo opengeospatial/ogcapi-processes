@@ -1,8 +1,7 @@
 [[rec_core_process-execute-sync-many-json-prefer-minimal]]
-[recommendation]
+
+[recommendation,type="general",id="/rec/core/process-execute-sync-many-json-prefer-minimal",label="/rec/core/process-execute-sync-many-json-prefer-minimal"]
 ====
-[%metadata]
-label:: /rec/core/process-execute-sync-many-json-prefer-minimal
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous.

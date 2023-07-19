@@ -1,8 +1,5 @@
 [[rec_ogc-process-description_additional-format-short-code]]
-[recommendation]
+[recommendation,type="general",id="/rec/ogc-process-description/format-short-code",label="/rec/ogc-process-description/format-short-code"]
 ====
-[%metadata]
-label:: /rec/ogc-process-description/format-short-code
-
 In addition to the key values listed in <<format-key-values>>, servers SHOULD also accept the short codes.
 ====

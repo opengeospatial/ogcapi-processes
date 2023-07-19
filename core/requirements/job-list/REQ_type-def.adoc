@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-list/type-definition
+identifier:: /req/job-list/type-definition
 [.component,class=part]
 --
 The operation SHALL support a parameter `type` with the following characteristics (using an OpenAPI Specification 3.0 fragment):

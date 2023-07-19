@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/job-list/status-response
-target:: <<req_job-list_status-response,/req/job-list/status-response>>
+target:: /req/job-list/status-response
 test-purpose:: Validate that the `status` query parameter is processed correctly.
 test-method::
 +

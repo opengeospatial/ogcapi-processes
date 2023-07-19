@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-list/datetime-definition
+identifier:: /req/job-list/datetime-definition
 [.component,class=part]
 --
 The operation SHALL support a parameter `datetime` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
@@ -39,4 +39,5 @@ The syntax of `date-time` is specified by link:https://tools.ietf.org/html/rfc33
 --
 Open ranges in time intervals at the start or end are supported using a double-dot (`..`) or an empty string for the start/end.
 --
+
 ====

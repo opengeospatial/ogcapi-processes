@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/job-results
-target:: <<req_core_job-results,/req/core/job-results>>
+target:: /req/core/job-results
 test-purpose:: Validate that the results of a job can be retrieved.
 test-method::
 +

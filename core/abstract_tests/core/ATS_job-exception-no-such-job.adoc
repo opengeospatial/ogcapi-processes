@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/job-exception-no-such-job
-target:: <<req_core_job-exception-no-such-job,/req/core/job-exception-no-such-job>>
+target:: /req/core/job-exception-no-such-job
 test-purpose:: Validate that an invalid job identifier is handled correctly.
 test-method::
 +

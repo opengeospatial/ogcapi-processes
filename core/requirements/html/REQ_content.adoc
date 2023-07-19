@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/html/content
+identifier:: /req/html/content
 
 
 Every `200`-response of the server with the media type "text/html" SHALL be a

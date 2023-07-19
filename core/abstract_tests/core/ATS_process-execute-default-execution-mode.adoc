@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-execute-default-execution-mode
-target:: <<req_core_process-execute-op,/req/core/process-execute-op>>
+target:: /req/core/process-execute-op
 test-purpose:: Validate that the server correctly handles the default execution mode for a process.
 test-method::
 +

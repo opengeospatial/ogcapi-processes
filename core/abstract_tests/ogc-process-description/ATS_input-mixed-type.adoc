@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/ogc-process-description/input-mixed-type
-target:: <<req_ogc-process-description_input-mixed-type,/req/ogc-process-description/input-mixed-type>>
+target:: /req/ogc-process-description/input-mixed-type
 test-purpose:: Validate that each input of mixed type complies with the required structure and contents.
 test-method::
 +

@@ -1,8 +1,10 @@
-[[ats_ogc-process-description_output-def]][abstract_test]
+[[ats_ogc-process-description_output-def]]
+
+[abstract_test]
 ====
 [%metadata]
 identifier:: /conf/ogc-process-description/output-def
-target:: <<req_ogc-process-description_output-def,/req/ogc-process-description/output-def>>
+target:: /req/ogc-process-description/output-def
 test-purpose:: Verify that the definition of each output for each process complies with the required structure and contents.
 test-method::
 +

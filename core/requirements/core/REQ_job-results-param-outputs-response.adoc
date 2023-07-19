@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/job-results-param-outputs-response
+identifier:: /req/core/job-results-param-outputs-response
 [.component,class=part]
 --
 Only the outputs with identifers specified by the optional `outputs` parameter SHALL be included in the response.

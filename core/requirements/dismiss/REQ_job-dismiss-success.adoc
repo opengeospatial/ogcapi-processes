@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/dismiss/job-dismiss-success
+identifier:: /req/dismiss/job-dismiss-success
 
 
 A successful execution of the operation SHALL be reported as a

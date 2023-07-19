@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/job-results-failed
+identifier:: /req/core/job-results-failed
 
 If the operation is executed on a failed job using a valid job identifier, the response SHALL have a HTTP error code that corresponds to the reason of the failure.
 The content of that response SHALL be based upon the OpenAPI

@@ -1,14 +1,63 @@
-[[ats_core]][conformance_class]
+[[ats_core]]
+[conformance_class]
+.Core
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
-subject:: <<rc_core,Requirements Class "Core">>
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
+subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core>>
 classification:: Target Type:Web API
+conformance-test:: /conf/core
+conformance-test:: /conf/core/api-definition-op
+conformance-test:: /conf/core/api-definition-success
+conformance-test:: /conf/core/conformance-op
+conformance-test:: /conf/core/conformance-success
+conformance-test:: /conf/core/http
+conformance-test:: /conf/core/job-exception-no-such-job
+conformance-test:: /conf/core/job-op
+conformance-test:: /conf/core/job-result
+conformance-test:: /conf/core/job-results
+conformance-test:: /conf/core/job-results-async-many
+conformance-test:: /conf/core/job-results-async-one
+conformance-test:: /conf/core/job-results-exception-no-such-job
+conformance-test:: /conf/core/job-results-exception-results-not-ready
+conformance-test:: /conf/core/job-results-failed
+conformance-test:: /conf/core/job-results-param-outputs
+conformance-test:: /conf/core/job-results-param-outputs-empty
+conformance-test:: /conf/core/job-results-param-outputs-omit
+conformance-test:: /conf/core/job-results-param-outputs-response
+conformance-test:: /conf/core/job-results-success-sync
+conformance-test:: /conf/core/job-success
+conformance-test:: /conf/core/landingpage-op
+conformance-test:: /conf/core/landingpage-success
+conformance-test:: /conf/core/pl-limit-definition
+conformance-test:: /conf/core/pl-limit-response
+conformance-test:: /conf/core/pl-links
+conformance-test:: /conf/core/process-description
+conformance-test:: /conf/core/process-description-success
+conformance-test:: /conf/core/process-exception-no-such-process
+conformance-test:: /conf/core/process-execute-auto-execution-mode
+conformance-test:: /conf/core/process-execute-default-execution-mode
+conformance-test:: /conf/core/process-execute-default-outputs
+conformance-test:: /conf/core/process-execute-input-array
+conformance-test:: /conf/core/process-execute-input-inline-bbox
+conformance-test:: /conf/core/process-execute-input-inline-binary
+conformance-test:: /conf/core/process-execute-input-inline-mixed
+conformance-test:: /conf/core/process-execute-input-inline-object
+conformance-test:: /conf/core/process-execute-inputs
+conformance-test:: /conf/core/process-execute-input-validation
+conformance-test:: /conf/core/process-execute-op
+conformance-test:: /conf/core/process-execute-request
+conformance-test:: /conf/core/process-execute-success-async
+conformance-test:: /conf/core/process-execute-sync-many-json
+conformance-test:: /conf/core/process-execute-sync-one
+conformance-test:: /conf/core/process-execute-sync-one-default-content
+conformance-test:: /conf/core/process-list
+conformance-test:: /conf/core/process-list-success
 ====
 
 === Abstract test suite
 
-// include::core/ATS_test-process.adoc[]
+include::core/ATS_test-process.adoc[]
 
 === Retrieve the API landing page
 
@@ -50,11 +99,11 @@ include::core/ATS_process-description-op.adoc[]
 
 include::core/ATS_process-description-success.adoc[]
 
-===== Process exception
+=== Process exception
 
 include::core/ATS_process-exception-no-such-process.adoc[]
 
-==== Process execution /processes/{processID}/execution
+=== Process execution /processes/{processID}/execution
 
 include::core/ATS_process-execute-op.adoc[]
 
@@ -90,9 +139,9 @@ include::core/ATS_job-results-success-sync.adoc[]
 
 include::core/ATS_process-execute-success-async.adoc[]
 
-==== Jobs
+=== Jobs
 
-===== Job status /jobs/{jobID}
+==== Job status /jobs/{jobID}
 
 include::core/ATS_job-op.adoc[]
 
@@ -100,7 +149,7 @@ include::core/ATS_job-success.adoc[]
 
 include::core/ATS_job-exception-no-such-job.adoc[]
 
-=== Retrieve job results
+==== Retrieve job results
 
 include::core/ATS_job-result-op.adoc[]
 

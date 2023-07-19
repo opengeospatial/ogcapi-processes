@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/job-results-async-one
-target:: <<req_core_job-results-async-one,/req/core/job-results-async-one>>
+target:: /req/core/job-results-async-one
 test-purpose:: Validate that only the requested processing result is included in the response when the `outputs` parameter requesting output with identifier `{outputID}` is specified on an execution request.
 test-method::
 +
