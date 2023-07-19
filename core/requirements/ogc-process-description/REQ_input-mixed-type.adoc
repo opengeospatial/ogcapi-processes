@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/ogc-process-description/input-mixed-type
+identifier:: /req/ogc-process-description/input-mixed-type
 [.component,class=part]
 --
 An input that can be of mixed type SHALL be defined using the https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3[`oneOf`] JSON Schema keyword.

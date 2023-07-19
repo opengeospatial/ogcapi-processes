@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/pl-links
-target:: <<req_core_pl-links,/req/core/pl-links>>
+target:: /req/core/pl-links
 test-purpose:: Validate that the proper links are included in a response.
 test-method::
 +

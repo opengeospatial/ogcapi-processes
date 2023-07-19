@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-execute-input-validation
-target:: <<req_core_process-execute-input-validation,/req/core/process-execute-input-validation>>
+target:: /req/core/process-execute-input-validation
 test-purpose:: Verify that the server correctly validates process input values according to the definition obtained from the <<sc_process_description,process description>>.
 test-method::
 +

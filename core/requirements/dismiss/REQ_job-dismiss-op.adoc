@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/dismiss/job-dismiss-op
+identifier:: /req/dismiss/job-dismiss-op
 
 The server SHALL support the HTTP DELETE operation at the path `/jobs/{jobID}`.
 ====

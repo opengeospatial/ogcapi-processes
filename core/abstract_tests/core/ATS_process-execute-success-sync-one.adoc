@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-execute-sync-one
-target:: <<req_core_process-execute-sync-one,/req/core/process-execute-sync-one>>
+target:: /req/core/process-execute-sync-one
 test-purpose:: Validate that the correct output is generated upon process execution when a single output is requested.
 test-method::
 +

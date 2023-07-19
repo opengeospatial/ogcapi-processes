@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/html/definition
-target:: <<req_html_definition,/req/html/definition>>
+target:: /req/html/definition
 test-purpose:: Verify support for HTML
 test-method::
 +

@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/job-list/datetime-response
-target:: <<req_job-list_datetime-response,/req/job-list/datetime-response>>
+target:: /req/job-list/datetime-response
 test-purpose:: Validate that the `datetime` query parameter is processed correctly.
 test-method::
 +

@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-execute-input-inline-mixed
-target:: <<req_core_process-execute-input-inline-mixed,/req/core/process-execute-input-inline-mixed>>
+target:: /req/core/process-execute-input-inline-mixed
 test-purpose:: Validate that inputs of mixed content encoded in-line in an execute request are correctly processed.
 test-method::
 +

@@ -1,9 +1,6 @@
 [[rec_core_job-status]]
-[recommendation]
+[recommendation,type="general",id="/rec/core/job-status",label="/rec/core/job-status"]
 ====
-[%metadata]
-label:: /rec/core/job-status
-
 [.component,class=part]
 --
 Servers SHOULD set the value of the `processID` field if it is known.

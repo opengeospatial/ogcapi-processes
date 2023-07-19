@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/job-list/processID-response
-target:: <<req_job-list_processid-response,/req/job-list/processID-response>>
+target:: /req/job-list/processID-response
 test-purpose:: Validate that the `processID` query parameter is processed correctly.
 test-method::
 +

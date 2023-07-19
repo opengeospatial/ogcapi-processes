@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-list/job-list-success
+identifier:: /req/job-list/job-list-success
 
 
 A successful execution of the operation SHALL be reported as a

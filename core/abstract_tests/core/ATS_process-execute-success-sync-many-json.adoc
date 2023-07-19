@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-execute-sync-many-json
-target:: <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>
+target:: /req/core/process-execute-sync-many-json
 test-purpose:: Validate that the correct output with the correct content type is generated when a process generating multiple responses is synchronously executed.
 test-method::
 +

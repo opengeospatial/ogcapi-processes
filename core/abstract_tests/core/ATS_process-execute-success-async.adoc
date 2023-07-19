@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-execute-success-async
-target:: <<req_core_process-execute-success-async,/req/core/process-execute-success-async>>
+target:: /req/core/process-execute-success-async
 test-purpose:: Validate the results of a job that has been created using the `async` execution mode.
 test-method::
 +

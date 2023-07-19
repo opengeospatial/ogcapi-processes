@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/oas30/completeness
-target:: <<req_oas30_completeness,/req/oas30/completeness>>
+target:: /req/oas30/completeness
 test-purpose:: Verify the completeness of an OpenAPI document.
 test-method::
 +

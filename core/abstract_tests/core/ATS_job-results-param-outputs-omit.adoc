@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/job-results-param-outputs-omit
-target:: <<req_core_job-results-param-outputs-omit,/req/core/job-results-param-outputs-omit>>
+target:: /req/core/job-results-param-outputs-omit
 test-purpose:: Validate that all processing results are included in the response when the `outputs` parameter is omitted from an execution request.
 test-method::
 +

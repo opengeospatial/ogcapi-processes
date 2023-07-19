@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/process-execute-async
+identifier:: /req/core/process-execute-async
 [.component,class=conditions]
 --
 The <<sc_execution_mode,negotiated execution mode>> is asynchronous.

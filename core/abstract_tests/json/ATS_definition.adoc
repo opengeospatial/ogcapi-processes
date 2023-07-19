@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/json/definition
-target:: <<req_json_definition,/req/json/definition>>
+target:: /req/json/definition
 test-purpose:: Verify support for JSON.
 test-method::
 +

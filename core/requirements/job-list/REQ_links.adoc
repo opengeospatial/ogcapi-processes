@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-list/links
+identifier:: /req/job-list/links
 [.component,class=part]
 --
 A `200`-response SHALL include the following links:

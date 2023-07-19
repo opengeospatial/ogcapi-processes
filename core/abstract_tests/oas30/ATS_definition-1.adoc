@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/oas30/oas-definition-1
-target:: <<req_oas30_oas-definition-1,/req/oas30/oas-definition-1>>
+target:: /req/oas30/oas-definition-1
 test-purpose:: Verify that JSON and HTML versions of the OpenAPI document are available.
 test-method::
 +

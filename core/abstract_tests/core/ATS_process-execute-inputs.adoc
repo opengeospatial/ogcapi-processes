@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-execute-inputs
-target:: <<req_core_process-execute-inputs,/req/core/process-execute-inputs>>
+target:: /req/core/process-execute-inputs
 test-purpose:: Validate that servers can accept input values both inline and by reference.
 test-method::
 +

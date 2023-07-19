@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-list
-target:: <<req_core_process-list,/req/core/process-list>>
+target:: /req/core/process-list
 test-purpose:: Validate that information about the processes can be retrieved from the expected location.
 test-method::
 +

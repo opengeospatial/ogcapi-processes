@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/job-results-param-outputs
-target:: <<req_core_job-results-param-outputs,/req/core/job-results-param-outputs>>
+target:: /req/core/job-results-param-outputs
 test-purpose:: Validate that the `outputs` parameter is constructed correctly.
 test-method::
 +

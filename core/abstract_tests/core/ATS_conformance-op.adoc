@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/conformance-op
-target:: <<req_core_conformance-op,/req/core/conformance-op>>
+target:: /req/core/conformance-op
 test-purpose:: Validate that a Conformance Declaration can be retrieved from the expected location.
 test-method::
 +

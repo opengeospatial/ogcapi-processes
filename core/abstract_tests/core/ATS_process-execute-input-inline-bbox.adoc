@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/process-execute-input-inline-bbox
-target:: <<req_core_process-execute-input-inline-bbox,/req/core/process-execute-input-inline-bbox>>
+target:: /req/core/process-execute-input-inline-bbox
 test-purpose:: Validate that inputs with a bounding box schema encoded in-line in an execute request are correctly processed.
 test-method::
 +

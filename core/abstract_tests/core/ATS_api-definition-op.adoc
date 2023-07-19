@@ -4,10 +4,11 @@
 ====
 [%metadata]
 identifier:: /conf/core/api-definition-op
-target:: <<req_core_api-definition-op,/req/core/api-definition-op>>
+target:: /req/core/api-definition-op
 test-purpose:: Validate that the API Definition document can be retrieved from the expected location.
 test-method::
 +
+--
 1. Construct a path for the API Definition document that ends with `/api`.
 
 2. Issue a HTTP GET request on that path

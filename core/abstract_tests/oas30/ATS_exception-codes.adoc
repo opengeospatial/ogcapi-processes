@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/oas30/exceptions-codes
-target:: <<req_oas30_exceptions-codes,/req/oas30/exceptions-codes>>
+target:: /req/oas30/exceptions-codes
 test-purpose:: Verify that the OpenAPI document fully describes potential exception codes.
 test-method::
 +

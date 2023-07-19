@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/job-list/limit-definition
-target:: <<req_job-list_limit-definition,/req/job-list/limit-definition>>
+target:: /req/job-list/limit-definition
 test-purpose:: Validate that the `limit` query parameter is constructed correctly.
 test-method::
 +

@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-list/limit-definition
+identifier:: /req/job-list/limit-definition
 
 [.component,class=part]
 --

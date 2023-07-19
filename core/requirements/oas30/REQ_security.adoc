@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/oas30/security
+identifier:: /req/oas30/security
 
 
 For cases, where the operations of the server are access-controlled,

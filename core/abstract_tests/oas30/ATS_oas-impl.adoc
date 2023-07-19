@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/oas30/oas-impl
-target:: <<req_oas30_oas-impl,/req/oas30/oas-impl>>
+target:: /req/oas30/oas-impl
 test-purpose:: Verify that all capabilities specified in the OpenAPI definition are implemented by the API.
 test-method::
 +

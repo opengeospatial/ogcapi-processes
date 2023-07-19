@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core/job-result
-target:: <<req_core_job-result,/req/core/job-result>>
+target:: /req/core/job-result
 test-purpose:: Validate that each process output with identifier `{outputID}` can be retrived from the `/jobs/{jobID}/results/{outputID}` endpoint.
 test-method::
 +

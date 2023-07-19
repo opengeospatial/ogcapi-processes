@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/job-list/duration-response
-target:: <<req_job-list_duration-response,/req/job-list/duration-response>>
+target:: /req/job-list/duration-response
 test-purpose:: Validate that the `minDuration` and `maxDuration` query parameter are processed correctly.
 test-method::
 +

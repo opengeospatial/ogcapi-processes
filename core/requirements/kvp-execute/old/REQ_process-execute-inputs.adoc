@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/process-execute-inputs
+identifier:: /req/core/process-execute-inputs
 [.component,class=part]
 --
 The server SHALL support process input values specified in-line in an execute request (i.e. by value).

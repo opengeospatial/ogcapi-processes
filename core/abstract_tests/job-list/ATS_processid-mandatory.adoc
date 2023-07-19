@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/job-list/processID-mandatory
-target:: <<req_job-list_processID-mandatory,/req/job-list/processID-mandatory>>
+target:: /req/job-list/processID-mandatory
 test-purpose:: Validate that the `processID` property is present in every job.
 test-method::
 +

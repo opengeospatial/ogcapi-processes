@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/job-list/datetime-definition
-target:: <<req_job-list_datetime-definition,/req/job-list/datetime-definition>>
+target:: /req/job-list/datetime-definition
 test-purpose:: Validate that the `datetime` query parameter is constructed correctly.
 test-method::
 +

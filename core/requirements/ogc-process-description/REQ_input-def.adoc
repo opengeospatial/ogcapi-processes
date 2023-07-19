@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/ogc-process-description/input-def
+identifier:: /req/ogc-process-description/input-def
 [.component,class=part]
 --
 The schema of each <<input-value-schema,process **input** value>> SHALL be specified using the `schema` parameter.

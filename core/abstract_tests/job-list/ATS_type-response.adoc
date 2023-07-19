@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/job-list/type-response
-target:: <<req_job-list_type-response,/req/job-list/type-response>>
+target:: /req/job-list/type-response
 test-purpose:: Validate that the `type` query parameter is processed correctly.
 test-method::
 +

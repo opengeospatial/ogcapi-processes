@@ -2,6 +2,6 @@
 [permission]
 ====
 [%metadata]
-label:: /per/job-list/prev
+identifier:: /per/job-list/prev
 part:: A response to dereferencing a next page link (relation: `next`) MAY include a previous page link (relation: `prev`) to the resource that included the next page link (relation: `next`).
 ====

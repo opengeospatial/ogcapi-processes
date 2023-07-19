@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/dismiss/job-dismiss-op
-target:: <<req_dismiss_job-dismiss-op,/req/dismiss/job-dismiss-op>>
+target:: /req/dismiss/job-dismiss-op
 test-purpose:: Validate that a running job can be dismissed.
 test-method::
 +

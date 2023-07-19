@@ -1,8 +1,6 @@
 [[rec_core_process-execute-sync-many-json-prefer-none]]
-[recommendation]
+[recommendation,type="general",id="/rec/core/process-execute-sync-many-json-prefer-none",label="/rec/core/process-execute-sync-many-json-prefer-none"]
 ====
-[%metadata]
-label:: /rec/core/process-execute-sync-many-json-prefer-none
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous.

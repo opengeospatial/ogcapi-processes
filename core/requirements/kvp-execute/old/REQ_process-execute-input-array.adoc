@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/process-execute-input-array
+identifier:: /req/core/process-execute-input-array
 [.component,class=conditions]
 --
 The process input is defined in the <<sc_process_description,process description>> as having a maximum cardinality of greater than one (maxOccurs>1).

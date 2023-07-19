@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/oas30/completeness
+identifier:: /req/oas30/completeness
 
 
 The OpenAPI definition SHALL specify for each operation all

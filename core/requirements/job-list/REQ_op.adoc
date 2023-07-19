@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-list/job-list-op
+identifier:: /req/job-list/job-list-op
 
 The server SHALL support the HTTP GET operation at the path `/jobs`.
 ====

@@ -10,9 +10,9 @@
 :status: published
 :copyright-year: 2018
 :external-id: http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0
-:received-date: yyyy-mm-dd
-:issued-date: yyyy-mm-dd
-:published-date: yyyy-mm-dd
+:received-date: 2018-01-01
+:issued-date: 2018-01-01
+:published-date: 2018-01-01
 :fullname: Benjamin Pross
 :fullname_2: Panagiotis (Peter) A. Vretanos
 :keywords: ogcdoc, OGC document, OGC API, Geospatial API, processes, Web Processing Service, WPS, JSON, HTML, geoprocessing, API, OpenAPI, HTML

@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/core
-target::  /req/core/test-process
+target:: /req/core/test-process
 test-purpose:: Ensure that a testable process is offered by the server being tested.
 test-method::
 +

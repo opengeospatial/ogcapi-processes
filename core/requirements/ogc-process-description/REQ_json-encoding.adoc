@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/ogc-process-description/json-encoding
+identifier:: /req/ogc-process-description/json-encoding
 
 A JSON-encoded OGC process description SHALL validate against the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/process.yaml[process.yaml].
 ====
