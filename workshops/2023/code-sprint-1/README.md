@@ -1,6 +1,6 @@
 # 2023 OGC API - Processes Virtual Code Sprint
 
-The Open Geospatial Consortium (OGC) invites developers to its next virtual Code Sprint, which will focus on refining the next version of the OGC API - Processes standard and associated extensions. The OGC API – Processes Virtual Code Sprint will be held from the 18th to 20th September 2023. The virtual code sprint will run from 9:00am to 5:30pm US Eastern Time each day. [Registration for the code sprint is here](https://github.com/opengeospatial/ogcapi-processes/blob/master/workshops/2023/code-sprint-1/2023_09_code_sprint_registration.adoc).
+The Open Geospatial Consortium (OGC) invites developers to the *2023 OGC API – Processes Virtual Code Sprint*, which will focus on refining the next version of the OGC API - Processes standard and associated extensions. The Virtual Code Sprint will be held from the 18th to 20th September 2023. The virtual code sprint will run from 9:00am to 5:30pm US Eastern Time each day. [Registration for the code sprint is here](https://github.com/opengeospatial/ogcapi-processes/blob/master/workshops/2023/code-sprint-1/2023_09_code_sprint_registration.adoc).
 
 An OGC Sprint is a collaborative and inclusive event driven by innovative and rapid programming with minimal process and organization constraints to support the development of new applications and candidate standards.
 
