@@ -15,9 +15,9 @@ To register, please create a Pull Request adding your details to this page.
 | Hexagon
 | https://github.com/sptillma[sptillma]
 
-| FirstName LastName
-| Affiliation
-| https://example.org[GitHub Handle]
+| Panagiotis (Peter) Vretanos
+| MariaDB (formerly CubeWerx Inc.)
+| https://github.com/pvretano[pvretano]
 
 | FirstName LastName
 | Affiliation
