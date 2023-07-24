@@ -1,0 +1,30 @@
+
+== Self-registration for the 2023-09 OGC API Processes Virtual Code Sprint
+
+To register, please create a Pull Request adding your details to this page.
+
+[cols="50e,^25m,>25s",width="75%",options="header",align="center"]
+|===
+|Full Name | Affiliation | GitHub Handle
+
+| Benjamin Pross
+| 52 North
+| https://github.com/bpross-52n[bpross-52n]
+
+| Stan Tillman
+| Hexagon
+| https://github.com/sptillma[sptillma]
+
+| FirstName LastName
+| Affiliation
+| https://example.org[GitHub Handle]
+
+| FirstName LastName
+| Affiliation
+| https://example.org[GitHub Handle]
+
+| FirstName LastName
+| Affiliation
+| https://example.org[GitHub Handle]
+
+|===
