@@ -3,7 +3,7 @@
 :titletext: OGC API - Processes - Part 1: Core
 :doctype: standard
 :docsubtype: implementation
-:docnumber: 23-054
+:docnumber: 18-062
 :edition: 2.0
 :status: draft
 :draft: 1.0
