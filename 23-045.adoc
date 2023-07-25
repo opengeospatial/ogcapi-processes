@@ -1,18 +1,22 @@
 = OGC API - Processes - Part 1: Core
+:Title: OGC API - Processes - Part 1: Core
+:titletext: OGC API - Processes - Part 1: Core
 :doctype: standard
 :docsubtype: implementation
-:edition: 1.0
-:language: en
+:docnumber: 23-054
+:edition: 2.0
+:status: draft
+:draft: 1.0
+:external-id: http://www.opengis.net/doc/IS/ogcapi-processes-1/2.0
+:lang: en
+:encoding: utf-8
 :toc:
 :toc-placement!:
 :toclevels: 7
-:docnumber: 18-062
-:status: published
-:copyright-year: 2018
-:external-id: http://www.opengis.net/doc/IS/ogcapi-processes-1/1.0
-:received-date: 2018-01-01
-:issued-date: 2018-01-01
-:published-date: 2018-01-01
+:copyright-year: 2022
+:received-date: 2022-01-01
+:issued-date: 2022-01-01
+:published-date: 2024-01-01
 :fullname: Benjamin Pross
 :fullname_2: Panagiotis (Peter) A. Vretanos
 :keywords: ogcdoc, OGC document, OGC API, Geospatial API, processes, Web Processing Service, WPS, JSON, HTML, geoprocessing, API, OpenAPI, HTML
@@ -20,7 +24,12 @@
 :local-cache-only:
 :data-uri-image:
 :mn-document-class: ogc
-:mn-output-extensions: rxl,xml,html,pdf
+:mn-output-extensions: xml,html,doc,pdf
+:figure-id: 0
+:table-id: 0
+:req-id: 0
+:rec-id: 0
+:per-id: 0
 
 ////
 Make sure to complete each included document
