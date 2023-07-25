@@ -3,6 +3,8 @@
 
 To register, please create a Pull Request adding your details to this page.
 
+Once registered, please sign up to the https://gitter.im/[Gitter] networking platform as the code sprint will use the https://app.gitter.im/#/room/#ogc-developer_Sprints:gitter.im[OGC-Developer/Sprints] room on Gitter.
+
 [cols="50e,^25m,>25s",width="75%",options="header",align="center"]
 |===
 |Full Name | Affiliation | GitHub Handle
