@@ -21,12 +21,14 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | MariaDB (formerly CubeWerx Inc.)
 | https://github.com/pvretano[pvretano]
 
-| FirstName LastName
-| Affiliation
-| https://example.org[GitHub Handle]
+| Krishna Lodha
+| Geobeyond
+| https://github.com/krishnaglodha[GitHub Handle]
 
 | FirstName LastName
 | Affiliation
 | https://example.org[GitHub Handle]
+
+
 
 |===
