@@ -17,6 +17,10 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | Hexagon
 | https://github.com/sptillma[sptillma]
 
+| Steve McDaniel
+| Hexagon
+| https://github.com/gardengeek99[gardengeek99]
+
 | Panagiotis (Peter) Vretanos
 | MariaDB (formerly CubeWerx Inc.)
 | https://github.com/pvretano[pvretano]
