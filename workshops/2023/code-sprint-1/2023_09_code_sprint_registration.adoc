@@ -21,14 +21,17 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | MariaDB (formerly CubeWerx Inc.)
 | https://github.com/pvretano[pvretano]
 
+| Ricardo Garcia Silva
+| Geobeyond
+| https://github.com/ricardogsilva[ricardogsilva]
+
 | Krishna Lodha
 | Geobeyond
-| https://github.com/krishnaglodha[GitHub Handle]
+| https://github.com/krishnaglodha[krishnaglodha]
 
 | Francesco Bartoli
 | Geobeyond
 | https://github.com/francbartoli[francbartoli]
-
 
 | FirstName LastName
 | Affiliation
