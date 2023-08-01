@@ -29,4 +29,8 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | Affiliation
 | https://example.org[GitHub Handle]
 
+| Adrian Akbari
+| adrianakbari
+| https://github.com/adrianakbari/[adrianakbari]
+
 |===
