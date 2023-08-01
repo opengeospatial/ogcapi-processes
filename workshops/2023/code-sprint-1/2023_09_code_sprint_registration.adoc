@@ -17,20 +17,32 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | Hexagon
 | https://github.com/sptillma[sptillma]
 
+| Steve McDaniel
+| Hexagon
+| https://github.com/gardengeek99[gardengeek99]
+
 | Panagiotis (Peter) Vretanos
 | MariaDB (formerly CubeWerx Inc.)
 | https://github.com/pvretano[pvretano]
 
-| FirstName LastName
-| Affiliation
-| https://example.org[GitHub Handle]
+| Ricardo Garcia Silva
+| Geobeyond
+| https://github.com/ricardogsilva[ricardogsilva]
 
-| FirstName LastName
-| Affiliation
-| https://example.org[GitHub Handle]
+| Krishna Lodha
+| Geobeyond
+| https://github.com/krishnaglodha[krishnaglodha]
+
+| Francesco Bartoli
+| Geobeyond
+| https://github.com/francbartoli[francbartoli]
 
 | Adrian Akbari
 | adrianakbari
 | https://github.com/adrianakbari/[adrianakbari]
+
+| FirstName LastName
+| Affiliation
+| https://example.org[GitHub Handle]
 
 |===
