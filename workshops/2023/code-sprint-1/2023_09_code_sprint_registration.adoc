@@ -25,12 +25,18 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | Geobeyond
 | https://github.com/ricardogsilva[ricardogsilva]
 
-| FirstName LastName
-| Affiliation
-| https://example.org[GitHub Handle]
+| Krishna Lodha
+| Geobeyond
+| https://github.com/krishnaglodha[krishnaglodha]
+
+| Francesco Bartoli
+| Geobeyond
+| https://github.com/francbartoli[francbartoli]
 
 | FirstName LastName
 | Affiliation
 | https://example.org[GitHub Handle]
+
+
 
 |===
