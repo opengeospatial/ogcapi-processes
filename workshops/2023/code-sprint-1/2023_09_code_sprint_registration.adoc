@@ -45,6 +45,10 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | Ecere
 | https://github.com/jerstlouis/[jerstlouis]
 
+| Seth Lawler
+| Dewberry
+| https://github.com/slawler/[slawler]
+
 | FirstName LastName
 | Affiliation
 | https://example.org[GitHub Handle]
