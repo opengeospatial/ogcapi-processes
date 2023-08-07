@@ -17,7 +17,7 @@ All requirements, permission, recommendations and conformance tests that appear 
 
 To express relationships between resources, <<rfc8288,RFC 8288 (Web Linking)>> is used.
 
-The following <<link-relations,registered link relation types>> are used in this document.
+The following https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation types] are used in this document.
 
 * **alternate**: Refers to a substitute for the link's context.
 

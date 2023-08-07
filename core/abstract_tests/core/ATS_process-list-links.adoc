@@ -1,26 +1,18 @@
 [[ats_core_pl-links]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/pl-links
-subject:: <<req_core_pl-links,/req/core/pl-links>>
+identifier:: /conf/core/pl-links
+target:: /req/core/pl-links
 test-purpose:: Validate that the proper links are included in a response.
+test-method::
++
+--
+1. Get a list of process summaries as per test <<ats_core_process-list-op,/conf/core/process-list-op>>.
 
-[.component,class=test method]
-=====
-[.component,class=step]
---
-Get a list of process summaries as per test <<ats_core_process-list-op,/conf/core/process-list-op>>.
---
+2. Verify that the `links` section of the response contains a link with `rel=self`.
 
-[.component,class=step]
+3. Verify that the `links` section of the response contains a link with `rel=alternate` for each response representation the service claims to support in its <<sc_conformance,conformance document>>.
 --
-Verify that the `links` section of the response contains a link with `rel=self`.
---
-
-[.component,class=step]
---
-Verify that the `links` section of the response contains a link with `rel=alternate` for each response representation the service claims to support in its <<sc_conformance,conformance document>>.
---
-=====
 ====

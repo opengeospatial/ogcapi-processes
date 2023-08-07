@@ -1,27 +1,18 @@
 [[ats_core_process-execute-op]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/process-execute-op
-subject:: <<req_core_process-execute-op,/req/core/process-execute-op>>
+identifier:: /conf/core/process-execute-op
+target:: /req/core/process-execute-op
 test-purpose:: Validate the execution of a process.
+test-method::
++
+--
+1. Issue an HTTP POST request to the URL '/processes/{processID}/execution' for each execution mode according to requirements <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>> or <<ats_core_process-execute-auto-execution-mode,/conf/core/process-execute-auto-execution-mode>>.
 
-[.component,class=test method]
-=====
+2. Validate that the server supports a POST request for that operation according to the test <<ats_core_process-execute-request,/conf/core/process-execute-request>>.
 
-[.component,class=step]
+3. Validate the execution of a process according to the requirements <<req_core_process-execute-default-execution-mode,/req/core/process-execute-default-execution-mode>>, <<req_core_process-execute-auto-execution-mode,/req/core/process-execute-auto-execution-mode>>.
 --
-Issue an HTTP POST request to the URL '/processes/{processID}/execution' for each execution mode according to requirements <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>> or <<ats_core_process-execute-auto-execution-mode,/conf/core/process-execute-auto-execution-mode>>.
---
-
-[.component,class=step]
---
-Validate that the server supports a POST request for that operation according to the test <<ats_core_process-execute-request,/conf/core/process-execute-request>>.
---
-
-[.component,class=step]
---
-Validate the execution of a process according to the requirements <<req_core_process-execute-default-execution-mode,/req/core/process-execute-default-execution-mode>>, <<req_core_process-execute-auto-execution-mode,/req/core/process-execute-auto-execution-mode>>.
---
-=====
 ====

@@ -1,0 +1,14 @@
+[[ats_core_test-process]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /conf/core
+target:: /req/core/test-process
+test-purpose:: Ensure that a testable process is offered by the server being tested.
+test-method::
++
+--
+If a server implementing the OGC API - Processes - Part 1: Core is tested using CITE tests, the server SHALL offer at least one testable process. Please refer to <<rec_core_test-process>> for further guidance.
+--
+====

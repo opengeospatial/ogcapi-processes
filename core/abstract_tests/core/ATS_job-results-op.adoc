@@ -1,31 +1,20 @@
 [[ats_core_job-results-op]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/job-results
-subject:: <<req_core_job-results,/req/core/job-results>>
+identifier:: /conf/core/job-results
+target:: /req/core/job-results
 test-purpose:: Validate that the results of a job can be retrieved.
+test-method::
++
+--
+1. Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the {jobID} assigned to the job.
 
-[.component,class=test method]
-=====
-[.component,class=step]
---
-Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the {jobID} assigned to the job.
---
+2. Issue an HTTP GET request to the URL '/jobs/{jobID}/results'.
 
-[.component,class=step]
---
-Issue an HTTP GET request to the URL '/jobs/{jobID}/results'.
---
+3. Validate that the document was returned with a status code 200.
 
-[.component,class=step]
+4. Depending on the number of outputs requested, the negotiated content type of the response and any client preferences, validate the contents of the returned document using the tests <<ats_core_job-results-success-sync,/conf/core/job-results-success-sync>>, <<ats_core_job-results-async-one,/conf/core/job-results-async-one>> or <<ats_core_job-results-async-many,/conf/core/job-results-async-many>>.
 --
-Validate that the document was returned with a status code 200.
---
-
-[.component,class=step]
---
-Validate the contents of the returned document using the test <<ats_job-results-success,/conf/core/job-results-success>>.
---
-=====
 ====

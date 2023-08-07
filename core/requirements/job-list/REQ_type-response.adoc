@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-list/type-response
+identifier:: /req/job-list/type-response
 part:: If the parameter is provided and its value is `process` then only jobs created by an OGC processes API SHALL be included in the response.
 part:: If the parameter is omitted, then all jobs SHALL be included in the response.
 ====

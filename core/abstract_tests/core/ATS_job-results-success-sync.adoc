@@ -1,37 +1,22 @@
-[[ats_core_job-results-sync]]
+[[ats_core_job-results-success-sync]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/job-results-sync
-subject:: <<req_core_job-results-sync,/req/core/job-results-sync>>
+identifier:: /conf/core/job-results-success-sync
+target:: /req/core/job-results-success-sync
 test-purpose:: Validate that the server responds as expected when getting results from a job for a process that has been executed synchronously.
+test-method::
++
+--
+1. Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
 
-[.component,class=test method]
-=====
+2. Inspect the description of each process and identify the subset of processes that support the `sync-execute` job control option.
 
-[.component,class=step]
---
-Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
---
+3. For each identified process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> ensuring that synchronous execution is <<sc_execution_mode,negotiated>> according to test <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>>.
 
-[.component,class=step]
---
-Inspect the description of each process and identify the subset of processes that support the `sync-execute` job control option.
---
+4. Inspect the headers of the response and see if a `Link` header is included with `rel=monitor`.
 
-[.component,class=step]
+5. If the link exists, get the job status as per test <<ats_core_job-op,/conf/core/job-op>> and ensure that the job status is set to `successful`.
 --
-For each identified process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> ensuring that synchronous execution is <<sc_execution_mode,negotiated>> according to test <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>>.
---
-
-[.component,class=step]
---
-Inspect the headers of the response and see if a `Link` header is included with `rel=monitor`.
---
-
-[.component,class=step]
---
-If the link exists, get the job status as per test <<ats_core_job-op,/conf/core/job-op>> and ensure that the job status is set to `successful`.
---
-=====
 ====

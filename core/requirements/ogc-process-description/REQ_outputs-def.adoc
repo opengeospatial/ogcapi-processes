@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/ogc-process-description/outputs-def
+identifier:: /req/ogc-process-description/outputs-def
 [.component,class=part]
 --
 Each process output definition SHALL be listed in the `outputs` section according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/outputDescription.yaml[outputDescription.yaml].

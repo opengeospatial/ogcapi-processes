@@ -1,32 +1,20 @@
 [[ats_core_pl-limit-response]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/pl-limit-response
-subject:: <<req_core_pl-limit-response,/req/core/pl-limit-response>>
+identifier:: /conf/core/pl-limit-response
+target:: /req/core/pl-limit-response
 test-purpose:: Validate that the `limit` query parameter is processed correctly.
+test-method::
++
+--
+1. Get a list of processes as per test <<ats_core_process-list-op,/conf/core/process-list-op>> and append the `limit` query parameter to the request.
 
-[.component,class=test method]
-=====
+2. Count the number of process summaries listed in the response.
 
-[.component,class=step]
---
-Get a list of processes as per test <<ats_core_process-list-op,/conf/core/process-list-op>> and append the `limit` query parameter to the request.
---
+3. Verify that this count is not greater than the value specified by the `limit` parameter.
 
-[.component,class=step]
+4. If the API definition specifies a maximum value for `limit` parameter, verify that the count does not exceed this maximum value.
 --
-Count the number of process summaries listed in the response.
---
-
-[.component,class=step]
---
-Verify that this count is not greater than the value specified by the `limit` parameter.
---
-
-[.component,class=step]
---
-If the API definition specifies a maximum value for `limit` parameter, verify that the count does not exceed this maximum value.
---
-=====
 ====

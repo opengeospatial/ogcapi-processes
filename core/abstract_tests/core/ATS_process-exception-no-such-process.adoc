@@ -1,37 +1,25 @@
 [[ats_core_process-exception-no-such-process]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/process-exception-no-such-process
-subject:: <<req_core_process-exception-no-such-process,/req/core/process-exception-no-such-process>>
+identifier:: /conf/core/process-exception-no-such-process
+target:: /req/core/process-exception-no-such-process
 test-purpose:: Validate that an invalid process identifier is handled correctly.
+test-method::
++
+--
+1. Issue an HTTP GET request to a URL that includes the `{processID}` as a path element using a non-existent process identifier.
 
-[.component,class=test method]
-=====
+2. Validate that the document was returned with a 404.
 
-[.component,class=step]
---
-Issue an HTTP GET request to a URL that includes the `{processID}` as a path element using a non-existent process identifier.
---
+3. Validate that the document contains the exception `type` "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-process".
 
-[.component,class=step]
+4. Validate the document for all supported media types using the resources and tests identified in <<no-such-process>>
 --
-Validate that the document was returned with a 404.
---
-
-[.component,class=step]
---
-Validate that the document contains the exception `type` "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-process".
---
-
-[.component,class=step]
---
-Validate the document for all supported media types using the resources and tests identified in <<no-such-process>>
---
-=====
-
-An exception response caused by the use of an invalid process identifier may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the response. All supported formats should be exercised.
 ====
+
+NOTE: An exception response caused by the use of an invalid process identifier may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the response. All supported formats should be exercised.
 
 [[no-such-process]]
 .Schema and Tests for Non-existent Process

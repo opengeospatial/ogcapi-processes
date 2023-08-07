@@ -1,22 +1,16 @@
-
 [[ats_json_content]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/json/definition
-subject:: <<req_json_definition,/req/json/definition>>
+identifier:: /conf/json/definition
+target:: /req/json/definition
 test-purpose:: Verify support for JSON.
+test-method::
++
+--
+1. A resource is requested with response media type of `application/json`.
 
-[.component,class=test method]
-=====
-[.component,class=step]
+2. All `200` responses SHALL support the following media types: `application/json` for all resources.
 --
-A resource is requested with response media type of `application/json`.
---
-
-[.component,class=step]
---
-All `200` responses SHALL support the following media types: `application/json` for all resources.
---
-=====
 ====

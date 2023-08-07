@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/callback/job-callback
+identifier:: /req/callback/job-callback
 
 The server SHALL support callback functions for jobs.
 ====

@@ -1,10 +1,10 @@
-[[ats_callback]]
-[conformance_class]
+[[ats_callback]][conformance_class]
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback
-subject:: <<rc_core,Requirements Class "Core">>
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback
+subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback>>
 classification:: Target Type:Web API
+conformance-test:: /conf/callback/job-callback
 ====
 
-include::callback/ATS_job-creation-callback.adoc[]
+include::callback/ATS_process-execute-callback.adoc[]

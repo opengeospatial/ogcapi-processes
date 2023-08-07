@@ -1,36 +1,22 @@
 [[ats_core_process-execute-default-outputs]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/process-execute-default-outputs
-subject:: <<req_core_process-execute-op,/req/core/process-execute-op>>
+identifier:: /conf/core/process-execute-default-outputs
+target:: /req/core/process-execute-op
 test-purpose:: Validate that the server correctly handles the case where no `outputs` parameter is specified on an execute request.
+test-method::
++
+--
+1. Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
 
-[.component,class=test method]
-=====
-[.component,class=step]
---
-Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
---
+2. Inspect the description of each process taking note of the definition of each process output.
 
-[.component,class=step]
---
-Inspect the description of each process taking note of the definition of each process output.
---
+3. For each process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to omit the `outputs` parameter.
 
-[.component,class=step]
---
-For each process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to omit the `outputs` parameter.
---
+4. Verify that each process executes successfully according to the relevant requirement (one of: <<ats_core_process-execute-success-async,/req/core/process-execute-success-async>>, <<ats_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, <<ats_core_process-execute-sync-one,/req/core/process-execute-sync-one>>, <<ats_core_process-execute-sync-one-default-content,/req/core/process-execute-sync-one-default-content>>) based on the combination of execute parameters.
 
-[.component,class=step]
+5. Verify that each process includes all the outputs, as defined in the <<sc_process_description,process description>>, in the response.
 --
-Verify that each processes executed successfully according to the <<ats-process-execute-success-sync,relevant requirement based on the combination of execute parameters.>>
---
-
-[.component,class=step]
---
-Verify that each process includes all the outputs, as defined in the <<sc_process_description,process description>>, in the response.
---
-=====
 ====

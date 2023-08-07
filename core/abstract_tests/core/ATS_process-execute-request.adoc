@@ -1,16 +1,14 @@
 [[ats_core_process-execute-request]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/process-execute-request
-subject:: <<req_core_process-execute-request,/req/core/process-execute-request>>
+identifier:: /conf/core/process-execute-request
+target:: /req/core/process-execute-request
 test-purpose:: Validate that the server supports a process execution operation complying with the required structure and contents.
-
-[.component,class=test method]
-=====
-[.component,class=step]
+test-method::
++
 --
 Verify that the server supports a process execution request whose body conforms to the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
 --
-=====
 ====

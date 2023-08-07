@@ -389,7 +389,7 @@ The number of process summaries returned depends on the server and the parameter
 
 See the discussion about the `limit` parameter in the <<sc_limit_parameter,Limit parameter>> section.
 
-include::../requirements/core/REQ_links.adoc[]
+include::../requirements/core/REQ_process-list-links.adoc[]
 
 See the discussion about the `next` links in the <<next-link-discussion,Limit parameter>> section.
 
@@ -455,7 +455,7 @@ See <<http_status_codes>> for general guidance.
 include::../requirements/core/REQ_process-exception-no-such-process.adoc[]
 
 
-[[sc_create_job]]
+[[sc_execute_process]]
 === Execute a process
 
 This section describes the requirements for executing a process.
@@ -466,7 +466,6 @@ Depending on the description of the <<sc_process_description,process>> and the <
 ==== Operation
 
 include::../requirements/core/REQ_process-execute-op.adoc[]
-
 
 ==== Request body
 
@@ -989,7 +988,7 @@ The manner in which a server responds to a process execution request is determin
 
 * the <<sc_execution_mode,negotiated execution mode>> (synchronous or asynchronous),
 * the number of outputs requested,
-* the negotiated content type for the response (via the HTTP Accept header),
+* the negotiated content type for the response (via the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header),
 * and any negotiated client preferences (via the HTTP Prefer header).
 
 The following table maps the possible responses based on the combinations of these execute parameters.  The column headers denote:
@@ -1016,14 +1015,14 @@ The following table maps the possible responses based on the combinations of the
 |Response body
 |Req./Rec./Perm.
 
-.4+|sync
+.5+|sync
 |1
 |_n/a_
 |200
 |
 |_as negotiated_
 |requested process output
-|See requirement: <<req_core_process-execute-sync-one-small,/req/core/process-execute-sync-one-small>>
+|See requirement: <<req_core_process-execute-sync-one,/req/core/process-execute-sync-one>>
 1.3+|N
 |_none_
 .3+|200
@@ -1038,6 +1037,14 @@ The following table maps the possible responses based on the combinations of the
 |representation
 |See <<sync_note_3,Note 3.>>,<<sync_note_6,Note 6>>
 
+|_none_
+|_n/a_
+|204
+|
+|_n/a_
+|_empty_
+|See requirement: <<req_core_job-results-param-outputs-empty,/req/core/job-results-param-outputs-empty>>
+
 |async
 |_n/a_
 |_n/a_
@@ -1045,13 +1052,13 @@ The following table maps the possible responses based on the combinations of the
 |_Location_ to newly created job
 |application/json
 |<<schema-statusInfo,statusInfo.yaml>>
-|See requirement: <<req_core_process-execute-async,/req/core/process-execute-async>>
+|See requirement: <<req_core_process-execute-success-async,/req/core/process-execute-success-async>>
 |===
 
 [NOTE]
 ====
 * The value *_n/a_* in a cell means that the corresponding parameter is not applicable, not specified, not required or can be ignored in this context.
-* The value *_as negotiated_* means that the output content type is as negotiated between the client and the server based on the value of the HTTP Accept header.
+* The value *_as negotiated_* means that the output content type is as negotiated between the client and the server based on the value of the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header.
 ====
 
 [NOTE]
@@ -1102,6 +1109,8 @@ When a process is executed synchronously and a single processing output is reque
 
 include::../requirements/core/REQ_process-execute-success-sync-one.adoc[]
 
+include::../requirements/core/REQ_process-execute-success-sync-one-default-content.adoc[]
+
 NOTE: The size of a response may be determined without actually transmitting the entire response by using the <<rec_core_http-head,HTTP HEAD>> method to retrieve the <<rec_core_content-length,`Content-Length`>> header.
 
 ===== Response requesting multiple processing outputs
@@ -1128,7 +1137,7 @@ For servers that implement this permission and do create a job as a result of sy
 
 include::../requirements/core/REQ_job-results-success-sync.adoc[]
 
-The job reference in the header can then be used to <<async-fetch,re-fetch the results>> of the original synchronous execution.
+The job reference in the header can then be used to <<req_core_process-execute-success-async,re-fetch the results>> of the original synchronous execution.
 
 ===== Response for asynchronous processes execution
 
@@ -1240,14 +1249,14 @@ include::../requirements/core/REQ_job-results-param-outputs-response.adoc[]
 
 include::../requirements/core/REQ_job-results-param-outputs-omit.adoc[]
 
-==== Response
+include::../requirements/core/REQ_job-results-param-outputs-empty.adoc[]
 
 ===== Overview
 
 The manner in which a server responds when retrieving job results depends on:
 
 * the number of outputs requested,
-* the negotiated content type for the response (via the HTTP Accept header) or lack thereof,
+* the negotiated content type for the response (via the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header) or lack thereof,
 * and any negotiated client preferences (via the HTTP Prefer header).
 
 The following table maps the possible responses based on the combinations of these execute parameters.
@@ -1295,12 +1304,20 @@ The column headers in the following table denote:
 
 |representation
 |See <<async_note_2,Note 2>>,<<async_note_3,Note 5>>
+
+|none
+|_n/a_
+|_n/a_
+|204
+|_n/a_
+|_n/a_
+|See requirement: <<req_core_job-results-param-outputs-empty,/req/core/job-results-param-outputs-empty>>
 |===
 
 [NOTE]
 ====
 * The value *_n/a_* in a cell means value of the corresponding parameter is not applicable, not specified, not required or can be ignored in this context.
-* The value *_as negotiated_* means that the output content type is as negotiated between the client and the server based on the value of the HTTP Accept header.
+* The value *_as negotiated_* means that the output content type is as negotiated between the client and the server based on the value of the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header.
 ====
 
 [[async_note_2]]

@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/json/definition
+identifier:: /req/json/definition
 
 `200`-responses of the server SHALL support the following media type:
 
@@ -20,6 +20,5 @@ and for the following API endpoint:
 
 * <<sc_execute_process,`/processes/{processID}/execution`>>
 
-when the <<sc_response_parameter,`response`>> parameter is set to the value `document` and/or the <<sc_execution_mode,negotiated execution mode>> is asynchronous.
-
+when the negotiated response format using the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header or the <<req_kvp-execute_f-definition,`f`>> parameter is JSON, or the <<req_core_process-execute-sync-many-json,number of requested outputs is greater than one>> or the <<sc_execution_mode,negotiated execution mode>> is asynchronous.
 ====

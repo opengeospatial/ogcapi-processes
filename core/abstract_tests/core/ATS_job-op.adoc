@@ -1,26 +1,18 @@
 [[ats_core_job-op]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/job-op
-subject:: <<req_core_job,/req/core/job>>
+identifier:: /conf/core/job-op
+target:: /req/core/job-op
 test-purpose:: Validate that the status info of a job can be retrieved.
+test-method::
++
+--
+1. Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the {jobID} assigned to the job.
 
-[.component,class=test method]
-=====
-[.component,class=step]
---
-Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the {jobID} assigned to the job.
---
+2. Issue an HTTP GET request to the URL '/jobs/{jobID}'.
 
-[.component,class=step]
+3. Validate the contents of the returned document using the test <<ats_core_job-success,/conf/core/job-success>>.
 --
-Issue an HTTP GET request to the URL '/jobs/{jobID}'.
---
-
-[.component,class=step]
---
-Validate the contents of the returned document using the test <<ats_core_job-success,/conf/core/job-success>>.
---
-=====
 ====

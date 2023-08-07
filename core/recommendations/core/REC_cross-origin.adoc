@@ -1,10 +1,5 @@
 [[rec_core_cross-origin]]
-[recommendation]
+[recommendation,type="general",id="/rec/core/cross-origin",label="/rec/core/cross-origin"]
 ====
-[%metadata]
-label:: /rec/core/cross-origin
-
-If the server is intended to be accessed from the browser, cross-origin
-requests SHOULD be supported. Note that support can also be added in a
-proxy layer on top of the server.
+If the server is intended to be accessed from the browser, cross-origin requests SHOULD be supported. Note that support can also be added in a proxy layer on top of the server.
 ====

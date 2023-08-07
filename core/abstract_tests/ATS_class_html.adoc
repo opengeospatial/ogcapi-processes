@@ -1,11 +1,12 @@
-[[ats_html]]
-[conformance_class]
+[[ats_html]][conformance_class]
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
-subject:: <<rc_core,Requirements Class "Core">>
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html
+subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/html>>
 inherit:: <<ats_core,Conformance Class "Core">>
 classification:: Target Type:Web API
+conformance-test:: /conf/html/content
+conformance-test:: /conf/html/definition
 ====
 
 include::html/ATS_content.adoc[]

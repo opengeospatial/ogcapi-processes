@@ -1,16 +1,14 @@
 [[ats_ogc-process-description_input-def]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/ogc-process-description/input-def
-subject:: <<req_ogc-process-description_input-def,/req/ogc-process-description/input-def>>
+identifier:: /conf/ogc-process-description/input-def
+target:: /req/ogc-process-description/input-def
 test-purpose:: Verify that the definition of each input for each process complies with the required structure and contents.
-
-[.component,class=test method]
-=====
-[.component,class=step]
+test-method::
++
 --
 For each input identified according to the test <<ats_ogc-process-description_inputs-def,/conf/ogc-process-description/inputs-def>> verify that the value of the `schema` key, that defines the input, validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
 --
-=====
 ====

@@ -1,26 +1,18 @@
 [[ats_job-list_type-response]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/job-list/type-response
-subject:: <<req_job-list_type-response,/req/job-list/type-response>>
+identifier:: /conf/job-list/type-response
+target:: /req/job-list/type-response
 test-purpose:: Validate that the `type` query parameter is processed correctly.
+test-method::
++
+--
+1. Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `type` query parameter to the request.
 
-[.component,class=test method]
-=====
-[.component,class=step]
---
-Get a list of jobs as per test <<ats_job-list_job-list-op,/conf/job-list/job-list-op>> and append the `type` query parameter to the request.
---
+2. Inspect the value of the `type` property for each job listed in the response.
 
-[.component,class=step]
+3. Verify that that value of the `type` property matches one of the values specified for the `type` query parameter.
 --
-Inspect the value of the `type` property for each job listed in the response.
---
-
-[.component,class=step]
---
-Verify that that value of the `type` property matches one of the values specified for the `type` query parameter.
---
-=====
 ====

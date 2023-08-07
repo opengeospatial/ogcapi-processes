@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-list/limit-response
+identifier:: /req/job-list/limit-response
 [.component,class=part]
 --
 The response SHALL not contain more jobs than specified by the optional `limit` parameter.

@@ -1,0 +1,20 @@
+[[ats_core_process-execute-sync-one-default-content]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/process-execute-sync-one-default-content
+target:: /req/core/process-execute-sync-one-default-content
+test-purpose:: Validate that the default output format is generated upon process execution when a single output is requested but no specific supported format is negotiated.
+test-method::
++
+--
+1. Negotiate synchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/req/core/process-execute-op>>.
+
+2. Request a single output with identifier `{outputID}` as per test <<ats_core_job-results-param-outputs,/req/core/job-results-param-outputs>>.
+
+3. Do not negotiate a specific format for the requested output.
+
+4. Validate that the response conforms to the requirements of <<req_core_process-execute-sync-one-default-content,/req/core/process-execute-sync-one-default-content>>.
+--
+====

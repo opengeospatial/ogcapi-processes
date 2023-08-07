@@ -1,42 +1,27 @@
 [[ats_core_job-results-exception-results-not-ready]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/job-results-exception-results-not-ready
-subject:: <<req_core_job-results-exception_results-not-ready,/req/core/job-results-exception-results-not-ready>>
+identifier:: /conf/core/job-results-exception-results-not-ready
+target:: /req/core/job-results-exception-results-not-ready
 test-purpose:: Validate that the job results retrieved for an incomplete job complies with the require structure and contents.
+test-method::
++
+--
+1. Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the {jobID} assigned to the job; ensure that the job is long-running.
 
-[.component,class=test method]
-=====
+2. Issue an HTTP GET request to the URL '/jobs/{jobID}/results' before the job completes execution.
 
-[.component,class=step]
---
-Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the {jobID} assigned to the job; ensure that the job is long-running.
---
+3. Validate that the document was returned with a 404.
 
-[.component,class=step]
---
-Issue an HTTP GET request to the URL '/jobs/{jobID}/results' before the job completes execution.
---
+4. Validate that the document contains the exception `type` "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-ready".
 
-[.component,class=step]
+5. Validate the document for all supported media types using the resources and tests identified in <<job-results-exception-results-not-ready>>
 --
-Validate that the document was returned with a 404.
---
-
-[.component,class=step]
---
-Validate that the document contains the exception `type` "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-ready".
---
-
-[.component,class=step]
---
-Validate the document for all supported media types using the resources and tests identified in <<job-results-exception-results-not-ready>>
---
-=====
-
-The job results page for a job may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the job results for an incomplete job against that schema.  All supported formats should be exercised.
 ====
+
+NOTE: The job results page for a job may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the job results for an incomplete job against that schema.  All supported formats should be exercised.
 
 [[job-results-exception-results-not-ready]]
 .Schema and Tests for the Job Result for an Incomplete Job

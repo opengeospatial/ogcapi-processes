@@ -1,32 +1,20 @@
 [[ats_core_process-execute-input-inline-object]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/process-execute-input-inline-object
-subject:: <<req_core_process-execute-input-inline-object,/req/core/process-execute-input-inline-object>>
+identifier:: /conf/core/process-execute-input-inline-object
+target:: /req/core/process-execute-input-inline-object
 test-purpose:: Validate that inputs with a complex object schema encoded in-line in an execute request are correctly processed.
+test-method::
++
+--
+1. Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
 
-[.component,class=test method]
-=====
-[.component,class=step]
---
-Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
---
+2. Inspect the description of each process and identify the subset of processes that have inputs with complex `object schemas (i.e. inputs of type `object`).
 
-[.component,class=step]
---
-Inspect the description of each process and identify the subset of processes that have inputs with complex `object schemas (i.e. inputs of type `object`).
---
+3. For each identified process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode the identified object inputs in-line in the execute request according to requirement <<req_core_process-execute-input-inline-object,/req/core/process-execute-input-inline-object>>.
 
-[.component,class=step]
+4. Verify that each process execute successfulle according to the relevant requirement (one of: <<ats_core_process-execute-success-async,/req/core/process-execute-success-async>>, <<ats_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, <<ats_core_process-execute-sync-one,/req/core/process-execute-sync-one>>, <<ats_core_process-execute-sync-one-default-content,/req/core/process-execute-sync-one-default-content>>) based on the combination of execute parameters.
 --
-For each identified process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode the identified object inputs in-line in the execute request according to requirement <<req_core_process-execute-input-inline-object,/req/core/process-execute-input-inline-object>>.
---
-
-[.component,class=step]
---
-Verify that each process executes successfully according to the <<ats-process-execute-success-sync,relevant requirement based on the combination of execute parameters.>>
---
-=====
 ====
-

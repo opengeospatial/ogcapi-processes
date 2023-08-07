@@ -1,7 +1,5 @@
 [[rec_core_next-3]]
-[recommendation]
+[recommendation,type="general",id="/rec/core/next-3",label="/rec/core/next-3"]
 ====
-[%metadata]
-label:: /rec/core/next-3
-part:: The number of process summaries in a response to dereferencing a next page link (relation: `next`) SHOULD follow the same rules as for the response to the original query and again include a next page link (relation: `next`), if there are more process summaries in the selection that have not yet been returned.
+The number of process summaries in a response to dereferencing a next page link (relation: `next`) SHOULD follow the same rules as for the response to the original query and again include a next page link (relation: `next`), if there are more process summaries in the selection that have not yet been returned.
 ====

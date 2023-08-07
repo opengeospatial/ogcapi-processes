@@ -1,8 +1,8 @@
-[[req_core-process-execute-input-inline-bbox]]
+[[req_core_process-execute-input-inline-bbox]]
 [requirement]
 ====
 [%metadata]
-label:: /req/core/process-execute-input-inline-bbox
+identifier:: /req/core/process-execute-input-inline-bbox
 
 Servers SHALL support process input values that conform to the <<bbox-schema,bbox.yaml>> schema.
 ====

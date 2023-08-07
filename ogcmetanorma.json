@@ -1,0 +1,9 @@
+{
+        "0":  {
+                "OGC_doc_number": "18-062r3",
+                "urn":"http://www.opengis.net/doc/IS/ogcapi-processes-1/2.0",
+                "title":"OGC API - Processes - Part 1: Core",
+                "version":"2.0.0",
+                "path":"18-062.adoc"
+        }
+}

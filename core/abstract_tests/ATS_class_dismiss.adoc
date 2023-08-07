@@ -1,12 +1,24 @@
-[[ats_dismiss]]
-[conformance_class]
+[[ats_dismiss]][conformance_class]
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
-subject:: <<rc_core,Requirements Class "Core">>
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
+subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss>>
 classification:: Target Type:Web API
+conformance-test:: /conf/dismiss/job-dismiss-op
+conformance-test:: /conf/dismiss/job-dismiss-success
 ====
 
 include::dismiss/ATS_job-dismiss-op.adoc[]
 
 include::dismiss/ATS_job-dismiss-success.adoc[]
+
+NOTE: The response to dismissing a job can be presented in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate against that schema. All supported formats should be exercised.
+
+[[job-dismiss-schema]]
+.Schema and Tests for Dismissing a Job
+[cols="3",options="header"]
+|===
+|Format |Schema Document |Test ID
+|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_html_content,/conf/html/content>>
+|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_json_content,/conf/json/content>>
+|===

@@ -1,9 +1,6 @@
 [[rec_core_process-execute-sync-document-ref]]
-[recommendation]
+[recommendation,type="general",id="/rec/core/process-execute-sync-document-ref",label="/rec/core/process-execute-sync-document-ref"]
 ====
-[%metadata]
-label:: /rec/core/process-execute-sync-document-ref
-
 conditions::
 +
 --

@@ -1,5 +1,5 @@
 [[rec_core_job-status]]
-[.recommendation,label="/rec/core/job-status"]
+[recommendation,type="general",id="/rec/core/job-status",label="/rec/core/job-status"]
 ====
 [.component,class=part]
 --

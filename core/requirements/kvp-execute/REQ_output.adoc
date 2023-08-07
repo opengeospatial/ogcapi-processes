@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/kvp-execute/output
+identifier:: /req/kvp-execute/output
 [.component,class=conditions]
 --
 . A process output, with identifier `{output-name}`, is defined in the <<sc_process_description,process description>>.
@@ -38,4 +38,5 @@ explode: true
 ----
 
 where the token `{output-name}` represents the identifier of the output.
+--
 ====

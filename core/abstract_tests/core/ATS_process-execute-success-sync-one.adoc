@@ -1,0 +1,20 @@
+[[ats_core_process-execute-sync-one]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/process-execute-sync-one
+target:: /req/core/process-execute-sync-one
+test-purpose:: Validate that the correct output is generated upon process execution when a single output is requested.
+test-method::
++
+--
+1. Negotiate synchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/req/core/process-execute-op>>.
+
+2. Request a single output with identifier `{outputID}` as per test <<ats_core_job-results-param-outputs,/req/core/job-results-param-outputs>>.
+
+3. Negotiate an output format that is supported for the requested output according to the process' description that has been retrieved as per test <<ats_core_process-description,/req/core/process-description>>.
+
+4. Validate that the response conforms to the requirements of <<req_core_process-execute-sync-one,/req/core/process-execute-sync-one>>.
+--
+====

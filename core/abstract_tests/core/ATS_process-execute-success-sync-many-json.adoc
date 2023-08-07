@@ -1,0 +1,18 @@
+[[ats_core_process-execute-sync-many-json]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/process-execute-sync-many-json
+target:: /req/core/process-execute-sync-many-json
+test-purpose:: Validate that the correct output with the correct content type is generated when a process generating multiple responses is synchronously executed.
+test-method::
++
+--
+1. Negotiate synchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/req/core/process-execute-op>>.
+
+2. Request at least 2 process outputs as per test <<ats_core_job-results-param-outputs,/req/core/job-results-param-outputs>>.
+
+3. Validate that the response conforms to the requirements of <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>.
+--
+====

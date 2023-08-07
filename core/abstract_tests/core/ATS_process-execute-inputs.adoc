@@ -1,16 +1,18 @@
 [[ats_core_process-execute-inputs]]
+
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/process-execute-inputs
-subject:: <<req_core_process-execute-inputs,/req/core/process-execute-inputs>>
+identifier:: /conf/core/process-execute-inputs
+target:: /req/core/process-execute-inputs
 test-purpose:: Validate that servers can accept input values both inline and by reference.
+test-method::
++
+--
+1. Verify that the server passes tests <<ats_core_process-execute-input-inline-binary,/conf/core/process-execute-input-inline-binary>>, <<ats_core_process-execute-input-inline-mixed,/conf/core/process-execute-input-inline-mixed>>, <<ats_core_process-execute-input-inline-object,/conf/core/process-execute-input-inline-object>>, <<ats_core_process-execute-input-inline-bbox,/conf/core/process-execute-input-inline-bbox>> .
 
-[.component,class=test method]
-=====
-[.component,class=step]
+2. For each test, specify the input value in-line in the execute request.
+
+3. For each test, specify the input value by reference using a https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/link.yaml[link] in the execute request.
 --
-Verify that the server passes tests <<ats_core_process-execute-input-inline,/conf/core/process-execute-input-inline>> and <<ats_core_process-execute-input-ref,/conf/core/process-execute-input-ref>> .
---
-=====
 ====

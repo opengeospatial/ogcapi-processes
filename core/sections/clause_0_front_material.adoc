@@ -1,3 +1,6 @@
+.Preface
+
+The OGC API - Processes Standard defines how a client application can request the execution of a process, how the inputs to that process can be provided, and how the output from the process is handled. The specification allows for the wrapping of computational tasks into an executable process that can be invoked by a client application. Examples of computational processes that can be supported by implementations of this specification include raster algebra, geometry buffering, constructive area geometry, routing, imagery analysis and several others.
 
 [abstract]
 == Abstract
@@ -12,30 +15,29 @@ This API is a newer and more modern way of programming and interacting with reso
 The resources that are provided by a server implementing the OGC API - Processes Standard are listed in <<table_core_resources>> below and include information about the server, the list of available processes (Process list and Process description), jobs (running processes) and
 results of process executions.
 
+This following table provide an overview of resources, applicable HTTP methods and links to the related document sections.
 
 [[table_core_resources]]
-.Requirements class 'Core' - Overview of resources, applicable HTTP methods and links to the document sections
+.Requirements class 'Core'
 [cols="27,25,10,10,28",options="header"]
 |===
-| Resource | Path | HTTP method | Parameter | Document reference
-
-|Landing page |`/` |GET| N/A | <<sc_landing_page>>
-|Conformance classes |`/conformance` |GET| N/A | <<sc_conformance_classes>>
-|Process list |`/processes` |GET | N/A | <<sc_process_list>>
-|Process description |`/processes/{processID}` |GET | processID (in path) | <<sc_process_description>>
-|Process execution |`/processes/{processID}/execution` |POST| processID (in path), Execute request (contained in body) |<<sc_execute_process>>
-|Job status info |`/jobs/{jobID}` |GET | jobID (in path) |<<sc_retrieve_status_info>>
-|Job results |`/jobs/{jobID}/results` |GET |  jobID (in path) |<<sc_retrieve_job_results_many>>
-|Result |`/jobs/{jobID}/results/{outputID}` |GET |  jobID (in path), outputID (in path) |<<sc_retrieve_job_results_one>>
+|Resource |Path |HTTP method |Parameter |Document reference
+|Landing page |`/` |GET |N/A |<<sc_landing_page>>
+|Conformance classes |`/conformance` |GET |N/A |<<sc_conformance_classes>>
+|Process list |`/processes` |GET |N/A |<<sc_process_list>>
+|Process description |`/processes/{processID}` |GET |processID (in path)|<<sc_process_description>>
+|Process execution |`/processes/{processID}/execution` |POST |processID (in path), Execute request (contained in body) |<<sc_execute_process>>
+|Job status info |`/jobs/{jobID}` |GET |jobID (in path) |<<sc_retrieve_status_info>>
+|Job results |`/jobs/{jobID}/results` |GET |jobID (in path) |<<sc_retrieve_job_results_many>>
+|Result |`/jobs/{jobID}/results/{outputID}` |GET |jobID (in path), outputID (in path) |<<sc_retrieve_job_results_one>>
 |===
 
 In general, the HTTP GET operation is used to provide access to the resources described above.
 However, in order to execute a process, the HTTP POST method is used to send an execution request to the server.
 
-Additionally, the /jobs endpoint can be used to grant access to a list of jobs.
+Additionally, the `/jobs` endpoint can be used to grant access to a list of jobs.
 
-
-.Requirements class 'Job list' - Overview of resources, applicable HTTP methods and links to the document sections
+.Requirements class 'Job list'
 [cols="27,25,10,10,28",options="header"]
 |===
 |Resource |Path |HTTP method | Parameter| Document reference
@@ -44,28 +46,21 @@ Additionally, the /jobs endpoint can be used to grant access to a list of jobs.
 
 In addition to the operations accessible through HTTP GET and POST methods, the DELETE method can be used to cancel a job execution and/or remove traces of the job execution.
 
-
-.Requirements class 'Dismiss' - Overview of resources, applicable HTTP methods and links to the document sections
+.Requirements class 'Dismiss'
 [cols="27,25,10,10,28",options="header"]
 |===
 |Resource |Path |HTTP method | Parameter| Document reference
 |Job status info |`/jobs/{jobID}` |DELETE| jobID (in path) | <<Dismiss>>
 |===
 
-
-.Preface
-
-The OGC API - Processes Standard defines how a client application can request the execution of a process, how the inputs to that process can be provided, and how the output from the process is handled. The specification allows for the wrapping of computational tasks into an executable process that can be invoked by a client application. Examples of computational processes that can be supported by implementations of this specification include raster algebra, geometry buffering, constructive area geometry, routing, imagery analysis and several others.
-
-
 == Submitters
 
 All questions regarding this submission should be directed to the editor or the submitters:
 
+.Table of submitters
 [%unnumbered]
 |===
-| Name | Affiliation
-
+| *Name* | *Affiliation*
 |Benjamin Pross _(editor)_ | 52°North GmbH
 |Stan Tillman|Hexagon
 |Panagiotis (Peter) A. Vretanos _(editor)_ |CubeWerx Inc.
@@ -74,5 +69,4 @@ All questions regarding this submission should be directed to the editor or the 
 |Gérald Fenoy| Gérald Fenoy (Individual Member)
 |Cristiano Lopes|European Space Agency (ESA)
 |Christophe Noel | Spacebel
-
 |===

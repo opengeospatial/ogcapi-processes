@@ -1,9 +1,11 @@
-[[req_job-list_links]]
+[[req_core_pl-links]]
 [requirement]
 ====
 [%metadata]
-label:: /req/job-list/links
-[.component,class=part]
+identifier:: /req/core/pl-links
+
+part::
++
 --
 A `200`-response SHALL include the following links:
 

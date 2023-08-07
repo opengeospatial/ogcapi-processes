@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/oas30/oas-impl
+identifier:: /req/oas30/oas-impl
 
 
 The server SHALL implement all capabilities specified in the OpenAPI

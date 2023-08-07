@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/process-execute-default-execution-mode
+identifier:: /req/core/process-execute-default-execution-mode
 [.component,class=conditions]
 --
 The execute request *is not* accompanied with the HTTP https://datatracker.ietf.org/doc/html/rfc7240#section-2[`Prefer`] header.

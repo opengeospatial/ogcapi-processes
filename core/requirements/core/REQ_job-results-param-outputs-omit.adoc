@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/job-results-param-outputs-omit
+identifier:: /req/core/job-results-param-outputs-omit
 [.component,class=part]
 --
 Omitting the `outputs` parameter indicates that all processing results SHALL be included in the response.

@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/kvp-execute/bbox-crs-input-value
+identifier:: /req/kvp-execute/bbox-crs-input-value
 [.component,class=conditions]
 --
 . The server supports CRSs other than WGS84.

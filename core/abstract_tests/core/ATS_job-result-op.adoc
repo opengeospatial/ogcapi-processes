@@ -1,0 +1,16 @@
+[[ats_core_job-result]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/job-result
+target:: /req/core/job-result
+test-purpose:: Validate that each process output with identifier `{outputID}` can be retrived from the `/jobs/{jobID}/results/{outputID}` endpoint.
+test-method::
++
+--
+1. Negotiate asynchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/req/core/process-execute-op>>.
+
+2. Validate that each process output can be retrived as per requirement <<req_core_job-result,/req/core/job-result>>.
+--
+====

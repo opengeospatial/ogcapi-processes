@@ -2,6 +2,6 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-list/processID-mandatory
+identifier:: /req/job-list/processID-mandatory
 part:: If the server supports this conformance class, the optional `processID` property in the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[statusInfo.yaml] schema SHALL be mandatory.
 ====
