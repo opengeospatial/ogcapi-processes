@@ -49,6 +49,10 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | Dewberry
 | https://github.com/slawler/[slawler]
 
+| Gérald Fenoy
+| GeoLabs
+| https://github.com/gfenoy/[gfenoy]
+
 | FirstName LastName
 | Affiliation
 | https://example.org[GitHub Handle]
