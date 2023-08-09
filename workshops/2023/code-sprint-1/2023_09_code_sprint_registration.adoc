@@ -57,6 +57,10 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | Computer Research Institute of Montréal (CRIM)
 | https://github.com/fmigneault[fmigneault]
 
+| Gérald Fenoy
+| GeoLabs
+| https://github.com/gfenoy/[gfenoy]
+
 | FirstName LastName
 | Affiliation
 | https://example.org[GitHub Handle]
