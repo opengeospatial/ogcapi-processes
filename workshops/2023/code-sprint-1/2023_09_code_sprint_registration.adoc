@@ -49,6 +49,10 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | Dewberry
 | https://github.com/slawler/[slawler]
 
+| Jarrett Keifer
+| Element 84
+| https://github.com/jkeifer/[jkeifer]
+
 | FirstName LastName
 | Affiliation
 | https://example.org[GitHub Handle]
