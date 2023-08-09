@@ -53,6 +53,10 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | Element 84
 | https://github.com/jkeifer/[jkeifer]
 
+| Francis Charette-Migneault
+| Computer Research Institute of Montréal (CRIM)
+| https://github.com/fmigneault[fmigneault]
+
 | FirstName LastName
 | Affiliation
 | https://example.org[GitHub Handle]
