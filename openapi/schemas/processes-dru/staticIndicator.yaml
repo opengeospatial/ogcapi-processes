@@ -1,0 +1,7 @@
+allOf:
+  - $ref: ../processes-core/processSummary.yaml
+  - type: object
+    properties:
+      mutable:
+        type: boolean
+        default: true

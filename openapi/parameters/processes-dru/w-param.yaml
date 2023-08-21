@@ -1,0 +1,6 @@
+name: w
+description: Point to the workflow identifier for deploying a CWL containing multiple workflow definitions
+in: query
+required: false
+schema:
+  type: string

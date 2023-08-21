@@ -7,7 +7,4 @@ headers:
 content:
   application/json:
     schema:
-      content:
-        application/json:
-      schema:
-        $ref: "../schemas/staticIndicator.yaml"
+      $ref: "../../schemas/processes-dru/staticIndicator.yaml"

@@ -29,10 +29,18 @@ paths:
 
    # OGC API - Processes - Part 1: Core
    /processes:
-      $ref: 'paths/processes-core/pProcessList.yaml'
+      # If OGC API - Part 1 only uncomment the line below
+      #$ref: 'paths/processes-core/pProcessList.yaml'
+
+      # OGC API - Processes Part 2: Deploy, Replace, Undeploy
+      $ref: 'paths/processes-dru/pProcessListDeploy.yaml'
 
    /processes/{processId}:
-      $ref: 'paths/processes-core/pProcessDescription.yaml'
+      # OGC API - Processes Part 1: Core
+      #$ref: 'paths/processes-core/pProcessDescription.yaml'
+      
+      # OGC API - Processes Part 2: Deploy, Replace, Undeploy
+      $ref: 'paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml'
 
    /processes/{processId}/execution:
       $ref: 'paths/processes-workflows/pExecution-workflows.yaml'
@@ -46,6 +54,7 @@ paths:
 
    /jobs/{jobId}/results:
       $ref: 'paths/processes-core/pJobResults.yaml'
+
 
 components:
    schemas:
@@ -146,6 +155,12 @@ components:
       statusInfo:
          $ref: 'schemas/processes-core/statusInfo.yaml'
 
+      # OGC API - Common - Part 2: Deploy, Replace, Undeploy
+      ogcapppkg:
+         $ref: 'schemas/processes-dru/ogcapppkg.yaml'
+      staticIndicator:
+         $ref: 'schemas/processes-dru/staticIndicator.yaml'
+
    parameters:
       # Common - Core
       f-metadata:
@@ -187,6 +202,10 @@ components:
          $ref: 'parameters/processes-core/minDuration.yaml'
       maxDuration:
          $ref: 'parameters/processes-core/maxDuration.yaml'
+
+      # OGC API - Common - Part 2: Deploy, Replace, Undeploy
+      w:
+         $ref: 'parameters/processes-dru/w-param.yaml'      
 
    responses:
       # Generic Errors
@@ -234,3 +253,15 @@ components:
          $ref: 'responses/processes-core/rExecuteSync.yaml'
       ExecuteSyncRawRef:
          $ref: 'responses/processes-core/rExecuteSyncRawRef.yaml'
+
+      # OGC API - Common - Part 2: Deploy, Replace, Undeploy
+      DeployProcess:
+         $ref: 'responses/processes-dru/rDeployProcess.yaml'
+      EmptyResponse:
+         $ref: 'responses/processes-dru/rEmpty.yaml'
+
+      # Part 2 additional excepions
+      DuplicateProcess:
+         $ref: 'responses/processes-dru/rDuplicateProcess.yaml'
+      ImmutableProcess:
+         $ref: 'responses/processes-dru/rImmutableProcess.yaml'

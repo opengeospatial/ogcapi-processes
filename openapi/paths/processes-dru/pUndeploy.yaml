@@ -1,0 +1,20 @@
+delete:
+   summary: undeploy a process.
+   description: |
+     Undeploys a process.
+
+     For more information, see [Section 6.5](http://docs.ogc.org/DRAFTS/20-044.html#_16391f9e-538f-4a84-9710-72a6bab82842).
+   operationId: undeploy
+   tags:
+     - DRU
+   parameters:
+     - $ref: "../../parameters/processes-core/processId-path.yaml"
+   responses:
+     204:
+       $ref: "../../responses/processes-dru/rEmpty.yaml"
+     403:
+       $ref: "../../responses/processes-dru/rImmutableProcess.yaml"
+     404:
+       $ref: "../../responses/common-core/rNotFound.yaml"
+     500:
+       $ref: "../../responses/common-core/rServerError.yaml"
