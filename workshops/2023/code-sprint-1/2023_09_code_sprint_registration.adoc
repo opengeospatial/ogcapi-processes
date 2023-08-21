@@ -61,6 +61,10 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | GeoLabs
 | https://github.com/gfenoy/[gfenoy]
 
+| Ms. Prajwalita Chavan
+| Indian Institute of Technology (IIT Bombay)
+| https://github.com/Prajwalita[Prajwalita]
+
 | FirstName LastName
 | Affiliation
 | https://example.org[GitHub Handle]
