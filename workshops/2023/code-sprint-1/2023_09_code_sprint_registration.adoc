@@ -5,68 +5,83 @@ To register, please create a Pull Request adding your details to this page.
 
 Once registered, please sign up to the https://gitter.im/[Gitter] networking platform as the code sprint will use the https://app.gitter.im/#/room/#ogc-developer_Sprints:gitter.im[OGC-Developer/Sprints] room on Gitter. 
 
-[cols="50e,^25m,>25s",width="75%",options="header",align="center"]
+[cols=",,,",width="75%",options="header",align="center"]
 |===
-|Full Name | Affiliation | GitHub Handle
+|Full Name | Affiliation | GitHub Handle | Gitter
 
 | Benjamin Pross
 | 52 North
 | https://github.com/bpross-52n[bpross-52n]
+| Yes
 
 | Stan Tillman
 | Hexagon
 | https://github.com/sptillma[sptillma]
+| Yes
 
 | Steve McDaniel
 | Hexagon
 | https://github.com/gardengeek99[gardengeek99]
+| Yes
 
 | Panagiotis (Peter) Vretanos
 | MariaDB (formerly CubeWerx Inc.)
 | https://github.com/pvretano[pvretano]
+| Yes
 
 | Ricardo Garcia Silva
 | Geobeyond
 | https://github.com/ricardogsilva[ricardogsilva]
+| Invited
 
 | Krishna Lodha
 | Geobeyond
 | https://github.com/krishnaglodha[krishnaglodha]
+| Yes
 
 | Francesco Bartoli
 | Geobeyond
 | https://github.com/francbartoli[francbartoli]
+| Yes
 
 | Adrian Akbari
 | geolabs
 | https://github.com/adrianakbari/[adrianakbari]
+| Yes
 
 | Jerome St-Louis
 | Ecere
 | https://github.com/jerstlouis/[jerstlouis]
+| Yes
 
 | Seth Lawler
 | Dewberry
 | https://github.com/slawler/[slawler]
+| Yes
 
 | Jarrett Keifer
 | Element 84
 | https://github.com/jkeifer/[jkeifer]
+| Yes
 
 | Francis Charette-Migneault
 | Computer Research Institute of Montréal (CRIM)
 | https://github.com/fmigneault[fmigneault]
+| Yes
 
 | Gérald Fenoy
 | GeoLabs
 | https://github.com/gfenoy/[gfenoy]
+| Yes
 
 | Ms. Prajwalita Chavan
 | Indian Institute of Technology (IIT Bombay)
 | https://github.com/Prajwalita[Prajwalita]
+| Invited
 
 | FirstName LastName
 | Affiliation
 | https://example.org[GitHub Handle]
+| Yes
 
 |===
