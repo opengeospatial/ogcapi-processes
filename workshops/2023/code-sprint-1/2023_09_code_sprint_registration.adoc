@@ -38,7 +38,7 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | https://github.com/francbartoli[francbartoli]
 
 | Adrian Akbari
-| adrianakbari
+| geolabs
 | https://github.com/adrianakbari/[adrianakbari]
 
 | Jerome St-Louis
