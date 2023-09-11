@@ -84,6 +84,11 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | https://github.com/matthewhanson/[matthewhanson]
 | Yes
 
+| Ana Pinilla
+| con terra
+| https://github.com/anapinilla[anapinilla]
+| Yes
+
 | FirstName LastName
 | Affiliation
 | https://example.org[GitHub Handle]
