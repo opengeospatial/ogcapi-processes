@@ -18,7 +18,7 @@ results of process executions.
 This following table provide an overview of resources, applicable HTTP methods and links to the related document sections.
 
 [[table_core_resources]]
-.Requirements class 'Core'
+.Requirements class `Core`
 [cols="27,25,10,10,28",options="header"]
 |===
 |Resource |Path |HTTP method |Parameter |Document reference
@@ -37,7 +37,7 @@ However, in order to execute a process, the HTTP POST method is used to send an 
 
 Additionally, the `/jobs` endpoint can be used to grant access to a list of jobs.
 
-.Requirements class 'Job list'
+.Requirements class `Job list`
 [cols="27,25,10,10,28",options="header"]
 |===
 |Resource |Path |HTTP method | Parameter| Document reference
@@ -46,7 +46,7 @@ Additionally, the `/jobs` endpoint can be used to grant access to a list of jobs
 
 In addition to the operations accessible through HTTP GET and POST methods, the DELETE method can be used to cancel a job execution and/or remove traces of the job execution.
 
-.Requirements class 'Dismiss'
+.Requirements class `Dismiss`
 [cols="27,25,10,10,28",options="header"]
 |===
 |Resource |Path |HTTP method | Parameter| Document reference

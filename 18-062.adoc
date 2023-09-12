@@ -13,7 +13,7 @@
 :toc:
 :toc-placement!:
 :toclevels: 7
-:copyright-year: 2022
+:copyright-year: 2023
 :received-date: 2022-01-01
 :issued-date: 2022-01-01
 :published-date: 2024-01-01
