@@ -1,8 +1,16 @@
+*.pdf
 core/standard/er.adoc
 core/standard/compiled/standard/er.pdf
 core/standard/compiled/
 iev/
 relaton/
+18-062.pdf
+18-062.html
+18-062.doc
+18-062.err
+18-062.xml
+18-062.presentation.xml
+18-062.rxl
 core/18-062.pdf
 core/18-062.html
 core/18-062.doc
