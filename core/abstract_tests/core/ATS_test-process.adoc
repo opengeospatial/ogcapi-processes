@@ -9,6 +9,9 @@ test-purpose:: Ensure that a testable process is offered by the server being tes
 test-method::
 +
 --
-If a server implementing the OGC API - Processes - Part 1: Core is tested using CITE tests, the server SHALL offer at least one testable process. Please refer to <<rec_core_test-process>> for further guidance.
+If a server implementing the OGC API - Processes - Part 1: Core is tested using CITE tests, the server SHALL offer at least one testable process. Please refer to 
+//<<rec_core_test-process>>
+Recommendation A.1 
+for further guidance.
 --
 ====

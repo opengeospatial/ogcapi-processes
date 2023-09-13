@@ -9,12 +9,12 @@ test-purpose:: Verify the content of an HTML document given an input document an
 test-method::
 +
 --
-1. Validate that the document is an <<w3c-html5>> document
+. Validate that the document is an <<w3c-html5>> document
 
-2. Manually inspect the document and verify that the HTML body contains:
+. Manually inspect the document and verify that the HTML body contains:
 
-   a. all information in the schemas of the link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject[Response Object] in the HTML `<body/>`,
+.. all information in the schemas of the link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject[Response Object] in the HTML `<body/>`,
 
-   b. all links in HTML `<a/>` elements in the HTML `<body/>`.
+.. all links in HTML `<a/>` elements in the HTML `<body/>`.
 --
 ====
