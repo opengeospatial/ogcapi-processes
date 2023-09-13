@@ -9,18 +9,21 @@ test-purpose:: Validate that the landing page complies with the require structur
 test-method::
 +
 --
-1. Validate that a document was returned with an HTTP status code or 200.
 
-2. Validate the landing page for all supported media types using the resources and tests identified in <<landing-page-schema>>
+. Validate that a document was returned with an HTTP status code or 200.
 
-3. For formats that require manual inspection, perform the following:
+. Validate the landing page for all supported media types using the resources and tests identified in <<landing-page-schema>>
 
-   a. Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition.
+. For formats that require manual inspection, perform the following:
 
-   b. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration.
+.. Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition.
 
-   c. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/processes" link to the list of processes.
+.. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration.
+
+.. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/processes" link to the list of processes.
+
 --
+
 ====
 
 NOTE: The landing page may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the landing page against that schema. All supported formats should be exercised.
