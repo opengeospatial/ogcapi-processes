@@ -136,6 +136,3405 @@
             "$ref": "#/components/responses/ProcessList"
           }
         }
+      },
+      "post": {
+        "summary": "deploy a process.",
+        "description": "Deploys a process.\n\nFor more information, see [Section 6.3](http://docs.ogc.org/DRAFTS/20-044.html#_87a6983e-d060-458c-95ab-27e232e64822).\n",
+        "operationId": "deploy",
+        "tags": [
+          "DRU"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/w"
+          }
+        ],
+        "requestBody": {
+          "description": "An OGC Application Package used to deploy a new process.",
+          "required": true,
+          "content": {
+            "application/ogcapppkg+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ogcapppkg"
+              }
+            },
+            "application/cwl": {
+              "schema": {
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "$author": "Francis Charette-Migneault <francis.charette.migneault@gmail.com>",
+                "$id": "https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/1.2.1_proposed/json-schema/cwl.yaml",
+                "$defs": {
+                  "CWL": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLAtomic"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLGraph"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflow"
+                      }
+                    ]
+                  },
+                  "CWLKeywordList": {
+                    "type": "array",
+                    "title": "KeywordList",
+                    "description": "Keywords applied to the process for search and categorization purposes.",
+                    "items": {
+                      "type": "string",
+                      "title": "keyword",
+                      "minLength": 1
+                    }
+                  },
+                  "CWLTextPatternID": {
+                    "$comment": "Identifier with text pattern that can allow additional non-ASCII characters depending on regex implementation.\nThe identifier allows a '#' or a relative 'sub/part#ref' prefix, to support references to other definitions\nin the CWL document, such as when using 'SchemaDefRequirement'.\n\nJSON spec regex does not include '\\w' in its default subset to allow all word-like unicode characters\n(see reference: https://json-schema.org/understanding-json-schema/reference/regular_expressions.html).\n\nSince support is implementation specific, add both the ASCII-only and '\\w' representation simultaneously\nand let the parser reading this document apply whichever is more relevant or supported\n(see discussion: https://github.com/common-workflow-language/cwl-v1.2/pull/256#discussion_r1234037814).\n",
+                    "pattern": "^([A-Za-z0-9\\w]+(/[A-Za-z0-9\\w]+)*)?[#.]?[A-Za-z0-9\\w]+(?:[-_.][A-Za-z0-9\\w]+)*$",
+                    "type": "string",
+                    "description": "Generic identifier name pattern."
+                  },
+                  "CWLIdentifier": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "title": "UUID",
+                        "description": "Unique identifier.",
+                        "format": "uuid",
+                        "pattern": "^[a-f0-9]{8}(?:-?[a-f0-9]{4}){3}-?[a-f0-9]{12}$"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTextPatternID"
+                      }
+                    ],
+                    "title": "CWLIdentifier",
+                    "description": "Reference to the process identifier."
+                  },
+                  "CWLIntent": {
+                    "type": "array",
+                    "title": "CWLIntent",
+                    "items": {
+                      "type": "string",
+                      "title": "item",
+                      "description": "Identifier URL to a concept for the type of computational operation accomplished by this process\n(see example operations: http://edamontology.org/operation_0004).\n",
+                      "format": "url",
+                      "pattern": "^((?:http|ftp)s?://)?(?!.*//.*$)(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\\.)+(?:[A-Za-z]{2,6}\\.?|[A-Za-z0-9-]{2,}\\.?)|localhost|\\[[a-f0-9:]+\\]|\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})(?::\\d+)?(?:/?|[/?]\\S+)$"
+                    }
+                  },
+                  "CWLImport": {
+                    "description": "Represents an '$import' directive that should point toward another compatible CWL file to import where specified.\nThe contents of the imported file should be relevant contextually where it is being imported.\n",
+                    "$comment": "The schema validation of the CWL will not itself perform the '$import' to resolve and validate its contents.\nTherefore, the complete schema will not be validated entirely, and could still be partially malformed.\nTo ensure proper and exhaustive validation of a CWL definition with this schema, all '$import' directives\nshould be resolved and extended beforehand.\n",
+                    "type": "object",
+                    "properties": {
+                      "$import": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "$import"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "CWLRequirements": {
+                    "title": "CWLRequirements",
+                    "description": "Explicit requirement to execute the application package.",
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLRequirementsMap"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLRequirementsList"
+                      }
+                    ]
+                  },
+                  "CWLRequirementsMap": {
+                    "title": "CWLRequirementsMap",
+                    "type": "object",
+                    "properties": {
+                      "cwltool:CUDARequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/cwltool%3ACUDARequirement"
+                      },
+                      "DockerRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/DockerRequirement"
+                      },
+                      "SoftwareRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/SoftwareRequirement"
+                      },
+                      "ShellCommandRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ShellCommandRequirement"
+                      },
+                      "EnvVarRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/EnvVarRequirement"
+                      },
+                      "SchemaDefRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/SchemaDefRequirement"
+                      },
+                      "InitialWorkDirRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InitialWorkDirRequirement"
+                      },
+                      "InlineJavascriptRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InlineJavascriptRequirement"
+                      },
+                      "InplaceUpdateRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InplaceUpdateRequirement"
+                      },
+                      "LoadListingRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/LoadListingRequirement"
+                      },
+                      "NetworkAccess": {
+                        "$comment": "Not 'NetworkAccessRequirement'",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/NetworkAccessRequirement"
+                      },
+                      "ResourceRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceRequirement"
+                      },
+                      "ScatterFeatureRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ScatterFeatureRequirement"
+                      },
+                      "ToolTimeLimit": {
+                        "$comment": "Not 'ToolTimeLimitRequirement'.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ToolTimeLimitRequirement"
+                      },
+                      "WorkReuse": {
+                        "$comment": "Not 'WorkReuseRequirement'.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/WorkReuseRequirement"
+                      },
+                      "MultipleInputFeatureRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/MultipleInputFeatureRequirement"
+                      },
+                      "StepInputExpressionRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/StepInputExpressionRequirement"
+                      },
+                      "SubworkflowFeatureRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/SubworkflowFeatureRequirement"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "DockerRequirement": {
+                    "type": "object",
+                    "title": "DockerRequirement",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "DockerRequirement"
+                        ]
+                      },
+                      "dockerPull": {
+                        "type": "string",
+                        "title": "Docker pull reference",
+                        "description": "Reference package that will be retrieved and executed by CWL.",
+                        "example": "docker-registry.host.com/namespace/image:1.2.3"
+                      },
+                      "dockerImport": {
+                        "type": "string"
+                      },
+                      "dockerLoad": {
+                        "type": "string"
+                      },
+                      "dockerFile": {
+                        "type": "string"
+                      },
+                      "dockerImageId": {
+                        "type": "string"
+                      },
+                      "dockerOutputDirectory": {
+                        "type": "string"
+                      }
+                    },
+                    "oneOf": [
+                      {
+                        "required": [
+                          "dockerPull"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "dockerImport"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "dockerLoad"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "dockerFile"
+                        ]
+                      }
+                    ],
+                    "additionalProperties": false
+                  },
+                  "InitialWorkDirListing": {
+                    "title": "InitialWorkDirListing",
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      },
+                      {
+                        "type": "array",
+                        "title": "InitialWorkDirListingItems",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                            },
+                            {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/DirectoryListingDirent"
+                            },
+                            {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/DirectoryListingFileOrDirectory"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/DirectoryListingFileOrDirectory"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "DirectoryListingFileOrDirectory": {
+                    "type": "object",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "File",
+                          "Directory"
+                        ]
+                      },
+                      "location": {
+                        "type": "string"
+                      },
+                      "checksum": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/Checksum"
+                      },
+                      "size": {
+                        "type": "integer",
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "class",
+                      "location"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "DirectoryListingDirent": {
+                    "$comment": "Called 'Dirent' in documentation.",
+                    "type": "object",
+                    "title": "DirectoryListingDirent",
+                    "properties": {
+                      "entry": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      },
+                      "entryname": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      },
+                      "writable": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "entry"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "InitialWorkDirRequirement": {
+                    "type": "object",
+                    "title": "InitialWorkDirRequirement",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "InitialWorkDirRequirement"
+                        ]
+                      },
+                      "listing": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InitialWorkDirListing"
+                      }
+                    },
+                    "required": [
+                      "listing"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "InlineJavascriptLibObject": {
+                    "type": "object",
+                    "properties": {
+                      "$include": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "$include"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "InlineJavascriptLibItem": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InlineJavascriptLibObject"
+                      }
+                    ]
+                  },
+                  "InlineJavascriptLibraries": {
+                    "type": "array",
+                    "title": "InlineJavascriptLibraries",
+                    "description": "Additional code fragments that will also be inserted before executing the expression code.\nAllows for function definitions that may be called from CWL expressions.\n",
+                    "items": {
+                      "title": "exp_lib",
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InlineJavascriptLibItem"
+                    }
+                  },
+                  "InlineJavascriptRequirement": {
+                    "type": "object",
+                    "title": "InlineJavascriptRequirement",
+                    "description": "Indicates that the workflow platform must support inline Javascript expressions.\n\nIf this requirement is not present, the workflow platform must not perform expression interpolation\n(see also: https://www.commonwl.org/v1.2/CommandLineTool.html#InlineJavascriptRequirement).\n",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "InlineJavascriptRequirement"
+                        ]
+                      },
+                      "expressionLib": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InlineJavascriptLibraries"
+                      },
+                      "required": [
+                        "expressionLib"
+                      ]
+                    },
+                    "additionalProperties": false
+                  },
+                  "InplaceUpdateRequirement": {
+                    "type": "object",
+                    "title": "InplaceUpdateRequirement",
+                    "description": "If 'inplaceUpdate' is true, then an implementation supporting this feature may permit tools to directly\nupdate files with 'writable: true' in 'InitialWorkDirRequirement'. That is, as an optimization,\nfiles may be destructively modified in place as opposed to copied and updated\n(see also: https://www.commonwl.org/v1.2/CommandLineTool.html#InplaceUpdateRequirement).\n",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "InplaceUpdateRequirement"
+                        ]
+                      },
+                      "inplaceUpdate": {
+                        "type": "boolean",
+                        "title": "inplaceUpdate"
+                      }
+                    },
+                    "required": [
+                      "inplaceUpdate"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "LoadListingEnum": {
+                    "type": "string",
+                    "title": "LoadListingEnum",
+                    "enum": [
+                      "no_listing",
+                      "shallow_listing",
+                      "deep_listing"
+                    ]
+                  },
+                  "LoadListingRequirement": {
+                    "type": "object",
+                    "title": "LoadListingRequirement",
+                    "description": "Specify the desired behavior for loading the listing field of a 'Directory' object for use by expressions\n(see also: https://www.commonwl.org/v1.2/CommandLineTool.html#LoadListingRequirement).\n",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "LoadListingRequirement"
+                        ]
+                      },
+                      "loadListing": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/LoadListingEnum"
+                      }
+                    },
+                    "required": [
+                      "loadListing"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "NetworkAccess": {
+                    "title": "NetworkAccess",
+                    "description": "Indicate whether a process requires outgoing IPv4/IPv6 network access.",
+                    "example": true,
+                    "oneOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      }
+                    ]
+                  },
+                  "NetworkAccessRequirement": {
+                    "type": "object",
+                    "title": "NetworkAccessRequirement",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "$comment": "Not 'NetworkAccessRequirement'",
+                        "enum": [
+                          "NetworkAccess"
+                        ]
+                      },
+                      "networkAccess": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/NetworkAccess"
+                      }
+                    },
+                    "required": [
+                      "networkAccess"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "CWLExpression": {
+                    "$comment": "Whenever this option is applicable for a parameter, any other 'normal' string should not be specified.\nFor JSON schema validation, there is no easy way to distinguish them unless using complicated string patterns.\n",
+                    "type": "string",
+                    "title": "CWLExpression",
+                    "description": "When combined with 'InlineJavascriptRequirement', this field allows runtime parameter references\n(see also: https://www.commonwl.org/v1.2/CommandLineTool.html#Expression).\n"
+                  },
+                  "ResourceQuantityOrFractional": {
+                    "description": "An item quantity that can also represent a proportion of use by resources.",
+                    "$comment": "Technically should be minimum=1, but fractional for scheduling algorithms are allowed.\nThere is no way to distinguish between float/long simultaneously in JSON schema (multi-match oneOf).\nTherefore, only validate that it is greater than zero.\n",
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "default": 1
+                  },
+                  "ResourceCoresMinimum": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceQuantityOrFractional"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      }
+                    ],
+                    "title": "ResourceCoresMinimum",
+                    "summary": "Minimum reserved number of CPU cores.",
+                    "description": "Minimum reserved number of CPU cores.\n\nMay be a fractional value to indicate to a scheduling algorithm that one core can be allocated to\nmultiple jobs. For example, a value of 0.25 indicates that up to 4 jobs\nmay run in parallel on 1 core. A value of 1.25 means that up to 3 jobs\ncan run on a 4 core system (4/1.25 ~ 3).\n\nProcesses can only share a core allocation if the sum of each of their 'ramMax', 'tmpdirMax', and\n'outdirMax' requests also do not exceed the capacity of the node.\n\nProcesses sharing a core must have the same level of isolation (typically a container\nor VM) that they would normally have.\n\nThe reported number of CPU cores reserved for the process, which is available to expressions \non the 'CommandLineTool' as 'runtime.cores', must be a non-zero integer, and may be calculated by\nrounding up the cores request to the next whole number.\n\nScheduling systems may allocate fractional CPU resources by setting quotas or scheduling weights.\nScheduling systems that do not support fractional CPUs may round up the request to the next whole number.\n",
+                    "default": 1
+                  },
+                  "ResourceCoresMaximum": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceQuantityOrFractional"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      }
+                    ],
+                    "title": "ResourceCoresMaximum",
+                    "summary": "Maximum reserved number of CPU cores.",
+                    "description": "Maximum reserved number of CPU cores.\nSee 'coresMin' for discussion about fractional CPU requests.\n"
+                  },
+                  "ResourceRAMMinimum": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceQuantityOrFractional"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      }
+                    ],
+                    "title": "ResourceRAMMinimum",
+                    "summary": "Minimum reserved RAM in mebibytes.",
+                    "description": "Minimum reserved RAM in mebibytes (2**20).\n\nMay be a fractional value. If so, the actual RAM request must be rounded up\nto the next whole number.\n\nThe reported amount of RAM reserved for the process, which is available to\nexpressions on the 'CommandLineTool' as 'runtime.ram', must be a non-zero integer.\n",
+                    "default": 256
+                  },
+                  "ResourceRAMMaximum": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceQuantityOrFractional"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      }
+                    ],
+                    "title": "ResourceRAMMaximum",
+                    "summary": "Maximum reserved RAM in mebibytes.",
+                    "description": "Maximum reserved RAM in mebibytes (2**20).\nSee 'ramMin' for discussion about fractional RAM requests.\n"
+                  },
+                  "ResourceTmpDirMinimum": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceQuantityOrFractional"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      }
+                    ],
+                    "title": "ResourceTmpDirMinimum",
+                    "summary": "Minimum reserved filesystem based storage for the designated temporary directory in mebibytes.",
+                    "description": "Minimum reserved filesystem based storage for the designated temporary\ndirectory in mebibytes (2**20).\n\nMay be a fractional value. If so, the actual storage request must be rounded\nup to the next whole number.\n\nThe reported amount of storage reserved for the process, which is available\nto expressions on the 'CommandLineTool' as 'runtime.tmpdirSize', must be a non-zero integer.\n",
+                    "default": 1024
+                  },
+                  "ResourceTmpDirMaximum": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceQuantityOrFractional"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      }
+                    ],
+                    "title": "ResourceTmpDirMaximum",
+                    "summary": "Maximum reserved filesystem based storage for the designated temporary directory in mebibytes.",
+                    "description": "Maximum reserved filesystem based storage for the designated temporary directory in mebibytes (2**20).\nSee 'tmpdirMin' for discussion about fractional storage requests.\n"
+                  },
+                  "ResourceOutDirMinimum": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceQuantityOrFractional"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      }
+                    ],
+                    "title": "ResourceOutDirMinimum",
+                    "summary": "Minimum reserved filesystem based storage for the designated output directory in mebibytes.",
+                    "description": "Minimum reserved filesystem based storage for the designated output\ndirectory in mebibytes (2**20).\n\nMay be a fractional value. If so, the actual storage request must be rounded\nup to the next whole number.\n\nThe reported amount of storage reserved for the process, which is available\nto expressions on the 'CommandLineTool' as 'runtime.outdirSize', must be a non-zero integer.\n",
+                    "default": 1024
+                  },
+                  "ResourceOutDirMaximum": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceQuantityOrFractional"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      }
+                    ],
+                    "title": "ResourceOutDirMaximum",
+                    "summary": "Maximum reserved filesystem based storage for the designated output directory in mebibytes.",
+                    "description": "Maximum reserved filesystem based storage for the designated output\ndirectory in mebibytes (2**20).\nSee 'outdirMin' for discussion about fractional storage requests.\n",
+                    "default": 1
+                  },
+                  "ResourceRequirement": {
+                    "type": "object",
+                    "title": "ResourceRequirement",
+                    "description": "Specify basic hardware resource requirements\n(see also: https://www.commonwl.org/v1.2/CommandLineTool.html#ResourceRequirement).\n",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "ResourceRequirement"
+                        ]
+                      },
+                      "coresMin": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceCoresMinimum"
+                      },
+                      "coresMax": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceCoresMaximum"
+                      },
+                      "ramMin": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceRAMMinimum"
+                      },
+                      "ramMax": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceRAMMaximum"
+                      },
+                      "tmpdirMin": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceTmpDirMinimum"
+                      },
+                      "tmpdirMax": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceTmpDirMaximum"
+                      },
+                      "outdirMin": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceOutDirMinimum"
+                      },
+                      "outdirMax": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceOutDirMaximum"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "Scatter": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTextPatternID"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/IdentifierArray"
+                      }
+                    ],
+                    "title": "Scatter",
+                    "description": "The scatter field specifies one or more input parameters which will be scattered.\n\nAn input parameter may be listed more than once. The declared type of each\ninput parameter implicitly becomes an array of items of the input parameter type.\nIf a parameter is listed more than once, it becomes a nested array. As a result,\nupstream parameters which are connected to scattered parameters must be arrays.\n\nAll output parameter types are also implicitly wrapped in arrays. Each job\nin the scatter results in an entry in the output array.\n\nIf any scattered parameter runtime value is an empty array, all outputs are\nset to empty arrays and no work is done for the step, according to applicable scattering rules.\n"
+                  },
+                  "IdentifierArray": {
+                    "type": "array",
+                    "title": "IdentifierArray",
+                    "items": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTextPatternID"
+                    },
+                    "minItems": 1
+                  },
+                  "ScatterFeatureRequirement": {
+                    "type": "object",
+                    "title": "ScatterFeatureRequirement",
+                    "description": "A 'scatter' operation specifies that the associated Workflow step should execute separately over a list of\ninput elements. Each job making up a scatter operation is independent and may be executed concurrently\n(see also: https://www.commonwl.org/v1.2/Workflow.html#WorkflowStep).\n",
+                    "$comment": "Fields 'scatter' and 'scatterMethod' at the root of a 'WorkflowStep', not within the requirement.",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "description": "CWL requirement class specification.",
+                        "enum": [
+                          "ScatterFeatureRequirement"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "MultipleInputFeatureRequirement": {
+                    "type": "object",
+                    "title": "MultipleInputFeatureRequirement",
+                    "description": "Indicates that the 'Workflow' must support multiple inbound data links listed in the 'source'\nfield of 'WorkflowStepInput'.\n",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "description": "CWL requirement class specification.",
+                        "enum": [
+                          "MultipleInputFeatureRequirement"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "StepInputExpressionRequirement": {
+                    "type": "object",
+                    "title": "StepInputExpressionRequirement",
+                    "description": "Indicates that the 'Workflow' must support the 'valueFrom' field of 'WorkflowStepInput'.",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "description": "CWL requirement class specification.",
+                        "enum": [
+                          "StepInputExpressionRequirement"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "SubworkflowFeatureRequirement": {
+                    "type": "object",
+                    "title": "SubworkflowFeatureRequirement",
+                    "description": "Indicates that the 'Workflow' must support nested workflows in the 'run' field of 'WorkflowStep'.",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "description": "CWL requirement class specification.",
+                        "enum": [
+                          "SubworkflowFeatureRequirement"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "CWLFileOnlyParameters": {
+                    "type": "object",
+                    "properties": {
+                      "secondaryFiles": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordSecondaryFiles"
+                      },
+                      "streamable": {
+                        "type": "boolean"
+                      },
+                      "format": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLFormat"
+                      },
+                      "loadContents": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "CWLFileOnlyParametersConditional": {
+                    "description": "Parameters that are only valid when 'type' or 'items' evaluates to 'File'.",
+                    "$comment": "Explicitly disallow these parameters when non-File type is detected.\nOtherwise, validate their schema definitions according to what is permitted.\n",
+                    "type": "object",
+                    "if": {
+                      "properties": {
+                        "oneOf": [
+                          {
+                            "$comment": "Single required or optional 'File'.",
+                            "type": {
+                              "enum": [
+                                "File",
+                                "File?",
+                                "File[]",
+                                "File[]?"
+                              ]
+                            }
+                          },
+                          {
+                            "$comment": "Array of required or optional 'File'.",
+                            "type": {
+                              "const": "array"
+                            },
+                            "items": {
+                              "oneOf": [
+                                {
+                                  "type": [
+                                    {
+                                      "const": "File"
+                                    },
+                                    {
+                                      "const": "File?"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "array",
+                                  "contains": {
+                                    "type": [
+                                      {
+                                        "const": "File"
+                                      },
+                                      {
+                                        "const": "File?"
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "then": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLFileOnlyParameters"
+                    },
+                    "else": {
+                      "not": {
+                        "properties": {
+                          "secondaryFiles": {},
+                          "streamable": {},
+                          "format": {},
+                          "loadContents": {}
+                        }
+                      }
+                    }
+                  },
+                  "CWLDirectoryOnlyParameters": {
+                    "type": "object",
+                    "properties": {
+                      "loadListing": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/LoadListingEnum"
+                      }
+                    }
+                  },
+                  "CWLDirectoryOnlyParametersConditional": {
+                    "description": "Parameters that are only valid when 'type' or 'items' evaluates to 'Directory'.",
+                    "$comment": "Explicitly disallow these parameters when non-Directory type is detected.\nOtherwise, validate their schema definitions according to what is permitted.\n",
+                    "type": "object",
+                    "if": {
+                      "properties": {
+                        "oneOf": [
+                          {
+                            "$comment": "Single required or optional 'Directory'.",
+                            "type": {
+                              "enum": [
+                                "Directory",
+                                "Directory?",
+                                "Directory[]",
+                                "Directory[]?"
+                              ]
+                            }
+                          },
+                          {
+                            "$comment": "Array of required or optional 'Directory'.",
+                            "type": {
+                              "const": "array"
+                            },
+                            "items": {
+                              "oneOf": [
+                                {
+                                  "type": [
+                                    {
+                                      "const": "Directory"
+                                    },
+                                    {
+                                      "const": "Directory?"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "array",
+                                  "contains": {
+                                    "type": [
+                                      {
+                                        "const": "Directory"
+                                      },
+                                      {
+                                        "const": "Directory?"
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "then": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDirectoryOnlyParameters"
+                    },
+                    "else": {
+                      "not": {
+                        "properties": {
+                          "loadListing": {}
+                        }
+                      }
+                    }
+                  },
+                  "CWLTypeRecordSecondaryFileSchema": {
+                    "type": "object",
+                    "properties": {
+                      "pattern": {
+                        "$comment": "Either an expression or the regex pattern directly.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      },
+                      "required": {
+                        "oneOf": [
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "pattern"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "CWLTypeRecordSecondaryFiles": {
+                    "oneOf": [
+                      {
+                        "$comment": "Either an expression or the regex pattern directly.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordSecondaryFileSchema"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "$comment": "Either an expression or the regex pattern directly.",
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                        }
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordSecondaryFileSchema"
+                        }
+                      }
+                    ]
+                  },
+                  "CWLTypeRecordFieldDefBase": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "$comment": "Required if list item. Otherwise, optional since it is the mapping key.\nThis requirement is defined in 'CWLTypeRecordFieldsItem' to allow reuse of this schema.\n",
+                        "type": "string"
+                      },
+                      "type": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLType"
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ]
+                  },
+                  "CWLTypeRecordFieldDef": {
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordFieldDefBase"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLFileOnlyParametersConditional"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDirectoryOnlyParametersConditional"
+                      }
+                    ]
+                  },
+                  "CWLTypeRecordFieldsMap": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLType"
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordFieldDef"
+                        }
+                      ]
+                    }
+                  },
+                  "CWLTypeRecordFieldsItem": {
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordFieldDef"
+                      },
+                      {
+                        "required": [
+                          "name"
+                        ]
+                      }
+                    ]
+                  },
+                  "CWLTypeRecordFieldsList": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordFieldsItem"
+                    }
+                  },
+                  "CWLTypeRecordFields": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordFieldsMap"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordFieldsList"
+                      }
+                    ]
+                  },
+                  "CWLTypeRecordSchema": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "record"
+                        ]
+                      },
+                      "fields": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordFields"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ]
+                  },
+                  "CWLTypeRecordArray": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "array"
+                        ]
+                      },
+                      "items": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLType"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "items"
+                    ]
+                  },
+                  "SchemaDefRequirement": {
+                    "type": "object",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "SchemaDefRequirement"
+                        ]
+                      },
+                      "types": {
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeEnum"
+                            },
+                            {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordSchema"
+                            },
+                            {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordArray"
+                            },
+                            {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLImport"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "types"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "SoftwarePackageSpecs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "SoftwarePackage": {
+                    "type": "object",
+                    "properties": {
+                      "package": {
+                        "type": "string"
+                      },
+                      "version": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "specs": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ReferenceURL"
+                        }
+                      }
+                    },
+                    "required": [
+                      "package"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "SoftwareRequirement": {
+                    "type": "object",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "SoftwareRequirement"
+                        ]
+                      },
+                      "packages": {
+                        "oneOf": [
+                          {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/SoftwarePackage"
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "description": "Mapping of 'package' name to its specifications.",
+                            "additionalProperties": {
+                              "oneOf": [
+                                {
+                                  "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/SoftwarePackageSpecs"
+                                },
+                                {
+                                  "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/SoftwarePackage"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "packages"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "ShellCommandRequirement": {
+                    "type": "object",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "ShellCommandRequirement"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "EnvironmentDef": {
+                    "type": "object",
+                    "properties": {
+                      "envName": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "envValue": {
+                        "type": {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                        }
+                      }
+                    },
+                    "required": [
+                      "envName",
+                      "envValue"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "EnvVarRequirement": {
+                    "type": "object",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "EnvVarRequirement"
+                        ]
+                      },
+                      "envDef": {
+                        "oneOf": [
+                          {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/EnvironmentDef"
+                            }
+                          },
+                          {
+                            "type": "object",
+                            "description": "Mapping of 'envName' to environment value or definition.",
+                            "additionalProperties": {
+                              "oneOf": [
+                                {
+                                  "description": "The 'envValue' specified directly",
+                                  "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                                },
+                                {
+                                  "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/EnvironmentDef"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "envDef"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "TimeLimitValue": {
+                    "oneOf": [
+                      {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      }
+                    ],
+                    "title": "TimeLimitValue",
+                    "description": "The time limit, in seconds.\n\nA time limit of zero means no time limit.\nNegative time limits are an error.\n"
+                  },
+                  "ToolTimeLimitRequirement": {
+                    "type": "object",
+                    "title": "ToolTimeLimitRequirement",
+                    "description": "Set an upper limit on the execution time of a CommandLineTool.\n\nA CommandLineTool whose execution duration exceeds the time limit may be preemptively\nterminated and considered failed. May also be used by batch systems to make scheduling decisions.\n\nThe execution duration excludes external operations, such as staging of files,\npulling a docker image etc., and only counts wall-time for the execution of the command line itself.\n",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "$comment": "not 'ToolTimeLimitRequirement'",
+                        "enum": [
+                          "ToolTimeLimit"
+                        ]
+                      },
+                      "timelimit": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/TimeLimitValue"
+                      }
+                    },
+                    "required": [
+                      "timelimit"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "EnableReuseValue": {
+                    "oneOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      }
+                    ],
+                    "title": "EnableReuseValue",
+                    "description": "Indicates if reuse is enabled for this tool.\n\nCan be an expression when combined with 'InlineJavascriptRequirement'\n(see also: https://www.commonwl.org/v1.2/CommandLineTool.html#Expression).\n"
+                  },
+                  "WorkReuseRequirement": {
+                    "type": "object",
+                    "title": "WorkReuseRequirement",
+                    "description": "For implementations that support reusing output from past work\n(on the assumption that same code and same input produce same results),\ncontrol whether to enable or disable the reuse behavior for a particular tool\nor step (to accommodate situations where that assumption is incorrect).\n\nA reused step is not executed but instead returns the same output as the original execution.\n\nIf 'WorkReuse' is not specified, correct tools should assume it is enabled by default.\n",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "$comment": "Not 'WorkReuseRequirement'.",
+                        "enum": [
+                          "WorkReuse"
+                        ]
+                      },
+                      "enableReuse": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/EnableReuseValue"
+                      }
+                    },
+                    "required": [
+                      "enableReuse"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "UnknownRequirement": {
+                    "type": "object",
+                    "description": "Generic schema to allow alternative CWL requirements/hints not explicitly defined in schemas.",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "title": "Requirement Class Identifier",
+                        "description": "CWL requirement class specification.",
+                        "example": "UnknownRequirement",
+                        "not": {
+                          "enum": [
+                            "cwltool:CUDARequirement",
+                            "DockerRequirement",
+                            "SoftwareRequirement",
+                            "ShellCommandRequirement",
+                            "EnvVarRequirement",
+                            "SchemaDefRequirement",
+                            "InitialWorkDirRequirement",
+                            "InlineJavascriptRequirement",
+                            "InplaceUpdateRequirement",
+                            "LoadListingRequirement",
+                            "NetworkAccess",
+                            "ResourceRequirement",
+                            "ScatterFeatureRequirement",
+                            "ToolTimeLimit",
+                            "WorkReuse",
+                            "MultipleInputFeatureRequirement",
+                            "StepInputExpressionRequirement",
+                            "SubworkflowFeatureRequirement"
+                          ]
+                        }
+                      }
+                    },
+                    "additionalProperties": {}
+                  },
+                  "CWLRequirementsList": {
+                    "type": "array",
+                    "title": "CWLRequirementsList",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "allOf": [
+                            {
+                              "$comment": "When using the list representation, 'class' is required to indicate which one is being represented.\nWhen using the mapping representation, 'class' is optional since it's the key, but it must match by name.\n",
+                              "required": [
+                                "class"
+                              ]
+                            },
+                            {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLRequirementsItem"
+                            }
+                          ]
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLImport"
+                        }
+                      ]
+                    }
+                  },
+                  "CWLRequirementsItem": {
+                    "title": "CWLRequirementsItem",
+                    "$comment": "For any new items added, ensure they are added under 'class' of 'UnknownRequirement' as well.\nOtherwise, insufficiently restrictive classes could cause multiple matches, failing the 'oneOf' condition.\n",
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/cwltool%3ACUDARequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/DockerRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/SoftwareRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ShellCommandRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/EnvVarRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/SchemaDefRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InitialWorkDirRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InlineJavascriptRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InplaceUpdateRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/LoadListingRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/NetworkAccessRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ResourceRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ScatterFeatureRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ToolTimeLimitRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/WorkReuseRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/MultipleInputFeatureRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/StepInputExpressionRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/SubworkflowFeatureRequirement"
+                      }
+                    ]
+                  },
+                  "ScatterMethod": {
+                    "type": "string",
+                    "title": "scatterMethod",
+                    "description": "If 'scatter' declares more than one input parameter, 'scatterMethod'\ndescribes how to decompose the input into a discrete set of jobs.\n\n- dotproduct: specifies that each of the input arrays are aligned and\n  one element taken from each array to construct each job. It is an\n  error if all input arrays are not the same length.\n\n- nested_crossproduct: specifies the Cartesian product of the inputs, producing \n  a job for every combination of the scattered inputs. The output must be nested \n  arrays for each level of scattering, in the order that the input arrays\n  are listed in the 'scatter' field.\n\n- flat_crossproduct: specifies the Cartesian product of the inputs, producing a \n  job for every combination of the scattered inputs. The output arrays must be \n  flattened to a single level, but otherwise listed in the order that the input \n  arrays are listed in the 'scatter' field.\n",
+                    "default": "dotproduct",
+                    "enum": [
+                      "dotproduct",
+                      "nested_crossproduct",
+                      "flat_crossproduct"
+                    ],
+                    "required": [
+                      "timelimit",
+                      "class"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "CWLHints": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLHintsMap"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLHintsList"
+                      }
+                    ],
+                    "title": "CWLHints",
+                    "description": "Non-failing additional hints that can help resolve extra requirements."
+                  },
+                  "CWLHintsMapExtras": {
+                    "type": "object",
+                    "properties": {
+                      "BuiltinRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/BuiltinRequirement"
+                      },
+                      "OGCAPIRequirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/OGCAPIRequirement"
+                      },
+                      "WPS1Requirement": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/WPS1Requirement"
+                      }
+                    },
+                    "additionalProperties": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/UnknownRequirement"
+                    }
+                  },
+                  "CWLHintsMap": {
+                    "title": "CWLHintsMap",
+                    "anyOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLRequirementsMap"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLHintsMapExtras"
+                      }
+                    ]
+                  },
+                  "BuiltinRequirement": {
+                    "type": "object",
+                    "title": "BuiltinRequirement",
+                    "description": "Hint indicating that the Application Package corresponds to a\nbuiltin process of this instance. (note: can only be an 'hint'\nas it is unofficial CWL specification).\n",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "BuiltinRequirement"
+                        ]
+                      },
+                      "process": {
+                        "$comment": "Builtin process identifier.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTextPatternID"
+                      }
+                    },
+                    "required": [
+                      "process",
+                      "class"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "CUDAComputeCapability": {
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "title": "CUDA compute capability",
+                        "description": "The compute capability supported by the GPU hardware.",
+                        "pattern": "^\\d+\\.\\d+$"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CUDAComputeCapabilityArray"
+                      }
+                    ],
+                    "title": "CUDA compute capability",
+                    "description": "The compute capability supported by the GPU hardware.\n\n* If this is a single value, it defines only the minimum compute capability.\n  GPUs with higher capability are also accepted.\n* If it is an array value, then only select GPUs with compute capabilities that explicitly\n  appear in the array.\n  See https://docs.nvidia.com/deploy/cuda-compatibility/#faq and\n  https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#cuda-compute-capability\n  for details.\n"
+                  },
+                  "CUDAComputeCapabilityArray": {
+                    "type": "array",
+                    "title": "CUDAComputeCapabilityArray",
+                    "items": {
+                      "type": "string",
+                      "title": "CUDA compute capability",
+                      "description": "The compute capability supported by the GPU hardware.",
+                      "pattern": "^\\d+\\.\\d+$"
+                    },
+                    "minItems": 1
+                  },
+                  "cwltool:CUDARequirement": {
+                    "type": "object",
+                    "title": "cwltool:CUDARequirement",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "cwltool:CUDARequirement"
+                        ]
+                      },
+                      "cudaVersionMin": {
+                        "type": "string",
+                        "title": "CUDA version minimum",
+                        "description": "The minimum CUDA version required to run the software. This corresponds to a CUDA SDK release.\n\nWhen run in a container, the container image should provide the CUDA runtime,\nand the host driver is injected into the container.  In this case, because CUDA drivers\nare backwards compatible, it is possible to use an older SDK with a newer driver across major versions.\n\nSee https://docs.nvidia.com/deploy/cuda-compatibility/ for details.\n",
+                        "example": "11.4",
+                        "pattern": "^\\d+\\.\\d+$"
+                      },
+                      "cudaComputeCapability": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CUDAComputeCapability"
+                      },
+                      "cudaDeviceCountMin": {
+                        "type": "integer",
+                        "title": "CUDA device count minimum",
+                        "description": "The minimum amount of devices required.",
+                        "default": 1,
+                        "example": 1,
+                        "minimum": 1
+                      },
+                      "cudaDeviceCountMax": {
+                        "type": "integer",
+                        "title": "CUDA device count maximum",
+                        "description": "The maximum amount of devices required.",
+                        "default": 1,
+                        "example": 8,
+                        "minimum": 1
+                      }
+                    },
+                    "required": [
+                      "cudaVersionMin",
+                      "cudaComputeCapability"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "OGCAPIRequirement": {
+                    "type": "object",
+                    "title": "OGCAPIRequirement",
+                    "description": "Hint indicating that the Application Package corresponds to an\nOGC API - Processes provider that should be remotely executed and monitored\nby this instance. (note: can only be an 'hint' as it is unofficial CWL specification).\n",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "OGCAPIRequirement"
+                        ]
+                      },
+                      "process": {
+                        "description": "Process location.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ReferenceURL"
+                      }
+                    },
+                    "required": [
+                      "process"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "WPS1Requirement": {
+                    "type": "object",
+                    "title": "WPS1Requirement",
+                    "description": "Hint indicating that the Application Package corresponds to a\nWPS-1 provider process that should be remotely executed and monitored by this\ninstance. (note: can only be an ''hint'' as it is unofficial CWL specification).\n",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "WPS1Requirement"
+                        ]
+                      },
+                      "process": {
+                        "$comment": "Process identifier of the remote WPS provider.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTextPatternID"
+                      },
+                      "provider": {
+                        "description": "WPS provider endpoint.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ReferenceURL"
+                      }
+                    },
+                    "required": [
+                      "process",
+                      "provider"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "CWLHintsList": {
+                    "type": "array",
+                    "title": "CWLHintsList",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "allOf": [
+                            {
+                              "$comment": "When using the list representation, 'class' is required to indicate which one is being represented.\nWhen using the mapping representation, 'class' is optional since it's the key, but it must match by name.\n",
+                              "required": [
+                                "class"
+                              ]
+                            },
+                            {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLHintsItem"
+                            }
+                          ]
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLImport"
+                        }
+                      ]
+                    }
+                  },
+                  "CWLHintsItemExtras": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/BuiltinRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/OGCAPIRequirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/WPS1Requirement"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/UnknownRequirement"
+                      }
+                    ]
+                  },
+                  "CWLHintsItem": {
+                    "title": "CWLHintsItem",
+                    "$comment": "For any new items added, ensure they are added under 'class' of 'UnknownRequirement' as well.\nOtherwise, insufficiently restrictive classes could cause multiple matches, failing the 'oneOf' condition.\n",
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLRequirementsItem"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLHintsItemExtras"
+                      }
+                    ]
+                  },
+                  "CWLCommand": {
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "title": "String command."
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CommandParts"
+                      }
+                    ],
+                    "title": "CWLCommand",
+                    "description": "Command called in the docker image or on shell according to requirements\nand hints specifications. Can be omitted if already defined in the docker\nimage.\n"
+                  },
+                  "CommandParts": {
+                    "type": "array",
+                    "title": "Command Parts",
+                    "items": {
+                      "type": "string",
+                      "title": "cmd"
+                    },
+                    "additionalProperties": false
+                  },
+                  "CWLArguments": {
+                    "type": "array",
+                    "title": "CWLArguments",
+                    "description": "Base arguments passed to the command.",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InputBinding"
+                        }
+                      ]
+                    }
+                  },
+                  "CWLInputStdInDefinition": {
+                    "description": "Indicates that the value passed to this CWL input will be redirected to the standard input stream of the command.\nCan be defined for only one input and must not be combined with 'stdin' at the root of the CWL document.\n",
+                    "type": "string",
+                    "enum": [
+                      "stdin"
+                    ]
+                  },
+                  "CWLInputStdInObjectType": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputStdInDefinition"
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ]
+                  },
+                  "CWLInputStdIn": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputStdInDefinition"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputStdInObjectType"
+                      }
+                    ]
+                  },
+                  "CWLOutputStdOutDefinition": {
+                    "description": "Indicates that the data pushed to the standard output stream by the command will be redirected to this CWL output.\nCan be defined for only one output. If combined with 'stdout' at the root of the CWL document, that definition\nwill indicate the desired name of the output file where the output stream will be written to. A random name will\nbe applied for the file of this output unless otherwise specified.\n",
+                    "type": "string",
+                    "enum": [
+                      "stdout"
+                    ]
+                  },
+                  "CWLOutputStdOutObjectType": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputStdOutDefinition"
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ]
+                  },
+                  "CWLOutputStdOut": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputStdOutDefinition"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputStdOutObjectType"
+                      }
+                    ]
+                  },
+                  "CWLOutputStdErrDefinition": {
+                    "description": "Indicates that the data pushed to the standard error stream by the command will be redirected to this CWL output.\nCan be defined for only one output. If combined with 'stderr' at the root of the CWL document, that definition\nwill indicate the desired name of the output file where the error stream will be written to.  A random name will\nbe applied for the file of this output unless otherwise specified.\n",
+                    "type": "string",
+                    "enum": [
+                      "stderr"
+                    ]
+                  },
+                  "CWLOutputStdErrObjectType": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputStdErrDefinition"
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ]
+                  },
+                  "CWLOutputStdErr": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputStdErrDefinition"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputStdErrObjectType"
+                      }
+                    ]
+                  },
+                  "CWLInputsDefinition": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputList"
+                      },
+                      {
+                        "$comment": "Avoid 'oneOf' conflict of generic mapping key strings as input identifier matching against '$import'.",
+                        "allOf": [
+                          {
+                            "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputMap"
+                          },
+                          {
+                            "not": {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLImport"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLImport"
+                      }
+                    ],
+                    "title": "CWLInputsDefinition",
+                    "description": "All inputs available to the Application Package."
+                  },
+                  "CWLInputList": {
+                    "type": "array",
+                    "title": "CWLInputList",
+                    "description": "Package inputs defined as items.",
+                    "items": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputItem"
+                    }
+                  },
+                  "CWLFormat": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                        }
+                      }
+                    ]
+                  },
+                  "CWLType": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeBase"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeList"
+                      }
+                    ],
+                    "title": "CWL Type"
+                  },
+                  "CWLTypeDefinition": {
+                    "type": "string",
+                    "title": "CWL type string definition",
+                    "summary": "CWL type string definition.",
+                    "description": "Field type definition.",
+                    "$comment": "Note that 'Any' is equivalent to any of the non-null types.\nTherefore, a nullable 'Any' explicitly specified by 'Any?' or its array-nullable form 'Any[]?' are not equivalent.\n",
+                    "enum": [
+                      "null",
+                      "Any",
+                      "Any?",
+                      "Any[]",
+                      "Any[]?",
+                      "Directory",
+                      "Directory?",
+                      "Directory[]",
+                      "Directory[]?",
+                      "File",
+                      "File?",
+                      "File[]",
+                      "File[]?",
+                      "boolean",
+                      "boolean?",
+                      "boolean[]",
+                      "boolean[]?",
+                      "double",
+                      "double?",
+                      "double[]",
+                      "double[]?",
+                      "enum?",
+                      "enum[]",
+                      "enum[]?",
+                      "float",
+                      "float?",
+                      "float[]",
+                      "float[]?",
+                      "int",
+                      "int?",
+                      "int[]",
+                      "int[]?",
+                      "integer",
+                      "integer?",
+                      "integer[]",
+                      "integer[]?",
+                      "long",
+                      "long?",
+                      "long[]",
+                      "long[]?",
+                      "string",
+                      "string?",
+                      "string[]",
+                      "string[]?"
+                    ]
+                  },
+                  "CWLTypeBase": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeDefinition"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeArray"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeEnum"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordRef"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordSchema"
+                      }
+                    ],
+                    "title": "CWLTypeBase"
+                  },
+                  "CWLTypeArray": {
+                    "type": "object",
+                    "title": "CWLTypeArray",
+                    "summary": "CWL type as list of items.",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "title": "type",
+                        "example": "array",
+                        "enum": [
+                          "array"
+                        ]
+                      },
+                      "items": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLType"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "items"
+                    ],
+                    "additionalProperties": {}
+                  },
+                  "CWLTypeSymbols": {
+                    "type": "array",
+                    "title": "CWLTypeSymbols",
+                    "summary": "Allowed values composing the enum.",
+                    "items": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeSymbolValues"
+                    }
+                  },
+                  "CWLTypeSymbolValues": {
+                    "oneOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ],
+                    "title": "CWLTypeSymbolValues"
+                  },
+                  "CWLTypeEnum": {
+                    "type": "object",
+                    "title": "CWLTypeEnum",
+                    "summary": "CWL type as enum of values.",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "title": "type",
+                        "example": "enum",
+                        "enum": [
+                          "enum"
+                        ]
+                      },
+                      "symbols": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeSymbols"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "symbols"
+                    ],
+                    "additionalProperties": {}
+                  },
+                  "CWLTypeRecordRef": {
+                    "description": "An IRI with minimally a '{Record}' identifier to look for a schema definition locally or remotely.\n\nThe identifier resolution is performed accordingly to the specified reference and as described in\nhttps://www.commonwl.org/v1.2/SchemaSalad.html#Identifier_resolution.\n",
+                    "$comment": "Avoid 'oneOf' conflict of valid strings between this CWL record reference and the generic CWL types.",
+                    "allOf": [
+                      {
+                        "not": {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeDefinition"
+                        }
+                      },
+                      {
+                        "not": {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputStdInDefinition"
+                        }
+                      },
+                      {
+                        "not": {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputStdOutDefinition"
+                        }
+                      },
+                      {
+                        "not": {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputStdErrDefinition"
+                        }
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeRecordRefPattern"
+                      }
+                    ]
+                  },
+                  "CWLTypeRecordRefPattern": {
+                    "type": "string",
+                    "format": "url",
+                    "pattern": "^(((?:http|ftp)s?:\\/\\/)?(?!.*\\/\\/.*$)(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\\.)+(?:[A-Za-z]{2,6}\\.?|[A-Za-z0-9-]{2,}\\.?)|localhost|\\[[a-f0-9:]+\\]|\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})(?::\\d+)?(?:\\/?|[\\/?]\\S+))?(?:[A-Za-z0-9\\w\\-.\\/]+)?\\#?[A-Za-z0-9\\w\\-.]+$"
+                  },
+                  "CWLTypeList": {
+                    "type": "array",
+                    "title": "CWLTypeList",
+                    "summary": "Combination of allowed CWL types.",
+                    "items": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeBase"
+                    }
+                  },
+                  "CWLDefault": {
+                    "title": "CWLDefault",
+                    "description": "Default value of input if not provided for task execution.",
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/AnyLiteralType"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/AnyLiteralList"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDefaultLocation"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDefaultObject"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDefaultObject"
+                        }
+                      }
+                    ]
+                  },
+                  "CWLDefaultTypedConditional": {
+                    "$comment": "Validate that the 'default' value, if specified, is of same type as the CWL 'type'.\nThis avoids over-accepting anything that does not match the intended type.\nHowever, validation limits itself to data literals and arrays.\nNested type and multi-type definitions will validate against 'Any'.\n",
+                    "allOf": [
+                      {
+                        "$comment": "Object structure with minimally 'type' and 'default'. Otherwise, no point to continue testing.",
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/AnyType"
+                          },
+                          "default": {
+                            "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/AnyType"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ]
+                      },
+                      {
+                        "$comment": "Explicit null.",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "const": "null"
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "type": "null"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Required string.",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "const": "string"
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Optional string.",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "const": "string?"
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Required boolean.",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "const": "boolean"
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Optional boolean.",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "enum": [
+                                "double?",
+                                "float?",
+                                "int?",
+                                "integer?",
+                                "long?"
+                              ]
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Required numeric.",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "enum": [
+                                "double",
+                                "float",
+                                "int",
+                                "integer",
+                                "long"
+                              ]
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Optional numeric.",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "enum": [
+                                "double?",
+                                "float?",
+                                "int?",
+                                "integer?",
+                                "long?"
+                              ]
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Required enum.",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "const": "enum"
+                            },
+                            "symbols": {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeSymbols"
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "type": {
+                                "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeSymbolValues"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Optional enum.",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "const": "enum?"
+                            },
+                            "symbols": {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeSymbols"
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "oneOf": [
+                                {
+                                  "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLTypeSymbolValues"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Required File or Directory.",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "enum": [
+                                "Directory",
+                                "File"
+                              ]
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDefaultLocation"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Optional File or Directory.",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "enum": [
+                                "Directory?",
+                                "File?"
+                              ]
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "oneOf": [
+                                {
+                                  "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDefaultLocation"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Required array of string.",
+                        "if": {
+                          "oneOf": [
+                            {
+                              "properties": {
+                                "type": {
+                                  "const": "string[]"
+                                }
+                              }
+                            },
+                            {
+                              "properties": {
+                                "type": {
+                                  "const": "array"
+                                },
+                                "items": {
+                                  "const": "string"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Required array of boolean.",
+                        "if": {
+                          "oneOf": [
+                            {
+                              "properties": {
+                                "type": {
+                                  "const": "boolean[]"
+                                }
+                              }
+                            },
+                            {
+                              "properties": {
+                                "type": {
+                                  "const": "array"
+                                },
+                                "items": {
+                                  "const": "boolean"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "type": "array",
+                              "items": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Required array of numeric.",
+                        "if": {
+                          "oneOf": [
+                            {
+                              "properties": {
+                                "type": {
+                                  "enum": [
+                                    "double[]",
+                                    "float[]",
+                                    "int[]",
+                                    "integer[]",
+                                    "long[]"
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "properties": {
+                                "type": {
+                                  "const": "array"
+                                },
+                                "items": {
+                                  "enum": [
+                                    "double",
+                                    "float",
+                                    "int",
+                                    "integer",
+                                    "long"
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "type": "array",
+                              "items": {
+                                "type": "number"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Required anything (single).",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "const": "Any"
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "$comment": "Match anything.",
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/AnyType"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "$comment": "Required array of anything.",
+                        "if": {
+                          "properties": {
+                            "type": {
+                              "const": "Any[]"
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "default": {
+                              "$comment": "Match anything as long as under array.",
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/AnyType"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "AnyType": {
+                    "type": [
+                      "boolean",
+                      "number",
+                      "string",
+                      "array",
+                      "object"
+                    ]
+                  },
+                  "AnyLiteralType": {
+                    "oneOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "AnyLiteralList": {
+                    "type": "array",
+                    "title": "AnyLiteralList",
+                    "items": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/AnyLiteralType"
+                    }
+                  },
+                  "Checksum": {
+                    "$comment": "Minimal pattern check to know which hash algorithm to apply,\nbut don't check too harshly for the rest (length, allowed characters, etc.).\n",
+                    "type": "string",
+                    "pattern": "^[a-z0-9\\-]+\\$[\\w\\-.]+$"
+                  },
+                  "ReferenceURL": {
+                    "type": "string",
+                    "format": "url",
+                    "pattern": "^((?:http|ftp)s?:\\/\\/)?(?!.*\\/\\/.*$)(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\\.)+(?:[A-Za-z]{2,6}\\.?|[A-Za-z0-9-]{2,}\\.?)|localhost|\\[[a-f0-9:]+\\]|\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})(?::\\d+)?(?:\\/?|[/?]\\S+)$"
+                  },
+                  "CWLDefaultLocation": {
+                    "type": "object",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "File",
+                          "Directory"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      },
+                      "location": {
+                        "type": "string"
+                      },
+                      "basename": {
+                        "type": "string"
+                      },
+                      "nameroot": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "class"
+                    ],
+                    "oneOf": [
+                      {
+                        "required": [
+                          "path"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "location"
+                        ]
+                      }
+                    ],
+                    "additionalProperties": false
+                  },
+                  "CWLDefaultObject": {
+                    "type": "object",
+                    "not": {
+                      "$comment": "Avoid false-positive match of default File or Directory location definition.",
+                      "properties": {
+                        "class": {
+                          "type": "string",
+                          "enum": [
+                            "File",
+                            "Directory"
+                          ]
+                        }
+                      }
+                    },
+                    "additionalProperties": {}
+                  },
+                  "InputBinding": {
+                    "type": "object",
+                    "title": "Input Binding",
+                    "description": "Defines how to specify the input for the command.",
+                    "properties": {
+                      "prefix": {
+                        "type": "string"
+                      },
+                      "position": {
+                        "oneOf": [
+                          {
+                            "type": "integer"
+                          },
+                          {
+                            "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                          }
+                        ]
+                      },
+                      "valueFrom": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      },
+                      "itemSeparator": {
+                        "type": "string"
+                      },
+                      "shellQuote": {
+                        "type": "boolean"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "CWLInputItemBase": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "oneOf": [
+                          {
+                            "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLType"
+                          },
+                          {
+                            "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputStdIn"
+                          }
+                        ]
+                      },
+                      "inputBinding": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InputBinding"
+                      },
+                      "id": {
+                        "description": "Identifier of the CWL input.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLIdentifier"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "id"
+                    ],
+                    "additionalProperties": {}
+                  },
+                  "CWLInputItem": {
+                    "title": "Input",
+                    "description": "Input specification. Note that multiple formats are supported and\nnot all specification variants or parameters are presented here. Please refer\nto official CWL documentation for more details (https://www.commonwl.org).\n",
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputItemBase"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDefaultTypedConditional"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDocumentation"
+                      }
+                    ]
+                  },
+                  "CWLInputObjectBase": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLType"
+                      },
+                      "inputBinding": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/InputBinding",
+                        "additionalProperties": {}
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ],
+                    "additionalProperties": {}
+                  },
+                  "CWLInputObject": {
+                    "title": "CWLInputObject",
+                    "summary": "CWL type definition with parameters.",
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputObjectBase"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDefaultTypedConditional"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDocumentation"
+                      }
+                    ]
+                  },
+                  "CWLInputMap": {
+                    "type": "object",
+                    "title": "CWLInputMap",
+                    "description": "Package inputs defined as mapping.",
+                    "properties": {},
+                    "required": [],
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLType"
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputObject"
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputStdIn"
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLImport"
+                        }
+                      ]
+                    }
+                  },
+                  "CWLOutputsDefinition": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputList"
+                      },
+                      {
+                        "$comment": "Avoid 'oneOf' conflict of generic mapping key strings as output identifier matching against '$import'.",
+                        "allOf": [
+                          {
+                            "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputMap"
+                          },
+                          {
+                            "not": {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLImport"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLImport"
+                      }
+                    ],
+                    "title": "CWLOutputsDefinition",
+                    "description": "All outputs produced by the Application Package."
+                  },
+                  "CWLOutputList": {
+                    "type": "array",
+                    "title": "CWLOutputList",
+                    "description": "Package outputs defined as items.",
+                    "items": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputItem"
+                    }
+                  },
+                  "OutputBinding": {
+                    "type": "object",
+                    "title": "OutputBinding",
+                    "description": "Defines how to retrieve the output result from the command.",
+                    "properties": {
+                      "glob": {
+                        "description": "Glob pattern to find the output on disk or mounted docker volume.",
+                        "oneOf": [
+                          {
+                            "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "additionalProperties": {}
+                  },
+                  "CWLOutputItem": {
+                    "type": "object",
+                    "title": "CWLOutputItem",
+                    "description": "Output specification. Note that multiple formats are supported\nand not all specification variants or parameters are presented here. Please\nrefer to official CWL documentation for more details (https://www.commonwl.org).\n",
+                    "properties": {
+                      "type": {
+                        "oneOf": [
+                          {
+                            "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLType"
+                          },
+                          {
+                            "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputStdOut"
+                          },
+                          {
+                            "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputStdErr"
+                          }
+                        ]
+                      },
+                      "outputBinding": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/OutputBinding"
+                      },
+                      "id": {
+                        "description": "Identifier of the CWL output.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLIdentifier"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "id"
+                    ],
+                    "additionalProperties": {}
+                  },
+                  "CWLOutputObjectBase": {
+                    "type": "object",
+                    "title": "CWLOutputObject",
+                    "summary": "CWL type definition with parameters.",
+                    "properties": {
+                      "type": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLType"
+                      },
+                      "outputBinding": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/OutputBinding"
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ],
+                    "additionalProperties": {}
+                  },
+                  "CWLOutputObject": {
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDocumentation"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputObjectBase"
+                      }
+                    ]
+                  },
+                  "CWLOutputMap": {
+                    "type": "object",
+                    "title": "CWLOutputMap",
+                    "description": "Package outputs defined as mapping.",
+                    "properties": {},
+                    "required": [],
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLType"
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputObject"
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputStdOut"
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputStdErr"
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLImport"
+                        }
+                      ]
+                    }
+                  },
+                  "CWLScatter": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLIdentifier"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLScatterMulti"
+                      }
+                    ],
+                    "title": "CWLScatter",
+                    "description": "One or more input identifier of an application step within a Workflow\nwere an array-based input to that Workflow should be scattered across multiple\ninstances of the step application.\n"
+                  },
+                  "CWLScatterMulti": {
+                    "type": "array",
+                    "title": "CWLScatterMulti",
+                    "items": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLIdentifier"
+                    }
+                  },
+                  "CWLScatterMethod": {
+                    "type": "string",
+                    "title": "scatterMethod",
+                    "description": "Describes how to decompose the scattered input into a discrete\nset of jobs. When 'dotproduct', specifies that each of the input arrays\nare aligned and one element taken from each array to construct each job.\nIt is an error if all input arrays are of different length. When 'nested_crossproduct',\nspecifies the Cartesian product of the inputs, producing a job for every\ncombination of the scattered inputs. The output must be nested arrays\nfor each level of scattering, in the order that the input arrays are listed\nin the scatter field. When 'flat_crossproduct', specifies the Cartesian\nproduct of the inputs, producing a job for every combination of the scattered\ninputs. The output arrays must be flattened to a single level, but otherwise\nlisted in the order that the input arrays are listed in the scatter field.\n",
+                    "enum": [
+                      "dotproduct",
+                      "nested_crossproduct",
+                      "flat_crossproduct"
+                    ]
+                  },
+                  "CWLWorkflowStepScatter": {
+                    "type": "object",
+                    "properties": {
+                      "scatter": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/Scatter"
+                      },
+                      "scatterMethod": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/ScatterMethod"
+                      }
+                    }
+                  },
+                  "CWLWorkflowStepRun": {
+                    "description": "Nested CWL definition to run as Workflow step.",
+                    "oneOf": [
+                      {
+                        "description": "File or URL reference to a CWL tool definition.",
+                        "type": "string"
+                      },
+                      {
+                        "description": "Nested CWL tool definition for the step.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLAtomicNested"
+                      },
+                      {
+                        "description": "Nested CWL Workflow definition for the step.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowNested"
+                      }
+                    ]
+                  },
+                  "CWLWorkflowStepWhen": {
+                    "description": "Condition to execute a step that must evaluate to a boolean-like value.",
+                    "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                  },
+                  "LinkMergeMethod": {
+                    "type": "string",
+                    "enum": [
+                      "merge_nested",
+                      "merge_flattened"
+                    ]
+                  },
+                  "CWLWorkflowStepInputBase": {
+                    "type": "object",
+                    "properties": {
+                      "source": {
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      },
+                      "linkMerge": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/LinkMergeMethod"
+                      },
+                      "valueFrom": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      }
+                    }
+                  },
+                  "CWLWorkflowStepInputDefault": {
+                    "$comment": "CWL 'type' is not specified at this level for step inputs\n(it is provided by the mapped input of the nested tool instead).\nTherefore, cannot validate against 'CWLDefaultTypedConditional'.\n",
+                    "type": "object",
+                    "properties": {
+                      "default": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDefault"
+                      }
+                    }
+                  },
+                  "CWLWorkflowStepInput": {
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepInputBase"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepInputDefault"
+                      }
+                    ]
+                  },
+                  "CWLWorkflowStepInputId": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLIdentifier"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  },
+                  "CWLWorkflowStepInItem": {
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepInputId"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepInputBase"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepInputDefault"
+                      }
+                    ]
+                  },
+                  "CWLWorkflowStepInList": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepInItem"
+                    }
+                  },
+                  "CWLWorkflowStepInMap": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepInput"
+                        }
+                      ]
+                    }
+                  },
+                  "CWLWorkflowStepIn": {
+                    "description": "Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.",
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepInMap"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepInList"
+                      }
+                    ]
+                  },
+                  "CWLWorkflowStepOutId": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLIdentifier"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "CWLWorkflowStepOut": {
+                    "description": "Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.",
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLIdentifier"
+                        },
+                        {
+                          "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepOutId"
+                        }
+                      ]
+                    }
+                  },
+                  "CWLWorkflowStepDefinition": {
+                    "type": "object",
+                    "properties": {
+                      "in": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepIn"
+                      },
+                      "run": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepRun"
+                      },
+                      "when": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepWhen"
+                      },
+                      "out": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepOut"
+                      }
+                    },
+                    "required": [
+                      "in",
+                      "run",
+                      "out"
+                    ]
+                  },
+                  "CWLWorkflowStepObject": {
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepDefinition"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepScatter"
+                      }
+                    ]
+                  },
+                  "CWLWorkflowStepItem": {
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepId"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepObject"
+                      }
+                    ]
+                  },
+                  "CWLWorkflowStepId": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLIdentifier"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  },
+                  "CWLWorkflowStepMap": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepObject"
+                    }
+                  },
+                  "CWLWorkflowStepList": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepItem"
+                    }
+                  },
+                  "CWLWorkflowClass": {
+                    "type": "object",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "enum": [
+                          "Workflow"
+                        ]
+                      }
+                    }
+                  },
+                  "CWLWorkflowSteps": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepMap"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowStepList"
+                      }
+                    ]
+                  },
+                  "CWLWorkflowBase": {
+                    "type": "object",
+                    "properties": {
+                      "steps": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowSteps"
+                      },
+                      "inputs": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputsDefinition"
+                      },
+                      "outputs": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputsDefinition"
+                      },
+                      "requirements": {
+                        "$comment": "Technically a different subset, but lots of redefinitions to be done.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLRequirements"
+                      },
+                      "hints": {
+                        "$comment": "Technically a different subset, but lots of redefinitions to be done.",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLHints"
+                      }
+                    }
+                  },
+                  "CWLWorkflowNested": {
+                    "$comment": "Same as 'CWLWorkflow', but 'cwlVersion' not repeated (only at root).",
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLMetadata"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDocumentation"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowClass"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowBase"
+                      }
+                    ]
+                  },
+                  "CWLWorkflow": {
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLVersion"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLMetadata"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDocumentation"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowClass"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLWorkflowBase"
+                      }
+                    ]
+                  },
+                  "CWLVersion": {
+                    "type": "object",
+                    "properties": {
+                      "clwVersion": {
+                        "type": "string",
+                        "title": "cwlVersion",
+                        "description": "CWL version of the described application package.",
+                        "pattern": "^v\\d+(\\.\\d+(\\.\\d+)*)*$"
+                      }
+                    },
+                    "required": [
+                      "cwlVersion"
+                    ]
+                  },
+                  "CWLAtomic": {
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLVersion"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLMetadata"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDocumentation"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLAtomicBase"
+                      }
+                    ]
+                  },
+                  "CWLAtomicNested": {
+                    "$comment": "Same as 'CWLAtomic', but 'cwlVersion' not repeated (only at root).",
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLMetadata"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDocumentation"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLAtomicBase"
+                      }
+                    ]
+                  },
+                  "CWLAtomicBase": {
+                    "type": "object",
+                    "title": "CWL atomic definition",
+                    "description": "Direct CWL definition instead of the graph representation.",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLIdentifier"
+                      },
+                      "class": {
+                        "type": "string",
+                        "title": "Class",
+                        "description": "CWL class specification. This is used to differentiate between single Application Package (AP)definitions and Workflow that chains multiple packages.",
+                        "enum": [
+                          "CommandLineTool",
+                          "ExpressionTool"
+                        ]
+                      },
+                      "intent": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLIntent"
+                      },
+                      "requirements": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLRequirements"
+                      },
+                      "hints": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLHints"
+                      },
+                      "baseCommand": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLCommand"
+                      },
+                      "arguments": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLArguments"
+                      },
+                      "inputs": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputsDefinition"
+                      },
+                      "outputs": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputsDefinition"
+                      },
+                      "stdin": {
+                        "description": "Source of the input stream. \nTypically, an expression referring to an existing file name or an input of the CWL document.\n",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      },
+                      "stdout": {
+                        "description": "Destination of the output stream.\nTypically, an expression referring to a desired file name or provided by a CWL input reference.\n",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      },
+                      "stderr": {
+                        "description": "Destination of the error stream.\nTypically, an expression referring to a desired file name or provided by a CWL input reference.\n",
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLExpression"
+                      },
+                      "scatter": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLScatter"
+                      },
+                      "scatterMethod": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLScatterMethod"
+                      }
+                    },
+                    "required": [
+                      "class",
+                      "inputs",
+                      "outputs"
+                    ]
+                  },
+                  "CWLGraphList": {
+                    "type": "array",
+                    "title": "CWLGraphList",
+                    "description": "Graph definition that defines *exactly one* CWL application package represented as list. Multiple definitions simultaneously deployed is NOT supported currently.",
+                    "items": {
+                      "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLGraphItem"
+                    },
+                    "maxItems": 1,
+                    "minItems": 1
+                  },
+                  "CWLGraphItem": {
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLMetadata"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDocumentation"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLGraphItemBase"
+                      }
+                    ]
+                  },
+                  "CWLGraphItemBase": {
+                    "type": "object",
+                    "title": "CWLGraphItem",
+                    "properties": {
+                      "class": {
+                        "type": "string",
+                        "title": "Class",
+                        "description": "CWL class specification. This is used to differentiate between single Application Package (AP)definitions and Workflow that chains multiple packages.",
+                        "enum": [
+                          "CommandLineTool",
+                          "ExpressionTool",
+                          "Workflow"
+                        ]
+                      },
+                      "id": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLIdentifier"
+                      },
+                      "intent": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLIntent"
+                      },
+                      "requirements": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLRequirements"
+                      },
+                      "hints": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLHints"
+                      },
+                      "baseCommand": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLCommand"
+                      },
+                      "arguments": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLArguments"
+                      },
+                      "inputs": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLInputsDefinition"
+                      },
+                      "outputs": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLOutputsDefinition"
+                      },
+                      "scatter": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLScatter"
+                      },
+                      "scatterMethod": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLScatterMethod"
+                      }
+                    },
+                    "required": [
+                      "class",
+                      "id",
+                      "inputs",
+                      "outputs"
+                    ],
+                    "additionalProperties": {}
+                  },
+                  "CWLGraphBase": {
+                    "type": "object",
+                    "properties": {
+                      "$graph": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLGraphList"
+                      }
+                    },
+                    "required": [
+                      "$graph"
+                    ],
+                    "additionalProperties": {}
+                  },
+                  "CWLGraph": {
+                    "title": "CWLGraph",
+                    "allOf": [
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLVersion"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLMetadata"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLDocumentation"
+                      },
+                      {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLGraphBase"
+                      }
+                    ]
+                  },
+                  "CWLDocumentation": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "doc": {
+                        "oneOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "CWLMetadata": {
+                    "type": "object",
+                    "properties": {
+                      "s:keywords": {
+                        "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema/%24defs/CWLKeywordList"
+                      },
+                      "version": {
+                        "type": "string",
+                        "title": "version",
+                        "description": "Version of the process.",
+                        "example": "1.2.3",
+                        "pattern": "^\\d+(\\.\\d+(\\.\\d+(\\.[A-Za-z0-9\\-_]+)*)*)*$"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "application/cwl+json": {
+              "schema": {
+                "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema"
+              }
+            },
+            "application/cwl+yaml": {
+              "schema": {
+                "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/schemas/processSummary"
+          },
+          "403": {
+            "$ref": "#/components/responses/ImmutableProcess"
+          },
+          "409": {
+            "$ref": "#/components/responses/DuplicateProcess"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
       }
     },
     "/processes/{processId}": {
@@ -157,6 +3556,89 @@
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "put": {
+        "summary": "replace a process.",
+        "description": "Replaces a process.\n\nFor more information, see [Section 6.4](http://docs.ogc.org/DRAFTS/20-044.html#_18582f42-ebc6-4284-9333-c089068f62b6).\n",
+        "operationId": "replace",
+        "tags": [
+          "DRU"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/processId-path"
+          }
+        ],
+        "requestBody": {
+          "description": "An OGC Application Package used to deploy a new process.",
+          "required": true,
+          "content": {
+            "application/ogcapppkg+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ogcapppkg"
+              }
+            },
+            "application/cwl": {
+              "schema": {
+                "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema"
+              }
+            },
+            "application/cwl+json": {
+              "schema": {
+                "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema"
+              }
+            },
+            "application/cwl+yaml": {
+              "schema": {
+                "$ref": "#/paths/~1processes/post/requestBody/content/application~1cwl/schema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/EmptyResponse"
+          },
+          "403": {
+            "$ref": "#/components/responses/ImmutableProcess"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "$ref": "#/components/responses/DuplicateProcess"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      },
+      "delete": {
+        "summary": "undeploy a process.",
+        "description": "Undeploys a process.\n\nFor more information, see [Section 6.5](http://docs.ogc.org/DRAFTS/20-044.html#_16391f9e-538f-4a84-9710-72a6bab82842).\n",
+        "operationId": "undeploy",
+        "tags": [
+          "DRU"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/processId-path"
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/EmptyResponse"
+          },
+          "403": {
+            "$ref": "#/components/responses/ImmutableProcess"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1937,6 +5419,112 @@
             }
           }
         }
+      },
+      "ogcapppkg": {
+        "type": "object",
+        "required": [
+          "executionUnit"
+        ],
+        "properties": {
+          "processDescription": {
+            "$ref": "#/components/schemas/process"
+          },
+          "executionUnit": {
+            "oneOf": [
+              {
+                "description": "Resource containing an executable or runtime information for executing the process.",
+                "type": "object",
+                "properties": {
+                  "config": {
+                    "type": "object",
+                    "description": "Hardware requirements and configuration properties for executing the process.",
+                    "properties": {
+                      "cpuMin": {
+                        "description": "Minimum number of CPUs required to run the process (unit is CPU core).",
+                        "type": "number",
+                        "minimum": 1
+                      },
+                      "cpuMax": {
+                        "description": "Maximum number of CPU dedicated to the process (unit is CPU core)",
+                        "type": "number"
+                      },
+                      "memoryMin": {
+                        "description": "Minimum RAM memory required to run the application (unit is GB)",
+                        "type": "number"
+                      },
+                      "memoryMax": {
+                        "description": "Maximum RAM memory dedicated to the application (unit is GB)",
+                        "type": "number"
+                      },
+                      "storageTempMin": {
+                        "description": "Minimum required temporary storage size (unit is GB)",
+                        "type": "number"
+                      },
+                      "storageOutputsMin": {
+                        "description": "Minimum required output storage size (unit is GB)",
+                        "type": "number"
+                      },
+                      "jobTimeout": {
+                        "description": "Timeout delay for a job execution (in seconds)",
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": true
+                  }
+                },
+                "additionalProperties": true,
+                "example": {
+                  "type": "docker",
+                  "image": "mydocker/ndvi:latest",
+                  "config": {
+                    "cpuMin": 2,
+                    "cpuMax": 5,
+                    "memoryMin": 1,
+                    "memoryMax": 3
+                  }
+                }
+              },
+              {
+                "$ref": "#/components/schemas/link"
+              },
+              {
+                "$ref": "#/components/schemas/qualifiedInputValue"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ogcapppkg/properties/executionUnit/oneOf/0"
+                    },
+                    {
+                      "$ref": "#/components/schemas/link"
+                    },
+                    {
+                      "$ref": "#/components/schemas/qualifiedInputValue"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "staticIndicator": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/processSummary"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "mutable": {
+                "type": "boolean",
+                "default": true
+              }
+            }
+          }
+        ]
       }
     },
     "parameters": {
@@ -2115,6 +5703,15 @@
           "items": {
             "type": "integer"
           }
+        }
+      },
+      "w": {
+        "name": "w",
+        "description": "Point to the workflow identifier for deploying a CWL containing multiple workflow definitions",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
         }
       }
     },
@@ -2727,6 +6324,57 @@
               "type": "string"
             },
             "description": "One or more Link headers pointing to each raw output."
+          }
+        }
+      },
+      "DeployProcess": {
+        "description": "the process is deployed",
+        "headers": {
+          "Location": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "URL to fetch the processDescription of the deployed process"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/staticIndicator"
+            }
+          }
+        }
+      },
+      "EmptyResponse": {
+        "description": "successful operation (no response body)"
+      },
+      "DuplicateProcess": {
+        "description": "the processes being added is already deployed (i.e. duplicate)",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ImmutableProcess": {
+        "description": "the processes is not mutable",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
           }
         }
       }
