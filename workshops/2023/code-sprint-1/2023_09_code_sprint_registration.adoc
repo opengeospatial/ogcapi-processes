@@ -79,6 +79,11 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | https://github.com/Prajwalita[Prajwalita]
 | Invited
 
+| Matthew Hanson
+| Element 84
+| https://github.com/matthewhanson/[matthewhanson]
+| Yes
+
 | FirstName LastName
 | Affiliation
 | https://example.org[GitHub Handle]
