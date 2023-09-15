@@ -6,7 +6,14 @@ Please register for the June 8th - 10th OGC API - Processes Workshop by creating
 
 The Workshop will use this Gitter room https://gitter.im/ogc-developer/Sprints
 
-=== Agenda
+=== Kick-off session agenda
+
+. Introduction session where we find out what everyone is bringing to (and want to accomplish during) the sprint.
+. Introduction of the changes between version 1.0 and the latest editors' Part 1 draft.
+. Discussion, if needed.
+. Finalize the schedule of the Code Sprint.
+
+=== Schedule (To be finalized at the kick-off)
 
 All times on the agenda are in EDT (New York time).
 
