@@ -1,0 +1,53 @@
+=== Self-Registration
+
+Please register for the June 8th - 10th OGC API - Processes Workshop by creating a Pull Request adding your name to https://github.com/opengeospatial/ogcapi-processes/blob/master/workshops/2023/code-sprint-1/2023_09_code_sprint_registration.adoc.
+
+=== Gitter Chat
+
+The Workshop will use this Gitter room https://gitter.im/ogc-developer/Sprints
+
+=== Agenda
+
+All times on the agenda are in EDT (New York time).
+
+&#10036; means that the session will be in the jitsi room.
+
+[cols="3,7",width="75%",options="header",align="center"]
+|===
+|Time (EDT) | Item 
+2+| Monday 18th September 2023
+| 09:00 - 10:00 | Opening Session &#10036; https://www4.gotomeeting.com/join/215316293[Join]
+
+| 10:00 - 12:00 | Practical work
+
+| 12:00 - 13:00 | Catch-up Plenary &#10036; To be discussed
+
+| 13:00 - 16:30 | Practical work
+
+| 16:30 - 17:30 | Daily brief back &#10036; To be discussed
+
+2+| Tuesday 19th September 2023
+
+| 09:00 - 10:00 | A short stand-up &#10036; To be discussed
+
+| 10:00 - 12:00 | Practical work
+
+| 12:00 - 12:30 | A short stand-up  &#10036; To be discussed
+
+| 12:30 - 16:30 | Practical work
+
+| 16:30 - 17:30 | Daily brief back &#10036; To be discussed
+
+2+| Wednesday 20st September 2023
+
+| 09:00 - 10:00 | A short stand-up &#10036; To be discussed
+
+| 10:00 - 12:00 | Practical work
+
+| 12:00 - 12:30 | A short stand-up  &#10036; To be discussed
+
+| 12:30 - 16:30 | Practical work
+
+| 16:30 - 17:30 | Final demonstration and wrap-up &#10036; To be discussed
+
+|===
