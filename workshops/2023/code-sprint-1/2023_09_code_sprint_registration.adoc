@@ -77,7 +77,7 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | Ms. Prajwalita Chavan
 | Indian Institute of Technology (IIT Bombay)
 | https://github.com/Prajwalita[Prajwalita]
-| Invited
+| Yes
 
 | Matthew Hanson
 | Element 84
