@@ -1,6 +1,6 @@
 === Self-Registration
 
-Please register for the June 8th - 10th OGC API - Processes Workshop by creating a Pull Request adding your name to https://github.com/opengeospatial/ogcapi-processes/blob/master/workshops/2023/code-sprint-1/2023_09_code_sprint_registration.adoc.
+Please register for the September 18th - 20st OGC API - Processes Code Sprint by creating a Pull Request adding your name to https://github.com/opengeospatial/ogcapi-processes/blob/master/workshops/2023/code-sprint-1/2023_09_code_sprint_registration.adoc.
 
 === Gitter Chat
 
