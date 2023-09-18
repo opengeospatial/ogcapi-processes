@@ -1,18 +1,3 @@
-
-
-http://www.someserver.com/processes/echo/execution?
-stringInput=Value2&
-measureInput={measurement=10.3,uom=m,referece=https://ucum.org/ucum-essence.xml}&
-dateInput=2021-03-06T07:21:00&
-doubleInput=3.14159&
-arrayInput=1,2,3,4,5,6&
-complexObjectInput={...JSON or XML string...}&
-geometryInput=<WKTstring>,<WKTstring>&
-boundingBoxInput=51.9,7,52,7.1;bbox-crs=http://www.opengis.net/def/crs/OGC/1.3/CRS84&
-
-
-
-
 {
   "inputs": {
     "measureInput": {
@@ -73,37 +58,17 @@ boundingBoxInput=51.9,7,52,7.1;bbox-crs=http://www.opengis.net/def/crs/OGC/1.3/C
     }
   },
   "outputs": {
-    "stringOutput": {
-      "transmissionMode": "value"
-    },
-    "measureOutput": {
-      "transmissionMode": "value"
-    },
-    "dateOutput": {
-      "transmissionMode": "value"
-    },
-    "doubleOutput": {
-      "transmissionMode": "value"
-    },
-    "arrayOutput": {
-      "transmissionMode": "value"
-    },
-    "complexObjectOutput": {
-      "transmissionMode": "value"
-    },
-    "geometryOutput": {
-      "transmissionMode": "value"
-    },
-    "boundingBoxOutput": {
-      "transmissionMode": "value"
-    },
+    "stringOutput": { },
+    "measureOutput": { },
+    "dateOutput": { },
+    "doubleOutput": { },
+    "arrayOutput": { },
+    "complexObjectOutput": { },
+    "geometryOutput": { },
+    "boundingBoxOutput": { },
     "imageOutput": {
-      "format": { "mediaType": "image/tiff; application=geotiff" },
-      "transmissionMode": "value"
+      "format": { "mediaType": "image/tiff; application=geotiff" }
     },
-    "featureCollectionOutput": {
-      "transmissionMode": "value"
-    }
-  },
-  "response": "document"
+    "featureCollectionOutput": { }
+  }
 }

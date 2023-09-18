@@ -4713,12 +4713,6 @@
                   "$ref": "#/components/schemas/jobControlOptions"
                 }
               },
-              "outputTransmission": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/transmissionMode"
-                }
-              },
               "links": {
                 "type": "array",
                 "items": {
@@ -4793,41 +4787,6 @@
           }
         }
       },
-      "additionalParameter": {
-        "type": "object",
-        "required": [
-          "name",
-          "value"
-        ],
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "array",
-                  "items": {}
-                },
-                {
-                  "type": "object"
-                }
-              ]
-            }
-          }
-        }
-      },
       "bbox-processes": {
         "type": "object",
         "required": [
@@ -4889,24 +4848,6 @@
             "items": {
               "$ref": "#/components/schemas/metadata"
             }
-          },
-          "additionalParameters": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/metadata"
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "parameters": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/additionalParameter"
-                    }
-                  }
-                }
-              }
-            ]
           }
         }
       },
@@ -5343,14 +5284,6 @@
             "format": "uri"
           }
         }
-      },
-      "transmissionMode": {
-        "type": "string",
-        "enum": [
-          "value",
-          "reference"
-        ],
-        "default": "value"
       },
       "inlineOrRefData": {
         "oneOf": [
