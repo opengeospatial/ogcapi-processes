@@ -94,6 +94,11 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | https://github.com/xcomagent95[xcomagent95]
 | Yes
 
+| Oscar Andrés Díaz
+| Geosolutions Consulting Inc
+| https://github.com/pandeazucar[pandezucar]
+| Yes
+
 | FirstName LastName
 | Affiliation
 | https://example.org[GitHub Handle]
