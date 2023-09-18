@@ -375,16 +375,6 @@ include::../../openapi/schemas/processes-core/jobControlOptions.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/jobControlOptions.yaml[`jobControlOptions.yaml`].
 
-[[transmission-mode-schema]]
-.Schema for the transmission mode
-[source,yaml]
-----
-include::../../openapi/schemas/processes-core/transmissionMode.yaml[]
-----
-
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/transmissionMode.yaml[`transmissionMode.yaml`].
-
-
 The number of process summaries returned depends on the server and the parameter `limit.`
 
 See the discussion about the `limit` parameter in the <<sc_limit_parameter,Limit parameter>> section.

@@ -13,10 +13,6 @@ allOf:
         type: array
         items:
           $ref: "jobControlOptions.yaml"
-      outputTransmission:
-        type: array
-        items:
-          $ref: "transmissionMode.yaml"
       links:
         type: array
         items:
