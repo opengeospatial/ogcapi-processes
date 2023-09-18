@@ -12,9 +12,9 @@
 | OGC API - Processes
 | https://github.com/bpross-52n[Benjamin Pross]
 
-| TBA
-| TBA
-| TBA
+| https://services.crim.ca/weaver/[Weaver]
+| OGC API - Processes (Part 1: Core, Part 2: DRU)
+| https://github.com/fmigneault[Francis Charette-Migneault] (CRIM)
 |===
 
 === Clients
@@ -29,7 +29,7 @@
 | OGC API - Processes
 | https://github.com/gardengeek99[Steve McDaniel]
 
-| TBA
-| TBA
-| TBA
+| https://github.com/crim-ca/weaver[Weaver]
+| OGC API - Processes (https://pavics-weaver.readthedocs.io/en/latest/cli.html[CLI & Python Client])
+| https://github.com/fmigneault[Francis Charette-Migneault] (CRIM)
 |===
