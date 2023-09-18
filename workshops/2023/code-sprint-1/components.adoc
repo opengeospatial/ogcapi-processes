@@ -12,6 +12,18 @@
 | OGC API - Processes
 | https://github.com/bpross-52n[Benjamin Pross]
 
+| http://tb17.geolabs.fr:8119/ogc-api/api.html[ZOO-Project-ETS]
+| OGC API - Processes passing ETS validation
+| https://github.com/gfenoy[Gérald Fenoy]
+
+| https://testbed19.geolabs.fr:8707/ogc-api/api.html[ZOO-Project-DRU-HPC]
+| OGC API - Processes with DRU support and remote HPC execution
+| https://github.com/gfenoy[Gérald Fenoy]
+
+| https://testbed19.geolabs.fr:8709/ogc-api/api.html[ZOO-Project-eoAPI]
+| OGC API - Processes with STAC Catalog (ongoing development)
+| https://github.com/gfenoy[Gérald Fenoy]
+
 | TBA
 | TBA
 | TBA
