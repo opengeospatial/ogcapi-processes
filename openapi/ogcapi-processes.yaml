@@ -109,9 +109,6 @@ components:
          $ref: 'schemas/processes-core/processList.yaml'
       jobList:
          $ref: 'schemas/processes-core/jobList.yaml'
-
-      additionalParameter:
-         $ref: 'schemas/processes-core/additionalParameter.yaml'
       bbox-processes:
          $ref: 'schemas/processes-core/bbox.yaml'
       descriptionType:
@@ -148,8 +145,6 @@ components:
          $ref: 'schemas/processes-core/statusCode.yaml'
       subscriber:
          $ref: 'schemas/processes-core/subscriber.yaml'
-      transmissionMode:
-         $ref: 'schemas/processes-core/transmissionMode.yaml'
       inlineOrRefData:
          $ref: 'schemas/processes-core/inlineOrRefData.yaml'
       statusInfo:
