@@ -1,0 +1,35 @@
+== Components
+
+=== Servers
+
+[#table_implementation,reftext='{table-caption} {counter:table-num}']
+.Service implementations
+[cols=",,",width="75%",options="header",align="center"]
+|===
+|Implementation | Type | Contact
+
+| http://geoprocessing.demo.52north.org:8080/javaps/rest/[52°North]
+| OGC API - Processes
+| https://github.com/bpross-52n[Benjamin Pross]
+
+| TBA
+| TBA
+| TBA
+|===
+
+=== Clients
+
+[#table_implementation,reftext='{table-caption} {counter:table-num}']
+.Client implementations
+[cols=",,",width="75%",options="header",align="center"]
+|===
+|Implementation | Type | Contact
+
+| http://ogc.intergraph.com:8089[Hexagon]
+| OGC API - Processes
+| https://github.com/gardengeek99[Steve McDaniel]
+
+| TBA
+| TBA
+| TBA
+|===
