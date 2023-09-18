@@ -109,9 +109,6 @@ components:
          $ref: 'schemas/processes-core/processList.yaml'
       jobList:
          $ref: 'schemas/processes-core/jobList.yaml'
-
-      additionalParameter:
-         $ref: 'schemas/processes-core/additionalParameter.yaml'
       bbox-processes:
          $ref: 'schemas/processes-core/bbox.yaml'
       descriptionType:
