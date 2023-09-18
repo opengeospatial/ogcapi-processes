@@ -148,8 +148,6 @@ components:
          $ref: 'schemas/processes-core/statusCode.yaml'
       subscriber:
          $ref: 'schemas/processes-core/subscriber.yaml'
-      transmissionMode:
-         $ref: 'schemas/processes-core/transmissionMode.yaml'
       inlineOrRefData:
          $ref: 'schemas/processes-core/inlineOrRefData.yaml'
       statusInfo:
