@@ -8,7 +8,7 @@
 |===
 |Implementation | Type | Contact
 
-| http://geoprocessing.demo.52north.org:8080/javaps/rest/[52°North]
+| http://geoprocessing.demo.52north.org/pygeoapi[52°North]
 | OGC API - Processes
 | https://github.com/bpross-52n[Benjamin Pross]
 
