@@ -43,7 +43,7 @@ All times on the agenda are in EDT (New York time).
 
 | 12:30 - 16:30 | Practical work
 
-| 16:30 - 17:30 | Daily brief back &#10036; To be discussed
+| 16:30 - 17:30 | Daily brief back &#10036; https://www4.gotomeeting.com/join/690141789[Join]
 
 2+| Wednesday 20st September 2023
 
@@ -55,6 +55,7 @@ All times on the agenda are in EDT (New York time).
 
 | 12:30 - 16:30 | Practical work
 
-| 16:30 - 17:30 | Final demonstration and wrap-up &#10036; To be discussed
+| 16:30 - 17:30 | Final demonstration and wrap-up &#10036; https://www4.gotomeeting.com/join/303502653[Join]
+
 
 |===
