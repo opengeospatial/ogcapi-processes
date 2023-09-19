@@ -24,6 +24,10 @@
 | OGC API - Processes with STAC Catalog (ongoing development)
 | https://github.com/gfenoy[Gérald Fenoy]
 
+| https://services.crim.ca/weaver/[Weaver]
+| OGC API - Processes (Part 1: Core, Part 2: DRU)
+| https://github.com/fmigneault[Francis Charette-Migneault] (CRIM)
+
 | https://maps.gnosis.earth/ogcapi/[GNOSIS Map Server]
 | OGC API - Processes
 | https://github.com/jerstlouis[Jerome St-Louis]
@@ -44,6 +48,10 @@
 | http://ogc.intergraph.com:8089[Hexagon]
 | OGC API - Processes
 | https://github.com/gardengeek99[Steve McDaniel]
+
+| https://github.com/crim-ca/weaver[Weaver]
+| OGC API - Processes (https://pavics-weaver.readthedocs.io/en/latest/cli.html[CLI & Python Client])
+| https://github.com/fmigneault[Francis Charette-Migneault] (CRIM)
 
 | https://ecere.ca[GNOSIS Cartographer]
 | OGC API - Processes
