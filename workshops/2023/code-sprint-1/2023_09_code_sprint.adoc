@@ -17,7 +17,7 @@ The Workshop will use this Gitter room https://gitter.im/ogc-developer/Sprints
 
 All times on the agenda are in EDT (New York time).
 
-&#10036; means that the session will be in the jitsi room.
+&#10036; means that the session will be on GoTo Meeting.
 
 [cols="3,7",width="75%",options="header",align="center"]
 |===
