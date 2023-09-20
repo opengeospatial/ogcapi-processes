@@ -32,6 +32,10 @@
 | OGC API - Processes
 | https://github.com/jerstlouis[Jerome St-Louis]
 
+| https://www.pvretano.com/cubewerx/cubeserv/default/ogcapi/wps[MariaDB Test Server]
+| OGC API - Processes (Parts 1 & Part 2)
+| https://github.com/pvretano[Panagiotis (Peter) A. Vretanos]
+
 | TBA
 | TBA
 | TBA
