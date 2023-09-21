@@ -36,6 +36,10 @@
 | OGC API - Processes (Part 1 & Part 2)
 | https://github.com/pvretano[Panagiotis (Peter) A. Vretanos]
 
+| https://github.com/Element84/swoop[swoop-api] (repo; public test server not currently available)
+| OGC API - Processes with caching, intended for STAC-based processing (under development, not yet fully conformant). https://cirrus-geo.github.io/cirrus-geo/v0.10.0/cirrus/30_payload.html[Current palyoad format documented here], designed to be interoperable with an existing workflow solution.
+| https://github.com/jkeifer[Jarrett Keifer] (Element 84)
+
 | TBA
 | TBA
 | TBA
