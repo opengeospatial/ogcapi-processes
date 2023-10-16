@@ -1,0 +1,17 @@
+[[ats_dru_deploy-response-cwl]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/dru/deploy-response-cwl
+target:: /req/deploy-replace-undeploy/dru/response-success
+test-purpose:: Validate that the server return HTTP Status code 201 or 202
+test-method::
++
+--
+1. Validate that a document is returned and the status code is 201 or 202
+
+2. Validate that the Location header contain a URI of the deployed process
+--
+====
+

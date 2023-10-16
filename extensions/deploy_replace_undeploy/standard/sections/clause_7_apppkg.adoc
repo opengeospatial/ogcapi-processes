@@ -30,7 +30,7 @@ include::../requirements/ogcapppkg/REQ_schema.adoc[]
 .link:http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[Schema for the OGC Application Package]
 [source,yaml]
 ----
-include::../../../openapi/schemas/processes-dru/ogcapppkg.yaml[]
+include::../../../../openapi/schemas/processes-dru/ogcapppkg.yaml[]
 ----
 
 ==== processDescription property

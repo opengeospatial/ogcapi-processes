@@ -1,0 +1,24 @@
+[[ats_cwl]]
+[conformance_class]
+.Common Workflow Language
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/cwl
+subject:: <<rc_cwl,http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/cwl>>
+classification:: Target Type:Web API
+conformance-test:: /conf/dru/deploy-body-cwl
+conformance-test:: /conf/dru/deploy-response-cwl
+conformance-test:: /conf/dru/replace-body-cwl
+conformance-test:: /conf/dru/replace-response-cwl
+====
+
+==== Deploy operation
+
+include::cwl/ATS_deploy-body-cwl.adoc[]
+include::cwl/ATS_deploy-response-cwl.adoc[]
+
+==== Replace operation
+
+include::cwl/ATS_replace-body-cwl.adoc[]
+include::cwl/ATS_replace-response-cwl.adoc[]
+

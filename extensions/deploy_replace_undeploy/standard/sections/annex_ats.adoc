@@ -2,6 +2,20 @@
 [appendix,obligation="normative"]
 == Abstract Test Suite
 
-(( add test cases ))
+=== Introduction
 
-include::../abstract_tests/cc/TEST001.adoc[]
+OGC Web Application Programming Interfaces (APIs) are not Web Services in the traditional sense. Rather, they define the behavior and content of a set of Resources exposed through a Web API. Therefore, an API may expose resources in addition to those defined by the standard. A test engine must be able to traverse the API, identify and validate test points, and ignore resource paths which are not to be tested.
+
+The Web API under test can require authorization. Any Executable Test Suite implementing this test suite should implement the following security schemes supported by OpenAPI 3.0: HTTP Authorization schemes "basic" and "bearer", API keys, and OAuth2 flow "authorizationCode".
+
+=== Conformance Class Deploy, Replace, Undeploy
+
+include::../abstract_tests/ATS_class_dru.adoc[]
+
+=== Conformance Class OGC Application Package
+
+include::../abstract_tests/ATS_class_ogcapppkg.adoc[]
+
+=== Conformance Class CWL
+
+include::../abstract_tests/ATS_class_cwl.adoc[]

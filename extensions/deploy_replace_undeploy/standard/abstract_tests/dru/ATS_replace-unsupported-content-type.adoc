@@ -1,0 +1,19 @@
+[[ats_dru_replace-unsupported-content-type]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/dru/replace-unsupported-content-type
+target:: /req/deploy-replace-undeploy/deploy/unsupported-content-type
+test-purpose:: Validate that the server return a 415 status code with a relevant exception
+test-method::
++
+--
+1. Validate that a document was returned with an HTTP status code of 415.
+
+2. Validate that the document is conform to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml]
+
+3. Validate that the document contains the exception `type` "http://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/unsupported-content-type".
+--
+====
+

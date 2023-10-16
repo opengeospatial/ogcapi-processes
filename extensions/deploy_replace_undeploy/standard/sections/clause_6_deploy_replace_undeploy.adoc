@@ -151,6 +151,8 @@ include::../requirements/deploy-replace-undeploy/deploy/REQ_response-body.adoc[]
 
 See <<deploy-replace-undeploy-http_status_codes>> for general guidance.
 
+include::../requirements/deploy-replace-undeploy/deploy/REQ_unsupported-content-type.adoc[]
+
 include::../requirements/deploy-replace-undeploy/deploy/REQ_response-duplicate.adoc[]
 
 include::../requirements/deploy-replace-undeploy/deploy/REQ_response-immutable.adoc[]
@@ -213,6 +215,8 @@ If the server will process the replace request later, it will return a `202`. In
 ==== Exceptions
 
 See <<deploy-replace-undeploy-http_status_codes>> for general guidance.
+
+If the request body's media type is not supported by the server, then <<req_deploy-replace-undeploy_deploy_unsupported-content-type,/req/deploy-replace-undeploy/deploy/unsupported-content-type>> applies.
 
 If the process with the specified identifier does not exist on the server, see requirement /req/core/process-exception/no-such-process from <<OAProc-1>>.
 
