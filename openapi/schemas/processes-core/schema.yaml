@@ -83,7 +83,6 @@ oneOf:
         $ref: "schema.yaml"
       properties:
         type: object
-        properties: {}
         additionalProperties:
           $ref: "schema.yaml"
       additionalProperties:
