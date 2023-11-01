@@ -1,5 +1,6 @@
 {
   "inputs": {
+    "stringInput": "Value2",
     "measureInput": {
       "value": {
         "measurement": 10.3,
