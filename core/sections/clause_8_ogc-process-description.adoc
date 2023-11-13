@@ -121,26 +121,29 @@ The following JSON Schema fragment illustrates the use of the `format` key to in
 "geometryInput": {
   "title": "Geometry input",
   "description": "This is an example of a geometry input.  In this case the geometry can be expressed as a GML of GeoJSON geometry.",
-  "minOccurs": 2,
-  "maxOccurs": 5,
   "schema": {
-    "oneOf": [
-      {
-        "type": "string",
-        "contentMediaType": "application/gml+xml; version=3.2",
-        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
-      },
-      {
-        "allOf": [
-          {
-            "format": "geojson-geometry"
-          },
-          {
-            "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
-          }
-        ]
-      }
-    ]
+    "type": "array",
+    "minItems": 2,
+    "maxItems": 5,
+    "items": {
+      "oneOf": [
+        {
+          "type": "string",
+          "contentMediaType": "application/gml+xml; version=3.2",
+          "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+        },
+        {
+          "allOf": [
+            {
+              "format": "geojson-geometry"
+            },
+            {
+              "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
+            }
+          ]
+        }
+      ]
+    }
   }
 }
 ----

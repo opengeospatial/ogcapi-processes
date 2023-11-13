@@ -90,179 +90,83 @@ NOTE: I think we need to consult with the OGC NA to get a property identifier in
         "Vegetation",
         "NDVI"
       ],
-      "inputs": [
-        {
-          "id": "source",
+      "inputs": {
+        "source": {
           "title": "Source Input Image (sentinel-2 product in SAFE format)",
           "description": "Source Input Image (sentinel-2 product in SAFE format).  Either provided inline, by reference or by product ID",
-          "minOccurs": 1,
-          "maxOccurs": 1,
-          "input": {
-            "formats": [
+          "schema": {
+            "oneOf": [
               {
-                "mimeType": "text/plain",
-                "default": true
+                "type": "string"
               },
               {
-                "mimeType": "application/zip",
-                "default": false
+                "type": "string",
+                "contentMediaType": "application.zip"
               }
             ]
           }
         },
-        {
-          "id": "red_source_band",
+        "red_source_band": {
           "title": "the band to be used for the red band",
           "minOccurs": 0,
-          "maxOccurs": 1,
-          "input": {
-            "literalDataDomains": [
-              {
-                "default": true,
-                "dataType": {
-                  "name": "integer"
-                },
-                "valueDefinition": [
-                  {
-                    "minimumValue": "1",
-                    "maximumValue": "13",
-                    "rangeClosure": "closed"
-                  }
-                ]
-              }
-            ]
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 13,
           }
         },
-        {
-          "id": "nir_source_band",
+        "nir_source_band": {
           "title": "the band to be used for the near-infrared band",
           "minOccurs": 0,
-          "maxOccurs": 1,
-          "input": {
-            "literalDataDomains": [
-              {
-                "default": true,
-                "dataType": {
-                  "name": "integer"
-                },
-                "valueDefinition": [
-                  {
-                    "minimumValue": "\n1\n",
-                    "maximumValue": "13\n",
-                    "rangeClosure": "closed"
-                  }
-                ]
-              }
-            ]
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 13
           }
         },
-        {
-          "id": "red_factor",
+        "red_factor": {
           "title": "the factor of the NRI",
           "minOccurs": 0,
-          "maxOccurs": 1,
-          "input": {
-            "literalDataDomains": [
-              {
-                "default": true,
-                "defaultValue": "1.0\n",
-                "dataType": {
-                  "name": "float"
-                },
-                "valueDefinition": [
-                  {
-                    "minimumValue": "0.0",
-                    "rangeClosure": "closed"
-                  }
-                ]
-              }
-            ]
+          "schema": {
+            "type": "number",
+            minimum: 0.0
           }
-        },
-        {
-          "id": "nir_factor",
+        }
+        "nir_factor": {
           "title": "the factor of the NIR",
           "minOccurs": 0,
-          "maxOccurs": 1,
-          "input": {
-            "literalDataDomains": [
-              {
-                "default": true,
-                "defaultValue": "1.0",
-                "dataType": {
-                  "name": "float"
-                },
-                "valueDefinition": [
-                  {
-                    "minimumValue": "0.0",
-                    "rangeClosure": "closed"
-                  }
-                ]
-              }
-            ]
+          "schema": {
+            "type": "number",
+            "minimum": 0.0,
+            "default": 1.0
           }
         },
-        {
-          "id": "cloud_coverage",
+        "cloud_coverage": {
           "title": "The cloud coverage of the scene.",
           "minOccurs": 0,
-          "maxOccurs": 1,
-          "input": {
-            "literalDataDomains": [
-              {
-                "default": true,
-                "dataType": {
-                  "name": "float"
-                },
-                "valueDefinition": [
-                  {
-                    "minimumValue": "0.0",
-                    "maximumValue": "100.0",
-                    "rangeClosure": "closed"
-                  }
-                ]
-              }
-            ]
+          "schema": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 100.0
           }
         },
-        {
-          "id": "max_cloud_coverage",
+        "max_cloud_coverage": {
           "title": "The maximum cloud coverage of the scene.",
           "minOccurs": 0,
-          "maxOccurs": 1,
-          "input": {
-            "literalDataDomains": [
-              {
-                "default": true,
-                "dataType": {
-                  "name": "float"
-                },
-                "valueDefinition": [
-                  {
-                    "minimumValue": "0.0",
-                    "maximumValue": "100.0",
-                    "rangeClosure": "closed"
-                  }
-                ]
-              }
-            ]
-          }
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 100.0
         }
-      ],
-      "outputs": [
-        {
-          "id": "raster",
+      },
+      "outputs": {
+        "raster": {
           "title": "The raster of the resulting NDVI calculation",
-          "output": {
-            "formats": [
-              {
-                "mimeType": "image/geotiff",
-                "default": true
-              }
-            ]
+          "schema": {
+            "type": "string",
+            "contentMediaType": "image/geotiff"
           }
         }
-      ]
+      }
     },
     "jobControlOptions": [
       "async-execute"

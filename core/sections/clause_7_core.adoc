@@ -504,12 +504,151 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 [[sc_process_inputs]]
 ===== Process inputs
 
-*_Overview:_*
+====== Overview
 
 Each process input is a name/value pair that appears in the `inputs` section of
-an execute request.
+an execute request as show in the following example:
 
-The name of each input is its identifier as specified by the input's definition in the <<sc_process_description,process description>>.
+```
+"inputs": {
+   "inputName1": <input value 1>,
+   "inputName2": <input value 2>,
+   etc.
+}
+```
+
+The actual name of each input is its identifier as specified by the input's definition in the <<sc_process_description,process description>>.
+
+====== Cardinality
+
+NOTE: The `maxOccurs` parameter is deprecated in this standard and will be removed in a subsequent version of this document.  See <<deprecated-maxOccurs>> for details.
+
+The cardinality on an input is specified using the `minOccurs` and `maxOccurs` parameters from the input's definition in the <<sc_process_description,process description>>.  The default values of `minOccurs` and `maxOccurs` are 1 indicating that a single input of the corresponding name must be specified in an execute request.  The following table covers the various combinations of `minOccurs` and `maxOccurs` values.
+
+[[cardinality_rules]]
+.Cardinality rules for process inputs.
+[cols="10,10,60,40",options="header"]
+|===
+|minOccurs |maxOccurs |Interpretation |Example
+|0 |0 |Not Allowed |
+|0 |1 |A single input value *may* be optionally specified. | "input": {value}
+|1 |1 |A single input value *must* be specified. | "input": {value}
+|1 |N |At least 1 input value *must* be specified.  +
+Regardless of the number of input values provided, those values *must* be encoded using an array. | "input": [{value}] OR +
+"input": [{value1},...,{valueN}]
+|M |N |All values provided *must* be encoded using an array. |"input": [{value1},...,{valueM}] OR +
+"input": [{value1},...,{valueM},...,{valueN}]
+|===
+
+NOTE: The tokens `{value}`, `{value1}`, `{valueN}` or `{valueM}` represent values of the type expected for the input according to its definition.  This can include array values.
+
+====== Interaction of `minOccurs`/`maxOccurs` and `minItems`/`maxItems`
+
+The `schema` member of the <<process-input-schema,input definition>> in the <<sc_process_description,process description>> defines the schema of a single instance of an input.  If the input happens to be an array then the `minItems` and `maxItems` properties may be used to define the limits of the array.  The use of `minItems` and `maxItems` in the definition of the input does not affect how `minOccurs` and `maxOccurs` are interpreted and the same <<cardinality_rules,cardinality rules>> apply.
+
+Consider the following definitions of an input named "input".
+
+[[schema_examples]]
+.Schema examples for cardinality
+[cols="50a,50a",options="header"]
+|===
+|Example Schema| Examples instances
+|
+[source,yaml]
+----
+inputs:
+  input:
+    schema:
+      type: array
+      maxItems: 2
+      items:
+        type: string
+----
+
+In this case the schema on an input value is defined as an array and so will always be encoded as an array in an execute request.
+|
+[source,JSON]
+----
+"input": ["value1"]
+----
+*or*
+[source,JSON]
+----
+"input": ["value1","value2"]
+----
+|
+[source,yaml]
+----
+inputs:
+  input:
+    maxOccurs: 2
+    schema:
+      type: string
+----
+
+In this case, the schema of the input is defined as a plain string with a cardinality of 2.  Inputs with cardinalities of greater than 1 are encoded as arrays in an execute request.  This situation is equivalently encoded to the previous row. +
+Servers, however, being internally aware of the definition of each input, can disambiguate the input values acordingly (treating the values in the first example as string values and the values in the this example as arrays of values).
+|
+[source,JSON]
+----
+"input": ["value1"]
+----
+*or*
+[source,JSON]
+----
+"input": ["value1","value2"]
+----
+|
+[source,yaml]
+----
+inputs:
+  input:
+    maxOccurs: 2
+    schema:
+      type: array
+      maxItems: 2
+      items:
+        type: string
+----
+
+In this case we have an input with cardinality greater than 1 but that has values that themselves are defined as arrays.  Since inputs with cardinality greater than 1 are encoded as arrays in an execute request, the result is that the inputs are encoded as arrays of arrays.
+|
+[source,JSON]
+----
+"input": [["value1"]]
+----
+*or*
+[source,JSON]
+----
+"input": [["value1","value2"]]
+----
+*or*
+
+[source,JSON]
+----
+"input": [["value1"],["value2"]]
+----
+*or*
+
+[source,JSON]
+----
+"input": [["value1","value3"],["value2"]]
+----
+*or*
+
+[source,JSON]
+----
+"input": [["value1"],["value2","value3"]]
+----
+*or*
+
+[source,JSON]
+----
+"input": [["value1","value4"],["value2","value3"]]
+----
+|===
+
+====== Input values 
 
 include::../requirements/core/REQ_process-execute-inputs.adoc[]
 
@@ -693,19 +832,22 @@ In this second example, the property, `geometryInput` has a cardinality of great
 "geometryInput": {
   "title": "Geometry input",
   "description": "This is an example of a geometry input.  In this case the geometry can be expressed as a GML or GeoJSON geometry.",
-  "minOccurs": 2,
-  "maxOccurs": 5,
   "schema": {
-    "oneOf": [
-      {
-        "type": "string",
-        "contentMediaType": "application/gml+xml; version=3.2",
-        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
-      },
-      {
-        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
-      }
-    ]
+    "type": "array",
+    "minItem": 2,
+    "maxItem": 5,
+    "itemType": {
+      "oneOf": [
+        {
+          "type": "string",
+          "contentMediaType": "application/gml+xml; version=3.2",
+          "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+        },
+        {
+          "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+        }
+      ]
+    }
   }
 },
 ----
