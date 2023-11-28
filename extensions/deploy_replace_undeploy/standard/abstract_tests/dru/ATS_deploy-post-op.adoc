@@ -11,7 +11,7 @@ test-method::
 --
 1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
 
-2. Validate that the OpenAPI define access to these paths using the POST method
+2. Issue an HTTP POST request and validate that the response header does not contain `405 Method not allowed`
 --
 ====
 

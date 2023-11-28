@@ -81,8 +81,8 @@ Client                                                        Server
   |                                                             |
   |  {                                                          |
   |    "status": 401,                                           |
-  |    "title": "Forbiden",                                     |
-  |    "detail": "HTTP 403 Forbidden"                           |
+  |    "title": "Unauthorized",                                     |
+  |    "detail": "HTTP 403 Unauthorized"                           |
   |  }                                                          |
   | <----------------------------------------------------------------------------------------------------------------------|
 ----

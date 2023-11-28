@@ -6,7 +6,7 @@ label:: /rec/ogcapppkg/execution-unit-docker
 
 part:: If the execution unit is a Docker image then it is recommended that the contents of the execution unit be the properties `type` and `image`.
 
-part:: The value of the `type` property shall be `docker'.
+part:: The value of the `type` property shall be `href'.
 
-part:: The value of the `image` property shall be a reference to the Docker image.
+part:: The value of the `href` property shall be a reference to the Docker image.
 ====
