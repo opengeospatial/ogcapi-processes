@@ -1,0 +1,17 @@
+[[ats_cwl_deploy_response-body]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/cwl/deploy/response-body
+target:: /req/deploy-replace-undeploy/deploy/response-body
+test-purpose:: Validate that the server return HTTP Status code 201 or 202
+test-method::
++
+--
+1. Validate the Location header contain a URI of the deployed process.
+
+2. Validate the document conforms to the https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/processSummary.yaml[processSummary.yaml] schema.
+--
+====
+

@@ -1,9 +1,9 @@
-[[ats_dru_deploy-response-ogcapppkg]]
+[[ats_ogcapppkg_deploy_response]]
 
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/dru/deploy-response-ogcapppkg
+identifier:: /conf/ogcapppkg/deploy/response
 target:: /req/deploy-replace-undeploy/deploy/response-success
 test-purpose:: Validate that the server return HTTP Status code 201 or 202
 test-method::
@@ -11,7 +11,7 @@ test-method::
 --
 1. Validate that a document is returned and the status code is 201 or 202
 
-2. Validate that the Location header contain a URI of the deployed process
+2. If status code was 201, validate the document using <<ats_ogcapppkg_deploy_response-success,/conf/ogcapppkg/deploy/response-success>>
 --
 ====
 

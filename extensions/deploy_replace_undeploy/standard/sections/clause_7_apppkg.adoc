@@ -45,12 +45,8 @@ include::../requirements/ogcapppkg/REQ_process-description.adoc[]
 ==== executionUnit property
 
 The execution unit is the `code` that an implementation of this extensions needs
-to execute whenever the deployed process is executed.  The execution unit can be
-either specified in-line (e.g. CWL script) or by reference (e.g. docker image reference).
-
-include::../requirements/ogcapppkg/REQ_execution-unit-docker.adoc[]
-
-When CWL encoding is used, the execution unit can be either passed by value (in-line) or by reference.
+to execute whenever the deployed process is executed. When CWL encoding is used,
+the execution unit can be either passed by value (in-line) or by reference.
 
 include::../recommendations/ogcapppkg/REC_ogcapppkg_execution-unit-cwl.adoc[]
 

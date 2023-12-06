@@ -1,4 +1,4 @@
-[[req_deploy-replace-undeploy_static_indicator]]
+[[req_deploy-replace-undeploy_static-indicator]]
 [requirement]
 ====
 [%metadata]

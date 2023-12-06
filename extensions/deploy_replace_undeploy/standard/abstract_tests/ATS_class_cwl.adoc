@@ -6,19 +6,15 @@
 identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/cwl
 subject:: <<rc_cwl,http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/cwl>>
 classification:: Target Type:Web API
-conformance-test:: /conf/dru/deploy-body-cwl
-conformance-test:: /conf/dru/deploy-response-cwl
-conformance-test:: /conf/dru/replace-body-cwl
-conformance-test:: /conf/dru/replace-response-cwl
+conformance-test:: /conf/cwl/deploy/body
+conformance-test:: /conf/cwl/replace/body
 ====
 
 ==== Deploy operation
 
-include::cwl/ATS_deploy-body-cwl.adoc[]
-include::cwl/ATS_deploy-response-cwl.adoc[]
+include::cwl/deploy/ATS_body.adoc[]
 
 ==== Replace operation
 
-include::cwl/ATS_replace-body-cwl.adoc[]
-include::cwl/ATS_replace-response-cwl.adoc[]
+include::cwl/replace/ATS_body.adoc[]
 

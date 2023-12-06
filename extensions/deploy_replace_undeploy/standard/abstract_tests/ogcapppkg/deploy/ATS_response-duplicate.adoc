@@ -1,9 +1,9 @@
-[[ats_dru_deploy-response-duplicate]]
+[[ats_ogcapppkg_deploy_response-duplicate]]
 
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/dru/deploy-response-duplicate
+identifier:: /conf/ogcapppkg/deploy/response-duplicate
 target:: /req/deploy-replace-undeploy/deploy/response-duplicate
 test-purpose:: Validate that the server return HTTP Status code 409
 test-method::

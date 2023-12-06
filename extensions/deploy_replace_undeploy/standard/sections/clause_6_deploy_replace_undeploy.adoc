@@ -151,7 +151,7 @@ include::../requirements/deploy-replace-undeploy/deploy/REQ_response-body.adoc[]
 
 See <<deploy-replace-undeploy-http_status_codes>> for general guidance.
 
-include::../requirements/deploy-replace-undeploy/deploy/REQ_unsupported-content-type.adoc[]
+include::../requirements/deploy-replace-undeploy/deploy/REQ_unsupported-media-type.adoc[]
 
 include::../requirements/deploy-replace-undeploy/deploy/REQ_response-duplicate.adoc[]
 
