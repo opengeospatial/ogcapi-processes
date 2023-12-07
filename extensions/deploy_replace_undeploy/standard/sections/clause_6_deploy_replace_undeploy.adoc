@@ -127,7 +127,7 @@ include::../requirements/deploy-replace-undeploy/deploy/REQ_body.adoc[]
 
 include::../recommendations/deploy-replace-undeploy/deploy/PER_body.adoc[]
 
-include::../requirements/deploy-replace-undeploy/deploy/REQ_content-type.adoc[]
+include::../requirements/deploy-replace-undeploy/deploy/REQ_mediatype-type.adoc[]
 
 See https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5[section 3.1.1.5 of RFC 7231] for details.
 
@@ -216,7 +216,7 @@ If the server will process the replace request later, it will return a `202`. In
 
 See <<deploy-replace-undeploy-http_status_codes>> for general guidance.
 
-If the request body's media type is not supported by the server, then <<req_deploy-replace-undeploy_deploy_unsupported-content-type,/req/deploy-replace-undeploy/deploy/unsupported-content-type>> applies.
+If the request body's media type is not supported by the server, then <<req_deploy-replace-undeploy_deploy_unsupported-media-type,/req/deploy-replace-undeploy/deploy/unsupported-medie-type>> applies.
 
 If the process with the specified identifier does not exist on the server, see requirement /req/core/process-exception/no-such-process from <<OAProc-1>>.
 
