@@ -13,7 +13,7 @@ test-method::
 
 2. Append `/{processId}` to each path, where `{processId}` is a mutable process id.
 
-3. Issue an HTTP DELETE request on each path.
+3. Issue an HTTP DELETE request on one path.
 
 3. Validate that no content was returned with an HTTP status code of 204.
 --

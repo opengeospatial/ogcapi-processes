@@ -11,7 +11,7 @@ test-method::
 --
 1. Retrieve all links from the landing page with “rel=http://www.opengis.net/def/rel/ogc/1.0/processes” and /processes
 
-2. Issue an HTTP POST request using the content type "application/ogcapppkg+json" and the application package as reference on one path
+2. Issue an HTTP POST request using the content type "application/ogcapppkg+json" with as body a default OGC Application Package or the application package as reference, if any, on one path
 
 3. Validate the reponse with <<ats_ogcapppkg_deploy_response,/conf/ogcapppkg/deploy/response>>
 

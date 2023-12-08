@@ -1,11 +1,11 @@
-[[ats_ogcapppkg_replace_body]]
+[[ats_docker_replace_body]]
 
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/ogcapppkg/replace/body
-target:: /rec/deploy-replace-undeploy/replace/body-ogcapppkg
-test-purpose:: Validate that the server support OGC Application Package encoding
+identifier:: /conf/docker/replace/body
+target:: /req/docker/replace/body
+test-purpose:: Validate that the server support replace operation using the Common Worflow Language encoding
 test-method::
 +
 --
@@ -13,7 +13,7 @@ test-method::
 
 2. Append `/{processId}` to each path, where `{processId}` is the process id retrieved from <<ats_ogcapppkg_deploy_response-success,/conf/ogcapppkg/deploy/response-success>>.
 
-3. Issue an HTTP PUT request using the media type "application/ogcapppkg+json" with as body a default OGC Application Package or the application package URL, if any, on each path
+3. Send a PUT request on one path using the media type "application/ogcapppkg+json" with as body a default OGC Application Package
 
 4. Validate the reponse with <<ats_ogcapppkg_replace_response,/conf/ogcapppkg/replace/response>>
 --

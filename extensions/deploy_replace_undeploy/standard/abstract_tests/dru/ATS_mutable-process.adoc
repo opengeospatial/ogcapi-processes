@@ -3,8 +3,7 @@
 [requirement]
 ====
 [%metadata]
-identifier:: /conf/dru/mutable-process
-target:: /req/dru/mutable-process
+identifier:: /req/dru/mutable-process
 test-purpose:: Ensure that a mutable process is offered by the server being tested.
 test-method::
 +

@@ -127,7 +127,7 @@ include::../requirements/deploy-replace-undeploy/deploy/REQ_body.adoc[]
 
 include::../recommendations/deploy-replace-undeploy/deploy/PER_body.adoc[]
 
-include::../requirements/deploy-replace-undeploy/deploy/REQ_mediatype-type.adoc[]
+include::../requirements/deploy-replace-undeploy/deploy/REQ_content-type.adoc[]
 
 See https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5[section 3.1.1.5 of RFC 7231] for details.
 

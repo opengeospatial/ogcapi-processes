@@ -1,0 +1,14 @@
+== Requirements Class "Docker"
+
+[[docker-overview]]
+=== Overview
+
+include::../requirements/requirements_class_docker.adoc[]
+
+A server that implements this conformance class supports the management of Docker image as execution units with the deploy-replace-undeploy extension from a processes API.
+
+In consequence, the following recommandation become requirement:
+
+ * <<rec_ogcapppkg_execution-unit-docker,/rec/deploy-replace-undeploy/ogcapppkg/execution-unit-docker>>
+
+

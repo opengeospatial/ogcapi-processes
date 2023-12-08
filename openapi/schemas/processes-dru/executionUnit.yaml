@@ -1,6 +1,26 @@
 description: Resource containing an executable or runtime information for executing the process.
 type: object
+required:
+  - type
+  - image
 properties:
+  type:
+    description: Type of execution unit.
+    type: string
+    enum:
+      - docker
+      - oci
+  image:
+    description: Container image reference for the execution unit.
+    type: string
+  deployment:
+    description: Deployment information for the execution unit.
+    type: string
+    enum:
+      - local
+      - remote
+      - hpc
+      - cloud
   config:
     type: object
     description: Hardware requirements and configuration properties for executing the process.
@@ -32,6 +52,7 @@ additionalProperties: true
 example:
   type: docker
   image: mydocker/ndvi:latest
+  deployment: local
   config:
     cpuMin: 2
     cpuMax: 5
