@@ -48,8 +48,6 @@ include::core/sections/clause_5_conventions.adoc[]
 
 include::core/sections/clause_6_overview.adoc[]
 
-include::core/sections/clause_6a_deprecated.adoc[]
-
 include::core/sections/clause_7_core.adoc[]
 
 include::core/sections/clause_8_ogc-process-description.adoc[]

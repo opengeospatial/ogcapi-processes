@@ -18,5 +18,3 @@ The server SHALL support process input values encoded as an array.
 This SHALL be true even if the input consists of a single value.
 --
 ====
-
-NOTE: This requirement is deprecated and will be removed in a subsequence version of this standard.  Inputs with cardinalities greater than 1 should be defined using a https://json-schema.org/draft/2020-12/json-schema-core#section-10.3.1[JSON-Schema array] in the `schema` member of the <<process-input-schema,input definition>>. See <<deprecated-maxOccurs>> for details.

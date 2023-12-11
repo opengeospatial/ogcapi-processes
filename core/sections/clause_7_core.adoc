@@ -521,8 +521,6 @@ The actual name of each input is its identifier as specified by the input's defi
 
 ====== Cardinality
 
-NOTE: The `maxOccurs` parameter is deprecated in this standard and will be removed in a subsequent version of this document.  See <<deprecated-maxOccurs>> for details.
-
 The cardinality on an input is specified using the `minOccurs` and `maxOccurs` parameters from the input's definition in the <<sc_process_description,process description>>.  The default values of `minOccurs` and `maxOccurs` are 1 indicating that a single input of the corresponding name must be specified in an execute request.  The following table covers the various combinations of `minOccurs` and `maxOccurs` values.
 
 [[cardinality_rules]]
@@ -587,7 +585,7 @@ inputs:
 ----
 
 In this case, the schema of the input is defined as a plain string with a cardinality of 2.  Inputs with cardinalities of greater than 1 are encoded as arrays in an execute request.  This situation is equivalently encoded to the previous row. +
-Servers, however, being internally aware of the definition of each input, can disambiguate the input values acordingly (treating the values in the first example as string values and the values in the this example as arrays of values).
+Servers, however, being internally aware of the definition of each input, can disambiguate the input values accordingly (treating the values in the first example as string values and the values in the this example as arrays of values).
 |
 [source,JSON]
 ----
@@ -832,22 +830,19 @@ In this second example, the property, `geometryInput` has a cardinality of great
 "geometryInput": {
   "title": "Geometry input",
   "description": "This is an example of a geometry input.  In this case the geometry can be expressed as a GML or GeoJSON geometry.",
+  "minOccurs": 2,
+  "maxOccurs": 5,
   "schema": {
-    "type": "array",
-    "minItem": 2,
-    "maxItem": 5,
-    "itemType": {
-      "oneOf": [
-        {
-          "type": "string",
-          "contentMediaType": "application/gml+xml; version=3.2",
-          "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
-        },
-        {
-          "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
-        }
-      ]
-    }
+    "oneOf": [
+      {
+        "type": "string",
+        "contentMediaType": "application/gml+xml; version=3.2",
+        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+      },
+      {
+        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+      }
+    ]
   }
 },
 ----
