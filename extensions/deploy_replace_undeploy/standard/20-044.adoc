@@ -35,13 +35,15 @@ include::sections/clause_6_deploy_replace_undeploy.adoc[]
 
 include::sections/clause_7_apppkg.adoc[]
 
-include::sections/clause_8_cwl.adoc[]
+include::sections/clause_8_docker.adoc[]
 
-include::sections/clause_9_oas.adoc[]
+include::sections/clause_9_cwl.adoc[]
 
-include::sections/clause_10_media_types.adoc[]
+include::sections/clause_10_oas.adoc[]
 
-include::sections/clause_11_security_considerations.adoc[]
+include::sections/clause_11_media_types.adoc[]
+
+include::sections/clause_12_security_considerations.adoc[]
 
 include::sections/annex_ats.adoc[]
 

@@ -1,0 +1,13 @@
+[[ats_dru_mutable-process]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/dru/mutable-process
+test-purpose:: Ensure that a mutable process is offered by the server being tested.
+test-method::
++
+--
+If a server implementing the OGC API - Processes - Part 2: Deploy, Replace, Undeploy is tested using CITE tests, the server SHALL offer at least one mutable process.
+--
+====

@@ -1,0 +1,28 @@
+[[ats_ogcapppkg]]
+[conformance_class]
+.OGC Application Package
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/ogcapppkg
+subject:: <<rc_ogcapppkg,http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/ogcapppkg>>
+classification:: Target Type:Web API
+conformance-test:: /conf/ogcapppkg/deploy/body
+conformance-test:: /conf/ogcapppkg/deploy/response
+conformance-test:: /conf/ogcapppkg/deploy/response-success
+conformance-test:: /conf/ogcapppkg/deploy/response-duplicate
+conformance-test:: /conf/ogcapppkg/replace/body
+conformance-test:: /conf/ogcapppkg/replace/response
+====
+
+==== Deploy operation
+
+include::ogcapppkg/deploy/ATS_body.adoc[]
+include::ogcapppkg/deploy/ATS_response.adoc[]
+include::ogcapppkg/deploy/ATS_response-success.adoc[]
+include::ogcapppkg/deploy/ATS_response-duplicate.adoc[]
+
+==== Replace operation
+
+include::ogcapppkg/replace/ATS_body.adoc[]
+include::ogcapppkg/replace/ATS_response.adoc[]
+

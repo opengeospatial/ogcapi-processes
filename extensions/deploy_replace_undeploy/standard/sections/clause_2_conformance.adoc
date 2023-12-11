@@ -26,6 +26,10 @@ choose to implement some other process description instead.  That said, the
 `Deploy, Replace, Undeploy` conformance class includes recommendations to
 support the `OGC Application Package`.
 
+A requirement class is dedicated to the deployment of containers as processes:
+
+* <<rc_docker,Docker>>
+
 In addition to the previous encoding, another conformance class is provided to
 enable support for the Common Workflow Language (CWL):
 

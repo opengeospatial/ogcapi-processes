@@ -1,0 +1,19 @@
+[[ats_dru_deploy_post-op]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/dru/deploy/post-op
+target:: <<req_deploy-replace-undeploy_deploy_post-op,/req/deploy-replace-undeploy/deploy/post-op>>
+test-purpose:: Validate that the server support HTTP POST operation at the path /processes
+test-method::
++
+--
+1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
+
+2. Issue an HTTP POST request on each path.
+
+3. Validate that the response header does not contain `405 Method not allowed`
+--
+====
+

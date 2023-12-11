@@ -1,0 +1,23 @@
+[[ats_docker_deploy_body]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/docker/deploy/body
+target:: /rec/deploy-replace-undeploy/deploy/body-docker
+test-purpose:: Validate that the server support deploy operation using a docker image as execution unit
+test-method::
++
+--
+1. Retrieve all links from the landing page with “rel=http://www.opengis.net/def/rel/ogc/1.0/processes” and /processes
+
+2. Issue an HTTP POST request using the media type "application/ogcapppkg+json" with as body a default OGC Application Package
+
+3. Validate the reponse with <<ats_ogcapppkg_deploy_response,/conf/ogcapppkg/deploy/response>>
+
+4. Send the same POST request again
+
+5. Validate the reponse with <<ats_ogcapppkg_deploy_response-duplicate,/conf/ogcapppkg/deploy/response-duplicate>>
+--
+====
+

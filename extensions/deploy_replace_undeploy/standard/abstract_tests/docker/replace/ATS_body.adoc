@@ -1,0 +1,21 @@
+[[ats_docker_replace_body]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/docker/replace/body
+target:: /req/docker/replace/body
+test-purpose:: Validate that the server support replace operation using the Common Worflow Language encoding
+test-method::
++
+--
+1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
+
+2. Append `/{processId}` to each path, where `{processId}` is the process id retrieved from <<ats_ogcapppkg_deploy_response-success,/conf/ogcapppkg/deploy/response-success>>.
+
+3. Send a PUT request on one path using the media type "application/ogcapppkg+json" with as body a default OGC Application Package
+
+4. Validate the reponse with <<ats_ogcapppkg_replace_response,/conf/ogcapppkg/replace/response>>
+--
+====
+

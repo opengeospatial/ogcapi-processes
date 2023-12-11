@@ -10,6 +10,6 @@ part:: The media type `application/cwl` shall be used to indicate that request b
 
 part:: If the CWL contains more than one workflow, an additional `w` query parameter may be used to reference the workflow id to be deployed.
 
-part:: The server should validate the CWL at the request time. In case, the server cannot find the `w` identifier within the workflow from the CWL provided, a 400 status code is expected with the type "cwl-worflow-not-exist".
+part:: The server should validate the CWL at the request time. In case, the server cannot find the `w` identifier within the workflow from the CWL provided, a 400 status code is expected with the type "worflow-not-found".
 
 ====

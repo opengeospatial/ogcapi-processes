@@ -1,0 +1,26 @@
+[[ats_dru_undeploy_response-immutable]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/dru/undeploy/response-immutable
+target:: /req/deploy-replace-undeploy/deploy/response-immutable
+test-purpose:: Validate that the server return a 403 status code when removing an immutable process
+test-method::
++
+--
+1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
+
+2. Append `/{processId}` to each path, where `{processId}` is not a mutable process id.
+
+3. Issue an HTTP DELETE request on each path.
+
+3. Validate the response contains a document content, and was returned with an HTTP status code of 403
+
+4. Validate the document is conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml] schema.
+
+5. Validate the type of the exception is “http://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/immutable-process”.
+
+--
+====
+
