@@ -1,9 +1,19 @@
 
-== Terms and Definitions
+== Terms, definitions and abbreviated terms
 
-This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r9], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.
+=== Terms and definitions
 
-For the purposes of this document, the following additional terms and definitions apply in addition to the terms defined in <<OAProc-1>>.
+==== Deploy
+
+Deploy is a verb describing the operation of installing the desired components and associated metadata information on a Processes API implementation so that the client applications can use the OGC API - Processes - Part 1 Standard to interact with these components as a process.
+
+==== Replace
+
+Replace is a verb that describes the operation of upgrading a deployed process, its associated components, and its metadata on a Processes API implementation.
+
+==== Undeploy
+
+Undeploy is a verb that describes removing a deployed process, its associated components, and metadata on a Processes API implementation so that it does not appear anywhere except in the jobs list, potentially.
 
 === Abbreviated Terms
 
