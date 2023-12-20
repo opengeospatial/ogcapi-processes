@@ -1,7 +1,7 @@
 == Scope
 
-This specification is an extension to the <<OAProc-1>> standard that defines the behavior of a server that
-supports the ability to dynamically add, replace or undeploy processes from an OGC API - Processes instance.
+The OGC API - Processes - Part 2 Standard is an extension to the OGC API – Processes – Part 1: Core Standard [<<OAProc-1>>] and defines the behavior of a server that
+supports the ability to dynamically add, replace and/or undeploy processes from via an OGC API - Processes implementation instance.
 
 
 This document specifies an extension that defines the behaviour of a server

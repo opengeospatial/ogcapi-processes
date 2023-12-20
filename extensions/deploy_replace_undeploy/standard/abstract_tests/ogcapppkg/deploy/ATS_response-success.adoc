@@ -5,11 +5,11 @@
 [%metadata]
 identifier:: /conf/ogcapppkg/deploy/response-success
 target:: /req/deploy-replace-undeploy/deploy/response-success
-test-purpose:: Validate that the server return a Location header and a process summary
+test-purpose:: Validate that the server returns a Location header and a process summary
 test-method::
 +
 --
-1. Validate the Location header contain a URI of the deployed process.
+1. Validate the Location header contains a URI of the deployed process.
 
 2. Validate the document conforms to the https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/processSummary.yaml[processSummary.yaml] schema.
 --

@@ -1,36 +1,36 @@
-== Requirements Class "Deploy, Replace, Undeploy"
+== Requirements Class "Deploy, Replace, Undeploy (DRU)"
 
 [[deploy-replace-undeploy-overview]]
 === Overview
 
 include::../requirements/requirements_class_deploy-replace-undeploy.adoc[]
 
-A server that implements this conformance class provides the ability to
+A server that implements the DRU conformance class provides the ability to
 dynamically deploy, replace and undeploy processes from a processes API.
 
 The HTTP POST method is used to deploy a new process to the API.
 
-The HTTP PUT method is used to replace the definition of a previously deployed processes that is accessible via the API.
+The HTTP PUT method is used to replace the definition of a previously deployed processes that are accessible via the Processes API endpoint.
 
 Finally, the HTTP DELETE method is used to undeploy a previously deployed process that is accessible via the API.
 
 Deploying or replacing a process requires that a formal description of the new or
 replacement process be provided by the client.  This extension does not
 mandate that a specific processes description language or vocabulary be used.
-However, in order to promote interoperability, this extension defines two
-conformance classes:
+However, to promote interoperability, this extension defines two conformance
+classes:
 
  * <<rc_ogcapppkg,OGC Application Package>>, that defines a formal process description language encoded using JSON,
  * <<rc_cwl,CWL>>, that enables support for CWL-encoded process definition,
  
-A recommendation is made later in this specification that all implementations of this extension support the `OGC Application Package`.
+A recommendation is made later in this Standard that all implementations of Processes - Part 2 extension support the `OGC Application Package`.
 
 [[deploy-replace-undeploy-http_status_codes]]
 ==== HTTP status codes
 
-API clients should be prepared to handle any legal HTTP or HTTPS status code.
+Clients implementing the Processes - Part 2 should be prepared to handle any legal HTTP or HTTPS status code.
 
-The *Status Codes* listed in <<status_codes>> are of particular relevance to implementors of this standard. Status codes 200, 201 and 404 are called out in API requirements. Therefore, support for these status codes is mandatory for all compliant implementations. The remainder of the status codes in <<status_codes>> are not mandatory, but are important for the implementation of a well functioning API. Support for these status codes is strongly encouraged for both client and server implementations.
+The *Status Codes* listed in <<status_codes>> are of particular relevance to implementors of this standard. Status codes 200, 201 and 404 are called out in API requirements. Therefore, support for these status codes is mandatory for all compliant implementations. The remainder of the status codes in <<status_codes>> are not mandatory, but are important for the implementation of a well functioning API implementation. Support for these status codes is strongly encouraged for both client and server implementations.
 
 [[status_codes]]
 .Typical HTTP status codes
@@ -38,12 +38,12 @@ The *Status Codes* listed in <<status_codes>> are of particular relevance to imp
 |===
 |Status code |Description
 |`200` |A successful request.
-|`201` |The server has been fulfilled the operation and a new resource has been created.
-|`202` |The request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place.
+|`201` |The server has successfully completed the operation and a new resource has been created.
+|`202` |The request was accepted for processing, but the processing was not completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place.
 |`204` |A successful request with no additional content to send in the response.
 |`400` |The server cannot or will not process the request due to an apparent client error. For example, a query parameter had an incorrect value.
 |`401` |The request requires user authentication. The response includes a `WWW-Authenticate` header field containing a challenge applicable to the requested resource.
-|`403` |The server understood the request, but is refusing to fulfill it. While status code `401` indicates missing or bad authentication, status code `403` indicates that authentication is not the issue, but the client is not authorized to perform the requested operation on the resource.
+|`403` |The server understood the request, but is refusing to execute the request. While status code `401` indicates missing or bad authentication, status code `403` indicates that authentication is not the issue, but that the client is not authorized to perform the requested operation on the resource.
 |`404` |The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
 |`405` |The request method is not supported. For example, a POST request was submitted, but the resource only supports GET requests.
 |`406` |Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
@@ -60,7 +60,7 @@ More specific guidance is provided for each resource, where applicable.
 
 include::../recommendations/deploy-replace-undeploy/PER_additional-status-codes.adoc[]
 
-The API Description Document describes the HTTP status codes generated by that API. This should not be an exhaustive list of all possible status codes. It is not reasonable to expect an API designer to control the use of HTTP status codes which are not generated by their software. Therefore, it is recommended that the API Description Document limit itself to describing HTTP status codes relevant to the proper operation of the API application logic. Client implementations should be prepared to receive HTTP status codes in addition to those described in the API Description Document.
+The API Description Document describes the HTTP status codes generated by that API imeplementation instance. This should not be an exhaustive list of all possible status codes. It is not reasonable to expect an API designer to control the use of HTTP status codes which are not generated by their software. Therefore, it is recommended that the API Description Document be limited to describing HTTP status codes relevant to the proper operation of the API application logic. Client implementations should be prepared to receive HTTP status codes in addition to those described in the API Description Document.
 
 [[cross_origin]]
 ==== Cross-origin requests
@@ -70,9 +70,9 @@ See <<OAFeat-1,OGC API - Features - Part 1: Core>>, section link:http://www.open
 
 === Immutable processes
 
-This extension recognizes that an OGC web processing API may be deployed with a set of static, built-in processes that are immutable and cannot be removed or modified via the deploy-replace-undeploy API.  In an API Description Document (e.g. OpenAPI), such process paths would not include support for the HTTP POST, PUT or DELETE methods.
+The Processes API Part 2 extension recognizes that an OGC web processing API may be deployed with a set of static, built-in processes that are immutable and cannot be removed or modified via requests from a deploy-replace-undeploy API implementation.  In an API Description Document (e.g. OpenAPI), such process paths would not include support for the HTTP POST, PUT or DELETE methods.
 
-However, in order to make it clear which processes in a collection (path: `/processes`) are built-in - and thus immutable - and which have been dynamically deployed, the processes collection schema is modified to add a flag indicating this aspect of a process.
+However, to make it clear which processes in a collection (path: `/processes`) are built-in - and thus immutable - and which have been dynamically deployed, the processes collection schema is modified to add a flag indicating this aspect of a process.
 
 include::../requirements/deploy-replace-undeploy/immutable/REQ_indicator.adoc[]
 
@@ -165,7 +165,7 @@ include::../requirements/deploy-replace-undeploy/deploy/REQ_response-immutable.a
 The following diagram illustrates the sequence diagram for replacing a
 previously deployed processes.  The identifier of the process does not change.
 
-NOTE: The new process definition replaced to old process definition; version control is not discussed in this standard.
+NOTE: The new process definition replaces to old process definition. Version control is not discussed in this Standard.
 
 ```
 Client                                                        Server
@@ -208,15 +208,15 @@ include::../recommendations/deploy-replace-undeploy/replace/REC_body-cwl.adoc[]
 
 include::../requirements/deploy-replace-undeploy/replace/REQ_response.adoc[]
 
-The status code depends on the server. If the server has replaced the process, the response is either `200`, if the response includes additional content, or `204`, if the response has no additional content.
+The status code depends on the server. If the server has replaced the process, the response is either `200` (if the response includes additional content) or `204` (if the response has no additional content).
 
-If the server will process the replace request later, it will return a `202`. In this case, the processing can succeed or fail, without further notification to the client.
+If the server will process the replace request later, a `202` status code will be returned. In this case, the processing can succeed or fail, without further notification to the client.
 
 ==== Exceptions
 
 See <<deploy-replace-undeploy-http_status_codes>> for general guidance.
 
-If the request body's media type is not supported by the server, then <<req_deploy-replace-undeploy_deploy_unsupported-media-type,/req/deploy-replace-undeploy/deploy/unsupported-medie-type>> applies.
+If the request body's media type is not supported by the server, then <<req_deploy-replace-undeploy_deploy_unsupported-media-type,/req/deploy-replace-undeploy/deploy/unsupported-media-type>> applies.
 
 If the process with the specified identifier does not exist on the server, see requirement /req/core/process-exception/no-such-process from <<OAProc-1>>.
 

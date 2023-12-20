@@ -5,7 +5,7 @@
 [%metadata]
 identifier:: /conf/dru/deploy/unsupported-content-type
 target:: /req/deploy-replace-undeploy/deploy/unsupported-content-type
-test-purpose:: Validate that the server return a 415 status code with a relevant exception
+test-purpose:: Validate that the server returns a 415 status code with a relevant exception
 test-method::
 +
 --

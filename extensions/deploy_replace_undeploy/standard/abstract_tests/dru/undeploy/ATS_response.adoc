@@ -5,7 +5,7 @@
 [%metadata]
 identifier:: /conf/dru/undeploy/response
 target:: /req/deploy-replace-undeploy/undeploy/response
-test-purpose:: Validate that the server return a 204 status code when removing a mutable process
+test-purpose:: Validate that the server returns a 204 status code when removing a mutable process
 test-method::
 +
 --
