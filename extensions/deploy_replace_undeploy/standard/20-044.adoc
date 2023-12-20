@@ -39,6 +39,8 @@ include::sections/clause_8_docker.adoc[]
 
 include::sections/clause_9_cwl.adoc[]
 
+include::sections/clause_10_argo.adoc[]
+
 include::sections/clause_10_oas.adoc[]
 
 include::sections/clause_11_media_types.adoc[]
