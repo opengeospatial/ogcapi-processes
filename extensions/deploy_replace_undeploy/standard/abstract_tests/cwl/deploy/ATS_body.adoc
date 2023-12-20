@@ -5,7 +5,7 @@
 [%metadata]
 identifier:: /conf/cwl/deploy/body
 target:: /rec/deploy-replace-undeploy/deploy/body-cwl
-test-purpose:: Validate that the server support deploy operation using the Common Worflow Language encoding
+test-purpose:: Validate that the server support deploy operation using the Common Workflow Language encoding
 test-method::
 +
 --
