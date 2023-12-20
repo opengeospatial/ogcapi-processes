@@ -3,17 +3,21 @@
 
 === Terms and definitions
 
+==== Execution unit
+
+An execution unit is a component that contains a process that an implementation of the Processes API can run.
+
 ==== Deploy
 
-Deploy is a verb describing the operation of installing the desired components and associated metadata information on a Processes API implementation so that the client applications can use the OGC API - Processes - Part 1 Standard to interact with these components as a process.
+Deploy is a verb describing the operation of installing the desired execution unit and associated process description on a Processes API implementation so that the client applications can use the OGC API - Processes - Part 1 Standard to interact with these components as a process.
 
 ==== Replace
 
-Replace is a verb that describes the operation of upgrading a deployed process, its associated components, and its metadata on a Processes API implementation.
+Replace is a verb that describes the operation of upgrading a deployed process, its associated execution unit, and its process description from a Processes API implementation.
 
 ==== Undeploy
 
-Undeploy is a verb that describes removing a deployed process, its associated components, and metadata on a Processes API implementation so that it does not appear anywhere except in the jobs list, potentially.
+Undeploy is a verb that describes removing a deployed process, its associated execution unit, and process description from a Processes API implementation so that it does not appear anywhere except in the jobs list, potentially.
 
 === Abbreviated Terms
 
