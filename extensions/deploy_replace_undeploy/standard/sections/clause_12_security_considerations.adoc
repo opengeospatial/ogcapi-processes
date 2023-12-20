@@ -69,7 +69,7 @@ In case the request does not include information to authenticate the user, the s
 Client                                                        Server
   |                                                             |
   |  DELETE /processes/SampleProcess   HTTP/1.1                 |
-  | ---------------------------------------------------------------------------------------------------------------------->|
+  | ----------------------------------------------------------->|
   |                                                             |
   |  HTTP/1.1  401 Unauthorized                                 |
   |  Date: Mon, 23 May 2022 11:18:45 GMT                        |
@@ -81,12 +81,13 @@ Client                                                        Server
   |                                                             |
   |  {                                                          |
   |    "status": 401,                                           |
-  |    "title": "Unauthorized",                                     |
-  |    "detail": "HTTP 401 Unauthorized"                           |
+  |    "title": "Unauthorized",                                 |
+  |    "detail": "HTTP 401 Unauthorized"                        |
   |  }                                                          |
-  | <----------------------------------------------------------------------------------------------------------------------|
+  | <-----------------------------------------------------------|
 ----
 
+NOTE: HTTP WWW-Authenticate header is a response-type header. It serves as a support for various authentication mechanisms which are important to control access to pages and other resources as well. All of these mechanisms are based on the use of the 401 status code. The HTTP WWW-Authenticate response header defines the authentication method that ought to be wont to gain access to a resource. As discussed earlier, the WWW-Authenticate header is sent along with a 401 Unauthorized response. (GeeksforGeeks.org, 2023)
 
 If valid authentication credentials have been provided, but the API refuses to execute the operation, because the user has insufficient privileges, the server will typically return a 403 response ("Forbidden").
 
@@ -99,7 +100,7 @@ Client                                                              Server
   | DELETE /processes/SampleProcess HTTP/1.1                          |
   | Host: example.com                                                 |
   | Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ97HgQ    |
-  |------------------------------------------------------------------------------------------------------------------------------------>|
+  |------------------------------------------------------------------>|
   |                                                                   |
   | HTTP/1.1 403 Forbidden                                            |
   | Date: Mon, 23 May 2022 11:18:55 GMT                               |
@@ -112,7 +113,7 @@ Client                                                              Server
   |   "title" : "Forbidden",                                          |
   |   "detail" : "HTTP 403 Forbidden"                                 |
   | }                                                                 |
-  |<------------------------------------------------------------------------------------------------------------------------------------|
+  |<------------------------------------------------------------------|
 ```
 
 However, for security reasons, the server may also decide to return other status codes to hide information from a potential attacker. For example, the server may decide to return a 401 response even for a valid, but un-privileged user. Or the server may return a 404 response ("Not Found") to hide the fact that the resource exists in the first place, typically if the user would also not be privileged to fetch the resource with a GET operation.
