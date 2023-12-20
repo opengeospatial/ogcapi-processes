@@ -1,0 +1,19 @@
+[[rec_ogcapppkg_execution-unit-argo]]
+[recommendation]
+====
+[%metadata]
+label:: /rec/ogcapppkg/execution-unit-argo
+
+part:: If the execution unit is encoded in Argo then it is recommended that the contents of the execution unit be the properties:
+ * `type`  and `href` if passed by reference
+ * `value` and `mediaType` if passed by value
+
+part:: The value of the `type` property shall be `application/argo`, when for `mediaType` it should be `application/argo+json`.
+
+part:: The value of the `href` property shall be a reference to the Argo encoded file. The value of the `value` property shall be the Argo encoded in json format.
+
+part:: If the Argo contains more than a single workflow identifier, an addition `w` query parameter may be used to target a specific workflow id to be deployed.
+
+part:: The server should validate the Argo at the request time. In case, the server cannot find the `w` identifier within the workflow from the Argo provided, a 400 status code is expected with the type "argo-worflow-not-exist".
+
+====
