@@ -3,8 +3,6 @@
 
 The OGC API - Processes - Part 2 Standard defines the following requirements classes.
 
-The standardization target is "Web APIs".
-
 The main requirements class is:
 
 * <<rc_deploy-replace-undeploy,Deploy, Replace, Undeploy>>.
@@ -12,12 +10,12 @@ The main requirements class is:
 This class specifies requirements that any Web API implementing Processes Part 2 must conform with.
 
 The `Deploy, Replace, Undeploy` class does not mandate a specific encoding or
-format for the formal definition of a process.  However, this extension
+format for the formal definition of a process.  However, the Part 2 extension
 defines the following conformance class:
 
 * <<rc_ogcapppkg,OGC Application Package>>
 
-for this purpose.  The `OGC Application Package` class defines the schema of a
+The `OGC Application Package` class defines the schema of a
 document that formally defines the inputs, outputs and other necessary metadata
 about a process that is to be dynamically deployed through the API.
 

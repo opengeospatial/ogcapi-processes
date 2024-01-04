@@ -6,18 +6,15 @@
 
 include::../requirements/requirements_class_ogcapppkg.adoc[]
 
-This conformance class defines the schema of an `OGC Application Package`. An
+This requirements class defines the schema of an `OGC Application Package`. An
 `OGC Application Package` is a document that describes a process in sufficient
 detail so that an implementation of this extension can dynamically deploy the
-process and make it available for execution via an OGC API - Processes implementation.
-
-An `OGC Application Package` document provides all the information necessary to
-deploy a process and make it accessible through the OGC API - Processes API.
+process and make it accessible via an OGC API - Processes implementation.
 
 The information contained in an `OGC Application Package` can include:
 
 * A formal description of the process including what inputs the process takes and what outputs the process generates.
-* Either inline or by reference an execution unit which is the `code` that the server needs to execute whenever the process is invoked.
+* Either an inline or by reference execution unit which is the `code` that the server needs to execute whenever the process is invoked.
 * Additional resource information required by the execution unit.
 
 === OGC Application Package schema

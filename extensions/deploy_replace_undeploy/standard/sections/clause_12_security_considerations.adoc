@@ -10,11 +10,11 @@ Users making modifications to process resources need to:
 . Have "modification privileges" on the processes offered through the API,
 . Have access to one or more of the POST, PUT and/or DELETE methods on the processes / processes/{processId} endpoints.
 
-The API definition must reflect this in the resource paths and their available methods.
+The API definition, as defined in Clause 7.3 from <<OAProc-1>>, must reflect this in the resource paths and their available methods.
 
 Examples in the Clauses specifying the requirements classes focus on the mechanics of the POST, PUT, and DELETE methods and exclude authentication. Since authentication will typically be required for all DRU requests, this section provides some examples/guidance:
 
-The OpenAPI definition will declare the authentication schemes that an implementation of the Processes - Part 2 (DRU) supports for each operation (or for all operations in the API implementation).
+The OpenAPI definition exposed by the serve will declare the authentication schemes that an implementation of the Processes - Part 2 (DRU) supports for each operation (or for all operations in the API implementation).
 
 A member "security" in the OpenAPI definition object can be provided to list the default security schemes supported by all operations. Individual DRU operations can override this default by providing a "security" member for the individual operation.
 

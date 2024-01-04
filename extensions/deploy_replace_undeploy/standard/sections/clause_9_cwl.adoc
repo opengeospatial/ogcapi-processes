@@ -7,7 +7,7 @@ include::../requirements/requirements_class_cwl.adoc[]
 
 A server that implements the CWL Requirement Class SHALL support the use of CWL encoding when interacting with the Processes API Part 2 deploy-replace-undeploy extension endpoint.
 
-In consequence, the following recommandations defined in Recommendation 2 and Recommandation 4 become requirements:
+In consequence, the following recommandations defined in <<rec_deploy-replace-undeploy_deploy_body-cwl>>, <<rec_deploy-replace-undeploy_replace_body-cwl>> and <<rec_ogcapppkg_execution-unit-cwl>> become requirements:
 
  * <<rec_deploy-replace-undeploy_deploy_body-cwl,/rec/deploy-replace-undeploy/deploy/body-cwl>>
  * <<rec_deploy-replace-undeploy_replace_body-cwl,/rec/deploy-replace-undeploy/replace/body-cwl>>

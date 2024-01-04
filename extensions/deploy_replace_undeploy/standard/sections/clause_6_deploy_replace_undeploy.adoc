@@ -5,32 +5,32 @@
 
 include::../requirements/requirements_class_deploy-replace-undeploy.adoc[]
 
-A server that implements the DRU conformance class provides the ability to
-dynamically deploy, replace and undeploy processes from a processes API.
+A server that implements the DRU requirements class provides the ability to
+dynamically deploy, replace and undeploy processes.
 
 The HTTP POST method is used to deploy a new process to the API.
 
 The HTTP PUT method is used to replace the definition of a previously deployed processes that are accessible via the Processes API endpoint.
 
-Finally, the HTTP DELETE method is used to undeploy a previously deployed process that is accessible via the API.
+Finally, the HTTP DELETE method is used to undeploy a previously deployed process that is accessible via the Processes API endpoint.
 
 Deploying or replacing a process requires that a formal description of the new or
-replacement process be provided by the client.  This extension does not
+replacement process be provided by the client.  This Standard does not
 mandate that a specific processes description language or vocabulary be used.
 However, to promote interoperability, this extension defines two conformance
 classes:
 
  * <<rc_ogcapppkg,OGC Application Package>>, that defines a formal process description language encoded using JSON,
- * <<rc_cwl,CWL>>, that enables support for CWL-encoded process definition,
+ * <<rc_cwl,CWL>>, that enables support for CWL-encoded process definition.
  
-A recommendation is made later in this Standard that all implementations of Processes - Part 2 extension support the `OGC Application Package`.
+A recommendation is made later in this Standard that all implementations of Processes API Part 2 extension support the `OGC Application Package`.
 
 [[deploy-replace-undeploy-http_status_codes]]
 ==== HTTP status codes
 
-Clients implementing the Processes - Part 2 should be prepared to handle any legal HTTP or HTTPS status code.
+Clients implementing the Processes API Part 2 should be prepared to handle any legal HTTP or HTTPS status code.
 
-The *Status Codes* listed in <<status_codes>> are of particular relevance to implementors of this standard. Status codes 200, 201 and 404 are called out in API requirements. Therefore, support for these status codes is mandatory for all compliant implementations. The remainder of the status codes in <<status_codes>> are not mandatory, but are important for the implementation of a well functioning API implementation. Support for these status codes is strongly encouraged for both client and server implementations.
+The *Status Codes* listed in <<status_codes>> are of particular relevance to implementors of this Standard. Status codes 200, 201 and 404 are called out in API requirements. Therefore, support for these status codes is mandatory for all compliant implementations. The remainder of the status codes in <<status_codes>> are not mandatory, but are important for the implementation of a well functioning API implementation. Support for these status codes is strongly encouraged for both client and server implementations.
 
 [[status_codes]]
 .Typical HTTP status codes
@@ -165,7 +165,7 @@ include::../requirements/deploy-replace-undeploy/deploy/REQ_response-immutable.a
 The following diagram illustrates the sequence diagram for replacing a
 previously deployed processes.  The identifier of the process does not change.
 
-NOTE: The new process definition replaces to old process definition. Version control is not discussed in this Standard.
+NOTE: The new process definition replaces the old process definition. Version control is not discussed in this Standard.
 
 ```
 Client                                                        Server
