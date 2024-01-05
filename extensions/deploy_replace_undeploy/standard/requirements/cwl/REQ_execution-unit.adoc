@@ -4,7 +4,7 @@
 [%metadata]
 label:: /req/cwl/execution-unit
 
-part:: If the execution unit is encoded in CWL then the content of the execution unit SHALL be an object with the following properties:
+part:: If the execution unit is encoded in CWL, the content of the `executionUnit` parameter SHALL be an object with the following properties:
  * `type`  and `href` if passed by reference
  * `value` and a `format` object with a `mediaType` property if passed by value
 
