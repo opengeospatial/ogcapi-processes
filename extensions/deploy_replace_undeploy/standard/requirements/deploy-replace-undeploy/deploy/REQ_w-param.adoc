@@ -1,0 +1,9 @@
+[[req_deploy-replace-undeploy_deploy_w-param]]
+[requirement]
+====
+[%metadata]
+label:: /req/deploy-replace-undeploy/deploy/w-param
+
+part:: If the body of the POST request contains more than a single process definition, an additional `w` query parameter MAY be used to target a specific process to be deployed. If not used, the first process found SHALL be deployed.
+
+====

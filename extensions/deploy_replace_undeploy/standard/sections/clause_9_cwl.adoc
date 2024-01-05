@@ -7,10 +7,43 @@ include::../requirements/requirements_class_cwl.adoc[]
 
 A server that implements the CWL Requirement Class SHALL support the use of CWL encoding when interacting with the Processes API Part 2 deploy-replace-undeploy extension endpoint.
 
-In consequence, the following recommandations defined in <<rec_deploy-replace-undeploy_deploy_body-cwl>>, <<rec_deploy-replace-undeploy_replace_body-cwl>> and <<rec_ogcapppkg_execution-unit-cwl>> become requirements:
+=== Execution Unit
 
- * <<rec_deploy-replace-undeploy_deploy_body-cwl,/rec/deploy-replace-undeploy/deploy/body-cwl>>
- * <<rec_deploy-replace-undeploy_replace_body-cwl,/rec/deploy-replace-undeploy/replace/body-cwl>>
- * <<rec_ogcapppkg_execution-unit-cwl,/rec/ogcapppkg/execution-unit-cwl>>
+In case the OGC Application Package encoding is used, the following Requirement applies.
+
+include::../requirements/cwl/REQ_execution-unit.adoc[]
+
+Below is an example of a deploy body request using a CWL-encoded execution unit by reference.
+
+[[cwl_ogcapppkg_example1]]
+[source%unnumbered]
+----
+{
+  "executionUnit": {
+    "href": "https://raw.githubusercontent.com/EOEPCA/app-snuggs/main/app-package.cwl",
+    "type": "application/cwl"
+  }
+}
+----
+
+Below is an example of a deploy body request using a CWL-encoded execution unit by value. The value is not included for readability and results from converting from the original CWL format (YAML) into JSON.
+
+[[cwl_ogcapppkg_example2]]
+[source%unnumbered]
+----
+{
+  "executionUnit": {
+    "value": { ... },
+    "format": {
+        "mediaType": "application/cwl+json"
+    }
+  }
+}
+----
 
 
+=== Deploy and Replace
+
+When using CWL encoding to communicate with a Processes Part 2 server, the following Requirement applies.
+
+include::../requirements/cwl/REQ_body.adoc[]

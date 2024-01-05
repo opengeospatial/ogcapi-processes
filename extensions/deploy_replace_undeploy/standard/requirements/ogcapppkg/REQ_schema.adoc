@@ -3,5 +3,5 @@
 ====
 [%metadata]
 label:: /req/ogcapppkg/schema
-part:: An `OGC Application Package` document SHALL be based upon the schema http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[ogcapppkg.yaml].
+part:: An `OGC Application Package` document SHALL be based upon the OpenAPI schema http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[ogcapppkg.yaml].
 ====

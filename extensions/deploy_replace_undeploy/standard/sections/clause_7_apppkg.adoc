@@ -17,6 +17,12 @@ The information contained in an `OGC Application Package` can include:
 * Either an inline or by reference execution unit which is the `code` that the server needs to execute whenever the process is invoked.
 * Additional resource information required by the execution unit.
 
+=== Deploy and Replace
+
+When using OGC Application Package encoding to communicate with a Processes Part 2 server, the following Requirement applies.
+
+include::../requirements/ogcapppkg/REQ_body.adoc[]
+
 === OGC Application Package schema
 
 ==== Overview
@@ -42,25 +48,11 @@ include::../requirements/ogcapppkg/REQ_process-description.adoc[]
 ==== executionUnit property
 
 The execution unit is the `code` that an implementation of the Part 2 extension needs
-to execute whenever the deployed process is executed. The execution unit can be
-specified by reference, e.g. Docker image reference.
+to execute whenever the deployed process is executed. 
+
+If the schema defined for the executionUnit property of an OGC Application Package remains open, it may be refined in other Requirements.
 
 include::../recommendations/ogcapppkg/REC_execution-unit-docker.adoc[]
 
-When CWL encoding is used,
-the execution unit can be either passed by value (in-line) or by reference.
-
 include::../recommendations/ogcapppkg/REC_ogcapppkg_execution-unit-cwl.adoc[]
 
-Below is an example of a deploy body request using a CWL-encoded execution unit by reference.
-
-[[example1]]
-[source%unnumbered]
-----
-{
-  "executionUnit": {
-    "href": "https://raw.githubusercontent.com/EOEPCA/app-snuggs/main/app-package.cwl",
-    "type": "application/cwl"
-  }
-}
-----

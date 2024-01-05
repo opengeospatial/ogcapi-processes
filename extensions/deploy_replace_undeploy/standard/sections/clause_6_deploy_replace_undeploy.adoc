@@ -5,7 +5,7 @@
 
 include::../requirements/requirements_class_deploy-replace-undeploy.adoc[]
 
-A server that implements the DRU requirements class provides the ability to
+A server that implements the DRU Requirements Class provides the ability to
 dynamically deploy, replace and undeploy processes.
 
 The HTTP POST method is used to deploy a new process to the API.
@@ -127,6 +127,8 @@ include::../requirements/deploy-replace-undeploy/deploy/REQ_body.adoc[]
 
 include::../recommendations/deploy-replace-undeploy/deploy/PER_body.adoc[]
 
+include::../requirements/deploy-replace-undeploy/deploy/REQ_w-param.adoc[]
+
 include::../requirements/deploy-replace-undeploy/deploy/REQ_content-type.adoc[]
 
 See https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5[section 3.1.1.5 of RFC 7231] for details.
@@ -156,6 +158,8 @@ include::../requirements/deploy-replace-undeploy/deploy/REQ_unsupported-media-ty
 include::../requirements/deploy-replace-undeploy/deploy/REQ_response-duplicate.adoc[]
 
 include::../requirements/deploy-replace-undeploy/deploy/REQ_response-immutable.adoc[]
+
+include::../requirements/deploy-replace-undeploy/deploy/REQ_exception-workflow-not-found.adoc[]
 
 [[replace]]
 === Replacing an existing processes

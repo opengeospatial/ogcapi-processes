@@ -3,10 +3,5 @@
 ====
 [%metadata]
 label:: /rec/ogcapppkg/execution-unit-docker
-
-part:: If the execution unit is a Docker image then it is recommended that the contents of the execution unit have the properties `type` and `image`.
-
-part:: If the execution unit is specified as a Docker image, the  value of the `type` property SHALL be `docker'.
-
-part:: If the execution unit is specified as a Docker image, the value of the `image` property SHALL be a reference to the Docker image.
+part:: If the execution unit is a Docker image, implementations SHOULD consider supporting the <<rc_docker,Docker Requirements class>>.
 ====
