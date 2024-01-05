@@ -15,7 +15,7 @@ include::../requirements/cwl/deploy/REQ_body.adoc[]
 
 include::../requirements/cwl/replace/REQ_body.adoc[]
 
-=== Execution unit
+=== executionUnit property
 
 In case the OGC Application Package encoding is used, the following Requirement applies.
 

@@ -7,7 +7,7 @@ include::../requirements/requirements_class_docker.adoc[]
 
 A server that implements the Docker Requirement Class supports the management of Docker image as execution units by implementing the Processes API Part2 deploy-replace-undeploy extension.
 
-=== Execution unit
+=== executionUnit property
 
 ==== Overview
 

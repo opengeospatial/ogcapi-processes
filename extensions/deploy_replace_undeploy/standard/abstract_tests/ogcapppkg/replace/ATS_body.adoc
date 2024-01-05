@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /conf/ogcapppkg/replace/body
-target:: /rec/deploy-replace-undeploy/replace/body-ogcapppkg
+target:: /req/ogcapppkg/replace/body
 test-purpose:: Validate that the server supports OGC Application Package encoding
 test-method::
 +
