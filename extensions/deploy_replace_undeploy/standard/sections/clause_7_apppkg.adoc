@@ -17,11 +17,13 @@ The information contained in an `OGC Application Package` can include:
 * Either an inline or by reference execution unit which is the `code` that the server needs to execute whenever the process is invoked.
 * Additional resource information required by the execution unit.
 
-=== Deploy and Replace
+=== Deploy
 
-When using OGC Application Package encoding to communicate with a Processes Part 2 server, the following Requirement applies.
+include::../requirements/ogcapppkg/deploy/REQ_body.adoc[]
 
-include::../requirements/ogcapppkg/REQ_body.adoc[]
+=== Replace
+
+include::../requirements/ogcapppkg/replace/REQ_body.adoc[]
 
 === OGC Application Package schema
 
