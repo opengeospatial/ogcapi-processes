@@ -9,9 +9,13 @@ A server that implements the CWL Requirement Class SHALL support the use of CWL 
 
 === Deploy
 
+==== Request body
+
 include::../requirements/cwl/deploy/REQ_body.adoc[]
 
 === Replace
+
+==== Request body
 
 include::../requirements/cwl/replace/REQ_body.adoc[]
 

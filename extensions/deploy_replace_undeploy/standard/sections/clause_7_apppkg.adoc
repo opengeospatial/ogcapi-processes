@@ -19,9 +19,13 @@ The information contained in an `OGC Application Package` can include:
 
 === Deploy
 
+==== Request body
+
 include::../requirements/ogcapppkg/deploy/REQ_body.adoc[]
 
 === Replace
+
+==== Request body
 
 include::../requirements/ogcapppkg/replace/REQ_body.adoc[]
 
