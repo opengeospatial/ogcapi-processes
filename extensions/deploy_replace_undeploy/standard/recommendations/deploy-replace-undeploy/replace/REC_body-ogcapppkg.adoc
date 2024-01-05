@@ -6,5 +6,4 @@ label:: /rec/deploy-replace-undeploy/replace/body-ogcapppkg
 
 part:: If a process can be described for the intended use as an <<rc_ogcapppkg,OGC Application Package>>, implementations SHOULD consider supporting the <<rc_ogcapppkg,OGC Application Package>> encoding for describing the replacement process.
 
-part:: The media type `application/ogcapppkg+json` SHALL be used to indicate that request body contains a processes description encoded as an <<rc_ogcapppkg,OGC Application Package>>.
 ====

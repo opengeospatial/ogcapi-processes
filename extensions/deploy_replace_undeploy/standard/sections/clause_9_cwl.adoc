@@ -7,6 +7,12 @@ include::../requirements/requirements_class_cwl.adoc[]
 
 A server that implements the CWL Requirement Class SHALL support the use of CWL encoding when interacting with the Processes API Part 2 deploy-replace-undeploy extension endpoint.
 
+=== Deploy and Replace
+
+When using CWL encoding to communicate with a Processes Part 2 server, the following Requirement applies.
+
+include::../requirements/cwl/REQ_body.adoc[]
+
 === Execution unit
 
 In case the OGC Application Package encoding is used, the following Requirement applies.
@@ -41,9 +47,3 @@ Below is an example of a deploy body request using a CWL-encoded execution unit 
 }
 ----
 
-
-=== Deploy and Replace
-
-When using CWL encoding to communicate with a Processes Part 2 server, the following Requirement applies.
-
-include::../requirements/cwl/REQ_body.adoc[]
