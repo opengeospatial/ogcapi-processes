@@ -127,8 +127,6 @@ include::../requirements/deploy-replace-undeploy/deploy/REQ_body.adoc[]
 
 include::../recommendations/deploy-replace-undeploy/deploy/PER_body.adoc[]
 
-include::../requirements/deploy-replace-undeploy/deploy/REQ_w-param.adoc[]
-
 include::../requirements/deploy-replace-undeploy/deploy/REQ_content-type.adoc[]
 
 See https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5[section 3.1.1.5 of RFC 7231] for details.
@@ -159,7 +157,6 @@ include::../requirements/deploy-replace-undeploy/deploy/REQ_response-duplicate.a
 
 include::../requirements/deploy-replace-undeploy/deploy/REQ_response-immutable.adoc[]
 
-include::../requirements/deploy-replace-undeploy/deploy/REQ_exception-workflow-not-found.adoc[]
 
 [[replace]]
 === Replacing an existing processes

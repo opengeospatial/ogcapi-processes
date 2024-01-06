@@ -7,9 +7,11 @@ include::../requirements/requirements_class_docker.adoc[]
 
 A server that implements the Docker Requirement Class supports the management of Docker image as execution units by implementing the Processes API Part2 deploy-replace-undeploy extension.
 
-=== executionUnit property
+=== OGC Application Package
 
-==== Overview
+==== executionUnit property
+
+===== Overview
 
 include::../requirements/docker/REQ_schema.adoc[]
 
@@ -20,7 +22,7 @@ include::../requirements/docker/REQ_schema.adoc[]
 include::../../../../openapi/schemas/processes-dru/executionUnit.yaml[]
 ----
 
-==== type and image properties
+===== type and image properties
 
 The execution unit can be specified by reference, using a Docker image reference.
 

@@ -1,8 +1,8 @@
-[[req_deploy-replace-undeploy_deploy_exception-workflow-not-found]]
+[[req_ogcapppkg_deploy_exception-workflow-not-found]]
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/deploy/exception-workflow-not-found
+label:: /req/ogcapppkg/deploy/exception-workflow-not-found
 
 part:: If the `w` parameter has a value and the server cannot find the `w` identifier in the processes from the body POST request, the status code SHALL be `400`.
 part:: The content of that response SHALL be based upon the schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml[exception.yaml].

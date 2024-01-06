@@ -7,19 +7,9 @@ include::../requirements/requirements_class_cwl.adoc[]
 
 A server that implements the CWL Requirement Class SHALL support the use of CWL encoding when interacting with the Processes API Part 2 deploy-replace-undeploy extension endpoint.
 
-=== Deploy
+=== OGC Application Package
 
-==== Request body
-
-include::../requirements/cwl/deploy/REQ_body.adoc[]
-
-=== Replace
-
-==== Request body
-
-include::../requirements/cwl/replace/REQ_body.adoc[]
-
-=== executionUnit property
+==== executionUnit property
 
 In case the OGC Application Package encoding is used, the following Requirement applies.
 
@@ -52,4 +42,26 @@ Below is an example of a deploy body request using a CWL-encoded execution unit 
   }
 }
 ----
+
+=== Deploy
+
+==== CWL body
+
+include::../requirements/cwl/deploy/REQ_body.adoc[]
+
+==== w parameter
+
+When encoded in CWL, processes are identified as instances of the workflow class.
+
+The Requirement <<req_ogcapppkg_deploy_w-param,/req/ogcapppkg/deploy/w-param>> applies to a workflow identifier.
+
+==== Exception
+
+When CWL encoding is used, Requirement <<req_ogcapppkg_deploy_exception-workflow-not-found,/req/ogcapppkg/deploy/exception-workflow-not-found>> applies.
+
+=== Replace
+
+==== CWL body
+
+include::../requirements/cwl/replace/REQ_body.adoc[]
 

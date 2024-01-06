@@ -17,18 +17,6 @@ The information contained in an `OGC Application Package` can include:
 * Either an inline or by reference execution unit which is the `code` that the server needs to execute whenever the process is invoked.
 * Additional resource information required by the execution unit.
 
-=== Deploy
-
-==== Request body
-
-include::../requirements/ogcapppkg/deploy/REQ_body.adoc[]
-
-=== Replace
-
-==== Request body
-
-include::../requirements/ogcapppkg/replace/REQ_body.adoc[]
-
 === OGC Application Package schema
 
 ==== Overview
@@ -53,12 +41,30 @@ include::../requirements/ogcapppkg/REQ_process-description.adoc[]
 [[executionUnit]]
 ==== executionUnit property
 
-The execution unit is the `code` that an implementation of the Part 2 extension needs
-to execute whenever the deployed process is executed. 
-
-If the schema defined for the executionUnit property of an OGC Application Package remains open, it may be refined in other Requirements.
+If the schema defined for the executionUnit property of an OGC Application Package remains open, it can be restricted in other Requirements.
 
 include::../recommendations/ogcapppkg/REC_execution-unit-docker.adoc[]
 
 include::../recommendations/ogcapppkg/REC_ogcapppkg_execution-unit-cwl.adoc[]
+
+=== Deploy
+
+==== OGC Application Package body
+
+include::../requirements/ogcapppkg/deploy/REQ_body.adoc[]
+
+==== w parameter
+
+include::../requirements/ogcapppkg/deploy/REQ_w-param.adoc[]
+
+==== Exception
+
+include::../requirements/ogcapppkg/deploy/REQ_exception-workflow-not-found.adoc[]
+
+=== Replace
+
+==== OGC Application Package body
+
+include::../requirements/ogcapppkg/replace/REQ_body.adoc[]
+
 

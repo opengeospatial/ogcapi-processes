@@ -4,8 +4,6 @@
 [%metadata]
 label:: /req/cwl/deploy/w-param
 
-part:: If the CWL contains more than a single workflow identifier, an additional `w` query parameter MAY be used to target a specific workflow id to be deployed.
-
-part:: If the `w` parameter has a value, the server SHALL validate the CWL at the request time. In case, the server cannot find the `w` identifier within the workflow from the CWL file provided, a 400 status code is expected and a document based upon exception.yaml with the type "worflow-not-found".
+part:: If the CWL contains more than a single workflow identifier, an additional `w` query parameter MAY be used to target a specific workflow id to be deployed. If not used, the first process found SHALL be deployed.
 
 ====
