@@ -53,14 +53,6 @@ include::../recommendations/ogcapppkg/REC_ogcapppkg_execution-unit-cwl.adoc[]
 
 include::../requirements/ogcapppkg/deploy/REQ_body.adoc[]
 
-==== w parameter
-
-include::../requirements/ogcapppkg/deploy/REQ_w-param.adoc[]
-
-==== Exception
-
-include::../requirements/ogcapppkg/deploy/REQ_exception-workflow-not-found.adoc[]
-
 === Replace
 
 ==== OGC Application Package body

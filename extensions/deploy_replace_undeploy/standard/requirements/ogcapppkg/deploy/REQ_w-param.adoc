@@ -1,9 +1,0 @@
-[[req_ogcapppkg_deploy_w-param]]
-[requirement]
-====
-[%metadata]
-label:: /req/ogcapppkg/deploy/w-param
-
-part:: If the OGC Application Package document contains more than a single process definition, an additional `w` query parameter MAY be used to target a specific process to be deployed. If not used, the first process found SHALL be deployed.
-
-====

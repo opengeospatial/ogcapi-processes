@@ -53,11 +53,11 @@ include::../requirements/cwl/deploy/REQ_body.adoc[]
 
 When encoded in CWL, processes are identified as instances of the workflow class.
 
-The Requirement <<req_ogcapppkg_deploy_w-param,/req/ogcapppkg/deploy/w-param>> applies to a workflow identifier.
+include::../requirements/cwl/deploy/REQ_w-param.adoc[]
 
 ==== Exception
 
-When CWL encoding is used, Requirement <<req_ogcapppkg_deploy_exception-workflow-not-found,/req/ogcapppkg/deploy/exception-workflow-not-found>> applies.
+include::../requirements/cwl/deploy/REQ_exception-workflow-not-found.adoc[]
 
 === Replace
 
