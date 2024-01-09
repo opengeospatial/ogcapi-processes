@@ -44,7 +44,7 @@ include::../requirements/ogcapppkg/REQ_process-description.adoc[]
 [[executionUnit]]
 ==== executionUnit property
 
-The execution unit is the `code` that an implementation of this extensions needs
+The execution unit is the `code` that an implementation of this extension needs
 to execute whenever the deployed process is executed. The execution unit can be
 specified by reference, e.g. docker image reference.
 
