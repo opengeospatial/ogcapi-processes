@@ -14,7 +14,7 @@ process and make it available for execution via an OGC processes API.
 An `OGC Application Package` document provides all the information necessary to
 deploy a process and make it accessible through the OGC API - Processes API.
 
-The information contains in an `OGC Application Package` can include:
+The information contained in an `OGC Application Package` can include:
 
 * A formal description of the process including what inputs the process takes and what outputs the process generates.
 * Either inline or by reference an execution unit which is the `code` that the server needs to execute whenever the process is invoked.
