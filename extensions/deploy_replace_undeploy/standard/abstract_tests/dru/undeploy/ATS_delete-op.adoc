@@ -5,7 +5,7 @@
 [%metadata]
 identifier:: /conf/dru/undeploy/delete-op
 target:: /req/deploy-replace-undeploy/undeploy/delete-op
-test-purpose:: Validate that the server support HTTP DELETE operation at the path /processes/{processId}
+test-purpose:: Validate that the server supports HTTP DELETE operation at the path /processes/{processId}
 test-method::
 +
 --
@@ -13,7 +13,7 @@ test-method::
 
 2. Append `/{processId}` to each path, where `{processId}` is not an existing process id, i.e. `not-existing-process`.
 
-3. Issue an HTTP DELETE request on each path.
+3. Issue an HTTP DELETE request for each path.
 
 3. Validate that the response header does not contain `405 Method not allowed`.
 --

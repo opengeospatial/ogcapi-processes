@@ -5,7 +5,7 @@
 [%metadata]
 identifier:: /conf/docker/replace/body
 target:: /req/docker/replace/body
-test-purpose:: Validate that the server support replace operation using the Common Worflow Language encoding
+test-purpose:: Validate that the server support replace operation using a Docker image as execution unit
 test-method::
 +
 --
@@ -13,9 +13,9 @@ test-method::
 
 2. Append `/{processId}` to each path, where `{processId}` is the process id retrieved from <<ats_ogcapppkg_deploy_response-success,/conf/ogcapppkg/deploy/response-success>>.
 
-3. Send a PUT request on one path using the media type "application/ogcapppkg+json" with as body a default OGC Application Package
+3. Send a PUT request for one path using the media type "application/ogcapppkg+json" with as body a default OGC Application Package
 
-4. Validate the reponse with <<ats_ogcapppkg_replace_response,/conf/ogcapppkg/replace/response>>
+4. Validate the response with <<ats_ogcapppkg_replace_response,/conf/ogcapppkg/replace/response>>
 --
 ====
 

@@ -4,8 +4,8 @@
 ====
 [%metadata]
 identifier:: /conf/ogcapppkg/deploy/body
-target:: /rec/ogcapppkg/deploy/body
-test-purpose:: Validate that the server support OGC Application Package encoding
+target:: /req/ogcapppkg/deploy/body
+test-purpose:: Validate that the server supports OGC Application Package encoding
 test-method::
 +
 --
@@ -13,11 +13,11 @@ test-method::
 
 2. Issue an HTTP POST request using the content type "application/ogcapppkg+json" with as body a default OGC Application Package or the application package as reference, if any, on one path
 
-3. Validate the reponse with <<ats_ogcapppkg_deploy_response,/conf/ogcapppkg/deploy/response>>
+3. Validate the response with <<ats_ogcapppkg_deploy_response,/conf/ogcapppkg/deploy/response>>
 
 4. Send the same POST request again
 
-5. Validate the reponse with <<ats_ogcapppkg_deploy_response-duplicate,/conf/ogcapppkg/deploy/response-deplicate>>
+5. Validate the response with <<ats_ogcapppkg_deploy_response-duplicate,/conf/ogcapppkg/deploy/response-duplicate>>
 --
 ====
 

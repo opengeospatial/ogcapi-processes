@@ -6,18 +6,15 @@
 
 include::../requirements/requirements_class_ogcapppkg.adoc[]
 
-This conformance class defines the schema of an `OGC Application Package`. An
+This requirements class defines the schema of an `OGC Application Package`. An
 `OGC Application Package` is a document that describes a process in sufficient
 detail so that an implementation of this extension can dynamically deploy the
-process and make it available for execution via an OGC processes API.
-
-An `OGC Application Package` document provides all the information necessary to
-deploy a process and make it accessible through the OGC API - Processes API.
+process and make it accessible via an OGC API - Processes implementation.
 
 The information contained in an `OGC Application Package` can include:
 
 * A formal description of the process including what inputs the process takes and what outputs the process generates.
-* Either inline or by reference an execution unit which is the `code` that the server needs to execute whenever the process is invoked.
+* Either an inline or by reference execution unit which is the `code` that the server needs to execute whenever the process is invoked.
 * Additional resource information required by the execution unit.
 
 === OGC Application Package schema
@@ -36,7 +33,7 @@ include::../../../../openapi/schemas/processes-dru/ogcapppkg.yaml[]
 ==== processDescription property
 
 The formal process description (i.e. its inputs, its output, etc.) is provided,
-either in-line using the `processDescription` property or may be infered from
+either in-line using the `processDescription` property or may be inferred from
 the information provided in the <<executionUnit,execution unit>>.
 
 include::../requirements/ogcapppkg/REQ_process-description.adoc[]
@@ -44,26 +41,22 @@ include::../requirements/ogcapppkg/REQ_process-description.adoc[]
 [[executionUnit]]
 ==== executionUnit property
 
-The execution unit is the `code` that an implementation of this extension needs
-to execute whenever the deployed process is executed. The execution unit can be
-specified by reference, e.g. docker image reference.
+If the schema defined for the executionUnit property of an OGC Application Package remains open, it can be restricted in other Requirements.
 
 include::../recommendations/ogcapppkg/REC_execution-unit-docker.adoc[]
 
-When CWL encoding is used,
-the execution unit can be either passed by value (in-line) or by reference.
-
 include::../recommendations/ogcapppkg/REC_ogcapppkg_execution-unit-cwl.adoc[]
 
-Below is an example of a deploy body request using a CWL-encoded execution unit by reference.
+=== Deploy
 
-[[example1]]
-[source%unnumbered]
-----
-{
-  "executionUnit": {
-    "href": "https://raw.githubusercontent.com/EOEPCA/app-snuggs/main/app-package.cwl",
-    "type": "application/cwl"
-  }
-}
-----
+==== OGC Application Package body
+
+include::../requirements/ogcapppkg/deploy/REQ_body.adoc[]
+
+=== Replace
+
+==== OGC Application Package body
+
+include::../requirements/ogcapppkg/replace/REQ_body.adoc[]
+
+

@@ -5,7 +5,7 @@
 [%metadata]
 identifier:: /conf/cwl/replace/body
 target:: /req/cwl/replace/body
-test-purpose:: Validate that the server support replace operation using the Common Worflow Language encoding
+test-purpose:: Validate that the server support replace operation using the Common Workflow Language encoding
 test-method::
 +
 --
@@ -13,9 +13,9 @@ test-method::
 
 2. Append `/{processId}` to each path, where `{processId}` is a mutable process id.
 
-3. Send a PUT request on one path using the media type "application/cwl" and the application package content
+3. Send a PUT request for one path using the media type "application/cwl" and the application package content
 
-4. Validate the reponse with <<ats_ogcapppkg_replace_response,/conf/ogcapppkg/replace/response>>
+4. Validate the response with <<ats_ogcapppkg_replace_response,/conf/ogcapppkg/replace/response>>
 --
 ====
 

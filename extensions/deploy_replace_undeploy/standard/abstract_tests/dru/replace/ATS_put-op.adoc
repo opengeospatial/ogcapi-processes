@@ -5,7 +5,7 @@
 [%metadata]
 identifier:: /conf/dru/replace/put-op
 target:: /req/deploy-replace-undeploy/replace/put-op
-test-purpose:: Validate that the server support HTTP PUT operation at the path /processes
+test-purpose:: Validate that the server supports HTTP PUT operation at the path /processes
 test-method::
 +
 --
@@ -13,7 +13,7 @@ test-method::
 
 2. Append `/{processId}` to each path, where `{processId}` is not an existing process id, i.e. `not-existing-process`.
 
-3. Issue an HTTP PUT request on each path.
+3. Issue an HTTP PUT request for each path.
 
 4. Validate that the response header does not contain `405 Method not allowed`.
 --

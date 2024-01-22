@@ -11,7 +11,7 @@
 :issued-date: yyyy-mm-dd
 :external-id: http://www.opengis.net/doc/IS/ogcapi-processes-2/1.0
 :keywords: process, collection, instance, spatial, data, openapi, transactions, insert, update, delete, add, remove, deploy, undeploy, REST, PUT, POST, DELETE
-:submitting-organizations: Geolabs; CubeWerx Inc.
+:submitting-organizations: Geolabs; CubeWerx Inc; Terradue Srl.; Wuhan University (WHU).; Computer Research Institute of Montréal (CRIM).
 :editor: Panagiotis (Peter) A. Vretanos, Gérald Fenoy
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf

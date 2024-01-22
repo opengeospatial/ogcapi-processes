@@ -5,10 +5,25 @@
 
 include::../requirements/requirements_class_docker.adoc[]
 
-A server that implements this conformance class supports the management of Docker image as execution units with the deploy-replace-undeploy extension from a processes API.
+A server that implements the Docker Requirement Class supports the management of Docker image as execution units by implementing the Processes API Part2 deploy-replace-undeploy extension.
 
-In consequence, the following recommandation become requirement:
+=== OGC Application Package
 
- * <<rec_ogcapppkg_execution-unit-docker,/rec/deploy-replace-undeploy/ogcapppkg/execution-unit-docker>>
+==== executionUnit property
 
+===== Overview
 
+include::../requirements/docker/REQ_schema.adoc[]
+
+[[schema_executionUnit]]
+.link:https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-dru/executionUnit.yaml[Schema for the Docker execution unit parameter]
+[source,yaml]
+----
+include::../../../../openapi/schemas/processes-dru/executionUnit.yaml[]
+----
+
+===== type and image properties
+
+The execution unit can be specified by reference, using a Docker image reference.
+
+include::../requirements/docker/REQ_execution-unit.adoc[]

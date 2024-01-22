@@ -1,0 +1,9 @@
+[[req_docker_execution-unit]]
+[requirement]
+====
+[%metadata]
+label:: /req/docker/execution-unit
+part:: If the execution unit is specified as a Docker image, the  value of the `type` property SHALL be `docker'.
+
+part:: If the execution unit is specified as a Docker image, the value of the `image` property SHALL be a reference to the Docker image.
+====

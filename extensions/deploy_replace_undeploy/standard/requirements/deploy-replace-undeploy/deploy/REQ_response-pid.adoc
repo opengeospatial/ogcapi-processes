@@ -3,5 +3,5 @@
 ====
 [%metadata]
 label:: /req/deploy-replace-undeploy/deploy/response-pid
-part:: If the operation completes successfully, the server shall assign the processes identifier (i.e. `{processId}`) specified in the processes description to the newly added processes.
+part:: If the operation completes, the server SHALL assign the processes identifier (i.e. `{processId}`) specified in the processes description for the newly added processes.
 ====
