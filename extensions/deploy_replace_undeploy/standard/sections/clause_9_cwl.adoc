@@ -36,9 +36,7 @@ Below is an example of a deploy body request using a CWL-encoded execution unit 
 {
   "executionUnit": {
     "value": { ... },
-    "format": {
-        "mediaType": "application/cwl+json"
-    }
+    "mediaType": "application/cwl+json"
   }
 }
 ----

@@ -7,7 +7,6 @@
 |2020-05-19 |None |Panagiotis (Peter) A. Vretanos |all |Initial check in of draft transactions extension.
 |2020-06-23 |None |Panagiotis (Peter) A. Vretanos |all |Add initial draft of an example Open API document
 |2021-10-18 |None |Panagiotis (Peter) A. Vretanos |all |Rename transaction directory to deploy_replace_undeploy.
-|2022-02-23 |None |Francis Charette-Migneault |all |Update Part 2 readme with relevant details
 |2022-10-04 |None |Gérald Fenoy |all |Use relative path to exception and problem+json
 |2022-10-05 |None |Gérald Fenoy |all |Update the Deploy, Replace, Undeploy extension
 |2022-12-12 |None |Gérald Fenoy |all |Change the status code to be returned (immutable)

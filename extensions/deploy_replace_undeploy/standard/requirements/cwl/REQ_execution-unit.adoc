@@ -6,7 +6,7 @@ label:: /req/cwl/execution-unit
 
 part:: If the execution unit is encoded in CWL, the content of the `executionUnit` parameter SHALL be an object with the following properties:
  * `type`  and `href` if passed by reference
- * `value` and a `format` object with a `mediaType` property if passed by value
+ * `value` and `mediaType` property if passed by value
 
 part:: If the execution unit is encoded in CWL, the value of the `type` property SHALL be `application/cwl`, when for `mediaType` it should be `application/cwl+json`.
 
