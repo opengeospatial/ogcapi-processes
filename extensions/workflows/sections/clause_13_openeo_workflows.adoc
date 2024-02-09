@@ -17,7 +17,7 @@ is already covered by a conformance class of Part 2.
 
 include::../requirements/requirements_class_openeo-workflows.adoc[]
 
-The following requirements describe the ability of an implementation to execute a CWL workflow in an ad-hoc manner and return its output, without requiring a prior deployment.
+The following requirements describe the ability of an implementation to execute an openEO process graph workflow in an ad-hoc manner and return its output, without requiring a prior deployment.
 
 ==== Ad-hoc OpenEO Workflow Execution
 
