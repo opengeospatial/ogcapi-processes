@@ -17,7 +17,7 @@ include::../requirements/oas30/REQ_oas-impl.adoc[]
 
 include::../requirements/oas30/REQ_completeness.adoc[]
 
-NOTE: Implementations of the Processes API may also include capabilities that are not specified in this Standard such as access-control (see <<security,Security>>), support for web cache validation, handling of CORS or the use of HTTP redirection.  These additional capabilities make use of HTTP status codes that are beyond the regular set of code such as `200` for successful GET requests and `400`, `404` or `500` for error situations (see <<http_status_codes>>).  These additional codes would not necessarily be specified in a OpenAPI document and so clients must be prepared to receive responses not documents in the OpenAPI definition.  For example, additional error codes may be generated in the transport layer which is outside the server. 
+NOTE: Implementations of the Processes API may also include capabilities that are not specified in this Standard such as access-control (see <<security,Security>>), support for web cache validation, handling of CORS or the use of HTTP redirection.  These additional capabilities make use of HTTP status codes that are beyond the regular set of code such as `200` for successful GET requests and `400`, `404` or `500` for error situations (see <<http_status_codes>>).  These additional codes would not necessarily be specified in a OpenAPI document and so clients must be prepared to receive responses not documented in the OpenAPI definition.  For example, additional error codes may be generated in the transport layer which is outside the server. 
 
 [[exceptions]]
 === Exceptions

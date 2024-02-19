@@ -18,13 +18,9 @@ Each implementation of the OGC API - Processes Standard has a single `LandingPag
 
 Note that additional requirements classes may introduce additional links for inclusion in the landing page.
 
-The `APIDefinition` describes the capabilities of the server that can be used by
-clients to connect to the server or by development tools to support the
-implementation of servers and clients. Accessing the `APIDefinition` using
-HTTP GET returns a description of the an API that includes the Processes API defined in this Standard by may include the description of a broader containing API.
+The `APIDefinition` describes the capabilities of the server that can be used by clients to connect to the server or by development tools to support the implementation of servers and clients. Accessing the `APIDefinition` using HTTP GET returns a description of the an API that includes the Processes API defined in this Standard but may include the description of additional components that are part of a broader containing API.
 
-Accessing `Conformance` using HTTP GET returns a list of URIs of
-conformance classes implemented by the server.
+Accessing `Conformance` using HTTP GET returns a list of URIs of conformance classes implemented by the server.
 
 The list of processes contains a summary of each process offered by the OGC API - Processes implementation, including the link to a more detailed description of the process.
 
@@ -58,11 +54,7 @@ The OGC API - Processes Standard utilizes elements of the OGC API-Common Standar
 [[sc_landing_page]]
 === Retrieve the API landing page
 
-The following section defines the requirements to retrieve an API landing page that includes Processes API endpoint but may also include endpoints of a broader, containing, API.  
-
-In this Standard the term "API" is meant to indicate those elements a
-
-however, we will limit discussion to those endpoints defined in the Processes Standard but the reader should be cogniscent of the fact that the implemented API may be a broaded API that also contains Processes API components.
+The following section defines the requirements to retrieve an API landing page that contains links to Processes API resources but may also contain links to resources that are part of a broader, containing, API.  
 
 ==== Operation
 
@@ -152,7 +144,7 @@ the Accept header of the HTTP request.
 
 The API definition document describes the API. In other words, there is no need to include the `/api` operation in the API definition itself.
 
-The idea is that any implementation of OGC API - Processes can be used by developers that are familiar with the API definition language(s) supported by the server. For example, if an OpenAPI definition is used, it should be possible to create a working client using the OpenAPI definition. 
+The idea is that any implementation of OGC API - Processes can be used by developers that are familiar with the API definition language(s) supported by the server. For example, if an OpenAPI definition is used, it should be possible to create the skeleton of a working client using the OpenAPI definition alone.
 
 ==== Error situations
 
@@ -297,7 +289,7 @@ An implementation of the Processes API could use opaque links that are managed b
 
 Another implementation approach is to use an implementation-specific parameter that specifies the index within the result set from which the server begins presenting results in the response, like `offset` or the `startIndex` parameter that was used in <<WFS20,WFS 2.0>>.
 
-An implementation of the Processes API will return no `next` link, if all selected results have been returned, and the server knows for certain that there are not further results to be presented.  However, in some cases, the server may not be aware that it has already returned all selected results. For example, if the request states `limit=10` and the query to the backend returns exactly 10 results.  The server may not know if there are more results or not (in most cases there will be more results), unless the total number of results is also computed, which may be too costly. The server will then prudently add the next link, and if there are no more results, dereferencing the next link will return an empty results list and no next link. This behavior is consistent with the statements above.
+An implementation of the Processes API will return no `next` link, if all selected results have been returned, and the server knows for certain that there are no further results to be presented.  However, in some cases, the server may not be aware that it has already returned all selected results. For example, if the request states `limit=10` and the query to the backend returns exactly 10 results.  The server may not know if there are more results or not (in most cases there will be more results), unless the total number of results is also computed, which may be too costly. The server will then prudently add the `next` link, and if there are no more results, dereferencing the next link will return an empty results list and no `next` link. This behavior is consistent with the statements above.
 
 Clients should not assume that paging is safe against changes to the dataset being accesses while a client iterates through `next` links. If a server provides opaque links these could be safe and maintain the state during the original request. Using a parameter for the start index, however, will not be safe.
 
@@ -312,7 +304,9 @@ include::../recommendations/core/REC_link-header.adoc[]
 [[sc_process_list]]
 === Retrieve a process list
 
-The following section defines the requirements to retrieve the available processes offered by an implmentation of the Processes API.  It should be noted that the number of processes offered via the API may be very different than the number of processes offer by a back-end system upon which the Processes API is implemented.
+The following section defines the requirements to retrieve the available processes offered by an implmentation of the Processes API.
+
+It should be noted that the number of processes exposed via the Processes API may be very different than the number of processes offer by a back-end system upon which the Processes API is implemented.
 
 ==== Operation
 

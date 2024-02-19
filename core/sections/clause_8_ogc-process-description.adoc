@@ -12,7 +12,7 @@ include::../requirements/requirements_class_ogc-process-description.adoc[]
 
 The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the http://docs.opengeospatial.org/is/14-065/14-065.html[OGC WPS 2.0.2 Interface Standard] but also includes elements of the http://spec.openapis.org/oas/v3.0.3[OpenAPI Specification].  Specifically, this process description languages uses https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragments to define the input and output parameters of a process.  As such, this process description provides a bridge from legacy implementations to using the OGC API Framework.
 
-NOTE: The use of other schema languages for describing the interface to a process is possible but is outside the scope of this Standards.  The use of other schemas languages could be described in another Part of the OGC API - Processes series of standards.
+NOTE: The use of other schema languages for describing the interface to a process is permitted but is outside the scope of this Standards.  A description of how other schema languages would be used to describe the interface of a process would need to be described in a new conformance class added to this Standard or in a new Part of the OGC API - Processes suite of standards.
 
 The process description allows the following information to be specified:
 
@@ -93,7 +93,9 @@ The following JSON Schema fragment illustrates how to define an input of mixed t
 
 include::../recommendations/ogc-process-description/REC_format-key.adoc[]
 
-The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7[set of values] for the `format` key.  The Process API Standard extends this list by defining the following additional key values for use specifically in OGC process descriptions.
+Processes that perform geo-spatial processing can be expected to have geometric and feature input types.  In JSON, geometries, features and collections of feature are commonly encoded using https://datatracker.ietf.org/doc/html/rfc7946[GeoJSON].  Rather the requiring processes descriptions to embed or reference the full schemas for https://datatracker.ietf.org/doc/html/rfc7946[GeoJSON] geometries, features or feature collections, this Standard defines a common set of convenience tokens that can be used instead.  
+
+The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7[set of values] for the `format` key.  This Standard extends this list by defining the following additional key values for use specifically in OGC process descriptions for defining geometric, feature or feature collection inputs or outputs.
 
 [[format-key-values]]
 .Additional values for the JSON schema format key for OGC Process Description
@@ -109,13 +111,15 @@ The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-sc
 
 NOTE: This list of values has been submitted to the https://www.ogc.org/projects/groups/ogcnasc[OGC Naming Authority] for registration in their definition server.
 
+NOTE: Other encodings for geometric, feature and feature collection typed inputs/outpus are allowed but are not described in this Standard.
+
 include::../recommendations/ogc-process-description/REC_format-short-code.adoc[]
 
 Situations might arise where communities of interest wish to extend this list of values for their own purposes.
 
 include::../recommendations/ogc-process-description/REC_format-value-registration.adoc[]
 
-The following JSON Schema fragment illustrates the use of the `format` key to include a semantic hint to a process input that is a geometry.
+The following JSON Schema fragment illustrates the use of the `format` key to include a semantic hint to a process input that is of a geometric type.
 
 .Example of semantic hints using the format key
 [source,json]

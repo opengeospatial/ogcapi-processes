@@ -3,7 +3,7 @@
 
 === Overview
 
-This requirement class specifies how to retrieve a job list from the API.
+This class specifies the requirements of a request that retrieves a list of jobs from the Processes API.
 
 include::../requirements/requirements_class_job-list.adoc[]
 

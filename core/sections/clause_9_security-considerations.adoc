@@ -70,13 +70,13 @@ Most of the operations defined in the API - Processes Standard use the safe HTTP
 
 The following is more detailed information on the resources:
 
-* The landing page includes links to endpoints that are not defined in the API - Processes Standard and so leads to all the other resources that the containing API offers.
+* The landing page can include links to endpoints, that are not defined in the API - Processes Standard, that can lead to all the other resources that the containing API might offer.
 
 * The list of conformance classes could contain information about extensions like "dismiss" that pose additional security issues.
 
 * The process list contains process identifiers and links to the respective process descriptions.
 
-* The process description contains all necessary information needed to execute a process. This information can be used to send an JSON execute request to the Process API that will pass initial sanity checks, for example checks for the correct input/output identifiers. If this barrier is taken by an attacker, issues as discussed in section <<sec_cons_execute>> can occur.
+* The process description contains all necessary information needed to execute a process. This information can be used to send a JSON execute request to the Process API that will pass initial sanity checks, for example checks for the correct input/output identifiers.  The ability to pass values to the server is vulnerable to injection attacks and issues as discussed in section <<sec_cons_execute>> can occur.
 
 * The job status info contains not only status information, but for finished processes also links to results / exceptions. The results of a process execution are a valuable resource as well as the exceptions that could contain hints about why the execution has failed.
 
@@ -98,7 +98,7 @@ The retrieval of the job list of a process returns the job ids and links to the 
 The execute operation uses HTTP POST to create new processing jobs (process executions). As discussed above, the HTTP POST method is not safe and it poses the following threats if misused:
 
 * The processing can require considerable server resources, for example computing time, network traffic (when accessing referenced inputs) or storage space for inputs and outputs.
-* Malicious inputs can be provided either inline in the execute request JSON or by reference by providing URIs to input values in the execute request JSON.
+* Malicious inputs can be encoded either inline in the execute request JSON or by reference by providing URIs to malicious input values in the execute request JSON.
 
 [[table_core_execute_operation_security]]
 .Requirements class 'Core' - Overview of the execute operation and returned sensitive information

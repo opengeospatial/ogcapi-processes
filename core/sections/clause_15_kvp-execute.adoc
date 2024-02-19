@@ -52,7 +52,7 @@ NOTE: Add more examples!
 
 === Execute a process
 
-This section describes the requirements for invoking a process with an execute request encoded as a URL with query parameters.
+This section describes the requirements for an operation that invokes a process with an execute request encoded as a URL with query parameters.
 
 ==== Operation
 
