@@ -11,7 +11,7 @@ test-method::
 --
 1. Construct a path for the API Definition document that ends with `/api`.
 
-2. Issue a HTTP GET request on that path
+2. Issue a HTTP GET request on that path.
 
 3. Validate the contents of the returned document using test <<ats_core_api-definition-success,/conf/core/api-definition-success>>.
 --

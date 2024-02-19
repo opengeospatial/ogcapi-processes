@@ -15,7 +15,7 @@ test-method::
 --
 ====
 
-NOTE: The interface of a process may be describing using a number of different models or process description languages. The following table identifies the applicable schema document for each process description model described in this standard.
+NOTE: The interface of a process may be described using one of a number of different models or process description languages. The following table identifies the applicable schema document for each process description model described in this standard.
 
 [[process-description-model]]
 .Schema and Tests for Process Description Models

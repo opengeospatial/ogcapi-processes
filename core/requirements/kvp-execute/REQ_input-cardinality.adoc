@@ -12,7 +12,7 @@ identifier:: /req/kvp-execute/input-cardinality
 
 [.component,class=part]
 --
-A process input having more that one value SHALL be encoded as a list of values according to the query parameter serialization rules of the https://spec.openapis.org/oas/v3.0.3#parameter-object[OpenAPI Specification v3.0.3].  The default list value separator is the comma (",") but other values are possible too.
+A process input having more than one value SHALL be encoded as a list of values according to the query parameter serialization rules of the https://spec.openapis.org/oas/v3.0.3#parameter-object[OpenAPI Specification v3.0.3].  The default list value separator is the comma (",") but other values are possible too.
 --
 
 [.component,class=part]

@@ -9,9 +9,9 @@ test-purpose:: Validate that the job results for a failed job complies with the 
 test-method::
 +
 --
-1. Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> but arrange a priori that the job will fail; note the {jobID} assigned to the job.
+1. Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> but arrange a priori that the job will fail. Note the {jobID} assigned to the job.
 
-2. Ensure that the failed job will not result in an HTTP error code of 404.
+2. Ensure that the failed job will not result in an HTTP 404 error code.
 
 3. Issue an HTTP GET request to the URL '/jobs/{jobID}/results'.
 
@@ -23,7 +23,7 @@ test-method::
 --
 ====
 
-NOTE: The job results page for a job may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the job results for a failed job against that schema.  All supported formats should be exercised.
+NOTE: The job results page for a job may be retrieved in one of two formats. The following table identifies the applicable schema document for each format and the test to be used to validate the job results for a failed job against that schema.  All supported formats should be exercised.
 
 [[job-results-failed-schema]]
 .Schema and Tests for the Job Result for a Failed Job

@@ -12,10 +12,9 @@ A process p is a function that for each input returns a corresponding output
 p: X -> Y
 ++++
 
-where stem:[X] denotes the domain of arguments stem:[x] and stem:[Y] denotes the co-domain of values y. Within this specification, process arguments are referred to as process inputs and result values are referred to as process outputs. Processes that have no process inputs represent value generators that deliver constant or random process outputs.
+where stem:[X] denotes the domain of arguments stem:[x] and stem:[Y] denotes the co-domain of values y. In this Standard, process arguments are referred to as process inputs and result values are referred to as process outputs. Processes that have no process inputs represent value generators that deliver constant or random process outputs.
 
-The term process is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this specification uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the WPS 2.0 standard.
-
+The term "process" is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this Standard uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the OGC WPS 2.0 standard.
 
 ==== job
 
@@ -28,7 +27,7 @@ JavaScript Object Notation is a lightweight data-interchange format. JSON is eas
 
 ==== Link
 
-The term "link" is commonly used as substitute for URL or URI. In this standard, "link" refers to an element described by the schema for a link as shown at <<link-schema,link.yaml>>. This is a JSON element containing properties like "rel" (relation) and "href". The value of the "href" property is an URI.
+The term "link" is commonly used as substitute for URL or URI. In this Standard, "link" refers to an element described by the schema for a link as shown at <<link-schema,link.yaml>>. This is a JSON element containing properties such as "rel" (relation) and "href". The value of the "href" property is an URI.
 
 ==== Link header
 

@@ -10,12 +10,14 @@ class.
 
 include::../requirements/requirements_class_ogc-process-description.adoc[]
 
-The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the http://docs.opengeospatial.org/is/14-065/14-065.html[OGC WPS 2.0.2 Interface Standard] but also includes elements of the http://spec.openapis.org/oas/v3.0.3[OpenAPI Specification].  Specifically, this process description languages uses https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragments to define the input and output parameters of a process.  As such, this process description provides a bridge from legacy implementations to the OGC API Framework.
+The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the http://docs.opengeospatial.org/is/14-065/14-065.html[OGC WPS 2.0.2 Interface Standard] but also includes elements of the http://spec.openapis.org/oas/v3.0.3[OpenAPI Specification].  Specifically, this process description languages uses https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragments to define the input and output parameters of a process.  As such, this process description provides a bridge from legacy implementations to using the OGC API Framework.
+
+NOTE: The use of other schema languages for describing the interface to a process is possible but is outside the scope of this Standards.  The use of other schemas languages could be described in another Part of the OGC API - Processes series of standards.
 
 The process description allows the following information to be specified:
 
 * An identifier for the process
-* Descriptive metadata about the process;
+* Descriptive metadata about the process:
 ** A title
 ** A narrative description of the process
 ** Keywords that can be associated with the process
@@ -24,7 +26,7 @@ The process description allows the following information to be specified:
 * A description of each process output specified using a https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragment.
 * A job control specification that indicates whether the process can be invoked synchronously, asynchronously, or either.
 * An output transmission specification that indicates how the results of a process are retrieved; either by value or by reference
-* A section for additional parameters that are intended for communities of use to extend the process description as required
+* A section for additional parameters that are intended for communities of use to extend the process description as required.
 
 The following clause defines a JSON-encoding of the OGC process description.
 
@@ -91,7 +93,7 @@ The following JSON Schema fragment illustrates how to define an input of mixed t
 
 include::../recommendations/ogc-process-description/REC_format-key.adoc[]
 
-The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7[set of values] for the `format` key.  This specification extends this list by defining the following additional key values for use specifically in OGC process descriptions.
+The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7[set of values] for the `format` key.  The Process API Standard extends this list by defining the following additional key values for use specifically in OGC process descriptions.
 
 [[format-key-values]]
 .Additional values for the JSON schema format key for OGC Process Description

@@ -89,7 +89,7 @@ include::../requirements/kvp-execute/REQ_prefer-response.adoc[]
 
 .Asynchronous execution.
 ====
-In this example, the `prefer` parameter is used to indicate that asynchronous execution is prefered.
+In this example, the `prefer` parameter is used to indicate that asynchronous execution is preferred.
 
 [source]
 ----
@@ -209,7 +209,7 @@ The elements of an array input value can be:
 * a <<qualified-value,complex value>>,
 * a <<kvp-binary-value,binary value>>,
 * a <<bounding-box-value,bounding box value>>,
-* an embeded array,
+* an embedded array,
 * or references to values using <<link-schema,links>>.
 
 .Array input value examples.
@@ -339,11 +339,11 @@ images=[
 
 NOTE: Not sure we should specify this.  Binary input values should be by reference only in my opinion.  It really makes no sense to specify a binary value by-value in a URL-encoded execute request.  Does it? Something small like icons ... maybe?
 
-In some cases, for example in order to pass through firewalls, binary input values need to be encoded in-line in an execute request as a string.
+In some cases, for example to pass through firewalls, binary input values need to be encoded in-line in an execute request as a string.
 
 include::../requirements/kvp-execute/REQ_binary-input-value.adoc[]
 
-A binary value can be optionally <<qualified-value,qualified>> with a <<format-schema,format>> parameter.  This is usually done to identify one of a number of possible input types for the specified input parameter.
+A binary value can be optionally <<qualified-value,qualified>> with a <<format-schema,format>> parameter.  This is usually done to identify several possible input types for the specified input parameter.
 
 include::../requirements/kvp-execute/REQ_binary-input-value-qualified.adoc[]
 
@@ -414,7 +414,7 @@ An example instance value for a bounding box input named `my_bbox` might be:
 my_bbox=-79.63732855116733,43.570691463538644,-79.10227279076784,43.86582298161152
 ----
 
-This is the same example as above but in a different CRS.  An input parameters names `my_bbox-crs` is used to convey the CRS of the `my_bbox` parameter.
+This is the same example as above but in a different CRS.  An input parameter named `my_bbox-crs` is used to convey the CRS of the `my_bbox` parameter.
 
 [source]
 ----
@@ -503,4 +503,4 @@ include::../requirements/kvp-execute/REQ_output.adoc[]
 
 === Response
 
-Whether a processes is invoked using a <<req_core_process-execute-request,JSON-encoded request>> that is https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3[HTTP POST'ed] to the <<req_core_process-execute-op,execution endpoint>> or using a URL-encoded request, the behaviour of the server with regard to the response is the same.  The details of the response can be found in <<sc_execute_response>>.
+Whether a process is invoked using a <<req_core_process-execute-request,JSON-encoded request>> that is https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3[HTTP POST'ed] to the <<req_core_process-execute-op,execution endpoint>> or a URL-encoded request is used, the behavior of the server with regard to the response is the same.  The details of the response can be found in <<sc_execute_response>>.

@@ -13,4 +13,4 @@ Verify that the `limit` query parameter complies with its definition in requirem
 --
 ====
 
-NOTE: The API can define different values for "minimum", "maximum" and "default".
+NOTE: An implementation of the Processes API can define different values for "minimum", "maximum" and "default".

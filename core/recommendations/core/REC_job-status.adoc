@@ -18,7 +18,7 @@ Servers SHOULD set the value of the `started` field when a job begins execution 
 
 [.component,class=part]
 --
-Servers SHOULD set the value of the `finished` field when the execution of a job has completed and the process is no longer consuming compute resources.
+Servers SHOULD set the value of the `finished` field when the execution of a job has completed, and the process is no longer consuming compute resources.
 --
 
 [.component,class=part]
