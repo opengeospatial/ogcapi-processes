@@ -5,7 +5,7 @@ as reusable [OpenAPI](http://openapis.org) components with responses in JSON and
 
 The latest published version of _OGC API - Processes - Part 1: Core_ is found here in [HTML](https://docs.ogc.org/is/18-062r2/18-062r2.html) or [PDF](https://docs.ogc.org/is/18-062r2/18-062r2.pdf).
 
-The latest Editor's Draft version of _OGC API - Processes - Part 1: Core_ (1.1 or 2.0) is found here in [HTML](https://opengeospatial.github.io/ogcna-auto-review/18-062r3.html) or [PDF](https://opengeospatial.github.io/ogcna-auto-review/18-062r3.pdf).
+The latest Editor's Draft version of _OGC API - Processes - Part 1: Core_ (1.1 or 2.0) is found here in [HTML](https://docs.ogc.org/DRAFTS/18-062.html) or [PDF](https://docs.ogc.org/DRAFTS/18-062.pdf).
 
 The latest Draft of _OGC API - Processes - Part 2: Deploy, Replace, Update_ is found here in [HTML](http://docs.ogc.org/DRAFTS/20-044.html) or [PDF](http://docs.ogc.org/DRAFTS/20-044.pdf).
 
