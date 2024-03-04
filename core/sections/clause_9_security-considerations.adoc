@@ -86,10 +86,10 @@ The following is more detailed information on the resources:
 [cols="20,30,10,40",options="header"]
 |===
 |Resource |Path |HTTP method | Information delivered
-|Job list |`/jobs` |GET | List of job ids and status info, links to results or exceptions
+|Job list |`/jobs` |GET | List of job IDs and status info, links to results or exceptions
 |===
 
-The retrieval of the job list of a process returns the job ids and links to the respective job status.
+The retrieval of the job list of a process returns the job IDs and links to the respective job status.
 
 
 [[sec_cons_execute]]
@@ -110,7 +110,7 @@ The execute operation uses HTTP POST to create new processing jobs (process exec
 
 |===
 
-The new job ids that are returned in the status info document should be created in a non-guessable way, for example using UUIDs. This will prevent random attempts to get job status information, results / exceptions or even cancel jobs / delete job artifacts.
+The new job IDs that are returned in the status info document should be created in a non-guessable way, for example using UUIDs. This will prevent random attempts to get job status information, results / exceptions or even cancel jobs / delete job artifacts.
 
 include::../recommendations/job-list/REC_access-control-job-list.adoc[]
 
