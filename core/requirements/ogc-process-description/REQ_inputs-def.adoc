@@ -10,6 +10,6 @@ Each process <<process-input-schema,input definition>> SHALL be listed in the `i
 
 [.component,class=part]
 --
-The key of each process input in the `inputs` section of the process definition SHALL be the identifier for that input.
+The key for each process input in the `inputs` section of the process definition SHALL be the identifier for that input.
 --
 ====

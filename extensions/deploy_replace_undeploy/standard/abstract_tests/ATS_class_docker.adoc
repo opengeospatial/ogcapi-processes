@@ -1,0 +1,20 @@
+[[ats_docker]]
+[conformance_class]
+.Docker
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/docker
+subject:: <<rc_docker,http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/docker>>
+classification:: Target Type:Web API
+conformance-test:: /conf/docker/deploy/body
+conformance-test:: /conf/docker/replace/body
+====
+
+==== Deploy operation
+
+include::docker/deploy/ATS_body.adoc[]
+
+==== Replace operation
+
+include::docker/replace/ATS_body.adoc[]
+

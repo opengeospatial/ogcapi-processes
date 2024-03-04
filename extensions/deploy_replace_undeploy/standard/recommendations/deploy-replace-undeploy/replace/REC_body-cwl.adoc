@@ -4,7 +4,6 @@
 [%metadata]
 label:: /rec/deploy-replace-undeploy/replace/body-cwl
 
-part:: If a process can be described for the intended use as a <<rc_cwl,CWL graph>>, implementations should consider supporting the <<rc_cwl,CWL>> encoding for describing the replacement process.
+part:: If a process can be encoded for the intended use in <<rc_cwl,CWL>>, implementations SHOULD consider supporting the <<rc_cwl,CWL>> encoding for describing the replacement process.
 
-part:: The media type `application/cwl` shall be used to indicate that request body contains a processes description encoded as <<rc_ogcapppkg,CWL>>.
 ====

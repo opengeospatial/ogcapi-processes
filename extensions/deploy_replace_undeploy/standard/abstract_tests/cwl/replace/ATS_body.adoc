@@ -1,0 +1,21 @@
+[[ats_cwl_replace_body]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/cwl/replace/body
+target:: /req/cwl/replace/body
+test-purpose:: Validate that the server support replace operation using the Common Workflow Language encoding
+test-method::
++
+--
+1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
+
+2. Append `/{processId}` to each path, where `{processId}` is a mutable process id.
+
+3. Send a PUT request for one path using the media type "application/cwl" and the application package content
+
+4. Validate the response with <<ats_ogcapppkg_replace_response,/conf/ogcapppkg/replace/response>>
+--
+====
+

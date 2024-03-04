@@ -1,0 +1,13 @@
+[[ats_dru_test-process]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/dru/test-process
+test-purpose:: Ensure that an application package URL can be provided in CWL encodig to test deploying processes using OGC Application Package and CWL conformance classes.
+test-method::
++
+--
+If a server implementing the OGC API - Processes - Part 2: Deploy, Replace, Undeploy is tested using CITE tests, it should provide a URL to an example application package encoded in CWL for tests against the OGC Application Package and CWL conformance classes.
+--
+====

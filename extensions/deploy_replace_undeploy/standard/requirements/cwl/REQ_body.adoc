@@ -1,0 +1,7 @@
+[[req_cwl_body]]
+[requirement]
+====
+[%metadata]
+label:: /req/cwl/body
+part:: The media type `application/cwl` SHALL be used to indicate that request body contains a processes description encoded as <<rc_cwl,CWL>>.
+====

@@ -1,0 +1,65 @@
+== Requirements Class "CWL"
+
+[[cwl-overview]]
+=== Overview
+
+include::../requirements/requirements_class_cwl.adoc[]
+
+A server that implements the CWL Requirement Class SHALL support the use of CWL encoding when interacting with the Processes API Part 2 deploy-replace-undeploy extension endpoint.
+
+=== OGC Application Package
+
+==== executionUnit property
+
+In case the OGC Application Package encoding is used, the following Requirement applies.
+
+include::../requirements/cwl/REQ_execution-unit.adoc[]
+
+Below is an example of a deploy body request using a CWL-encoded execution unit by reference.
+
+[[cwl_ogcapppkg_example1]]
+[source%unnumbered]
+----
+{
+  "executionUnit": {
+    "href": "https://raw.githubusercontent.com/EOEPCA/app-snuggs/main/app-package.cwl",
+    "type": "application/cwl"
+  }
+}
+----
+
+Below is an example of a deploy body request using a CWL-encoded execution unit by value. The value is not included for readability and results from converting from the original CWL format (YAML) into JSON.
+
+[[cwl_ogcapppkg_example2]]
+[source%unnumbered]
+----
+{
+  "executionUnit": {
+    "value": { ... },
+    "mediaType": "application/cwl+json"
+  }
+}
+----
+
+=== Deploy
+
+==== CWL body
+
+include::../requirements/cwl/deploy/REQ_body.adoc[]
+
+==== w parameter
+
+When encoded in CWL, processes are identified as instances of the workflow class.
+
+include::../requirements/cwl/deploy/REQ_w-param.adoc[]
+
+==== Exception
+
+include::../requirements/cwl/deploy/REQ_exception-workflow-not-found.adoc[]
+
+=== Replace
+
+==== CWL body
+
+include::../requirements/cwl/replace/REQ_body.adoc[]
+

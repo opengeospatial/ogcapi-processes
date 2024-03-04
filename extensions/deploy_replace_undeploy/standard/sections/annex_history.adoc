@@ -4,5 +4,17 @@
 [cols="12,18,12,12,46",options="header,unnumbered"]
 |===
 |Date |Release |Editor | Primary clauses modified |Description
-|2019-xx-xx |1.0.0-SNAPSHOT |J. Doe |all |initial version
+|2020-05-19 |None |Panagiotis (Peter) A. Vretanos |all |Initial check in of draft transactions extension.
+|2020-06-23 |None |Panagiotis (Peter) A. Vretanos |all |Add initial draft of an example Open API document
+|2021-10-18 |None |Panagiotis (Peter) A. Vretanos |all |Rename transaction directory to deploy_replace_undeploy.
+|2022-10-04 |None |Gérald Fenoy |all |Use relative path to exception and problem+json
+|2022-10-05 |None |Gérald Fenoy |all |Update the Deploy, Replace, Undeploy extension
+|2022-12-12 |None |Gérald Fenoy |all |Change the status code to be returned (immutable)
+|2023-02-20 |None |Panagiotis (Peter) A. Vretanos |all |Realign abstract test with requirements.
+|2023-05-30 |None |Gérald Fenoy |all |Update status code and schema.
+|2023-10-16 |None |Gérald Fenoy |all |Add content to the Abstract Test Suite
+|2023-11-28 |None |Gérald Fenoy |all |Update test for validating support of a given HTTP method
+|2023-12-06 |None |Gérald Fenoy |all |Abstract Test Suite Updates
+|2023-12-07 |None |Gérald Fenoy |all |Fix mixed status code and value in security consideration
+|2023-12-08 |None |Gérald Fenoy |all |Add requirements for managing docker image as execution unit
 |===

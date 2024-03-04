@@ -6,12 +6,19 @@ This section provides details and examples for any conventions used in the docum
 
 === Identifiers
 
-The normative provisions in this specification are denoted by the URI
+The normative provisions in this Standard are denoted by the URI
 
 http://www.opengis.net/spec/ogcapi-processes-1/1.0
 
-All requirements, permission, recommendations and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
+All requirements, permission, recommendations, and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
 
+=== APIs
+
+This Standard is primarily concerned with defining the components of a Processes API.  That is an API that enables the execution of computing processes, the retrieval of metadata describing their purpose and functionality and the retrieval of the results of the process execution.  The reader, however, should be cogniscant of the fact that an implementation of the Processes API as defined in this Standard may be embeded as part of a broader API.  For example, a single server may implement the https://docs.ogc.org/is/17-069r4/17-069r4.html#_references[Features] and Processes APIs and so common elements (such as the landing page) will contain components of both standards.  When the term "API" is encountered in this Standard, the term is in most cases referring only to the components of a Processes API even though an implementation of the Processes API may be part of a broader API implementation.
+
+=== Schemas
+
+Schemas defined in this Standard are defined using the https://json-schema.org/specification[JSON Schema] standard and are encoded using https://yaml.org/spec/1.2.2/[YAML] which is a human-friendly data serialization language.
 
 === Link relations
 
@@ -23,19 +30,21 @@ The following https://www.iana.org/assignments/link-relations/link-relations.xht
 
 * **license**: Refers to a license associated with the link's context.
 
+* **monitor**: Identifies a resource that can use used to monitor changes in a resource.
+
 * **service-desc**: Identifies service description for the context that is primarily intended for consumption by machines.
 
 ** API definitions are considered service descriptions.
+
+** In this Standard, https://swagger.io/specification/v3/[OpenAPI 3.0] is used to provide a formal, machine readable, definition of the service but other API definition representations can also be used.
 
 * **service-doc**: Identifies service documentation for the context that is primarily intended for human consumption.
 
 * **self**: Conveys an identifier for the link's context.
 
-* **status**: Identifies a resource that represents the context's status.
-
 * **up**: Refers to a parent document in a hierarchy of documents.
 
-In addition the following link relation types are used for which no applicable registered link relation type could be identified.
+In addition, the following link relation types are used for which no applicable registered link relation type could be identified.
 
 * **http://www.opengis.net/def/rel/ogc/1.0/conformance**: Refers to a resource that identifies the specifications that the link's context conforms to.
 
@@ -49,15 +58,14 @@ In addition the following link relation types are used for which no applicable r
 
 * **http://www.opengis.net/def/rel/ogc/1.0/results**: The target URI points to the results of a job.
 
-Each resource representation includes an array of links. Implementations are free to add additional links for all resources provided by the API.
-
+Each resource representation includes an array of links. Implementations are free to add additional links for all resources provided by an implementation of the Processes API.
 
 === Use of HTTPS
 
-For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. This is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>>, not <<rfc2616,HTTP>>.
+For simplicity, this Standard only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. This is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>>, not <<rfc2616,HTTP>>.
 
-OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities which are not in common use could be an impediment to interoperability.
+OGC Web API Standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities which are not in common use could be an impediment to interoperability.
 
 === HTTP URIs
 
-This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <<rfc2616,HTTP>> and <<rfc3986,URI Syntax>> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <<rfc3986,RFC 3986 (URI Syntax)>> for details.
+This Standard does not restrict the lexical space of URIs used in an implementation of the Processes API beyond the requirements of the <<rfc2616,HTTP>> and <<rfc3986,URI Syntax>> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these must be percent-encoded. See Clause 2 of <<rfc3986,RFC 3986 (URI Syntax)>> for details.

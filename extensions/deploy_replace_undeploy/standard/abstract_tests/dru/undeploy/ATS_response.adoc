@@ -1,0 +1,21 @@
+[[ats_dru_undeploy_response]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/dru/undeploy/response
+target:: /req/deploy-replace-undeploy/undeploy/response
+test-purpose:: Validate that the server returns a 204 status code when removing a mutable process
+test-method::
++
+--
+1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
+
+2. Append `/{processId}` to each path, where `{processId}` is a mutable process id.
+
+3. Issue an HTTP DELETE request on one path.
+
+3. Validate that no content was returned with an HTTP status code of 204.
+--
+====
+

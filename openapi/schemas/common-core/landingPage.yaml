@@ -10,7 +10,7 @@ properties:
     example: Example server implementing the OGC API - Processes 1.0 Standard
   attribution:
     type: string
-    title: attribution for the API
+    title: attribution for the Processes API
     description: The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup.
   links:
     type: array

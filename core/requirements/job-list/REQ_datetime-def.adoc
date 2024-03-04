@@ -19,7 +19,7 @@ schema:
 
 [.component,class=part]
 --
-The value of the `datetime` parameter is either a date-time value or a time interval. The parameter value SHALL conform to the following syntax (using link:https://tools.ietf.org/html/rfc2234[ABNF]):
+The value of the `datetime` parameter is either a date-time value or a time interval. The `datetime` parameter value SHALL conform to the following syntax (using link:https://tools.ietf.org/html/rfc2234[ABNF]):
 
 ```
 interval-closed     = date-time "/" date-time

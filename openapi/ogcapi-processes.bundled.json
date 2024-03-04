@@ -5621,10 +5621,7 @@
         "in": "query",
         "required": false,
         "schema": {
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
+          "type": "integer"
         }
       },
       "maxDuration": {
@@ -5632,10 +5629,7 @@
         "in": "query",
         "required": false,
         "schema": {
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
+          "type": "integer"
         }
       },
       "w": {

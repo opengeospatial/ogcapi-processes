@@ -25,5 +25,5 @@ Springer LNCS is widely used in technical and computer science journals and othe
 
 * [[[OpenEO_Process_Graphs,2]]], OpenEO: OpenEO Developers API Reference / Process Graphs. https://openeo.org/documentation/1.0/developers/api/reference.html#section/Processes/Process-Graphs
 
-* [[[OpenAPI-Spec,OpenAPI Specification 3.0.2]]] Open API Initiative. OpenAPI Specification 3.0.2. Available at:
+* [[[OpenAPI-Spec,OpenAPI Specification 3.0.2]]] OpenAPI Initiative. OpenAPI Specification 3.0.2. Available at:
 https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md.

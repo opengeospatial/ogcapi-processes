@@ -4,12 +4,6 @@
 [%metadata]
 label:: /rec/deploy-replace-undeploy/deploy/body-cwl
 
-part:: If a process can be represented for the intended use as a <<rc_cwl,CWL Application>>, implementations should consider supporting the <<rc_cwl,CWL>> encoding for describing the process to be deployed to the API.
-
-part:: The media type `application/cwl` shall be used to indicate that request body contains a processes description encoded as a <<rc_cwl,CWL Application>>.
-
-part:: If the CWL contains more than one workflow, an additional `w` query parameter may be used to reference the workflow id to be deployed.
-
-part:: The server should validate the CWL at the request time. In case, the server cannot find the `w` identifier within the workflow from the CWL provided, a 400 status code is expected with the type "cwl-worflow-not-exist".
+part:: If a process can be encoded for the intended use in <<rc_cwl,CWL>>, implementations SHOULD consider supporting the <<rc_cwl,CWL>> encoding for describing the process to be deployed to the API.
 
 ====

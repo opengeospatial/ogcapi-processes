@@ -11,7 +11,7 @@ identifier:: /req/core/process-execute-sync-one
 
 [.component,class=part]
 --
-A successful execution of the the operation SHALL be reported with a response with a HTTP status code `200`.
+A successful execution of the operation SHALL be reported with a response with a HTTP status code `200`.
 --
 
 [.component,class=part]

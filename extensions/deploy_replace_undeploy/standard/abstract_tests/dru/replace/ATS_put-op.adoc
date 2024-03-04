@@ -1,0 +1,21 @@
+[[ats_dru_replace_put-op]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/dru/replace/put-op
+target:: /req/deploy-replace-undeploy/replace/put-op
+test-purpose:: Validate that the server supports HTTP PUT operation at the path /processes
+test-method::
++
+--
+1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
+
+2. Append `/{processId}` to each path, where `{processId}` is not an existing process id, i.e. `not-existing-process`.
+
+3. Issue an HTTP PUT request for each path.
+
+4. Validate that the response header does not contain `405 Method not allowed`.
+--
+====
+

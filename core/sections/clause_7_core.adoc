@@ -1,7 +1,7 @@
 
 == Requirements Class "Core"
 
-The following section describes the core requirements class.
+The following section describes the Core requirements class.
 
 
 === Overview
@@ -10,21 +10,17 @@ include::../requirements/requirements_class_core.adoc[]
 
 A server that implements the OGC API - Processes Standard provides access to processes.
 
-Each implementation of the OGC API - Processes Standard has a single `LandingPage` (path `/`) that provides links to
+Each implementation of the OGC API - Processes Standard has a single `LandingPage` (path `/`) that provides links to:
 
 * The `APIDefinition` (no fixed path),
 * The `Conformance` statements (path `/conformance`),
 * The `processes` metadata (path `/processes`).
 
-Note that additional requirements classes may introduce additional links for the landing page.
+Note that additional requirements classes may introduce additional links for inclusion in the landing page.
 
-The `APIDefinition` describes the capabilities of the server that can be used by
-clients to connect to the server or by development tools to support the
-implementation of servers and clients. Accessing the `APIDefinition` using
-HTTP GET returns a description of the API.
+The `APIDefinition` describes the capabilities of the server that can be used by clients to connect to the server or by development tools to support the implementation of servers and clients. Accessing the `APIDefinition` using HTTP GET returns a description of the an API that includes the Processes API defined in this Standard but may include the description of additional components that are part of a broader containing API.
 
-Accessing `Conformance` using HTTP GET returns a list of URIs of
-requirements classes implemented by the server.
+Accessing `Conformance` using HTTP GET returns a list of URIs of conformance classes implemented by the server.
 
 The list of processes contains a summary of each process offered by the OGC API - Processes implementation, including the link to a more detailed description of the process.
 
@@ -40,7 +36,7 @@ After a process is finished (status = success/failed), the results/exceptions ca
 .Resources in the Core requirements class
 image::core/figures/PT1_FIG01.png[align="center"]
 
-The OGC API - Processes Standard utilizes elements of <draft> the OGC API-Common standard. <<mapping-to-common>> Identifies the API-Common Requirements Classes which are applicable to each section of this standard.
+The OGC API - Processes Standard utilizes elements of the OGC API-Common Standard. <<mapping-to-common>> Identifies the API-Common Requirements Classes which are applicable to each section of this Processes API Standard.
 
 [[mapping-to-common]]
 .Mapping API - Processes Sections to API-Common Requirements Classes
@@ -58,8 +54,7 @@ The OGC API - Processes Standard utilizes elements of <draft> the OGC API-Common
 [[sc_landing_page]]
 === Retrieve the API landing page
 
-The following section defines the requirements to retrieve an API landing page.
-
+The following section defines the requirements to retrieve an API landing page that contains links to Processes API resources but may also contain links to resources that are part of a broader, containing, API.  
 
 ==== Operation
 
@@ -72,12 +67,12 @@ include::../requirements/core/REQ_landingpage-success.adoc[]
 
 [NOTE]
 ====
-The term “_...based upon the OpenAPI 3.0 schema..._” used in the requirements of this specification means that OpenAPI 3.0 is used to define:
+The term “_...based upon the OpenAPI 3.0 schema..._” used in the requirements of this Standard means that OpenAPI 3.0 is used to define:
 
-* all the required properties of the respective request/response schema,
-* and any optional properties of the respective request/response schema.
+* All the required properties of the respective request/response schema,
+* Any optional properties of the respective request/response schema.
 
-It also means that unless explicitly excluded these schemas are extensible with additional properties not defined in the schema using the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#schemaObject[`additionalProperties`] mechanism defined in the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md[OpenAPI 3.0 specification].
+It also means that unless explicitly excluded these OpenAPI schemas are extensible with additional properties not defined in the schema using the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#schemaObject[`additionalProperties`] mechanism defined in the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md[OpenAPI 3.0 specification].
 ====
 
 .Schema for the landing page
@@ -114,15 +109,11 @@ See <<http_status_codes>> for general guidance.
 [[sc_api_definition]]
 === Retrieve an API definition
 
-The following section defines the requirements to retrieve an API definition.
-
+The following section defines the requirements to retrieve an API definition.  This API may only implement components of the Processes API defined in this Standard but may define the implementation of a broader API into which the Processes API is embedded.
 
 ==== Operation
 
-Every implementation of OGC API - Processes provides an API definition that describes the capabilities
-of the server. This definition is used by developers to understand the API,
-by software clients to connect to the server, or
-by development tools to support the implementation of servers and clients.
+Every implementation of OGC API - Processes must provide metadata that describe the functional capabilities of the server instance that the API definition provides access to.  In this document, this is known as the "API definition".  This definition is used by developers to understand the functionality provided by the API endpoing, so software clients can connect to the server, or by development tools to support the implementation of servers and clients.
 
 include::../requirements/core/REQ_api-definition-op.adoc[]
 
@@ -144,23 +135,16 @@ content negotiation to select the desired representation.
 ====
 Two common approaches are:
 
-* an additional path for each encoding of each resource (this can be expressed,
+* An additional path for each encoding of each resource (this can be expressed,
 for example, using format specific suffixes like ".html");
 
-* an additional query parameter (for example, "accept" or "f") that overrides
+* An additional query parameter (for example, "accept" or "f") that overrides
 the Accept header of the HTTP request.
 ====
 
-The API definition document describes the API. In other words,
-there is no need to include the `/api` operation in the API definition itself.
+The API definition document describes the API. In other words, there is no need to include the `/api` operation in the API definition itself.
 
-The idea is that any implementation of OGC API - Processes can be used by developers that are familiar with
-the API definition language(s) supported by the server. For example, if
-an OpenAPI definition is used, it should be possible to create a working
-client using the OpenAPI definition. The developer may need to learn a little
-bit about geospatial data types, etc., but it should not be required to read
-this standard to access the processes and results via the API.
-
+The idea is that any implementation of OGC API - Processes can be used by developers that are familiar with the API definition language(s) supported by the server. For example, if an OpenAPI definition is used, it should be possible to create the skeleton of a working client using the OpenAPI definition alone.
 
 ==== Error situations
 
@@ -171,9 +155,7 @@ See <<http_status_codes>> for general guidance.
 
 ==== Operation
 
-To support "generic" clients for accessing servers implementing OGC API - Processes in general - and
-not "just" a specific API / server, the server has to declare the
-requirements classes it implements and conforms to.
+To support "generic" clients for accessing servers implementing OGC API - Processes in general - and not "just" a specific API / server, the server must declare the requirements classes it implements and conforms to.
 
 include::../requirements/core/REQ_conformance-op.adoc[]
 
@@ -215,11 +197,11 @@ This include the correct use of status codes, headers. etc.
 
 include::../recommendations/core/REC_http-head.adoc[]
 
-Supporting the method HEAD in addition to GET can be useful for clients and is simple to implement.  In particular, the HEAD method is useful in determine the size of a potential response.
+Supporting the method HEAD in addition to GET can be useful for clients and is simple to implement.  In particular, the HEAD method is useful in determining the size of a potential response.
 
 include::../recommendations/core/REC_content-length.adoc[]
 
-Servers implementing https://docs.ogc.org/DRAFTS/17-069r4.html#cross_origin[CORS] will implement the method OPTIONS, too.
+Servers implementing https://docs.ogc.org/DRAFTS/17-069r4.html#cross_origin[Cross-Origin Resource Sharing (CORS)] will also implement the OPTIONS method.
 
 [[http_status_codes]]
 ==== HTTP status codes
@@ -239,11 +221,11 @@ outside of the server.
 |===
 |Status code |Description
 |`200` |A successful request.
-|`201` |The request was successful and one or more new resources have being created.
+|`201` |The request was successful and one or more new resources have been created.
 |`204` |The request was successful but did not generate any content.
 |`400` |The server cannot or will not process the request due to an apparent client error. For example, a query parameter had an incorrect value.
 |`401` |The request requires user authentication. The response includes a `WWW-Authenticate` header field containing a challenge applicable to the requested resource.
-|`403` |The server understood the request, but is refusing to fulfill it. While status code `401` indicates missing or bad authentication, status code `403` indicates that authentication is not the issue, but the client is not authorized to perform the requested operation on the resource.
+|`403` |The server understood the request but is refusing to fulfill it. While status code `401` indicates missing or bad authentication, status code `403` indicates that authentication is not the issue, but the client is not authorized to perform the requested operation on the resource.
 |`404` |The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
 |`405` |The request method is not supported. For example, a POST request was submitted, but the resource only supports GET requests.
 |`406` |The `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
@@ -280,7 +262,7 @@ include::../recommendations/core/REC_html.adoc[]
 [[sc_limit_parameter]]
 === Limit parameter
 
-Several resources defined in this specification (see <<sc_process_list,Retrieve a process list>>, <<sc_job_list,Retrieve a job list>>) use the `limit` parameter to control the number of results that are presented in a response.
+Several resources defined in this Standard (see <<sc_process_list,Retrieve a process list>>, <<sc_job_list,Retrieve a job list>>) use the `limit` parameter to control the maximum number of results that are presented in a response page.
 
 * The client can request a limit it is interested in.
 
@@ -288,31 +270,31 @@ Several resources defined in this specification (see <<sc_process_list,Retrieve 
 
 * If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
 
-So (using the default/maximum values of 10/1000 from the OpenAPI fragment in requirement <<req_core_pl-limit-definition,`/req/core/pl-limit-definition`>> or <<req_job-list_limit-definition,`/req/job-list/limit-definition`>>):
+As an example, using the default/maximum values of 10/1000 from the OpenAPI fragment in requirement <<req_core_pl-limit-definition,`/req/core/pl-limit-definition`>> or <<req_job-list_limit-definition,`/req/job-list/limit-definition`>>:
 
-* If you ask for 10 results, you will get 0 to 10 (as requested) and if there are more, a `next` link;
+* If the client asks for 10 results, the client will get 0 to 10 (as requested) and if there are more, a `next` link;
 
-* If you don't specify a limit, you will get 0 to 10 (default) and if there are more, a `next` link;
+* If the client does not specify a limit, the client will get 0 to 10 (default) and if there are more, a `next` link;
 
-* If you ask for 5000 results, you might get up to 1000 (server-limited) and if there are more, a `next` link;
+* If the client asks for 5000 results, the client might get up to 1000 results (server-limited) and if there are more, a `next` link;
 
-* If you follow the next link from the previous response, you might get up to 1000 additional results and if there are more, a `next` link.
+* If the client follows the next link from the previous response, the client might get up to 1000 additional results and if there are more, a `next` link.
 
-This document make requirements and recommendations about links in general and the `next` link in particular at the appropriate resource end points.
+This Standard provides requirements and recommendations about links in general and the `next` link in particular at the appropriate resource end points.
 
 [[next-link-discussion]]
-This document does not mandate any specific implementation approach for the `next` links.
+This Stadard does not mandate any specific implementation approach for the `next` links.
 
-An implementation could use opaque links that are managed by the server. It is up to the server to determine how long these links can be dereferenced. Clients should be prepared to receive a 404 response.
+An implementation of the Processes API could use opaque links that are managed by the server. It is up to the server to determine how long these links can be dereferenced. Clients should be prepared to receive a 404 response.
 
 Another implementation approach is to use an implementation-specific parameter that specifies the index within the result set from which the server begins presenting results in the response, like `offset` or the `startIndex` parameter that was used in <<WFS20,WFS 2.0>>.
 
-The API will return no `next` link, if it has returned all selected results, and the server knows that. However, the server may not be aware that it has already returned all selected results. For example, if the request states `limit=10` and the query to the backend returns 10 results, the server may not know, if there are more results or not (in most cases there will be more results), unless the total number of results is also computed, which may be too costly. The server will then add the next link, and if there are no more results, dereferencing the next link will return an empty results list and no next link. This behavior is consistent with the statements above.
+An implementation of the Processes API will return no `next` link, if all selected results have been returned, and the server knows for certain that there are no further results to be presented.  However, in some cases, the server may not be aware that it has already returned all selected results. For example, if the request states `limit=10` and the query to the backend returns exactly 10 results.  The server may not know if there are more results or not (in most cases there will be more results), unless the total number of results is also computed, which may be too costly. The server will then prudently add the `next` link, and if there are no more results, dereferencing the next link will return an empty results list and no `next` link. This behavior is consistent with the statements above.
 
-Clients should not assume that paging is safe against changes to dataset while a client iterates through `next` links. If a server provides opaque links these could be safe and maintain the state during the original request. Using a parameter for the start index, however, will not be safe.
+Clients should not assume that paging is safe against changes to the dataset being accesses while a client iterates through `next` links. If a server provides opaque links these could be safe and maintain the state during the original request. Using a parameter for the start index, however, will not be safe.
 
 [[prev-link-discussion]]
-This document also makes recommendations about include a `prev` link at the appropriate resource end points.  Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
+This Standard also has recommendations about including a `prev` link at the appropriate resource end points.  Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach, it may be too complex to implement.
 
 
 === Link headers
@@ -322,8 +304,9 @@ include::../recommendations/core/REC_link-header.adoc[]
 [[sc_process_list]]
 === Retrieve a process list
 
-The following section defines the requirements to retrieve the available processes offered by the server.
+The following section defines the requirements to retrieve the available processes offered by an implmentation of the Processes API.
 
+It should be noted that the number of processes exposed via the Processes API may be very different than the number of processes offer by a back-end system upon which the Processes API is implemented.
 
 ==== Operation
 
@@ -876,13 +859,13 @@ and an instance of this process input in an execute request might be:
 ]
 ----
 
-In this case, the `mediaType` parameter is used to indicate the specific type of geometry being passed as input in each case; GML Polygon for the first element of the array and GeoJSON Polygon for the second element.
+In this case, the `mediaType` parameter is used to indicate the specific type of geometry being passed as input in each case: GML Polygon for the first element of the array and GeoJSON Polygon for the second element.
 ====
 
 [[binary-value]]
 *_Binary values:_*
 
-In some cases, for example in order to pass through firewalls, binary input values need to be encoded in-line in an execute request as a string.
+In some cases, for example to pass through firewalls, binary input values need to be encoded in-line in an execute request as a string.
 
 [[binary-input-value-schema]]
 .Schema for an in-line binary value
@@ -898,7 +881,7 @@ include::../requirements/core/REQ_process-execute-input-inline-binary.adoc[]
 .Binary value examples.
 ====
 
-This is an example of an image process input whose media type is defined in the
+Below is an example of an image process input whose media type is defined in the
 <<sc_process_description,process description>>.  The schema definition for this process input might be:
 
 [source,json]
@@ -966,15 +949,15 @@ include::../../openapi/schemas/processes-core/bbox.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/bbox.yaml[`bbox.yaml`].
 
-This schema is meant to be a template for defining bounding box process inputs. If the specified `default` and `enum` are suitable for your purposes then you can reference this file directly in your process description.
+This schema is meant to be a template for defining bounding box process inputs. If the specified `default` and `enum` are suitable for the client's requirements then this file can be referenced directly in the process description.
 
 include::../recommendations/core/PER_process-execute-input-inline-bbox.adoc[]
 
-NOTE: The `crs` property has been defined using an `anyOf` of either an enumeration or a generic URI string to allow execution requests making use of a CRS other than CRS84 and CRS84h that may be supported by the server to validate with the canonical OGC schema.
+NOTE: The `crs` property is defined using an `anyOf` of either an enumeration or a generic URI string to allow execution requests making use of a CRS other than CRS84 and CRS84h.  These may be supported by the server to validate against the canonical OGC schema.
 
 *_Input validation_*
 
-Process inputs in an execute request and the corresponding process input definition in the <<sc_process_description,process description>> have a validation relationship.  That is to say, that the schema of a process input definition from the <<sc_process_description,process description>> can be used to validate the component of the corresponding process input value in an execute request that is an instance of <<input-value-schema,inputValue.yaml>>.
+Process inputs in an execute request and the corresponding process input definition in the <<sc_process_description,process description>> have a validation relationship.  That is to say, the schema of a process input definition from the <<sc_process_description,process description>> can be used to validate the component of the corresponding process input value in an execute request that is an instance of <<input-value-schema,inputValue.yaml>>.
 
 [%unnumbered]
 ====
@@ -1037,7 +1020,7 @@ and the following instance in an execute request:
 
 The process input value in this execute request is an instance of a <<qualified-value,qualified value>>.
 
-For the purposes of validation, the server need only validate the component of the <<qualified-value,qualified value>> that is an instance of <<input-value-schema,inputValue.yaml>> against the `schema` fragment from the <<ogc_process_description,OGC process description>>.  Specifically, the validation target is:
+For the purposes of validation, the server needs to only validate the component of the <<qualified-value,qualified value>> that is an instance of <<input-value-schema,inputValue.yaml>> against the `schema` fragment from the <<ogc_process_description,OGC process description>>.  Specifically, the validation target is:
 
 [source,json]
 ----
@@ -1058,7 +1041,7 @@ include::../requirements/core/REQ_process-execute-input-validation.adoc[]
 
 A process may be executed synchronously or asynchronously.
 
-In which of these two modes a server responds is a function of the job control options specified in the <<sc_process_description,process description>> and the presence or absence of the HTTP `Prefer` header (http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240]).
+Which mode a server responds with is a function of the job control options specified in the <<sc_process_description,process description>> and the presence or absence of the HTTP `Prefer` header (http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240]).
 
 include::../requirements/core/REQ_process-execute-default-execution-mode.adoc[]
 
@@ -1089,7 +1072,7 @@ A process output can be defined in the <<sc_process_description,process descript
 [[sc_output_value_size]]
 *_Output value size:_*
 
-Since a priori knowledge of the size of any given output is generally not known, hints can be provided to the server to prevent the inadvertant transmission of large outputs.
+Since a priori knowledge of the size of any given output is generally not known, hints can be provided to the server to prevent the inadvertent transmission of large volumes of output.
 
 Return preferences signal to a server how output values should be transmitted based on the size of the output and any accompanying https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[`return` preferences] as define defined in http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240].
 
@@ -1112,23 +1095,23 @@ include::../examples/json/Execute.json[]
 
 ===== Overview 
 
-The manner in which a server responds to a process execution request is determined by the following parameters:
+The way a server responds to a process execution request is determined by the following parameters:
 
-* the <<sc_execution_mode,negotiated execution mode>> (synchronous or asynchronous),
-* the number of outputs requested,
-* the negotiated content type for the response (via the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header),
-* and any negotiated client preferences (via the HTTP Prefer header).
+* The <<sc_execution_mode,negotiated execution mode>> (synchronous or asynchronous),
+* The number of outputs requested,
+* The negotiated content type for the response (via the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header),
+* Any negotiated client preferences (via the HTTP Prefer header).
 
 The following table maps the possible responses based on the combinations of these execute parameters.  The column headers denote:
 
 . *Negotiated execute mode*: see <<sc_execution_mode>>
-. *Requested # outputs*: the number of output requested in the <<execute-request-body,execute request>>
-. *Return preference*: the negotiated <<sc_output_value_size,return preferences>>
-. *Response HTTP code*: the https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context
-. *Response headers*: any required https://datatracker.ietf.org/doc/html/rfc2616#section-14[HTTP headers] that the server must include in this context
-. *Response media type*: the value of the HTTP `Content-Type` header that the server should generate in this context
-. *Response body*: a description of the content of the response body in this context
-. *Req./Rec./Perm.*: the corresponding requirements/recommendations/permission as per this specification
+. *Requested # outputs*: The number of output requested in the <<execute-request-body,execute request>>
+. *Return preference*: The negotiated <<sc_output_value_size,return preferences>>
+. *Response HTTP code*: The https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context.
+. *Response headers*: Any required https://datatracker.ietf.org/doc/html/rfc2616#section-14[HTTP headers] that the server must include in this context.
+. *Response media type*: The value of the HTTP `Content-Type` header that the server should generate in this context.
+. *Response body*: A description of the content of the response body in this context.
+. *Req./Rec./Perm.*: The corresponding requirements/recommendations/permission as per this Standard.
 
 [[table_core_execute_responses]]
 .Execute responses based on number of requested outputs, request HTTP headers and the size of output values.
@@ -1191,7 +1174,7 @@ The following table maps the possible responses based on the combinations of the
 
 [NOTE]
 ====
-This table shows all possible combinations of execute parameters that are specified by this standard.  Not all of these combinations need to be implemented by a server conforming to this standard.  For example, a server that only offers processes that can be executed synchronously does not need to implement any of the asynchronous requirements.
+This above table shows all possible combinations of execute parameters that are specified by this Standard.  Not all these combinations need to be implemented by a server conforming to this Standard.  For example, a server that only offers processes that can be executed synchronously does not need to implement any of the asynchronous requirements.
 ====
 
 [[sync_note_3]]
@@ -1228,7 +1211,7 @@ include::../../openapi/schemas/processes-core/results.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[`results.yaml`].
 
-This schema defines a map using the respective output identifier as the key. The value of an output can be returned as an in-line value or by reference.
+The https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[`results.yaml`] schema defines a map using the respective output identifier as the key. The value of an output can be returned as an in-line value or by reference.
 
 
 ===== Response requesting a single processing output
@@ -1257,7 +1240,7 @@ include::../recommendations/core/PER_process-execute-success-sync-many-other-for
 
 ===== Job creation on synchronous process execution
 
-This specification does not mandate that servers create a job as a result of executing a process synchronously.  However the following permission is given:
+This Standard does not mandate that servers create a job as a result of executing a process synchronously.  However, the following permission is given:
 
 include::../recommendations/core/PER_process-execute-sync-job.adoc[]
 
@@ -1311,9 +1294,11 @@ include::../../openapi/schemas/processes-core/statusCode.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusCode.yaml[`statusCode.yaml`].
 
-The job status information includes several optional date-time fields that represent milestones in the life cycle of a job.   The following are recommended for servers that decide to populate some or all of these date-time fields:
+The job status information includes several optional date-time fields that represent milestones in the life cycle of a job.   The following are recommended for servers that decide to populate some or all these date-time fields:
 
 include::../recommendations/core/REC_job-status.adoc[]
+
+include::../recommendations/core/REC_job-links.adoc[]
 
 NOTE: Once a job has finished execution and is no longer consuming compute resources, the duration of processing can be computed as `finished-started`.  The `updated` field, however, may still be revised as the system continues processing outputs, storing results, releasing compute resources, etc.
 
@@ -1349,9 +1334,9 @@ include::../requirements/core/REQ_job-exception-no-such-job.adoc[]
 
 A process can generate zero or more outputs.  This clause specifies how:
 
-* processing results can be retrieved individually in a single request,
-* a subset of processing results can be retrieved in a single request,
-* or all processing results can be retrieved in a single request.
+* Processing results can be retrieved individually in a single request,
+* A subset of processing results can be retrieved in a single request,
+* All processing results can be retrieved in a single request.
 
 [[sc_retrieve_job_results_one]]
 ==== Retrieving results individually
@@ -1381,26 +1366,26 @@ include::../requirements/core/REQ_job-results-param-outputs-empty.adoc[]
 
 ===== Overview
 
-The manner in which a server responds when retrieving job results depends on:
+The way a server responds when retrieving job results depends on:
 
-* the number of outputs requested,
-* the negotiated content type for the response (via the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header) or lack thereof,
-* and any negotiated client preferences (via the HTTP Prefer header).
+* The number of outputs requested,
+* The negotiated content type for the response (via the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header) or lack thereof,
+* Any negotiated client preferences (via the HTTP Prefer header).
 
 The following table maps the possible responses based on the combinations of these execute parameters.
 
 The column headers in the following table denote:
 
-. *Requested # outputs*: the number of outputs requested in the <<execute-request-body,execute request>>
-. *Access path*: the API endpoint from which the result(s) can be retrieved
-. *Return preference*: the negotiated <<sc_output_value_size,return preferences>>
-. *Response HTTP code*: the https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context
-. *Response media type*: the value of the HTTP `Content-Type` header that the server should generate in this context
-. *Response body*: a description of the content of the response body in this context
-. *Req./Rec./Perm.*: the corresponding requirements/recommendations/permission as per this specification
+. *Requested # outputs*: The number of outputs requested in the <<execute-request-body,execute request>>.
+. *Access path*: The API endpoint from which the result(s) can be retrieved.
+. *Return preference*: The negotiated <<sc_output_value_size,return preferences>>.
+. *Response HTTP code*: The https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context.
+. *Response media type*: The value of the HTTP `Content-Type` header that the server should generate in this context.
+. *Response body*: A description of the content of the response body in this context.
+. *Req./Rec./Perm.*: The corresponding requirements/recommendations/permission as per this Standard.
 
 [[table_core_getresults_responses]]
-.Table mapping get results responses based on the input parameter values used on the original execute request.
+.Table mapping `get` results responses based on the input parameter values used on the original execute request.
 [cols=7,options="header"]
 |===
 |Requested # outputs
