@@ -137,14 +137,7 @@ The following JSON Schema fragment illustrates the use of the `format` key to in
         "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
       },
       {
-        "allOf": [
-          {
-            "format": "geojson-geometry"
-          },
-          {
-            "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
-          }
-        ]
+        "format": "geojson-geometry"
       }
     ]
   }

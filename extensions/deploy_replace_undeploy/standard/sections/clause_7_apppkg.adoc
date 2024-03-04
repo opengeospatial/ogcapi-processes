@@ -58,5 +58,3 @@ include::../requirements/ogcapppkg/deploy/REQ_body.adoc[]
 ==== OGC Application Package body
 
 include::../requirements/ogcapppkg/replace/REQ_body.adoc[]
-
-
