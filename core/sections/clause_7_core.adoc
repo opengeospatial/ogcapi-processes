@@ -552,6 +552,7 @@ Consider the following definitions of an input named "input".
 |===
 |Example Schema| Examples instances
 |
+[[row1-example]]
 [source,yaml]
 ----
 inputs:
@@ -563,7 +564,7 @@ inputs:
         type: string
 ----
 
-In this case the schema on an input value is defined as an array and so will always be encoded as an array in an execute request.
+In this case the schema of an input value is defined as an array and so will always be encoded as an array in an execute request.
 |
 [source,JSON]
 ----
@@ -584,8 +585,8 @@ inputs:
       type: string
 ----
 
-In this case, the schema of the input is defined as a plain string with a cardinality of 2.  Inputs with cardinalities of greater than 1 are encoded as arrays in an execute request.  This situation is equivalently encoded to the previous row. +
-Servers, however, being internally aware of the definition of each input, can disambiguate the input values accordingly (treating the values in the first example as string values and the values in the this example as arrays of values).
+In this case, the schema of the input is defined as a plain string with a cardinality of 2.  Inputs with cardinalities of greater than 1 are encoded as arrays in an execute request.  This situation is equivalently encoded to the <<row1-example,previous row>>. +
+Servers, however, being internally aware of the definition of each input, can disambiguate the input values accordingly (treating the values in this example as string values and the values in the <<row1-example,above example>> as arrays of values).
 |
 [source,JSON]
 ----
