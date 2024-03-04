@@ -50,7 +50,7 @@ Requirements class "Dismiss"
 
 === Operations using HTTP GET
 
-Most of the operations defined in the API - Processes Standard use the safe HTTP GET operation. However, the resources that are returned by these operations contain information that could be used to exploit implementations of the Processes API. <<table_core_safe_operations_security>> gives an overview of the resources specified in this standard and what kind of information they contain.
+Most of the operations defined in the OGC API - Processes Standard use the safe HTTP GET operation. However, the resources that are returned by these operations contain information that could be used to exploit implementations of the Processes API. <<table_core_safe_operations_security>> gives an overview of the resources specified in this standard and what kind of information they contain.
 
 
 [[table_core_safe_operations_security]]
