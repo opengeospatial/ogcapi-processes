@@ -76,7 +76,7 @@ The following is more detailed information on the resources:
 
 * The process list contains process identifiers and links to the respective process descriptions.
 
-* The process description contains all necessary information needed to execute a process. This information can be used to send a JSON execute request to the Process API that will pass initial sanity checks, for example checks for the correct input/output identifiers.  The ability to pass values to the server is vulnerable to injection attacks and issues as discussed in section <<sec_cons_execute>> can occur.
+* The process description contains all necessary information needed to execute a process. This information can be used to send a JSON execute request to the Processes API that will pass initial sanity checks, for example checks for the correct input/output identifiers.  The ability to pass values to the server is vulnerable to injection attacks and issues as discussed in section <<sec_cons_execute>> can occur.
 
 * The job status info contains not only status information, but for finished processes also links to results / exceptions. The results of a process execution are a valuable resource as well as the exceptions that could contain hints about why the execution has failed.
 
