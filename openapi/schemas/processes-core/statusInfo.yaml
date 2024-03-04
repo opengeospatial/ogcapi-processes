@@ -16,6 +16,8 @@ properties:
       $ref: "statusCode.yaml"
    message:
       type: string
+   exception:
+      $ref: "../common-core/exception.yaml"
    created:
       type: string
       format: date-time
