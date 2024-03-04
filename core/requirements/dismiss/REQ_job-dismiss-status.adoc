@@ -1,0 +1,18 @@
+[[req_dismiss_job-dismiss-status]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/dismiss/job-dismiss-status
+
+.part
+--
+If the job is currently in the `accepted` or `running` state, then the server SHALL set the status of the job to `dismissed`.
+--
+
+.part
+--
+If the job is currently in the `sucessful`, `failed` or `dismissed` state, the the server SHALL remove the job and it SHALL not longer be accessible via the Processes API.
+--
+====
+
+NOTE: This standard makes no statments regarding the dispoisition of artifacts created by a job once a job has been removed and is no longer accessible via the Processes API.

@@ -2,7 +2,7 @@
 [[Dismiss]]
 == Requirements Class "Dismiss"
 
-The Dismiss requirement class specifies how to dismiss a job. Dismiss can be seen as cancelling a running job or removing artifacts of a finished job.
+The Dismiss requirement class specifies how to dismiss a job.
 
 include::../requirements/requirements_class_dismiss.adoc[]
 
@@ -11,6 +11,7 @@ include::../requirements/requirements_class_dismiss.adoc[]
 
 include::../requirements/dismiss/REQ_job-dismiss-op.adoc[]
 
+include::../requirements/dismiss/REQ_job-dismiss-status.adoc[]
 
 === Response
 
