@@ -4,6 +4,14 @@ allOf:
     required:
       - schema
     properties:
+      valuePassing:
+        type: array
+        items:
+           type: string
+           enum:
+             - "byValue"
+             - "byReference"
+        default: ["byValue","byReference"]
       minOccurs:
         type: integer
         default: 1
