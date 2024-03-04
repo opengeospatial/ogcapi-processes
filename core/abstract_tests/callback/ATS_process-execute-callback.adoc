@@ -9,7 +9,7 @@ test-purpose:: Validate the passing of a subscriber-URL in an execute request.
 test-method::
 +
 --
-1. Configure a URL endpoint to accept message body from the server.
+1. Configure a URL endpoint to accept a message body from the server.
 
 2. Create an asynchronous execute request that includes the optional `subscriber` key (see https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
 

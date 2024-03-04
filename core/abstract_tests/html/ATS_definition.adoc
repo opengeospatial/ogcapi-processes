@@ -9,6 +9,6 @@ test-purpose:: Verify support for HTML
 test-method::
 +
 --
-Verify that every `200` response of every operation of the API where HTML was requested is of media type `text/html`.
+Verify that every `200` response for every operation of the Processes API implementation for which HTML was requested is of media type `text/html`.
 --
 ====

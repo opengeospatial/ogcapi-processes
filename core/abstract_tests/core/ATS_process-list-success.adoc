@@ -15,7 +15,7 @@ test-method::
 --
 ====
 
-NOTE: The process list may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.
+NOTE: The process list may be retrieved in one of two formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.
 
 [[process-list-schema]]
 .Schema and Tests for Lists content

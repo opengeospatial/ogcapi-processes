@@ -11,7 +11,7 @@ test-method::
 --
 1. Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
 
-2. Inspect the description of each process and identify the list of processes that have inputs with a maximum cardinality greater that one.
+2. Inspect the description of each process and identify the list of processes that have inputs with a maximum cardinality greater than one.
 
 3. For each identified process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode the inputs with maximum cardinality > 1 according to the requirement <<req_core_process-execute-input-array,/req/core/process-execute-input-array>>.
 

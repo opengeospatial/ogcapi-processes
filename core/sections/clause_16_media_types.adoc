@@ -14,5 +14,5 @@ The media type for an OpenAPI 3.0 definition is
 `application/vnd.oai.openapi+json;version=3.0` (JSON) or
 `application/vnd.oai.openapi;version=3.0` (YAML).
 
-NOTE: The OpenAPI media types have not been registered yet with IANA and can
+NOTE: The OpenAPI media types have not yet been registered with IANA and may
 change in the future.

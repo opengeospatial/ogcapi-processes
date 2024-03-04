@@ -11,7 +11,7 @@ test-method::
 --
 1. Retrieve a description of each process according to test <<ats_core_process-description,/conf/core/process-description>>.
 
-2. For each process identify if the process has one or more output of mixed type denoted by the use of the `oneOf` JSON Schema keyword.
+2. For each process identify if the process has one or more output of mixed type denoted by using the `oneOf` JSON Schema keyword.
 
 3. For each sub-schema or each identified output, verify that the definition validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
 --

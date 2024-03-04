@@ -9,7 +9,7 @@ test-purpose:: Validate that the job results retrieved for an incomplete job com
 test-method::
 +
 --
-1. Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the {jobID} assigned to the job; ensure that the job is long-running.
+1. Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the {jobID} assigned to the job. Ensure that the job is long-running.
 
 2. Issue an HTTP GET request to the URL '/jobs/{jobID}/results' before the job completes execution.
 
@@ -21,7 +21,7 @@ test-method::
 --
 ====
 
-NOTE: The job results page for a job may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the job results for an incomplete job against that schema.  All supported formats should be exercised.
+NOTE: The job results page for a job may be retrieved in one of two formats. The following table identifies the applicable schema document for each format and the test to be used to validate the job results for an incomplete job against that schema.  All supported formats should be exercised.
 
 [[job-results-exception-results-not-ready]]
 .Schema and Tests for the Job Result for an Incomplete Job

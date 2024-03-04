@@ -4,8 +4,5 @@
 [%metadata]
 identifier:: /req/core/job-results-failed
 
-If the operation is executed on a failed job using a valid job identifier, the response SHALL have a HTTP error code that corresponds to the reason of the failure.
-The content of that response SHALL be based upon the OpenAPI
-3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml].
-The `type` of the exception SHALL correspond to the reason of the failure, e.g. InvalidParameterValue for invalid input data.
+If the operation is executed on a failed job using a valid job identifier, the response SHALL have a HTTP error code that corresponds to the reason for the failure.  The content of that response SHALL be based upon the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml].  The `type` of the exception SHALL correspond to the reason of the failure, e.g. InvalidParameterValue for invalid input data.
 ====
