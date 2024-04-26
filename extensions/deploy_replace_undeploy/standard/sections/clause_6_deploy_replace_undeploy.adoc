@@ -257,3 +257,28 @@ See <<deploy-replace-undeploy-http_status_codes,HTTP status codes>> for general 
 If the process with the specified identifier does not exist on the server, see requirement /req/core/process-exception/no-such-process from <<OAProc-1>>.
 
 If the process exist but is immutable then <<req_deploy-replace-undeploy_deploy_response-immutable,/req/deploy-replace-undeploy/deploy/response-immutable>> applies.
+
+[[deploy-replace-undeploy-package]]
+=== Retrieving the formal description
+
+For every process deployed to the server, it is possible to retrieve its formal description. It corresponds to the request's body used to deploy or replace the process.
+
+==== Operation
+
+include::../requirements/deploy-replace-undeploy/package/REQ_get-op.adoc[]
+
+==== Response
+
+===== Overview
+
+include::../requirements/deploy-replace-undeploy/package/REQ_response-success.adoc[]
+
+include::../requirements/deploy-replace-undeploy/package/REQ_response-body.adoc[]
+
+==== Exceptions
+
+See <<deploy-replace-undeploy-http_status_codes,HTTP status codes>> for general guidance.
+
+If the process with the specified identifier does not exist on the server, see requirement /req/core/process-exception/no-such-process from <<OAProc-1>>.
+
+If the process exist but is immutable then <<req_deploy-replace-undeploy_deploy_response-immutable,/req/deploy-replace-undeploy/deploy/response-immutable>> applies.
