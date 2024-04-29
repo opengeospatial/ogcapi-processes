@@ -35,6 +35,8 @@ The following clause defines a JSON-encoding of the OGC process description.
 
 include::../requirements/ogc-process-description/REQ_json-encoding.adoc[]
 
+include::../requirements/ogc-process-description/REQ_links.adoc[]
+
 .Schema for a process
 [source,yaml]
 ----

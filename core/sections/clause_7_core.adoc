@@ -364,6 +364,8 @@ See the discussion about the `limit` parameter in the <<sc_limit_parameter,Limit
 
 include::../requirements/core/REQ_process-list-links.adoc[]
 
+include::../requirements/core/REQ_process-summary-links.adoc[]
+
 See the discussion about the `next` links in the <<next-link-discussion,Limit parameter>> section.
 
 include::../recommendations/core/REC_process-list-next-1.adoc[]
