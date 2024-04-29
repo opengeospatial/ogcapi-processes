@@ -261,7 +261,7 @@ If the process exist but is immutable then <<req_deploy-replace-undeploy_deploy_
 [[deploy-replace-undeploy-package]]
 === Retrieving the formal description
 
-For every process deployed to the server, it is possible to retrieve its formal description. It corresponds to the request's body used to deploy or replace the process.
+For every mutable process, it is possible to retrieve its formal description. It corresponds to the request's body used to deploy or replace the process.
 
 ==== Operation
 
