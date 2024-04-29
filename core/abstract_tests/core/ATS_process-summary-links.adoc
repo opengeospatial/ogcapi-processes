@@ -1,0 +1,18 @@
+[[ats_core_process-summary-links]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/process-summary-links
+target:: /req/core/process-summary-links
+test-purpose:: Validate that the proper links are included in each process summary.
+test-method::
++
+--
+1. Get a list of process summaries as per test <<ats_core_process-list-op,/conf/core/process-list-op>>.
+
+2. Verify that the `links` section of each process summary of the response contains a link with `rel=self`.
+
+3. Verify that the `links` section of each process summary of the response contains a link with `rel=alternate` for each response representation the service claims to support in its <<sc_conformance,conformance document>>.
+--
+====

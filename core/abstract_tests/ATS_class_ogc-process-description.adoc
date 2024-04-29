@@ -10,12 +10,15 @@ conformance-test:: /conf/ogc-process-description/input-def
 conformance-test:: /conf/ogc-process-description/input-mixed-type
 conformance-test:: /conf/ogc-process-description/inputs-def
 conformance-test:: /conf/ogc-process-description/json-encoding
+conformance-test:: /conf/ogc-process-description/links
 conformance-test:: /conf/ogc-process-description/output-def
 conformance-test:: /conf/ogc-process-description/output-mixed-type
 conformance-test:: /conf/ogc-process-description/outputs-def
 ====
 
 include::ogc-process-description/ATS_json-encoding.adoc[]
+
+include::ogc-process-description/ATS_links.adoc[]
 
 include::ogc-process-description/ATS_inputs-def.adoc[]
 

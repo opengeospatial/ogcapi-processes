@@ -1,0 +1,18 @@
+[[ats_ogc-process-description_links]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/ogc-process-description/links
+target:: /req/ogc-process-description/links
+test-purpose:: Verify that an OGC Process Description includes the required links.
+test-method::
++
+--
+1. Retrieve a description of each process according to test <<ats_core_process-description,/conf/core/process-description>>.
+
+2. For each process, verify that the description includes a link (relation: `self`) pointing to itself.
+
+3. If the server indicates that it supports other representations of the process description, verify that the description includes a link (relation: `alternate`) for each alternative representation of the process description.
+--
+====
