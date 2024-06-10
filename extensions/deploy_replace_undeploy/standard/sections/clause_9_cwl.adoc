@@ -63,3 +63,8 @@ include::../requirements/cwl/deploy/REQ_exception-workflow-not-found.adoc[]
 
 include::../requirements/cwl/replace/REQ_body.adoc[]
 
+=== Formal description
+
+==== CWL content
+
+include::../requirements/cwl/package/REQ_response-body.adoc[]
