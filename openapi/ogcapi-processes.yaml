@@ -42,6 +42,10 @@ paths:
       # OGC API - Processes Part 2: Deploy, Replace, Undeploy
       $ref: 'paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml'
 
+   /processes/{processId}/package:
+      # OGC API - Processes Part 2: Deploy, Replace, Undeploy
+      $ref: 'paths/processes-dru/pPackage.yaml'
+
    /processes/{processId}/execution:
       $ref: 'paths/processes-workflows/pExecution-workflows.yaml'
 
