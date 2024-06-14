@@ -3649,7 +3649,7 @@
         "description": "Access the formal description that can be used to deploy a process on an OGC API - Processes Server Instance.\n",
         "operationId": "getPackage",
         "tags": [
-          "Package"
+          "DRU"
         ],
         "parameters": [
           {
