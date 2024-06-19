@@ -414,11 +414,11 @@ An example instance value for a bounding box input named `my_bbox` might be:
 my_bbox=-79.63732855116733,43.570691463538644,-79.10227279076784,43.86582298161152
 ----
 
-This is the same example as above but in a different CRS.  An input parameter named `inputCrs[my_bbox]` is used to convey the CRS of the `my_bbox` parameter.
+This is the same example as above but in a different CRS.  An input parameter named `my_bbox[crs]` is used to convey the CRS of the `my_bbox` parameter.
 
 [source]
 ----
-my_bbox=43.570691463538644,-79.63732855116733,43.86582298161152,-79.10227279076784&inputCrs[my_bbox]=https://www.opengis.net/def/crs/EPSG/0/4326
+my_bbox=43.570691463538644,-79.63732855116733,43.86582298161152,-79.10227279076784&my_bbox[crs]=https://www.opengis.net/def/crs/EPSG/0/4326
 ----
 
 ====
