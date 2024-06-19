@@ -4079,7 +4079,7 @@
           },
           "attribution": {
             "type": "string",
-            "title": "attribution for the API",
+            "title": "attribution for the Processes API",
             "description": "The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup."
           },
           "links": {
@@ -4826,7 +4826,8 @@
             ],
             "default": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "descriptionType": {
         "type": "object",
@@ -4916,6 +4917,20 @@
               "schema"
             ],
             "properties": {
+              "valuePassing": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "byValue",
+                    "byReference"
+                  ]
+                },
+                "default": [
+                  "byValue",
+                  "byReference"
+                ]
+              },
               "minOccurs": {
                 "type": "integer",
                 "default": 1
@@ -4942,7 +4957,7 @@
         ]
       },
       "inputValue": {
-        "oneOf": [
+        "anyOf": [
           {
             "$ref": "#/components/schemas/inputValueNoObject"
           },
@@ -4986,18 +5001,47 @@
         ]
       },
       "metadata": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string"
+        "oneOf": [
+          {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/link"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
           },
-          "role": {
-            "type": "string"
-          },
-          "href": {
-            "type": "string"
+          {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "lang": {
+                "type": "string"
+              },
+              "value": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            }
           }
-        }
+        ]
       },
       "output": {
         "type": "object",
@@ -5053,7 +5097,8 @@
             "type": "string",
             "format": "uri-reference"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "results": {
         "additionalProperties": {
@@ -5151,63 +5196,40 @@
                 ]
               },
               "not": {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/reference"
-                  }
-                ]
+                "$ref": "#/components/schemas/schema"
               },
               "allOf": {
                 "type": "array",
                 "items": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/reference"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/schema"
                 }
               },
               "oneOf": {
                 "type": "array",
                 "items": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/reference"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/schema"
                 }
               },
               "anyOf": {
                 "type": "array",
                 "items": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/reference"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/schema"
                 }
               },
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/reference"
-                  }
-                ]
+                "$ref": "#/components/schemas/schema"
               },
               "properties": {
                 "type": "object",
+                "properties": {},
                 "additionalProperties": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/reference"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/schema"
                 }
               },
               "additionalProperties": {
                 "oneOf": [
                   {
-                    "$ref": "#/components/schemas/reference"
+                    "$ref": "#/components/schemas/schema"
                   },
                   {
                     "type": "boolean"
@@ -5324,6 +5346,9 @@
           "message": {
             "type": "string"
           },
+          "exception": {
+            "$ref": "#/components/schemas/exception"
+          },
           "created": {
             "type": "string",
             "format": "date-time"
@@ -5367,7 +5392,33 @@
               {
                 "description": "Resource containing an executable or runtime information for executing the process.",
                 "type": "object",
+                "required": [
+                  "type",
+                  "image"
+                ],
                 "properties": {
+                  "type": {
+                    "description": "Type of execution unit.",
+                    "type": "string",
+                    "enum": [
+                      "docker",
+                      "oci"
+                    ]
+                  },
+                  "image": {
+                    "description": "Container image reference for the execution unit.",
+                    "type": "string"
+                  },
+                  "deployment": {
+                    "description": "Deployment information for the execution unit.",
+                    "type": "string",
+                    "enum": [
+                      "local",
+                      "remote",
+                      "hpc",
+                      "cloud"
+                    ]
+                  },
                   "config": {
                     "type": "object",
                     "description": "Hardware requirements and configuration properties for executing the process.",
@@ -5409,6 +5460,7 @@
                 "example": {
                   "type": "docker",
                   "image": "mydocker/ndvi:latest",
+                  "deployment": "local",
                   "config": {
                     "cpuMin": 2,
                     "cpuMax": 5,

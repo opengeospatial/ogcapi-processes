@@ -1,0 +1,18 @@
+[[req_ogc-process-description_links]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/ogc-process-description/links
+
+
+[.component,class=part]
+--
+Each process description SHALL include a link (relation: `self`) that points to itself.
+--
+
+[.component,class=part]
+--
+Each process description SHALL include one or more links (relation: `alternate`) that points to each alternative representation of this process description.
+--
+
+====

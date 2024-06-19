@@ -1,0 +1,7 @@
+[[req_deploy-replace-undeploy_package_response-body]]
+[requirement]
+====
+[%metadata]
+label:: /req/deploy-replace-undeploy/package/response-body
+part:: A response with HTTP status code `200` SHALL include a body that contains the request body used to deploy or replace the process.
+====

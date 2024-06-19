@@ -32,6 +32,7 @@ conformance-test:: /conf/core/landingpage-success
 conformance-test:: /conf/core/pl-limit-definition
 conformance-test:: /conf/core/pl-limit-response
 conformance-test:: /conf/core/pl-links
+conformance-test:: /conf/core/process-summary-links
 conformance-test:: /conf/core/process-description
 conformance-test:: /conf/core/process-description-success
 conformance-test:: /conf/core/process-exception-no-such-process

@@ -17,4 +17,5 @@
 |2023-12-06 |None |Gérald Fenoy |all |Abstract Test Suite Updates
 |2023-12-07 |None |Gérald Fenoy |all |Fix mixed status code and value in security consideration
 |2023-12-08 |None |Gérald Fenoy |all |Add requirements for managing docker image as execution unit
+|2024-04-26 |None |Gérald Fenoy |all |Add section for retrieving formal description of a mutable process
 |===
