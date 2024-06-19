@@ -1,20 +1,19 @@
-name: inputCrs
+name: inputsCrs
+description: |-
+  Asserts the CRS used for the coordinate values of a bounding
+  box input parameter. The name `inputsCrs` is just a generic
+  name to avoid ambiguity.  It is ignored since explode is set
+  to true.
+in: query
 description: |-
   Asserts the CRS used for the coordinate values of a bounding
   box input parameter. 
-in: query
 required: false
-schema:
+schema: 
   type: object
-  required:
-    - {bbox-input-name}
-  properties:
-    {bbox-input-name}:
-      type: string
-      format: uri
-      enum:
-        - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-      default:
-        - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-style: deepObject
+  patternProperties:
+    "^.+[crs]$":
+      type: string  
+      format: uri  # etc. other params...
 explode: true
+style: form
