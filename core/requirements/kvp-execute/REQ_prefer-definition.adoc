@@ -2,17 +2,22 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/kvp-execute/prefer-definition*
-^|A |The operation SHALL support a parameter `prefer` with the following characteristics:
+^|A |The operation SHALL support a parameter `response[prefer]` with the following characteristics:
 
 [source,YAML]
 ----
-name: prefer
+name: response
 in: query
 required: false
 schema:
-  type: string
-  format: uri
-style: form
-explode: false
+  type: object
+  required:
+    - prefer
+  properties:
+    prefer:
+      type: string
+      format: uri
+style: deepObject
+explode: true
 ----
 |===

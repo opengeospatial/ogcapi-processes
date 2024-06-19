@@ -12,13 +12,13 @@ identifier:: /req/kvp-execute/bbox-crs-input-value
 
 [.component,class=part]
 --
-A bbox-crs input parameter SHALL have the following characteristics:
+A `{bbox-input-name}` input parameter SHALL have the following characteristics:
 
 [source,yaml]
 ----
-include::../../../openapi/parameters/common-crs/bbox-crs.yaml[]
+include::../../../openapi/parameters/processes-core/bbox-crs.yaml[]
 ----
 
-where the token `{bbox-input-name}` represents the identifier of a bbox input parameter and the token  `{bbox-input-name}-crs` represents the identifier of a corresponding input that indicates which CRS is being used for the coordinates of the `{bbox-input-name}` parameter.
+where the token `{bbox-input-name}` represents the identifier of a bbox input parameter and the token  `{bbox-input-name}[crs]` represents the identifier of a corresponding input that indicates which CRS is being used for the coordinates of the `{bbox-input-name}` parameter.
 --
 ====

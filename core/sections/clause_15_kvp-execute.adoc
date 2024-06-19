@@ -77,7 +77,7 @@ inputImage=s3://mybucker/myInputImage.tif&
 bbox=5.8,47.2,15.1,55.1&
 datetime=2019-08-09&
 output=image&
-f=image%2Fjpeg%3B%20q%3D0.5%2Cimage%2Fpng%20q%3D0.8
+response[f]=image%2Fjpeg%3B%20q%3D0.5%2Cimage%2Fpng%20q%3D0.8
 ----
 ====
 
@@ -89,7 +89,7 @@ include::../requirements/kvp-execute/REQ_prefer-response.adoc[]
 
 .Asynchronous execution.
 ====
-In this example, the `prefer` parameter is used to indicate that asynchronous execution is preferred.
+In this example, the `response[prefer]` parameter is used to indicate that asynchronous execution is preferred.
 
 [source]
 ----
@@ -98,8 +98,8 @@ inputImage=s3://mybucker/myInputImage.tif&
 bbox=5.8,47.2,15.1,55.1&
 datetime=2019-08-09&
 output=image&
-f=image%2Fjpeg%3B%20q%3D0.5%2Cimage%2Fpng%20q%3D0.8&
-prefer=handling%3Dlenient%2C%20wait%3D100%2C%20respond-async
+response[f]=image%2Fjpeg%3B%20q%3D0.5%2Cimage%2Fpng%20q%3D0.8&
+response[prefer]=handling%3Dlenient%2C%20wait%3D100%2C%20respond-async
 ----
 ====
 
@@ -414,11 +414,11 @@ An example instance value for a bounding box input named `my_bbox` might be:
 my_bbox=-79.63732855116733,43.570691463538644,-79.10227279076784,43.86582298161152
 ----
 
-This is the same example as above but in a different CRS.  An input parameter named `my_bbox-crs` is used to convey the CRS of the `my_bbox` parameter.
+This is the same example as above but in a different CRS.  An input parameter named `my_bbox[crs]` is used to convey the CRS of the `my_bbox` parameter.
 
 [source]
 ----
-my_bbox=43.570691463538644,-79.63732855116733,43.86582298161152,-79.10227279076784&my_bbox-crs=https://www.opengis.net/def/crs/EPSG/0/4326
+my_bbox=43.570691463538644,-79.63732855116733,43.86582298161152,-79.10227279076784&my_bbox[crs]=https://www.opengis.net/def/crs/EPSG/0/4326
 ----
 
 ====

@@ -2,5 +2,5 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/kvp-execute/f-response*
-^|A |The `prefer` parameter SHALL behave in the same way that the https://datatracker.ietf.org/doc/html/rfc7240[HTTP `Prefer` header] behaves.
+^|A |The `response[prefer]` parameter SHALL behave in the same way that the https://datatracker.ietf.org/doc/html/rfc7240[HTTP `Prefer` header] behaves.
 |===
