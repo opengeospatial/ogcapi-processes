@@ -13,7 +13,6 @@ schema:
   type: object
   patternProperties:
     "^.+[crs]$":
-      type: string  
-      format: uri  # etc. other params...
+      $ref: "../../schemas/processes-core/bbox-def-crs.yaml"
 explode: true
 style: form
