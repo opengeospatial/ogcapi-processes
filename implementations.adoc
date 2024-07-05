@@ -60,6 +60,10 @@
 | OGC API - Processes
 | https://github.com/jerstlouis[Jerome St-Louis]
 
+| https://owslib.readthedocs.io/en/latest/usage.html#ogc-api-processes-part-1-core-1-0[OWSLib]
+| OGC API - Processes
+| https://github.com/tomkralidis[Tom Kralidis]
+
 | TBA
 | TBA
 | TBA
