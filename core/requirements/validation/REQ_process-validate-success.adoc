@@ -1,0 +1,12 @@
+[[req_process-validate_success]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/process-validate/success
+
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.
+--
+====
+

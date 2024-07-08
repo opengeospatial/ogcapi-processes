@@ -1,0 +1,34 @@
+
+[[Validation]]
+== Requirements Class "Validation"
+
+=== Overview 
+
+include::../requirements/requirements_class_validation.adoc[]
+
+The Validation requirements class specifies how to validate an execution request.  This requirements class defines the `/process/{processID}/validation` endpoint which behaves in an analogous manner to the `/processes/{processID}/execution` endpoint.  It accepts the same content and headers as the execution endpoint.   However, rather than actually executing the specified request and consuming resources on the server, the server simply confirms that it would be able to accept and process the specified execution request as presented.
+
+NOTE: A successful confirmation does not imply that the execution request would ultimately succeed.  It simply means that the request is syntactically and semantically correct and the server would be able to accept and begin executing this request.
+
+=== Operation
+
+include::../requirements/validation/REQ_process-validate-op.adoc[]
+
+include::../requirements/validation/REQ_process-validate-request.adoc[]
+
+=== Response
+
+include::../requirements/validation/REQ_process-validate-success.adoc[]
+
+=== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_process-exception-no-such-process,/req/core/process-exception/no-such-process>>).
+
+If the job with the specified identifier does not exist, the status code of the
+response SHALL be `404` (see <<req_core_job-exception-no-such-job,/req/core/job-results-exception/no-such-job>>).
+
+
+
+

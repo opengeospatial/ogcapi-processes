@@ -50,6 +50,8 @@ include::core/sections/clause_6_overview.adoc[]
 
 include::core/sections/clause_7_core.adoc[]
 
+include::core/sections/clause_7a_validation.adoc[]
+
 include::core/sections/clause_8_ogc-process-description.adoc[]
 
 include::core/sections/clause_9_security-considerations.adoc[]

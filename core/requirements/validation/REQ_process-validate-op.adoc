@@ -1,0 +1,8 @@
+[[req_process-validate_op]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/process-validate/op
+
+The server SHALL support the HTTP POST operation at the path `/process/{processID}/validate`.
+====
