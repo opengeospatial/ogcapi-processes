@@ -25,6 +25,8 @@ post:
        $ref: "../../responses/processes-core/rExecuteSync.yaml"
      201:
        $ref: "../../responses/processes-core/rExecuteAsync.yaml"
+     204:
+       description: The response has no additional content
      404:
        $ref: "../../responses/common-core/rNotFound.yaml"
      500:

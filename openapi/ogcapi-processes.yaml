@@ -248,12 +248,12 @@ components:
          $ref: 'responses/processes-core/rExecuteSync.yaml'
       ExecuteSyncRawRef:
          $ref: 'responses/processes-core/rExecuteSyncRawRef.yaml'
+      EmptyResponse:
+         $ref: 'responses/processes-core/rEmpty.yaml'
 
       # OGC API - Common - Part 2: Deploy, Replace, Undeploy
       DeployProcess:
          $ref: 'responses/processes-dru/rDeployProcess.yaml'
-      EmptyResponse:
-         $ref: 'responses/processes-dru/rEmpty.yaml'
 
       # Part 2 additional excepions
       DuplicateProcess:
