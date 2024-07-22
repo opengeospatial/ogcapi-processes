@@ -1,4 +1,4 @@
-name: {bbox-parameter-name}
+name: {bbox-input-name}
 in: query
 description: |-
   Only features that have a geometry that intersects the bounding box are selected.

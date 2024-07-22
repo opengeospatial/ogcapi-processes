@@ -1,0 +1,18 @@
+name: inputsCrs
+description: |-
+  Asserts the CRS used for the coordinate values of a bounding
+  box input parameter. The name `inputsCrs` is just a generic
+  name to avoid ambiguity.  It is ignored since explode is set
+  to true.
+in: query
+description: |-
+  Asserts the CRS used for the coordinate values of a bounding
+  box input parameter. 
+required: false
+schema: 
+  type: object
+  patternProperties:
+    "^.+[crs]$":
+      $ref: "../../schemas/processes-core/bbox-def-crs.yaml"
+explode: true
+style: form
