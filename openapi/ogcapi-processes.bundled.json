@@ -3875,6 +3875,9 @@
           "201": {
             "$ref": "#/components/responses/ExecuteAsync"
           },
+          "204": {
+            "$ref": "#/components/responses/EmptyResponse"
+          }
           "303": {
             "description": "For _Collection Output_ execution, redirection to an OGC API landing page or collection.",
             "headers": {

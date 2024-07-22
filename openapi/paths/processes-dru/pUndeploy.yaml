@@ -11,7 +11,7 @@ delete:
      - $ref: "../../parameters/processes-core/processId-path.yaml"
    responses:
      204:
-       $ref: "../../responses/processes-dru/rEmpty.yaml"
+       $ref: "../../responses/processes-core/rEmpty.yaml"
      403:
        $ref: "../../responses/processes-dru/rImmutableProcess.yaml"
      404:

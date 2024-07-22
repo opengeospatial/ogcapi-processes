@@ -25,6 +25,8 @@ post:
        $ref: "../../responses/processes-core/rExecuteSync.yaml"
      201:
        $ref: "../../responses/processes-core/rExecuteAsync.yaml"
+     204:
+       $ref: "../../responses/processes-core/rEmpty.yaml"
      404:
        $ref: "../../responses/common-core/rNotFound.yaml"
      500:
