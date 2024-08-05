@@ -42,7 +42,7 @@ conformance-test:: /conf/core/process-execute-default-outputs
 conformance-test:: /conf/core/process-execute-input-array
 conformance-test:: /conf/core/process-execute-input-inline-bbox
 conformance-test:: /conf/core/process-execute-input-inline-binary
-conformance-test:: /conf/core/process-execute-input-inline-mixed
+conformance-test:: /conf/core/process-execute-input-inline-multiple-type
 conformance-test:: /conf/core/process-execute-input-inline-object
 conformance-test:: /conf/core/process-execute-inputs
 conformance-test:: /conf/core/process-execute-input-validation
@@ -116,7 +116,7 @@ include::core/ATS_process-execute-input-array.adoc[]
 
 include::core/ATS_process-execute-input-inline-object.adoc[]
 
-include::core/ATS_process-execute-input-inline-mixed.adoc[]
+include::core/ATS_process-execute-input-inline-multiple-types.adoc[]
 
 include::core/ATS_process-execute-input-inline-binary.adoc[]
 

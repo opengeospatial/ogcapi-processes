@@ -10,6 +10,11 @@ The schema of each <<input-value-schema,process **input** value>> SHALL be speci
 
 [.component,class=part]
 --
+The `schema` parameter SHALL define the schema of a **single instance** of an inpuit value.
+--
+
+[.component,class=part]
+--
 The value of the `schema` parameter SHALL be a JSON fragment that validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/schema.yaml[schema.yaml].
 --
 

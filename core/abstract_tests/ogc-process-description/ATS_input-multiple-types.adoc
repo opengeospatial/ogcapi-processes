@@ -1,17 +1,17 @@
-[[ats_ogc-process-description_input-mixed-type]]
+[[ats_ogc-process-description_input-multiple-types]]
 
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/ogc-process-description/input-mixed-type
-target:: /req/ogc-process-description/input-mixed-type
-test-purpose:: Validate that each input of mixed type complies with the required structure and contents.
+identifier:: /conf/ogc-process-description/input-multiple-types
+target:: /req/ogc-process-description/input-multiple-types
+test-purpose:: Validate that each input of multiple type complies with the required structure and contents.
 test-method::
 +
 --
 1. Retrieve a description of each process according to test <<ats_core_process-description,/conf/core/process-description>>.
 
-2. For each process identify if the process has one or more inputs of mixed type.
+2. For each process identify if the process has one or more inputs of multiple types.
 
 3. For each sub-schema of each identified input, verify that the definition validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/schema.yaml[schema.yaml].
 --

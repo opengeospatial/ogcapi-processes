@@ -1,6 +1,9 @@
 [[rec_core_process-execute-honor-prefer]]
-[recommendation,type="general",id="/rec/core/process-execute-honor-prefer",label="/rec/core/process-execute-honor-prefer"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/core/process-execute-honor-prefer
+
 [.component,class=part]
 --
 If an execute request is accompanied with the HTTP https://datatracker.ietf.org/doc/html/rfc7240#section-2[`Prefer`] header asserting a https://tools.ietf.org/html/rfc7240#section-4.1[`respond-async`] preference, then the server SHOULD honor that preference and response asynchronously if, according to the job control options in the <<sc_process_description,process description>>, the process can be executed asynchronously.

@@ -1,5 +1,8 @@
 [[rec_core_content-length]]
-[recommendation,type="general",id="/rec/core/content-length",label="/rec/core/content-length"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/core/content-length
+
 The server SHOULD include the HTTP 1.1 `Content-Length` header in all responses.
 ====

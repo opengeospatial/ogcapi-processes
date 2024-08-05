@@ -1,8 +1,8 @@
-[[req_core_process-execute-input-inline-mixed]]
+[[req_core_process-execute-input-inline-multiple-types]]
 [requirement]
 ====
 [%metadata]
-identifier:: /req/core/process-execute-input-mixed-type
+identifier:: /req/core/process-execute-input-multiple-types
 [.component,class=conditions]
 --
 . The process input value is specified in-line in an execute request.

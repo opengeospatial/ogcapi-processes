@@ -1,5 +1,8 @@
 [[rec_core_access-control-expose-headers]]
-[recommendation,type="general",id="/rec/core/access-control-expose-headers",label="/rec/core/access-control-expose-headers"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/core/access-control-expose-headers
+
 If the server is intended to be accessed from the browser and if Cross-origin resource sharing is supported, the `Access-Control-Expose-Headers` header SHOULD be used and the header SHOULD contain the value `location` to enable the browser to access the `location` header of the response.
 ====

@@ -1,11 +1,11 @@
-[[req_ogc-process-description_output-mixed-type]]
+[[req_ogc-process-description_output-multiple-types]]
 [requirement]
 ====
 [%metadata]
-identifier:: /req/ogc-process-description/output-mixed-type
+identifier:: /req/ogc-process-description/output-multiple-types
 [.component,class=part]
 --
-An output that can be of mixed type SHALL be defined using the https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3[`oneOf`] JSON Schema keyword.
+An output that can be of multiple types SHALL be defined using the https://tools.ietf.org/html/draft-bhutton-json-schema-00#section-10.2.1.3[`oneOf`] JSON Schema keyword.
 --
 
 [.component,class=part]

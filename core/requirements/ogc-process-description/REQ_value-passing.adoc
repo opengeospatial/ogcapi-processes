@@ -1,8 +1,8 @@
-[[req_core_process-execute-inputs]]
+[[req_ogc-process-description_value-passing]]
 [requirement]
 ====
 [%metadata]
-identifier:: /req/core/process-execute-inputs
+identifier:: /req/ogc-process-description/value-passing
 [.component,class=part]
 --
 How process input values can be specified in an execute request (by-value, by-reference or both) SHALL be controlled by the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml[`valuePassing`] parameter that may be specified per input in the <<sc_process_description,process description>>.

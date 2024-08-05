@@ -1,6 +1,9 @@
 [[rec_core_test-process]]
-[recommendation,type="general",id="/rec/core/test-process",label="/rec/core/test-process"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/core/test-process
+
 If a server implementing the OGC API - Processes - Part 1: Core is tested using CITE tests, the server SHOULD offer one of the following options:
 
 . An Echo process that returns any input that is provided, without any actual processing. 

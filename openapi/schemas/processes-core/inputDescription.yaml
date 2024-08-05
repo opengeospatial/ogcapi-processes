@@ -4,14 +4,8 @@ allOf:
     required:
       - schema
     properties:
-      valuePassing:
-        type: array
-        items:
-           type: string
-           enum:
-             - "byValue"
-             - "byReference"
-        default: ["byValue","byReference"]
+      schema:
+        $ref: "schema.yaml"
       minOccurs:
         type: integer
         default: 1
@@ -22,5 +16,11 @@ allOf:
           - type: string
             enum:
               - "unbounded"
-      schema:
-        $ref: "schema.yaml"
+      valuePassing:
+        type: array
+        items:
+           type: string
+           enum:
+             - "byValue"
+             - "byReference"
+        default: ["byValue","byReference"]

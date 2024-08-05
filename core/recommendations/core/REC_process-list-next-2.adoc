@@ -1,5 +1,8 @@
 [[rec_core_next-2]]
-[recommendation,type="general",id="/rec/core/next-2",label="/rec/core/next-2"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/core/next-2
+
 Dereferencing a next page link (relation: `next`) SHOULD return additional process summaries from the set of selected process summaries that have not yet been returned.
 ====

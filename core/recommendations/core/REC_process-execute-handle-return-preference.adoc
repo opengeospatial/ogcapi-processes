@@ -1,6 +1,9 @@
 [[rec_core_process-execute-handle-return-preference]]
-[recommendation,type="general",id="/rec/core/process-execute-handle-return-preference",label="/rec/core/process-execute-handle-return-preference"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/core/process-execute-handle-return-preference
+
 A client that accompanies an execute request with the HTTP https://datatracker.ietf.org/doc/html/rfc7240#section-2[`Prefer`] header asserting a https://tools.ietf.org/html/rfc7240#section-4.2[`return`] preference SHOULD be prepared to receive output values either:
 
 * in-line in the response,

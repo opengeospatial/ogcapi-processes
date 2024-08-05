@@ -1,5 +1,8 @@
 [[rec_job-list_next-3]]
-[recommendation,type="general",id="/rec/job-list/next-3",label="/rec/job-list/next-3"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/job-list/next-3
+
 If there are more jobs in the selection that have not yet been returned, the number of jobs in a response to dereferencing a next page link (relation: `next`) SHOULD follow the same rules as for the response to the original query and again include a next page link (relation: `next`).
 ====

@@ -1,5 +1,8 @@
 [[rec_core_api_definition-oas]]
-[recommendation,type="general",id="/rec/core/api-definition-oas",label="/rec/core/api-definition-oas"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/core/api-definition-oas
+
 If the API definition document is defined using the OpenAPI Specification 3.0, the document SHOULD conform to the <<rc_oas30,OpenAPI Specification 3.0 requirements class>>.
 ====

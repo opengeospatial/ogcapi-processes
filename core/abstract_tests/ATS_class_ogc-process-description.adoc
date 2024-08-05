@@ -7,12 +7,12 @@ identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process
 subject:: <<rc_ogc-process-description,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/ogc-process-description>>
 classification:: Target Type:Web API
 conformance-test:: /conf/ogc-process-description/input-def
-conformance-test:: /conf/ogc-process-description/input-mixed-type
+conformance-test:: /conf/ogc-process-description/input-multiple-types
 conformance-test:: /conf/ogc-process-description/inputs-def
 conformance-test:: /conf/ogc-process-description/json-encoding
 conformance-test:: /conf/ogc-process-description/links
 conformance-test:: /conf/ogc-process-description/output-def
-conformance-test:: /conf/ogc-process-description/output-mixed-type
+conformance-test:: /conf/ogc-process-description/output-multiple-types
 conformance-test:: /conf/ogc-process-description/outputs-def
 ====
 
@@ -24,10 +24,10 @@ include::ogc-process-description/ATS_inputs-def.adoc[]
 
 include::ogc-process-description/ATS_input-def.adoc[]
 
-include::ogc-process-description/ATS_input-mixed-type.adoc[]
+include::ogc-process-description/ATS_input-multiple-types.adoc[]
 
 include::ogc-process-description/ATS_outputs-def.adoc[]
 
 include::ogc-process-description/ATS_output-def.adoc[]
 
-include::ogc-process-description/ATS_output-mixed-type.adoc[]
+include::ogc-process-description/ATS_output-multiple-types.adoc[]
