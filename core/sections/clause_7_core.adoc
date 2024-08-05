@@ -504,10 +504,6 @@ an execute request as show in the following example:
 
 The actual name of each input is its identifier as specified by the input's definition in the <<sc_process_description,process description>>.
 
-Each process input is characterized by a schema, a cardinality and whether the input value can be passed by-value, by-reference or both.  The specific details of how these characteristics of a process input are specified in a process description is dependent on the particular process description language or vocabulary being used.
-
-NOTE: In the case of the <<ogc_process_description,"OGC Process Description">> vocabulary, the `schema` parameter is used to define the schema of a process input, the cardinality of a process input is defined using the `minOccurs` and `maxOccurs` parameters and how a process input value can be passed in an execute request is specified using the `valuePassing` parameter.  See the <<ogc_process_description,"OGC Process Description">> clause for more details.
-
 ====== Input values 
 
 As shown in https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inlineOrRefData.yaml[inlineOrRefData.yaml], a process input value that is specified in-line in an execute request can be:
