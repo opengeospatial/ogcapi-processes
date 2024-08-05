@@ -1,6 +1,9 @@
 [[rec_core_job-links]]
-[recommendation,type="general",id="/rec/core/job-links",label="/rec/core/job-links"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/core/job-links
+
 [.component,class=part]
 --
 Servers SHOULD include a link (`rel="monitor"`) pointing to a resource that can be used to monitor the progress of a job.

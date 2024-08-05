@@ -9,7 +9,7 @@ test-purpose:: Validate that servers can accept input values both inline and by 
 test-method::
 +
 --
-1. Verify that the server passes tests <<ats_core_process-execute-input-inline-binary,/conf/core/process-execute-input-inline-binary>>, <<ats_core_process-execute-input-inline-mixed,/conf/core/process-execute-input-inline-mixed>>, <<ats_core_process-execute-input-inline-object,/conf/core/process-execute-input-inline-object>>, <<ats_core_process-execute-input-inline-bbox,/conf/core/process-execute-input-inline-bbox>> .
+1. Verify that the server passes tests <<ats_core_process-execute-input-inline-binary,/conf/core/process-execute-input-inline-binary>>, <<ats_core_process-execute-input-inline-multiple-types,/conf/core/process-execute-input-inline-multiple-types>>, <<ats_core_process-execute-input-inline-object,/conf/core/process-execute-input-inline-object>>, <<ats_core_process-execute-input-inline-bbox,/conf/core/process-execute-input-inline-bbox>> .
 
 2. For each test, specify the input value in-line in the execute request.
 

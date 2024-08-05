@@ -1,6 +1,9 @@
 [[rec_job-list_job-list-landing-page]]
-[recommendation,type="general",id="/rec/job-list/job-list-landing-page",label="/rec/job-list/job-list-landing-page"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/job-list/job-list-landing-page
+
 A link to the following resource SHOULD be added to the API landing page:
 
 /jobs (relation type 'http://www.opengis.net/def/rel/ogc/1.0/job-list')

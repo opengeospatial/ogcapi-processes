@@ -7,6 +7,7 @@ identifier:: /req/core/process-execute-sync-many-json
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous.
 . The number of requested outputs is 2 or more.
+. The negotiated output content type is `application/json`.
 --
 
 [.component,class=part]

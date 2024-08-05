@@ -1,6 +1,9 @@
 [[rec_core_job-results-async-many-json-prefer-minimal]]
-[recommendation,type="general",id="/rec/core/job-results-async-many-json-prefer-minimal",label="/rec/core/job-results-async-many-json-prefer-minimal"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/core/job-results-async-many-json-prefer-minimal
+
 [.component,class=conditions]
 --
 The negotiated https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[return preference] is `minimal`.

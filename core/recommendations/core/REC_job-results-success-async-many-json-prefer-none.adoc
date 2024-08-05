@@ -1,6 +1,9 @@
 [[rec_core_job-results-async-many-json-prefer-none]]
-[recommendation,type="general",id="/rec/core/job-results-async-many-json-prefer-none",label="/rec/core/job-results-async-many-json-prefer-none"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/core/job-results-async-many-json-prefer-none
+
 [.component,class=conditions]
 --
 A return preference is _**not**_ specified via the HTTP https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[`prefer`] header.

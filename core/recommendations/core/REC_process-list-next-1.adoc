@@ -1,5 +1,8 @@
 [[rec_core_next-1]]
-[recommendation,type="general",id="/rec/core/next-1",label="/rec/core/next-1"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/core/next-1
+
 If more processes summaries have been selected than returned in the response, a `200`-response SHOULD include a link to the next page (relation: `next`) of process summaries.
 ====

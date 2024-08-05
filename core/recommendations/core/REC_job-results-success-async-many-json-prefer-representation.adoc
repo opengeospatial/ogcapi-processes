@@ -1,6 +1,9 @@
 [[rec_core_job-results-async-many-json-prefer-representation]]
-[recommendation,type="general",id="/rec/core/job-results-async-many-json-prefer-representation",label="/rec/core/job-results-async-many-json-prefer-representation"]
+[recommendation]
 ====
+[%metadata]
+identifier:: /rec/core/job-results-async-many-json-prefer-representation
+
 [.component,class=conditions]
 --
 The negotiated https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[return preference] is `representation`.

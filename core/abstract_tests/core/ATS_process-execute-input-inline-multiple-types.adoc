@@ -1,0 +1,20 @@
+[[ats_core_process-execute-input-inline-multiple-types]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/process-execute-input-inline-multiple-types
+target:: /req/core/process-execute-input-inline-multiple-types
+test-purpose:: Validate that inputs of multiple types encoded in-line in an execute request are correctly processed.
+test-method::
++
+--
+1. Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
+
+2. Inspect the description of each process and identify the subset of processes that have inputs of multiple types using the `oneOf[]` JSON Schema construct to define several alternate input value schemas.
+
+3. For each identified process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode the identified mix-content inputs in-line in the execute request according to requirement <<req_core_process-execute-input-inline-multiple-types,/req/core/process-execute-input-inline-multiple-types>>.
+
+4. Verify that each process executes successfully according to the relevant requirement (one of: <<ats_core_process-execute-success-async,/req/core/process-execute-success-async>>, <<ats_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, <<ats_core_process-execute-sync-one,/req/core/process-execute-sync-one>>, <<ats_core_process-execute-sync-one-default-content,/req/core/process-execute-sync-one-default-content>>) base on the combination of execute parameters.
+--
+====

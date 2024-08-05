@@ -1,0 +1,8 @@
+[[per_core_process-execute-multiple-output-pkg]]
+[permission]
+====
+[%metadata]
+identifier:: /per/core/process-execute-multiple-output-pkg
+
+A server MAY, through content negotiation, respond with something other than that specified by requirement <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>.  A server MAY, for example, respond with a https://www.iso.org/standard/60101.html[ZIP] file or a https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html[multi-part MIME] document containing all the requested output values.
+====

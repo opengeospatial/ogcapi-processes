@@ -1,8 +1,0 @@
-[[req-creation-input-inline-bbox]]
-[requirement]
-====
-[%metadata]
-identifier:: /req/core/process-execute-input-inline-bbox
-
-Servers SHALL support process input values that conform to the <<bbox-schema,bbox.yaml>> schema.
-====
