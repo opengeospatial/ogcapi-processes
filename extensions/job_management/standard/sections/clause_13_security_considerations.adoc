@@ -2,13 +2,13 @@
 
 See <<OAProc-1,OGC API - Processes - Part 1: Core>>, Clause 10.4.
 
-Since deploy, replace and undeploy (DRU) operations will change the processes available to a client, servers will - in almost all cases - restrict the access to these operations.
+Since creating and updating jobs will change the jobs available to a client, servers will - in almost all cases - restrict the access to these operations.
 
 Users making modifications to process resources need to:
 
 . Be authenticated,
 . Have "modification privileges" on the processes offered through the API,
-. Have access to one or more of the POST, PUT and/or DELETE methods on the processes / processes/{processId} endpoints.
+. Have access to one or more of the POST and/or PUT methods on the processes /jobs/{jobId} endpoints.
 
 The API definition, as defined in Clause 7.3 from <<OAProc-1>>, must reflect this in the resource paths and their available methods.
 
@@ -68,7 +68,7 @@ In case the request does not include information to authenticate the user, the s
 ----
 Client                                                        Server
   |                                                             |
-  |  DELETE /processes/SampleProcess   HTTP/1.1                 |
+  |  DELETE /jobs/xxxx-xxx-xxx-xxxxx   HTTP/1.1                 |
   | ----------------------------------------------------------->|
   |                                                             |
   |  HTTP/1.1  401 Unauthorized                                 |
@@ -97,7 +97,7 @@ If valid authentication credentials have been provided, but the API refuses to e
 ```
 Client                                                              Server
   |                                                                   |
-  | DELETE /processes/SampleProcess HTTP/1.1                          |
+  | DELETE /jobs/xxxx-xxx-xxx-xxxxx HTTP/1.1                          |
   | Host: example.com                                                 |
   | Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ97HgQ    |
   |------------------------------------------------------------------>|

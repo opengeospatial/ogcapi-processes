@@ -9,13 +9,15 @@ The main requirements class is:
 
 This class specifies requirements that any Web API implementing Processes Part 4 must conform with.
 
-The `Job Management` class does mandate a specific encoding and
-format for the job definition.  However, the Part 4 extension
-defines the following conformance class:
+The `Job Management` class does not mandate a specific encoding for the job definition.  
+However, the Part 4 extension defines the following conformance class:
 
-* <<rc_openeo,OpenEO graph>>
+* <<rc_ogcapi-processes,OGC API - Processes - Workflow Execute Request>>
+* <<rc_openeo,OpenEO Process Graph>>
 
-The `OpenEO grap` class defines that jobs can be created from an OpenEO graph.
+The `OGC API - Processes - Workflow Execute Request` class defines that jobs can be created from an OGC API - Processes - Workflow Execute Request.
+
+The `OpenEO Process Graph` class defines that jobs can be created from an OpenEO Process Graph.
 
 The provenance information associated with a job is not mandated to be supported by the server.
 A dedicated requirements class <<rc_provenance,Provenance>> is defined for this feature.

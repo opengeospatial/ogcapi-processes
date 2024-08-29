@@ -1,7 +1,7 @@
-[[req_deploy-replace-undeploy_package_response-body]]
+[[req_job-management_definition_response-body]]
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/package/response-body
+label:: /req/job-management/definition/response-body
 part:: A response with HTTP status code `200` SHALL include a body that contains the request body used to create or update the job.
 ====

@@ -1,7 +1,7 @@
-[[req_deploy-replace-undeploy_package_response-success]]
+[[req_job-management_definition_response-success]]
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/package/response-success
+label:: /req/job-management/definition/response-success
 part:: A successful access to the resource SHALL be reported as a response with a HTTP status code `200`.
 ====

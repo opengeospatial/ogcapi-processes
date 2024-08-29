@@ -1,8 +1,8 @@
-[[req_deploy-replace-undeploy_package_get-op]]
+[[req_job-management_definition_get-op]]
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/package/get-op
+label:: /req/job-management/definition/get-op
 part:: For every dynamically added process (using method: POST on path: /processes/{processId}), the server SHALL support the HTTP GET operation at the path `/processes/{processId}/package`.
 part:: The parameter `processId` is each `id` property in the process collection response (JSONPath: `$.processes[*].id`).
 
