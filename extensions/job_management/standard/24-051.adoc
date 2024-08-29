@@ -1,7 +1,7 @@
 = OGC API - Processes - Part 4: Job Management
 :doctype: standard
 :docsubtype: implementation
-:docnumber: 20-044
+:docnumber: 24-051
 :status: draft
 :copyright-year: 2019
 :edition: 1.0
@@ -37,15 +37,13 @@ include::sections/clause_7_ogcapi-processes.adoc[]
 
 include::sections/clause_8_openeo.adoc[]
 
-include::sections/clause_9_quotation.adoc[]
+include::sections/clause_9_provenance.adoc[]
 
-include::sections/clause_10_provenance.adoc[]
+include::sections/clause_10_oas.adoc[]
 
-include::sections/clause_11_oas.adoc[]
+include::sections/clause_11_media_types.adoc[]
 
-include::sections/clause_12_media_types.adoc[]
-
-include::sections/clause_13_security_considerations.adoc[]
+include::sections/clause_12_security_considerations.adoc[]
 
 include::sections/annex_ats.adoc[]
 
