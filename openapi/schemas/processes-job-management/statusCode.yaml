@@ -1,7 +1,7 @@
 type: string
 nullable: false
 enum:
-  - pending
+  - created
   - accepted
   - running
   - successful
