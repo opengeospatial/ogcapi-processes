@@ -1,0 +1,9 @@
+[[rec_deploy-replace-undeploy_replace_body-cwl]]
+[recommendation]
+====
+[%metadata]
+label:: /rec/deploy-replace-undeploy/replace/body-cwl
+
+part:: If a process can be encoded for the intended use in <<rc_cwl,CWL>>, implementations SHOULD consider supporting the <<rc_cwl,CWL>> encoding for describing the replacement process.
+
+====

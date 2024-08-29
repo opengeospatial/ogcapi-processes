@@ -1,0 +1,14 @@
+[[ats_dru]]
+[conformance_class]
+.Job Management
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/conf/job-management
+subject:: <<rc_job-management,http://www.opengis.net/spec/ogcapi-processes-4/1.0/conf/job-management>>
+classification:: Target Type:Web API
+conformance-test:: /conf/dru/deploy/post-op
+====
+
+==== Create operation
+
+include::jm/create/ATS_post-op.adoc[]

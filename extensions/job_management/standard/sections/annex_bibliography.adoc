@@ -1,0 +1,29 @@
+[bibliography]
+[[Bibliography]]
+== Bibliography
+
+////
+The TC has approved Springer LNCS as the official document citation type.
+
+Springer LNCS is widely used in technical and computer science journals and other publications
+
+* For citations in the text please use square brackets and consecutive numbers: [1], [2], [3]
+
+– Actual References:
+
+[n] Journal: Author Surname, A.: Title. Publication Title. Volume number, Issue number, Pages Used (Year Published)
+
+[n] Web: Author Surname, A.: Title, http://Website-Url
+
+* [[[OGC2015,OGCTB12]]], _OGC: OGC Testbed 12 Annex B: Architecture_ (2015).
+
+////
+
+// * [[[Common_Workflow_Language,1]]], Peter Amstutz, Michael R. Crusoe, Nebojša Tijanić (editors), Brad Chapman, John Chilton, Michael Heuer, Andrey Kartashov, Dan Leehr, Hervé Ménager, Maya Nedeljkovich, Matt Scales, Stian Soiland-Reyes, Luka Stojanovic (2016): Common Workflow Language, v1.0. Specification, Common Workflow Language working group. https://w3id.org/cwl/v1.0/ https://doi.org/10.6084/m9.figshare.3115156.v2
+
+* [[[Common_Workflow_Language,1]]], Peter Amstutz, Michael R. Crusoe, Nebojša Tijanić (editors), Brad Chapman, John Chilton, Michael Heuer, Andrey Kartashov, Dan Leehr, Hervé Ménager, Maya Nedeljkovich, Matt Scales, Stian Soiland-Reyes, Luka Stojanovic (2020): Common Workflow Language, v1.2. Specification, Common Workflow Language working group. https://w3id.org/cwl/
+
+* [[[OpenEO_Process_Graphs,2]]], OpenEO: OpenEO Developers API Reference / Process Graphs. https://openeo.org/documentation/1.0/developers/api/reference.html#section/Processes/Process-Graphs
+
+* [[[OpenAPI-Spec,OpenAPI Specification 3.0.2]]] OpenAPI Initiative. OpenAPI Specification 3.0.2. Available at:
+https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md.

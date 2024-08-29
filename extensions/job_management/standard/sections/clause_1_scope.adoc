@@ -1,0 +1,13 @@
+== Scope
+
+The OGC API - Processes - Part 4 Standard is an extension to the OGC API – Processes – Part 1: Core Standard [<<OAProc-1>>] and defines the behavior of a server that
+supports the ability to create jobs without implying the process execution starts right away.
+
+Specifically, the Processes Part 4 Standard specifies:
+
+* How to manage job.
+
+* How to handle provenenance information associated with a job.
+
+
+

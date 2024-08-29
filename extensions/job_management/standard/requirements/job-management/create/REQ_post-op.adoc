@@ -1,0 +1,7 @@
+[[req_job-management_create_post-op]]
+[requirement]
+====
+[%metadata]
+label:: /req/job-management/create/post-op
+part:: The server SHALL support the HTTP POST operation at the path `/jobs`.
+====

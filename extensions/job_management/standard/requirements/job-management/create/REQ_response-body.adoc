@@ -1,0 +1,8 @@
+[[req_job-management_create_response-body]]
+[requirement]
+====
+[%metadata]
+label:: /req/job-management/create/response-body
+part:: The response SHALL include a body that contains a status information of the created job conforms to the https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] schema.
+part:: The response SHALL contains a `pending` status code and the `jobId` property that contains the job identifier.
+====

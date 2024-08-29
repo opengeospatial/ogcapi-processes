@@ -1,0 +1,8 @@
+[[req_provenance_inputs_response]]
+[requirement]
+====
+[%metadata]
+label:: /req/provenance/inputs/response
+part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code '200'.
+part:: The response SHALL contains a JSON document that conforms to the schema https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-job-management/inputs.yaml[inputs.yaml].
+====

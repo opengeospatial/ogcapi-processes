@@ -1,0 +1,7 @@
+[[per_deploy-replace-undeploy_additional-status-codes]]
+[permission]
+====
+[%metadata]
+label:: /per/core/additional-status-codes
+part:: Servers MAY support other HTTP protocol capabilities. Therefore, the server may return other status codes than those listed in <<status_codes>>.
+====

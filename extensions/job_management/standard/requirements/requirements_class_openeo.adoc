@@ -1,0 +1,10 @@
+[[rc_openeo]]
+[requirements_class]
+====
+[%metadata]
+label:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/openeo
+obligation:: requirement
+subject:: Web API
+inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core>>
+inherit:: <<rc_job-management,http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/job-management>>
+====

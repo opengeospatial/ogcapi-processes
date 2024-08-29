@@ -1,0 +1,7 @@
+[[req_openeo_update__body]]
+[requirement]
+====
+[%metadata]
+label:: /req/openeo/update/body
+part:: The media type `application/openeo+json` SHALL be used to indicate that request body contains a job encoded as an <<rc_openeo,OpenEO Process Graph>>.
+====

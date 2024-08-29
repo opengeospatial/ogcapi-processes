@@ -1,0 +1,29 @@
+
+== Conformance
+
+The OGC API - Processes - Part 4 Standard defines the following requirements classes.
+
+The main requirements class is:
+
+* <<rc_job-management,Job Management>>.
+
+This class specifies requirements that any Web API implementing Processes Part 4 must conform with.
+
+The `Job Management` class does mandate a specific encoding and
+format for the job definition.  However, the Part 4 extension
+defines the following conformance class:
+
+* <<rc_openeo,OpenEO graph>>
+
+The `OpenEO grap` class defines that jobs can be created from an OpenEO graph.
+
+The provenance information associated with a job is not mandated to be supported by the server.
+A dedicated requirements class <<rc_provenance,Provenance>> is defined for this feature.
+
+The standardization target for all Conformance class defined in this Standard is “Web API”.
+
+Conformance with this Standard shall be checked using all the relevant tests
+specified in <<ats>> of this document. The framework, concepts, and
+methodology for testing, and the criteria to be achieved to claim conformance
+are specified in the OGC Compliance Testing Policies and Procedures and the
+OGC Compliance Testing web site.

@@ -1,0 +1,8 @@
+
+== Requirements Class "Quotation"
+
+[[quotation-overview]]
+=== Overview
+
+include::../requirements/requirements_class_quotation.adoc[]
+

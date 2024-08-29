@@ -1,0 +1,7 @@
+[[per_job-management_update_body]]
+[permission]
+====
+[%metadata]
+label:: /per/job-management/update/body
+part:: A server MAY support any encoding in the body of a HTTP PUT operation.
+====
