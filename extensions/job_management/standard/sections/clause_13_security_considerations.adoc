@@ -14,7 +14,7 @@ The API definition, as defined in Clause 7.3 from <<OAProc-1>>, must reflect thi
 
 Examples in the Clauses specifying the requirements classes focus on the mechanics of the POST, PUT, and DELETE methods and exclude authentication. Since authentication will typically be required for all DRU requests, this section provides some examples/guidance:
 
-The OpenAPI definition exposed by the serve will declare the authentication schemes that an implementation of the Processes - Part 2 (DRU) supports for each operation (or for all operations in the API implementation).
+The OpenAPI definition exposed by the serve will declare the authentication schemes that an implementation of the Processes - Part 4 (JM) supports for each operation (or for all operations in the API implementation).
 
 A member "security" in the OpenAPI definition object can be provided to list the default security schemes supported by all operations. Individual DRU operations can override this default by providing a "security" member for the individual operation.
 
