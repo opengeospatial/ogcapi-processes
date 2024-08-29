@@ -21,20 +21,24 @@ include::../requirements/openeo/REQ_schema.adoc[]
 include::../../../../openapi/schemas/processes-job-management/openeo-process-graph.yaml[]
 ----
 
-=== Create
+=== Creating a new job
 
-==== OpenEO body
+==== Request body
 
 include::../requirements/openeo/create/REQ_body.adoc[]
 
-=== Update
+include::../recommendations/openeo/create/PER_content-schema.adoc[]
 
-==== OpenEO body
+=== Updating an existing job
+
+==== Request body
 
 include::../requirements/openeo/update/REQ_body.adoc[]
 
+include::../recommendations/openeo/update/PER_content-schema.adoc[]
+
 === Job definition
 
-==== OpenEO content
+==== Response content
 
 include::../requirements/openeo/definition/REQ_response-body.adoc[]

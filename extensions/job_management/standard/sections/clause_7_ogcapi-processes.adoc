@@ -8,26 +8,30 @@ include::../requirements/requirements_class_ogcapi-processes.adoc[]
 
 This requirements class defines that the OGC API - Process - Workflow Execute Request is supported as an encoding for job definitions.
 
-=== OGC API - Processes
+=== OGC API - Processes - Workflow Execute Request
 
 ==== Overview
 
 include::../requirements/ogcapi-processes/REQ_schema.adoc[]
 
-=== Create
+=== Creating a new job
 
-==== OGC API - Processes body
+==== Request body
 
 include::../requirements/ogcapi-processes/create/REQ_body.adoc[]
 
-=== Update
+include::../recommendations/ogcapi-processes/create/PER_content-schema.adoc[]
 
-==== OGC API - Processes body
+=== Updating an existing job
+
+==== Request body
 
 include::../requirements/ogcapi-processes/update/REQ_body.adoc[]
 
+include::../recommendations/ogcapi-processes/update/PER_content-schema.adoc[]
+
 === Job definition
 
-==== OGC API - Processes content
+==== Response content
 
 include::../requirements/ogcapi-processes/definition/REQ_response-body.adoc[]

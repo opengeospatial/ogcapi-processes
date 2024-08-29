@@ -1,0 +1,7 @@
+[[per_openeo_update_content-schema]]
+[permission]
+====
+[%metadata]
+label:: /per/openeo/update/content-schema
+part:: The `Content-Schema` header MAY be pointing to https://raw.githubusercontent.com/Open-EO/openeo-processes/master/meta/subtype-schemas.json#/definitions/process-graph[OpenEO Process Graph schema].
+====

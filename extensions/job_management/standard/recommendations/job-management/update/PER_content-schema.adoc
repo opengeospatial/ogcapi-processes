@@ -1,0 +1,7 @@
+[[per_job-management_update_content-schema]]
+[permission]
+====
+[%metadata]
+label:: /per/job-management/update/content-schema
+part:: The `Content-Schema` header MAY be used to indicate the schema of a request body for creating a job.
+====

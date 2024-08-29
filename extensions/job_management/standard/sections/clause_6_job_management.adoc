@@ -106,6 +106,8 @@ include::../requirements/job-management/create/REQ_content-type.adoc[]
 
 See https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5[section 3.1.1.5 of RFC 7231] for details.
 
+include::../recommendations/job-management/create/PER_content-schema.adoc[]
+
 ===== OGC API - Processes - Workflow Execute Request body
 
 include::../recommendations/job-management/create/REC_body-ogcapi-processes.adoc[]
@@ -165,11 +167,13 @@ include::../recommendations/job-management/update/PER_body.adoc[]
 
 include::../requirements/job-management/update/REQ_content-type.adoc[]
 
-===== OGC API - Processes - Workflow Execute Request body
+include::../recommendations/job-management/update/PER_content-schema.adoc[]
+
+===== OGC API - Processes - Workflow Execute Request
 
 include::../recommendations/job-management/update/REC_body-ogcapi-processes.adoc[]
 
-===== OpenEO Process Graph body
+===== OpenEO Process Graph
 
 include::../recommendations/job-management/update/REC_body-openeo.adoc[]
 
@@ -178,8 +182,6 @@ include::../recommendations/job-management/update/REC_body-openeo.adoc[]
 include::../requirements/job-management/update/REQ_response.adoc[]
 
 The status code depends on the server. If the server has replaced the job, the response is either `200` (if the response includes additional content) or `204` (if the response has no additional content).
-
-If the server will process the replace request later, a `202` status code will be returned. In this case, the processing can succeed or fail, without further notification to the client.
 
 ==== Exceptions
 
@@ -221,7 +223,6 @@ include::../requirements/job-management/start/REQ_response.adoc[]
 See <<job-management-http_status_codes,HTTP status codes>> for general guidance.
 
 If the job with the specified identifier does not exist on the server, see requirement /req/core/job-exception-no-such-job from <<OAProc-1>>.
-
 
 
 [[job-management-definition]]
