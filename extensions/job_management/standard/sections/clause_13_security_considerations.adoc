@@ -68,7 +68,7 @@ In case the request does not include information to authenticate the user, the s
 ----
 Client                                                        Server
   |                                                             |
-  |  DELETE /jobs/xxxx-xxx-xxx-xxxxx   HTTP/1.1                 |
+  |  POST /jobs/xxxx-xxx-xxx-xxxxx   HTTP/1.1                   |
   | ----------------------------------------------------------->|
   |                                                             |
   |  HTTP/1.1  401 Unauthorized                                 |
@@ -97,7 +97,7 @@ If valid authentication credentials have been provided, but the API refuses to e
 ```
 Client                                                              Server
   |                                                                   |
-  | DELETE /jobs/xxxx-xxx-xxx-xxxxx HTTP/1.1                          |
+  | POST /jobs/xxxx-xxx-xxx-xxxxx HTTP/1.1                            |
   | Host: example.com                                                 |
   | Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ97HgQ    |
   |------------------------------------------------------------------>|
