@@ -7,8 +7,8 @@ Since creating and updating jobs will change the jobs available to a client, ser
 Users making modifications to process resources need to:
 
 . Be authenticated,
-. Have "modification privileges" on the processes offered through the API,
-. Have access to one or more of the POST and/or PUT methods on the processes /jobs/{jobId} endpoints.
+. Have "modification privileges" on the jobs offered through the API,
+. Have access to one or more of the POST and/or PUT methods on the jobs /jobs/{jobId} endpoints.
 
 The API definition, as defined in Clause 7.3 from <<OAProc-1>>, must reflect this in the resource paths and their available methods.
 
