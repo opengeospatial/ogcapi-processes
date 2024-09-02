@@ -15,12 +15,13 @@ The HTTP PUT method is used to update the definition of a previously created job
 Finally, the HTTP POST method is used to start a job.
 
 Creating or updating a job requires that a formal description of the new or
-updated jobs be provided by the client.  This Standard does
+updated jobs be provided by the client.  This Standar does not
 mandate that a specific jobs schema be used.
 However, this extension defines the following conformance
 classe:
 
- * <<rc_openeo,OpenEO Process Graph>>, that enables support for OpenEO-encoded jobs definition.
+ * <<rc_ogcapi-processes,OGC API - Processes - Wrokflow Execute Request>>, that enables support for OGC API - Processes - Part 3: Wofklows for jobs definitions.
+ * <<rc_openeo,OpenEO Process Graph>>, that enables support for OpenEO-encoded jobs definitions.
  
 
 [[job-management-http_status_codes]]
