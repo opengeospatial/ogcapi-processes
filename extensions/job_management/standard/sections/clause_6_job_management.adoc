@@ -10,7 +10,7 @@ create, update and start jobs.
 
 The HTTP POST method is used to create new jobs.
 
-The HTTP PUT method is used to update the definition of a previously created jobs that are accessible via the Processes API endpoint.
+The HTTP PATCH method is used to update the definition of a previously created jobs that are accessible via the Processes API endpoint.
 
 Finally, the HTTP POST method is used to start a job.
 
@@ -145,7 +145,7 @@ NOTE: The new job definition replaces the old job definition. Version control is
 ```
 Client                                                        Server
   |                                                             |
-  |  PUT /jobs/{jobId}   HTTP/1.1                               |
+  |  PATCH /jobs/{jobId}   HTTP/1.1                             |
   |  Content-Type: application/json                             |
   |                                                             |
   |------------------------------------------------------------>|
@@ -156,7 +156,7 @@ Client                                                        Server
 
 ==== Operation
 
-include::../requirements/job-management/update/REQ_put-op.adoc[]
+include::../requirements/job-management/update/REQ_patch-op.adoc[]
 
 ==== Request body
 
@@ -191,6 +191,8 @@ See <<job-management-http_status_codes>> for general guidance.
 If the request body's media type is not supported by the server, see requirement /req/deploy-replace-undeploy/deploy/unsupported-media-type from <<OAProc-2>>.
 
 If the job with the specified identifier does not exist on the server, see requirement /req/core/job-exception-no-such-job from <<OAProc-1>>.
+
+include::../requirements/job-management/update/REQ_response-locked.adoc[]
 
 [[undeploy]]
 === Staring a job

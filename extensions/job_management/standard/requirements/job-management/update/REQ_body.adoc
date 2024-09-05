@@ -3,5 +3,5 @@
 ====
 [%metadata]
 label:: /req/job-management/update/body*
-part:: The body of a PUT request SHALL be in JSON format.
+part:: The body of a PATCH request SHALL be in JSON format.
 ====

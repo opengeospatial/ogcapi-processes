@@ -1,8 +1,0 @@
-[[req_job-management_update_put-op]]
-[requirement]
-====
-[%metadata]
-label:: /req/job-management/update/put-op
-part:: For every created jobs (path '/jobs/{jobId}'), the server SHALL support the HTTP PUT operation.
-part:: The parameter 'jobId' is each 'jobID' property in the jobs list response (JSONPath: `$.jobs[*].jobID`).
-====
