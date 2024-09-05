@@ -250,3 +250,5 @@ include::../requirements/job-management/definition/REQ_response-body.adoc[]
 See <<deploy-replace-undeploy-http_status_codes,HTTP status codes>> for general guidance.
 
 If the job with the specified identifier does not exist on the server, see requirement /req/core/job-exception-no-such-job from <<OAProc-1>>.
+
+If the job with the specified identifier is locked, see requirement /req/job-management/update/response-locked from <<job-management>>.
