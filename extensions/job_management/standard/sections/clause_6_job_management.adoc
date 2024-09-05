@@ -206,7 +206,7 @@ the execution of a previously created jobs.
 ```
 Client                                                        Server
   |                                                             |
-  |  POST /jobs/{jobId}   HTTP/1.1                              |
+  |  POST /jobs/{jobId}/results   HTTP/1.1                      |
   |------------------------------------------------------------>|
   |                                                             |
   |  HTTP/1.1 204 OK                                            |
