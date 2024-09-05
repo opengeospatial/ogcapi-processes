@@ -1,4 +1,4 @@
-[[ats_dru_deploy_post-op]]
+[[ats_jm_deploy_post-op]]
 
 [abstract_test]
 ====
