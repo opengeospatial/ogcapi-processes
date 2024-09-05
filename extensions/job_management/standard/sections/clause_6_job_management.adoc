@@ -68,7 +68,7 @@ See <<OAFeat-1,OGC API - Features - Part 1: Core>>, section link:http://www.open
 
 
 
-[[create]]
+[[job-management-create]]
 === Creating a new job
 
 ==== Sequence diagram
@@ -132,7 +132,7 @@ See <<job-management-http_status_codes>> for general guidance.
 
 If the request body's media type is not supported by the server, see requirement /req/deploy-replace-undeploy/deploy/unsupported-media-type from <<OAProc-2>>.
 
-[[update]]
+[[job-management-update]]
 === Updating an existing job
 
 ==== Sequence diagram
@@ -194,7 +194,7 @@ If the job with the specified identifier does not exist on the server, see requi
 
 include::../requirements/job-management/update/REQ_response-locked.adoc[]
 
-[[undeploy]]
+[[job-management-start]]
 === Staring a job
 
 ==== Sequence diagram
@@ -251,4 +251,4 @@ See <<deploy-replace-undeploy-http_status_codes,HTTP status codes>> for general 
 
 If the job with the specified identifier does not exist on the server, see requirement /req/core/job-exception-no-such-job from <<OAProc-1>>.
 
-If the job with the specified identifier is locked, see requirement /req/job-management/update/response-locked from <<job-management>>.
+If the job with the specified identifier is locked, see requirement /req/job-management/update/response-locked from <<job-management-update>>.
