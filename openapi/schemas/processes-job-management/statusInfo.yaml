@@ -1,6 +1,6 @@
 type: object
 required:
-   - jobID
+   - id
    - status
    - type
 properties:
@@ -9,9 +9,7 @@ properties:
    processID:
       type: string
    type:
-      type: string
-      enum:
-        - process
+      $ref: "processes-type.yaml"
    status:
       $ref: "statusCode.yaml"
    message:
