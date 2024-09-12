@@ -1,12 +1,12 @@
 type: object
 required:
-   - jobID
+   - id
    - status
    - type
 properties:
    id:
       type: string
-   processID:
+   process:
       type: string
    type:
       type: string
