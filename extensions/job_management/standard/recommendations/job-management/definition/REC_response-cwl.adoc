@@ -1,9 +1,0 @@
-[[rec_job-management_package_response-cwl]]
-[recommendation]
-====
-[%metadata]
-label:: /rec/job-management/package/response-cwl
-
-part:: If a process deployed as a <<rc_cwl,CWL>>, implementations SHOULD consider supporting the <<rc_cwl,CWL>> encoding.
-
-====
