@@ -10,8 +10,10 @@ properties:
       type: string
    type:
       type: string
-      enum:
+      example:
         - process
+        - wps
+        - openeo
    status:
       $ref: "statusCode.yaml"
    message:
