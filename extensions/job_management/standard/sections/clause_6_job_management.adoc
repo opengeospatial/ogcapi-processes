@@ -8,11 +8,11 @@ include::../requirements/requirements_class_job-management.adoc[]
 A server that implements the Job Management Requirements Class provides the ability to
 create, update and start jobs.
 
-The HTTP POST method is used to create new jobs.
+The HTTP POST method on the `/jobs` path is used on to create new jobs.
 
-The HTTP PATCH method is used to update the definition of a previously created jobs that are accessible via the Processes API endpoint.
+The HTTP PATCH method on the `/jobs/{jobId}` is used to update the definition of a previously created jobs that are accessible via the Processes API endpoint.
 
-Finally, the HTTP POST method is used to start a job.
+Finally, the HTTP POST method on the `/job/{jobId}/results` is used to start a job.
 
 Creating or updating a job requires that a formal description of the new or
 updated jobs be provided by the client.  This Standar does not
