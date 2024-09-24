@@ -132,6 +132,10 @@ See <<job-management-http_status_codes>> for general guidance.
 
 If the request body's media type is not supported by the server, see requirement /req/deploy-replace-undeploy/deploy/unsupported-media-type from <<OAProc-2>>.
 
+include::../requirements/job-management/create/REQ_unsupported-schema.adoc[]
+
+
+
 [[job-management-update]]
 === Updating an existing job
 
