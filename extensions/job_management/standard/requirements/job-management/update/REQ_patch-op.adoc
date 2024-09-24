@@ -4,5 +4,5 @@
 [%metadata]
 label:: /req/job-management/update/patch-op
 part:: For every created jobs (path '/jobs/{jobId}'), the server SHALL support the HTTP PATCH operation.
-part:: The parameter 'jobId' is each 'jobID' property in the jobs list response (JSONPath: `$.jobs[*].jobID`).
+part:: The parameter 'jobId' is each 'jobID' property in the jobs list response (JSONPath: `$.jobs[*].id`).
 ====
