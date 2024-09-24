@@ -6,7 +6,7 @@ required:
 properties:
    id:
       type: string
-   processID:
+   process:
       type: string
    type:
       $ref: "processes-type.yaml"

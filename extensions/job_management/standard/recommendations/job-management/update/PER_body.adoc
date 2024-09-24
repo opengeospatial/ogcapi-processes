@@ -3,5 +3,5 @@
 ====
 [%metadata]
 label:: /per/job-management/update/body
-part:: A server MAY support any encoding in the body of a HTTP PUT operation.
+part:: A server MAY support any encoding in the body of a HTTP PATCH operation.
 ====

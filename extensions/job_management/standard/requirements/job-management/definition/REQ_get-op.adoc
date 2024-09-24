@@ -3,7 +3,7 @@
 ====
 [%metadata]
 label:: /req/job-management/definition/get-op
-part:: For every dynamically added process (using method: POST on path: /processes/{processId}), the server SHALL support the HTTP GET operation at the path `/processes/{processId}/package`.
-part:: The parameter `processId` is each `id` property in the process collection response (JSONPath: `$.processes[*].id`).
+part:: For every jobs (using method: POST on path: /jobs/{jobId}), the server SHALL support the HTTP GET operation at the path `/jobs/{jobId}/definition`.
+part:: The parameter `jobId` is each `id` property in the job-list response (JSONPath: `$.jobs[*].id`).
 
 ====

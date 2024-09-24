@@ -7,6 +7,8 @@ This extension provides the ability to create new jobs without starting its exec
 The repo is organized as follows:
 
 * standard - the main standard document content
-  - organized in multiple sections and directories (openapi, requirements, etc.)
+  - organized in multiple sections and directories (recommendations, requirements, etc.)
 * xml - normative XML/XSD components specified by the standard
 * examples - JSON and XML examples
+
+The schemas associated with this extension are stored from the root directory in `openapi/*{api,parameters,path,responses,schemas}*/processes-job-management`.

@@ -1,2 +1,2 @@
-OGC API - Processes - Part 2: Transactions recommendations.
+OGC API - Processes - Part 4: Job Management recommendations.
 
