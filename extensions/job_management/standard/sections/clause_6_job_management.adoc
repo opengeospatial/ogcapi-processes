@@ -135,7 +135,6 @@ If the request body's media type is not supported by the server, see requirement
 include::../requirements/job-management/create/REQ_unsupported-schema.adoc[]
 
 
-
 [[job-management-update]]
 === Updating an existing job
 
