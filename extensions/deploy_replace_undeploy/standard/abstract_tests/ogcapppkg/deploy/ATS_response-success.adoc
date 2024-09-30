@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/ogcapppkg/deploy/response-success
-target:: /req/deploy-replace-undeploy/deploy/response-success
+identifier:: /conf/ogcapppkg/deploy-response-success
+target:: /req/deploy-replace-undeploy/deploy-response-success
 test-purpose:: Validate that the server returns a Location header and a process summary
 test-method::
 +

@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/ogcapppkg/deploy/response
-target:: /req/deploy-replace-undeploy/deploy/response-success
+identifier:: /conf/ogcapppkg/deploy-response
+target:: /req/deploy-replace-undeploy/deploy-response-success
 test-purpose:: Validate that the server returns HTTP Status code 201 or 202
 test-method::
 +

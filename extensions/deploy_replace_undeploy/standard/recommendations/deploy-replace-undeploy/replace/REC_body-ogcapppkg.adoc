@@ -2,7 +2,7 @@
 [recommendation]
 ====
 [%metadata]
-label:: /rec/deploy-replace-undeploy/replace/body-ogcapppkg
+label:: /rec/deploy-replace-undeploy/replace-body-ogcapppkg
 
 part:: If a process can be described for the intended use as an <<rc_ogcapppkg,OGC Application Package>>, implementations SHOULD consider supporting the <<rc_ogcapppkg,OGC Application Package>> encoding for describing the replacement process.
 

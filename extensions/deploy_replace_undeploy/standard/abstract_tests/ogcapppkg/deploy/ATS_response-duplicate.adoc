@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/ogcapppkg/deploy/response-duplicate
-target:: /req/deploy-replace-undeploy/deploy/response-duplicate
+identifier:: /conf/ogcapppkg/deploy-response-duplicate
+target:: /req/deploy-replace-undeploy/deploy-response-duplicate
 test-purpose:: Validate that the server return HTTP Status code 409
 test-method::
 +

@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/cwl/deploy/body
-target:: /req/cwl/deploy/body
+identifier:: /conf/cwl/deploy-body
+target:: /req/cwl/deploy-body
 test-purpose:: Validate that the server support deploy operation using the Common Workflow Language encoding
 test-method::
 +

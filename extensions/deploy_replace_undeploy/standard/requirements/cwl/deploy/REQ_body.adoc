@@ -2,6 +2,6 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/cwl/deploy/body
+label:: /req/cwl/deploy-body
 part:: The media type `application/cwl` SHALL be used to indicate that request body contains a processes description encoded as <<rc_ogcapppkg,CWL>>.
 ====

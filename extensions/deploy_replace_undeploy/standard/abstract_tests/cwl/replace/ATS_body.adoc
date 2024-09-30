@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/cwl/replace/body
-target:: /req/cwl/replace/body
+identifier:: /conf/cwl/replace-body
+target:: /req/cwl/replace-body
 test-purpose:: Validate that the server support replace operation using the Common Workflow Language encoding
 test-method::
 +

@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/replace/put-op
+label:: /req/deploy-replace-undeploy/replace-put-op
 part:: For every dynamically deployed processes (path '/processes/{processId}'), the server SHALL support the HTTP PUT operation.
 part:: The parameter 'processId' is each 'id' property in the process collection response (JSONPath: `$.processes[*].id`).
 ====
