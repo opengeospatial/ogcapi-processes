@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/docker/replace/body
-target:: /req/docker/replace/body
+identifier:: /conf/docker/replace-body
+target:: /req/docker/replace-body
 test-purpose:: Validate that the server support replace operation using a Docker image as execution unit
 test-method::
 +

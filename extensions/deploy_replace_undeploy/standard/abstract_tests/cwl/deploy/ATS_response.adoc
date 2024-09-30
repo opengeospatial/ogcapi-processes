@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/cwl/deploy/response
-target:: /req/deploy-replace-undeploy/deploy/response-success
+identifier:: /conf/cwl/deploy-response
+target:: /req/deploy-replace-undeploy/deploy-response-success
 test-purpose:: Validate that the server return HTTP Status code 201 or 202
 test-method::
 +

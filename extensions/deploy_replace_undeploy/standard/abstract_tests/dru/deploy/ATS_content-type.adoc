@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/dru/deploy/content-type
-target:: /req/deploy-replace-undeploy/deploy/content-type
+identifier:: /conf/dru/deploy-content-type
+target:: /req/deploy-replace-undeploy/deploy-content-type
 test-purpose:: Validate that the server support the Content-type header to declare the media type of the request body
 test-method::
 +

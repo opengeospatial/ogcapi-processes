@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/dru/undeploy/response-immutable-success
-target:: /req/deploy-replace-undeploy/deploy/response-immutable
+identifier:: /conf/dru/undeploy-response-immutable-success
+target:: /req/deploy-replace-undeploy/deploy-response-immutable
 test-purpose:: Validate that the server returns a 403 status code when removing an immutable process
 test-method::
 +

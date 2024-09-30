@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/docker/deploy/body
-target:: /rec/deploy-replace-undeploy/deploy/body-docker
+identifier:: /conf/docker/deploy-body
+target:: /rec/deploy-replace-undeploy/deploy-body-docker
 test-purpose:: Validate that the server supports deploy operation using a Docker image as execution unit
 test-method::
 +
