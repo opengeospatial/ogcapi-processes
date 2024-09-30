@@ -2,7 +2,7 @@
 [requirements_class]
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/deployable-workflows
+identifier:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/deployable-workflows
 subject:: Deployable Workflows
 inherit:: http://www.opengis.net/spec/ogcapi-processes-2/0.0/req/deploy-replace-undeploy
 inherit:: http://www.opengis.net/spec/ogcapi-processes-2/0.0/req/ogcapppkg (optional)

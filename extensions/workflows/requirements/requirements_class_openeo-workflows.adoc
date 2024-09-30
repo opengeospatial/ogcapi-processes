@@ -2,7 +2,7 @@
 [requirements_class]
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/openeo-workflows
+identifier:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/openeo-workflows
 subject:: OpenEO Process Graphs Workflows
 inherit:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core
 inherit:: OpenEO Process Graphs <<OpenEO_Process_Graphs>>
