@@ -1,0 +1,11 @@
+[[rc_ogcapi-processes]]
+[requirements_class]
+====
+[%metadata]
+label:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/ogcapi-processes
+obligation:: requirement
+subject:: Web API
+inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core>>
+inherit:: <<OAProc-3,OGC API - Processes - Part 3: Workflows, Conformance Class 'nested-processing'>>
+inherit:: <<rc_job-management,http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/job-management>>
+====

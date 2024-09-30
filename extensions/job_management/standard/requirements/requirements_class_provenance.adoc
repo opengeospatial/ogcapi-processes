@@ -1,0 +1,9 @@
+[[rc_cwl]]
+[requirements_class]
+====
+[%metadata]
+label:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/provenance
+obligation:: requirement
+subject:: Web API
+inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core>>
+====

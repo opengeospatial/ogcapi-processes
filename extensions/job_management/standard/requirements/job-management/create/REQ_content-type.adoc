@@ -1,0 +1,7 @@
+[[req_job-management_create_content-type]]
+[requirement]
+====
+[%metadata]
+label:: /req/job-management/create-content-type
+part:: The `Content-Type` https://tools.ietf.org/html/rfc2616#section-14.17[header] SHALL be used to declare the media type of the request.
+====

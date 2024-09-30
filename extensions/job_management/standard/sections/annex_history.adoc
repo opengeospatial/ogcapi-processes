@@ -1,0 +1,8 @@
+[appendix]
+== Revision History
+
+[cols="12,18,12,12,46",options="header,unnumbered"]
+|===
+|Date |Release |Editor | Primary clauses modified |Description
+|2024-08-22 |None |Gérald Fenoy |all |Boostraping the document
+|===

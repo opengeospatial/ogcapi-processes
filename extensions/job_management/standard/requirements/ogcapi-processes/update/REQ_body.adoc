@@ -1,0 +1,7 @@
+[[req_ogcapi-processes_update__body]]
+[requirement]
+====
+[%metadata]
+label:: /req/ogcapi-processes/update-body
+part:: The media type `application/ogcapi-processes+json` SHALL be used to indicate that request body contains a job encoded as an <<rc_openeo,OpenEO>>.
+====

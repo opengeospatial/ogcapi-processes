@@ -6,14 +6,10 @@ required:
 properties:
    id:
       type: string
-   processID:
+   process:
       type: string
    type:
-      type: string
-      example:
-        - process
-        - wps
-        - openeo
+      $ref: "processes-type.yaml"
    status:
       $ref: "statusCode.yaml"
    message:

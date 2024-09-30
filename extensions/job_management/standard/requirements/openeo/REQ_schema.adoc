@@ -1,0 +1,7 @@
+[[req_openeo_schema]]
+[requirement]
+====
+[%metadata]
+label:: /req/openeo/schema
+part:: An `OpenEO Process Graph` document SHALL be based upon the OpenEO Process Graph JSON schema https://openeo.org/documentation/1.0/developers/api/assets/pg-schema.json.
+====
