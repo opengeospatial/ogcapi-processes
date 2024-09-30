@@ -1,7 +1,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/deployable-workflows/deploying-workflow
+identifier:: /req/deployable-workflows/deploying-workflow
 description:: For deploying workflow definitions defined as an execution request:
 part:: The Implementation SHALL support deploying a workflow definition as a process using the POST method mechanism described in _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_ with a payload consisting of an _OGC API - Processes - Part 1: Core_ execution request (`Content-Type: application/json`, unless a specific media type execution requests is allocated), with support for any any extensions defined in this specification for which conformance is declared.
 part:: If the _OGC Application Package_ conformance class is supported, the Implementation SHALL also support deploying a workflow definition as a process using the POST method mechanism described in _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_ with the `executionUnit` of the OGC Application Package payload (`Content-Tyep: application/ogcapppkg+json`) consisting of an _OGC API - Processes - Part 1: Core_ execution request, with support for any any extensions defined in this specification for which conformance is declared.
