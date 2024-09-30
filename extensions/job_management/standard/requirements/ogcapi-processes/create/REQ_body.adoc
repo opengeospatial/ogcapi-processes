@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/ogcapi-processes/create/body
+label:: /req/ogcapi-processes/create-body
 part:: The body of the POST request SHALL be based upon the OpenAPI 3.0 schema https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-workflows/execute-workflows.yaml[execute-workflows.yaml]
 part:: The media type `application/json` SHALL be used to indicate that request body contains a processes description encoded as an <<rc_ogcapi-processes,OGC API - Processes>>.
 ====

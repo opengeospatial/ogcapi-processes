@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-management/create/unsupported-media-type
+label:: /req/job-management/create-unsupported-media-type
 
 part:: If the server does not support the Content-Type header associated with the request body, the code of the response SHALL be `415 Unsupported Media Type`.
 part:: The content of that response SHALL be based upon the OpenAPI

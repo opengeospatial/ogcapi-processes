@@ -2,7 +2,7 @@
 [recommendation]
 ====
 [%metadata]
-label:: /rec/job-management/create/body-openeo
+label:: /rec/job-management/create-body-openeo
 
 part:: If the job can be encoded as an <<rc_openeo,OpenEO graph>>, implementation SHOULD consider supporting the <<rc_openeo,OpenEO graph>> encoding.
 ====

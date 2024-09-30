@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-management/definition/get-op
+label:: /req/job-management/definition-get-op
 part:: For every jobs (using method: POST on path: /jobs/{jobId}), the server SHALL support the HTTP GET operation at the path `/jobs/{jobId}/definition`.
 part:: The parameter `jobId` is each `id` property in the job-list response (JSONPath: `$.jobs[*].id`).
 

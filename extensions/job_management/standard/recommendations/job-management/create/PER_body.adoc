@@ -2,6 +2,6 @@
 [permission]
 ====
 [%metadata]
-label:: /per/job-management/create/body
+label:: /per/job-management/create-body
 part:: A server MAY support any encoding in the body of a HTTP POST operation.
 ====

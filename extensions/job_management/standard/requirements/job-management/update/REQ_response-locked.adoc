@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-management/update/response-locked
+label:: /req/job-management/update-response-locked
 part:: If a job is locked, meaning that it is currently being processed (status set to `accepted` or `running`), the server SHALL respond with HTTP status code `423 Locked`.
 part:: The response body SHALL be based upon the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml[exception.yaml].
 part:: The `type` of the exception SHALL be “http://www.opengis.net/def/exceptions/ogcapi-processes-4/1.0/locked”.

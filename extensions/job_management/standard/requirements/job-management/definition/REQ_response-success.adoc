@@ -2,6 +2,6 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-management/definition/response-success
+label:: /req/job-management/definition-response-success
 part:: A successful access to the resource SHALL be reported as a response with a HTTP status code `200`.
 ====

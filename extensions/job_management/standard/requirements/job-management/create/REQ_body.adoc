@@ -2,6 +2,6 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-management/create/body
+label:: /req/job-management/create-body
 part:: The body of the POST request SHALL be in JSON format.
 ====

@@ -2,7 +2,7 @@
 [permission]
 ====
 [%metadata]
-label:: /per/provenance/run/content-negotiation
+label:: /per/provenance/run-content-negotiation
 part:: Content negotiation MAY be supported to provide alternate representations of the response.
 part:: The server MAY support the following additional content type: `application/ld+json` for PROV-O as JSON-LD
 part:: The server MAY support the following additional content type: `application/xml` for PROV-XML 
