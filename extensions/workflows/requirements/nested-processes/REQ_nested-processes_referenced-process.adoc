@@ -1,7 +1,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/nested-processes/referenced-process
+identifier:: /req/nested-processes/referenced-process
 description:: For referencing a process as an input to another process:
 part:: The Implementation SHALL support execution requests containing a `"process"` key and a corresponding URI or Relative-URI value identifying a process as an input to another process.
 part:: The Implementation SHALL interpret Relative-URIs as relative to the parent process within which the containing process object is nested.
