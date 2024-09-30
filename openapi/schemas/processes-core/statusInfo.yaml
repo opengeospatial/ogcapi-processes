@@ -6,7 +6,7 @@ required:
 properties:
    id:
       type: string
-   process:
+   processID:
       type: string
    type:
       type: string
