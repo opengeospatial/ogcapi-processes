@@ -1,7 +1,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/collection-output/data-access-mechanisms
+identifier:: /req/collection-output/data-access-mechanisms
 description:: For triggering processing and returning resulting output data as a response to data access requests:
 part:: The Implementation SHALL support at least one OGC API data access mechanisms (e.g., _OGC API - Tiles, Coverages, DGGS, Features, EDR, Maps_) corresponding to the links returned from a a `response=collection` or `response=landingPage` request.
 part:: The Implementation SHALL trigger the processing required to respond to the request with considerations for the area, time and/or resolution of interest associated with the request.

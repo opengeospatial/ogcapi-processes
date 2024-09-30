@@ -1,7 +1,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/cwl-workflows/adhoc-cwl-execution
+identifier:: /req/cwl-workflows/adhoc-cwl-execution
 description:: For executing a workflow defined using the Common Workflow Language (CWL) definition:
 part:: The Implementation SHALL support ad-hoc execution of a CWL workflow definition (`Content-Type: application/cwl+json`) POSTed to `/processes/CWL/execution`.
 ====
