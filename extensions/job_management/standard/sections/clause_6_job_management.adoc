@@ -230,6 +230,8 @@ See <<job-management-http_status_codes,HTTP status codes>> for general guidance.
 
 If the job with the specified identifier does not exist on the server, see requirement /req/core/job-exception-no-such-job from <<OAProc-1>>.
 
+If the job with the specified identifier is locked, see requirement /req/job-management/update/response-locked from <<job-management-update>>.
+
 
 [[job-management-definition]]
 === Job definition
@@ -254,4 +256,3 @@ See <<deploy-replace-undeploy-http_status_codes,HTTP status codes>> for general 
 
 If the job with the specified identifier does not exist on the server, see requirement /req/core/job-exception-no-such-job from <<OAProc-1>>.
 
-If the job with the specified identifier is locked, see requirement /req/job-management/update/response-locked from <<job-management-update>>.

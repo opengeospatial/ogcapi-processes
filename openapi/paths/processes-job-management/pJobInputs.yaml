@@ -1,0 +1,16 @@
+get:
+   summary: retrieve the information about a job
+   description: |
+     Retrieve the information about a job.
+   operationId: getJobInputs
+   tags:
+     - Jobs Management
+   parameters:
+     - $ref: "../../parameters/processes-core/jobId.yaml"
+   responses:
+     200:
+       $ref: "../../schemas/processes-management/rInputs.yaml"
+     404:
+       $ref: "../../responses/common-core/rNotFound.yaml"
+     500:
+       $ref: "../../responses/common-core/rServerError.yaml"

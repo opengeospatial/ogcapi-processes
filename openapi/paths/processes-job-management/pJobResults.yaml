@@ -1,0 +1,24 @@
+post:
+   summary: start the executino of a job
+   description: |
+      Starts the execution of a job.
+   operationId: postResult
+   requestBody:
+     description: An empty body.
+     required: true
+     content:
+       application/json:
+         schema:
+           type: object
+           nullable: true
+   tags:
+     - Jobs Management
+   parameters:
+     - $ref: "../../parameters/processes-core/jobId.yaml"
+   responses:
+     200:
+       $ref: "../../responses/processes-core/rExecuteAsync.yaml"
+     404:
+       $ref: "../../responses/common-core/rNotFound.yaml"
+     500:
+       $ref: "../../responses/common-core/rServerError.yaml"
