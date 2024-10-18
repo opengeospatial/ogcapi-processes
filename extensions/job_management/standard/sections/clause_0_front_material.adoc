@@ -1,0 +1,28 @@
+
+[abstract]
+== Abstract
+
+OGC API Standards define modular API building blocks to spatially enable Web APIs in a consistent way. The <<OpenAPI-Spec,OpenAPI specification>> is used to define the API building blocks.
+
+The OGC API Processes Standard (aka Processes API) defines API building blocks to describe, execute, monitor and retrieve results of Web-accessible processes. OGC API Processes is comprised of multiple parts, each of them is a separate OGC Standard.
+
+The OGC API - Processes - Part 2: Deploy, Replace, Undeploy draft specification extends the core capabilities specified in OGC API - Processes - Part 1: Core [<<OAProc-1>>] with the ability to dynamically add, modify and/or delete individual processes using an implementation (endpoint) of the OGC API - Processes Standard.
+
+The OGC API - Processes - Part 3: Workflows draft specification extends the core capabilities specified in OGC API - Processes - Part 1: Core [<<OAProc-1>>] with the ability to ...
+
+The OGC API - Processes - Part 4: Job Management draft specification extends the core capabilities specified in OGC API - Processes - Part 1: Core [<<OAProc-1>>] with the ability to create, manage and monitor jobs that are associated with processes execution. This part of the standard also defines how to ensure provenance information is preserved and findable. 
+
+CAUTION: This is a DRAFT version of the 4th part of the OGC API - Processes standards. This draft is not complete and there are open issues that are still under discussion.
+
+== Submitters
+
+All questions regarding this submission should be directed to the editors or the submitters:
+
+[cols="2",options="header,unnumbered"]
+|===
+| Name | Affiliation
+| Gérald Fenoy _(editor)_ | GeoLabs
+| Francis Charette Mignault _(editor)_ | Centre de recherche informatique de Montréal (CRIM)
+| Panagiotis (Peter) A. Vretanos | CubeWerx Inc.
+|===
+

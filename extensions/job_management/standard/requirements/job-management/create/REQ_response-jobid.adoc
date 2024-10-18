@@ -1,0 +1,7 @@
+[[req_job-management_create_response-jobid]]
+[requirement]
+====
+[%metadata]
+label:: /req/job-management/create-response-jobid
+part:: If the operation completes, the server SHALL generate a job identifier (i.e. `{jobId}`) for the created job.
+====

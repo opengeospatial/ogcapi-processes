@@ -1,0 +1,38 @@
+== Requirements Class "Provenance"
+
+[[provenance-overview]]
+=== Overview
+
+This requirements class defines how to allow client application accessing the provenance of a job run.
+
+include::../requirements/requirements_class_provenance.adoc[]
+
+=== Additional endpoints
+
+==== Inputs
+
+The server MUST provide an endpoint to retrieve the inputs of a job run.
+
+===== Operation
+
+include::../requirements/provenance/inputs/REQ_get-op.adoc[]
+
+===== Response
+
+include::../requirements/provenance/inputs/REQ_response.adoc[]
+
+==== Run
+
+The server MUST provide an endpoint to retrieve the run of a job.
+
+===== Operation
+
+include::../requirements/provenance/run/REQ_get-op.adoc[]
+
+include::../recommendations/provenance/run/PER_content-negotiation.adoc[]
+
+===== Response
+
+include::../requirements/provenance/run/REQ_response.adoc[]
+
+

@@ -1,0 +1,8 @@
+[[req_job-provenance_inputs_get-op]]
+[requirement]
+====
+[%metadata]
+label:: /req/provenance/inputs-get-op
+part:: For every created jobs (path: `/jobs/{jobId}/inputs`), the server SHALL support the HTTP GET operation.
+part:: The parameter `jobId` is each `jobID` property in the job list response (JSONPath: `$.jobs[*].id`).
+====

@@ -1,0 +1,11 @@
+[[req_job-management_create_unsupported-media-type]]
+[requirement]
+====
+[%metadata]
+label:: /req/job-management/create-unsupported-media-type
+
+part:: If the server does not support the Content-Type header associated with the request body, the code of the response SHALL be `415 Unsupported Media Type`.
+part:: The content of that response SHALL be based upon the OpenAPI
+3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/exception.yaml[exception.yaml].
+part:: The `type` of the exception SHALL be “http://www.opengis.net/def/exceptions/ogcapi-processes-4/1.0/unsupported-media-type”.
+====

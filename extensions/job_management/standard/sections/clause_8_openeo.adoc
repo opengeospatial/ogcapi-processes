@@ -1,0 +1,44 @@
+
+== Requirements Class "OpenEO Process Graph"
+
+[[openeo-overview]]
+=== Overview
+
+include::../requirements/requirements_class_openeo.adoc[]
+
+This requirements class defines that the server supports the OpenEO Process Graph as an encoding for job definitions.
+
+=== OpenEO Process Graph
+
+==== Overview
+
+include::../requirements/openeo/REQ_schema.adoc[]
+
+[[schema_ogcappkg]]
+.link:http://schemas.opengis.net/ogcapi/processes/part4/1.0/openapi/schemas/openeo-process-graph.yaml[Schema for OpenEO Process Graph]
+[source,yaml]
+----
+include::../../../../openapi/schemas/processes-job-management/openeo-process-graph.yaml[]
+----
+
+=== Creating a new job
+
+==== Request body
+
+include::../requirements/openeo/create/REQ_body.adoc[]
+
+include::../recommendations/openeo/create/PER_content-schema.adoc[]
+
+=== Updating an existing job
+
+==== Request body
+
+include::../requirements/openeo/update/REQ_body.adoc[]
+
+include::../recommendations/openeo/update/PER_content-schema.adoc[]
+
+=== Job definition
+
+==== Response content
+
+include::../requirements/openeo/definition/REQ_response-body.adoc[]

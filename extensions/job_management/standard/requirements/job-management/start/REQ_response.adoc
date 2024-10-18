@@ -1,0 +1,8 @@
+[[req_job-management_start_response]]
+[requirement]
+====
+[%metadata]
+label:: /req/job-management/start-response
+part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code '200'.
+part:: A response SHALL be a document that conforms to statusInfo.yaml.
+====

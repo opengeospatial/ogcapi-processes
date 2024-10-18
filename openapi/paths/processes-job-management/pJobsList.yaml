@@ -1,0 +1,50 @@
+post:
+   summary: create a job.
+   description: |
+     Create a job resulting in the creation of a job resource.
+   operationId: createJob
+   tags:
+     - Jobs Management
+   parameters:
+     # If we want to use similar mechanism as the workflows, we can use the
+     # following parameter.
+     #- $ref: "../../parameters/processes-workflows/response.yaml"
+     # If we want to use similar mechanism as in the Part 1, we can use the
+     # following parameter.
+     #- $ref: "../../parameters/processes-core/prefer-header-execution.yaml"
+   requestBody:
+     description: An execution request specifying any inputs for the process to execute, and optionally to select specific outputs.
+     required: true
+     content:
+       application/json:
+         schema:
+           $ref: "../../schemas/processes-workflows/execute-workflows.yaml"
+   responses:
+     # In case we do not agree to force asynchornous mode for the /jobs 
+     # endpoint, we can also use the following response.
+     #200:
+     #  $ref: "../../responses/processes-core/rExecuteSync.yaml"
+     201:
+       $ref: "../../responses/processes-core/rExecuteAsync.yaml"
+     # If the Server Implementation support the Collection output conformance class.
+     #303:
+     #  $ref: "../../responses/processes-workflows/rExecuteCollectionRedirect.yaml"
+     404:
+       $ref: "../../responses/common-core/rNotFound.yaml"
+     422:
+       $ref: "../../responses/common-core/rUnprocessableEntity.yaml"
+     500:
+       $ref: "../../responses/common-core/rServerError.yaml"
+   callbacks:
+     # Where are the other callbacks (ie. jobFailed, jobUpdated)?
+     jobCompleted:
+       "{$request.body#/subscriber/successUri}":
+         post:
+           requestBody:
+             content:
+               application/json:
+                 schema:
+                   $ref: "../../schemas/processes-core/results.yaml"
+           responses:
+             200:
+               description: Results received successfully

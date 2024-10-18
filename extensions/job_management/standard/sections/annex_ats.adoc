@@ -1,0 +1,15 @@
+[[ats]]
+[appendix,obligation="normative"]
+== Abstract Test Suite
+
+=== Introduction
+
+OGC Web Application Programming Interfaces (APIs) are not Web Services in the traditional sense. Rather, they define the behavior and content of a set of Resources exposed through a Web API. Therefore, an API endpoint may expose resources in addition to those defined by the standard. A test engine must be able to traverse an implementation of the API, identify and validate test points, and ignore resource paths which are not to be tested.
+
+The Web API under test can require authorization. Any Executable Test Suite implementing this test suite should implement the following security schemes supported by OpenAPI 3.0: HTTP Authorization schemes "basic" and "bearer", API keys, and OAuth2 flow "authorizationCode".
+
+
+=== Conformance Class Job Management
+
+include::../abstract_tests/ATS_class_jm.adoc[]
+
