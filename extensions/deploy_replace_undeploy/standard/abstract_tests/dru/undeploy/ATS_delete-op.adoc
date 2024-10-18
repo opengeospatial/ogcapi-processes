@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/dru/undeploy/delete-op
-target:: /req/deploy-replace-undeploy/undeploy/delete-op
+identifier:: /conf/dru/undeploy-delete-op
+target:: /req/deploy-replace-undeploy/undeploy-delete-op
 test-purpose:: Validate that the server supports HTTP DELETE operation at the path /processes/{processId}
 test-method::
 +

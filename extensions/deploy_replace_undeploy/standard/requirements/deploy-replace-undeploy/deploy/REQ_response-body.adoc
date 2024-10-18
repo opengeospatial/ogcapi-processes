@@ -2,6 +2,6 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/deploy/response-body
+label:: /req/deploy-replace-undeploy/deploy-response-body
 part:: The response SHALL include a body that contains a summary description of the added process conforms to the https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/processSummary.yaml[processSummary.yaml] schema.
 ====

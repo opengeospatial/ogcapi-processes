@@ -6,8 +6,8 @@
 identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/cwl
 subject:: <<rc_cwl,http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/cwl>>
 classification:: Target Type:Web API
-conformance-test:: /conf/cwl/deploy/body
-conformance-test:: /conf/cwl/replace/body
+conformance-test:: /conf/cwl/deploy-body
+conformance-test:: /conf/cwl/replace-body
 ====
 
 ==== Deploy operation
