@@ -5,6 +5,7 @@ metanorma:
       - 18-062.adoc
       - extensions/workflows/21-009.adoc
       - extensions/deploy_replace_undeploy/standard/20-044.adoc
+      - extensions/job_management/standard/24-051.adoc
 
   collection:
     organization: "OGC"
