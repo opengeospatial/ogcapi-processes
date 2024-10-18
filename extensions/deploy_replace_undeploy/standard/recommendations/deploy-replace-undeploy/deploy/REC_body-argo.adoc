@@ -1,0 +1,15 @@
+[[rec_deploy-replace-undeploy_deploy_body-argo]]
+[recommendation]
+====
+[%metadata]
+label:: /rec/deploy-replace-undeploy/deploy/body-argo
+
+part:: If a process can be represented for the intended use as a <<rc_argo,Argo Application>>, implementations should consider supporting the <<rc_argo,Argo>> encoding for describing the process to be deployed to the API.
+
+part:: The media type `application/argo` shall be used to indicate that request body contains a processes description encoded as a <<rc_argo,Argo Application>>.
+
+part:: If the Argo contains more than one workflow, an additional `w` query parameter may be used to reference the workflow id to be deployed.
+
+part:: The server should validate the Argo at the request time. In case, the server cannot find the `w` identifier within the workflow from the Argo provided, a 400 status code is expected with the type "worflow-not-found".
+
+====
