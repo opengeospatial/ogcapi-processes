@@ -11,6 +11,8 @@ The latest Draft of _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_ is
 
 The latest Draft of _OGC API - Processes - Part 3: Workflows and Chaining_ is found here in [HTML](https://docs.ogc.org/DRAFTS/21-009.html) or [PDF](https://docs.ogc.org/DRAFTS/21-009.pdf).
 
+The latest Draft of _OGC API - Processes - Part 4: Job Management_ is found here in [HTML](https://docs.ogc.org/DRAFTS/24-051.html) or [PDF](https://docs.ogc.org/DRAFTS/24-051.pdf).
+
 [OGC API standards](https://ogcapi.ogc.org) define modular API building blocks to spatially enable Web APIs
 in a consistent way. [OpenAPI](http://openapis.org) is used to define the reusable
 API building blocks.
