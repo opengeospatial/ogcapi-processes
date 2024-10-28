@@ -1,0 +1,16 @@
+[[rec_ogc-process-description_process-links]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/ogc-process-description/process-links
+
+[.component,class=part]
+--
+Each process description SHOULD include a link (`rel="service"`) pointing to the landing page of the service offering this process.
+--
+
+[.component,class=part]
+--
+All links SHOULD include the `rel` and `type` link parameters.
+--
+====

@@ -26,9 +26,9 @@ To express relationships between resources, <<rfc8288,RFC 8288 (Web Linking)>> i
 
 The following https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation types] are used in this document.
 
-* **alternate**: Refers to a substitute for the link's context.
+* **service**: Indicates a URI that can be used to retrieve a service document (e.g. a service landing page).
 
-* **license**: Refers to a license associated with the link's context.
+* **alternate**: Refers to a substitute for the link's context.
 
 * **monitor**: Identifies a resource that can use used to monitor changes in a resource.
 
