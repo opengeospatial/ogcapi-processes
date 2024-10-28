@@ -12,7 +12,7 @@ done
 rm paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml; \
 for i in processes-core/pProcessDescription.yaml \
     processes-dru/pReplace.yaml \
-    processes-dru/pUndeploy.yaml ; \
+    processes-dru/pUndeploy.yaml; \
 do \
    cat paths/$i >> paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml ;\
 done
