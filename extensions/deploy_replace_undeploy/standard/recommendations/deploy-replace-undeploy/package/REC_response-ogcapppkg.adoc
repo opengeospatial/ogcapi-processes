@@ -2,7 +2,7 @@
 [recommendation]
 ====
 [%metadata]
-label:: /rec/deploy-replace-undeploy/package/response-ogcapppkg
+label:: /rec/deploy-replace-undeploy/package-response-ogcapppkg
 
 part:: If a process was deployed as an <<rc_ogcapppkg,OGC Application Package>>, implementations SHOULD consider supporting the <<rc_ogcapppkg,OGC Application Package>> encoding.
 ====

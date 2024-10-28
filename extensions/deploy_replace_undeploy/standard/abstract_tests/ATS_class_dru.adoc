@@ -7,14 +7,14 @@ identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/deploy-repl
 subject:: <<rc_deploy-replace-undeploy,http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/deploy-replace-undeploy>>
 classification:: Target Type:Web API
 conformance-test:: /conf/dru/static-indicator
-conformance-test:: /conf/dru/deploy/post-op
-conformance-test:: /conf/dru/deploy/content-type
-conformance-test:: /conf/dru/deploy/unsupported-content-type
-conformance-test:: /conf/dru/replace/put-op
-conformance-test:: /conf/dru/replace/content-type
-conformance-test:: /conf/dru/undeploy/delete-op
-conformance-test:: /conf/dru/undeploy/response
-conformance-test:: /conf/dru/undeploy/response-immutable
+conformance-test:: /conf/dru/deploy-post-op
+conformance-test:: /conf/dru/deploy-content-type
+conformance-test:: /conf/dru/deploy-unsupported-content-type
+conformance-test:: /conf/dru/replace-put-op
+conformance-test:: /conf/dru/replace-content-type
+conformance-test:: /conf/dru/undeploy-delete-op
+conformance-test:: /conf/dru/undeploy-response
+conformance-test:: /conf/dru/undeploy-response-immutable
 ====
 
 ==== Immutable processes

@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/dru/replace/unsupported-content-type
-target:: /req/deploy-replace-undeploy/deploy/unsupported-content-type
+identifier:: /conf/dru/replace-unsupported-content-type
+target:: /req/deploy-replace-undeploy/deploy-unsupported-content-type
 test-purpose:: Validate that the server returns a 415 status code with a relevant exception
 test-method::
 +

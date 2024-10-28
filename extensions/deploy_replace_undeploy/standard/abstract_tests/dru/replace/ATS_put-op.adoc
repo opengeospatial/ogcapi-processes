@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/dru/replace/put-op
-target:: /req/deploy-replace-undeploy/replace/put-op
+identifier:: /conf/dru/replace-put-op
+target:: /req/deploy-replace-undeploy/replace-put-op
 test-purpose:: Validate that the server supports HTTP PUT operation at the path /processes
 test-method::
 +

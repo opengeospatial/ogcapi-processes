@@ -2,6 +2,6 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/undeploy/response
+label:: /req/deploy-replace-undeploy/undeploy-response
 part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code '204'.
 ====
