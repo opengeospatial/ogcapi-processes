@@ -106,7 +106,7 @@ include::../recommendations/ogc-process-description/REC_format-key.adoc[]
 
 Processes that perform geo-spatial processing can be expected to have geometric and feature input types.  In JSON, geometries, features and collections of feature are commonly encoded using https://datatracker.ietf.org/doc/html/rfc7946[GeoJSON].  Rather the requiring processes descriptions to embed or reference the full schemas for https://datatracker.ietf.org/doc/html/rfc7946[GeoJSON] geometries, features or feature collections, this Standard defines a common set of convenience tokens that can be used instead.  
 
-The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7[set of values] for the `format` key.  This Standard extends this list by defining the following additional key values for use specifically in OGC process descriptions for defining geometric, feature or feature collection inputs or outputs.
+The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7[set of values] for the `format` key.  This Standard extends this list by defining the following additional key values for use specifically in OGC process descriptions.
 
 [[format-key-values]]
 .Additional values for the JSON schema format key for OGC Process Description
@@ -118,6 +118,11 @@ The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-sc
 |http://www.opengis.net/def/format/ogcapi-processes/0/geojson-feature |geojson-feature |Indicates that the object is an instance of a GeoJSON feature http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureGeoJSON.yaml[(featureGeoJSON.yaml)].
 |http://www.opengis.net/def/format/ogcapi-processes/0/geojson-geometry |geojson-geometry |Indicates that the object is an instance of a GeoJSON geometry http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml[(geometryGeoJSON.yaml)].
 |http://www.opengis.net/def/format/ogcapi-processes/0/ogc-bbox |ogc-bbox |Indicates that the object is an instance of an OGC bounding box https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/bbox.yaml[(bbox.yaml)].
+|http://www.opengis.net/def/format/ogcapi-processes/0/epgc-code |epsg-code |Indicates that the value is a code from the https://epsg.io/[EPSG registry].
+|http://www.opengis.net/def/format/ogcapi-processes/0/wkt2-def |wkt2-def |Indicates that the string value is a https://docs.ogc.org/is/18-010r11/18-010r11.pdf[well-known text representation of a coordinate reference system].
+|http://www.opengis.net/def/format/ogcapi-processes/0/cql2-text-filter |cql2-text |Indicates that the string value is a filter expression encoded using the text representation of the https://docs.ogc.org/is/21-065r2/21-065r2.html[Common Query Language (CQL2)].
+|http://www.opengis.net/def/format/ogcapi-processes/0/cql2-json-filter |cql2-json |Indicates that the string value is a filter expression encoded using the JSON representation of the https://docs.ogc.org/is/21-065r2/21-065r2.html[Common Query Language (CQL2)].
+|http://www.opengis.net/def/format/ogcapi-processes/0/collection-id |collection-id |Indicates that the string value is a https://docs.ogc.org/DRAFTS/20-024.html#collection-description[collection identifier] (e.g. a feature collection identifier).
 |===
 
 NOTE: This list of values has been submitted to the https://www.ogc.org/projects/groups/ogcnasc[OGC Naming Authority] for registration in their definition server.
