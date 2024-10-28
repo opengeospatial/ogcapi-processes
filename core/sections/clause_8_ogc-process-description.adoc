@@ -37,6 +37,8 @@ include::../requirements/ogc-process-description/REQ_json-encoding.adoc[]
 
 include::../requirements/ogc-process-description/REQ_links.adoc[]
 
+include::../recommendations/ogc-process-description/REC_links.adoc[]
+
 .Schema for a process
 [source,yaml]
 ----
