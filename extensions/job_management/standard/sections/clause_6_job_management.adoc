@@ -15,7 +15,7 @@ The HTTP PATCH method on the `/jobs/{jobId}` is used to update the definition of
 Finally, the HTTP POST method on the `/job/{jobId}/results` is used to start a job.
 
 Creating or updating a job requires that a formal description of the new or
-updated jobs be provided by the client.  This Standar does not
+updated jobs be provided by the client.  This Standard does not
 mandate that a specific jobs schema be used.
 However, this extension defines the following conformance
 classe:
