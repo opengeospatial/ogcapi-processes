@@ -1,5 +1,6 @@
 type: string
 nullable: false
-enum:
+example:
   - process
   - openeo
+  - wps
