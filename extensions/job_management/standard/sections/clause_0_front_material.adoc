@@ -22,7 +22,6 @@ All questions regarding this submission should be directed to the editors or the
 |===
 | Name | Affiliation
 | Gérald Fenoy _(editor)_ | GeoLabs
-| Francis Charette Mignault _(editor)_ | Centre de recherche informatique de Montréal (CRIM)
+| Francis Charette Migneault _(editor)_ | Centre de Recherche Informatique de Montréal (CRIM)
 | Panagiotis (Peter) A. Vretanos | CubeWerx Inc.
 |===
-

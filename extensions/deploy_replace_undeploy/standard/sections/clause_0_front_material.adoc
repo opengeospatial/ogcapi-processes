@@ -19,6 +19,6 @@ All questions regarding this submission should be directed to the editors or the
 | Name | Affiliation
 | Panagiotis (Peter) A. Vretanos _(editor)_ | CubeWerx Inc.
 | Gérald Fenoy _(editor)_ | GeoLabs
+| Francis Charette Migneault | Centre de Recherche Informatique de Montréal (CRIM)
 | Pedro Gonçalves  | Terradue Srl.
 |===
-
