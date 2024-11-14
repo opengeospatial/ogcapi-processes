@@ -20,6 +20,4 @@ properties:
     items:
       $ref: "../processes-core/metadata.yaml"
   headers:
-    type: array
-    items:
-      $ref: "headers.yaml"
+    $ref: "headers.yaml"
