@@ -48,6 +48,8 @@ put:
    responses:
      204:
        $ref: "../../responses/processes-core/rEmpty.yaml"
+     400:
+       $ref: "../../responses/processes-dru/rWorkflowNotFound.yaml"
      403:
        $ref: "../../responses/processes-dru/rImmutableProcess.yaml"
      404:

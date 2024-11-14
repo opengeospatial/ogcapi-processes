@@ -21,18 +21,18 @@ include::../requirements/provenance/inputs/REQ_get-op.adoc[]
 
 include::../requirements/provenance/inputs/REQ_response.adoc[]
 
-==== Run
+==== Prov
 
-The server MUST provide an endpoint to retrieve the run of a job.
+The server MUST provide an endpoint to retrieve the provenance of a job.
 
 ===== Operation
 
-include::../requirements/provenance/run/REQ_get-op.adoc[]
+include::../requirements/provenance/prov/REQ_get-op.adoc[]
 
-include::../recommendations/provenance/run/PER_content-negotiation.adoc[]
+include::../recommendations/provenance/prov/PER_content-negotiation.adoc[]
 
 ===== Response
 
-include::../requirements/provenance/run/REQ_response.adoc[]
+include::../requirements/provenance/prov/REQ_response.adoc[]
 
 
