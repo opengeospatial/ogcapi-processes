@@ -19,3 +19,5 @@ properties:
     type: array
     items:
       $ref: "../processes-core/metadata.yaml"
+  headers:
+    $ref: "headers.yaml"

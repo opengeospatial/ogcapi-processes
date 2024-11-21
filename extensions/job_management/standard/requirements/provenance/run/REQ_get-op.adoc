@@ -1,8 +1,0 @@
-[[req_job-provenance_run_get-op]]
-[requirement]
-====
-[%metadata]
-label:: /req/provenance/run-get-op
-part:: For every created jobs (path: `/jobs/{jobId}/run`), the server SHALL support the HTTP GET operation.
-part:: The parameter `{jobId}` is each `id` property in the job list response (JSONPath: `$.jobs[*].id`).
-====
