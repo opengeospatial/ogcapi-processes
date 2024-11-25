@@ -1,7 +1,7 @@
 [requirement]
 ====
 [%metadata]
-identifier:: /req/nested-processes/referenced-process
+identifier:: /req/remote-core-processes/referenced-process
 description:: For referencing a remote process as an input to another process:
 part:: The Implementation SHALL support execution requests containing a `"process"` key and a corresponding URI or Relative-URI value identifying an authorized remote process as an input to another process.
 ====
