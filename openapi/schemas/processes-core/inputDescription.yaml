@@ -6,9 +6,11 @@ allOf:
     properties:
       schema:
         $ref: "schema.yaml"
-      geoDataClass:
-        type: string
-        format: uri
+      dataClasses:
+        type: array
+        items:
+          type: string
+          format: uri
       minOccurs:
         type: integer
         default: 1

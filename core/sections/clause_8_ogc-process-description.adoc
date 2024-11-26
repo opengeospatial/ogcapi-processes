@@ -157,14 +157,26 @@ The following JSON Schema fragment illustrates the use of the `format` key to in
 }
 ----
 
-==== Data class
+==== Data classes
 
-One common input type that a process might accept is a collection of data indicating that the process will somehow operate over the items of the specified collection.  This implies that the process will have certain expections about the structure of the data collection with regard to which properties the data collection contains, their types, etc.  In order to properly handle any arbitrary data collection input value a process would need to inspect the structure of the input collection to ensure that all the expected properties are present with the expected types, etc.  To alleviate the server from having to perform such a tedious, and perhaps computationally expensive, schema validation process this Standard introduces the concept of the _Geo-Data Class_ via the `geoDataClass` parameter.  
-The value of the `geoDataClass` parameter is a URI that identifies a predefined set of properties or a sub-schema.  Two data collections tagged with the same `geoDataClass` URI value can be assumed to contain all the properties defined by the class.  This equivalence allows a server to quickly validate that a specified data collection input value meets the server's expections in terms of the properties available for processing, their types, etc. simply by comparing `geoDataClass` values.  If the `geoDataClass` of the input data collection value matches the `geoDataClass` specified in the description of the input then the server can be assured that the process can operate on that collection.  Of course data collections tagged with the same `geoDataClass` URI may contain additional properties not defined by the _Geo-Data Class_ but a process expecting an input value of a particular `geoDataClass` value would simply ignore those extraneous properties.
+One common input type that a process might accept is a https://docs.ogc.org/is/17-069r4/17-069r4.html#_collection_[feature collection] indicating that the process will somehow operate over the items of the collection.  This implies that the process will have certain expections about the structure of the collection with regard to which properties the collection contains, their types, etc.  In order to properly handle any arbitrary input collection a process would need to inspect the structure of the collection to ensure that all the expected properties are present with the expected types, etc.  To alleviate the server from having to perform such a tedious, and perhaps computationally expensive, schema validation step this Standard introduces the concept of the _Data Class_ via the `dataClasses` parameter.  
 
-For example, a specific _Geo-Data Class_ might be defined to include a geometry property _fenceLine_ of type _polygon_.  Thus, any input data collection tagged with this URI can be expected to include a _fenceLine_ property and its type can be assumed to be _polygon_.
+The value of the `dataClasses` parameter is an array of URIs.  Each URI identifies a predefined set of properties or a sub-schema.  Two data resources tagged with the same data class URI value can be assumed to each contain all the properties defined by the data class.  This equivalence allows a server to quickly validate that an input data resource meets the server's expections in terms of the properties available for processing, their types, etc. simply by comparing data class URI values.  If the data class URI of the input data resource matches one of the data class URIs specified in the description of the process input (via the `dataClasses` parameter) then the server can be assured that the process can operate on that data resource.
 
-NOTE: In order for the `geoDataClass` concept to be most effective a registry aking to that found at https://schema.org[Schema.org] would need to be created and maintained.  The OGC definition server is likely the best place to maintain _Geo-Data Class_ URIs.
+The `dataClasses` parameter is an array allowing process inputs to be described that can handle a variety of data classes.  As long as the data class URI associated with an input data resource matches at least one of the data class URIs listed in the `dataClasses` array the server can assume that the process can operate on that input data process.
+
+This clause started by introducing the concept of the _Data Class_ in relation to a https://docs.ogc.org/is/17-069r4/17-069r4.html#_collection_[feature collection] but the concept is a general one applying to feature collections, coverages, styles, etc.  For example, a specific data class might be defined to include a geometry property _fenceLine_ of type _polygon_.  Thus, any input feature collection tagged with this data class's URI can be expected to include a _fenceLine_ property and its type can be assumed to be _polygon_.  Similarly, a data class could be defined that identifies a set of bands in a coverage, say R, G, B and NIR.  Any coverages tagged with this data class's URI can thus be assumed to contain these bands.
+
+[NOTE]
+====
+. As defined in <<sc-value-passing>> an input value can be passed to a process by value or by reference.  Whether an input value is passed by-value or by-reference is orthogonal to the concept of the _Data Class_.  In either case the server goes through the same procedure (i.e. comparing data class URIs) to determine whether a specific input value is suitable for processing as per the process description.
+
+. A data resource tagged with a specific data class will contain all the properties defined for that class but may also contain additional properties that are not members of the class.  A process expecting an input value of a particular data class value would simply ignore these extraneous properties.
+
+. A data resource can be tagged with more that one data class URI.
+
+. In order for the _Data Class_ concept to be most effective a registry aking to that found at https://schema.org[Schema.org] would need to be created and maintained.  The OGC definition server is likely the best place to define and manage _Data Class_ URIs.
+====
 
 ==== Cardinality
 
@@ -297,6 +309,7 @@ In this case we have an input with cardinality greater than 1 but that has value
 |===
 
 
+[[sc-value-passing]]
 ==== Value passing
 
 include::../requirements/ogc-process-description/REQ_value-passing.adoc[]
