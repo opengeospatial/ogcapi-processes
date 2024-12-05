@@ -10,7 +10,7 @@ allOf:
           type: string
        type:
           type: string
-          description:
+          description: |-
             An indication of the API that created this job.
 
             This value needs to come from a controlled vocabulary.  The
@@ -27,7 +27,7 @@ allOf:
             - wps
             - openeo
        process:
-          description:
+          description: |-
             The value of this parameter is a description of the entity that 
             created this job.  The value of this property depends on the value 
             of the "type" property.
@@ -49,7 +49,7 @@ allOf:
             - type: object
             - $ref: "../common-core/link.yaml"
        status:
-          description:
+          description: |-
             The status of the job.  The value space depends on the value of
             the "type" property.
 
@@ -74,7 +74,7 @@ allOf:
        exception:
           $ref: "../common-core/exception.yaml"
        created:
-          description:
+          description: |-
             The date/time that this job was created.
             If the value of the "type" property is "openeo" then this property
             SHALL be present in the status response.
