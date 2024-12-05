@@ -11,13 +11,17 @@ allOf:
        type:
           type: string
           description:
-            An indication of the API that created this job.  This can be an
-            OGC API such as processes, coverages, etc. OR an openeo API.
-            This values needs to come from a controlled vocabulary the the
-            current set of values is "process" (indicating that this job was
-            created by an OAProc process), "wps" (indicating that this job
-            was created by a WPS process)  or openeo (indicating that this
-            job was created by an OpenEO process).
+            An indication of the API that created this job.
+
+            This value needs to come from a controlled vocabulary.  The
+            current set of values is
+
+              * "process" (indicating that this job was created by an
+                           OAProc process),
+              * "wps"     (indicating that this job was created by a
+                           WPS process),
+              * "openeo"  (indicating that this job was created by an
+                           OpenEO process).
           examples:
             - process
             - wps
