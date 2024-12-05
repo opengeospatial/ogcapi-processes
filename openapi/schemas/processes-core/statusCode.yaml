@@ -1,8 +1,13 @@
 type: string
 nullable: false
 enum:
-  - accepted
+  - created
+  - queued
   - running
+  - cancelled
+  - finished
+  - error
+  - accepted
   - succeeded
   - failed
   - dismissed
