@@ -3,29 +3,77 @@ allOf:
   - type: object
     required:
        - id
-       - status
-       - created
-       - process
        - type
+       - status
     properties:
        id:
           type: string
-       process:
-          $ref: process.yaml
        type:
           type: string
-          example:
+          description:
+            An indication of the API that created this job.  This can be an
+            OGC API such as processes, coverages, etc. OR an openeo API.
+            This values needs to come from a controlled vocabulary the the
+            current set of values is "process" (indicating that this job was
+            created by an OAProc process), "wps" (indicating that this job
+            was created by a WPS process)  or openeo (indicating that this
+            job was created by an OpenEO process).
+          examples:
             - process
             - wps
             - openeo
-       status:
+       process:
+          description:
+            The value of this parameter is a description of the entity that 
+            created this job.  The value of this property depends on the value 
+            of the "type" property.
+
+            If the value of the "type" property is "process" or "wps" then
+            this property SHALL be present and its value SHALL be a description
+            of the process that created this job encoded in-line or referenced
+            via a link.
+
+            If the value of the "type" property is "openeo" then this property
+            SHALL be present in the status response and its value SHALL be the
+            process graph as per the OpenEO specification.
+
+            If the value of the "type" property is not "process", "wps" or
+            "openeo" then the value of the property SHOULD be a link pointing
+            to the entity that created this job (e.g. an asychronous coverage
+            request URL).
           oneOf:
-          $ref: "statusCode.yaml"
+            - type: object
+            - $ref: "../common-core/link.yaml"
+       status:
+          description:
+            The status of the job.  The value space depends on the value of
+            the "type" property.
+
+            If the value of the "type" property is not "openeo" then the value
+            space of this property SHALL be defined in "statusCode.yaml".
+
+            If the value of the "type" property is "openop" then the value
+            space of this property SHALL be "created", "queued", "running",
+            "canceled", "finished" or "error".
+          oneOf:
+            - $ref: "statusCode.yaml"
+            - type: string
+              enum:
+                - created
+                - queued
+                - running
+                - canceled
+                - finished
+                - error
        message:
           type: string
        exception:
           $ref: "../common-core/exception.yaml"
        created:
+          description:
+            The date/time that this job was created.
+            If the value of the "type" property is "openeo" then this property
+            SHALL be present in the status response.
           type: string
           format: date-time
        started:
