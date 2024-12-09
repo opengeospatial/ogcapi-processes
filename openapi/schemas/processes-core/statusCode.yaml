@@ -3,6 +3,6 @@ nullable: false
 enum:
   - accepted
   - running
-  - succeeded
+  - successful
   - failed
   - dismissed
