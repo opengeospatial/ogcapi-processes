@@ -2,6 +2,8 @@
 [permission]
 ====
 [%metadata]
+identifier:: /per/core/prev
 label:: /per/core/prev
+
 part:: A response to dereferencing a next page link (relation: `next`) MAY include a prev page link (relation: `prev`) to the resource that included the next page link (relation: `next`).
 ====

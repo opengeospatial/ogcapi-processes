@@ -1,5 +1,7 @@
 type: object
 properties:
+  processID:
+    type: string
   inputs:
     additionalProperties:
       $ref: "input.yaml"
