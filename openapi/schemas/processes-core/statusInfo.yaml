@@ -1,42 +1,99 @@
-type: object
-required:
-   - id
-   - status
-   - type
-properties:
-   id:
-      type: string
-   processID:
-      type: string
-   type:
-      type: string
-      example:
-        - process
-        - wps
-        - openeo
-   status:
-      $ref: "statusCode.yaml"
-   message:
-      type: string
-   exception:
-      $ref: "../common-core/exception.yaml"
-   created:
-      type: string
-      format: date-time
-   started:
-      type: string
-      format: date-time
-   finished:
-      type: string
-      format: date-time
-   updated:
-      type: string
-      format: date-time
-   progress:
-      type: integer
-      minimum: 0
-      maximum: 100
-   links:
-      type: array
-      items:
-         $ref: "../common-core/link.yaml"
+allOf:
+  - $ref: descriptionType.yaml
+  - type: object
+    required:
+       - id
+       - type
+       - status
+    properties:
+       id:
+          type: string
+       type:
+          type: string
+          description: |-
+            An indication of the API that created this job.
+
+            This value needs to come from a controlled vocabulary.  The
+            current set of values is
+
+              * "process" (indicating that this job was created by an
+                           OAProc process),
+              * "wps"     (indicating that this job was created by a
+                           WPS process),
+              * "openeo"  (indicating that this job was created by an
+                           OpenEO process).
+          examples:
+            - process
+            - wps
+            - openeo
+       process:
+          description: |-
+            The value of this parameter is a description of the entity that 
+            created this job.  The value of this property depends on the value 
+            of the "type" property.
+
+            If the value of the "type" property is "process" or "wps" then
+            this property SHALL be present and its value SHALL be a description
+            of the process that created this job encoded in-line or referenced
+            via a link.
+
+            If the value of the "type" property is "openeo" then this property
+            SHALL be present in the status response and its value SHALL be the
+            process graph as per the OpenEO specification.
+
+            If the value of the "type" property is not "process", "wps" or
+            "openeo" then the value of the property SHOULD be a link pointing
+            to the entity that created this job (e.g. an asychronous coverage
+            request URL).
+          oneOf:
+            - type: object
+            - $ref: "../common-core/link.yaml"
+       status:
+          description: |-
+            The status of the job.  The value space depends on the value of
+            the "type" property.
+
+            If the value of the "type" property is not "openeo" then the value
+            space of this property SHALL be defined in "statusCode.yaml".
+
+            If the value of the "type" property is "openop" then the value
+            space of this property SHALL be "created", "queued", "running",
+            "canceled", "finished" or "error".
+          oneOf:
+            - $ref: "statusCode.yaml"
+            - type: string
+              enum:
+                - created
+                - queued
+                - running
+                - canceled
+                - finished
+                - error
+       message:
+          type: string
+       exception:
+          $ref: "../common-core/exception.yaml"
+       created:
+          description: |-
+            The date/time that this job was created.
+            If the value of the "type" property is "openeo" then this property
+            SHALL be present in the status response.
+          type: string
+          format: date-time
+       started:
+          type: string
+          format: date-time
+       finished:
+          type: string
+          format: date-time
+       updated:
+          type: string
+          format: date-time
+       progress:
+          type: integer
+          minimum: 0
+          maximum: 100
+       links:
+          type: array
+          items:
+             $ref: "../common-core/link.yaml"
