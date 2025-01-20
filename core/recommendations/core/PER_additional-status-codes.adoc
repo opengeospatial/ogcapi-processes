@@ -2,6 +2,7 @@
 [permission]
 ====
 [%metadata]
+identifier:: /per/core/additional-status-codes
 label:: /per/core/additional-status-codes
 
 Servers MAY support other capabilities of the HTTP protocol and, therefore,

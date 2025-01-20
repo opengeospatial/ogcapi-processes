@@ -2,7 +2,9 @@
 [permission]
 ====
 [%metadata]
+identifier:: /per/core/job-results-async-many-other-formats
 label:: /per/core/job-results-async-many-other-formats
+
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is asynchronous.

@@ -2,7 +2,9 @@
 [permission]
 ====
 [%metadata]
+identifier:: /per/core/process-execute-sync-many-other-formats
 label:: /per/core/process-execute-sync-many-other-formats
+
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous.

@@ -2,6 +2,7 @@
 [permission]
 ====
 [%metadata]
+identifier:: /per/core/process-execute-input-inline-bbox
 label:: /per/core/process-execute-input-inline-bbox
 
 Servers MAY copy the contents of <<bbox-schema,bbox.yaml>> into another file and adjust the `default` and `enum` values as required.

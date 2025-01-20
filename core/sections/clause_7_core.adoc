@@ -1177,9 +1177,11 @@ The job status information includes several optional date-time fields that repre
 
 include::../recommendations/core/REC_job-status.adoc[]
 
+NOTE: Once a job has finished execution and is no longer consuming compute resources, the duration of processing can be computed as `finished-started`.  The `updated` field, however, may still be revised as the system continues processing outputs, storing results, releasing compute resources, etc.
+
 include::../recommendations/core/REC_job-links.adoc[]
 
-NOTE: Once a job has finished execution and is no longer consuming compute resources, the duration of processing can be computed as `finished-started`.  The `updated` field, however, may still be revised as the system continues processing outputs, storing results, releasing compute resources, etc.
+include::../recommendations/core/PER_job-status.adoc[]
 
 .A HTTP GET request for retrieving status information about a job encoded as JSON.
 ====

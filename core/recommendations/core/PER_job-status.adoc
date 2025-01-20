@@ -1,0 +1,18 @@
+[[per_core_job-status]]
+[permission]
+====
+[%metadata]
+identifier:: /per/core/job-status
+label:: /per/core/job-status
+
+[.component,class=part]
+--
+Servers MAY, via the `request` field, include the request that was submitted to the server resulting in the creation of this job.  The initiating request MAY be encoded inline in the job status information or MAY be referenced via a link.
+--
+
+[.component,class=part]
+--
+Servers MAY, via the `message` field, include additional human-readable context information about the job.
+--
+
+====
