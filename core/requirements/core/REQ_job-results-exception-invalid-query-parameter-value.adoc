@@ -1,0 +1,11 @@
+[[req_core_job-results-exception_invalid-query-parameter-value]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/job-results-exception/invalid-query-parameter-value
+
+If the operation is executed using an invalid query parameter value, the response SHALL have HTTP status code 400.
+The content of that response SHALL be based upon the OpenAPI
+3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml].
+The `type` of the exception SHALL be "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/invalid-query-parameter-value".
+====

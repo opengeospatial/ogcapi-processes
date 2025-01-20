@@ -1380,6 +1380,8 @@ include::../examples/json/Result.json[]
 
 See <<http_status_codes>> for general guidance.
 
+include::../requirements/core/REQ_job-results-exception-invalid-query-parameter-value.adoc[]
+
 include::../requirements/core/REQ_job-results-exception-no-such-job.adoc[]
 
 include::../requirements/core/REQ_job-results-exception-results-not-ready.adoc[]
