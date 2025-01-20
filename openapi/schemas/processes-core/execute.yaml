@@ -2,6 +2,7 @@ type: object
 properties:
   processID:
     type: string
+    format: uri
   inputs:
     additionalProperties:
       $ref: "input.yaml"

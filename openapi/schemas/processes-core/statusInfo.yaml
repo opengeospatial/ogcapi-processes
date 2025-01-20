@@ -10,6 +10,7 @@ allOf:
         type: string
       processID:
         type: string
+        format: uri
       type:
         type: string
         example:
@@ -18,6 +19,7 @@ allOf:
           - openeo
       request:
         oneOf:
+          - type: string
           - type: object
           - $ref: "../common-core/link.yaml"
       status:
