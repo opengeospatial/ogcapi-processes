@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /rec/core/ogc-process-description
+label:: /rec/core/ogc-process-description
 
 Implementations SHOULD consider supporting the <<ogc_process_description,OGC process description>>.
 ====

@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/core/job-exception-no-such-job
+label:: /req/core/job-exception-no-such-job
 
 If the operation is executed using an invalid job identifier, the response SHALL have HTTP status code 404.
 The content of that response SHALL be based upon the OpenAPI

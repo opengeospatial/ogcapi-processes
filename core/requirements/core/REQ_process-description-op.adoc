@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/core/process-description
+label:: /req/core/process-description
 
 The server SHALL support the HTTP GET operation at the path `/processes/{processID}`.
 ====

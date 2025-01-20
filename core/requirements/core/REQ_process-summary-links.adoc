@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/core/process-summary-links
+label:: /req/core/process-summary-links
 
 [.component,class=part]
 --

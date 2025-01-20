@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/core/landingpage-op
+label:: /req/core/landingpage-op
 
 The server SHALL support the HTTP GET operation at the path `/`.
 ====

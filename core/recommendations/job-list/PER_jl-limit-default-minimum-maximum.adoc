@@ -3,5 +3,7 @@
 ====
 [%metadata]
 identifier:: /per/job-list/limit-default-minimum-maximum
+label:: /per/job-list/limit-default-minimum-maximum
+
 part:: The values for `minimum`, `maximum` and `default` in requirement `/req/job-list/limit-definition` are only examples and MAY be changed.
 ====

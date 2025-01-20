@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /rec/core/process-execute-honor-prefer
+label:: /rec/core/process-execute-honor-prefer
 
 [.component,class=part]
 --

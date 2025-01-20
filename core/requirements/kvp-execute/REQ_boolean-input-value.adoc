@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/boolean-input-value
+label:: /req/kvp-execute/boolean-input-value
+
 [.component,class=conditions]
 --
 . The process input value is specified in-line in an execute request.

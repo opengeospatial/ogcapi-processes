@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/core/job-results-exception/invalid-query-parameter-value
+label:: /req/core/job-results-exception/invalid-query-parameter-value
 
 If the operation is executed using an invalid query parameter value, the response SHALL have HTTP status code 400.
 The content of that response SHALL be based upon the OpenAPI

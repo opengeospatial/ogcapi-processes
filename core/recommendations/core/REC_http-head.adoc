@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /rec/core/http-head
+label:: /rec/core/http-head
 
 The server SHOULD support the HTTP 1.1 method HEAD for all resources that support the method GET.
 ====

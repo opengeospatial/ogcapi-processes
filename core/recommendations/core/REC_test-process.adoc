@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /rec/core/test-process
+label:: /rec/core/test-process
 
 If a server implementing the OGC API - Processes - Part 1: Core is tested using CITE tests, the server SHOULD offer one of the following options:
 

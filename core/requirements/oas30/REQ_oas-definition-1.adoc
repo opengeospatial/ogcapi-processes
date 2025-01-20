@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/oas30/oas-definition-1
+label:: /req/oas30/oas-definition-1
+
 part:: The content of the response of the HTTP GET operation at the landing page
 SHALL include the following links to the API definition:
 

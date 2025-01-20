@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/job-list/links
+label:: /req/job-list/links
+
 [.component,class=part]
 --
 A `200`-response SHALL include the following links:

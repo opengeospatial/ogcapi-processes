@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /rec/core/link-header
+label:: /rec/core/link-header
 
 [.component,class=part]
 --

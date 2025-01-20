@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /rec/ogc-process-description/format-value-registration
+label:: /rec/ogc-process-description/format-value-registration
 
 Servers wishing to extend this list of `format` key values, SHOULD officially register such values with the https://www.ogc.org/ogcna[OGC Naming Authority].
 ====

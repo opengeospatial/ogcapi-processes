@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /rec/job-list/next-2
+label:: /rec/job-list/next-2
 
 Dereferencing a next page link (relation: `next`) SHOULD return additional jobs from the set of selected jobs that have not yet been returned.
 ====

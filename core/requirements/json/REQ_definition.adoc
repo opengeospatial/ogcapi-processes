@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/json/definition
+label:: /req/json/definition
 
 `200`-responses of the server SHALL support the following media type:
 

@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/ogc-process-description/inputs-def
+label:: /req/ogc-process-description/inputs-def
+
 [.component,class=part]
 --
 Each process <<process-input-schema,input definition>> SHALL be listed in the `inputs` section according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml[inputDescription.yaml].

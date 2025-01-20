@@ -3,7 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/oas30/exceptions-codes
-
+label:: /req/oas30/exceptions-codes
 
 For error situations that originate from the server, the API definition
 SHALL cover all applicable HTTP Status Codes.
