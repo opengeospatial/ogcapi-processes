@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /rec/job-list/job-list-landing-page
+label:: /rec/job-list/job-list-landing-page
 
 A link to the following resource SHOULD be added to the API landing page:
 

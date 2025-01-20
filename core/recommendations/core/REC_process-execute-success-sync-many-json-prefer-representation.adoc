@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /rec/core/process-execute-sync-many-json-prefer-representation
+label:: /rec/core/process-execute-sync-many-json-prefer-representation
 
 [.component,class=conditions]
 --

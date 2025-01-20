@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /rec/core/html
+label:: /rec/core/html
 
 To support browsing an implementation of OGC API - Processes with a web browser and to enable search engines to crawl and index a process, implementations SHOULD consider to support an HTML encoding.
 ====

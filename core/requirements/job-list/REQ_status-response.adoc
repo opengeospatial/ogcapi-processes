@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/job-list/status-response
+label:: /req/job-list/status-response
 
 If the `status` parameter is specified with the operation, only jobs that have a value for the `status` property (see: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[statusInfo.yaml]) that matches one of the specified values of the `status` parameter SHALL be included in the response.
 ====

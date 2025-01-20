@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/binary-input-value-qualified
+label:: /req/kvp-execute/binary-input-value-qualified
+
 [.component,class=conditions]
 --
 . The process input value is specified in-line in an execute request.

@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/input-by-reference
+label:: /req/kvp-execute/input-by-reference
+
 [.component,class=conditions]
 --
 . The process input value is specified by reference in an execute request.

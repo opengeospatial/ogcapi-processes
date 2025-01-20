@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/callback/job-callback
+label:: /req/callback/job-callback
 
 The server SHALL support callback functions for jobs.
 ====

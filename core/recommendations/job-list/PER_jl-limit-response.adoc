@@ -3,5 +3,7 @@
 ====
 [%metadata]
 identifier:: /per/job-list/limit-response
+label:: /per/job-list/limit-response
+
 part:: The server MAY return fewer jobs than requested (but not more).
 ====

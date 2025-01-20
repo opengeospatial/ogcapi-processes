@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/job-list/limit-definition
+label:: /req/job-list/limit-definition
 
 [.component,class=part]
 --

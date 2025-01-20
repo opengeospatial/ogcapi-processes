@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/core/pl-limit-response
+label:: /req/core/pl-limit-response
+
 [.component,class=part]
 --
 The response SHALL not contain more process summaries than specified by the optional `limit` parameter.

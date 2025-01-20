@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-success-async
+label:: /req/core/process-execute-success-async
+
 [.component,class=conditions]
 --
 The <<sc_execution_mode,negotiated execution mode>> is asynchronous.

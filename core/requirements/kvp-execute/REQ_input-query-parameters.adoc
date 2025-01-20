@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/input-query-parameters
+label:: /req/kvp-execute/input-query-parameters
 
 part:: Each input defined in a <<sc_process_description,process description>> SHALL map to a URI query parameter on the <<req_kvp-execute_process-execute-op,process execution endpoint>>.
 

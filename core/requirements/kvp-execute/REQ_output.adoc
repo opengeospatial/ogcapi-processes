@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/output
+label:: /req/kvp-execute/output
+
 [.component,class=conditions]
 --
 . A process output, with identifier `{output-name}`, is defined in the <<sc_process_description,process description>>.

@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-input-multiple-types
+label:: /req/core/process-execute-input-multiple-types
+
 [.component,class=conditions]
 --
 . The process input value is specified in-line in an execute request.

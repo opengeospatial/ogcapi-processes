@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/core/http
+label:: /req/core/http
 
 The server SHALL conform to <<rfc2616,HTTP 1.1>>.
 
