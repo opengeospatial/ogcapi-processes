@@ -3,7 +3,11 @@ required:
   - executionUnit
 properties:
   processDescription:
-    $ref: "../processes-core/process.yaml"
+    type: object
+    required: process
+    properties:
+      process:
+        $ref: "../processes-core/process.yaml"
   executionUnit:
     oneOf:
       - $ref: "executionUnit.yaml"
