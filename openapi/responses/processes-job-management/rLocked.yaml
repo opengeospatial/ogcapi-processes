@@ -1,4 +1,4 @@
-description: Job is locked. For example, the `status` of the job is currently something else than `succeeded`, `failed` and `created`.
+description: Job is locked. For example, the `status` of the job is currently something else than `successful`, `failed` and `created`.
 content:
    application/json:
       schema:

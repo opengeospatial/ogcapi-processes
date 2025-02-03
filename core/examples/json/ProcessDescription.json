@@ -132,7 +132,7 @@
             "format": "ogc-bbox"
           },
           {
-            "$ref": "../../openapi/schemas/bbox.yaml"
+            "$ref": "bbox.json"
           }
         ]
       }
@@ -285,7 +285,7 @@
                 "format": "geojson-geometry"
               },
               {
-                "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
+                "$ref": "https://geojson.org/schema/Geometry.json"
               }
             ]
           }
@@ -299,7 +299,7 @@
              "format": "ogc-bbox"
            },
            {
-             "$ref": "../../openapi/schemas/bbox.yaml"
+             "$ref": "bbox.json"
            }
         ]
       }

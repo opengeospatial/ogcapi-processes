@@ -30,7 +30,7 @@ A HTTP POST request to the execution-endpoint creates a new job. The inputs and 
 
 The URL for accessing status information is delivered in the HTTP header `location`.
 
-After a process is finished (status = success/failed), the results/exceptions can be retrieved.
+After a process is finished (status = successful/failed), the results/exceptions can be retrieved.
 
 [[img_core]]
 .Resources in the Core requirements class
