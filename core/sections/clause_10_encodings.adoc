@@ -42,6 +42,7 @@ include::../requirements/requirements_class_json.adoc[]
 
 include::../requirements/json/REQ_definition.adoc[]
 
+include::../recommendations/json/PER_media-types.adoc[]
 
 [[sc_requirements_class_html]]
 === Requirement Class "HTML"
@@ -51,5 +52,7 @@ This section defines the requirements class HTML.
 include::../requirements/requirements_class_html.adoc[]
 
 include::../requirements/html/REQ_definition.adoc[]
+
+include::../recommendations/html/PER_media-types.adoc[]
 
 include::../requirements/html/REQ_content.adoc[]

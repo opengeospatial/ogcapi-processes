@@ -1,0 +1,9 @@
+[[per_html_media-types]]
+[permission]
+====
+[%metadata]
+identifier:: /per/html/media-types
+label:: /per/html/media-types
+
+A HTML media type may be further qualified with additional subtype, suffix and parameter components.  For example, `test/html; charset=UTF-8`.
+====
