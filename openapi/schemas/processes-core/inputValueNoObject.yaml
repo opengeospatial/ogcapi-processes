@@ -4,6 +4,7 @@ anyOf:
   - type: integer
   - type: boolean
   - type: array
-    items: {}
+    items:
+      $ref: "inputValue.yaml"
   - $ref: "binaryInputValue.yaml"
   - $ref: "bbox.yaml"
