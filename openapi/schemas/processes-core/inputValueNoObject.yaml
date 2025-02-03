@@ -1,4 +1,4 @@
-oneOf:
+anyOf:
   - type: string
   - type: number
   - type: integer
