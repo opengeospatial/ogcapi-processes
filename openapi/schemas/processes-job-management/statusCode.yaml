@@ -4,6 +4,6 @@ enum:
   - created
   - accepted
   - running
-  - succeeded
+  - successful
   - failed
   - dismissed
