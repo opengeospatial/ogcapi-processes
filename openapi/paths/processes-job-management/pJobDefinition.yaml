@@ -6,7 +6,7 @@ get:
    tags:
      - Jobs Management
    parameters:
-     - $ref: "../../parameters/processes-core/jobId.yaml"
+     - $ref: "../../parameters/processes-core/jobID.yaml"
    responses:
      200:
        $ref: "../../schemas/processes-workflows/execute-workflows.yaml"

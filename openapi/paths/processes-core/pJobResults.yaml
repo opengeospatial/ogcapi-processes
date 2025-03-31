@@ -8,7 +8,7 @@ get:
    tags:
      - Jobs
    parameters:
-     - $ref: "../../parameters/processes-core/jobId.yaml"
+     - $ref: "../../parameters/processes-core/jobID.yaml"
      - $ref: "../../parameters/processes-core/prefer-header-results.yaml"
    responses:
      200:

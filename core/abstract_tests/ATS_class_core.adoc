@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
-subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core>>
+subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core>>
 classification:: Target Type:Web API
 conformance-test:: /conf/core
 conformance-test:: /conf/core/api-definition-op

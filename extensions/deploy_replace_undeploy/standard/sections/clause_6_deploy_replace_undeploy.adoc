@@ -110,7 +110,7 @@ Client                                                        Server
   |------------------------------------------------------------>|
   |                                                             |
   |  HTTP/1.1 201 Created                                       |
-  |  Location: /processes/{processId}                           |
+  |  Location: /processes/{processID}                           |
   |<------------------------------------------------------------|
 ```
 
@@ -171,7 +171,7 @@ NOTE: The new process definition replaces the old process definition. Version co
 ```
 Client                                                        Server
   |                                                             |
-  |  PUT /processes/{processId}   HTTP/1.1                      |
+  |  PUT /processes/{processID}   HTTP/1.1                      |
   |  Content-Type: application/ogcapppkg+json                   |
   |                                                             |
   |  ... Body contains a formal description of the process to   |
@@ -235,7 +235,7 @@ previously deployed process.
 ```
 Client                                                        Server
   |                                                             |
-  |  DELETE /processes/{processId}   HTTP/1.1                   |
+  |  DELETE /processes/{processID}   HTTP/1.1                   |
   |------------------------------------------------------------>|
   |                                                             |
   |  HTTP/1.1 204 OK                                            |

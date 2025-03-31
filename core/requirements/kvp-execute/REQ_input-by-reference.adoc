@@ -16,7 +16,7 @@ If the input cardinality is 1 then the input parameter SHALL have the following 
 
 [source,YAML]
 ----
-name: {input-name}
+name: {inputID}
 in: query
 required: false
 schema:
@@ -41,7 +41,7 @@ style: deepObject
 explode: true
 ----
 
-where the token `{input-name}` represented the identifier of the input.
+where the token `{inputID}` represented the identifier of the input.
 --
 
 [.component,class=part]

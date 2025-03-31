@@ -10,9 +10,9 @@ create, update and start jobs.
 
 The HTTP POST method on the `/jobs` path is used on to create new jobs.
 
-The HTTP PATCH method on the `/jobs/{jobId}` is used to update the definition of a previously created jobs that are accessible via the Processes API endpoint.
+The HTTP PATCH method on the `/jobs/{jobID}` is used to update the definition of a previously created jobs that are accessible via the Processes API endpoint.
 
-Finally, the HTTP POST method on the `/job/{jobId}/results` is used to start a job.
+Finally, the HTTP POST method on the `/job/{jobID}/results` is used to start a job.
 
 Creating or updating a job requires that a formal description of the new or
 updated jobs be provided by the client.  This Standard does not
@@ -86,7 +86,7 @@ Client                                                        Server
   |------------------------------------------------------------>|
   |                                                             |
   |  HTTP/1.1 201 Created                                       |
-  |  Location: /jobs/{jobId}                                    |
+  |  Location: /jobs/{jobID}                                    |
   |<------------------------------------------------------------|
 ```
 
@@ -148,7 +148,7 @@ NOTE: The new job definition replaces the old job definition. Version control is
 ```
 Client                                                        Server
   |                                                             |
-  |  PATCH /jobs/{jobId}   HTTP/1.1                             |
+  |  PATCH /jobs/{jobID}   HTTP/1.1                             |
   |  Content-Type: application/json                             |
   |                                                             |
   |------------------------------------------------------------>|
@@ -209,7 +209,7 @@ the execution of a previously created jobs.
 ```
 Client                                                        Server
   |                                                             |
-  |  POST /jobs/{jobId}/results   HTTP/1.1                      |
+  |  POST /jobs/{jobID}/results   HTTP/1.1                      |
   |------------------------------------------------------------>|
   |                                                             |
   |  HTTP/1.1 200 OK                                            |
