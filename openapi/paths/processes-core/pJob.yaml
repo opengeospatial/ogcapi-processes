@@ -8,7 +8,7 @@ get:
    tags:
      - Jobs
    parameters:
-     - $ref: "../../parameters/processes-core/jobId.yaml"
+     - $ref: "../../parameters/processes-core/jobID.yaml"
    responses:
      200:
        $ref: "../../responses/processes-core/rStatus.yaml"
@@ -26,7 +26,7 @@ delete:
    tags:
      - Jobs
    parameters:
-     - $ref: "../../parameters/processes-core/jobId.yaml"
+     - $ref: "../../parameters/processes-core/jobID.yaml"
    responses:
      200:
        $ref: "../../responses/processes-core/rStatus.yaml"

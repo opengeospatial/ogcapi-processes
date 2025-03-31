@@ -15,35 +15,35 @@ GET /processes
 Lists the processes this API offers.
 
 ```
-GET /processes/{process-id}
+GET /processes/{processID}
 ```
 
 Returns a detailed description of a process.
 
 ```
-GET /processes/{process-id}/jobs
+GET /processes/{processID}/jobs
 ```
 
 Returns the running and finished jobs for a process (optional).
 
 ```
-POST /processes/{process-id}/jobs
+POST /processes/{processID}/jobs
 ```
 Executes a process, i.e. creates a new job. Inputs and outputs will have to be specified in a JSON document that needs to be send in the POST body.
 
 ```
-GET /processes/{process-id}/jobs/{job-id}
+GET /processes/{processID}/jobs/{jobID}
 ```
 
 Returns the status of a job of a process.
 
 ```
-DELETE /processes/{process-id}/jobs/{job-id}
+DELETE /processes/{processID}/jobs/{jobID}
 ```
 
 Cancel a job execution.
 
 ```
-GET /processes/{process-id}/jobs/{job-id}/results
+GET /processes/{processID}/jobs/{jobID}/results
 ```
 Returns the result of a job of a process.

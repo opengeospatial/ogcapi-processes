@@ -9,7 +9,7 @@ get:
      - Jobs
    parameters:
      - $ref: "../../parameters/processes-core/limit.yaml"
-     - $ref: "../../parameters/processes-core/processId-query.yaml"
+     - $ref: "../../parameters/processes-core/processID-query.yaml"
      - $ref: "../../parameters/processes-core/status.yaml"
      - $ref: "../../parameters/processes-core/minDuration.yaml"
      - $ref: "../../parameters/processes-core/maxDuration.yaml"
