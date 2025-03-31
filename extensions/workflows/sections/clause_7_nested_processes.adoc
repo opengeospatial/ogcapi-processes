@@ -7,7 +7,7 @@ The _Nested Processes_ conformance class allows to use the output of a process a
 Unless an implementation also conforms to the _Remote Processes_ conformance class, only local processes are supported.
 
 Specifying a full process URI at the top-level for a process execution request is optional, since the execution request
-will be posted to a specific `{processId}`, but allows the workflow definition to be self-describing and reusable, enabling GIS clients to easily
+will be posted to a specific `{processID}`, but allows the workflow definition to be self-describing and reusable, enabling GIS clients to easily
 load the workflow definition as a data source, or publish it as a new virtual collection to any OGC API supporting execution requests as a content type for a `POST`
 method to `/collections`.
 

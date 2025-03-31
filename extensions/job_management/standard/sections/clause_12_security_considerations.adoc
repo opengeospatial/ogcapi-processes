@@ -8,6 +8,6 @@ Users making modifications to job resources need to:
 
 . Be authenticated,
 . Have "modification privileges" on the jobs offered through the API,
-. Have access to one or more of the POST and/or PATCH methods on the jobs /job and /jobs/{jobId} endpoints.
+. Have access to one or more of the POST and/or PATCH methods on the jobs `/job` and `/jobs/{jobID}` endpoints.
 
 The API definition, as defined in Clause 7.3 from <<OAProc-1>>, must reflect this in the resource paths and their available methods.

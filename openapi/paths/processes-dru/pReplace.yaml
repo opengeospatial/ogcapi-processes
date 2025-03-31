@@ -8,7 +8,7 @@ put:
    tags:
      - DRU
    parameters:
-     - $ref: "../../parameters/processes-core/processId-path.yaml"
+     - $ref: "../../parameters/processes-core/processID-path.yaml"
    requestBody:
      description: |-
        An OGC Application Package used to deploy a new process.

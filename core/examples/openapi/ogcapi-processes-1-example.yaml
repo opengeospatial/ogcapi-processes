@@ -226,7 +226,7 @@ paths:
             application/json:
               schema:
                 $ref: "https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/responses/ServerError.yaml"
-  '/jobs/{jobID}/results/{outputId}':
+  '/jobs/{jobID}/results/{outputID}':
     get:
       summary: retrieve the result of a job identified by it output ID
       description: |-
