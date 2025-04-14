@@ -18,7 +18,7 @@ This following table provides an overview of resources, applicable HTTP methods 
 
 [[table_core_resources]]
 .Requirements class `Core`
-[cols="27,25,10,10,28",options="header"]
+[cols=",,,,",options="header"]
 |===
 |Resource |Path |HTTP method |Parameter |Document reference
 |Landing page |`/` |GET |N/A |<<sc_landing_page>>
