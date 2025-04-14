@@ -1,4 +1,4 @@
-name: {input-name}
+name: {inputID}
 in: query
 required: false
 schema:

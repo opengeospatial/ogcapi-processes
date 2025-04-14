@@ -4,6 +4,6 @@
 [%metadata]
 label:: /req/deploy-replace-undeploy/deploy-response-success
 part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code `201`.
-part:: A response with HTTP status code `201` SHALL include a `Location` header with the URI of the deployed processes (path: `/processes/{processId}`).
+part:: A response with HTTP status code `201` SHALL include a `Location` header with the URI of the deployed processes (path: `/processes/{processID}`).
 part:: If the operation is not executed immediately, but is added to a processing queue, the response SHALL have a HTTP status code `202`.
 ====

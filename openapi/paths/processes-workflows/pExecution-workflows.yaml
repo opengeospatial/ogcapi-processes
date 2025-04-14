@@ -8,7 +8,7 @@ post:
    tags:
      - Processes
    parameters:
-     - $ref: "../../parameters/processes-core/processId-path.yaml"
+     - $ref: "../../parameters/processes-core/processID-path.yaml"
      - $ref: "../../parameters/processes-workflows/response.yaml"
      - $ref: "../../parameters/processes-core/prefer-header-execution.yaml"
    requestBody:

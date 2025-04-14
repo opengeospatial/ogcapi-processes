@@ -6,7 +6,7 @@ patch:
    tags:
      - Jobs Management
    parameters:
-     - $ref: "../../parameters/processes-core/jobId.yaml"
+     - $ref: "../../parameters/processes-core/jobID.yaml"
      # If we want to use similar mechanism as the workflows, we can use the
      # following parameter.
      #- $ref: "../../parameters/processes-workflows/response.yaml"

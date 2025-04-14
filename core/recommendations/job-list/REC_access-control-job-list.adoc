@@ -4,5 +4,5 @@
 identifier:: /rec/job-list/access-control-job-list
 label:: /rec/job-list/access-control-job-list
 
-Servers implementing the conformance class 'Job List' SHOULD have an access control in place for the /jobs endpoint to prevent misuse of job-ids.
+Servers implementing the conformance class 'Job List' SHOULD have an access control in place for the /jobs endpoint to prevent misuse of job identifiers.
 ====

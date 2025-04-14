@@ -5,13 +5,13 @@
 [%metadata]
 identifier:: /conf/dru/undeploy-delete-op
 target:: /req/deploy-replace-undeploy/undeploy-delete-op
-test-purpose:: Validate that the server supports HTTP DELETE operation at the path /processes/{processId}
+test-purpose:: Validate that the server supports HTTP DELETE operation at the path /processes/{processID}
 test-method::
 +
 --
 1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
 
-2. Append `/{processId}` to each path, where `{processId}` is not an existing process id, i.e. `not-existing-process`.
+2. Append `/{processID}` to each path, where `{processID}` is not an existing process id, i.e. `not-existing-process`.
 
 3. Issue an HTTP DELETE request for each path.
 
