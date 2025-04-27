@@ -6,4 +6,4 @@ description:: For executing a workflow defined using the Common Workflow Languag
 part:: The Implementation SHALL support ad-hoc execution of a CWL workflow definition (`Content-Type: application/cwl+json`) POSTed to `/processes/CWL/execution`.
 ====
 
-TODO: Verify whether a `{processId}` for the execution end-point is relevant or not for CWL.
+TODO: Verify whether a `{processID}` for the execution end-point is relevant or not for CWL.

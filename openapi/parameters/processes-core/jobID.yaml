@@ -1,4 +1,4 @@
-name: jobId
+name: jobID
 in: path
 description: local identifier of a job
 required: true

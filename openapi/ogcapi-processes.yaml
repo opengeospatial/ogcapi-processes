@@ -35,28 +35,28 @@ paths:
       # OGC API - Processes Part 2: Deploy, Replace, Undeploy
       $ref: 'paths/processes-dru/pProcessListDeploy.yaml'
 
-   /processes/{processId}:
+   /processes/{processID}:
       # OGC API - Processes Part 1: Core
       #$ref: 'paths/processes-core/pProcessDescription.yaml'
       
       # OGC API - Processes Part 2: Deploy, Replace, Undeploy
       $ref: 'paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml'
 
-   /processes/{processId}/package:
+   /processes/{processID}/package:
       # OGC API - Processes Part 2: Deploy, Replace, Undeploy
       $ref: 'paths/processes-dru/pPackage.yaml'
 
-   /processes/{processId}/execution:
+   /processes/{processID}/execution:
       $ref: 'paths/processes-workflows/pExecution-workflows.yaml'
 
    # OGC API - Processes - Part 1: Core (Jobs, required for ASync execution)
    /jobs:
       $ref: 'paths/processes-core/pJobsList.yaml'
 
-   /jobs/{jobId}:
+   /jobs/{jobID}:
       $ref: 'paths/processes-core/pJob.yaml'
 
-   /jobs/{jobId}/results:
+   /jobs/{jobID}/results:
       $ref: 'paths/processes-core/pJobResults.yaml'
 
 
@@ -176,19 +176,19 @@ components:
          $ref: 'parameters/common-crs/subset-crs.yaml'
 
       # Processes - Core
-      processId-path:
-         $ref: 'parameters/processes-core/processId-path.yaml'
+      processID-path:
+         $ref: 'parameters/processes-core/processID-path.yaml'
       # Processes - Core (1.1?)
-      outputId:
-         $ref: 'parameters/processes-core/outputId.yaml'
+      outputID:
+         $ref: 'parameters/processes-core/outputID.yaml'
 
       # Processes - Core (Jobs)
-      jobId:
-         $ref: 'parameters/processes-core/jobId.yaml'
+      jobID:
+         $ref: 'parameters/processes-core/jobID.yaml'
 
       # Processes - Core (Querying Jobs)
-      processId-query:
-         $ref: 'parameters/processes-core/processId-query.yaml'
+      processID-query:
+         $ref: 'parameters/processes-core/processID-query.yaml'
       output:
          $ref: 'parameters/processes-core/output.yaml'
       limit:
