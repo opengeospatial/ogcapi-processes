@@ -346,7 +346,7 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 
 === Example
 
-The following URL is an example of retrieving a <<sc_process_description,process description>> from the `/processes/{processId}` endpoint.
+The following URL is an example of retrieving a <<sc_process_description,process description>> from the `/processes/{processID}` endpoint.
 [source]
 ----
 https://processing.example.org/processes/EchoProcess

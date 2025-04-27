@@ -6,7 +6,7 @@ get:
    tags:
      - DRU
    parameters:
-     - $ref: "../../parameters/processes-core/processId-path.yaml"
+     - $ref: "../../parameters/processes-core/processID-path.yaml"
    responses:
      200:
        description: The formal used to deploy a process

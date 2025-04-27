@@ -26,7 +26,7 @@ method.
 |Resource endpoint 3+|HTTP method
 | |**POST** |**PUT** |**DELETE**
 |`/processes` |<<deploy,deploy>> |n/a |n/a
-|`/processes/{processId}` |n/a |<<replace,replace>> |<<undeploy,undeploy>>
+|`/processes/{processID}` |n/a |<<replace,replace>> |<<undeploy,undeploy>>
 |===
 
 
