@@ -258,6 +258,17 @@ include::../recommendations/core/REC_access-control-expose-headers.adoc[]
 
 include::../recommendations/core/REC_html.adoc[]
 
+=== Content negotiation by profile
+
+The use of generic media types such as `application/json` makes it difficult to request or identify different flavors or profiles of a resource.  For example, the media type `application/json` could be used to describe an <<ogc_process_description,OGC process description document>> as well as an https://documentation.dataspace.copernicus.eu/APIs/openEO/Processes.html[OpenEO process description document].  
+
+It would this be useful if there was a mechanism for requesting a profile of a resource.  Although there is a new HTTP header, `Accept-Profile`, that is to be defined in an upcoming https://profilenegotiation.github.io/I-D-Profile-Negotiation/I-D-Profile-Negotiation[Internet-Draft] there is currently no standardzied was to request a profile of a resource.  Existing standards, however, do provide mechanisms for specifying profile information in HTTP headers.  Specifically (see https://www.w3.org/TR/dx-prof-conneg/#bib-prof-ietf[Content Negotiation by Profile]) profiles of a resource may be requested by:
+
+* using the `profile` parameter if the media type includes provisions for such a parameter (e.g. `application/ld+json`),
+* using the `profile` parameter with the https://www.rfc-editor.org/rfc/rfc7240[HTTP Prefer header]
+* using a link header with `rel="profile"`.
+
+This standard also defines a query paramete, `profile`, that may be used with an HTTP GET request to specify one or more profiles of a resource that are to be retrieved.
 
 [[sc_limit_parameter]]
 === Limit parameter
@@ -422,6 +433,7 @@ requirements class makes the following recommendation:
 
 include::../recommendations/core/REC_ogc-process-description.adoc[]
 
+include::../recommendations/core/REC_header-profile-link.adoc[]
 
 ==== Error situations
 

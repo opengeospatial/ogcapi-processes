@@ -351,6 +351,10 @@
       "href": "https://processing.example.org/oapi-p/processes/EchoProcess/execution",
       "rel": "http://www.opengis.net/def/rel/ogc/1.0/execute",
       "title": "Execute endpoint"
+    },
+    {
+      "href": "https://www.opengis.net/dev/profile/OGC/0/ogc-process-description",
+      "rel": "profile"
     }
   ]
 }

@@ -16,3 +16,14 @@ The media type for an OpenAPI 3.0 definition is
 
 NOTE: The OpenAPI media types have not yet been registered with IANA and may
 change in the future.
+
+The following table defines profile URIs that may be used to more specifically identify JSON-encoded documents beyond what is possible using the generic `application/json` media type.
+
+[[profile-uris]]
+.Profile identifiers
+[cols="2,6"]
+|===
+^|*Profile URI* ^|*Description*
+|https://www.opengis.net/dev/profile/OGC/0/ogc-process-description |A JSON-encoded OGC process description as defined in <<ogc_process_description,Requirements Class "OGC Process Description">>.
+|https://www.opengis.net/dev/profile/OGC/0/ogc-results |A JSON document that contains <<schema_results,processing results>>.
+|===
