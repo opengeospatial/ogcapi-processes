@@ -1,0 +1,17 @@
+[[rec_core_header-profile-link]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/core/header-profile-link
+label:: /rec/core/header-profile-link
+
+[.component,class=conditions]
+--
+An <<ogc_process_description,OGC process description>> is requested.
+--
+
+[.component,class=part]
+--
+The server SHOULD include a profile link (href: `http://www.opengis.net/def/profile/OGC/0/ogc-process-description`, relation: `profile`) in the response https://datatracker.ietf.org/doc/html/rfc8288#section-3[HTTP headers] (see https://datatracker.ietf.org/doc/html/rfc6906[RFC 6906, The 'profile' Link Relation Type]).
+--
+====

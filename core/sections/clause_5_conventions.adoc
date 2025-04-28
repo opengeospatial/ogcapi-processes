@@ -44,6 +44,8 @@ The following https://www.iana.org/assignments/link-relations/link-relations.xht
 
 * **up**: Refers to a parent document in a hierarchy of documents.
 
+* **profile**: Refers to a profile of a resource.
+
 In addition, the following link relation types are used for which no applicable registered link relation type could be identified.
 
 * **http://www.opengis.net/def/rel/ogc/1.0/conformance**: Refers to a resource that identifies the specifications that the link's context conforms to.

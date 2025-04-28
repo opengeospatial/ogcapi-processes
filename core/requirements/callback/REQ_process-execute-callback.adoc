@@ -5,5 +5,20 @@
 identifier:: /req/callback/job-callback
 label:: /req/callback/job-callback
 
+[.component,class=part]
+--
 The server SHALL support callback functions for jobs.
+--
+
+[.component,class=part]
+--
+The optional `subscriber` element SHALL be used on an <<execute-request-body,execute>> request to specify zero or more of the success, in-progress and failed URI endpoints.
+--
+
+[.component,class=part]
+--
+The schema of the `subscriber` element of the <<execute-request-body,execute>> request SHALL be defined by the following schema fragment:
+
+include::../../../openapi/schemas/processes-core/subscriber.yaml[]
+--
 ====
