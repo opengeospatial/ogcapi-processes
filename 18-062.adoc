@@ -68,7 +68,7 @@ include::core/sections/clause_15_kvp-execute.adoc[]
 
 include::core/sections/clause_16_media_types.adoc[]
 
-include::core/sections/clause_17_query-parameter-profile.adoc[]
+include::core/sections/clause_17_profile.adoc[]
 
 include::core/sections/clause_18_additional-api-building-blocks.adoc[]
 

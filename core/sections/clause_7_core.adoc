@@ -258,6 +258,7 @@ include::../recommendations/core/REC_access-control-expose-headers.adoc[]
 
 include::../recommendations/core/REC_html.adoc[]
 
+[[con-neg-by-profile]]
 === Content negotiation by profile
 
 The use of generic media types such as `application/json` makes it difficult to request or identify different flavors or profiles of a resource.  For example, the media type `application/json` could be used to describe an <<ogc_process_description,OGC process description document>> as well as an https://documentation.dataspace.copernicus.eu/APIs/openEO/Processes.html[OpenEO process description document].  
@@ -337,6 +338,7 @@ include::../requirements/core/REQ_process-list-limit-response.adoc[]
 include::../recommendations/core/PER_process-list-limit-response.adoc[]
 
 
+[[sc_process_list_response]]
 ==== Response
 
 include::../requirements/core/REQ_process-list-success.adoc[]
@@ -1164,6 +1166,7 @@ The following section describes the requirements to retrieve information about t
 
 include::../requirements/core/REQ_job-op.adoc[]
 
+[[sc_status_info_response]]
 ==== Response
 
 include::../requirements/core/REQ_job-success.adoc[]

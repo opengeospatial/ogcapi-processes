@@ -58,7 +58,7 @@ include::../requirements/job-list/REQ_jl-limit-response.adoc[]
 
 include::../recommendations/job-list/PER_jl-limit-response.adoc[]
 
-
+[[sc_job_list_response]]
 === Response
 
 include::../requirements/job-list/REQ_success.adoc[]
