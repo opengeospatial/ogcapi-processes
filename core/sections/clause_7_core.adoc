@@ -1115,6 +1115,8 @@ include::../requirements/core/REQ_process-execute-success-sync-one-default-conte
 
 NOTE: The size of a response may be determined without actually transmitting the entire response by using the <<rec_core_http-head,HTTP HEAD>> method to retrieve the <<rec_core_content-length,`Content-Length`>> header.
 
+include::../recommendations/core/REC_process-execute-success-sync-one-redirect.adoc[]
+
 ===== Response requesting multiple processing outputs
 
 When a process is executed synchronously and multiple processing outputs are requested, the following requirements and recommendations apply:
