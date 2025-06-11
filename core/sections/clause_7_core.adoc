@@ -1065,10 +1065,7 @@ This above table shows all possible combinations of execute parameters that are 
 [[implicit-explicit-outputs]]
 [NOTE]
 ====
-A process output may be requested explicitly or implicitly in an <<execute-request-body,execute request>> .
-
-* An "explicitly" requested output is one that is specified in the "outputs" section of an <<execute-request-body,execute request>>.
-* An "implicitly" requested output is one that is defined in the <<rc_ogc-process-description,description of a process>> and is included as part of the <<execute-request-body,execute request>> request because the "outputs" parameter was omitted (see requirement: <<req_core_process-execute-omitted-outputs,/req/core/process-execute-omitted-outputs>>).
+A process output may be requested <<explicit-process-output,explicitly>> or <<implicit-process-output,implicitly>> in an <<execute-request-body,execute request>> .
 ====
 
 [[sync_note_4]]
