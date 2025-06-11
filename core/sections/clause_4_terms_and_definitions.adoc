@@ -3,19 +3,6 @@
 
 === Terms and definitions
 
-==== process
-
-A process p is a function that for each input returns a corresponding output
-
-[stem%unnumbered]
-++++
-p: X -> Y
-++++
-
-where stem:[X] denotes the domain of arguments stem:[x] and stem:[Y] denotes the co-domain of values y. In this Standard, process arguments are referred to as process inputs and result values are referred to as process outputs. Processes that have no process inputs represent value generators that deliver constant or random process outputs.
-
-The term "process" is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this Standard uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the OGC WPS 2.0 standard.
-
 ==== job
 
 The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.
@@ -32,6 +19,19 @@ The term "link" is commonly used as substitute for URL or URI. In this Standard,
 ==== Link header
 
 HTTP Link header, as defined in <<rfc8288,RFC 8288 (Web Linking)>>.
+
+==== process
+
+A process p is a function that for each input returns a corresponding output
+
+[stem%unnumbered]
+++++
+p: X -> Y
+++++
+
+where stem:[X] denotes the domain of arguments stem:[x] and stem:[Y] denotes the co-domain of values y. In this Standard, process arguments are referred to as process inputs and result values are referred to as process outputs. Processes that have no process inputs represent value generators that deliver constant or random process outputs.
+
+The term "process" is one of the most used terms both in the information and geosciences domain. If not stated otherwise, this Standard uses the term process as an umbrella term for any algorithm, calculation or model that either generates new data or transforms some input data into output data as defined in section 4.1 of the OGC WPS 2.0 standard.
 
 ==== process description
 
@@ -57,6 +57,15 @@ A process offering is an identifiable process that may be executed on a particul
 
 Process outputs are the results of a process and refer to data returned by a process. Each process output is an identifiable item.
 
+[[explicit-process-output]]
+==== process output (explicitly requested)
+
+A process output with identifier `{outputID}` that is explicitly specified in the "outputs" section of an <<execute-request-body,execute request>>.
+
+[[implicit-process-output]]
+==== process output (implicitly requested)
+
+A process output that is defined in the <<sc_process_description,description of a process>> and is generated as a result of an <<execute-request-body,execute request>> where the "outputs" parameter has been omitted.  Omitting the "outputs" parameters of an <<execute-request-body,execute request>> is equivalent to explicitly requesting all of the outputs defined in the <<sc_process_description,process description>>
 
 ==== REST
 

@@ -5,5 +5,5 @@
 identifier:: /req/core/job-result
 label:: /req/core/job-result
 
-For each output, with output identifier `outputID`, defined in the <<sc_process_description,description of a process>> and requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>) in an <<execute-request-body,execute request>>, the server SHALL support the HTTP GET operation at the path `/jobs/{jobID}/results/{outputID}`.
+For each output, with output identifier `outputID`, defined in the <<sc_process_description,description of a process>> and requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) in an <<execute-request-body,execute request>>, the server SHALL support the HTTP GET operation at the path `/jobs/{jobID}/results/{outputID}`.
 ====

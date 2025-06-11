@@ -995,7 +995,7 @@ The way a server responds to a process execution request is determined by the fo
 The following table maps the possible responses based on the combinations of these execute parameters.  The column headers denote:
 
 . *Negotiated execute mode*: see <<sc_execution_mode>>
-. *Requested # outputs*: The number of requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>) outputs in the <<execute-request-body,execute request>>
+. *Requested # outputs*: The number of requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>>
 . *Return preference*: The negotiated <<sc_output_value_size,return preferences>>
 . *Response HTTP code*: The https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context.
 . *Response headers*: Any required https://datatracker.ietf.org/doc/html/rfc2616#section-14[HTTP headers] that the server must include in this context.
@@ -1315,7 +1315,7 @@ NOTE: The size of individual processing results may be determined without actual
 
 The way a server responds when retrieving job results depends on:
 
-* The number of outputs requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>) in an <<execute-request-body,execute request>>.
+* The number of outputs requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) in an <<execute-request-body,execute request>>.
 * The negotiated content type for the response (via the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header) or lack thereof,
 * Any negotiated client preferences (via the HTTP Prefer header).
 
@@ -1323,7 +1323,7 @@ The following table maps the possible responses based on the combinations of par
 
 The column headers in the following table denote:
 
-. *Requested # outputs*: The number of outputs requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>) in the <<execute-request-body,execute request>>.
+. *Requested # outputs*: The number of outputs requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) in the <<execute-request-body,execute request>>.
 . *Access path*: The API endpoint from which the result(s) can be retrieved.
 . *Return preference*: The negotiated <<sc_output_value_size,return preferences>>.
 . *Response HTTP code*: The https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context.

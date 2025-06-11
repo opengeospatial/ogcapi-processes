@@ -8,7 +8,7 @@ label:: /rec/core/process-execute-sync-many-json-prefer-none
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous.
-. The number of requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>) outputs in the <<execute-request-body,execute request>> is 2 or more.
+. The number of requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 2 or more.
 . No https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[return preference] accompanies the request.
 --
 
