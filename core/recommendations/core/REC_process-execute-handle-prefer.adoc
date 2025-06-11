@@ -5,5 +5,5 @@
 identifier:: /rec/core/process-execute-handle-prefer
 label:: /rec/core/process-execute-handle-prefer
 
-A client that accompanies an execute request with the HTTP https://datatracker.ietf.org/doc/html/rfc7240#section-2[`Prefer`] header asserting a https://tools.ietf.org/html/rfc7240#section-4.1[`respond-async`] preference and/or a https://tools.ietf.org/html/rfc7240#section-4.3[`wait`] preference SHOULD be prepared to receive either an asynchronous or a synchronous response.
+A client that accompanies an <<execute-request-body,execute request>> with the HTTP https://datatracker.ietf.org/doc/html/rfc7240#section-2[`Prefer`] header asserting a https://tools.ietf.org/html/rfc7240#section-4.1[`respond-async`] preference and/or a https://tools.ietf.org/html/rfc7240#section-4.3[`wait`] preference SHOULD be prepared to receive either an asynchronous or a synchronous response.
 ====

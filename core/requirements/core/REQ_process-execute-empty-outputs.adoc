@@ -1,0 +1,17 @@
+[[req_core_process-execute-empty-outputs]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/process-execute-empty-outputs
+label:: /req/core/process-execute-empty-outputs
+
+[.component,class=conditions]
+--
+. The "outputs" parameter is include in the <<execute-request-body,execute request>> but its content is empty (i.e. "outputs":{}).
+--
+
+[.component,class=part]
+--
+An empty "outputs" parameter in the <<execute-request-body,execute request>> SHALL be equivalent to requesting execution of a process without generating a response body.
+--
+====

@@ -1,0 +1,18 @@
+[[req_core_process-execute-omitted-outputs]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/process-execute-omitted-outputs
+label:: /req/core/process-execute-omitted-outputs
+
+[.component,class=conditions]
+--
+. The <<sc_process_description,process description>> defines one or more outputs.
+. The "outputs" parameter is omitted from the <<execute-request-body,execute request>>.
+--
+
+[.component,class=part]
+--
+Omitting the "outputs" parameter in the <<execute-request-body,execute request>> SHALL be equivalent to explicitly requesting all of the defined outputs of the process.
+--
+====

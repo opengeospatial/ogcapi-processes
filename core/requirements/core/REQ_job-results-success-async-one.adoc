@@ -8,7 +8,7 @@ label:: /req/core/job-results-async-one
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is asynchronous,
-. The number of requested outputs is 1.
+. The number of requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
 . The result is retieved from the `/jobs/{jobID}/results/{outputID}` endpoint.
 --
 

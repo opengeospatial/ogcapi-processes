@@ -263,7 +263,7 @@ include::../recommendations/core/REC_html.adoc[]
 
 The use of generic media types such as `application/json` makes it difficult to request or identify different flavors or profiles of a resource.  For example, the media type `application/json` could be used to describe an <<ogc_process_description,OGC process description document>> as well as an https://documentation.dataspace.copernicus.eu/APIs/openEO/Processes.html[OpenEO process description document].  
 
-It would this be useful if there was a mechanism for requesting a profile of a resource.  Although there is a new HTTP header, `Accept-Profile`, that is to be defined in an upcoming https://profilenegotiation.github.io/I-D-Profile-Negotiation/I-D-Profile-Negotiation[Internet-Draft] there is currently no standardzied was to request a profile of a resource.  Existing standards, however, do provide mechanisms for specifying profile information in HTTP headers.  Specifically (see https://www.w3.org/TR/dx-prof-conneg/#bib-prof-ietf[Content Negotiation by Profile]) profiles of a resource may be requested by:
+It would thus be useful if there was a mechanism for requesting a profile of a resource.  Although there is a new HTTP header, `Accept-Profile`, that is to be defined in an upcoming https://profilenegotiation.github.io/I-D-Profile-Negotiation/I-D-Profile-Negotiation[Internet-Draft] there is currently no standardzied was to request a profile of a resource.  Existing standards, however, do provide mechanisms for specifying profile information in HTTP headers.  Specifically (see https://www.w3.org/TR/dx-prof-conneg/#bib-prof-ietf[Content Negotiation by Profile]) profiles of a resource may be requested by:
 
 * using the `profile` parameter if the media type includes provisions for such a parameter (e.g. `application/ld+json`),
 * using the `profile` parameter with the https://www.rfc-editor.org/rfc/rfc7240[HTTP Prefer header]
@@ -500,13 +500,30 @@ include::../../openapi/schemas/processes-core/format.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/format.yaml[`format.yaml`].
 
+[[sc_execution_mode]]
+===== Execution mode
+
+A process may be executed synchronously or asynchronously.
+
+Which mode a server responds with is a function of the job control options specified in the <<sc_process_description,process description>> and the presence or absence of the HTTP `Prefer` header (http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240]).
+
+include::../requirements/core/REQ_process-execute-default-execution-mode.adoc[]
+
+include::../requirements/core/REQ_process-execute-auto-execution-mode.adoc[]
+
+include::../recommendations/core/REC_process-execute-honor-prefer.adoc[]
+
+include::../recommendations/core/REC_process-execute-handle-prefer.adoc[]
+
+include::../recommendations/core/REC_process-execute-preference-applied.adoc[]
+
 [[sc_process_inputs]]
 ===== Process inputs
 
 ====== Overview
 
 Each process input is a name/value pair that appears in the `inputs` section of
-an execute request as show in the following example:
+an <<execute-request-body,execute request>> as show in the following example:
 
 ```
 "inputs": {
@@ -520,7 +537,7 @@ The actual name of each input is its identifier as specified by the input's defi
 
 ====== Input values 
 
-As shown in https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inlineOrRefData.yaml[inlineOrRefData.yaml], a process input value that is specified in-line in an execute request can be:
+As shown in https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inlineOrRefData.yaml[inlineOrRefData.yaml], a process input value that is specified in-line in an <<execute-request-body,execute request>> can be:
 
 * a simple literal value,
 * an array,
@@ -639,7 +656,7 @@ An array of objects values:
 ],
 ----
 
-NOTE: In an execute request, as per requirement <<req_core_process-execute-input-inline-object,/req/core/process-execute-input-inline-object>>, object values must be encoded as <<qualified-value,qualified values>>.
+NOTE: In an <<execute-request-body,execute request>>, as per requirement <<req_core_process-execute-input-inline-object,/req/core/process-execute-input-inline-object>>, object values must be encoded as <<qualified-value,qualified values>>.
 ====
 
 [[qualified-value]]
@@ -717,7 +734,7 @@ In this second example, the property, `geometryInput` has a cardinality of great
 },
 ----
 
-and an instance of this process input in an execute request might be:
+and an instance of this process input in an <<execute-request-body,execute request>> might be:
 
 [source]
 ----
@@ -751,7 +768,7 @@ In this case, the `mediaType` parameter is used to indicate the specific type of
 [[binary-value]]
 *_Binary values:_*
 
-In some cases, for example to pass through firewalls, binary input values need to be encoded in-line in an execute request as a string.
+In some cases, for example to pass through firewalls, binary input values need to be encoded in-line in an <<execute-request-body,execute request>> as a string.
 
 [[binary-input-value-schema]]
 .Schema for an in-line binary value
@@ -779,14 +796,14 @@ Below is an example of an image process input whose media type is defined in the
 }
 ----
 
-and an example instance value in an execute request might be:
+and an example instance value in an <<execute-request-body,execute request>> might be:
 
 [source,json]
 ----
 "imageInput": "R0lGODdhNAHCAfcAAAcHDD+Gs4sLDQpDaqGFdaHE54dJPEoECUlGRteKgcdITgokG4hoVkpY\ngNzHwKKkqOLm7RRjlEgpHU9iZ44lHQYqVdmki6doVmhHOMOIeJG20HiDjCcKBglIeadISrso\nJGooFNbN2d2qr8aljyklHwQJQkdvkWaKxIdrb442LidLeGhMTp6LkeP1+Kh3aiUuVAoUHmlu\ngkcwNYdZRmkJDYGcsDFokElVYyk1NsWWhLEPDtmQldrUyoyFhrjo+Nna5d+4tMGstspoXgc4\n...qgu7sSu7qbtCs2u7t6u6rLsrp4u7veu76eO6vyu8w0u8xWu8x4u8yau8shu8y+u8zwu90Su9\n00u91Wu914u92au928u9whsQADs="
 ----
 
-NOTE: Even though the schema indicates that the input type is `binary`, when the input value is encoded in-line in an execute request, as per requirement <<req_core_process-execute-input-inline-binary,/req/core/process-execute-input-inline-binary>>, the binary value is encoded as base64-encoded string.
+NOTE: Even though the schema indicates that the input type is `binary`, when the input value is encoded in-line in an <<execute-request-body,execute request>>, as per requirement <<req_core_process-execute-input-inline-binary,/req/core/process-execute-input-inline-binary>>, the binary value is encoded as base64-encoded string.
 
 In this second example, the image input can be one of a number of value types denoted in JSON Schema by the use of the `oneOf[]` construct.  An example schema for this a process input might be:
 
@@ -808,7 +825,7 @@ In this second example, the image input can be one of a number of value types de
 }
 ----
 
-and a JPEG2000 instance example in an execute request might be:
+and a JPEG2000 instance example in an <<execute-request-body,execute request>> might be:
 
 [source,json]
 ----
@@ -843,7 +860,7 @@ NOTE: The `crs` property is defined using an `anyOf` of either an enumeration or
 
 *_Input validation_*
 
-Process inputs in an execute request and the corresponding process input definition in the <<sc_process_description,process description>> have a validation relationship.  That is to say, the schema of a process input definition from the <<sc_process_description,process description>> can be used to validate the component of the corresponding process input value in an execute request that is an instance of <<input-value-schema,inputValue.yaml>>.
+Process inputs in an <<execute-request-body,execute request>> and the corresponding process input definition in the <<sc_process_description,process description>> have a validation relationship.  That is to say, the schema of a process input definition from the <<sc_process_description,process description>> can be used to validate the component of the corresponding process input value in an <<execute-request-body,execute request>> that is an instance of <<input-value-schema,inputValue.yaml>>.
 
 [%unnumbered]
 ====
@@ -883,7 +900,7 @@ Consider a process input named `complexObjectInput` with the following definitio
 }
 ----
 
-and the following instance in an execute request:
+and the following instance in an <<execute-request-body,execute request>>:
 
 [source,json]
 ----
@@ -904,7 +921,7 @@ and the following instance in an execute request:
 ]
 ----
 
-The process input value in this execute request is an instance of a <<qualified-value,qualified value>>.
+The process input value in this <<execute-request-body,execute request>> is an instance of a <<qualified-value,qualified value>>.
 
 For the purposes of validation, the server needs to only validate the component of the <<qualified-value,qualified value>> that is an instance of <<input-value-schema,inputValue.yaml>> against the `schema` fragment from the <<ogc_process_description,OGC process description>>.  Specifically, the validation target is:
 
@@ -922,23 +939,6 @@ NOTE: This example makes use of an <<ogc_process_description,OGC process descrip
 
 include::../requirements/core/REQ_process-execute-input-validation.adoc[]
 
-[[sc_execution_mode]]
-===== Execution mode
-
-A process may be executed synchronously or asynchronously.
-
-Which mode a server responds with is a function of the job control options specified in the <<sc_process_description,process description>> and the presence or absence of the HTTP `Prefer` header (http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240]).
-
-include::../requirements/core/REQ_process-execute-default-execution-mode.adoc[]
-
-include::../requirements/core/REQ_process-execute-auto-execution-mode.adoc[]
-
-include::../recommendations/core/REC_process-execute-honor-prefer.adoc[]
-
-include::../recommendations/core/REC_process-execute-handle-prefer.adoc[]
-
-include::../recommendations/core/REC_process-execute-preference-applied.adoc[]
-
 [[sc_process_outputs]]
 ===== Process outputs
 
@@ -947,9 +947,13 @@ include::../recommendations/core/REC_process-execute-preference-applied.adoc[]
 Each process output is a named object that appears in the `outputs` section of
 an <<execute-request-body,execute request>>. The name of each output is its identifier as specified by the output's definition in the <<sc_process_description,process description>>.
 
-*_Default outputs:_*
+*_Omitted outputs:_*
 
-include::../requirements/core/REQ_process-execute-default-outputs.adoc[]
+include::../requirements/core/REQ_process-execute-omitted-outputs.adoc[]
+
+*_Empty outputs:_*
+
+include::../requirements/core/REQ_process-execute-empty-outputs.adoc[]
 
 *_Output value format:_*
 
@@ -991,7 +995,7 @@ The way a server responds to a process execution request is determined by the fo
 The following table maps the possible responses based on the combinations of these execute parameters.  The column headers denote:
 
 . *Negotiated execute mode*: see <<sc_execution_mode>>
-. *Requested # outputs*: The number of output requested in the <<execute-request-body,execute request>>
+. *Requested # outputs*: The number of requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>) outputs in the <<execute-request-body,execute request>>
 . *Return preference*: The negotiated <<sc_output_value_size,return preferences>>
 . *Response HTTP code*: The https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context.
 . *Response headers*: Any required https://datatracker.ietf.org/doc/html/rfc2616#section-14[HTTP headers] that the server must include in this context.
@@ -1001,10 +1005,11 @@ The following table maps the possible responses based on the combinations of the
 
 [[table_core_execute_responses]]
 .Execute responses based on number of requested outputs, request HTTP headers and the size of output values.
-[cols=8,options="header"]
+[cols=9,options="header"]
 |===
 |Negotiated execute mode
-|Requested # outputs
+|Requested # outputs<<implicit-explicit-outputs,^3^>>
+|Defined # of outputs
 |Return preference (`Prefer` header)
 |Response HTTP code
 |Response headers
@@ -1012,44 +1017,38 @@ The following table maps the possible responses based on the combinations of the
 |Response body
 |Req./Rec./Perm.
 
-.5+|sync
+.4+|sync
 |1
+|_n/a_
 |_n/a_
 |200
 |
 |_as negotiated_
 |requested process output
 |See requirement: <<req_core_process-execute-sync-one,/req/core/process-execute-sync-one>>
+
 1.3+|N
+.3+|_n/a_
 |_none_
 .3+|200
 .3+|
-.3+|application/json^7^
+.3+|application/json<<sync_note_4,^4^>>
 .3+|<<schema_results,results.yaml>>
-|See <<sync_note_3,Note 3.>>,<<sync_note_4,Note 4>>
-
+|See <<sync_note_5,Note 5.>>,<<sync_note_6,Note 6>>
 |minimal
-|See <<sync_note_3,Note 3.>>,<<sync_note_5,Note 5>>
-
+|See <<sync_note_5,Note 5.>>,<<sync_note_7,Note 7>>
 |representation
-|See <<sync_note_3,Note 3.>>,<<sync_note_6,Note 6>>
-
-|_none_
-|_n/a_
-|204
-|
-|_n/a_
-|_empty_
-|See requirement: <<req_core_job-results-param-outputs-empty,/req/core/job-results-param-outputs-empty>>
+|See <<sync_note_5,Note 5.>>,<<sync_note_8,Note 8>>
 
 |async
+|_n/a_
 |_n/a_
 |_n/a_
 |201
 |_Location_ to newly created job
 |application/json
 |<<schema-statusInfo,statusInfo.yaml>>
-|See requirement: <<req_core_process-execute-success-async,/req/core/process-execute-success-async>>
+|See <<async-response,Response for asynchronous processes execution>>
 |===
 
 [NOTE]
@@ -1063,35 +1062,44 @@ The following table maps the possible responses based on the combinations of the
 This above table shows all possible combinations of execute parameters that are specified by this Standard.  Not all these combinations need to be implemented by a server conforming to this Standard.  For example, a server that only offers processes that can be executed synchronously does not need to implement any of the asynchronous requirements.
 ====
 
-[[sync_note_3]]
+[[implicit-explicit-outputs]]
+[NOTE]
+====
+A process output may be requested explicitly or implicitly in an <<execute-request-body,execute request>> .
+
+* An "explicitly" requested output is one that is specified in the "outputs" section of an <<execute-request-body,execute request>>.
+* An "implicitly" requested output is one that is defined in the <<rc_ogc-process-description,description of a process>> and is included as part of the <<execute-request-body,execute request>> request because the "outputs" parameter was omitted (see requirement: <<req_core_process-execute-omitted-outputs,/req/core/process-execute-omitted-outputs>>).
+====
+
+[[sync_note_4]]
+[NOTE]
+====
+* See recommendation: <<per_core_process-execute-multiple-output-pkg,/per/core/process-execute-multiple-output-pkg>>.
+====
+
+[[sync_note_5]]
 [NOTE]
 ====
 * See requirement: <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>.
 * See permission: <<per_core_process-execute-sync-many-other-formats,/per/core/process-execute-sync-many-other-formats>>.
 ====
 
-[[sync_note_4]]
+[[sync_note_6]]
 [NOTE]
 ====
 * See recommendation: <<rec_core_process-execute-sync-many-json-prefer-none,/rec/core/process-execute-sync-many-json-prefer-none>>.
 ====
 
-[[sync_note_5]]
+[[sync_note_7]]
 [NOTE]
 ====
 * See recommendation: <<rec_core_process-execute-sync-many-json-prefer-minimal,/rec/core/process-execute-sync-many-json-prefer-minimal>>.
 ====
 
-[[sync_note_6]]
+[[sync_note_8]]
 [NOTE]
 ====
 * See recommendation: <<rec_core_process-execute-sync-many-json-prefer-representation,/rec/core/process-execute-sync-many-json-prefer-representation>>.
-====
-
-[[sync_note_7]]
-[NOTE]
-====
-* See recommendation: <<per_core_process-execute-multiple-output-pkg,/per/core/process-execute-multiple-output-pkg>>.
 ====
 
 [[schema_results]]
@@ -1107,7 +1115,7 @@ The https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/ope
 
 ===== Response requesting a single processing output
 
-When a process is executed synchronously and a single processing output is requested, the following requirements and recommendations apply:
+When a process is executed synchronously and a single processing output is generated (whether requested <<implicit-explicit-outputs,implicitly or explicitly>> in the <<execute-request-body,execute request>>) the following requirements and recommendations apply:
 
 include::../requirements/core/REQ_process-execute-success-sync-one.adoc[]
 
@@ -1115,11 +1123,51 @@ include::../requirements/core/REQ_process-execute-success-sync-one-default-conte
 
 NOTE: The size of a response may be determined without actually transmitting the entire response by using the <<rec_core_http-head,HTTP HEAD>> method to retrieve the <<rec_core_content-length,`Content-Length`>> header.
 
-include::../recommendations/core/REC_process-execute-success-sync-one-redirect.adoc[]
+include::../recommendations/core/PER_process-execute-sync-one-result.adoc[]
+
+*Example*
+
+In the example below the process "copmpute-spectral-index" has a single output also named "spectral-index-output".  This processes is implemented to store the result file in some Web-accessible location.  In this example the process is executed synchronously and the single output is requested.  According to <<table_core_execute_responses>>, in this case, the server should respond with the output image generated by the process.  The server can either stream the response from its Web-accessiblke location to the client OR the server can use a HTTP 303 redirect to point to the result as shown in the example. 
+
+.HTTP 303 redirect example.
+====
+[source]
+----
+Client                                                                Server
+  |                                                                     |
+  |   POST /processes/compute-spectral-index/execution   HTTP/1.1       |
+  |   Content-Type: application/json                                    |
+  |   Link: <https://www.opengis.net/dev/profile/OGC/0/ogc-execute-reque|
+  |          st>; rel="profile"                                         |
+  |                                                                     |
+  |   {                                                                 |
+  |     "inputs": {                                                     |
+  |       "spectral-index": "ndvi",                                     |
+  |       "input-image": {                                              |
+  |         "href": ".../sentinel-s1-l1c/S1A_EW_GRDM_1SDH_20240201T00375|
+  |                  4_20240201T003859_052358_0654C4_86EE/measurement/ew|
+  |                  -hh.tiff",                                         |
+  |         "type": "image/tiff; application=geotiff"                   |
+  |       }                                                             |
+  |     },                                                              |
+  |     "outputs": {                                                    |
+  |       "spectral-index-output": {                                    |
+  |       }                                                             |
+  |     }                                                               |
+  |   }                                                                 |
+  |-------------------------------------------------------------------->|
+  |                                                                     |
+  |   HTTP/1.1 303 See Other                                            |
+  |   Location: https://www.example.com/resp/job-01/spectral-index.tiff |
+  |   Content-Type: image/tiff; application=geotiff                     |
+  |   Content-Length: 13101963                                          |
+  |<--------------------------------------------------------------------|
+----
+====
 
 ===== Response requesting multiple processing outputs
 
-When a process is executed synchronously and multiple processing outputs are requested, the following requirements and recommendations apply:
+When a process is executes synchronously and a multiple processing outputs are generated (whether requested implicitly or explicitly in the <<execute-request-body,execute>> request) the following requirements and recommendations apply:
 
 include::../requirements/core/REQ_process-execute-success-sync-many-json.adoc[]
 
@@ -1133,6 +1181,16 @@ include::../recommendations/core/REC_process-execute-success-sync-many-json-pref
 
 include::../recommendations/core/PER_process-execute-success-sync-many-other-formats.adoc[]
 
+===== Response when the "outputs" parameter is omitted
+
+See requirement <<req_core_process-execute-omitted-outputs,/req/core/process-execute-omitted-outputs>>.
+
+===== Response when the "outputs" parameter is empty
+
+An "outputs" parameter whose value is empty (i.e. "outputs": {}) signals to a process to execute its logic but to not generate a response body.
+
+include::../requirements/core/REQ_process-execute-success-sync-empty-outputs.adoc[]
+
 ===== Job creation on synchronous process execution
 
 This Standard does not mandate that servers create a job as a result of executing a process synchronously.  However, the following permission is given:
@@ -1145,11 +1203,18 @@ include::../requirements/core/REQ_job-results-success-sync.adoc[]
 
 The job reference in the header can then be used to <<req_core_process-execute-success-async,re-fetch the results>> of the original synchronous execution.
 
+[[async-response]]
 ===== Response for asynchronous processes execution
 
 In the case of asynchronous execution, the following requirement applies:
 
 include::../requirements/core/REQ_process-execute-success-async.adoc[]
+
+include::../requirements/core/REQ_process-execute-success-async-outputs.adoc[]
+
+include::../requirements/core/REQ_process-execute-success-async-outputs-empty.adoc[]
+
+include::../requirements/core/REQ_process-execute-success-async-outputs-omitted.adoc[]
 
 ==== Error situations
 
@@ -1217,7 +1282,6 @@ include::../examples/json/StatusInfo.json[]
 ----
 ====
 
-
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
@@ -1226,55 +1290,40 @@ If the process with the specified identifier does not exist on the server, see r
 
 include::../requirements/core/REQ_job-exception-no-such-job.adoc[]
 
-
 [[sc_retrieve_job_results]]
 === Retrieve job results
 
-A process can generate zero or more outputs.  This clause specifies how:
+==== Operation
 
-* Processing results can be retrieved individually in a single request,
-* A subset of processing results can be retrieved in a single request,
-* All processing results can be retrieved in a single request.
-
-[[sc_retrieve_job_results_one]]
-==== Retrieving results individually
-
-===== Operation
-
-include::../requirements/core/REQ_job-result-op.adoc[]
-
-NOTE: The size of a processing result may be determined without actually transmitting the entire result by using the <<rec_core_http-head,HTTP HEAD>> method to retrieve the <<rec_core_content-length,`Content-Length`>> header.
-
-[[sc_retrieve_job_results_many]]
-==== Retrieving multiple results
-
-===== Operation
+===== All processing results
 
 include::../requirements/core/REQ_job-results-op.adoc[]
-
-===== Parameters
 
 include::../requirements/core/REQ_job-results-param-outputs.adoc[]
 
 include::../requirements/core/REQ_job-results-param-outputs-response.adoc[]
 
-include::../requirements/core/REQ_job-results-param-outputs-omit.adoc[]
+===== Individual processing results
 
-include::../requirements/core/REQ_job-results-param-outputs-empty.adoc[]
+include::../requirements/core/REQ_job-result-op.adoc[]
+
+NOTE: The size of individual processing results may be determined without actually transmitting the entire result by using the <<rec_core_http-head,HTTP HEAD>> method to retrieve the <<rec_core_content-length,`Content-Length`>> header.
+
+==== Response
 
 ===== Overview
 
 The way a server responds when retrieving job results depends on:
 
-* The number of outputs requested,
+* The number of outputs requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>) in an <<execute-request-body,execute request>>.
 * The negotiated content type for the response (via the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header) or lack thereof,
 * Any negotiated client preferences (via the HTTP Prefer header).
 
-The following table maps the possible responses based on the combinations of these execute parameters.
+The following table maps the possible responses based on the combinations of parameters in the <<execute-request-body,execute request>>.
 
 The column headers in the following table denote:
 
-. *Requested # outputs*: The number of outputs requested in the <<execute-request-body,execute request>>.
+. *Requested # outputs*: The number of outputs requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>) in the <<execute-request-body,execute request>>.
 . *Access path*: The API endpoint from which the result(s) can be retrieved.
 . *Return preference*: The negotiated <<sc_output_value_size,return preferences>>.
 . *Response HTTP code*: The https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context.
@@ -1283,10 +1332,10 @@ The column headers in the following table denote:
 . *Req./Rec./Perm.*: The corresponding requirements/recommendations/permission as per this Standard.
 
 [[table_core_getresults_responses]]
-.Table mapping `get` results responses based on the input parameter values used on the original execute request.
+.Table mapping `get` results responses based on the input parameter values used on the original <<execute-request-body,execute request>>.
 [cols=7,options="header"]
 |===
-|Requested # outputs
+|Requested # outputs<<implicit-explicit-outputs,^6^>>
 |Access path
 |Return preference (`Prefer` header)
 |Response HTTP code
@@ -1309,20 +1358,11 @@ The column headers in the following table denote:
 .3+|application/json
 .3+|<<schema_results,results.yaml>>
 |See <<async_note_2,Note 2>>,<<async_note_3,Note 3>>
-
 |minimal
 |See <<async_note_2,Note 2>>,<<async_note_3,Note 4>>
-
 |representation
 |See <<async_note_2,Note 2>>,<<async_note_3,Note 5>>
 
-|none
-|_n/a_
-|_n/a_
-|204
-|_n/a_
-|_n/a_
-|See requirement: <<req_core_job-results-param-outputs-empty,/req/core/job-results-param-outputs-empty>>
 |===
 
 [NOTE]
@@ -1358,14 +1398,15 @@ The column headers in the following table denote:
 
 The following requirements apply when retrieving the results of a job that was created by executing a process asynchronously OR was created by executing a process synchronously on a server that creates a job even for synchronous execution:
 
+[[sc_retrieve_job_results_one]]
 ===== Retrieving results individually
 
 include::../requirements/core/REQ_job-results-success-async-one.adoc[]
 
-===== Retrieving multiple results
+[[sc_retrieve_job_results_many]]
+===== Retrieving multiple results simultaneouly
 
 include::../requirements/core/REQ_job-results-success-async-many.adoc[]
-
 
 include::../recommendations/core/REC_job-results-success-async-many-json-prefer-none.adoc[]
 
@@ -1391,7 +1432,6 @@ Host: processing.example.org
 include::../examples/json/Result.json[]
 ----
 ====
-
 
 ==== Error situations
 

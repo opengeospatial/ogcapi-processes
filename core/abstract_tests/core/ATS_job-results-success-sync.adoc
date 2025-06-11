@@ -13,7 +13,7 @@ test-method::
 
 2. Inspect the description of each process and identify the subset of processes that support the `sync-execute` job control option.
 
-3. For each identified process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> ensuring that synchronous execution is <<sc_execution_mode,negotiated>> according to test <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>>.
+3. For each identified process construct an <<execute-request-body,execute request>> according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> ensuring that synchronous execution is <<sc_execution_mode,negotiated>> according to test <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>>.
 
 4. Inspect the headers of the response and see if a `Link` header is included with `rel=monitor`.
 

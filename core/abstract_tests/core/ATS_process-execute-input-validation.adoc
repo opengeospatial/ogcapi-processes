@@ -13,11 +13,11 @@ test-method::
 
 2. Inspect the description of each process taking note of the definition of each process input and specifically the schema of each process input.
 
-3. For each process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode the input values according to the schema from the definition of each input.
+3. For each process construct an <<execute-request-body,execute request>> according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode the input values according to the schema from the definition of each input.
 
 4. Verify that each process execute successfully according to the relevant requirement (one of: <<ats_core_process-execute-success-async,/req/core/process-execute-success-async>>, <<ats_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, <<ats_core_process-execute-sync-one,/req/core/process-execute-sync-one>>, <<ats_core_process-execute-sync-one-default-content,/req/core/process-execute-sync-one-default-content>>) base on the combination of execute parameters.
 
-5. For each process construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode some of the input values in violation of the schema from the definition of the selected input.
+5. For each process construct an <<execute-request-body,execute request>> according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>> taking care to encode some of the input values in violation of the schema from the definition of the selected input.
 
 6. Verify that each process generates an exception report that identifies the improperly specified input value(s).
 --

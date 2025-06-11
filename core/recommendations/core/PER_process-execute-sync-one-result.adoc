@@ -1,0 +1,23 @@
+[[per_core_process-execute-sync-one-result]]
+[permission]
+====
+[%metadata]
+identifier:: /per/core/process-execute-sync-one-result
+label:: /per/core/process-execute-sync-one-result
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is synchronous,
+. The number of requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
+--
+
+[.component,class=part]
+--
+In the case where a single output is requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>, <<profile-parameter,content negotiation by profile>> MAY be used to request that the response conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[results.yaml] schema.
+--
+
+[.component,class=part]
+--
+The <<profile-uris,profile URI>> that SHOULD be used in this case is 'https://www.opengis.net/dev/profile/OGC/0/ogc-results'. 
+--
+====

@@ -7,7 +7,7 @@ label:: /req/core/process-execute-input-inline-binary
 
 [.component,class=conditions]
 --
-. The process input value is specified in-line in an execute request.
+. The process input value is specified in-line in an <<execute-request-body,execute request>>.
 . The process input value is binary.
 --
 
