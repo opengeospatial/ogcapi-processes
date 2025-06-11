@@ -8,7 +8,7 @@ label:: /req/core/job-results-exception/results-not-available
 
 [.component,class=conditions]
 --
-. The request is execute on a completed job with valid job identifier `jobID`.
+. The request is executed on a completed job with a valid job identifier `jobID`.
 . No outputs were generated either because processing failed or the <<execute-request-body,execute request>> specified an empty "outputs" parameter thus requested that no outputs be made available for retrieval.
 --
 

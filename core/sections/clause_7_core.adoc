@@ -1443,4 +1443,6 @@ include::../requirements/core/REQ_job-results-exception-no-such-job.adoc[]
 
 include::../requirements/core/REQ_job-results-exception-results-not-ready.adoc[]
 
+include::../requirements/core/REQ_job-results-exception-results-not-available.adoc[]
+
 include::../requirements/core/REQ_job-results-failed.adoc[]
