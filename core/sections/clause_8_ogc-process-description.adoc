@@ -39,8 +39,7 @@ include::../requirements/ogc-process-description/REQ_links.adoc[]
 
 include::../recommendations/ogc-process-description/REC_links.adoc[]
 
-include::../recommendations/ogc-process-description/REC_header-profile-link.adoc[]
-
+[[process_description_schema]]
 .Schema for a process
 [source,yaml]
 ----

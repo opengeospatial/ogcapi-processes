@@ -1,0 +1,18 @@
+[[req_core_process-execute-success-async-outputs-omitted]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/process-execute-success-async-outputs-omitted
+label:: /req/core/process-execute-success-async-outputs-omitted
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is asynchronous.
+. The "outputs" parameter is omitted in the <<execute-request-body,execute request>>.
+--
+
+[.component,class=part]
+--
+The server SHALL produce and make available for retrieval all of the outputs defined for the process in its <<sc_process_description,process description>>.
+--
+====

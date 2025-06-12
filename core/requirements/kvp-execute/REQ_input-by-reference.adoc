@@ -7,7 +7,7 @@ label:: /req/kvp-execute/input-by-reference
 
 [.component,class=conditions]
 --
-. The process input value is specified by reference in an execute request.
+. The process input value is specified by reference in an <<execute-request-body,execute request>>.
 --
 
 [.component,class=part]

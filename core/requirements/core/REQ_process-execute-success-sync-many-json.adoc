@@ -8,8 +8,9 @@ label:: /req/core/process-execute-sync-many-json
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous.
-. The number of requested outputs is 2 or more.
+. The number of requested (whether <<implicit-explicit-outputs,implicitly or explicity>>) outputs in the <<execute-request-body,execute request>> is 2 or more.
 . The negotiated output content type is `application/json`.
+. Optionally, the negotiated profile is `https://www.opengis.net/dev/profile/OGC/0/ogc-results`.
 --
 
 [.component,class=part]
@@ -20,6 +21,11 @@ The server SHALL respond with an HTTP status code of 200.
 [.component,class=part]
 --
 The media type of the response SHALL be `application/json`
+--
+
+[.component,class=part]
+--
+The response HTTP headers SHALL include a link (href="https://www.opengis.net/dev/profile/OGC/0/ogc-results", rel="profile").
 --
 
 [.component,class=part]
