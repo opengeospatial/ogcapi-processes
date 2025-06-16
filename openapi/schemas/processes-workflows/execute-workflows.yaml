@@ -4,7 +4,7 @@ allOf:
         process:
           type: string
           format: uri-reference
-          description: URI to the process execution end point (i.e., `.../processes/{processId}/execution`)
+          description: URI to the process description end point (i.e., `.../processes/{processId}`)
         inputs:
           additionalProperties:
             $ref: "input-workflows.yaml"
