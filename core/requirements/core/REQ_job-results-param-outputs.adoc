@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/core/job-results-param-outputs
+label:: /req/core/job-results-param-outputs
+
 [.component,class=part]
 --
 The operation at the `/jobs/{jobID}/results` endpoint SHALL support a parameter `outputs` with the following characteristics (using an OpenAPI Specification 3.0 fragment):

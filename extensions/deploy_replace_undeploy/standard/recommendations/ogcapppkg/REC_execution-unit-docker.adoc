@@ -1,0 +1,7 @@
+[[rec_ogcapppkg_execution-unit-docker]]
+[recommendation]
+====
+[%metadata]
+label:: /rec/ogcapppkg/execution-unit-docker
+part:: If the execution unit is a Docker image, implementations SHOULD consider supporting the <<rc_docker,Docker Requirements class>>.
+====

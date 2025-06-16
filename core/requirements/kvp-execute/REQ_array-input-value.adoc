@@ -3,10 +3,12 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/array-input-value
+label:: /req/kvp-execute/array-input-value
+
 [.component,class=conditions]
 --
 . The process input value is specified in-line in an execute request.
-. A process input, with identifier `{input-name}`, is defined as type `array` in the <<sc_process_description,process description>>.
+. A process input, with identifier `{inputID}`, is defined as type `array` in the <<sc_process_description,process description>>.
 --
 
 [.component,class=part]
@@ -20,7 +22,7 @@ The input parameter SHALL have the following characteristics:
 
 [source,yaml]
 ----
-name: {input-name}
+name: {inputID}
 in: query
 required: false
 schema:
@@ -29,7 +31,7 @@ style: form
 explode: false
 ----
 
-where the token `{input-name}` represents the identifier of the input.
+where the token `{inputID}` represents the identifier of the input.
 --
 
 ====

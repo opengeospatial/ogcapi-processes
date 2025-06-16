@@ -1,0 +1,21 @@
+[[ats_dru_replace_content-type]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/dru/replace-content-type
+target:: /req/deploy-replace-undeploy/replace-content-type
+test-purpose:: Validate that the server supports the Content-type header to declare the media type of the request body
+test-method::
++
+--
+1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
+
+2. Append `/{processID}` to each path, where `{processID}` is a mutable process id.
+
+3. Issue an HTTP PUT request with an unsupported media type, i.e. `text/plain`, on each path.
+
+4. Validate the response using <<ats_dru_deploy_unsupported-content-type,/conf/dru/deploy/unsupported-content-type>>
+--
+====
+

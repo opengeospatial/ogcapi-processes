@@ -1,0 +1,15 @@
+[[ats_ogcapppkg_replace_response]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/ogcapppkg/replace-response
+target:: /req/deploy-replace-undeploy-response-success
+test-purpose:: Validate that the server returns HTTP Status code 200, 202 or 204
+test-method::
++
+--
+1. Validate that the status code is 200, 202 or 204.
+--
+====
+

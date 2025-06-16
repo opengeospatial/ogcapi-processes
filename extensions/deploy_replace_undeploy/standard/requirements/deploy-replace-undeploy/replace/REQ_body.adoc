@@ -2,6 +2,6 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/replace/body*
-part:: The body of a PUT request shall contain a formal description of the replacement process.
+label:: /req/deploy-replace-undeploy/replace-body
+part:: The body of a PUT request SHALL contain a formal description of the replacement process.
 ====

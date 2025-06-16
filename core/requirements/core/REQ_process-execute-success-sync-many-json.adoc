@@ -3,10 +3,13 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-sync-many-json
+label:: /req/core/process-execute-sync-many-json
+
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous.
 . The number of requested outputs is 2 or more.
+. The negotiated output content type is `application/json`.
 --
 
 [.component,class=part]

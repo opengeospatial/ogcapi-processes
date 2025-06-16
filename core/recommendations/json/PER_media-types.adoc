@@ -1,0 +1,9 @@
+[[per_json_media-types]]
+[permission]
+====
+[%metadata]
+identifier:: /per/json/media-types
+label:: /per/json/media-types
+
+A JSON media type may be further qualified with additional subtype, suffix and parameter components.  For example, `application/ld+json; charset=UTF-8`.
+====

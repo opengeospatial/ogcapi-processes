@@ -1,0 +1,8 @@
+description: Proivenance information about a job.
+content:
+   application/json:
+      schema:
+         $ref: '../../schemas/processes-job-management/inputs.yaml'
+   text/html:
+      schema:
+         type: string

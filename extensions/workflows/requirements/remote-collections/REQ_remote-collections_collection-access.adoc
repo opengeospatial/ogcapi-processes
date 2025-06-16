@@ -1,7 +1,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/collection-input/collection-access
+identifier:: /req/remote-collections/collection-access
 description:: For executing workflow definitions referencing a collection as an input to a process:
 part:: The Implementation SHALL support accessing a remote OGC API collection using one or more OGC API data access mechanisms (e.g., _OGC API - Tiles, Coverages, DGGS, Features, EDR, Maps_...) as an input to a process.
 ====

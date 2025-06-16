@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-input-validation
+label:: /req/core/process-execute-input-validation
+
 [.component,class=part]
 --
 For process input values specified in-line in an execute request, the server SHALL validate each component of a process input value that is an instance of <<input-value-schema,inputValue.yaml>> using the definition of the corresponding input from the <<sc_process_description,process description>>.

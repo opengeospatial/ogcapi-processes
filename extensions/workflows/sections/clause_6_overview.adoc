@@ -3,7 +3,7 @@
 
 As an extension to https://docs.ogc.org/is/18-062r2/18-062r2.html[_OGC API - Processes - Part 1: Core_], this specification defines conformance classes for:
 
-* extending execution requests submitted to `/processes/{processId}/execution`
+* extending execution requests submitted to `/processes/{processID}/execution`
    ** referencing local and remote nested processes as inputs (`"process"`) (<<section_nested_processes,Section 7>>),
    ** referencing local and remote OGC API collections as inputs (`"collection"`) (<<section_collection_input,Section 8>>),
    ** modifying data accessed as inputs and returned as outputs (filtering with `"filter"`, selecting and deriving fields with `"properties"`, sorting with `"sortBy"`) (<<section_fields_modifiers,Section 9>>),
@@ -129,7 +129,7 @@ This negotiation happens at each hop along a workflow chain, and the end-user cl
 For example, some hops may operate better using DGGS zone IDs, while other using subset requests, and yet others using tiles; or some hops may support and work best with some format or API,
 while others work best with another.
 
-When setting up a new workflow for collection output our asynchronous execution, if possible, the API should fully validate the immediate process and all nested inputs prior to returning a result.
+When setting up a new workflow for collection output or asynchronous execution, if possible, the API should fully validate the immediate process and all nested inputs prior to returning a result.
 A successful result indicates a fully validated workflow which should normally succeed for requests within the range for which data is produced.
 It is expected that clients may make a large number of requests for the same workflow e.g., using subset or tiles or DGGS zone ID to trigger processing of a specific Area of Interest or resolution,
 as a client pans and zooms around a map.

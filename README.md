@@ -5,11 +5,13 @@ as reusable [OpenAPI](http://openapis.org) components with responses in JSON and
 
 The latest published version of _OGC API - Processes - Part 1: Core_ is found here in [HTML](https://docs.ogc.org/is/18-062r2/18-062r2.html) or [PDF](https://docs.ogc.org/is/18-062r2/18-062r2.pdf).
 
-The latest Editor's Draft version of _OGC API - Processes - Part 1: Core_ (1.1 or 2.0) is found here in [HTML](https://opengeospatial.github.io/ogcna-auto-review/18-062r3.html) or [PDF](https://opengeospatial.github.io/ogcna-auto-review/18-062r3.pdf).
+The latest Editor's Draft version of _OGC API - Processes - Part 1: Core_ (1.1 or 2.0) is found here in [HTML](https://docs.ogc.org/DRAFTS/18-062r3.html) or [PDF](https://docs.ogc.org/DRAFTS/18-062r3.pdf).
 
-The latest Draft of _OGC API - Processes - Part 2: Deploy, Replace, Update_ is found here in [HTML](http://docs.ogc.org/DRAFTS/20-044.html) or [PDF](http://docs.ogc.org/DRAFTS/20-044.pdf).
+The latest Draft of _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_ is found here in [HTML](http://docs.ogc.org/DRAFTS/20-044.html) or [PDF](http://docs.ogc.org/DRAFTS/20-044.pdf).
 
-The latest Draft of _OGC API - Processes - Part 3: Workflows and Chaining_ is found here in [HTML](https://opengeospatial.github.io/ogcna-auto-review/21-009.html) or [PDF](https://opengeospatial.github.io/ogcna-auto-review/21-009.pdf).
+The latest Draft of _OGC API - Processes - Part 3: Workflows and Chaining_ is found here in [HTML](https://docs.ogc.org/DRAFTS/21-009.html) or [PDF](https://docs.ogc.org/DRAFTS/21-009.pdf).
+
+The latest Draft of _OGC API - Processes - Part 4: Job Management_ is found here in [HTML](https://docs.ogc.org/DRAFTS/24-051.html) or [PDF](https://docs.ogc.org/DRAFTS/24-051.pdf).
 
 [OGC API standards](https://ogcapi.ogc.org) define modular API building blocks to spatially enable Web APIs
 in a consistent way. [OpenAPI](http://openapis.org) is used to define the reusable
@@ -27,7 +29,7 @@ GET /processes
 Lists the processes this API offers.
 
 ```
-GET /processes/{process-id}
+GET /processes/{processID}
 ```
 
 Returns a detailed description of a process.
@@ -39,26 +41,26 @@ GET /jobs
 Returns the running and finished jobs for a process (optional).
 
 ```
-POST /processes/{process-id}/execution
+POST /processes/{processID}/execution
 ```
 
 Executes a process, i.e. creates a new job. Inputs, outputs and the process id will have to be specified in
 a JSON document that needs to be send in the POST body.
 
 ```
-GET /jobs/{job-id}
+GET /jobs/{jobID}
 ```
 
 Returns the status of a job of a process.
 
 ```
-DELETE /jobs/{job-id}
+DELETE /jobs/{jobID}
 ```
 
 Cancel a job execution.
 
 ```
-GET /jobs/{job-id}/results
+GET /jobs/{jobID}/results
 ```
 
 Returns the result of a job of a process.

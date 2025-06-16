@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/ogc-process-description/outputs-def
+label:: /req/ogc-process-description/outputs-def
+
 [.component,class=part]
 --
 Each process output definition SHALL be listed in the `outputs` section according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/outputDescription.yaml[outputDescription.yaml].
@@ -10,6 +12,6 @@ Each process output definition SHALL be listed in the `outputs` section accordin
 
 [.component,class=part]
 --
-The key of each process input in the `output` section of the process definition SHALL be the identifier for that output.
+The key for each process output in the `output` section of the process definition SHALL be the identifier for that output.
 --
 ====

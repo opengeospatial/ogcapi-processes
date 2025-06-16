@@ -1,0 +1,9 @@
+[[req_cwl_w-param]]
+[requirement]
+====
+[%metadata]
+label:: /req/cwl/deploy-w-param
+
+part:: If the CWL contains more than a single workflow identifier, an additional `w` query parameter MAY be used to target a specific workflow id to be deployed. If not used, the first process found SHALL be deployed.
+
+====

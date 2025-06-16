@@ -1,0 +1,8 @@
+description: Job is locked. For example, the `status` of the job is currently something else than `successful`, `failed` and `created`.
+content:
+   application/json:
+      schema:
+         $ref: '../../schemas/common-core/exception.yaml'
+   text/html:
+      schema:
+         type: string

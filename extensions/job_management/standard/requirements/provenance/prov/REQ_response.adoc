@@ -1,0 +1,9 @@
+[[req_provenance_prov_response]]
+[requirement]
+====
+[%metadata]
+label:: /req/provenance/prov-response
+part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code '200'.
+part:: Per default, the response SHALL contains a JSON document that conforms to the https://www.w3.org/submissions/prov-json/schema[schema for PROV-JSON].
+part:: In case content-negotiation is used, the response MAY contain other representations including PROV-O as JSON-LD, PROV-XML or PROV-N.
+====

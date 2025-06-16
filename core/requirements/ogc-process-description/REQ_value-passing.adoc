@@ -1,0 +1,28 @@
+[[req_ogc-process-description_value-passing]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/ogc-process-description/value-passing
+label:: /req/ogc-process-description/value-passing
+
+[.component,class=part]
+--
+How process input values can be specified in an execute request (by-value, by-reference or both) SHALL be controlled by the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml[`valuePassing`] parameter that may be specified per input in the <<sc_process_description,process description>>.
+--
+
+[.component,class=part]
+--
+The default value of the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml[`valuePassing`] parameter shall be `["byValue","byReference"]`.
+--
+
+[.component,class=part]
+--
+If an input value can be passed by value (https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml[`"byValue"`]), process input values SHALL be specified in-line in an execute request.
+--
+
+[[input_by_reference]]
+[.component,class=part]
+--
+If an input value can be passed by reference (https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml[`"byReference"`]), then input values shall be referenced in an execute request using a https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/link.yaml[link].
+--
+====

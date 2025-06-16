@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/json
+label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/json
 obligation:: requirement
 subject:: Web API
 inherit:: <<rc_core,OGC API - Processes Core>>

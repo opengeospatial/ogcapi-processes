@@ -1,9 +1,0 @@
-[[req_core_process-execute-request]]
-[requirement]
-====
-[%metadata]
-identifier:: /req/core/process-execute-request
-
-The content of a request the request body SHALL be based upon the OpenAPI
-3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
-====

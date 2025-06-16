@@ -3,7 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/html/content
-
+label:: /req/html/content
 
 Every `200`-response of the server with the media type "text/html" SHALL be a
 <<w3c-html5>> document that includes the following

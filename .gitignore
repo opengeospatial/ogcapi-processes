@@ -1,3 +1,6 @@
+.DS_Store
+.idea
+.vscode
 *.pdf
 core/standard/er.adoc
 core/standard/compiled/standard/er.pdf

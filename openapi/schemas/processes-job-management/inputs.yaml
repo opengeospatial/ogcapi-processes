@@ -1,0 +1,23 @@
+type: object
+required:
+  - inputs
+  - outputs
+properties:
+  inputs:
+    type: object
+    additionalProperties:
+      $ref: "../processes-workflow/input-workflow.yaml"
+  outputs:
+    type: object
+    additionalProperties:
+      $ref: "../processes-workflow/output-workflow.yaml"
+  links:
+    type: array
+    items:
+      $ref: "../common-core/link.yaml"
+  metadata:
+    type: array
+    items:
+      $ref: "../processes-core/metadata.yaml"
+  headers:
+    $ref: "headers.yaml"

@@ -1,0 +1,19 @@
+[[ats_dru_static-indicator]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/dru/static-indicator
+target:: <<req_deploy-replace-undeploy_static-indicator,/req/deploy-replace-undeploy/static-indicator>>
+test-purpose:: Validate that the process list contains processes with the mutable property.
+test-method::
++
+--
+1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
+
+2. Issue an HTTP GET request for each path
+
+3. Validate the process list is composed of processes that get the mutable Boolean parameter set to true or false
+--
+====
+

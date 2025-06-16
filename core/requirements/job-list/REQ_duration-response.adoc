@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/job-list/duration-response
+label:: /req/job-list/duration-response
+
 [.component,class=conditions]
 --
 . If the `status` parameter is not specified then only jobs that are running (status: `running`) or have completed execution (`successful`, `failed` or `dismissed`) SHALL be considered for inclusion in the response.

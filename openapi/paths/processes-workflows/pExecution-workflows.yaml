@@ -8,7 +8,7 @@ post:
    tags:
      - Processes
    parameters:
-     - $ref: "../../parameters/processes-core/processId-path.yaml"
+     - $ref: "../../parameters/processes-core/processID-path.yaml"
      - $ref: "../../parameters/processes-workflows/response.yaml"
      - $ref: "../../parameters/processes-core/prefer-header-execution.yaml"
    requestBody:
@@ -23,6 +23,8 @@ post:
        $ref: "../../responses/processes-core/rExecuteSync.yaml"
      201:
        $ref: "../../responses/processes-core/rExecuteAsync.yaml"
+     204:
+       $ref: "../../responses/processes-core/rEmpty.yaml"
      303:
        $ref: "../../responses/processes-workflows/rExecuteCollectionRedirect.yaml"
      404:

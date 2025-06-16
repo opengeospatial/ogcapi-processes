@@ -3,22 +3,24 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/bbox-crs-input-value
+label:: /req/kvp-execute/bbox-crs-input-value
+
 [.component,class=conditions]
 --
-. The server supports CRSs other than WGS84.
+. The server supports CRSs other than http://www.opengis.net/def/crs/OGC/1.3/CRS84 or http://www.opengis.net/def/crs/OGC/0/CRS84h.
 . The process input value is specified in-line in an execute request.
 . The process defines an input parameter named `{bbox-input-name}`.
 --
 
 [.component,class=part]
 --
-A bbox-crs input parameter SHALL have the following characteristics:
+A `{bbox-input-name}` input parameter SHALL have the following characteristics:
 
 [source,yaml]
 ----
-include::../../../openapi/parameters/common-crs/bbox-crs.yaml[]
+include::../../../openapi/parameters/processes-core/bbox-crs.yaml[]
 ----
 
-where the token `{bbox-input-name}` represents the identifier of a bbox input parameter and the token  `{bbox-input-name}-crs` represents the identifier of a corresponding input that indicates which CRS is being used for the coordinates of the `{bbox-input-name}` parameter.
+where the token `{bbox-input-name}` represents the identifier of a bbox input parameter and the token  `{bbox-input-name}[crs]` represents the identifier of a corresponding input that indicates which CRS is being used for the coordinates of the `{bbox-input-name}` parameter.
 --
 ====

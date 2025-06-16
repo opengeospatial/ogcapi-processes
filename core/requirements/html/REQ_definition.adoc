@@ -3,7 +3,22 @@
 ====
 [%metadata]
 identifier:: /req/html/definition
+label:: /req/html/definition
 
-Every `200`-response of an operation of the server
-SHALL support the media type `text/html`.
+`200`-responses of the server SHALL support the following media type:
+
+* `text/html`
+
+for the following API endpoints:
+
+* <<sc_landing_page,`/`>>,
+* <<sc_conformance_classes,`/conformance`>>,
+* <<sc_process_list,`/processes`>>,
+* <<sc_process_description,`/processes/{processID}`>>,
+* <<sc_retrieve_status_info,`/jobs/{jobID}`>>
+====
+
+[NOTE]
+====
+Responses from the execution endpoint <<sc_execute_process,`/processes/{processID}/execution`>> may or may not generate HTML depending on the process being executed, the <<sc_execution_mode,negotiated execution mode>>, the negotiated response format (specified using the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header or the <<req_kvp-execute_f-definition,`f`>> query parameter) and the <<req_core_process-execute-sync-many-json,number of requested outputs>>.
 ====

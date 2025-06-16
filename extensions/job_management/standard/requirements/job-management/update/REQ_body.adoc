@@ -1,0 +1,7 @@
+[[req_job-management_update_body]]
+[requirement]
+====
+[%metadata]
+label:: /req/job-management/update-body
+part:: The body of a PATCH request SHALL be in JSON format.
+====

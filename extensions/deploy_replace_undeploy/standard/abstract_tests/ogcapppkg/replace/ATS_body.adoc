@@ -1,0 +1,21 @@
+[[ats_ogcapppkg_replace_body]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/ogcapppkg/replace-body
+target:: /req/ogcapppkg/replace-body
+test-purpose:: Validate that the server supports OGC Application Package encoding
+test-method::
++
+--
+1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
+
+2. Append `/{processID}` to each path, where `{processID}` is the process id retrieved from <<ats_ogcapppkg_deploy_response-success,/conf/ogcapppkg/deploy/response-success>>.
+
+3. Issue an HTTP PUT request using the media type "application/ogcapppkg+json" with as body a default OGC Application Package or the application package URL, if any, for each path
+
+4. Validate the response with <<ats_ogcapppkg_replace_response,/conf/ogcapppkg/replace/response>>
+--
+====
+

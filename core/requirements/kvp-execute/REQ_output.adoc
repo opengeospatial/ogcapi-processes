@@ -3,9 +3,11 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/output
+label:: /req/kvp-execute/output
+
 [.component,class=conditions]
 --
-. A process output, with identifier `{output-name}`, is defined in the <<sc_process_description,process description>>.
+. A process output, with identifier `{outputID}`, is defined in the <<sc_process_description,process description>>.
 --
 
 [.component,class=part]
@@ -14,7 +16,7 @@ The output parameter SHALL have the following characteristics:
 
 [source,yaml]
 ----
-name: {output-name}
+name: {outputID}
 in: query
 required: false
 schema:
@@ -37,6 +39,6 @@ style: deepObject
 explode: true
 ----
 
-where the token `{output-name}` represents the identifier of the output.
+where the token `{outputID}` represents the identifier of the output.
 --
 ====

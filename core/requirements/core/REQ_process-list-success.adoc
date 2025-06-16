@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/core/process-list-success
+label:: /req/core/process-list-success
 
 A successful execution of the _process_ operation SHALL be reported as a
 response with a HTTP status code 200.

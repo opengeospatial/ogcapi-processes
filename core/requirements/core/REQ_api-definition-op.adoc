@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/core/api-definition-op
+label:: /req/core/api-definition-op
+
 The URIs of all API definitions referenced from the landing page
 SHALL support the HTTP GET method.
 ====

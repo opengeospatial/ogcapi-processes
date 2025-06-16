@@ -1,0 +1,19 @@
+[[ats_dru_deploy_content-type]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/dru/deploy-content-type
+target:: /req/deploy-replace-undeploy/deploy-content-type
+test-purpose:: Validate that the server support the Content-type header to declare the media type of the request body
+test-method::
++
+--
+1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
+
+2. Issue an HTTP POST request associated with an unsupported media type, i.e. `text/plain`.
+
+3. Validate the response using <<ats_dru_deploy_unsupported-content-type,/conf/dru/deploy/unsupported-content-type>>
+--
+====
+

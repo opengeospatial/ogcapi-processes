@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/core/job-results-async-one
+label:: /req/core/job-results-async-one
+
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is asynchronous,

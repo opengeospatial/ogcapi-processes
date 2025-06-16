@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/core/pl-links
+label:: /req/core/pl-links
 
 part::
 +

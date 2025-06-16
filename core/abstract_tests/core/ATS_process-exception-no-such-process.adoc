@@ -19,7 +19,7 @@ test-method::
 --
 ====
 
-NOTE: An exception response caused by the use of an invalid process identifier may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the response. All supported formats should be exercised.
+NOTE: An exception response caused by using an invalid process identifier may be retrieved in one of two formats. The following table identifies the applicable schema document for each format and the test to be used to validate the response. All supported formats should be exercised.
 
 [[no-such-process]]
 .Schema and Tests for Non-existent Process

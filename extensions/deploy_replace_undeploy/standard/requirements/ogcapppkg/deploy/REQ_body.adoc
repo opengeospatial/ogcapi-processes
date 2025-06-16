@@ -1,0 +1,7 @@
+[[req_ogcappkg_deploy_body]]
+[requirement]
+====
+[%metadata]
+label:: /req/ogcapppkg/deploy-body
+part:: The media type `application/ogcapppkg+json` SHALL be used to indicate that request body contains a processes description encoded as an <<rc_ogcapppkg,OGC Application Package>>.
+====

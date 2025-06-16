@@ -1,0 +1,29 @@
+== Requirements Class "Docker"
+
+[[docker-overview]]
+=== Overview
+
+include::../requirements/requirements_class_docker.adoc[]
+
+A server that implements the Docker Requirement Class supports the management of Docker image as execution units by implementing the Processes API Part2 deploy-replace-undeploy extension.
+
+=== OGC Application Package
+
+==== executionUnit property
+
+===== Overview
+
+include::../requirements/docker/REQ_schema.adoc[]
+
+[[schema_executionUnit]]
+.link:https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-dru/executionUnit.yaml[Schema for the Docker execution unit parameter]
+[source,yaml]
+----
+include::../../../../openapi/schemas/processes-dru/executionUnit.yaml[]
+----
+
+===== type and image properties
+
+The execution unit can be specified by reference, using a Docker image reference.
+
+include::../requirements/docker/REQ_execution-unit.adoc[]

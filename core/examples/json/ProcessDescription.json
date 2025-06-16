@@ -7,10 +7,6 @@
     "async-execute",
     "sync-execute"
   ],
-  "outputTransmission": [
-    "value",
-    "reference"
-  ],
   "inputs": {
     "stringInput": {
       "title": "String Literal Input Example",
@@ -122,14 +118,7 @@
             "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
           },
           {
-            "allOf": [
-              {
-                "format": "geojson-geometry"
-              },
-              {
-                "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
-              }
-            ]
+            "format": "geojson-geometry"
           }
         ]
       }
@@ -143,7 +132,7 @@
             "format": "ogc-bbox"
           },
           {
-            "$ref": "../../openapi/schemas/bbox.yaml"
+            "$ref": "bbox.json"
           }
         ]
       }
@@ -151,8 +140,8 @@
     "imagesInput": {
       "title": "Inline Images Value Input",
       "description": "This is an example of an image input.  In this case, the input is an array of up to 150 images that might, for example, be a set of tiles.  The oneOf[] conditional is used to indicate the acceptable image content types; GeoTIFF and JPEG 2000 in this case.  Each input image in the input array can be included inline in the execute request as a base64-encoded string or referenced using the link.yaml schema.  The use of a base64-encoded string is implied by the specification and does not need to be specified in the definition of the input.",
-      "minOccurs": 1,
-      "maxOccurs": 150,
+	   "minOccurs": 1,
+	   "maxOccurs": 150,
       "schema": {
         "oneOf": [
           {
@@ -296,7 +285,7 @@
                 "format": "geojson-geometry"
               },
               {
-                "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
+                "$ref": "https://geojson.org/schema/Geometry.json"
               }
             ]
           }
@@ -310,7 +299,7 @@
              "format": "ogc-bbox"
            },
            {
-             "$ref": "../../openapi/schemas/bbox.yaml"
+             "$ref": "bbox.json"
            }
         ]
       }
@@ -362,6 +351,10 @@
       "href": "https://processing.example.org/oapi-p/processes/EchoProcess/execution",
       "rel": "http://www.opengis.net/def/rel/ogc/1.0/execute",
       "title": "Execute endpoint"
+    },
+    {
+      "href": "https://www.opengis.net/dev/profile/OGC/0/ogc-process-description",
+      "rel": "profile"
     }
   ]
 }

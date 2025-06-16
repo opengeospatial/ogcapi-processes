@@ -1,0 +1,27 @@
+get:
+   summary: retrieve the formal description used to deploy a process
+   description: |
+      Access the formal description that can be used to deploy a process on an OGC API - Processes Server Instance.
+   operationId: getPackage
+   tags:
+     - DRU
+   parameters:
+     - $ref: "../../parameters/processes-core/processID-path.yaml"
+   responses:
+     200:
+       description: The formal used to deploy a process
+       content:
+         application/ogcapppkg+json:
+            schema:
+              $ref: "../../schemas/processes-dru/ogcapppkg.yaml"
+         application/cwl:
+            schema:
+              $ref: "https://raw.githubusercontent.com/common-workflow-lab/cwl-ts-auto/main/json_schemas/cwl_schema.yaml"
+         application/cwl+json:
+            schema:
+              $ref: "https://raw.githubusercontent.com/common-workflow-lab/cwl-ts-auto/main/json_schemas/cwl_schema.yaml"
+         application/cwl+yaml:
+            schema:
+              $ref: "https://raw.githubusercontent.com/common-workflow-lab/cwl-ts-auto/main/json_schemas/cwl_schema.yaml"
+     404:
+        $ref: "../../responses/common-core/rNotFound.yaml"

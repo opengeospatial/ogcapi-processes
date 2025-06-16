@@ -1,0 +1,19 @@
+[[ats_ogcapppkg_deploy_response-duplicate]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/ogcapppkg/deploy-response-duplicate
+target:: /req/deploy-replace-undeploy/deploy-response-duplicate
+test-purpose:: Validate that the server return HTTP Status code 409
+test-method::
++
+--
+3. Validate that the response contains a document  content was returned with an HTTP status code of 409
+
+4. Validate that the document is conform to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml]
+
+5. Validate that the type of the exception is “http://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/duplicated-process”.
+--
+====
+

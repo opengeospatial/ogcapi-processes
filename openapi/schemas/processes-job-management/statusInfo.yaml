@@ -1,0 +1,38 @@
+type: object
+required:
+   - id
+   - status
+   - type
+properties:
+   id:
+      type: string
+   process:
+      type: string
+   type:
+      $ref: "processes-type.yaml"
+   status:
+      $ref: "statusCode.yaml"
+   message:
+      type: string
+   exception:
+      $ref: "../common-core/exception.yaml"
+   created:
+      type: string
+      format: date-time
+   started:
+      type: string
+      format: date-time
+   finished:
+      type: string
+      format: date-time
+   updated:
+      type: string
+      format: date-time
+   progress:
+      type: integer
+      minimum: 0
+      maximum: 100
+   links:
+      type: array
+      items:
+         $ref: "../common-core/link.yaml"

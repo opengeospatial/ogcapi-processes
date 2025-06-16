@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/job-list/duration-definition
+label:: /req/job-list/duration-definition
+
 [.component,class=part]
 --
 The operation SHALL support a parameter `minDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
@@ -13,9 +15,7 @@ name: minDuration
 in: query
 required: false
 schema:
-  type: array
-  items:
-    type: integer
+  type: integer
 ----
 --
 
@@ -29,11 +29,7 @@ name: maxDuration
 in: query
 required: false
 schema:
-  type: array
-  items:
-    type: integer
-style: form
-explode: false
+  type: integer
 ----
 --
 ====

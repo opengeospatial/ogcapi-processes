@@ -1,0 +1,10 @@
+[[per_job-provenance_prov_content-negotiation]]
+[permission]
+====
+[%metadata]
+label:: /per/provenance/prov-content-negotiation
+part:: Content negotiation MAY be supported to provide alternate representations of the response.
+part:: The server MAY support the following additional content type: `application/ld+json` for PROV-O as JSON-LD
+part:: The server MAY support the following additional content type: `application/xml` for PROV-XML 
+part:: The server MAY support the following additional content type: `text/provenance-notation; charset="UTF-8"` for PROV-N.
+====

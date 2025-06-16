@@ -1,14 +1,9 @@
 == Scope
 
-This specification is an extension to the <<OAProc-1>> standard that defines the behavior of a server that
-supports the ability to dynamically add, replace or undeploy processes from an OGC API - Processes instance.
+The OGC API - Processes - Part 2 Standard is an extension to the OGC API – Processes – Part 1: Core Standard [<<OAProc-1>>] and defines the behavior of a server that
+supports the ability to dynamically add, replace and/or undeploy processes via an OGC API - Processes implementation instance.
 
-
-This document specifies an extension that defines the behaviour of a server
-that supports operations to deploy, replace or undeploy individual processes 
-from an OGC API Processes.
-
-Specifically, this document specifies:
+Specifically, the Processes Part 2 Standard specifies:
 
 * How to deploy a new process.
 
@@ -17,11 +12,11 @@ Specifically, this document specifies:
 * How to undeploy an existing process.
 
 The following table crosswalks each of the resource endpoints discussed in this
-standard with the HTTP methods POST, PUT and DELETE. Each intersecting
+Standard with the HTTP methods POST, PUT and DELETE. Each intersecting
 cell in the table either contains the name of the operation for that 
 combination of resource endpoint and HTTP method, or it contains the
-phrase "n/a" which is used to indicate that this specification does not
-specify any behaviour for that combination of resource endpoint and HTTP
+phrase "n/a" which is used to indicate that this Standard does not
+specify any behavior for that combination of resource endpoints and the HTTP
 method.
 
 [#endpoint_method_matrix,reftext='{table-caption} {counter:table-num}']
@@ -31,7 +26,7 @@ method.
 |Resource endpoint 3+|HTTP method
 | |**POST** |**PUT** |**DELETE**
 |`/processes` |<<deploy,deploy>> |n/a |n/a
-|`/processes/{processId}` |n/a |<<replace,replace>> |<<undeploy,undeploy>>
+|`/processes/{processID}` |n/a |<<replace,replace>> |<<undeploy,undeploy>>
 |===
 
 

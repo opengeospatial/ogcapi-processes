@@ -4,6 +4,13 @@ allOf:
     required:
       - schema
     properties:
+      schema:
+        $ref: "https://json-schema.org/draft/2020-12/schema"
+      dataClasses:
+        type: array
+        items:
+          type: string
+          format: uri
       minOccurs:
         type: integer
         default: 1
@@ -14,5 +21,11 @@ allOf:
           - type: string
             enum:
               - "unbounded"
-      schema:
-        $ref: "schema.yaml"
+      valuePassing:
+        type: array
+        items:
+           type: string
+           enum:
+             - "byValue"
+             - "byReference"
+        default: ["byValue","byReference"]

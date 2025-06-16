@@ -1,0 +1,6 @@
+type: string
+nullable: false
+example:
+  - process
+  - openeo
+  - wps

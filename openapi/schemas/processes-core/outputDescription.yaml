@@ -5,4 +5,9 @@ allOf:
       - schema
     properties:
       schema:
-        $ref: "schema.yaml"
+        $ref: "https://json-schema.org/draft/2020-12/schema"
+      dataClasses:
+        type: array
+        items:
+          type: string
+          format: uri

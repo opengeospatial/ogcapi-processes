@@ -1,0 +1,7 @@
+[[req_ogcapi-processes_definition_response-body]]
+[requirement]
+====
+[%metadata]
+label:: /req/ogcapi-processes/definition-response-body
+part:: A response with HTTP status code `200` SHALL include a body that contains the <<rc_ogcapi-processes,OGC API - Processes - Workflow - Execute Request>> to use to deploy the process.
+====

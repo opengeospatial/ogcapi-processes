@@ -1,0 +1,7 @@
+[[per_ogcapi-processes_update_content-schema]]
+[permission]
+====
+[%metadata]
+label:: /per/ogcapi-processes/update-content-schema
+part:: The `Content-Schema` header MAY be pointing to the OpenAPI 3.0 schema https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-workflows/execute-workflows.yaml[execute-workflows.yaml].
+====

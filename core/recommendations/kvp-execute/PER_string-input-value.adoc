@@ -3,6 +3,7 @@
 ====
 [%metadata]
 identifier:: /per/kvp-execute/string-input-value
+label:: /per/kvp-execute/string-input-value
 
 part:: The characteristics of a string-valued input parameter MAY include additional https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.3[validation keywords] (i.e. https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.3.1[`maxLength`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.3.2[`minLength`], https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#section-6.3.3[`pattern`]).
 

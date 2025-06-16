@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
-subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core>>
+subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core>>
 classification:: Target Type:Web API
 conformance-test:: /conf/core
 conformance-test:: /conf/core/api-definition-op
@@ -32,6 +32,7 @@ conformance-test:: /conf/core/landingpage-success
 conformance-test:: /conf/core/pl-limit-definition
 conformance-test:: /conf/core/pl-limit-response
 conformance-test:: /conf/core/pl-links
+conformance-test:: /conf/core/process-summary-links
 conformance-test:: /conf/core/process-description
 conformance-test:: /conf/core/process-description-success
 conformance-test:: /conf/core/process-exception-no-such-process
@@ -41,7 +42,7 @@ conformance-test:: /conf/core/process-execute-default-outputs
 conformance-test:: /conf/core/process-execute-input-array
 conformance-test:: /conf/core/process-execute-input-inline-bbox
 conformance-test:: /conf/core/process-execute-input-inline-binary
-conformance-test:: /conf/core/process-execute-input-inline-mixed
+conformance-test:: /conf/core/process-execute-input-inline-multiple-type
 conformance-test:: /conf/core/process-execute-input-inline-object
 conformance-test:: /conf/core/process-execute-inputs
 conformance-test:: /conf/core/process-execute-input-validation
@@ -115,7 +116,7 @@ include::core/ATS_process-execute-input-array.adoc[]
 
 include::core/ATS_process-execute-input-inline-object.adoc[]
 
-include::core/ATS_process-execute-input-inline-mixed.adoc[]
+include::core/ATS_process-execute-input-inline-multiple-types.adoc[]
 
 include::core/ATS_process-execute-input-inline-binary.adoc[]
 

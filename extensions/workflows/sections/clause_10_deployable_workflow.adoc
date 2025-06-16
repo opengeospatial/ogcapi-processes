@@ -16,8 +16,8 @@ include::../requirements/requirements_class_deployable-workflows.adoc[]
 The following requirements describe the ability of an implementation to deploy a new process
 defined as an _OGC API - Processes - Part 1: Core_ execution request with
 _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_,
-including parameterizing inputs as external inputs to the deployed process using `{ "$input" : "{input name}" }` as input objects (in `"inputs"`),
-and selecting specific outputs to be returned from the deployed process using `{ "$output" : "{output name}" } as output objects  (in `"outputs"`).
+including parameterizing inputs as external inputs to the deployed process using `{ "$input" : "{inputID}" }` as input objects (in `"inputs"`),
+and selecting specific outputs to be returned from the deployed process using `{ "$output" : "{outputID}" } as output objects  (in `"outputs"`).
 If no `"$output"` object is used within a deployed workflow definition, the deployed process is
 assumed to return all outputs from the top-level process with the same names as that process.
 

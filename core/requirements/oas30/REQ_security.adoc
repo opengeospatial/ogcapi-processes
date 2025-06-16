@@ -3,7 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/oas30/security
-
+label:: /req/oas30/security
 
 For cases, where the operations of the server are access-controlled,
 the security scheme(s) SHALL be documented in the OpenAPI definition.

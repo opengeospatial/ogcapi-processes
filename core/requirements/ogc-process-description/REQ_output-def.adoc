@@ -3,6 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/ogc-process-description/output-def
+label:: /req/ogc-process-description/output-def
+
 [.component,class=part]
 --
 The schema of each <<sc_process_outputs,process **output**>> SHALL be specified using the `schema` parameter.
@@ -10,6 +12,6 @@ The schema of each <<sc_process_outputs,process **output**>> SHALL be specified 
 
 [.component,class=part]
 --
-The value of the `schema` parameter SHALL be a JSON fragment that validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/schema-original.yaml[schema.yaml].
+The value of the `schema` parameter SHALL be a JSON fragment that validates according to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/schema.yaml[schema.yaml].
 --
 ====

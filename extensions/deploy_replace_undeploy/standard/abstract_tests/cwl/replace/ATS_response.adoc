@@ -1,0 +1,15 @@
+[[ats_cwl_replace_response]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/cwl/replace-response
+target:: /req/deploy-replace-undeploy/replace-response-success
+test-purpose:: Validate that the server return HTTP Status code 200 or 204
+test-method::
++
+--
+1. Validate that the status code is 200 or 204
+--
+====
+

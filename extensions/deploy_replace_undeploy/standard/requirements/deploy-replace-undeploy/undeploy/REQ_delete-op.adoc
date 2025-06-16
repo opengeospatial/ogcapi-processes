@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/undeploy/delete-op
-part:: For every dynamically added process (path: `/processes/{processId}`), the server shall support the HTTP DELETE operation.
-part:: The parameter `processId` is each `id` property in the process collection response (JSONPath: `$.processes[*].id`).
+label:: /req/deploy-replace-undeploy/undeploy-delete-op
+part:: For every dynamically added process (path: `/processes/{processID}`), the server SHALL support the HTTP DELETE operation.
+part:: The parameter `processID` is each `id` property in the process collection response (JSONPath: `$.processes[*].id`).
 ====
