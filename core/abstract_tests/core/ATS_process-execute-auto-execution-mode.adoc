@@ -13,7 +13,7 @@ test-method::
 
 2. Inspect the description of each process and take note of the job control options for the process.
 
-3. Setting the HTTP `Prefer` header to include the `respond-sync` preference, construct an execute request according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>>.
+3. Setting the HTTP `Prefer` header to include the `respond-sync` preference, construct an <<execute-request-body,execute request>> according to test <<ats_core_process-execute-request,/conf/core/process-execute-request>>.
 
 4. For processes that are supposed to execute asynchronously according to the <<req_core_process-execute-auto-execution-mode,/req/core/process-execute-auto-execution-mode>> requirement, verify the successful execution according to the <<ats_core_process-execute-success-async,/req/core/process-execute-success-async>> test.
 

@@ -7,7 +7,7 @@ label:: /req/core/process-execute-input-multiple-types
 
 [.component,class=conditions]
 --
-. The process input value is specified in-line in an execute request.
+. The process input value is specified in-line in an <<execute-request-body,execute request>>.
 . The schema of the process input from the <<sc_process_description,process description>> indicates that a value instance can be one of multiple input media types. +
 In JSON Schema this is denoted by the use of the `oneOf` construct.
 --

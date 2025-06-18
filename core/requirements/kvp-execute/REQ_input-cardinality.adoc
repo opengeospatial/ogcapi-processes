@@ -7,7 +7,7 @@ label:: /req/kvp-execute/input-cardinality
 
 [.component,class=conditions]
 --
-. The process input value is specified in-line in an execute request.
+. The process input value is specified in-line in an <<execute-request-body,execute request>>.
 . A process input, with identifier `{inputID}`, is defined as having a cardinality greater than one (i.e. `minOccurs` > 1) in the <<sc_process_description,process description>>.
 . The number of input values specified for the `{inputID}` process input is greater than one.
 --
