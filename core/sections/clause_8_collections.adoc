@@ -56,7 +56,7 @@ include::../requirements/remote-collections/REQ_remote-collections_collection-ac
 ==== Overview 
 
 The _Collection Output_ conformance class specifies how clients can trigger the
-execution of a process or workflow for a specific area, time and resolution of interest
+execution of a process for a specific area, time and resolution of interest
 as a result of requesting output data using OGC API data access mechanisms, such as
 _OGC API - Tiles_, _DGGS_, _Coverages_, _Features_, _EDR_, or _Maps_.
 
@@ -70,15 +70,9 @@ using mechanisms widely supported by clients in a manner completely agnostic of 
 
 Compared to separate <<execute-request-body,execute requests>>, this mechanism makes it easier for implementations to optimize
 for scenarios where clients will stream small partial outputs from the same pre-established processing
-pipeline. Parsing the <<execute-request-body,execute request>>, validating inputs, and handshakes with remote components of a workflow
-only need to be performed once. An implementation could also preempt future requests based on past requests,
-offsetting the latency of a complex distributed workflow.
-
-A collection document for the result generated from a workflow MAY provide a link to the source definition of that
-workflow (link relation type: `http://www.opengis.net/def/rel/ogc/1.0/workflow`).
-
-A service MAY also implement the capability to deploy a workflow as a persistent collection e.g., by supporting a `POST`
-method for the `/collections` end-point accepting a JSON workflow definition (<<execute-request-body,execute request>>) as payload.
+pipeline. Parsing the <<execute-request-body,execute request>>, validating inputs, and handshakes with remote components 
+only needs to be performed once. An implementation could also preempt future requests based on past requests,
+offsetting the latency of a complex processing pipeline.
 
 include::../requirements/requirements_class_collection-output.adoc[]
 

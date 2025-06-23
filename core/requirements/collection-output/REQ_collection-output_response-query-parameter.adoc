@@ -2,6 +2,6 @@
 ====
 [%metadata]
 identifier:: /req/collection-output/response-query-parameter
-description:: For initiating the execution of a workflow and retrieving its output as an OGC API collection:
+description:: For initiating the execution of a process and retrieving its output as an OGC API collection:
 part:: The Implementation SHALL support the `response` query parameter with `collection` and `landingPage` as possible values.
 ====
