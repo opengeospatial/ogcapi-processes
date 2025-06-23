@@ -5,7 +5,7 @@
 [%metadata]
 identifier:: /conf/core/job-results-param-outputs-omit
 target:: /req/core/job-results-param-outputs-omit
-test-purpose:: Validate that all processing results are included in the response when the `outputs` parameter is omitted from an execution request.
+test-purpose:: Validate that all processing results are included in the response when the `outputs` parameter is omitted from a process execution request.
 test-method::
 +
 --

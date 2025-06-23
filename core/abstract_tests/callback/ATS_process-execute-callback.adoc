@@ -5,13 +5,13 @@
 [%metadata]
 identifier:: /conf/callback/job-callback
 target:: /req/callback/job-callback
-test-purpose:: Validate the passing of a subscriber-URL in an execute request.
+test-purpose:: Validate the passing of a subscriber-URL in an <<execute-request-body,execute request>>.
 test-method::
 +
 --
 1. Configure a URL endpoint to accept a message body from the server.
 
-2. Create an asynchronous execute request that includes the optional `subscriber` key (see https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
+2. Create an asynchronous <<execute-request-body,execute request>> that includes the optional `subscriber` key (see https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/execute.yaml[execute.yaml].
 
 3. Execute the asynchronous job using test <<ats_core_process-execute-op,/conf/core/process-execute-request>>.
 

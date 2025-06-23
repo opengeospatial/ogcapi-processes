@@ -1,0 +1,10 @@
+name: response
+in: query
+description: |-
+  For executing the process using the _Collection Output_ mechanism, where the client is redirected (_303_ status) to either
+  an OGC API landing page or collection resource, from which one or more OGC API data access mechanism is available.
+  Data access requests may trigger processing on-demand for a given area, time and resolution of interest.
+required: false
+schema:
+  type: string
+  enum: [ collection, landingPage ]

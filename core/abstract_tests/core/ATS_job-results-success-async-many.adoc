@@ -5,7 +5,7 @@
 [%metadata]
 identifier:: /conf/core/job-results-async-many
 target:: /req/core/job-results-async-many
-test-purpose:: Validate that only the requested processing results are included in the response when the `outputs` parameter is specified on an execution request.
+test-purpose:: Validate that only the requested processing results are included in the response when the `outputs` parameter is specified on a process execution request.
 test-method::
 +
 --

@@ -7,7 +7,7 @@ label:: /req/kvp-execute/bbox-input-value
 
 [.component,class=conditions]
 --
-. The process input value is specified in-line in an execute request.
+. The process input value is specified in-line in an <<execute-request-body,execute request>>.
 . The process input parameter is defined as a bbox in the <<sc_process_description,process description>>.
 --
 

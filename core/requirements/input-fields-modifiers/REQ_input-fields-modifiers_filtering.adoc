@@ -1,0 +1,8 @@
+[requirement]
+====
+[%metadata]
+identifier:: /req/input-fields-modifiers/filtering
+description:: For filtering the data coming in as an input to a process:
+part:: The Implementation SHALL support specifying a `"filter"` key and a corresponding filter predicate as part of an input to a process.
+part:: The Implementation SHALL support one or more expression languages to define the filter, such as the OGC Common Query Language (CQL2).
+====
