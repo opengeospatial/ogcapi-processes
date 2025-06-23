@@ -545,6 +545,8 @@ As shown in https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/ma
 * a binary value,
 * or a bounding box.
 
+NOTE: See also <<section_collection_input>>.
+
 [[simple-literals]]
 *_Simple literal values:_*
 

@@ -3,22 +3,58 @@
 
 === Terms and definitions
 
+[[def-collection]]
+==== collection; OGC API collection
+
+A resource that may be available as one or more sub-resource distributions that conform to one or more https://www.ogc.org/standards[OGC API standards]. (https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Common - Part 2: Geospatial Data])
+
+[[def-collection-description]]
+==== collection description document
+
+A resource accessible at the OGC API path `/collections/{collectionId}` that provides metadata about a <<def-collection,collection>>.
+
+==== dataset
+
+A collection of data, published or curated by a single agent, and available for access or download in one or more representations. (https://www.w3.org/TR/vocab-dcat-2/[Data Catalog Vocabulary (DCAT) - Version 2])
+
+==== distribution
+
+A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above). (https://www.w3.org/TR/vocab-dcat-2/[Data Catalog Vocabulary (DCAT) - Version 2])
+
+EXAMPLE: a downloadable file, an RSS feed or an API.
+
 ==== job
 
 The (processing) job is a server-side object created by a processing service for a particular process execution. A job may be latent in the case of synchronous execution or explicit in the case of asynchronous execution. Since the client has only oblique access to a processing job, a Job ID is used to monitor and control a job.
-
 
 ==== JSON
 
 JavaScript Object Notation is a lightweight data-interchange format. JSON is easy for humans to read and write and it is easy for machines to parse and generate.
 
-==== Link
+==== link
 
 The term "link" is commonly used as substitute for URL or URI. In this Standard, "link" refers to an element described by the schema for a link as shown at <<link-schema,link.yaml>>. This is a JSON element containing properties such as "rel" (relation) and "href". The value of the "href" property is an URI.
 
-==== Link header
+==== link header
 
 HTTP Link header, as defined in <<rfc8288,RFC 8288 (Web Linking)>>.
+
+[[def-local-collection]]
+==== local collection
+
+A <<def-collection,collection>> that is local to the <<def-deployment,OGC API deployment>> <<def-data-access-mechanisms,currently being accessed>>.
+
+[[def-data-access-mechanisms]]
+==== OGC API data access mechanisms
+
+A method or procedure, that conforms to an https://www.ogc.org/standards/[OGC API Standard], used to control how users or systems can access and interact with data.
+
+EXAMPLE: https://docs.ogc.org/is/20-057/20-057.html[_OGC API - Tiles - Part 1: Core_], https://docs.ogc.org/DRAFTS/19-087.html[_OGC API - Coverages - Part 1: Core_], https://docs.ogc.org/DRAFTS/21-038r1.html[_OGC API - Discrete Global Grid Systems - Part 1: Core_], https://docs.ogc.org/is/17-069r4/17-069r4.html[_OGC API - Features - Part 1: Core_], https://docs.ogc.org/is/19-086r6/19-086r6.html[_OGC API - Environmental Data Retrieval Standard_], https://docs.ogc.org/is/20-058/20-058.html[_OGC API - Maps - Part 1: Core_]
+
+[[def-deployment]]
+==== OGC API deployment
+
+An implementation of an https://www.ogc.org/standards/[OGC API Standard] that is accessible to users and other system typically through the internet.
 
 ==== process
 
@@ -66,6 +102,11 @@ A process output with identifier `{outputID}` that is explicitly specified in th
 ==== process output (implicitly requested)
 
 A process output that is defined in the <<sc_process_description,description of a process>> and is generated as a result of an <<execute-request-body,execute request>> where the "outputs" parameter has been omitted.  Omitting the "outputs" parameters of an <<execute-request-body,execute request>> is equivalent to explicitly requesting all of the outputs defined in the <<sc_process_description,process description>>
+
+[[def-remote-collection]]
+==== remote collection
+
+A <<def-collection,collection>> that is not local to the <<def-deployment,OGC API deployment>> <<def-data-access-mechanisms,currently being accessed>>.
 
 ==== REST
 

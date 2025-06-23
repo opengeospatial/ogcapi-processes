@@ -1,0 +1,39 @@
+type: object
+properties:
+  filter:
+    oneOf:
+      - type: string
+      - $comment: Update with https://github.com/opengeospatial/ogcapi-features/blob/master/cql2/standard/schema/cql2.json if needed.
+        description: Basic CQL2-JSON definition
+        type: array
+        items:
+          type: object
+          required:
+            - op
+            - args
+          properties:
+            op:
+              type: string
+            args:
+              type: {}
+  filter-lang: 
+    type: string
+    examples:
+      - cql2-text
+      - cql2-json
+      - fes
+  filter-crs:
+    type: string
+    format: uri-reference
+  properties:
+    oneOf:
+      - type: object
+        additionalProperties:
+          type: string
+      - type: array
+        items:
+          type: string
+  sortBy:
+    type: array
+    items:
+      type: string

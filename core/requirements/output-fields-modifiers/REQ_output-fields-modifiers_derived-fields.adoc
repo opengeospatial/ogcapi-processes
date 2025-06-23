@@ -1,0 +1,9 @@
+[requirement]
+====
+[%metadata]
+identifier:: /req/output-fields-modifiers/derived-fields
+description:: For selecting and/or deriving new fields returned as a data output from a process:
+part:: As part of a nested process or top-level execution request object, the Implementation SHALL support specifying a `"properties"` key and a corresponding set of selected fields as an array of field names.
+part:: As part of a nested process or top-level execution request object, the Implementation SHALL support specifying a `"properties"` key and a corresponding set of derived fields expressions as a key / value pair object mapping expressions to field names.
+part:: The Implementation SHALL support one or more expression languages to define the derived fields, such as the OGC Common Query Language (CQL2).
+====

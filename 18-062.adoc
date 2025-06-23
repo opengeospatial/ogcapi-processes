@@ -50,27 +50,29 @@ include::core/sections/clause_6_overview.adoc[]
 
 include::core/sections/clause_7_core.adoc[]
 
-include::core/sections/clause_8_ogc-process-description.adoc[]
+include::core/sections/clause_8_collections.adoc[]
 
-include::core/sections/clause_9_security-considerations.adoc[]
+include::core/sections/clause_9_process-description.adoc[]
 
-include::core/sections/clause_10_encodings.adoc[]
+include::core/sections/clause_10_security-considerations.adoc[]
 
-include::core/sections/clause_11_oas.adoc[]
+include::core/sections/clause_11_encodings.adoc[]
 
-include::core/sections/clause_12_job_list.adoc[]
+include::core/sections/clause_12_oas.adoc[]
 
-include::core/sections/clause_13_callback.adoc[]
+include::core/sections/clause_13_job_list.adoc[]
 
-include::core/sections/clause_14_dismiss.adoc[]
+include::core/sections/clause_14_callback.adoc[]
 
-include::core/sections/clause_15_kvp-execute.adoc[]
+include::core/sections/clause_15_dismiss.adoc[]
 
-include::core/sections/clause_16_media_types.adoc[]
+include::core/sections/clause_16_kvp-execute.adoc[]
 
-include::core/sections/clause_17_profile.adoc[]
+include::core/sections/clause_17_media_types.adoc[]
 
-include::core/sections/clause_18_additional-api-building-blocks.adoc[]
+include::core/sections/clause_18_profile.adoc[]
+
+include::core/sections/clause_19_additional-api-building-blocks.adoc[]
 
 ////
 add or remove annexes after "A" as necessary

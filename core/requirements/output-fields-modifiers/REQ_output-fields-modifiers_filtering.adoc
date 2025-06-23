@@ -1,0 +1,8 @@
+[requirement]
+====
+[%metadata]
+identifier:: /req/output-fields-modifiers/filtering
+description:: For filtering the data returned as a data output from  a process:
+part:: The Implementation SHALL support specifying a `"filter"` key and a corresponding filter predicate as part of a nested process or top-level execution request.
+part:: The Implementation SHALL support one or more expression languages to define the filter, such as the OGC Common Query Language (CQL2).
+====

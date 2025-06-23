@@ -1,0 +1,8 @@
+[[rc_output-fields-modifiers]]
+[requirements_class]
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/output-fields-modifiers
+subject:: Output Fields Modifiers
+inherit:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core
+====
