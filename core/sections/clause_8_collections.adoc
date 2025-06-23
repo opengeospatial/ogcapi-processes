@@ -11,7 +11,7 @@ Unless an implementation also conforms to the <<remote_collections,_Remote Colle
 
 include::../requirements/requirements_class_collection-input.adoc[]
 
-The following requirements describe how an execution request references an <<def-collection,OGC API collection>> and how an implementation requests data from that collection to use as input to a process.
+The following requirements describe how an <<execute-request-body,execute requests>> references an <<def-collection,OGC API collection>> and how an implementation requests data from that collection to use as input to a process.
 
 ==== Referencing a collection
 
@@ -37,7 +37,7 @@ supporting the _Collection Output_ conformance class as input to a process.
 
 include::../requirements/requirements_class_remote-collections.adoc[]
 
-The following requirements describe how an execution request references a remote OGC API collection
+The following requirements describe how an <<execute-request-body,execute requests>> references a remote OGC API collection
 and how an implementation requests data from that collection to use as an input to a process.
 
 ==== Referencing a remote collection
@@ -62,15 +62,15 @@ _OGC API - Tiles_, _DGGS_, _Coverages_, _Features_, _EDR_, or _Maps_.
 
 This provides an alternative to the synchronous and asynchronous execution mechanisms
 defined in _OGC API - Processes - Part 1: Core_ for which area, time and resolution of interest
-are hardcoded in the execution request. With _Core_, when lengthy batch processing is not desirable,
-completely new execution requests returning a partial output must continuously be re-submitted.
+are hardcoded in the <<execute-request-body,execute request>>. With _Core_, when lengthy batch processing is not desirable,
+completely new <<execute-request-body,execute requests>> returning a partial output must continuously be re-submitted.
 
-This conformance class allows to submit an execution request once and then access the output
+This conformance class allows to submit an <<execute-request-body,execute request>> once and then access the output
 using mechanisms widely supported by clients in a manner completely agnostic of process execution.
 
-Compared to separate execution requests, this mechanism makes it easier for implementations to optimize
+Compared to separate <<execute-request-body,execute requests>>, this mechanism makes it easier for implementations to optimize
 for scenarios where clients will stream small partial outputs from the same pre-established processing
-pipeline. Parsing the execution request, validating inputs, and handshakes with remote components of a workflow
+pipeline. Parsing the <<execute-request-body,execute request>>, validating inputs, and handshakes with remote components of a workflow
 only need to be performed once. An implementation could also preempt future requests based on past requests,
 offsetting the latency of a complex distributed workflow.
 
@@ -78,7 +78,7 @@ A collection document for the result generated from a workflow MAY provide a lin
 workflow (link relation type: `http://www.opengis.net/def/rel/ogc/1.0/workflow`).
 
 A service MAY also implement the capability to deploy a workflow as a persistent collection e.g., by supporting a `POST`
-method for the `/collections` end-point accepting a JSON workflow definition (execution request) as payload.
+method for the `/collections` end-point accepting a JSON workflow definition (<<execute-request-body,execute request>>) as payload.
 
 include::../requirements/requirements_class_collection-output.adoc[]
 
@@ -94,14 +94,14 @@ include::../requirements/collection-output/REQ_collection-output_response-query-
 
 ==== Collection Response
 
-A request for a collection response is only valid for an execution request generating or selecting a single output
+A request for a collection response is only valid for an <<execute-request-body,execute request>> generating or selecting a single output
 which can be retrieved using an OGC API data access mechanism.
 
 include::../requirements/collection-output/REQ_collection-output_collection-response.adoc[]
 
 ==== Landing Page Response
 
-A request for a landing page response is valid for an execution request generating one or more outputs
+A request for a landing page response is valid for an <<execute-request-body,execute request>> generating one or more outputs
 which can be retrieved using an OGC API data access mechanism.
 
 include::../requirements/collection-output/REQ_collection-output_landing-page-response.adoc[]
@@ -120,7 +120,7 @@ include::../requirements/collection-output/REQ_collection-output_data-access-mec
 
 ==== Overview
 
-The _Input Fields Modifiers_ conformance class specifies how execution requests can modify
+The _Input Fields Modifiers_ conformance class specifies how <<execute-request-body,execute requests>> can modify
 an input (including those specified using the _Collection Input_, _Remote Collections_, _Nested Processes_ and _Remote Processes_ conformance classes)
 by filtering its data according to its fields (properties), selecting a subset of the data fields or
 deriving new fields from existing ones (e.g., by performing arithmetic),
@@ -135,7 +135,7 @@ The following requirements describe the ability of an implementation to modify t
 data accessed as an input to a process by first applying a filter (`"filter"`),
 selecting a subset of the fields or deriving new fields (`"properties"`) or
 sorting the data (`"sortBy"`), before providing the data as input to the process.
-In an execution request, these additional keys are specified at the same level as the
+In an <<execute-request-body,execute request>>, these additional keys are specified at the same level as the
 `"collection"` defined in the _Collection Input_ conformance class, or the
 `"process"` defined in the _Nested Process_ conformance class.
 
@@ -168,7 +168,7 @@ include::../requirements/input-fields-modifiers/REQ_input-fields-modifiers_sorti
 
 ==== Overview
 
-The _Output Fields Modifiers_ conformance class specifies how execution requests can modify
+The _Output Fields Modifiers_ conformance class specifies how <<execute-request-body,execute requests>> can modify
 the data output from a process by filtering its data according to its fields (properties), selecting a subset of the data fields or
 deriving new fields from existing ones (e.g., by performing arithmetic),
 and/or sorting the data according to the value of fields. An expression language such as the
@@ -185,8 +185,8 @@ The following requirements describe the ability of an implementation to modify t
 data output from a process by applying a filter (`"filter"`),
 selecting a subset of the fields or deriving new fields (`"properties"`) or
 sorting the data (`"sortBy"`), before returning the data as an output of a process.
-In an execution request, these additional keys are specified at the same level as the
-`"process"` defined in the _Nested Process_ conformance class, or at the top-level of an execution request
+In an <<execute-request-body,execute request>>, these additional keys are specified at the same level as the
+`"process"` defined in the _Nested Process_ conformance class, or at the top-level of an <<execute-request-body,execute request>> 
 as defined in _OGC API - Processes - Part 1: Core_.
 
 When a nested process is used as an input to another process, this capability is equivalent to the

@@ -12,7 +12,7 @@ For referencing a <<def-remote-collection,remote collection>> as an <<sc_process
 
 [.component,class=part]
 --
-The implementation SHALL support execution requests containing a `"collection"` key and a corresponding URI or Relative-URI value identifying an authorized OGC API collection as an <<sc_process_inputs,input to a process>>.
+The implementation SHALL support <<execute-request-body,execute requests>> containing a `"collection"` key and a corresponding URI or Relative-URI value identifying an authorized OGC API collection as an <<sc_process_inputs,input to a process>>.
 --
 
 [.component,class=part]

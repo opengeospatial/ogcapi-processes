@@ -1,9 +1,31 @@
+[[req_collection-output_collection-response]]
 [requirement]
 ====
 [%metadata]
 identifier:: /req/collection-output/collection-response
-description:: For initiating the execution of a workflow and retrieving its output as an OGC API collection:
-part:: For requests generating or selecting a single output, the Implementation SHALL return a 303 _See Other_ HTTP status code together with a _Location:_ response header redirecting to a collection description document as defined in _OGC API - Common - Part 2: Geospatial data_ as a response to a request specifying a `response=collection` query parameter.
-part:: For requests generating multiple outputs which do not select a particular output, the Implementation SHALL return a 400 status error as a response to a request specifying a `response=collection` query parameter.
-part:: The collection description towards which the client is redirected SHALL link to at least one OGC API data access mechanism such as _OGC API - Tiles, DGGS, Coverages, Features, EDR, Maps_...
+label:: /req/collection-output/collection-response
+
+
+[.component,class=description]
+--
+For initiating the execution of a process and retrieving its output as an <<def-collection,OGC API collection>>:
+--
+
+[.component,class=part]
+--
+For requests generating or selecting a single output, the implementation SHALL return a https://datatracker.ietf.org/doc/html/rfc7231#section-6.4.4[303 _See Other_] HTTP status code together with a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[_Location:_ response header] redirecting to a <<def-collection-description-document,collection description document>>.
+--
+
+as defined in _OGC API - Common - Part 2: Geospatial data_ as a response to a request specifying a `response=collection` query parameter.
+
+
+[.component,class=part]
+--
+For requests generating multiple outputs not select a particular output, the implementation SHALL return a https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1[400 _Bad Request_] HTTP status code as a response to a request specifying a `response=collection` query parameter.
+--
+
+[.component,class=part]
+--
+The collection description towards which the client is redirected SHALL link to at least one OGC API data access mechanism such as _OGC API - Tiles, DGGS, Coverages, Features, EDR, Maps_...
+--
 ====
