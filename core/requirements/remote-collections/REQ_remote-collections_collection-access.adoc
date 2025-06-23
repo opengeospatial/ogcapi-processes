@@ -5,5 +5,5 @@
 identifier:: /req/remote-collections/collection-access
 label:: /req/remote-collections/collection-access
 
-For referencing a <<def-collection,collection>> as an <<sc_process_inputs,input to a process>> the implementation SHALL support accessing a <<def-remote-collection,remote OGC API collection>> using one or more <<def-data-access-mechanisms,OGC API data access mechanisms>>.
+For referencing a <<def-collection,collection>> as an <<sc_process_inputs,input to a process>> the implementation SHALL support accessing a <<def-remote-collection,remote OGC API collection>> using one or more <<def-data-access-mechanism,OGC API data access mechanisms>>.
 ====

@@ -5,7 +5,7 @@
 
 ==== Overview
 
-The _Collection Input_ conformance class allows an <<def-collection,OGC API collection>>, available using one or more <<def-data-access-mechanisms,OGC API data access mechanisms>>, to be specified as an input to a process.
+The _Collection Input_ conformance class allows an <<def-collection,OGC API collection>>, available using one or more <<def-data-access-mechanism,OGC API data access mechanisms>>, to be specified as an input to a process.
 
 Unless an implementation also conforms to the <<remote_collections,_Remote Collections_>> conformance class, only <<def-collection,collections>> that are locally accessible in the current <<def-deployment,OGC API deployment>> are supported.
 

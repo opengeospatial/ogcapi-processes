@@ -5,7 +5,7 @@
 identifier:: /req/collection-input/collection-access
 label:: /req/collection-input/collection-access
 
-For referencing a <<def-collection,collection>> as an <<sc_process_inputs,input to a process>> the implementation SHALL support accessing <<def-local-collection,local collections>> accessible using at least one <<def-data-access-mechanisms,OGC API data access mechanism>>.
+For referencing a <<def-collection,collection>> as an <<sc_process_inputs,input to a process>> the implementation SHALL support accessing <<def-local-collection,local collections>> accessible using at least one <<def-data-access-mechanism,OGC API data access mechanism>>.
 ====
 
 NOTE: For <<def-local-collection,local collections>>, the specification is agnostic to how data flows from the <<def-local-collection,collection>> to the process.

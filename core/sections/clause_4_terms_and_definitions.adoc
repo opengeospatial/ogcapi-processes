@@ -42,10 +42,10 @@ HTTP Link header, as defined in <<rfc8288,RFC 8288 (Web Linking)>>.
 [[def-local-collection]]
 ==== local collection
 
-A <<def-collection,collection>> that is local to the <<def-deployment,OGC API deployment>> <<def-data-access-mechanisms,currently being accessed>>.
+A <<def-collection,collection>> that is local to the <<def-deployment,OGC API deployment>> <<def-data-access-mechanism,currently being accessed>>.
 
-[[def-data-access-mechanisms]]
-==== OGC API data access mechanisms
+[[def-data-access-mechanism]]
+==== OGC API data access mechanism
 
 A method or procedure, that conforms to an https://www.ogc.org/standards/[OGC API Standard], used to control how users or systems can access and interact with data.
 
@@ -106,7 +106,7 @@ A process output that is defined in the <<sc_process_description,description of 
 [[def-remote-collection]]
 ==== remote collection
 
-A <<def-collection,collection>> that is not local to the <<def-deployment,OGC API deployment>> <<def-data-access-mechanisms,currently being accessed>>.
+A <<def-collection,collection>> that is not local to the <<def-deployment,OGC API deployment>> <<def-data-access-mechanism,currently being accessed>>.
 
 ==== REST
 

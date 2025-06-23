@@ -75,6 +75,7 @@ The term “_...based upon the OpenAPI 3.0 schema..._” used in the requirement
 It also means that unless explicitly excluded these OpenAPI schemas are extensible with additional properties not defined in the schema using the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#schemaObject[`additionalProperties`] mechanism defined in the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md[OpenAPI 3.0 specification].
 ====
 
+[[landing-page-schema]]
 .Schema for the landing page
 [source,yaml]
 ----
