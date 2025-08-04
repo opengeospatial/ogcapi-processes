@@ -25,14 +25,14 @@ properties:
   filter-crs:
     type: string
     format: uri-reference
+  aliases:
+    type: object
+    additionalProperties:
+      type: string
   properties:
-    oneOf:
-      - type: object
-        additionalProperties:
-          type: string
-      - type: array
-        items:
-          type: string
+    type: array
+    items:
+      type: string
   sortBy:
     type: array
     items:

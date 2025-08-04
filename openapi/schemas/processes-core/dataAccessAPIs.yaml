@@ -1,0 +1,15 @@
+type: object
+properties:
+  dataAccessAPIs:
+    type: array
+    items:
+      type: string
+      enum:
+        - ogc-api-features
+        - ogc-api-covreages
+        - ogc-api-edr
+        - ogc-api-tiles
+        - ogc-api-moving-features
+        - ogc-api-sensor-things
+        - ogc-api-records
+        - stac-api

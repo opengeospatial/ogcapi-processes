@@ -1,13 +1,13 @@
 == Collections
 
-[[section_collection_input]]
+[[sc_collection_input]]
 === REQUIREMENTS CLASS "COLLECTION INPUT"
 
 ==== Overview
 
 The _Collection Input_ conformance class allows an <<def-collection,OGC API collection>>, available using one or more <<def-data-access-mechanism,OGC API data access mechanisms>>, to be specified as an input to a process.
 
-Unless an implementation also conforms to the <<remote_collections,_Remote Collections_>> conformance class, only <<def-collection,collections>> that are locally accessible in the current <<def-deployment,OGC API deployment>> are supported.
+Unless an implementation also conforms to the <<sc_remote_collections,_Remote Collections_>> conformance class, only <<def-collection,collections>> that are locally accessible in the current <<def-deployment,OGC API deployment>> are supported.
 
 include::../requirements/requirements_class_collection-input.adoc[]
 
@@ -21,9 +21,7 @@ include::../requirements/collection-input/REQ_collection-input_referenced-collec
 
 include::../requirements/collection-input/REQ_collection-input_collection-access.adoc[]
 
-
-
-[[remote_collections]]
+[[sc_remote_collections]]
 === REQUIREMENTS CLASS "REMOTE COLLECTIONS"
 
 ==== Overview
@@ -50,7 +48,7 @@ include::../requirements/remote-collections/REQ_remote-collections_collection-ac
 
 
 
-[[section_collection_output]]
+[[sc_collection_output]]
 === REQUIREMENTS CLASS "COLLECTION OUTPUT"
 
 ==== Overview 

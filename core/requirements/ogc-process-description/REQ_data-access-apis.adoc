@@ -1,0 +1,28 @@
+[[req_ogc-process-description_data-access-apis]]
+[requirement,label="/req/ogc-process-description/data-access-apis"]
+====
+[%metadata]
+identifier:: /req/ogc-process-description/data-access-apis
+label:: /req/ogc-process-description/data-access-apis
+
+[.component,class=part]
+--
+The list of possible <<def-data-access-mechanism,OGC API data access mechanisms>> that can be used to retrieve process input or output values from an OGC collection shall be indicated by the `dataAccessApi` parameter in the <<ogc_process_description,process' description>>.
+--
+
+[.component,class=part]
+--
+The `dataAccessApi` parameter SHALL list all the APIs that the server can use to retrieve values for the corresponding process input or output.
+--
+
+[.component,class=part]
+--
+An empty value for the `dataAccessApi` parameter SHALL indicate that any of the APIs that the server claims to support in its <<sc_conformance_classes,conformance document>> can be used to retrieve values for the corresponding process input or output.
+--
+
+[.component,class=part]
+--
+The absence of the `dataAccessApi` parameter SHALL, for the correcsponding process input or input, indicate that values are provided or retrieved in the usual way without the use of an <<def-data-access-mechanism,OGC API data access mechanism>>.
+--
+
+====

@@ -3,7 +3,6 @@
 
 The following section describes the Core requirements class.
 
-
 === Overview
 
 include::../requirements/requirements_class_core.adoc[]
@@ -472,16 +471,16 @@ include::../../openapi/schemas/processes-core/execute.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/execute.yaml[`execute.yaml`].
 
-[[inline-or-ref-data]]
+[[inline-or-ref-value]]
 .Schema for an in-line or referenced process input value
 [source,yaml]
 ----
-include::../../openapi/schemas/processes-core/inlineOrRefData.yaml[]
+include::../../openapi/schemas/processes-core/inlineOrRefValue.yaml[]
 ----
 
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inlineOrRefData.yaml[`inlineOrRefData.yaml`].
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inlineOrRefValue.yaml[`inlineOrRefValue.yaml`].
 
-(see also: <<input-value-noobject-schema,inputValueNoObject.yaml>>, <<qualified-value-schema,qualifiedInputValue.yaml>>, <<link-schema,link.yaml>>)
+(see also: <<value-noobject-schema,valueNoObject.yaml>>, <<qualified-value-schema,qualifiedValue.yaml>>, <<link-schema,link.yaml>>)
 
 [[output-schema]]
 .Schema for a process output
@@ -538,7 +537,7 @@ The actual name of each input is its identifier as specified by the input's defi
 
 ====== Input values 
 
-As shown in https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inlineOrRefData.yaml[inlineOrRefData.yaml], a process input value that is specified in-line in an <<execute-request-body,execute request>> can be:
+As shown in https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inlineOrRefValue.yaml[inlineOrRefValue.yaml], a process input value that is specified in-line in an <<execute-request-body,execute request>> can be:
 
 * a simple literal value,
 * an array,
@@ -546,21 +545,21 @@ As shown in https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/ma
 * a binary value,
 * or a bounding box.
 
-NOTE: See also <<section_collection_input>>.
+NOTE: See also <<sc_collection_input>>.
 
 [[simple-literals]]
 *_Simple literal values:_*
 
 A simple literal value can be a string, number, integer or Boolean.
 
-[[input-value-noobject-schema]]
+[[value-noobject-schema]]
 .Schema for a simple literal value
 [source,yaml]
 ----
-include::../../openapi/schemas/processes-core/inputValueNoObject.yaml[]
+include::../../openapi/schemas/processes-core/valueNoObject.yaml[]
 ----
 
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputValueNoObject.yaml[`inputValueNoObject.yaml`].
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/valueNoObject.yaml[`valueNoObject.yaml`].
 
 (see also: <<binary-input-value-schema,binaryInputValue.yaml>>, <<bbox-schema,bbox.yaml>>)
 
@@ -600,7 +599,7 @@ A Boolean:
 [[arrays]]
 *_Array of values:_*
 
-Array elements, as per <<inline-or-ref-data,inlineOrRefData.yaml>>, can be:
+Array elements, as per <<inline-or-ref-value,inlineOrRefValue.yaml>>, can be:
 
 * <<simple-literals,simple literals>>,
 * embedded arrays,
@@ -669,7 +668,7 @@ A qualified value is a <<input-value-schema,value>> that can be optionally quali
 
 Qualified values can be used to encode process input values that, according to their definition in the <<sc_process_description,process description>>, can be of multiple media types.  The `format` parameter is used to identify the specific media type being provided as the process input.
 
-Qualified values can also be used to encode object-valued process inputs in order to avoid ambiguity with the built-in value schemas defined in this standard (i.e. <<bounding-box-value,bbox.yaml>>, <<link-schema,link.yaml>> or <<qualified-value,qualifiedInputValue.yaml>> itself).
+Qualified values can also be used to encode object-valued process inputs in order to avoid ambiguity with the built-in value schemas defined in this standard (i.e. <<bounding-box-value,bbox.yaml>>, <<link-schema,link.yaml>> or <<qualified-value,qualifiedValue.yaml>> itself).
 
 The actual _value_ in a qualified value object is specified using the `value` key.  The value of the `value` key is an instance of <<input-value-schema,inputValue.yaml>>.
 
@@ -677,10 +676,10 @@ The actual _value_ in a qualified value object is specified using the `value` ke
 .Schema for a qualified value
 [source,yaml]
 ----
-include::../../openapi/schemas/processes-core/qualifiedInputValue.yaml[]
+include::../../openapi/schemas/processes-core/qualifiedValue.yaml[]
 ----
 
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/qualifiedInputValue.yaml[`qualifiedInputValue.yaml`].
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/qualifiedValue.yaml[`qualifiedValue.yaml`].
 
 (see also: <<format-schema,format.yaml>>)
 
@@ -693,7 +692,7 @@ include::../../openapi/schemas/processes-core/inputValue.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputValue.yaml[`inputValue.yaml`].
 
-(see also: <<input-value-noobject-schema,inputValueNoObject.yaml>>)
+(see also: <<value-noobject-schema,valueNoObject.yaml>>)
 
 include::../requirements/core/REQ_process-execute-input-inline-object.adoc[]
 

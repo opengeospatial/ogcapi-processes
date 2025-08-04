@@ -1,0 +1,17 @@
+[[req_ogc-process-description_execution-unit-requirements]]
+[requirement,label="/req/ogc-process-description/execution-unit-requirements"]
+====
+[%metadata]
+identifier:: /req/ogc-process-description/execution-unit-requirements
+label:: /req/ogc-process-description/execution-unit-requirements
+
+[.component,class=part]
+--
+The `executeUnitRequrements` parameter SHALL be used to specify runtime requirements for the correspoding input.
+--
+
+[.component,class=part]
+--
+The `staging` parameter SHALL include how the input value of the correspoding input SHALL be staged.  A value of `file` indicates that the input value SHALL be locally staged for the process' execution unit.  A value of `uri` indicates that the input value can be passed as-is to the process and the process itself SHALL resolve the reference to retrieve the value.
+--
+====

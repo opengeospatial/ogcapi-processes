@@ -8,4 +8,4 @@ anyOf:
       $ref: "inputValue.yaml"
   - $ref: "binaryInputValue.yaml"
   - $ref: "bbox.yaml"
-  - $ref: "collectionInput.yaml"
+  - $ref: "collectionValue.yaml"

@@ -1,16 +1,13 @@
 allOf:
   - $ref: "descriptionType.yaml"
+  - $ref: "dataClasses.yaml"
+  - $ref: "dataAccessApis.yaml"
   - type: object
     required:
       - schema
     properties:
       schema:
         $ref: "https://json-schema.org/draft/2020-12/schema"
-      dataClasses:
-        type: array
-        items:
-          type: string
-          format: uri
       minOccurs:
         type: integer
         default: 1
@@ -29,3 +26,11 @@ allOf:
              - "byValue"
              - "byReference"
         default: ["byValue","byReference"]
+      executionUnitRequirements:
+        type: object
+        properties:
+          staging:
+            type: string
+            enum:
+              - "file"
+              - "uri"
