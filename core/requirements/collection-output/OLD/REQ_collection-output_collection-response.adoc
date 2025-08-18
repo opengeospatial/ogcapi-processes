@@ -13,7 +13,7 @@ For initiating the execution of a process and retrieving its output as an <<def-
 
 [.component,class=part]
 --
-For a request including the `reponse=collection` parameter and generating a single output, the implementation SHALL return a https://datatracker.ietf.org/doc/html/rfc7231#section-6.4.4[303 _See Other_] HTTP status code together with a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[_Location:_] response header redirecting to a <<def-collection-description-document,collection description document>>.
+For a request including the `reponse=collection` parameter and generating a single output, the implementation SHALL return a https://datatracker.ietf.org/doc/html/rfc7231#section-6.4.4[303 _See Other_] HTTP status code together with a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[_Location:_] response header redirecting to a <<def-collection-description,collection description document>>.
 --
 
 [.component,class=part]
@@ -23,6 +23,6 @@ For a request including the `response=collection` parameter and generting multip
 
 [.component,class=part]
 --
-The target <<def-collection-description-document,collection description>> SHALL link to at least one <<def-ogc-data-access-mechanism,OGC API data access mechanism>>.
+The target <<def-collection-description,collection description>> SHALL link to at least one <<def-ogc-data-access-mechanism,OGC API data access mechanism>>.
 --
 ====

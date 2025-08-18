@@ -15,7 +15,7 @@ properties:
     example: en
   title:
     type: string
-  profile:
+  profiles:
     type: array
     description:
       One or more identifiers that provide information about additional

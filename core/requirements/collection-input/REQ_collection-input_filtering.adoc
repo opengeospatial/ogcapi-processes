@@ -1,0 +1,34 @@
+[[req_collection-input_filtering]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/collection-input/filtering
+label:: /req/collection-input/filtering
+
+[.component,class=description]
+--
+To support the filtering of data accessed from a <<def-collection,collection>> before providing the data as <<sc_process_inputs,inputs to a process>>:
+--
+
+[.component,class=part]
+--
+The server SHALL support the following parameters:
+
+* filter, filterCrs, filterLang
+* bbox, bboxCrs
+* datetime
+* subset, subsetCrs
+* geometry, geometryCrs
+* limit
+* ids
+* q
+* assets
+* crs
+--
+
+[.component,class=part]
+--
+These filtering parameters SHALL be mapped to corresponding query parameters in the <<def-data-access-mechanism,data access API>> chosen to retrieve input values from the <<def-collection,collection>>.
+--
+
+====

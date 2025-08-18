@@ -7,16 +7,13 @@ label:: /req/collection-output/data-access-mechanisms
 
 [.component,class=description]
 --
-For triggering processing and returning resulting output data as a response to data access requests:
+For returning resulting output data as a response to <<def-data-access-mechanism,OGC API data access requests>>:
 --
 
-[.component,class=description]
+[.component,class=part]
 --
-The implementation SHALL support at least one <<def-data-access-mechanism,OGC API data access mechanisms>> corresponding to the links returned from a request including the `response=collection` or `response=landingPage` parameters.
---
-
-[.component,class=description]
---
-The implementation SHALL trigger the processing required to respond to the request with considerations for the area, time and/or resolution of interest associated with the request.
+The server SHALL support at least one <<def-data-access-mechanism,OGC API data access mechanisms>> corresponding to the data access links included in the target <<def-collection-description,collection description document>>.
 --
 ====
+
+

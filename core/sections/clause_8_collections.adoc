@@ -5,9 +5,11 @@
 
 ==== Overview
 
-The _Collection Input_ conformance class allows an <<def-collection,OGC API collection>>, available using one or more <<def-data-access-mechanism,OGC API data access mechanisms>>, to be specified as an input to a process.
+The _Collection Input_ conformance class allows an <<def-collection,OGC API collection>>, accessible using one or more <<def-data-access-mechanism,OGC API data access mechanisms>>, to be specified as an input to a process.  Specifically, the processing server acts as a client and fetches values from the <<def-collection,OGC API collection>> using one of the available <<def-data-access-mechanism,OGC API data access mechanisms>> and then feeds the fetched values as input values to the process being executed.  The server from which input values are retrieved is referred to as the <<value-source-server,_value source server_>>.
 
 Unless an implementation also conforms to the <<sc_remote_collections,_Remote Collections_>> conformance class, only <<def-collection,collections>> that are locally accessible in the current <<def-deployment,OGC API deployment>> are supported.
+
+Unless an implementation also conforms to the <<sc_local_collection_filtering,_Local Collection Filtering_>> conformance class, filtering of values retrived from an <<def-collection,OGC API collection>> is performed by the <<value-source-server,value source server>>.
 
 include::../requirements/requirements_class_collection-input.adoc[]
 
@@ -15,189 +17,208 @@ The following requirements describe how an <<execute-request-body,execute reques
 
 ==== Referencing a collection
 
-include::../requirements/collection-input/REQ_collection-input_referenced-collection.adoc[]
+include::../requirements/collection-input/REQ_collection-input_referencing.adoc[]
 
 ==== Accessing data from a collection
 
-include::../requirements/collection-input/REQ_collection-input_collection-access.adoc[]
+===== Overview 
+
+The following requirements describe how to access data from an <<def-collection,OGC API collection>> and the ability of an implementation to modify the accessed data by first applying filters, selecting a subset of fields or deriving new fields before providing the data as input to a process.
+
+include::../requirements/collection-input/REQ_collection-input_access.adoc[]
+
+[[sc-collection-filtering]]
+===== Filtering
+
+include::../requirements/collection-input/REQ_collection-input_filtering.adoc[]
+
+NOTE: The server may also do some intelligent remapping of parameters.  For example, if a `bbox` parameter is specified in the execute request, but the <<value-source-server,value source server>> only supports the `geometry` parameter, the implementation may convert the bounding box to a 4-point polygon and map the specified `bbox` parameter to the `geometry` parameter supported by the <<value-source-server,value source server>>.
+
+**Parameter filter**
+
+A search or filter condition.  This condition determines which resources from the OGC API collection are included in the result set and are thus passed as values to the corresponding process input.  The `filter` parameter can be a string where the search condition is encoded in some text-based query langauge (e.g. cql2-text) or a CQL2 JSON object that encodes the search condition using JSON.
+
+**Parameter filterCrs**
+
+Asserts the CRS used for the coordinate values of the `filter` parameter.  The default is WGS 84 or WGS 84h depending on whether ellispoidal jeight is included with the coordinates or not:
+
+* WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
+* WGS 84h longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h_
+
+**Parameter filterLang**
+
+Indicates the language used to encode a filter expression specified using the `filter` parameter. Query languages can include CQL2 text, CQL 2 JSON or OGC Filter Encoding (XML).
+
+**Parameter bbox**
+
+Only resources that have a geometry that intersects the bounding box are selected to be passed as input values to an executing process.  If a resource has multiple spatial geometry properties, it is the decision of the value source server whether only a single spatial geometry property is used to determine the extent or all relevant geometries.
+
+**Parameter bboxCrs**
+
+Asserts the CRS used for the coordinate values of the `bbox` parameter.  The default is WGS 84 or WGS84h depending on whether ellipsoidal height is included or not:
+
+* WGS 84 longitude/latitude [4 numbers]
+  (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
+* WGS 84h longitude/latitude/ellipsoidal height [6 numbers]
+  (http://www.opengis.net/def/crs/OGC/0/CRS84h_
+
+**Parameter datetime**
+
+Either a date-time or an interval, half-bounded or bounded. Date and time expressions adhere to RFC 3339. Half-bounded intervals are expressed using double-dots.  Only resources that have a temporal property that intersects the value of `datetime` are selected.  If a resource has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties.
+
+**Parameter subset**
+
+Retrieve only part of the data by slicing or trimming along one or more axis. For trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality). An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value. For slicing: {axisAbbrev}({value}) (reduces dimensionality).
+
+**Parameter subsetCrs**
+
+Asserts the CRS used for the coordinate values of the `subset` parameter.  The default is WGS 84 or WGS 84h depending on whether ellispoidal height in included with the coordinates or not:
+
+* WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
+* WGS 84h longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h_
+
+**Parameter geometry**
+
+Only resources that have a geometry that intersects the geometry specified using the `geometry` parameter are selected.  The value of the `geometry` parameter can be specified using WKT or GeoJSON.  If a resource has multiple spatial geometry properties, it is the decision of the server whether only a single spatial geometry property is used to determine the extent or all relevant geometries.
+
+**Parameter geometryCrs**
+
+Asserts the CRS used for the coordinate values of the `geometry` parameter.  The default is WGS 84 or WGS84h depending on whether ellipsoidal height is included or not:
+
+* WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
+* WGS 84h longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h_
+
+**Parameter limit**
+
+The optional limit parameter limits the number of items that are presented in the response document.  Only items are counted that are on the first level of the collection in the response document.  Nested objects contained within the explicitly requested items shall not be counted.
+
+**Parameter ids**
+
+The optional ids parameter allows a specific list of resources, indicated by their identifiers, to be fetched from the OGC API collection. Only resources whose identifier matches one of the values listed for this parameter shall appear in the result set.
+
+**Parameter q**
+
+The optional q parameter supports keyword searching.  Only resources whose text fields contain one or more of the specified search terms are selected.  The specific set of text keys/fields/properties of a resource to which the q operator is applied is up to the discretion of the server.   Implementations should, however, apply the q operator to the title, description and keywords keys/fields/properties if they exist in the resource.
+
+**Parameter assets**
+
+T.B.D.  A list of STAC asset tags.
+
+**Parameter crs**
+
+If the parameter is specified, then the coordinates of all geometry-valued properties in a response document are in the requested CRS. Otherwise the coordinates are in the default CRS, that is http://www.opengis.net/def/crs/OGC/1.3/CRS84 for coordinates without height and http://www.opengis.net/def/crs/OGC/0/CRS84h for coordinates with ellipsoidal height.
+
+[[sc-property-selection]]
+===== Property selection & dervied properties
+
+include::../requirements/collection-input/REQ_collection-input_property-selection.adoc[]
+
+**Parameter properties**
+
+A filter that selects resource properties to be included in a response document.  The elements in the `properties` parameter can be the names of resource properties, aliases for resources properties or synthetic properties.  Synthetic properties are properties that are computed on the fly and can reference resource property names or aliases for resource properties.
+
+**Parameter aliases**
+
+A dictionary of aliases that can be used as values for the `properties` parameter.  Aliases can be alternative names for resource properties or synthetic properties.  Synthetic properties are named expressions that are computed at run-time.  Expressions for synthetic properties are encoded using some expression language and can include references to resource property names or aliases for resource properties..
+
+[[sc-pass-thru]]
+===== Pass thru parameters
+
+include::../requirements/collection-input/REQ_collection-input_pass-thru.adoc[]
+
+The `passThruParameters` parameter is a dictionary of query parameters that are passed directly to the value source server.  The keys used in this object should be identical to query parameters that the value source server recognizes.
+
+In the case where the OAProc server supports local filtering, the `passThruParameters` parameter provides a mechanism to force filtering to occur on the value source server.
+
+==== Examples
+
+.An example execute request with collection input
+====
+[source,json]
+----
+include::../examples/json/Execute2.json[]
+----
+====
+
 
 [[sc_remote_collections]]
 === REQUIREMENTS CLASS "REMOTE COLLECTIONS"
 
 ==== Overview
 
-The _Remote Collections_ conformance class allows to reference a remote OGC API collection
-in addition to any local collections.
-
-If the _Nested Processes_ conformance class is also supported, but _Remote Processes_ is not,
-an implementation still provides the ability to substitute a collection by remote nested processes
-supporting the _Collection Output_ conformance class as input to a process.
+The _Remote Collections_ conformance class allows to reference a remote OGC API collection in addition to any local collections.
 
 include::../requirements/requirements_class_remote-collections.adoc[]
 
-The following requirements describe how an <<execute-request-body,execute requests>> references a remote OGC API collection
-and how an implementation requests data from that collection to use as an input to a process.
+The following requirements describe how an <<execute-request-body,execute request>> references a <<def-remote-collection,remote OGC API collection>> as a source of input values to a process.
 
 ==== Referencing a remote collection
 
-include::../requirements/remote-collections/REQ_remote-collections_referenced-collection.adoc[]
+include::../requirements/remote-collections/REQ_remote-collection_referencing.adoc[]
 
 ==== Accessing data from a remote collection
 
-include::../requirements/remote-collections/REQ_remote-collections_collection-access.adoc[]
+include::../requirements/remote-collections/REQ_remote-collection_access.adoc[]
 
+===== Filtering
 
+See: <<sc-collection-filtering,Filtering>>
+
+===== Property selection & dervied properties
+
+See: <<sc-property-selection,Property selection & dervied properties>>
+
+===== Pass thru parameters
+
+See: <<sc-pass-thru,Pass thru parameters>>
 
 [[sc_collection_output]]
 === REQUIREMENTS CLASS "COLLECTION OUTPUT"
 
 ==== Overview 
 
-The _Collection Output_ conformance class specifies how clients can trigger the
-execution of a process for a specific area, time and resolution of interest
-as a result of requesting output data using OGC API data access mechanisms, such as
-_OGC API - Tiles_, _DGGS_, _Coverages_, _Features_, _EDR_, or _Maps_.
+The _Collection Output_ conformance class specifies how clients can trigger the execution of a process as a result of requesting output data using <<def-data-access-mechanism,OGC API data access mechanisms>>.
 
-This provides an alternative to the synchronous and asynchronous execution mechanisms
-defined in _OGC API - Processes - Part 1: Core_ for which area, time and resolution of interest
-are hardcoded in the <<execute-request-body,execute request>>. With _Core_, when lengthy batch processing is not desirable,
-completely new <<execute-request-body,execute requests>> returning a partial output must continuously be re-submitted.
+This provides an alternative to the synchronous and asynchronous execution mechanisms defined in this Standard for which spatial, temporal and other filtering prameter would need to be hardcoded in the <<execute-request-body,execute request>>.  When lengthy batch processing is not desirable, completely new <<execute-request-body,execute requests>> each with different spatial, temporal and other filtering parameters and returning a partial output would need to be continuously be re-submitted.
 
-This conformance class allows to submit an <<execute-request-body,execute request>> once and then access the output
-using mechanisms widely supported by clients in a manner completely agnostic of process execution.
+This conformance class supports submitting an <<execute-request-body,execute request>> once and then accessing the output using <<def-data-access-mechanism,OGC API data access mechanisms>> in a manner that is  completely agnostic of process execution.
 
-Compared to separate <<execute-request-body,execute requests>>, this mechanism makes it easier for implementations to optimize
-for scenarios where clients will stream small partial outputs from the same pre-established processing
-pipeline. Parsing the <<execute-request-body,execute request>>, validating inputs, and handshakes with remote components 
-only needs to be performed once. An implementation could also preempt future requests based on past requests,
-offsetting the latency of a complex processing pipeline.
+Compared to separate <<execute-request-body,execute requests>>, this mechanism makes it easier for implementations to optimize for scenarios where small partial outputs are streamed from the same pre-established processing pipeline. Parsing the <<execute-request-body,execute request>>, validating inputs, and handshakes with remote components only needs to be performed once. An implementation could also preempt future requests based on past requests, offsetting the latency of a complex processing pipeline.
 
 include::../requirements/requirements_class_collection-output.adoc[]
 
-The following requirements describe an execution mechanism where a client is redirected (using a `303` _See Other_ HTTP
-status code and a `Location:` header)
-to an OGC API landing page or collection description document,
-which provides links to request output data using standard OGC API data access mechanisms, triggering on-demand processing
-for a particular area, time and resolution of interest.
+The following requirements describe an execution mechanism that triggers on-demand processing for particular spatial, temporal and other filtering parameters and results in one or more references to a <<def-collection-description,collection description document>> that provides links to request output data using standard <<def-data-access-mechanism,OGC API data access mechanisms>>.
 
-==== `response` query parameter
+==== Parameter `response`
 
-include::../requirements/collection-output/REQ_collection-output_response-query-parameter.adoc[]
+include::../requirements/collection-output/REQ_collection-output_response-def.adoc[]
 
-==== Collection Response
+include::../requirements/collection-output/REQ_collection-output_response-response-one.adoc[]
 
-A request for a collection response is only valid for an <<execute-request-body,execute request>> generating or selecting a single output
-which can be retrieved using an OGC API data access mechanism.
+include::../recommendations/collection-output/PER_collection-output_response-response-one.adoc[]
 
-include::../requirements/collection-output/REQ_collection-output_collection-response.adoc[]
-
-==== Landing Page Response
-
-A request for a landing page response is valid for an <<execute-request-body,execute request>> generating one or more outputs
-which can be retrieved using an OGC API data access mechanism.
-
-include::../requirements/collection-output/REQ_collection-output_landing-page-response.adoc[]
-
-==== Collection Output expiry
-
-include::../recommendations/collection-output/PER_collection-output_expiry.adoc[]
+include::../requirements/collection-output/REQ_collection-output_response-response-many.adoc[]
 
 ==== Data Access Mechanisms
 
 include::../requirements/collection-output/REQ_collection-output_data-access-mechanisms.adoc[]
 
+This Standard does not impose any particular approach to materializing output <<def-collection,collections>> resulting from a process execution request.  
 
-[[section_fields_modifiers]]
-=== REQUIREMENTS CLASS "INPUT FIELDS MODIFIERS"
+include::../recommendations/collection-output/PER_collection-output_static.adoc[]
 
-==== Overview
+include::../recommendations/collection-output/PER_collection-output_dynamic.adoc[]
 
-The _Input Fields Modifiers_ conformance class specifies how <<execute-request-body,execute requests>> can modify
-an input (including those specified using the _Collection Input_, _Remote Collections_, _Nested Processes_ and _Remote Processes_ conformance classes)
-by filtering its data according to its fields (properties), selecting a subset of the data fields or
-deriving new fields from existing ones (e.g., by performing arithmetic),
-and/or sorting the data according to the value of fields. An expression language such as the
-OGC Common Query Language 2 (CQL2) can be used for this purpose.
-http://docs.ogc.org/DRAFTS/21-065.html#_scope[There are plans] to extend CQL2 beyond
-boolean predicates to expressions that resolve to other types of values (e.g., numbers or geometry).
+==== Collection Output expiry
 
-include::../requirements/requirements_class_input-fields-modifiers.adoc[]
+include::../recommendations/collection-output/PER_collection-output_expiry.adoc[]
 
-The following requirements describe the ability of an implementation to modify the
-data accessed as an input to a process by first applying a filter (`"filter"`),
-selecting a subset of the fields or deriving new fields (`"properties"`) or
-sorting the data (`"sortBy"`), before providing the data as input to the process.
-In an <<execute-request-body,execute request>>, these additional keys are specified at the same level as the
-`"collection"` defined in the _Collection Input_ conformance class, or the
-`"process"` defined in the _Nested Process_ conformance class.
-
-For an input generated by a nested process, this capability is equivalent to the
-_Output Fields Modifiers_ conformance class from the perspective of that nested process.
-For a remote process (as defined in _Remote Processes_ conformance class) that supports _Output Fields Modifiers_, or
-for a collection (or a process supporting _Collection Output_) with a data access mechanism providing the required functionality,
-it is preferable to let the remote process or collection access handle the modification to lower bandwidth and processing requirements.
-
-For an input from a _remote collection_, a data access mechanism for the collection may readily support some or all of these parameters (e.g., _OGC API - Features - Part 3: Filtering_).
-In this case, it is preferable for the Implementation to query the data with the relevant parameters.
-
-This ability to pass on these modifiers to remote data and processing sources allows to easily bring a certain category of algorithms close to the data through simple standard expressions.
-
-The extent to which an implementation support these field modifiers capabilities depends on its stated level of conformance to one or more expression language.
-
-==== Filtering
-
-include::../requirements/input-fields-modifiers/REQ_input-fields-modifiers_filtering.adoc[]
-
-==== Selecting and Deriving Fields
-
-include::../requirements/input-fields-modifiers/REQ_input-fields-modifiers_derived-fields.adoc[]
-
-==== Sorting
-
-include::../requirements/input-fields-modifiers/REQ_input-fields-modifiers_sorting.adoc[]
-
-=== REQUIREMENTS CLASS "OUTPUT FIELDS MODIFIERS"
+=== REQUIREMENTS CLASS "LOCAL FILTERING"
 
 ==== Overview
 
-The _Output Fields Modifiers_ conformance class specifies how <<execute-request-body,execute requests>> can modify
-the data output from a process by filtering its data according to its fields (properties), selecting a subset of the data fields or
-deriving new fields from existing ones (e.g., by performing arithmetic),
-and/or sorting the data according to the value of fields. An expression language such as the
-OGC Common Query Language 2 (CQL2) can be used for this purpose.
-http://docs.ogc.org/DRAFTS/21-065.html#_scope[There are plans] to extend CQL2 beyond
-boolean predicates to expressions that resolve to other types of values (e.g., numbers or geometry).
+As described in <<sc-collection-filtering>>, implementation of this Standard that support <<sc_collection_input,collection input>> rely on the <<value-source-server,value source server>> to perform any input data filtering specified in an execution request.
 
-This capability is available whether using the _Collection Output_ conformance class,
-or the synchronous or asynchronous execution capabilities of _OGC API - Processes - Part 1: Core_.
+Servers that implement this conformance class, support local filtering in those instances where the <<value-source-server,value source server>> does not support the input data filtering requested in the execution request.
 
-include::../requirements/requirements_class_output-fields-modifiers.adoc[]
-
-The following requirements describe the ability of an implementation to modify the
-data output from a process by applying a filter (`"filter"`),
-selecting a subset of the fields or deriving new fields (`"properties"`) or
-sorting the data (`"sortBy"`), before returning the data as an output of a process.
-In an <<execute-request-body,execute request>>, these additional keys are specified at the same level as the
-`"process"` defined in the _Nested Process_ conformance class, or at the top-level of an <<execute-request-body,execute request>> 
-as defined in _OGC API - Processes - Part 1: Core_.
-
-When a nested process is used as an input to another process, this capability is equivalent to the
-_Input Fields Modifiers_ conformance class from the perspective of the parent process receiving the output of the nested process.
-For a remote process (as defined in _Remote Processes_ conformance class) that supports _Output Fields Modifiers_, or
-supports _Collection Output_ with a data access mechanism providing the required functionality,
-it is preferable to let the remote process handle the modification to lower bandwidth and processing requirements.
-
-The extent to which an implementation support these capabilities depends on its
-stated level of conformance to one or more expression language.
-
-==== Filtering
-
-include::../requirements/output-fields-modifiers/REQ_output-fields-modifiers_filtering.adoc[]
-
-==== Selecting and Deriving Fields
-
-include::../requirements/output-fields-modifiers/REQ_output-fields-modifiers_derived-fields.adoc[]
-
-==== Sorting
-
-include::../requirements/output-fields-modifiers/REQ_output-fields-modifiers_sorting.adoc[]
+TBD

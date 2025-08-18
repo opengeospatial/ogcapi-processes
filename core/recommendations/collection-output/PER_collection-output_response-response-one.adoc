@@ -1,0 +1,20 @@
+[[pre_collection-output_response-response-one]]
+[permission]
+====
+[%metadata]
+identifier:: /per/collection-output/response-response-one
+label:: /per/collection-output/response-response-one
+
+[.component,class=conditions]
+--
+. The execution request includes the `response` query parameter.
+. The value of the `response` query parameter is `collection`.
+. The number of implicitly or explicitly requested outputs is 1.
+. The server implements the <<profile-parameter,Profile query parameter>> requirements class.
+--
+
+[.component,class=part]
+--
+The content of response MAY conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[results.yaml] schema.
+--
+====

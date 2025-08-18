@@ -1,0 +1,30 @@
+[[req_collection-output_response-response-one]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/collection-output/response-response-one
+label:: /req/collection-output/response-response-one
+
+[.component,class=conditions]
+--
+. The execution request includes the `response` query parameter.
+. The value of the `response` query parameter is `collection`.
+. The number of implicitly or explicitly requested outputs is 1.
+--
+
+[.component,class=part]
+--
+The server SHALL response with an HTTP status code of https://datatracker.ietf.org/doc/html/rfc7231#section-6.4.4[303].
+--
+
+[.component,class=part]
+--
+The response SHALL include a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[`Location`] response header redirecting to a <<def-collection-description,collection description document>>.
+--
+
+[.component,class=part]
+--
+The target <<def-collection-description,collection description document>> SHALL link to at least one <<def-ogc-data-access-mechanism,OGC API data access mechanism>>.
+--
+
+====

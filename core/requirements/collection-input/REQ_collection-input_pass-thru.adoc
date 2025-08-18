@@ -1,0 +1,23 @@
+[[req_collection-input_pass-thru]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/collection-input/pass-thru
+label:: /req/collection-input/pass-thru
+
+[.component,class=description]
+--
+To support the ability to opaquely pass query parameters through to the <<value-source-server,value source server>>:
+--
+
+[.component,class=part]
+--
+The server SHALL support the following parameters:
+
+* passThruParameters
+--
+====
+
+
+
+

@@ -1,0 +1,9 @@
+[[per_collection-output_static]]
+[permission]
+====
+[%metadata]
+identifier:: /per/collection-output/static
+label:: /per/collection-output/static
+
+The server MAY perform all the requested processing up front resulting in a fully materialized and static <<def-collection,output collection>>.
+====

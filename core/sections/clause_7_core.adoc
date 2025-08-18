@@ -269,7 +269,7 @@ It would thus be useful if there was a mechanism for requesting a profile of a r
 * using the `profile` parameter with the https://www.rfc-editor.org/rfc/rfc7240[HTTP Prefer header]
 * using a link header with `rel="profile"`.
 
-This standard also defines a query paramete, `profile`, that may be used with an HTTP GET request to specify one or more profiles of a resource that are to be retrieved.
+This standard also defines a query parameter `profile`, that may be used with an HTTP GET request to specify one or more profiles of a resource that are to be retrieved.
 
 [[sc_limit_parameter]]
 === Limit parameter
