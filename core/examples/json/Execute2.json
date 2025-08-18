@@ -2,7 +2,7 @@
   "$comment": "This example executes a process called `isotermal`. This process accepts a collection of features that include a position and a temperature and this process uses that information to generate an isothermal map.",
   "inputs": {
     "features": {
-       "collection": "https://www.someserver.com/collection/temps",
+       "collection": "/collection/temps",
        "aliases": {
           "geometry": "pos",
           "acquisition-date": "acq",
