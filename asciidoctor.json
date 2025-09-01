@@ -14,11 +14,53 @@
                 "r":[
                         "asciidoctor-diagram"
                 ]
+        },
+        "1":  {
+                "OGC_doc_number": "20-044",
+                "urn":"http://www.opengis.net/doc/IS/ogcapi-processes-2/1.0",
+                "title":"OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+                "version":"1.0.0",
+                "path":"extensions/deploy_replace_undeploy/standard/20-044.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
+        },
+        "2":  {
+                "OGC_doc_number": "21-099",
+                "urn":"http://www.opengis.net/doc/IS/ogcapi-processes-3/1.0",
+                "title":"OGC API - Processes - Part 3: Workflows and Chaining",
+                "version":"1.0.0",
+                "path":"extensions/workflows/21-099.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
+        },
+        "3":  {
+                "OGC_doc_number": "24-051",
+                "urn":"http://www.opengis.net/doc/IS/ogcapi-processes-4/1.0",
+                "title":"OGC API - Processes - Part 4: Job Management",
+                "version":"1.0.0",
+                "path":"extensions/job_management/standard/21-099.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
         }
 }
-
-
-
-
-
-,

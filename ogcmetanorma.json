@@ -5,5 +5,26 @@
                 "title":"OGC API - Processes - Part 1: Core",
                 "version":"2.0.0",
                 "path":"18-062.adoc"
+        },
+        "1":  {
+                "OGC_doc_number": "20-044",
+                "urn":"http://www.opengis.net/doc/IS/ogcapi-processes-2/1.0",
+                "title":"OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+                "version":"1.0.0",
+                "path":"extensions/deploy_replace_undeploy/standard/20-044.adoc"
+        },
+        "2":  {
+                "OGC_doc_number": "21-099",
+                "urn":"http://www.opengis.net/doc/IS/ogcapi-processes-3/1.0",
+                "title":"OGC API - Processes - Part 3: Workflows and Chaining",
+                "version":"1.0.0",
+                "path":"extensions/workflows/21-099.adoc"
+        },
+        "3":  {
+                "OGC_doc_number": "24-051",
+                "urn":"http://www.opengis.net/doc/IS/ogcapi-processes-4/1.0",
+                "title":"OGC API - Processes - Part 4: Job Managment",
+                "version":"1.0.0",
+                "path":"extensions/job_management/standard/24-051.adoc"
         }
 }
