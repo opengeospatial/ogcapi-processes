@@ -17,6 +17,21 @@ The `dataAccessApi` parameter SHALL list all the APIs that the server can use to
 
 [.component,class=part]
 --
+The non-exhaustive list of values for the `dataAccessApi` parameter SHALL include:
+
+* ogc-api-features
+* ogc-api-covreages
+* ogc-api-edr
+* ogc-api-tiles
+* ogc-api-moving-features
+* ogc-api-sensor-things
+* ogc-api-records
+* ogc-api-dggs
+* stac-api
+--
+
+[.component,class=part]
+--
 An empty value for the `dataAccessApi` parameter SHALL indicate that any of the APIs that the server claims to support in its <<sc_conformance_classes,conformance document>> can be used to retrieve values for the corresponding process input or output.
 --
 

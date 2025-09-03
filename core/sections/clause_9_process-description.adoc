@@ -128,6 +128,8 @@ If a server supports <<rc_collection-input,collection input>> and/or <<rc_collec
 
 include::../requirements/ogc-process-description/REQ_data-access-apis.adoc[]
 
+include::../recommendations/ogc-process-description/PER_extend-data-access-apis-values.adoc[]
+
 [[sc-input-schema]]
 ==== Schema
 

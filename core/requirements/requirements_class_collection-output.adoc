@@ -6,18 +6,4 @@ identifier:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/collection-o
 subject:: Collection Output
 inherit:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core
 inherit:: http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
-inherit:: http://www.opengis.net/spec/ogcapi-tiles-1/1.0/conf/geodata-tilesets (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-coverages-1/0.0/conf/core (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-coverages-1/0.0/conf/coverage-scaling (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-coverages-1/0.0/conf/coverage-subset (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-coverages-1/0.0/conf/coverage-rangesubset (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-dggs-1/0.0/conf/data-retrieval (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-dggs-1/0.0/conf/zone-query (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-edr-1/1.0/conf/core (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-edr-1/1.0/conf/collections (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-maps-1/0.0/conf/core (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-maps-1/0.0/conf/spatial-subset (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-maps-1/0.0/conf/datetime (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-maps-1/0.0/conf/scaling (optional)
 ====
