@@ -12,7 +12,7 @@ For referencing a <<def-collection,local collection>> as a source of <<sc_proces
 
 [.component,class=part]
 --
-The server SHALL support inputs in an <<execute-request-body,execute requests>> that contain the `collection` parameter.
+The server SHALL support inputs in an <<execute-request-body,execute requests>> that contain the `collection` parameter as defined in <<collection-value-schema,"collectionValue.yaml">> schema.
 --
 
 [.component,class=part]
@@ -35,7 +35,7 @@ The server SHALL interpret Relative-URIs as relative to the parent process withi
 NOTE: PAV: The last part of this requirement is not clear to me.
 
 [[collection-value-schema]]
-.Schema for a collection value
+.Schema for the collection parameter
 [source,yaml]
 ----
 include::../../../openapi/schemas/processes-core/collectionValue.yaml[]

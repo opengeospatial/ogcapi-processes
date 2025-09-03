@@ -2,6 +2,7 @@ allOf:
   - $ref: "descriptionType.yaml"
   - $ref: "dataClasses.yaml"
   - $ref: "dataAccessApis.yaml"
+  - $ref: "executionUnitRequirements.yaml"
   - type: object
     required:
       - schema
@@ -26,11 +27,3 @@ allOf:
              - "byValue"
              - "byReference"
         default: ["byValue","byReference"]
-      executionUnitRequirements:
-        type: object
-        properties:
-          staging:
-            type: string
-            enum:
-              - "file"
-              - "uri"

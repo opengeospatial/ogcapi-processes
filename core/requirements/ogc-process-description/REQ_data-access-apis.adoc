@@ -22,7 +22,7 @@ An empty value for the `dataAccessApi` parameter SHALL indicate that any of the 
 
 [.component,class=part]
 --
-The absence of the `dataAccessApi` parameter SHALL, for the correcsponding process input or input, indicate that values are provided or retrieved in the usual way without the use of an <<def-data-access-mechanism,OGC API data access mechanism>>.
+The absence of the `dataAccessApi` parameter SHALL, for the correcsponding process input or input, indicate that <<sc_collection_input,collection input>> is not supported.
 --
 
 ====

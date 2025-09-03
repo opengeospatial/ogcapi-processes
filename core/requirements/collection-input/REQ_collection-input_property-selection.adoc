@@ -16,6 +16,9 @@ The server SHALL support the following parameters:
 
 * aliases
 * properties
+
+as defined in the <<collection-value-schema,"collectionValue.yaml">> schema.
+
 --
 
 [.component,class=part]

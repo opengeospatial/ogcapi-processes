@@ -1,52 +1,80 @@
-[[requirements-class-openapi_3_0-clause]]
-== Requirements Class "OpenAPI 3.0"
+== OpenAPI requirements classes 
 
-=== Basic requirements
+=== Requirements Class "OpenAPI Specification"
 
-APIs conforming to this requirements class are documented as an link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument[OpenAPI Document].
+NOTE: This requirements class is abstract. Implementations can only conform to the concrete requirements classes <<rc_oas30,OpenAPI Specification 3.0>> or <<rc_oas31,OpenAPI Specification 3.1>>.
 
-include::../requirements/requirements_class_oas30.adoc[]
+==== Basic requirements
 
-include::../requirements/oas30/REQ_oas-definition-1.adoc[]
+Servers conforming to this requirements class define their API by an OpenAPI Document. Note that this requirements class is not specific to a particular version of the OpenAPI specification. Requirements specific to a particular version are defined in separate, dependent requirements classes.
 
-include::../requirements/oas30/REQ_oas-definition-2.adoc[]
+include::../requirements/requirements_class_oas.adoc[]
 
-include::../requirements/oas30/REQ_oas-impl.adoc[]
+include::../requirements/oas/REQ_oas-definition.adoc[]
 
-=== Complete definition
+The requirements <<req_core_root-success,/req/core/root-success>> and <<req_core_api-definition-success,/req/core/api-definition-success>> in _Core_ require that the API definition documents are referenced from the landing page.
 
-include::../requirements/oas30/REQ_completeness.adoc[]
+[[two_appraoches_oas]]
+OpenAPI definitions can be created using different approaches. A typical example is the representation of the feature collections. One approach is to use a path parameter `collectionId,` i.e., the API definition has only a single path entry for all feature collections. Another approach is to explicitly define each feature collection in a separate path and without a path parameter, which allows to specify filter parameters or explicit feature schemas per feature collection. Both approaches are valid.
 
-NOTE: Implementations of the Processes API may also include capabilities that are not specified in this Standard such as access-control (see <<security,Security>>), support for web cache validation, handling of CORS or the use of HTTP redirection.  These additional capabilities make use of HTTP status codes that are beyond the regular set of code such as `200` for successful GET requests and `400`, `404` or `500` for error situations (see <<http_status_codes>>).  These additional codes would not necessarily be specified in a OpenAPI document and so clients must be prepared to receive responses not documented in the OpenAPI definition.  For example, additional error codes may be generated in the transport layer which is outside the server. 
+include::../requirements/oas/REQ_oas-impl.adoc[]
+
+==== Complete definition
+
+include::../requirements/oas/REQ_completeness.adoc[]
+
+Note that servers that, for example, are access-controlled (see <<security,Security>>), support web cache validation, CORS or that use HTTP redirection will make use of additional HTTP status codes beyond regular codes such as `200` for successful GET requests and `400`, `404` or `500` for error situations. See <<http_status_codes>>.
+
+Clients have to be prepared to receive responses not documented in the OpenAPI definition. For example, additional errors can occur in the transport layer outside of the server.
 
 [[exceptions]]
-=== Exceptions
+==== Exceptions
 
-include::../requirements/oas30/REQ_exception-codes.adoc[]
+include::../requirements/oas/REQ_exception-codes.adoc[]
 
-.An exception response object definition
-====
-[source,yaml]
+[[example_14]]
+.An example exception response object definition
+=================
+[source,YAML]
 ----
 description: An error occurred.
 content:
   application/json:
     schema:
-      $ref: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/openapi/schemas/common-core/exception.yaml
+      $ref: http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/common-core/exception.yaml
   text/html:
     schema:
       type: string
 ----
-====
+=================
 
 [[security]]
-=== Security
+==== Security
 
-include::../requirements/oas30/REQ_security.adoc[]
+include::../requirements/oas/REQ_security.adoc[]
 
-The OpenAPI specification currently supports the following link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#security-scheme-object[security schemes]:
+The OpenAPI specification currently supports the following link:http://spec.openapis.org/oas/v3.0.3#security-scheme-object[security schemes]:
 
 * HTTP authentication,
+
 * an API key (either as a header or as a query parameter),
+
 * OAuth2's common flows (implicit, password, application and access code) as defined in RFC6749, and
+
 * OpenID Connect Discovery.
+
+=== Requirements Class "OpenAPI Specification 3.0"
+
+Servers conforming to this requirements class define their API by an link:http://spec.openapis.org/oas/v3.0.3#openapi-document[OpenAPI 3.0 Document].
+
+include::../requirements/requirements_class_oas30.adoc[]
+
+include::../requirements/oas30/REQ_oas-definition.adoc[]
+
+=== Requirements Class "OpenAPI Specification 3.1"
+
+Servers conforming to this requirements class define their API by an link:http://spec.openapis.org/oas/v3.1.0#openapi-document[OpenAPI 3.1 Document].
+
+include::../requirements/requirements_class_oas31.adoc[]
+
+include::../requirements/oas31/REQ_oas-definition.adoc[]

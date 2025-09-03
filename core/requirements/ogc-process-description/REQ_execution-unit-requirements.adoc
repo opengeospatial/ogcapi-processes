@@ -12,6 +12,17 @@ The `executeUnitRequrements` parameter SHALL be used to specify runtime requirem
 
 [.component,class=part]
 --
-The `staging` parameter SHALL include how the input value of the correspoding input SHALL be staged.  A value of `file` indicates that the input value SHALL be locally staged for the process' execution unit.  A value of `uri` indicates that the input value can be passed as-is to the process and the process itself SHALL resolve the reference to retrieve the value.
+The `remote-access` parameter SHALL indicate whether referenced input data can be retrieved from outside the access domain of the server (e.g. via network access).
+
+* A value of `true` indicates that the execution unit has network access and can thus retrieve input data from outside the server's access domain (e.g. via a remote OGC API or a remote file reference).
+* A value of `false` indicates that the execution unit does not have network access and input data retrieval is restrictied to the server's access domain (e.g. local file system).
+--
+
+[.component,class=part]
+--
+The `staging` parameter SHALL indicate how referenced input data should be prepared for the execution unit.
+
+* A value of `local-file` indicates that referenced input data SHALL be locally staged for the process' execution unit.
+* A value of `remote-access` indicates that a reference to input data SHALL be passed to the execution unit as-is since the process' execution unit itself know how to dereference the input data.
 --
 ====

@@ -87,6 +87,14 @@ include::../../openapi/schemas/processes-core/dataAccessAPIs.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/dataAccessAPIs.yaml[`dataAccessApis.yaml`]
 
+[[process-input-schema-execute-unit-requirements]]
+.Schema for the "executionUnitRequirements" parameter
+[source,yaml]
+----
+include::../../openapi/schemas/processes-core/executionUnitRequirements.yaml[]
+----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/executionUnitRequirements.yaml[`executionUnitRequirements.yaml`]
 
 (see also: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/descriptionType.yaml[`descriptionType.yaml`]).
 

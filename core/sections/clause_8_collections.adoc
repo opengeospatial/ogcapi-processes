@@ -221,4 +221,8 @@ As described in <<sc-collection-filtering>>, implementation of this Standard tha
 
 Servers that implement this conformance class, support local filtering in those instances where the <<value-source-server,value source server>> does not support the input data filtering requested in the execution request.
 
-TBD
+include::../requirements/requirements_class_local-filtering.adoc[]
+
+==== Filter parameters
+
+include::../requirements/local-filtering/REQ_local-filtering.adoc[]

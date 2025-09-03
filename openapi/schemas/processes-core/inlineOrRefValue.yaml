@@ -1,4 +1,4 @@
 oneOf:
   - $ref: "valueNoObject.yaml"
   - $ref: "qualifiedValue.yaml"
-  - $ref: "../common-core/link.yaml"
+  - $ref: "link.yaml"

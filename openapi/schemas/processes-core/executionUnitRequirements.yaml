@@ -1,0 +1,12 @@
+type: object
+propreties:
+  executionUnitRequirements:
+    type: object
+    properties:
+      remote-access:
+        type: boolean
+      staging:
+        type: string
+        enum:
+          - local-file
+          - remote-access

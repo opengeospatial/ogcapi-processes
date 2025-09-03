@@ -5,5 +5,4 @@
 identifier:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/collection-input
 subject:: Collection Input
 inherit:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core
-inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/input-fields-modifiers (optional)
 ====

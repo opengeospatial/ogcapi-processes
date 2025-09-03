@@ -7,7 +7,7 @@ label:: /req/job-list/duration-definition
 
 [.component,class=part]
 --
-The operation SHALL support a parameter `minDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+The operation SHALL support a parameter `minDuration` with the following characteristics (using an OpenAPI Specification fragment):
 
 [source,yaml]
 ----
@@ -21,7 +21,7 @@ schema:
 
 [.component,class=part]
 --
-The operation SHALL support a parameter `maxDuration` with the following characteristics (using an OpenAPI Specification 3.0 fragment):
+The operation SHALL support a parameter `maxDuration` with the following characteristics (using an OpenAPI Specification fragment):
 
 [source,yaml]
 ----

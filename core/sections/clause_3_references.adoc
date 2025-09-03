@@ -2,32 +2,52 @@
 [bibliography]
 == References
 
-* [[[OGC_08-131r3,OGC 08-131r3]]], OGC 08-131r3 -- The Specification Model -- A Standard for Modular Specifications
+* [[OpenAPI30]] OpenAPI Initiative (OAI). **OpenAPI Specification 3.0** [online]. 2020 [viewed 2024-11-04]. The latest patch version at the time of publication of this standard was 3.0.4, available at http://spec.openapis.org/oas/v3.0.4
 
-* [[[OGC_06-121r9,OGC 06-121r9]]], OGC 06-121r9, OGC Web Service Common Specification, version 2.0
+* [[OpenAPI31]] OpenAPI Initiative (OAI). **OpenAPI Specification 3.1** [online]. 2021 [viewed 2024-11-04]. The latest patch version at the time of publication of this standard was 3.1.1, available at http://spec.openapis.org/oas/v3.1.1
 
-* [[[OGC_14-065,OGC 14-065]]], OGC 14-065, OGC WPS 2.0 Interface Standard, version 2.0.2
+* [[rfc2818]] Internet Engineering Task Force (IETF). RFC 2818: **HTTP Over TLS** [online]. Edited by E. Rescorla. 2000 [viewed 2020-03-16]. Available at https://www.rfc-editor.org/rfc/rfc2818.html
 
-* [[[rfc2246,IETF RFC 2246]]], IETF RFC 2246. Transport Layer Security. http://tools.ietf.org/html/rfc2246
+* [[rfc3339]] Internet Engineering Task Force (IETF). RFC 3339: **Date and Time on the Internet: Timestamps** [online]. Edited by G. Klyne, C. Newman. 2002 [viewed 2020-03-16]. Available at https://www.rfc-editor.org/rfc/rfc3339.html
 
-* [[[rfc2616,IETF RFC 2616]]], IETF RFC 2616. Hypertext Transfer Protocol - HTTP/1.1. http://tools.ietf.org/html/rfc2616
+* [[rfc8288]] Internet Engineering Task Force (IETF). RFC 8288: **Web Linking** [online]. Edited by M. Nottingham. 2017 [viewed 2020-03-16]. Available at https://www.rfc-editor.org/rfc/rfc8288.html
 
-* [[[rfc2617,IETF RFC 2617]]], IETF RFC 2617. HTTP Authentication: Basic and Digest Access Authentication. https://tools.ietf.org/html/rfc2617
+* [[rfc9110]] Internet Engineering Task Force (IETF). RFC 9110: **HTTP Semantics** [online]. Edited by R. Fielding, J. Reschke, Y. Lafon, M. Nottingham. 2022 [viewed 2023-04-10]. Available at https://www.rfc-editor.org/rfc/rfc9110.html
 
-* [[[rfc2387,IETF RFC 2387]]], IETF RFC 2387, The MIME Multipart/Related Content-type. http://tools.ietf.org/html/rfc2387
+* [[rfc9112]] Internet Engineering Task Force (IETF). RFC 9112: **HTTP/1.1** [online]. Edited by R. Fielding, J. Reschke, M. Nottingham. 2022 [viewed 2023-04-10]. Available at https://www.rfc-editor.org/rfc/rfc9112.html
 
-* [[[rfc2818,IETF RFC 2818]]], IETF RFC 2818. HTTP Over TLS. http://tools.ietf.org/html/rfc2818
+* [[rfc9457]] Internet Engineering Task Force (IETF). RFC 9457: **Problem Details for HTTP APIs** [online]. Edited by M. Nottingham, e. Wilde, S. Dalal. [viewed 2024-09-09]. Available at https://www.rfc-editor.org/rfc/rfc9457.html
 
-* [[[rfc3986,IETF RFC 3986]]], IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax. https://tools.ietf.org/html/rfc3986
+* [[rfc9652]] Internet Engineering Task Force (IETF). RFC 9652: **The Link-Template HTTP Header Field** [online]. Edited by M. Nottingham. [viewed 2024-10-01]. Available at https://www.rfc-editor.org/rfc/rfc9652.html
 
-* [[[rfc4646,IETF RFC 4646]]], IETF RFC 4646: Tags for Identifying Languages. https://tools.ietf.org/html/rfc4646
+* [[HTML5]] WHATWG. *HTML*, Living Standard [online, viewed 2020-03-16]. Available at https://html.spec.whatwg.org/
 
-* [[[rfc7231,IETF RFC 7231]]], IETF RFC 7231: Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content. https://tools.ietf.org/html/rfc7231
+* [[OGC_08-131r3,OGC 08-131r3]], OGC 08-131r3 -- The Specification Model -- A Standard for Modular Specifications
 
-* [[[rfc7240,IETF RFC 7240]]], IETF RFC 7240: Prefer Header for HTTP. https://tools.ietf.org/html/rfc7240
+* [[OGC_06-121r9,OGC 06-121r9]], OGC 06-121r9, OGC Web Service Common Specification, version 2.0
 
-* [[[rfc8288,IETF RFC 8288]]], IETF RFC 8288: Web Linking https://tools.ietf.org/html/rfc8288
+* [[OGC_14-065,OGC 14-065]], OGC 14-065, OGC WPS 2.0 Interface Standard, version 2.0.2
 
-* [[[rfc8259,IETF RFC 8259]]], IETF RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format. Available from: https://tools.ietf.org/html/rfc8259
+* [[rfc2246,IETF RFC 2246]], IETF RFC 2246. Transport Layer Security. http://tools.ietf.org/html/rfc2246
 
-* [[[jsonschemavalidation,JSON Schema Validation]]] JSON Schema Validation: A Vocabulary for Structural Validation of JSON. https://json-schema.org/draft/2020-12/json-schema-validation.html
+* [[rfc2616,IETF RFC 2616]], IETF RFC 2616. Hypertext Transfer Protocol - HTTP/1.1. http://tools.ietf.org/html/rfc2616
+
+* [[rfc2617,IETF RFC 2617]], IETF RFC 2617. HTTP Authentication: Basic and Digest Access Authentication. https://tools.ietf.org/html/rfc2617
+
+* [[rfc2387,IETF RFC 2387]], IETF RFC 2387, The MIME Multipart/Related Content-type. http://tools.ietf.org/html/rfc2387
+
+* [[rfc2818,IETF RFC 2818]], IETF RFC 2818. HTTP Over TLS. http://tools.ietf.org/html/rfc2818
+
+* [[rfc3986,IETF RFC 3986]], IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax. https://tools.ietf.org/html/rfc3986
+
+* [[rfc4646,IETF RFC 4646]], IETF RFC 4646: Tags for Identifying Languages. https://tools.ietf.org/html/rfc4646
+
+* [[rfc7231,IETF RFC 7231]], IETF RFC 7231: Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content. https://tools.ietf.org/html/rfc7231
+
+* [[rfc7240,IETF RFC 7240]], IETF RFC 7240: Prefer Header for HTTP. https://tools.ietf.org/html/rfc7240
+
+* [[rfc8288,IETF RFC 8288]], IETF RFC 8288: Web Linking https://tools.ietf.org/html/rfc8288
+
+* [[rfc8259,IETF RFC 8259]], IETF RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format. Available from: https://tools.ietf.org/html/rfc8259
+
+* [[jsonschemavalidation,JSON Schema Validation]] JSON Schema Validation: A Vocabulary for Structural Validation of JSON. https://json-schema.org/draft/2020-12/json-schema-validation.html

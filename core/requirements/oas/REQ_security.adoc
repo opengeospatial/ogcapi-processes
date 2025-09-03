@@ -1,0 +1,9 @@
+[[req_oas_security]] 
+[requirement]
+====
+[%metadata]
+identifier::  /req/oas/security
+label::  /req/oas/security
+
+For cases, where the operations of the server are access-controlled, the security scheme(s) SHALL be documented in the OpenAPI definition.
+====
