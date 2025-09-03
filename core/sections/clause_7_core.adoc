@@ -263,13 +263,23 @@ include::../recommendations/core/REC_html.adoc[]
 
 The use of generic media types such as `application/json` makes it difficult to request or identify different flavors or profiles of a resource.  For example, the media type `application/json` could be used to describe an <<ogc_process_description,OGC process description document>> as well as an https://documentation.dataspace.copernicus.eu/APIs/openEO/Processes.html[OpenEO process description document].  
 
-It would thus be useful if there was a mechanism for requesting a profile of a resource.  Although there is a new HTTP header, `Accept-Profile`, that is to be defined in an upcoming https://profilenegotiation.github.io/I-D-Profile-Negotiation/I-D-Profile-Negotiation[Internet-Draft] there is currently no standardzied was to request a profile of a resource.  Existing standards, however, do provide mechanisms for specifying profile information in HTTP headers.  Specifically (see https://www.w3.org/TR/dx-prof-conneg/#bib-prof-ietf[Content Negotiation by Profile]) profiles of a resource may be requested by:
+It would thus be useful if there was a mechanism for requesting a profile of a resource.  Although there is a new HTTP header, `Accept-Profile`, that is to be defined in an upcoming https://profilenegotiation.github.io/I-D-Profile-Negotiation/I-D-Profile-Negotiation[Internet-Draft] there is currently no standardized was to request a profile of a resource.  Existing standards, however, do provide mechanisms for specifying profile information in HTTP headers.  Specifically (see https://www.w3.org/TR/dx-prof-conneg/#bib-prof-ietf[Content Negotiation by Profile]) profiles of a resource may be requested by:
 
-* using the `profile` parameter if the media type includes provisions for such a parameter (e.g. `application/ld+json`),
-* using the `profile` parameter with the https://www.rfc-editor.org/rfc/rfc7240[HTTP Prefer header]
-* using a link header with `rel="profile"`.
+* using the `profile` parameter an `Accept` HTTP header if the media type includes provisions for such a parameter (e.g. `application/ld+json`)
+* using the `Accept-Profile` header if the media type does not include provisions for such a parameter within the `Accept` header.
+* using the `profile` parameter with the https://www.rfc-editor.org/rfc/rfc7240[HTTP `Prefer` header]
+* using a 'Link` header with `rel="profile"`.
 
-This standard also defines a query parameter `profile`, that may be used with an HTTP GET request to specify one or more profiles of a resource that are to be retrieved.
+This standard also defines a query parameter, `profile`, that may be used with an HTTP GET request to specify one or more profiles of a resource that are to be retrieved.
+
+When a content negotiation by profile is performed using one of the above headers or query parameters, the corresponding response headers should be returned.
+More specifically:
+
+* the `Preference-Applied` header with the `profile` parameter should be returned if `Prefer` header was used to request it
+* the `Content-Type` header with `profile` parameter should be returned if `Accept` header with a media type including `profile` provisions was used to request it
+* the `Link` header with `profile` parameter should be returned for all other approaches
+
+Note that the `Link` header with `profile` parameter MUST be returned for any of the content negotiation by profile strategies if an applicable URI could be resolved.  Other headers (`Preference-Applied` and `Content-Type`) containing a `profile` parameter are relevant in the response only when they were explicitly requested by their corresponding request headers (`Prefer` and `Accept`) containing the same `profile` identifier, ￼or when the `profile` does not correspond to an URI than can be provided as `Link: href="<URI>"` value (e.g.: `profile=cloud-optimized` for a GeoTiff).
 
 [[sc_limit_parameter]]
 === Limit parameter
