@@ -9,7 +9,7 @@ label:: /per/collection-output/response-response-one
 --
 . The execution request includes the `response` query parameter.
 . The value of the `response` query parameter is `collection`.
-. The number of implicitly or explicitly requested outputs is 1.
+. The number of <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>> requested outputs is 1.
 . The server implements the <<profile-parameter,Profile query parameter>> requirements class.
 . The execution request also includes the <<profile-parameter,`profiles`>> query parameter.
 . The value of the <<profile-parameter,`profiles`>> query parameter is `https://www.opengis.net/dev/profile/OGC/0/ogc-results`.
