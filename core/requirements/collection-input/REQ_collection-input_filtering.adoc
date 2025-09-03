@@ -7,12 +7,12 @@ label:: /req/collection-input/filtering
 
 [.component,class=description]
 --
-To support the filtering of data accessed from a <<def-collection,collection>> before providing the data as <<sc_process_inputs,inputs to a process>>:
+To support the filtering of data accessed from a <<def-collection,collection>> before providing that data as <<sc_process_inputs,inputs to a process>>:
 --
 
 [.component,class=part]
 --
-The server SHALL support the following parameters:
+The server SHALL recognize the following parameters:
 
 * filter, filterCrs, filterLang
 * bbox, bboxCrs
