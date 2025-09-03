@@ -1,9 +1,0 @@
-[[req_collection-output_response-query-parameter]]
-[requirement]
-====
-[%metadata]
-identifier:: /req/collection-output/response-query-parameter
-label:: /req/collection-output/response-query-parameter
-
-For initiating the execution of a process and retrieving its output as an <<def-collection,OGC API collection>> the implementation SHALL support the `response` query parameter with `collection` and `landingPage` as possible values.
-====

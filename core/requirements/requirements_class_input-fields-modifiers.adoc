@@ -1,9 +1,0 @@
-[[rc_input-fields-modifiers]]
-[requirements_class]
-====
-[%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/input-fields-modifiers
-subject:: Input Fields Modifiers
-inherit:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core
-inherit:: http://www.opengis.net/spec/ogcapi-features-3/0.0/req/features-filter (optional)
-====

@@ -6,10 +6,11 @@ properties:
       type: string
       enum:
         - ogc-api-features
-        - ogc-api-covreages
+        - ogc-api-coverages
         - ogc-api-edr
         - ogc-api-tiles
         - ogc-api-moving-features
         - ogc-api-sensor-things
         - ogc-api-records
+        - ogc-api-dggs
         - stac-api
