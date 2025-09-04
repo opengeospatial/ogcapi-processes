@@ -4,7 +4,7 @@ allOf:
     required:
       - id
       - status
-      - type
+      - processingEntityType
     properties:
       id:
         type: string
@@ -16,19 +16,24 @@ allOf:
           The type of entity that created the job and is doing the processing.
           This includes all the data access apis listed in "apis.yaml" plus
           the processing APIs of OGC API Processes and OpenEO.
-        allOf:
+        anyOf:
           - $ref: "apis.yaml"
           - type: string
             enum:
               - ogc-api-processes
-              - open-eo
+              - openeo
       profileEntityType:
         description: |-
           The type of entity requesting this status information.  This may
           be differernt than the processing entity.  For example, the
           processing entity may be OGC API Processes but the status
           information is requested via the OpenEO API.
-        $ref: "apis.yaml"
+        anyOf:
+          - $ref: "apis.yaml"
+          - type: string
+            enum:
+              - ogc-api-processes
+              - openeo
       request:
         oneOf:
           - type: string
