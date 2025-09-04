@@ -22,7 +22,7 @@ allOf:
             enum:
               - ogc-api-processes
               - open-eo
-      requestingEntityType:
+      profileEntityType:
         description: |-
           The type of entity requesting this status information.  This may
           be differernt than the processing entity.  For example, the
