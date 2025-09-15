@@ -1247,7 +1247,7 @@ include::../requirements/core/REQ_job-op.adoc[]
 
 include::../requirements/core/REQ_job-success.adoc[]
 
-include::../recommendations/core/PER_job-success.adoc[]
+NOTE: In the case where a server supports multiple processing APIs (e.g. OGC API - Processes, OpenEO, etc.) the <<profile-parameter,profile mechanism>> may be use by non-OGC clients to interact with the `/jobs` endpoint and request status information in a schema that they recognize.
 
 [[schema-statusInfo]]
 .Schema for status info
