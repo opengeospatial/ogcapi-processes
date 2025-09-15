@@ -6,6 +6,6 @@ A server SHALL support the following schema for binary input values:
 
 [source,yaml]
 ----
-include::../../../openapi/schemas/processes-core/binaryInputValue.yaml[]
+include::../../../openapi/schemas/processes-core/binaryValue.yaml[]
 ----
 ====

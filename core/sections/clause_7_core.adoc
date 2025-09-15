@@ -571,7 +571,7 @@ include::../../openapi/schemas/processes-core/valueNoObject.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/valueNoObject.yaml[`valueNoObject.yaml`].
 
-(see also: <<binary-input-value-schema,binaryInputValue.yaml>>, <<bbox-schema,bbox.yaml>>)
+(see also: <<binary-input-value-schema,binaryValue.yaml>>, <<bbox-schema,bbox.yaml>>)
 
 .Simple literal value examples.
 ====
@@ -786,10 +786,10 @@ In some cases, for example to pass through firewalls, binary input values need t
 .Schema for an in-line binary value
 [source,yaml]
 ----
-include::../../openapi/schemas/processes-core/binaryInputValue.yaml[]
+include::../../openapi/schemas/processes-core/binaryValue.yaml[]
 ----
 
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/binaryInputValue.yaml[`binaryInputValue.yaml`].
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/binaryValue.yaml[`binaryValue.yaml`].
 
 include::../requirements/core/REQ_process-execute-input-inline-binary.adoc[]
 
@@ -1246,6 +1246,8 @@ include::../requirements/core/REQ_job-op.adoc[]
 ==== Response
 
 include::../requirements/core/REQ_job-success.adoc[]
+
+include::../recommendations/core/PER_job-success.adoc[]
 
 [[schema-statusInfo]]
 .Schema for status info

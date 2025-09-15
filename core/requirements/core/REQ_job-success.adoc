@@ -29,16 +29,16 @@ The value of the `status` parameter SHALL inidicate the state of the job at the 
 
 [.component,class=part]
 ---
-The value of the `type` parameter SHALL indicate the type of server that created the job (e.g. "process", "openeo", "coverage", etc.).
+The value of the `processingEntityType` parameter SHALL indicate the type of server that created the job (e.g. "ogc-api-processes", "openeo", "ogc-api-coverages", etc.).
 ---
 
 [.component,class=part]
 ---
-The value of the `type` parameter SHALL be `ogc-api-processes` to indicate that a server that conforms to this Standard created the job.
+The value of the `processingEntityType` parameter SHALL be `ogc-api-processes` to indicate that a server that conforms to this Standard created the job.
 ---
 
 [.component,class=part]
 ---
-The value of the `type` parameter SHALL not change if a different representation of the job status information is requested.
+The value of the `processingEntityType` parameter SHALL not change if a different representation of the job status information is requested.
 ---
 ====
