@@ -30,3 +30,6 @@ include::../recommendations/query-param-profile/REC_negotiation.adoc[]
 include::../requirements/query-param-profile/REQ_response.adoc[]
 
 include::../recommendations/query-param-profile/REC_link-header.adoc[]
+
+NOTE: A set of profile URIs for content defined in this Standard can be found in the <<profile-uris,Profile identifiers>> table.
+

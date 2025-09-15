@@ -281,6 +281,8 @@ More specifically:
 
 Note that the `Link` header with `profile` parameter MUST be returned for any of the content negotiation by profile strategies if an applicable URI could be resolved.  Other headers (`Preference-Applied` and `Content-Type`) containing a `profile` parameter are relevant in the response only when they were explicitly requested by their corresponding request headers (`Prefer` and `Accept`) containing the same `profile` identifier, ￼or when the `profile` does not correspond to an URI than can be provided as `Link: href="<URI>"` value (e.g.: `profile=cloud-optimized` for a GeoTiff).
 
+NOTE: A set of profile URIs for content defined in this Standard can be found in the <<profile-uris,Profile identifiers>> table.
+
 [[sc_limit_parameter]]
 === Limit parameter
 
