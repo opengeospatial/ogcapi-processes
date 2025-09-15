@@ -239,7 +239,7 @@ More specific guidance is provided for each resource, where applicable.
 
 include::../recommendations/core/PER_additional-status-codes.adoc[]
 
-When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be preferred. https://datatracker.ietf.org/doc/html/rfc7807[RFC 7807] addresses this need by providing "Problem Details" response schemas for both JSON and XML.
+When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be preferred. https://datatracker.ietf.org/doc/html/rfc9457[RFC 9457] addresses this need by providing "Problem Details" response schemas for both JSON and XML.
 
 include::../recommendations/core/REC_problem-details.adoc[]
 

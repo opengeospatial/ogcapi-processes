@@ -5,5 +5,5 @@
 identifier:: /rec/core/problem-details
 label:: /rec/core/problem-details
 
-A server SHOULD include a "Problem Details" report in an error response in accordance with https://datatracker.ietf.org/doc/html/rfc7807[RFC 7807].
+A server SHOULD include a "Problem Details" report in an error response in accordance with https://datatracker.ietf.org/doc/html/rfc9457[RFC 9457].
 ====
