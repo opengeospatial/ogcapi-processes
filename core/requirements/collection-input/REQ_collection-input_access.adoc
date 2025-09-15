@@ -1,0 +1,24 @@
+[[req_collection-input_collection-access]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/collection-input/collection-access
+label:: /req/collection-input/collection-access
+
+[.component,class=description]
+--
+For referencing a <<def-local-collection,local collection>> as a source of <<sc_process_inputs,input values to a process>>:
+--
+
+[.component,class=part]
+--
+The server SHALL support accessing <<def-local-collection,local collections>> using at least one supported <<def-data-access-mechanism,OGC API data access mechanism>>.
+--
+
+[.component,class=part]
+--
+The server SHALL, in the <<ogc_process_description,process description>> and for each relevant input, indicate which <<def-data-access-mechanism, OGC data access API(s)>> can be used to retrive input values for that input from the <<def-local-collection,collection>>.
+--
+====
+
+NOTE: For <<def-local-collection,local collections>>, the specification is agnostic to how data flows from the <<def-local-collection,collection>> to the process.

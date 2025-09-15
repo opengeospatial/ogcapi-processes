@@ -1,0 +1,25 @@
+[[req_core_process-execute-success-sync-empty-outputs]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/process-execute-success-sync-empty-outputs
+label:: /req/core/process-execute-success-sync-empty-outputs
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is synchronous.
+. The “outputs” parameter is included in the <<execute-request-body,execute request>> but is empty (i.e. “outputs”:{}).
+--
+
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported with a response with a HTTP status code 204.
+--
+
+[.component,class=part]
+--
+The response body SHALL be empty.
+--
+====
+
+

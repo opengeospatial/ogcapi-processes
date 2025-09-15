@@ -8,7 +8,7 @@ label:: /req/core/process-execute-sync-one-default-content
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous,
-. The number of requested outputs is 1.
+. The number of requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
 . No content negotiation has been specified using either HTTP headers or other methods.
 --
 

@@ -2,8 +2,8 @@
 [requirements_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description
-label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/ogc-process-description
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/ogc-process-description
+label:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/ogc-process-description
 obligation:: requirement
 subject:: Web API
 inherit:: <<rc_core,OGC API - Processes Core>>

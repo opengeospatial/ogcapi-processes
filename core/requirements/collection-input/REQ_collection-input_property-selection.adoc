@@ -1,0 +1,34 @@
+[[req_collection-input_property-selection]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/collection-input/property-selection
+label:: /req/collection-input/property-selection
+
+[.component,class=description]
+--
+The support property and dervied property selection from a <<def-collection,collection>> before providing the data as <<sc_process_inputs,inputs to a process>>
+--
+
+[.component,class=part]
+--
+The server SHALL support the following parameters:
+
+* aliases
+* properties
+
+as defined in the <<collection-value-schema,"collectionValue.yaml">> schema.
+
+--
+
+[.component,class=part]
+--
+If supported by the <<def-data-access-mechanism,data access API>> chosen to retrieve input values from the <<def-local-collection,collection>>, then the server SHALL map these parameters to the correspoding query parameters in the <<def-data-access-mechanism,data access API>>.
+--
+
+[.component,class=part]
+--
+If NOT supported by the <<def-data-access-mechanism,data access API>> chosen to retrieve input values from the <<def-local-collection,collection>>, then the server SHALL perform the property selection operation before providing the data as input to the process.
+--
+
+====

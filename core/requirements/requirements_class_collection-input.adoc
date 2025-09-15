@@ -1,0 +1,8 @@
+[[rc_collection-input]]
+[requirements_class]
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-input
+subject:: Collection Input
+inherit:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core
+====

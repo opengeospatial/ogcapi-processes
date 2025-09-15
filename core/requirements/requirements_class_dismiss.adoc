@@ -2,8 +2,8 @@
 [requirements_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/dismiss
-label:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/dismiss
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/dismiss
+label:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/dismiss
 obligation:: requirement
 subject:: Web API
 inherit:: <<rc_core,OGC API - Processes Core>>

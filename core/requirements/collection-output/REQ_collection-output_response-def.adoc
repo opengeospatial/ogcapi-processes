@@ -1,0 +1,22 @@
+[[req_collection-output_response-definition]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/collection-output/response-definition
+label:: /req/collection-output/response-definition
+
+[.component,class=part]
+--
+The server SHALL, at the execution endpoint (path: `/processes/{processId}/execution`), support a parameter `response` with the following characteristics (using an OpenAPI Specification fragment):
+
+[source,yaml]
+----
+name: response
+in: query
+required: false
+schema:
+  type: string
+  enum: [ collection ]
+----
+--
+====

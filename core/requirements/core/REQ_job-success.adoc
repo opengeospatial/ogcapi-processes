@@ -16,4 +16,29 @@ response with a HTTP status code 200.
 The content of that response SHALL be based upon the OpenAPI
 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[statusInfo.yaml].
 ---
+
+[.component,class=part]
+---
+The value of the `id` parameter SHALL be the identifier assigned by the server for the job.
+---
+
+[.component,class=part]
+---
+The value of the `status` parameter SHALL inidicate the state of the job at the time the request is made for the status information.
+---
+
+[.component,class=part]
+---
+The value of the `processingEntityType` parameter SHALL indicate the type of server that created the job (e.g. "ogc-api-processes", "openeo", "ogc-api-coverages", etc.).
+---
+
+[.component,class=part]
+---
+The value of the `processingEntityType` parameter SHALL be `ogc-api-processes` to indicate that a server that conforms to this Standard created the job.
+---
+
+[.component,class=part]
+---
+The value of the `processingEntityType` parameter SHALL not change if a different representation of the job status information is requested.
+---
 ====

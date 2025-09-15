@@ -1,0 +1,31 @@
+[[req_local-filtering]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/local-filtering
+label:: /req/local-filtering
+
+[.component,class=description]
+--
+To support the local filtering of data accessed from a <<def-collection,collection>> before providing the data as <<sc_process_inputs,inputs to a process>>:
+--
+
+[.component,class=part]
+--
+The server SHALL support local filtering of input data, retrived from a <<value-source-server,value source server>>, based on the filtering parameters:
+
+* filter, filterCrs, filterLang
+* bbox, bboxCrs
+* datetime
+* subset, subsetCrs
+* geometry, geometryCrs
+* limit
+* ids
+* q
+* assets
+* crs
+
+defined in the <<collection-value-schema,"collectionValue.yaml">> schema.
+--
+
+====

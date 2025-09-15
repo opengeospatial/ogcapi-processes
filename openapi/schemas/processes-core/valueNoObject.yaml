@@ -1,0 +1,13 @@
+anyOf:
+  - type: string
+  - type: number
+  - type: integer
+  - type: boolean
+  - type: array
+    items:
+      oneOf:
+        - $ref: "inputValue.yaml"
+        - $ref: "qualifiedValue.yaml"
+  - $ref: "binaryValue.yaml"
+  - $ref: "bbox.yaml"
+  - $ref: "collectionValue.yaml"

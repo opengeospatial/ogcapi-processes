@@ -12,7 +12,7 @@ test-method::
 
 . Validate that a document was returned with an HTTP status code or 200.
 
-. Validate the landing page for all supported media types using the resources and tests identified in <<landing-page-schema>>
+. Validate the landing page for all supported media types using the resources and tests identified in <<landing-page-schemas>>
 
 . For formats that require manual inspection, perform the following:
 
@@ -28,7 +28,7 @@ test-method::
 
 NOTE: The landing page may be retrieved in one of two formats. The following table identifies the applicable schema document for each format and the test to be used to validate the landing page against that schema. All supported formats should be exercised.
 
-[[landing-page-schema]]
+[[landing-page-schemas]]
 .Schema and Tests for Landing Pages
 [cols="3",options="header"]
 |===

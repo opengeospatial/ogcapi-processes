@@ -1,0 +1,40 @@
+[[req_collection-output_response-response-many]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/collection-output/response-response-many
+label:: /req/collection-output/response-response-many
+
+[.component,class=conditions]
+--
+. The execution request includes the `response` query parameter.
+. The value of the `response` query parameter is `collection`.
+. The number of explicitly or implicitly requested outputs is more than one.
+--
+
+[.component,class=part]
+--
+The server SHALL response with an HTTP status code of https://datatracker.ietf.org/doc/html/rfc7231#section-6.3.1[200].
+--
+
+[.component,class=part]
+--
+The media type of the response SHALL be `application/json`
+--
+
+[.component,class=part]
+--
+The content of response SHALL conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[results.yaml] schema.
+--
+
+[.component,class=part]
+--
+Each collection output in the response SHALL be a link to a <<def-collection-description,collection description document>>.
+--
+
+[.component,class=part]
+--
+Each target <<def-collection-description,collection description document>> in the response SHALL link to at least one <<def-ogc-data-access-mechanism,OGC API data access mechanism>>.
+--
+
+====

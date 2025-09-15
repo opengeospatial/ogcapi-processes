@@ -155,6 +155,10 @@
             "contentMediaType": "image/jp2"
           }
         ]
+      },
+      "dataAccessApis": [
+        "ogc-api-coverage",
+        "stac-api"
       }
     },
     "featureCollectionInput": {
@@ -182,7 +186,10 @@
             ]
           }
         ]
-      }
+      },
+      "dataAccessApis": [
+        "ogc-api-features"
+      ]
     }
   },
   "outputs": {

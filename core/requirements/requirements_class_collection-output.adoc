@@ -1,0 +1,9 @@
+[[rc_collection-output]]
+[requirements_class]
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-output
+subject:: Collection Output
+inherit:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core
+inherit:: http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
+====

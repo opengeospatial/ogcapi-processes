@@ -8,7 +8,7 @@ label:: /req/kvp-execute/bbox-crs-input-value
 [.component,class=conditions]
 --
 . The server supports CRSs other than http://www.opengis.net/def/crs/OGC/1.3/CRS84 or http://www.opengis.net/def/crs/OGC/0/CRS84h.
-. The process input value is specified in-line in an execute request.
+. The process input value is specified in-line in an <<execute-request-body,execute request>>.
 . The process defines an input parameter named `{bbox-input-name}`.
 --
 

@@ -1,0 +1,24 @@
+[[req_core_process-execute-success-async-outputs-empty]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/process-execute-success-async-outputs-empty
+label:: /req/core/process-execute-success-async-outputs-empty
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is asynchronous.
+. The "outputs" parameter is specified <<execute-request-body,execute request>> but its content is empty (i.e. "outputs":{}).
+--
+
+[.component,class=part]
+--
+The server SHALL asynchoronously execute the process but SHALL not produce any retrievable outputs.
+--
+
+[.component,class=part]
+--
+Attempting to retieve any of the process's defined outputs via the `/jobs/{jobID}/results[/{outputID}]` path SHALL result in a response that has HTTP status code 404.
+--
+
+====

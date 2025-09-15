@@ -1,0 +1,12 @@
+[[pre_ogc-process-description_data-access-apis]]
+[premission]
+====
+[%metadata]
+identifier:: /per/ogc-process-description/extend-data-access-apis-values
+label:: /per/ogc-process-description/extend-data-access-apis-values
+
+[.component,class=part]
+--
+The list of values for the `dataAccessApi` paramater MAY be extended as necessary to accomondate other, perhaps even non_OGC, data access APIs.
+--
+====

@@ -1,0 +1,9 @@
+[[req_oas_completeness]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/oas/completeness
+label:: /req/oas/completeness
+
+The OpenAPI definition SHALL specify for each operation all HTTP Status Codes and Response Objects that the server uses in responses. This includes the successful execution of an operation as well as all error situations that originate from the server.
+====

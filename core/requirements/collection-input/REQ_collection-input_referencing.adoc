@@ -1,0 +1,42 @@
+[[req_collection-input_referencing]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/collection-input/referencing
+label:: /req/collection-input/referencing
+
+.component,class=description]
+--
+For referencing a <<def-collection,local collection>> as a source of <<sc_process_inputs,input values to a process>>:
+--
+
+[.component,class=part]
+--
+The server SHALL support inputs in an <<execute-request-body,execute requests>> that contain the `collection` parameter as defined in <<collection-value-schema,"collectionValue.yaml">> schema.
+--
+
+[.component,class=part]
+--
+The value of the `collection` parameter SHALL be URI or Relative-URI identifying a <<def-local-collection,local collection>> from which <<sc_process_inputs,process input values>> are retrieved.
+--
+
+[.component,class=part]
+--
+The URI or Relative-URI path SHALL not extend past the collection element in order to allow the server to decide, based on the expected input value type from the <<sc_process_description,process description>> and other factors, which supported <<def-data-access-mechanism,data access mechanisms>> should be employed to retrived input values from the <<def-local-collection,collection>>.
+--
+
+[.component,class=part]
+--
+The server SHALL interpret Relative-URIs as relative to the parent process within which the containing collection object is nested.
+-- 
+
+====
+
+NOTE: PAV: The last part of this requirement is not clear to me.
+
+[[collection-value-schema]]
+.Schema for the collection parameter
+[source,yaml]
+----
+include::../../../openapi/schemas/processes-core/collectionValue.yaml[]
+----

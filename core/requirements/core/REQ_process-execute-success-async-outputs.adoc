@@ -1,0 +1,23 @@
+[[req_core_process-execute-success-async-outputs]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/process-execute-success-async-outputs
+label:: /req/core/process-execute-success-async-outputs
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is asynchronous.
+. One or more of the defined outputs of the process are specified in the <<execute-request-body,execute request>>.
+--
+
+[.component,class=part]
+--
+The server SHALL produce and make available for retrieval all of the outputs specified in the <<execute-request-body,execute request>>.
+--
+
+[.component,class=part]
+--
+The server SHALL respond with an HTTP status code of `404` if an attempt is made to access an unrequested output via the `/jobs/{jobsID}/resultes/{outputID}` path.
+--
+====

@@ -1,0 +1,10 @@
+[[req_oas_oas-impl]] 
+[requirement]
+====
+[%metadata]
+identifier:: /req/oas/oas-impl
+label:: /req/oas/oas-impl
+
+The server SHALL implement all capabilities specified in the OpenAPI definition.
+====
+

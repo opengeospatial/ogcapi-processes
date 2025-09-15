@@ -7,7 +7,7 @@ label:: /req/core/process-execute-input-inline-object
 
 [.component,class=conditions]
 --
-. The process input value is specified in-line in an execute request.
+. The process input value is specified in-line in an <<execute-request-body,execute request>>.
 . The process input is defined as an object according to its schema from the <<sc_process_description,process description>>.
 --
 
