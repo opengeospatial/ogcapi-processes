@@ -1,9 +1,0 @@
-[[per-job-success]]
-[permission]
-====
-[%metadata]
-identifier:: /per/core/job-success
-label:: /per/core/job-success
-
-Servers MAY set the value of the `profileEntityType` to indicate the requested profile represenation of the response.  This value may differ from the value of the `processingEntityType`.
-====
