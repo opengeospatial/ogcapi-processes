@@ -14,7 +14,7 @@
 :fullname_2: Panagiotis (Peter) A. Vretanos
 :docsubtype: implementation
 :keywords: ogcdoc, OGC document, API, openapi, html, ogcapi
-:submitting-organizations: Ecere Corporation; CubeWerx Inc.; GeoLabs; University of Calgary; Pangaea Innovations Pty. Ltd.; Natural Resources Canada; EOX IT Services GmbH; Universitat Autònoma de Barcelona (CREAF); Centre de Recherche en Informatique de Montréal (CRIM); 52°North Spatial Information Research GmbH; European Space Agency (ESA); US Army Geospatial Center (AGC); Hexagon; Haute École d'Ingénierie et de Gestion du Canton de Vaud (HEIG-VD); Laboratoire des Sciences et Techniques de l'information de la Communication et de la Connaissance / Centre national de la recherche scientifique (Lab-STICC CNRS)
+:submitting-organizations: Ecere Corporation; CubeWerx Inc.; GeoLabs; University of Calgary; Pangaea Innovations Pty. Ltd.; Natural Resources Canada; EOX IT Services GmbH; Universitat Autònoma de Barcelona (CREAF); Centre de Recherche Informatique de Montréal (CRIM); 52°North Spatial Information Research GmbH; European Space Agency (ESA); US Army Geospatial Center (AGC); Hexagon; Haute École d'Ingénierie et de Gestion du Canton de Vaud (HEIG-VD); Laboratoire des Sciences et Techniques de l'information de la Communication et de la Connaissance / Centre national de la recherche scientifique (Lab-STICC CNRS)
 :docfile: document.adoc
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf

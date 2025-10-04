@@ -66,7 +66,7 @@ All questions regarding this submission should be directed to the editor or the 
 |Jérôme Jacovella-St-Louis|Ecere Corporation
 |Pedro Gonçalves|Terradue Srl
 |Gérald Fenoy| Gérald Fenoy (Individual Member)
-|Francis Charette Migneault| Centre de Recherche Informatique de Montréal (CRIM)
+|Francis Charette-Migneault| Centre de Recherche Informatique de Montréal (CRIM)
 |Cristiano Lopes|European Space Agency (ESA)
 |Christophe Noel | Spacebel
 |===

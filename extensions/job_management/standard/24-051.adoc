@@ -11,7 +11,7 @@
 :issued-date: yyyy-mm-dd
 :external-id: http://www.opengis.net/doc/IS/ogcapi-processes-4/1.0
 :keywords: process, instance, spatial, data, openapi, job, create, update, delete, add, remove, REST, PATCH, POST, DELETE
-:submitting-organizations: Geolabs; Terradue Srl.; Computer Research Institute of Montréal (CRIM).
+:submitting-organizations: Geolabs; Terradue Srl.; Centre de Recherche Informatique de Montréal (CRIM)
 :editor: Gérald Fenoy
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf

@@ -20,7 +20,7 @@
 :fullname: Benjamin Pross
 :fullname_2: Panagiotis (Peter) A. Vretanos
 :keywords: ogcdoc, OGC document, OGC API, Geospatial API, processes, Web Processing Service, WPS, JSON, HTML, geoprocessing, API, OpenAPI, HTML
-:submitting-organizations: 52°North GmbH; Hexagon; CubeWerx Inc.; Ecere Corporation; Terradue Srl; European Space Agency (ESA); Spacebel
+:submitting-organizations: 52°North GmbH; Hexagon; CubeWerx Inc.; Ecere Corporation; Terradue Srl; European Space Agency (ESA); Spacebel; Centre de Recherche Informatique de Montréal (CRIM)
 :local-cache-only:
 :data-uri-image:
 :mn-document-class: ogc
