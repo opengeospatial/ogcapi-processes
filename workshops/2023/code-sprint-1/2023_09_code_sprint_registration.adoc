@@ -65,7 +65,7 @@ Once registered, please sign up to the https://gitter.im/[Gitter] networking pla
 | Yes
 
 | Francis Charette-Migneault
-| Computer Research Institute of Montréal (CRIM)
+| Centre de Recherche Informatique de Montréal (CRIM)
 | https://github.com/fmigneault[fmigneault]
 | Yes
 
