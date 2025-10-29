@@ -9,7 +9,7 @@ label:: /req/json/definition
 
 * `application/json`
 
-for the following API endpoints:
+for all supported API endpoints including:
 
 * <<sc_landing_page,`/`>>,
 * <<sc_conformance_classes,`/conformance`>>,

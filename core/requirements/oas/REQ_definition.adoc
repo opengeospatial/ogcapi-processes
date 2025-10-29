@@ -1,9 +1,9 @@
-[[req_oas_oas-definition]]
+[[req_oas_definition]]
 [requirement]
 ====
 [%metadata]
-identifier:: /req/oas/oas-definition
-label:: /req/oas/oas-definition 
+identifier:: /req/oas/definition
+label:: /req/oas/definition 
 
 The content of the response of the HTTP GET operation at the landing page SHALL include the following links to the API definition:
 

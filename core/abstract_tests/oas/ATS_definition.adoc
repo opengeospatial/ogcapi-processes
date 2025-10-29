@@ -1,0 +1,16 @@
+[[ats_oas_definition]]
+
+[abstract-test]
+====
+[%metadata]
+identifier:: /conf/oas/definition
+target:: /req/oas/definition
+test-purpose:: Verify that JSON and HTML versions of the OpenAPI document are available.
+test-method::
++
+--
+. Verify that an OpenAPI definition in JSON is available using the media type `application/vnd.oai.openapi+json;version=x.y` (were `x.y` is the version of the OpenAPI specification used) and link relation `service-desc`
+. Verify that an HTML version of the API definition is available using the media type `text/html` and link relation `service-doc`.
+--
+====
+

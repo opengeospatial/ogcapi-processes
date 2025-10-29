@@ -1,0 +1,28 @@
+[[ats_dismiss_job-dismiss-success]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/dismiss/job-dismiss-status
+target:: /req/dismiss/job-dismiss-status
+test-purpose:: Validate that the dismiss operation behaves correctly based on the status of the job being dismissed.
+test-method::
++
+--
+1. Identify a job that is in the `accepted` or `running` status.
+
+2. Issue a HTTP DELETE operation to the URL `/jobs/{jobID}`.
+
+3. After the DELETE operation, retrieve the status of the job by issuing a HTTP GET operation to the URL `/jobs/{jobID}`.
+
+4. Verify that status of the job is set to `dismissed`.
+
+5. Identify a job that is in the `successful`, `failed` or `dismissed` state.
+
+6. Issue a HTTP DELETE operation to the URL `/jobs/{jobID}`.
+
+7. After the DELETE operation, retrieve the status of the job by issuing a HTTP GET operation to the URL `/jobs/{jobID}`.
+
+9. Validate that a document was returned with an HTTP status code of 404.
+--
+====

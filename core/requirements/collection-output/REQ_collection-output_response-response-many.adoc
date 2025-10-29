@@ -34,7 +34,7 @@ Each collection output in the response SHALL be a link to a <<def-collection-des
 
 [.component,class=part]
 --
-Each target <<def-collection-description,collection description document>> in the response SHALL link to at least one <<def-ogc-data-access-mechanism,OGC API data access mechanism>>.
+Each target <<def-collection-description,collection description document>> in the response SHALL link to at least one <<def-data-access-mechanism,OGC API data access mechanism>>.
 --
 
 ====

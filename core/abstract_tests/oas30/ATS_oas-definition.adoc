@@ -1,0 +1,14 @@
+[[ats_oas30_oas-definition]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/oas30/oas-definition
+target:: /req/oas30/oas-definition
+test-purpose:: Verify that the OpenAPI document is valid JSON.
+test-method::
++
+--
+Verify that the JSON representation conforms to the <<OpenAPI30,OpenAPI Specification, version 3.0>>.
+--
+====

@@ -120,6 +120,8 @@ The value of an input URI query parameter in a KVP-encoded execute request can b
 * an array of values,
 * or a reference to a value.
 
+<<sc_collection_input,Collection inputs>> are not defined for KVP-encoded execute requests.
+
 [[kvp-simple-value]]
 ====== Simple string input
 

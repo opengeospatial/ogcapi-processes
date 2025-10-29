@@ -1,0 +1,21 @@
+[[ats_ogc-process-description_data-classes]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/ogc-process-description/data-classes
+target:: /req/ogc-process-description/data-classes
+test-purpose:: Verify that `dataClasses` member is correctly specified for each input that includes the parameter.
+test-method::
++
+--
+1. Retrieve the description of each process the server offers according to test <<ats_core_process-description,/conf/core/process-description>>.
+
+2. Inspect each input of each process and determine if the `dataClasses` parmater is present.
+
+3. If it is present then verify that the value of the parameter is an array of strings.
+
+4. Verify that each item in the `dataClasses` array is either a plain string or an HTTP(S) URI.
+
+5. If the item is a plain string then verify that it is a valid data class identifier by accessing its definition from the OGC Data Classes Register.
+====

@@ -1,0 +1,17 @@
+[[ats_ogc-process-description_value-passing]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/ogc-process-description/value-passing
+target:: /req/ogc-process-description/value-passing
+test-purpose:: Verify that the `valuePassing` member is correctly specified for each input that include the parameter.
+test-method::
++
+--
+1. Retrieve the description of each process the server offers according to test <<ats_core_process-description,/conf/core/process-description>>.
+
+2. Inspect each input of each process and determine if the `valuePassing` parameter is present.
+
+3. If it is present then verify that the value of the parameter is an array of value that only include the items `byValue` and/or `byReference`.
+====

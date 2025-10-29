@@ -1,0 +1,24 @@
+[[ats_kvp-execute_input-query-parameters]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/kvp-execute/input-query-parameters
+target:: /req/kvp-execute/input-query-parameters
+test-purpose:: Verify that input parameters from a process description mapped to the KVP-encoded execute request are correctly handled. 
+test-method::
++
+--
+1. Get a list of processes as per test <<ats_core_process-list-op,/conf/core/process-list-op>>.
+
+2. Retrieve the description of each process according to test <<ats_core_process-description,/conf/core/process-description>>.
+
+3. Select a processes to execute.
+
+4. Compose a KVP-encoded execute request encoding each process input according to <<req_kvp-execute_input-query-parameters,/req/kvp-execute/input-query-parameters>>.
+
+5. Execute the request using the HTTP `GET` method.
+
+6. Verify that the response of the process is the expected response (see tests: <<req_core_process-execute-success-async,/req/core/process-execute-success-async>>, <<req_core_process-execute-success-async-outputs,/req/core/process-execute-success-async-outputs>>, <<req_core_process-execute-success-async-outputs-empty,/req/core/process-execute-success-async-outputs-empty>>, <<req_core_process-execute-success-async-outputs-omitted,/req/core/process-execute-success-async-outputs-omitted>>, <<req_core_process-execute-success-sync-empty-outputs,/req/core/process-execute-success-sync-empty-outputs>>, <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, <<req_core_process-execute-sync-one,/req/core/process-execute-sync-one>>, <<req_core_process-execute-sync-one-default-content,/req/core/process-execute-sync-one-default-content>>).
+--
+====

@@ -1,0 +1,67 @@
+[[ats_kvp-execute]]
+
+[conformance_class]
+.KVP-encoded Execute
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/kvp-execute
+subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/kvp-execute>>
+classification:: Target Type:Web API
+conformance-test:: /conf/kvp-execute/numeric-input-value
+conformance-test:: /conf/kvp-execute/string-input-value
+conformance-test:: /conf/kvp-execute/boolean-input-value
+conformance-test:: /conf/kvp-execute/complex-input-value
+conformance-test:: /conf/kvp-execute/array-input-value
+conformance-test:: /conf/kvp-execute/bbox-input-value
+conformance-test:: /conf/kvp-execute/bbox-crs-input-value
+conformance-test:: /conf/kvp-execute/binary-input-value
+conformance-test:: /conf/kvp-execute/binary-input-value-qualified
+conformance-test:: /conf/kvp-execute/input-by-reference
+conformance-test:: /conf/kvp-execute/input-cardinality
+conformance-test:: /conf/kvp-execute/input-query-parameters
+conformance-test:: /conf/kvp-execute/input-query-parameter-values
+conformance-test:: /conf/kvp-execute/process-execute-op
+conformance-test:: /conf/kvp-execute/output
+conformance-test:: /conf/kvp-execute/f-definition
+conformance-test:: /conf/kvp-execute/f-response
+conformance-test:: /conf/kvp-execute/prefer-definition
+conformance-test:: /conf/kvp-execute/prefer-response
+====
+
+include::kvp-execute/ATS_numeric-input-value.adoc[]
+
+include::kvp-execute/ATS_string-input-value.adoc[]
+
+include::kvp-execute/ATS_boolean-input-value.adoc[]
+
+include::kvp-execute/ATS_complex-input-value.adoc[]
+
+include::kvp-execute/ATS_array-input-value.adoc[]
+
+include::kvp-execute/ATS_bbox-input-value.adoc[]
+
+include::kvp-execute/ATS_bbox-crs-input-value.adoc[]
+
+include::kvp-execute/ATS_binary-input-value.adoc[]
+
+include::kvp-execute/ATS_binary-input-value-qualified.adoc[]
+
+include::kvp-execute/ATS_input-by-reference.adoc[]
+
+include::kvp-execute/ATS_input-cardinality.adoc[]
+
+include::kvp-execute/ATS_input-query-parameters.adoc[]
+
+include::kvp-execute/ATS_input-query-parameter-values.adoc[]
+
+include::kvp-execute/ATS_process-execute-op.adoc[]
+
+include::kvp-execute/ATS_output.adoc[]
+
+include::kvp-execute/ATS_f-definition.adoc[]
+
+include::kvp-execute/ATS_f-response.adoc[]
+
+include::kvp-execute/ATS_prefer-definition.adoc[]
+
+include::kvp-execute/ATS_prefer-response.adoc[]

@@ -1,0 +1,19 @@
+[[ats_ogc-process-description_data-access-apis]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/ogc-process-description/data-access-apis
+target:: /req/ogc-process-description/data-access-apis
+test-purpose:: Verify that each process input that supports collection inputs properly declares which data access APIs it supports.
+test-method::
++
+--
+1. Retrieve the description of each process the server offers according to test <<ats_core_process-description,/conf/core/process-description>>.
+
+2. Inspect each input of each process and determine if the `dataAccessApi` parmater is present.
+
+3. If it is present then verify that the value of the parameter is either empty or contains a list of data access APIs (e.g. ogc-api-features, ogc-api-coverages, etc.).
+
+4. If the parameter value is not empty, verify that the server declares support, in its conformance document (i.e. `GET /conformance`), for each of the listed data access APIs.
+====

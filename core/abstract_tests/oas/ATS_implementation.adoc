@@ -1,0 +1,15 @@
+[[ats_oas_implementation]]
+
+[abstract-test]
+====
+[%metadata]
+identifier:: /conf/oas/implementation
+target:: /req/oas/implementation
+test-purpose:: Verify that all capabilities specified in the OpenAPI definition are implemented by the API. 
+test-method::
++
+--
+. Construct a path from each URL template including all server URL options and all enumerated path parameters.
+. For each path defined in the OpenAPI document, validate that the path performs in accordance with the API definition and the API-Features standard.
+--
+====

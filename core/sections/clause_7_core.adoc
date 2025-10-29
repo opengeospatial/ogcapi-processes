@@ -45,7 +45,7 @@ The OGC API - Processes Standard utilizes elements of the OGC API-Common Standar
 |<<sc_landing_page,API Landing Page>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
 |<<sc_api_definition,API Definition>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
 |<<sc_conformance_classes,Declaration of Conformance Classes>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
-|<<requirements-class-openapi_3_0-clause,OpenAPI 3.0>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30
+|<<req_oas30_oas-definition,OpenAPI 3.0>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30
 |<<sc_requirements_class_html,HTML>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/html
 |===
 
