@@ -19,6 +19,6 @@ test-method::
 
 5. Include the identified unsupported filtering elements in the execute request (e.g. a CQL filter) as per the <<collection-value-schema,"collectionValue.yaml">> schema thus forcing the test server to perform the requested filtering locally.
 
-6. Verify that execute request completes successfully.
+6. Verify that the execute request completes successfully.
 --
 ====

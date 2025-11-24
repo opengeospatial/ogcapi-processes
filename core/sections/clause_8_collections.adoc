@@ -150,15 +150,15 @@ The _Remote Collections_ conformance class allows to reference a remote OGC API 
 
 include::../requirements/requirements_class_remote-collections.adoc[]
 
-The following requirements describe how an <<execute-request-body,execute request>> references a <<def-remote-collection,remote OGC API collection>> as a source of input values to a process.
+The following requirements describe how an <<execute-request-body,execute request>> references a <<def-remote-collections,remote OGC API collection>> as a source of input values to a process.
 
 ==== Referencing a remote collection
 
-include::../requirements/remote-collections/REQ_remote-collection_referencing.adoc[]
+include::../requirements/remote-collections/REQ_remote-collections_referencing.adoc[]
 
 ==== Accessing data from a remote collection
 
-include::../requirements/remote-collections/REQ_remote-collection_access.adoc[]
+include::../requirements/remote-collections/REQ_remote-collections_access.adoc[]
 
 ===== Filtering
 

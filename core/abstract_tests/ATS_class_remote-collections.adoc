@@ -1,0 +1,20 @@
+[[ats_remote-collections]]
+[conformance_class]
+.Remote Collections
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/remote-collections
+subject:: <<rc_remote-collections,http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/remote-collections>>
+classification:: Target Type:Web API
+conformance-test:: /conf/remote-collections/access
+conformance-test:: /conf/remote-collections/referencing
+====
+
+include::remote-collections/ATS_remote-collections_access.adoc[]
+
+include::remote-collections/ATS_remote-collections_referencing.adoc[]
+
+
+
+
+

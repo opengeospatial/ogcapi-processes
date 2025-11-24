@@ -5,7 +5,7 @@
 [%metadata]
 identifier:: /conf/collection-input/referencing
 target:: /req/collection-input/referencing
-test-purpose:: Verify that the server correctly processes a reference to a source collection from which input values are retrieved.
+test-purpose:: Verify that the server correctly processes references to local collections from which input values are retrieved.
 test-method::
 +
 --
@@ -15,8 +15,8 @@ test-method::
 
 3. Compose <<execute-request-body,execute requests>> that includes the identified inputs and using a supported <<def-data-access-mechanism,data access API>> (see test: <<ats_collection-input_collection-access,/conf/collection-input/collection-access>> to identify supported <<def-data-access-mechanism,data access APIs>>).
 
-4. Use the `collection` parameter in the <<execute-request-body,execute request>>, as defined in <<collection-value-schema,"collectionValue.yaml">>, to reference each source collection.
+4. Use the `collection` parameter in the <<execute-request-body,execute request>>, as defined in <<collection-value-schema,"collectionValue.yaml">>, to reference local collection from which input values are retrieved using one of the supported <<def-data-access-mechanism,data access APIs>>.
 
-5. Verify that execute request completes successfully.
+5. Verify that the execute request completes successfully.
 --
 ====

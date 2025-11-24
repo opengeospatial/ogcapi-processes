@@ -17,7 +17,7 @@ test-method::
 
 4. In the specification of the collection input, specify or more more filtering elements as defined in <<collection-value-schema,"collectionValue.yaml">>.
 
-5. Verify that execute request completes successfully.
+5. Verify that the execute request completes successfully.
 --
 ====
 
