@@ -15,7 +15,7 @@ test-method::
 
 3. Compose <<execute-request-body,execute requests>> that include the identified inputs and using a supported <<def-data-access-mechanism,data access API>> (see test: <<ats_collection-input_collection-access,/conf/collection-input/collection-access>> to identify supported <<def-data-access-mechanism,data access APIs>>).
 
-4. In the specification of the collection input, specify or more more property-selection elements using the `properties` (and optionally the `aliases`) parameter as defined in <<collection-value-schema,"collectionValue.yaml">>.
+4. In the specification of the collection input, specify one or more property-selection elements using the `properties` (and optionally the `aliases`) parameter as defined in <<collection-value-schema,"collectionValue.yaml">>.
 
 5. Verify that the execute request completes successfully.
 --
