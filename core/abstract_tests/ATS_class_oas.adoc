@@ -3,8 +3,8 @@
 [conformance_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas
-subject:: <<rc_oas,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas>>
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas
+subject:: <<rc_oas,http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas>>
 inherit:: <<ats_core,Conformance Class "Core">>
 classification:: Target Type:Web API
 conformance-test:: /conf/oas/completeness

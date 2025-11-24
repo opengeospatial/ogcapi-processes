@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/core/job-results
-target:: /req/core/job-results
+identifier:: /conf/core/job-results-op
+target:: /req/core/job-results-op
 test-purpose:: Validate that the results of a job can be retrieved.
 test-method::
 +

@@ -28,6 +28,6 @@ NOTE: The job results page for a job may be retrieved in one of two formats. The
 [cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
-|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_html_content,/conf/html/content>>
-|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_json_content,/conf/json/content>>
+|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_html_content,/conf/html/content>>
+|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_json_content,/conf/json/content>>
 |===

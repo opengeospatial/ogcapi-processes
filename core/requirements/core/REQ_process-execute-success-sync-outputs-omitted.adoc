@@ -1,0 +1,18 @@
+[[req_core_process-execute-success-sync-outputs-omitted]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/process-execute-success-sync-outputs-omitted
+label:: /req/core/process-execute-success-sync-outputs-omitted
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is synchronous.
+. The "outputs" parameter is omitted in the <<execute-request-body,execute request>>.
+--
+
+[.component,class=part]
+--
+The server's response SHALL include all outputs defined for the process in its <<sc_process_description,process description>>.
+--
+====

@@ -1,9 +1,9 @@
-[[req_core_process-list]]
+[[req_core_process-list-op]]
 [requirement]
 ====
 [%metadata]
-identifier:: /req/core/process-list
-label:: /req/core/process-list
+identifier:: /req/core/process-list-op
+label:: /req/core/process-list-op
 
 The server SHALL support the HTTP GET operation at the path `/processes`.
 ====

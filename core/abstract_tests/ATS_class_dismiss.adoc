@@ -3,8 +3,8 @@
 [conformance_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss
-subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/dismiss>>
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/dismiss
+subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/dismiss>>
 classification:: Target Type:Web API
 conformance-test:: /conf/dismiss/job-dismiss-op
 conformance-test:: /conf/dismiss/job-dismiss-success
@@ -21,6 +21,6 @@ NOTE: The response to dismissing a job can be presented in one of two formats. T
 [cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
-|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_html_content,/conf/html/content>>
-|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_json_content,/conf/json/content>>
+|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_html_content,/conf/html/content>>
+|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_json_content,/conf/json/content>>
 |===

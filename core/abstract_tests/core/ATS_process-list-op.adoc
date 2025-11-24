@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/core/process-list
-target:: /req/core/process-list
+identifier:: /conf/core/process-list-op
+target:: /req/core/process-list-op
 test-purpose:: Validate that information about the processes can be retrieved from the expected location.
 test-method::
 +

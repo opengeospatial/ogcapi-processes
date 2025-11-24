@@ -3,8 +3,8 @@
 [conformance_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30
-subject:: <<rc_oas30,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/oas30>>
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas30
+subject:: <<rc_oas30,http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas30>>
 inherit:: <<ats_core,Conformance Class "Core">>
 inherit:: <<ats_oas,Conformance Class "OpenAPI Specification">>
 classification:: Target Type:Web API

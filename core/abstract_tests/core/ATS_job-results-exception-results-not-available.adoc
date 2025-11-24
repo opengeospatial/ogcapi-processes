@@ -1,0 +1,24 @@
+[[ats_core_job-results-exception_results-not-available]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/job-results-exception_results-not-available
+target:: /req/core/job-results-exception_results-not-available
+test-purpose::Verify that the server responds correctly when requesting results that are not available.
+test-method::
++
+--
+1. Negotiate asynchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/conf/core/process-execute-auto-execution-mode>> or <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>>.
+
+2. Ensure that <<execute-request-body,execute request body>> includes the "outputs" parameter and that the content of the parameter is empty.
+
+3. When processing is completed attempt to retrieve one or more of the defined outputs at the `/jobs/{jobID}/results/{outputID}` endpoint.
+
+4. Verify that the server responds with an HTTP status code 404.
+
+5. Verify that the body of the response contains an exception message that conforms to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml] schema.
+
+6. Verify that the `type` of the excpetion is "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-available".
+--
+====

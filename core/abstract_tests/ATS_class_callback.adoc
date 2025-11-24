@@ -3,8 +3,8 @@
 [conformance_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback
-subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/callback>>
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/callback
+subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/callback>>
 classification:: Target Type:Web API
 conformance-test:: /conf/callback/job-callback
 ====

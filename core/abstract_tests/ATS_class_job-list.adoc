@@ -3,8 +3,8 @@
 [conformance_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list
-subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/job-list>>
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/job-list
+subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/job-list>>
 classification:: Target Type:Web API
 conformance-test:: /conf/job-list/datetime-definition
 conformance-test:: /conf/job-list/datetime-response
@@ -62,8 +62,8 @@ NOTE: A job list may be retrieved in one of two formats. The following table ide
 [cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
-|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/jobList.yaml[jobList.yaml] |<<ats_html_content,/conf/html/content>>
-|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/jobList.yaml[jobList.yaml] |<<ats_json_content,/conf/json/content>>
+|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/jobList.yaml[jobList.yaml] |<<ats_html_content,/conf/html/content>>
+|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/jobList.yaml[jobList.yaml] |<<ats_json_content,/conf/json/content>>
 |===
 
 include::job-list/ATS_success.adoc[]

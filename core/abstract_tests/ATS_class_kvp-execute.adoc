@@ -4,8 +4,8 @@
 .KVP-encoded Execute
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/kvp-execute
-subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/kvp-execute>>
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/kvp-execute
+subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/kvp-execute>>
 classification:: Target Type:Web API
 conformance-test:: /conf/kvp-execute/numeric-input-value
 conformance-test:: /conf/kvp-execute/string-input-value
