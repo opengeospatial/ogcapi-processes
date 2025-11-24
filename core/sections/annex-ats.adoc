@@ -22,6 +22,8 @@ include::../abstract_tests/ATS_class_collection-input.adoc[]
 
 include::../abstract_tests/ATS_class_collection-output.adoc[]
 
+include::../abstract_tests/ATS_class_local-filtering.adoc[]
+
 === Conformance Class OGC Process Description
 
 include::../abstract_tests/ATS_class_ogc-process-description.adoc[]

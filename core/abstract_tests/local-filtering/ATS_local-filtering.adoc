@@ -1,0 +1,24 @@
+[[ats_collection-input_local-filtering]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collection-input/local-filtering
+target:: /req/collection-input/local-filtering
+test-purpose:: Verify that the server correctly processes local-filtering elements in a collection input specification.
+test-method::
++
+--
+1. Obtain a process description for one or more processes offered by a server as per test <<ats_core_process-description-op,/conf/core/process-description-op>>.
+
+2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test <<ats_ogc-process-description_data-access-apis,/conf/ogc-process-description/data-access-apis>>).
+
+3. Compose <<execute-request-body,execute requests>> that include the identified inputs and using a supported <<def-data-access-mechanism,data access API>> (see test: <<ats_collection-input_collection-access,/conf/collection-input/collection-access>> to identify supported <<def-data-access-mechanism,data access APIs>>).
+
+4. For each execute request, inspect the <<value-source-server,value source server(s)>> and identify query capabilities that are not supported by those remote servers (e.g. CQL2 filtering).  
+
+5. Include the identified unsupported filtering elements in the execute request (e.g. a CQL filter) as per the <<collection-value-schema,"collectionValue.yaml">> schema thus forcing the test server to perform the requested filtering locally.
+
+6. Verify that execute request completes successfully.
+--
+====
