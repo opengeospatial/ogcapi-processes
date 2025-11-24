@@ -9,7 +9,7 @@ test-purpose:: Validate that the server responds as expected when getting result
 test-method::
 +
 --
-1. Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
+1. Get a description of each process offered by the server using test <<ats_core_process-description-op,/conf/core/process-description-op>>.
 
 2. Inspect the description of each process and identify the subset of processes that support the `sync-execute` job control option.
 

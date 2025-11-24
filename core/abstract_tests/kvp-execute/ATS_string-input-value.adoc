@@ -11,7 +11,7 @@ test-method::
 --
 1. Get a list of processes as per test <<ats_core_process-list-op,/conf/core/process-list-op>>.
 
-2. Retrieve the description of each process according to test <<ats_core_process-description,/conf/core/process-description>>.
+2. Retrieve the description of each process according to test <<ats_core_process-description-op,/conf/core/process-description-op>>.
 
 3. Inspect the input definitions of each process and identify a process that has at least one string-typed input.
 

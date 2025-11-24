@@ -9,7 +9,7 @@ test-purpose:: Verify that the server correctly recognizes the encoding of param
 test-method::
 +
 --
-1. Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
+1. Get a description of each process offered by the server using test <<ats_core_process-description-op,/conf/core/process-description-op>>.
 
 2. Inspect the description of each process and identify the list of processes that have inputs with a maximum cardinality greater than one.
 

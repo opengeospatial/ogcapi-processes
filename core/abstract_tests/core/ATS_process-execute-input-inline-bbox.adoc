@@ -9,7 +9,7 @@ test-purpose:: Validate that inputs with a bounding box schema encoded in-line i
 test-method::
 +
 --
-1. Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
+1. Get a description of each process offered by the server using test <<ats_core_process-description-op,/conf/core/process-description-op>>.
 
 2. Inspect the description of each process and identify the subset of processes that have bounding box inputs that are supposed to conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/bbox.yaml[bbox.yaml] schema.
 

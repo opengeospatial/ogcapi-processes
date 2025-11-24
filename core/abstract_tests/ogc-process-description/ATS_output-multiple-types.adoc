@@ -9,7 +9,7 @@ test-purpose:: Validate that each output of multiple types complies with the req
 test-method::
 +
 --
-1. Retrieve a description of each process according to test <<ats_core_process-description,/conf/core/process-description>>.
+1. Retrieve a description of each process according to test <<ats_core_process-description-op,/conf/core/process-description-op>>.
 
 2. For each process identify if the process has one or more output of multiple types denoted by using the `oneOf` JSON Schema keyword.
 

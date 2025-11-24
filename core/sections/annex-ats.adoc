@@ -59,3 +59,7 @@ include::../abstract_tests/ATS_class_dismiss.adoc[]
 === Conformance Class KVP-encoded Execute
 
 include::../abstract_tests/ATS_class_kvp-execute.adoc[]
+
+=== Conformance Class Profile query parameter
+
+include::../abstract_tests/ATS_class_query-param-profile.adoc[]
