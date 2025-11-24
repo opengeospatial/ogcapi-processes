@@ -1,6 +1,6 @@
 [[ats_callback]]
-
 [conformance_class]
+.Callback
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/callback

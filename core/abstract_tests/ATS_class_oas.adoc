@@ -1,6 +1,6 @@
 [[ats_oas]]
-
 [conformance_class]
+.OpenAPI
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas

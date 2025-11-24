@@ -1,6 +1,6 @@
 [[ats_oas30]]
-
 [conformance_class]
+.OpenAPI 3.0
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas30

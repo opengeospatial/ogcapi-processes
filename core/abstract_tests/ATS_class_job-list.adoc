@@ -1,6 +1,6 @@
 [[ats_job-list]]
-
 [conformance_class]
+.Job List
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/job-list

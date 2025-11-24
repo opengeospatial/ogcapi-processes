@@ -16,6 +16,10 @@ include::../recommendations/core/REC_test-process.adoc[]
 
 include::../abstract_tests/ATS_class_core.adoc[]
 
+=== Collections
+
+include::../abstract_tests/ATS_class_collection-input.adoc[]
+
 === Conformance Class OGC Process Description
 
 include::../abstract_tests/ATS_class_ogc-process-description.adoc[]

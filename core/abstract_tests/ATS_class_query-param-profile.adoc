@@ -1,6 +1,6 @@
 [[ats_query-param-profile]]
-
 [conformance_class]
+.Query Profile Parameter
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/query-param-profile

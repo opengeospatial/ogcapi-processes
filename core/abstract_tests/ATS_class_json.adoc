@@ -1,6 +1,6 @@
 [[ats_json]]
-
 [conformance_class]
+.JSON
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/json

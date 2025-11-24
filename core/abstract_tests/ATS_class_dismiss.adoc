@@ -1,6 +1,6 @@
 [[ats_dismiss]]
-
 [conformance_class]
+.Dismiss
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/dismiss

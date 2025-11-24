@@ -1,0 +1,18 @@
+[[ats_collection-input_collection-access]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collection-input/collection-access
+target:: /req/collection-input/collection-access
+test-purpose:: Verify that the server supports the <<def-data-access-mechanism, OGC data access API(s)>> that is advertises for collection input.
+test-method::
++
+--
+1. Obtain a process description for one or more processes offered by the server as per test <<ats_core_process-description-op,/conf/core/process-description-op>>.
+
+2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test <<ats_ogc-process-description_data-access-apis,/conf/ogc-process-description/data-access-apis>>).
+
+3. For each of the identified inputs verify that the server supports the the specified <<def-data-access-mechanism, OGC data access API(s)>> by inspecting the server's conformance document obtained from the `/conformance` endpoint.
+--
+====

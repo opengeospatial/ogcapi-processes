@@ -1,0 +1,22 @@
+[[ats_collection-input_referencing]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collection-input/referencing
+target:: /req/collection-input/referencing
+test-purpose:: Verify that the server correctly processes a reference to a source collection from which input values are retrieved.
+test-method::
++
+--
+1. Obtain a process description for one or more processes offered by a server as per test <<ats_core_process-description-op,/conf/core/process-description-op>>.
+
+2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test <<ats_ogc-process-description_data-access-apis,/conf/ogc-process-description/data-access-apis>>).
+
+3. Compose <<execute-request-body,execute requests>> that includes the identified inputs and using a supported <<def-data-access-mechanism,data access API>> (see test: <<ats_collection-input_collection-access,/conf/collection-input/collection-access>> to identify supported <<def-data-access-mechanism,data access APIs>>).
+
+4. Use the `collection` parameter in the <<execute-request-body,execute request>>, as defined in <<collection-value-schema,"collectionValue.yaml">>, to reference each source collection.
+
+5. Verify that execute request completes successfully.
+--
+====

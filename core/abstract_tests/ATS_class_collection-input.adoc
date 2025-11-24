@@ -1,0 +1,25 @@
+[[ats_collection-input]]
+[conformance_class]
+.Collection Input
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/collection-input
+subject:: <<rc_collection-input,http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-input>>
+classification:: Target Type:Web API
+conformance-test:: /conf/core/test-process
+conformance-test:: /conf/core/landingpage-op
+conformance-test:: /conf/core/landingpage-success
+conformance-test:: /conf/core/api-definition-op
+conformance-test:: /conf/core/api-definition-success
+====
+
+include::collection-input/ATS_collection-input_referencing.adoc[]
+
+include::collection-input/ATS_collection-input_access.adoc[]
+
+include::collection-input/ATS_collection-input_filtering.adoc[]
+
+include::collection-input/ATS_collection-input_property-selection.adoc[]
+
+include::collection-input/ATS_collection-input_pass-thru.adoc[]
+

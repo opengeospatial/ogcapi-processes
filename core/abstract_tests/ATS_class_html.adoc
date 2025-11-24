@@ -1,6 +1,6 @@
 [[ats_html]]
-
 [conformance_class]
+.HTML
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/html

@@ -1,0 +1,25 @@
+[[ats_collection-input_pass-thru]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collection-input/pass-thru
+target:: /req/collection-input/pass-thru
+test-purpose:: Verify that the server correctly processes the `passThruParameters` element in a collection input specification.
+test-method::
++
+--
+1. Obtain a process description for one or more processes offered by a server as per test <<ats_core_process-description-op,/conf/core/process-description-op>>.
+
+2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test <<ats_ogc-process-description_data-access-apis,/conf/ogc-process-description/data-access-apis>>).
+
+3. Compose <<execute-request-body,execute requests>> that include the identified inputs and using a supported <<def-data-access-mechanism,data access API>> (see test: <<ats_collection-input_collection-access,/conf/collection-input/collection-access>> to identify supported <<def-data-access-mechanism,data access APIs>>).
+
+4. In the specification of the collection input, specify the `passThruParameters` element, as defined in <<collection-value-schema,"collectionValue.yaml">>, and include query parameters specific to the selected <<def-data-access-mechanism,data access API>>.
+
+5. Verify that execute request completes successfully
+--
+====
+
+
+
