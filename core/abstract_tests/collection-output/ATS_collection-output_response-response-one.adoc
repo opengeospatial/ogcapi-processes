@@ -1,0 +1,21 @@
+[[ats_collection-output_response-response-one]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collection-output/response-response-one
+target:: /req/collection-output/response-response-one
+test-purpose:: Validate that the collection output for a single explicitly or implicitly requested output is a reference to a <<def-collection-description,collection description document>>.
+test-method::
++
+--
+1. Obtain a process description for one or more processes offered by the server as per test <<ats_core_process-description-op,/conf/core/process-description-op>>.
+
+2. Inspect the description of the outputs of each process and identify those outputs that support collection output (e.g. see test <<ats_ogc-process-description_data-access-apis,/conf/ogc-process-description/data-access-apis>>).
+
+3. Compose an execute request (see: <<ats_core_process-execute-op,/conf/core/process-execute-op>>) for each identified process and request exactly one of the outputs identified in Step 2.  Ensure that the execution endpoint (i.e. `/processes/{processID}/execution`) includes the `response=collection` query parameter.
+
+4. Verify that the server responds with an HTTP status code of 303.
+
+5. Verify that the response includes a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[`Location`] response header redirecting to a <<def-collection-description,collection description document>>
+--
+====

@@ -6,11 +6,11 @@
 identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/collection-input
 subject:: <<rc_collection-input,http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-input>>
 classification:: Target Type:Web API
-conformance-test:: /conf/core/test-process
-conformance-test:: /conf/core/landingpage-op
-conformance-test:: /conf/core/landingpage-success
-conformance-test:: /conf/core/api-definition-op
-conformance-test:: /conf/core/api-definition-success
+conformance-test:: /conf/collection-input/referencing
+conformance-test:: /conf/collection-input/collection-access
+conformance-test:: /conf/collection-input/filtering
+conformance-test:: /conf/collection-input/property-selection
+conformance-test:: /conf/collection-input/pass-thru
 ====
 
 include::collection-input/ATS_collection-input_referencing.adoc[]
@@ -22,4 +22,6 @@ include::collection-input/ATS_collection-input_filtering.adoc[]
 include::collection-input/ATS_collection-input_property-selection.adoc[]
 
 include::collection-input/ATS_collection-input_pass-thru.adoc[]
+
+
 

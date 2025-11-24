@@ -21,10 +21,4 @@ The server SHALL response with an HTTP status code of https://datatracker.ietf.o
 --
 The response SHALL include a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[`Location`] response header redirecting to a <<def-collection-description,collection description document>>.
 --
-
-[.component,class=part]
---
-The target <<def-collection-description,collection description document>> SHALL link to at least one <<def-data-access-mechanism,OGC API data access mechanism>>.
---
-
 ====
