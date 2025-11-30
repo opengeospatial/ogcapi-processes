@@ -10,14 +10,14 @@ Servers conforming to this requirements class define their API by an OpenAPI Doc
 
 include::../requirements/requirements_class_oas.adoc[]
 
-include::../requirements/oas/REQ_oas-definition.adoc[]
+include::../requirements/oas/REQ_definition.adoc[]
 
-The requirements <<req_core_root-success,/req/core/root-success>> and <<req_core_api-definition-success,/req/core/api-definition-success>> in _Core_ require that the API definition documents are referenced from the landing page.
+The requirements <<req_core_landingpage-success,/req/core/landingpage-success>> and <<req_core_api-definition-success,/req/core/api-definition-success>> in _Core_ require that the API definition documents are referenced from the landing page.
 
 [[two_appraoches_oas]]
 OpenAPI definitions can be created using different approaches. A typical example is the representation of the feature collections. One approach is to use a path parameter `collectionId,` i.e., the API definition has only a single path entry for all feature collections. Another approach is to explicitly define each feature collection in a separate path and without a path parameter, which allows to specify filter parameters or explicit feature schemas per feature collection. Both approaches are valid.
 
-include::../requirements/oas/REQ_oas-impl.adoc[]
+include::../requirements/oas/REQ_implementation.adoc[]
 
 ==== Complete definition
 

@@ -9,7 +9,7 @@ test-purpose:: Validate that the server correctly handles the execution mode for
 test-method::
 +
 --
-1. Get a description of each process offered by the server using test <<ats_core_process-description,/conf/core/process-description>>.
+1. Get a description of each process offered by the server using test <<ats_core_process-description-op,/conf/core/process-description-op>>.
 
 2. Inspect the description of each process and take note of the job control options for the process.
 

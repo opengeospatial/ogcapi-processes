@@ -9,11 +9,11 @@ test-purpose:: Validate that the correct output is generated upon process execut
 test-method::
 +
 --
-1. Negotiate synchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/req/core/process-execute-op>>.
+1. Negotiate synchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/conf/core/process-execute-auto-execution-mode>> or <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>>.
 
 2. Request a single output with identifier `{outputID}` as per test <<ats_core_job-results-param-outputs,/req/core/job-results-param-outputs>>.
 
-3. Negotiate an output format that is supported for the requested output according to the process' description that has been retrieved as per test <<ats_core_process-description,/req/core/process-description>>.
+3. Negotiate an output format that is supported for the requested output according to the process' description that has been retrieved as per test <<ats_core_process-description-op,/req/core/process-description-op>>.
 
 4. Validate that the response conforms to the requirements of <<req_core_process-execute-sync-one,/req/core/process-execute-sync-one>>.
 --

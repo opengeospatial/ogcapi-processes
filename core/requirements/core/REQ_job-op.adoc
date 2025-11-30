@@ -1,9 +1,9 @@
-[[req_core_job]]
+[[req_core_job-op]]
 [requirement]
 ====
 [%metadata]
-identifier:: /req/core/job
-label:: /req/core/job
+identifier:: /req/core/job-op
+label:: /req/core/job-op
 
 The server SHALL support the HTTP GET operation at the path `/jobs/{jobID}`.
 ====

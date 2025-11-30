@@ -1,0 +1,13 @@
+[[req_oas_definition]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/oas/definition
+label:: /req/oas/definition 
+
+The content of the response of the HTTP GET operation at the landing page SHALL include the following links to the API definition:
+
+* Relation type `service-desc` and content type `application/vnd.oai.openapi+json;version=x.y` (where `x.y` is the version of the OpenAPI specification used);
+* Relation type `service-doc` and content type `text/html`.
+====
+

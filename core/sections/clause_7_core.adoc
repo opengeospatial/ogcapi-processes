@@ -42,11 +42,11 @@ The OGC API - Processes Standard utilizes elements of the OGC API-Common Standar
 [cols="2,6"]
 |===
 ^|*API - Processes Section* ^|*API-Common Requirements Class*
-|<<sc_landing_page,API Landing Page>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
-|<<sc_api_definition,API Definition>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
-|<<sc_conformance_classes,Declaration of Conformance Classes>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
-|<<requirements-class-openapi_3_0-clause,OpenAPI 3.0>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30
-|<<sc_requirements_class_html,HTML>>| http://www.opengis.net/spec/ogcapi-common-1/1.0/req/html
+|<<sc_landing_page,API Landing Page>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/core
+|<<sc_api_definition,API Definition>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/core
+|<<sc_conformance_classes,Declaration of Conformance Classes>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/core
+|<<req_oas30_oas-definition,OpenAPI 3.0>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/oas30
+|<<sc_requirements_class_html,HTML>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/html
 |===
 
 
@@ -963,11 +963,11 @@ an <<execute-request-body,execute request>>. The name of each output is its iden
 
 *_Omitted outputs:_*
 
-include::../requirements/core/REQ_process-execute-omitted-outputs.adoc[]
+include::../requirements/core/REQ_process-execute-outputs-omitted.adoc[]
 
 *_Empty outputs:_*
 
-include::../requirements/core/REQ_process-execute-empty-outputs.adoc[]
+include::../requirements/core/REQ_process-execute-outputs-empty.adoc[]
 
 *_Output value format:_*
 
@@ -1194,13 +1194,19 @@ include::../recommendations/core/PER_process-execute-success-sync-many-other-for
 
 ===== Response when the "outputs" parameter is omitted
 
-See requirement <<req_core_process-execute-omitted-outputs,/req/core/process-execute-omitted-outputs>>.
+An omitted "outputs" parameter signals to the process to execute its logic and generate all outputs defined in the <<sc_process_description,process description>>.
+
+include::../requirements/core/REQ_process-execute-success-sync-outputs-omitted.adoc[]
+
+See also: <<req_core_process-execute-omitted-outputs,/req/core/process-execute-omitted-outputs>>.
 
 ===== Response when the "outputs" parameter is empty
 
 An "outputs" parameter whose value is empty (i.e. "outputs": {}) signals to a process to execute its logic but to not generate a response body.
 
-include::../requirements/core/REQ_process-execute-success-sync-empty-outputs.adoc[]
+include::../requirements/core/REQ_process-execute-success-sync-outputs-empty.adoc[]
+
+See also: <<req_core_process-execute-omitted-outputs,/req/core/process-execute-omitted-outputs>>.
 
 ===== Job creation on synchronous process execution
 

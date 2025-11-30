@@ -1,0 +1,19 @@
+[[ats_ogc-process-description_execution-unit-requirements]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/ogc-process-description/execution-unit-requirements
+target:: /req/ogc-process-description/execution-unit-requirements
+test-purpose:: Verify that the `executionUnitRequirements` parameter is correctly specified for process inputs that include the parameter.
+test-method::
++
+--
+1. Retrieve the description of each process the server offers according to test <<ats_core_process-description-op,/conf/core/process-description-op>>.
+
+2. Inspect each input of each process and determine if the `executionUnitRequirements` parmater is present.
+
+3. If the `remote-access` member is specified, verify that its value is either `true` or `false`.
+
+4. If the `staging` parameter is specified, verify that its value is either `local-file` or `remote-access`.
+====

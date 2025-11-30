@@ -7,7 +7,7 @@ label:: /req/ogc-process-description/execution-unit-requirements
 
 [.component,class=part]
 --
-The `executeUnitRequrements` parameter SHALL be used to specify runtime requirements for the correspoding input.
+The `executionUnitRequrements` parameter SHALL be used to specify runtime requirements for the correspoding input.
 --
 
 [.component,class=part]

@@ -1,0 +1,20 @@
+[[ats_core_process-execute-success-async-outputs]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/process-execute-success-async-outputs
+target:: /req/core/process-execute-success-async-outputs
+test-purpose:: Validate that, for an asynchronously executed process, all requested outputs are available for retrieval.
+test-method::
++
+--
+1. Negotiate asynchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/conf/core/process-execute-auto-execution-mode>> or <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>>.
+
+2. Ensure that the <<execute-request-body,execute request>>, requests a subset of the defined process outputs.  Some of the defined process output should be explicitly omitted from the <<execute-request-body,execute request>>.
+
+3. Explicitly fetch each of the requested outputs via the `/jobs/{jobID}/results/{outputID}` endpoint and verify that the server responds successfully.
+
+4. Explicity fetch one or more of the outputs that were omitted from the <<execute-request-body,execute request>> and verify that the server responds with HTTP status code of `404`.
+--
+====

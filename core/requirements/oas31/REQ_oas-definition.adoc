@@ -5,6 +5,6 @@
 identifier:: /req/oas31/oas-definition
 label:: /req/oas31/oas-definition
 
-The JSON representation SHALL conform to the <<OpenAPI31,OpenAPI Specification 3.1>>.
+The JSON representation SHALL conform to the http://spec.openapis.org/oas/v3.1.1[OpenAPI Specification 3.1].
 ====
 

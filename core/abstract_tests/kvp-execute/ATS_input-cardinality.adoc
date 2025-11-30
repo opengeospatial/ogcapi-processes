@@ -1,0 +1,24 @@
+[[ats_kvp-execute_input-cardinality]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/kvp-execute/input-cardinality
+target:: /req/kvp-execute/input-cardinality
+test-purpose:: Verify that inputs with cardinality of greater than 1 are handled correctly.
+test-method::
++
+--
+1. Get a list of processes as per test <<ats_core_process-list-op,/conf/core/process-list-op>>.
+
+2. Retrieve the description of each process according to test <<ats_core_process-description-op,/conf/core/process-description-op>>.
+
+3. Inspect the input definitions of each process and identify a process that has at least one input with `minOccurs>1`.
+
+4. Compose a KVP-encoded execute request encoding the list input value(s) according to <<req_kvp-execute_input-cardinality,/req/kvp-execute/input-cardinality>>.
+
+5. Execute the request using the HTTP `GET` method.
+
+6. Verify that the response of the process is the expected response (see tests: <<req_core_process-execute-success-async,/req/core/process-execute-success-async>>, <<req_core_process-execute-success-async-outputs,/req/core/process-execute-success-async-outputs>>, <<req_core_process-execute-success-async-outputs-empty,/req/core/process-execute-success-async-outputs-empty>>, <<req_core_process-execute-success-async-outputs-omitted,/req/core/process-execute-success-async-outputs-omitted>>, <<req_core_process-execute-success-sync-empty-outputs,/req/core/process-execute-success-sync-empty-outputs>>, <<req_core_process-execute-sync-many-json,/req/core/process-execute-sync-many-json>>, <<req_core_process-execute-sync-one,/req/core/process-execute-sync-one>>, <<req_core_process-execute-sync-one-default-content,/req/core/process-execute-sync-one-default-content>>).
+--
+====

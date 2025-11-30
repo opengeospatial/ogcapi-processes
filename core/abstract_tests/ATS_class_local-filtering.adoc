@@ -1,0 +1,12 @@
+[[ats_local-filtering]]
+[conformance_class]
+.Local Filtering
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/local-filtering
+subject:: <<rc_local-filtering,http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/local-filtering>>
+classification:: Target Type:Web API
+conformance-test:: /conf/collection-input/local-filtering
+====
+
+include::local-filtering/ATS_local-filtering.adoc[]

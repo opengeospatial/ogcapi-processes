@@ -22,5 +22,5 @@ NOTE: The interface of a process may be described using one of a number of diffe
 [cols="3",options="header"]
 |===
 |Model |Schema Document |Test ID
-|OGC Process Description JSON|link:http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/process.yaml[process.yaml] |<<req_ogc-process-description_json-encoding,/conf/ogc-process-description/json-encoding>>
+|OGC Process Description JSON|link:http://schemas.opengis.net/ogcapi/features/part1/2.0/openapi/schemas/process.yaml[process.yaml] |<<req_ogc-process-description_json-encoding,/conf/ogc-process-description/json-encoding>>
 |===

@@ -3,60 +3,65 @@
 .Core
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/conf/core
-subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core>>
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/core
+subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core>>
 classification:: Target Type:Web API
-conformance-test:: /conf/core
+conformance-test:: /conf/core/test-process
+conformance-test:: /conf/core/landingpage-op
+conformance-test:: /conf/core/landingpage-success
 conformance-test:: /conf/core/api-definition-op
 conformance-test:: /conf/core/api-definition-success
 conformance-test:: /conf/core/conformance-op
 conformance-test:: /conf/core/conformance-success
 conformance-test:: /conf/core/http
-conformance-test:: /conf/core/job-exception-no-such-job
-conformance-test:: /conf/core/job-op
-conformance-test:: /conf/core/job-result
-conformance-test:: /conf/core/job-results
-conformance-test:: /conf/core/job-results-async-many
-conformance-test:: /conf/core/job-results-async-one
-conformance-test:: /conf/core/job-results-exception-no-such-job
-conformance-test:: /conf/core/job-results-exception-results-not-ready
-conformance-test:: /conf/core/job-results-failed
-conformance-test:: /conf/core/job-results-param-outputs
-conformance-test:: /conf/core/job-results-param-outputs-empty
-conformance-test:: /conf/core/job-results-param-outputs-omit
-conformance-test:: /conf/core/job-results-param-outputs-response
-conformance-test:: /conf/core/job-results-success-sync
-conformance-test:: /conf/core/job-success
-conformance-test:: /conf/core/landingpage-op
-conformance-test:: /conf/core/landingpage-success
-conformance-test:: /conf/core/pl-limit-definition
-conformance-test:: /conf/core/pl-limit-response
-conformance-test:: /conf/core/pl-links
+conformance-test:: /conf/core/process-list-op
+conformance-test:: /conf/core/process-list-limit-definition
+conformance-test:: /conf/core/process-list-limit-response
+conformance-test:: /conf/core/process-list-success
+conformance-test:: /conf/core/process-list-links
 conformance-test:: /conf/core/process-summary-links
 conformance-test:: /conf/core/process-description
 conformance-test:: /conf/core/process-description-success
 conformance-test:: /conf/core/process-exception-no-such-process
-conformance-test:: /conf/core/process-execute-auto-execution-mode
-conformance-test:: /conf/core/process-execute-default-execution-mode
-conformance-test:: /conf/core/process-execute-default-outputs
-conformance-test:: /conf/core/process-execute-input-array
-conformance-test:: /conf/core/process-execute-input-inline-bbox
-conformance-test:: /conf/core/process-execute-input-inline-binary
-conformance-test:: /conf/core/process-execute-input-inline-multiple-type
-conformance-test:: /conf/core/process-execute-input-inline-object
-conformance-test:: /conf/core/process-execute-inputs
-conformance-test:: /conf/core/process-execute-input-validation
 conformance-test:: /conf/core/process-execute-op
 conformance-test:: /conf/core/process-execute-request
-conformance-test:: /conf/core/process-execute-success-async
-conformance-test:: /conf/core/process-execute-sync-many-json
+conformance-test:: /conf/core/process-execute-default-execution-mode
+conformance-test:: /conf/core/process-execute-auto-execution-mode
+conformance-test:: /conf/core/process-execute-input-array
+conformance-test:: /conf/core/process-execute-input-inline-object
+conformance-test:: /conf/core/process-execute-input-inline-multiple-types
+conformance-test:: /conf/core/process-execute-input-inline-binary
+conformance-test:: /conf/core/process-execute-input-inline-bbox
+conformance-test:: /conf/core/process-execute-input-validation
+conformance-test:: /conf/core/process-execute-omitted-outputs
+conformance-test:: /conf/core/process-execute-empty-outputs
 conformance-test:: /conf/core/process-execute-sync-one
 conformance-test:: /conf/core/process-execute-sync-one-default-content
-conformance-test:: /conf/core/process-list
-conformance-test:: /conf/core/process-list-success
+conformance-test:: /conf/core/process-execute-sync-many-json
+conformance-test:: /conf/core/process-execute-success-async-outputs-omitted
+conformance-test:: /conf/core/process-execute-success-async-outputs-empty
+conformance-test:: /conf/core/job-results-success-sync
+conformance-test:: /conf/core/process-execute-success-async
+conformance-test:: /conf/core/process-execute-success-async-outputs
+conformance-test:: /conf/core/process-execute-success-sync-empty-outputs
+conformance-test:: /conf/core/process-execute-success-sync-outputs-omitted
+conformance-test:: /conf/core/job-op
+conformance-test:: /conf/core/job-success
+conformance-test:: /conf/core/job-exception-no-such-job
+conformance-test:: /conf/core/job-results-op
+conformance-test:: /conf/core/job-results-param-outputs
+conformance-test:: /conf/core/job-results-param-outputs-response
+conformance-test:: /conf/core/job-result-op
+conformance-test:: /conf/core/job-results-async-one
+conformance-test:: /conf/core/job-results-async-many
+conformance-test:: /conf/core/job-results-exception-invalid-query-parameter-value
+conformance-test:: /conf/core/job-results-exception-no-such-job
+conformance-test:: /conf/core/job-results-exception-results-not-ready
+conformance-test:: /conf/core/job-results-exception_results-not-available
+conformance-test:: /conf/core/job-results-failed
 ====
 
-=== Abstract test suite
+=== Testable process
 
 include::core/ATS_test-process.adoc[]
 
@@ -94,6 +99,8 @@ include::core/ATS_process-list-success.adoc[]
 
 include::core/ATS_process-list-links.adoc[]
 
+include::core/ATS_process-summary-links.adoc[]
+
 === Retrieve a process description
 
 include::core/ATS_process-description-op.adoc[]
@@ -110,7 +117,9 @@ include::core/ATS_process-execute-op.adoc[]
 
 include::core/ATS_process-execute-request.adoc[]
 
-include::core/ATS_process-execute-inputs.adoc[]
+include::core/ATS_process-execute-default-execution-mode.adoc[]
+
+include::core/ATS_process-execute-auto-execution-mode.adoc[]
 
 include::core/ATS_process-execute-input-array.adoc[]
 
@@ -124,11 +133,9 @@ include::core/ATS_process-execute-input-inline-bbox.adoc[]
 
 include::core/ATS_process-execute-input-validation.adoc[]
 
-include::core/ATS_process-execute-default-execution-mode.adoc[]
+include::core/ATS_process-execute-outputs-omitted.adoc[]
 
-include::core/ATS_process-execute-auto-execution-mode.adoc[]
-
-include::core/ATS_process-execute-default-outputs.adoc[]
+include::core/ATS_process-execute-outputs-empty.adoc[]
 
 include::core/ATS_process-execute-success-sync-one.adoc[]
 
@@ -136,9 +143,19 @@ include::core/ATS_process-execute-success-sync-one-default-content.adoc[]
 
 include::core/ATS_process-execute-success-sync-many-json.adoc[]
 
+include::core/ATS_process-execute-success-sync-outputs-omitted.adoc[]
+
+include::core/ATS_process-execute-success-sync-outputs-empty.adoc[]
+
 include::core/ATS_job-results-success-sync.adoc[]
 
 include::core/ATS_process-execute-success-async.adoc[]
+
+include::core/ATS_process-execute-success-async-outputs.adoc[]
+
+include::core/ATS_process-execute-success-async-outputs-empty.adoc[]
+
+include::core/ATS_process-execute-success-async-outputs-omitted.adoc[]
 
 === Jobs
 
@@ -152,24 +169,25 @@ include::core/ATS_job-exception-no-such-job.adoc[]
 
 ==== Retrieve job results
 
-include::core/ATS_job-result-op.adoc[]
-
 include::core/ATS_job-results-op.adoc[]
 
 include::core/ATS_job-results-param-outputs.adoc[]
 
 include::core/ATS_job-results-param-outputs-response.adoc[]
 
-include::core/ATS_job-results-param-outputs-omit.adoc[]
-
-include::core/ATS_job-results-param-outputs-empty.adoc[]
+include::core/ATS_job-result-op.adoc[]
 
 include::core/ATS_job-results-success-async-one.adoc[]
 
 include::core/ATS_job-results-success-async-many.adoc[]
 
+include::core/ATS_job-results-exception-invalid-query-parameter-value.adoc[]
+
 include::core/ATS_job-results-exception-no-such-job.adoc[]
 
 include::core/ATS_job-results-exception-results-not-ready.adoc[]
 
+include::core/ATS_job-results-exception-results-not-available.adoc[]
+
 include::core/ATS_job-results-failed.adoc[]
+

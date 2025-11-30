@@ -12,42 +12,64 @@ include::../requirements/core/REQ_test-process.adoc[]
 
 include::../recommendations/core/REC_test-process.adoc[]
 
-
 === Conformance Class Core
 
 include::../abstract_tests/ATS_class_core.adoc[]
 
+=== Collections
+
+include::../abstract_tests/ATS_class_collection-input.adoc[]
+
+include::../abstract_tests/ATS_class_collection-output.adoc[]
+
+include::../abstract_tests/ATS_class_remote-collections.adoc[]
+
+include::../abstract_tests/ATS_class_local-filtering.adoc[]
 
 === Conformance Class OGC Process Description
 
 include::../abstract_tests/ATS_class_ogc-process-description.adoc[]
 
+=== Conformance Classes for Encodings
 
-=== Conformance Class JSON
+==== Conformance Class JSON
 
 include::../abstract_tests/ATS_class_json.adoc[]
 
-
-=== Conformance Class HTML
+==== Conformance Class HTML
 
 include::../abstract_tests/ATS_class_html.adoc[]
 
+=== OpenAPI Conformance Classes
 
-=== Conformance Class OpenAPI 3.0
+==== Conformance Class OpenAPI Specification
+
+include::../abstract_tests/ATS_class_oas.adoc[]
+
+==== Conformance Class OpenAPI 3.0
 
 include::../abstract_tests/ATS_class_oas30.adoc[]
 
+==== Conformance Class OpenAPI 3.1
+
+include::../abstract_tests/ATS_class_oas31.adoc[]
 
 === Conformance Class Job list
 
 include::../abstract_tests/ATS_class_job-list.adoc[]
 
-
 === Conformance Class Callback
 
 include::../abstract_tests/ATS_class_callback.adoc[]
 
-
 === Conformance Class Dismiss
 
 include::../abstract_tests/ATS_class_dismiss.adoc[]
+
+=== Conformance Class KVP-encoded Execute
+
+include::../abstract_tests/ATS_class_kvp-execute.adoc[]
+
+=== Conformance Class Profile query parameter
+
+include::../abstract_tests/ATS_class_query-param-profile.adoc[]

@@ -1,0 +1,13 @@
+[[ats_collection-output_response-definition]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collection-output/response-definition
+target:: /req/collection-output/response-definition
+test-purpose:: Validate that the `response` query parameter is constructed correctly.
+test-method::
++
+--
+Verify that the `response` query parameter complies with its definition in requirement <<req_collection-output_response-definition,/req/collection-output/response-definition>>.
+--
+====

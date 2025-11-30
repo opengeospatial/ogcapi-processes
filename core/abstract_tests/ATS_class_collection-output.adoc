@@ -1,0 +1,25 @@
+[[ats_collection-output]]
+[conformance_class]
+.Collection Output
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/collection-output
+subject:: <<rc_collection-output,http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-output>>
+classification:: Target Type:Web API
+conformance-test:: /conf/collection-output/response-definition
+conformance-test:: /conf/collection-output/response-response-many
+conformance-test:: /conf/collection-output/response-response-one
+conformance-test:: /conf/collection-output/data-access-mechanisms
+====
+
+include::collection-output/ATS_collection-output_response-def.adoc[]
+
+include::collection-output/ATS_collection-output_response-response-many.adoc[]
+
+include::collection-output/ATS_collection-output_response-response-one.adoc[]
+
+include::collection-output/ATS_collection-output_data-access-mechanisms.adoc[]
+
+
+
+

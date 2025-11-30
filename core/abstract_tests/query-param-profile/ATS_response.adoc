@@ -1,0 +1,18 @@
+[[ats_query-param-profile_response]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/query-param-profile/response
+target:: /req/query-param-profile/response
+test-purpose:: Validate that the response body includes links (`rel="profile"`) identifying the profiles applied to payload.
+test-method::
++
+--
+1. Execute one or more requests that include the `profile` parameter.
+
+2. Ensure that the value of the `profile` parameter is a list of one or more HTTP(S) URIs OR profile identifiers (i.e. `{profileId}`) from the URI template `\http://www.opengis.net/def/profile/OGC/0/{profileId}`.
+
+3. Assuming that the requested response format supports web links in accordance with <<rfc8288,RFC 8288 Web Linking>>, verify that the response document includes at least one link with `rel="profile"`.
+--
+====

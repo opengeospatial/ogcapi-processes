@@ -5,12 +5,12 @@
 identifier:: /req/dismiss/job-dismiss-status
 label:: /req/dismiss/job-dismiss-status
 
-.part
+[.component,class=part]
 --
 If the job is currently in the `accepted` or `running` state, then the server SHALL set the status of the job to `dismissed`.
 --
 
-.part
+[.component,class=part]
 --
 If the job is currently in the `sucessful`, `failed` or `dismissed` state, the the server SHALL remove the job and it SHALL not longer be accessible via the Processes API.
 --

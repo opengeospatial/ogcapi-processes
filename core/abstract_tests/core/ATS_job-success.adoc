@@ -22,6 +22,6 @@ NOTE: The status info page for a job may be retrieved in a one of two formats. T
 [cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
-|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_html,/conf/html/content>>
-|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_json_content,/conf/json/content>>
+|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_html,/conf/html/content>>
+|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_json_content,/conf/json/content>>
 |===

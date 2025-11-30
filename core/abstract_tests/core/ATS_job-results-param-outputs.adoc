@@ -9,7 +9,7 @@ test-purpose:: Validate that the `outputs` parameter is constructed correctly.
 test-method::
 +
 --
-1. Verify that the `outputs` parameter complies with its definition in requirement <<req_core_job-results-param-outputs,req/core/job-results-param-outputs>>.
+1. Verify that the `outputs` parameter complies with its definition in requirement <<req_core_job-results-param-outputs,/req/core/job-results-param-outputs>>.
 --
 ====
 

@@ -9,7 +9,7 @@ test-purpose:: Verify that a JSON-encoded OGC Process Description complies with 
 test-method::
 +
 --
-1. Retrieve a description of each process according to test <<ats_core_process-description,/conf/core/process-description>>.
+1. Retrieve a description of each process according to test <<ats_core_process-description-op,/conf/core/process-description-op>>.
 
 2. For each process, verify the contents of the response body validate against the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/core/openapi/schemas/process.yaml[process.yaml].
 --

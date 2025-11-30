@@ -1,0 +1,25 @@
+[[ats_oas]]
+[conformance_class]
+.OpenAPI
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas
+subject:: <<rc_oas,http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas>>
+inherit:: <<ats_core,Conformance Class "Core">>
+classification:: Target Type:Web API
+conformance-test:: /conf/oas/completeness
+conformance-test:: /conf/oas/exceptions-codes
+conformance-test:: /conf/oas/definition
+conformance-test:: /conf/oas/implementation
+conformance-test:: /conf/oas/security
+====
+
+include::oas/ATS_completeness.adoc[]
+
+include::oas/ATS_exception-codes.adoc[]
+
+include::oas/ATS_definition.adoc[]
+
+include::oas/ATS_implementation.adoc[]
+
+include::oas/ATS_security.adoc[]

@@ -1,10 +1,10 @@
-[[ats_core_pl-limit-definition]]
+[[ats_core_process-list-limit-definition]]
 
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/core/pl-limit-definition
-target:: /req/core/pl-limit-definition
+identifier:: /conf/core/process-list-limit-definition
+target:: /req/core/process-list-limit-definition
 test-purpose:: Validate that the `limit` query parameter is constructed correctly.
 test-method::
 +

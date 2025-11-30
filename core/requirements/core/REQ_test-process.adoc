@@ -10,5 +10,3 @@ If a server implementing the OGC API - Processes - Part 1: Core is tested using 
 Recommendation A.1 
 for further guidance.
 ====
-
-

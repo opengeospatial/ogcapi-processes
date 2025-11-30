@@ -1,0 +1,15 @@
+[[ats_collection-output_data-access-mechanism]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collection-output/data-access-mechanisms
+target:: /req/collection-output/data-access-mechanisms
+test-purpose:: Verify that the <<def-collection-description,description document>> for an output collection includes data access links using at least one supported <<def-data-access-mechanism,OGC API data access mechanisms>>.
+test-method::
++
+--
+1. Retrieve the <<def-collection-description,description document>> for an output collection.
+
+2. Verify that the <<def-collection-description,description document>> includes at least one data access link using a supported <<def-data-access-mechanism,OGC API data access mechanisms>> (e.g. features, coverages);
+--
+====

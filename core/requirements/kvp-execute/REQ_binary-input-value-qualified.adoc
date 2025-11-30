@@ -8,7 +8,7 @@ label:: /req/kvp-execute/binary-input-value-qualified
 [.component,class=conditions]
 --
 . The process input value is specified in-line in an <<execute-request-body,execute request>>.
-. A process input, with identifier `{inputID}`, is defined as <<req_ogc-process-description_input-binary,binary>> type in the <<sc_process_description,process description>>.
+. A process input, with identifier `{inputID}`, is defined as a binary value (i.e. `"type": "string"`, `"contentEncoding": "base64"`) in the <<sc_process_description,process description>>.
 . The input value needs to <<qualified-value-schema,qualified>> with a <<format-schema,format>> specification.
 --
 
@@ -28,7 +28,7 @@ schema:
   properties:
     value:
       type: string
-      format: byte
+      contentEncoding: base64
     mediaType:
       type: string
     encoding:

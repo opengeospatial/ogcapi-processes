@@ -9,7 +9,7 @@ The _Collection Input_ conformance class allows an <<def-collection,OGC API coll
 
 Unless an implementation also conforms to the <<sc_remote_collections,_Remote Collections_>> conformance class, only <<def-collection,collections>> that are locally accessible in the current <<def-deployment,OGC API deployment>> are supported.
 
-Unless an implementation also conforms to the <<sc_local_collection_filtering,_Local Collection Filtering_>> conformance class, filtering of values retrived from an <<def-collection,OGC API collection>> is performed by the <<value-source-server,value source server>>.
+Unless an implementation also conforms to the <<sc_local_filtering,_Local Filtering_>> conformance class, filtering of values retrived from an <<def-collection,OGC API collection>> is performed by the <<value-source-server,value source server>>.
 
 include::../requirements/requirements_class_collection-input.adoc[]
 
@@ -150,15 +150,15 @@ The _Remote Collections_ conformance class allows to reference a remote OGC API 
 
 include::../requirements/requirements_class_remote-collections.adoc[]
 
-The following requirements describe how an <<execute-request-body,execute request>> references a <<def-remote-collection,remote OGC API collection>> as a source of input values to a process.
+The following requirements describe how an <<execute-request-body,execute request>> references a <<def-remote-collections,remote OGC API collection>> as a source of input values to a process.
 
 ==== Referencing a remote collection
 
-include::../requirements/remote-collections/REQ_remote-collection_referencing.adoc[]
+include::../requirements/remote-collections/REQ_remote-collections_referencing.adoc[]
 
 ==== Accessing data from a remote collection
 
-include::../requirements/remote-collections/REQ_remote-collection_access.adoc[]
+include::../requirements/remote-collections/REQ_remote-collections_access.adoc[]
 
 ===== Filtering
 
@@ -179,7 +179,7 @@ See: <<sc-pass-thru,Pass thru parameters>>
 
 The _Collection Output_ conformance class specifies how clients can trigger the execution of a process as a result of requesting output data using <<def-data-access-mechanism,OGC API data access mechanisms>>.
 
-This provides an alternative to the synchronous and asynchronous execution mechanisms defined in this Standard for which spatial, temporal and other filtering prameter would need to be hardcoded in the <<execute-request-body,execute request>>.  When lengthy batch processing is not desirable, completely new <<execute-request-body,execute requests>> each with different spatial, temporal and other filtering parameters and returning a partial output would need to be continuously be re-submitted.
+This provides an alternative to the synchronous and asynchronous execution mechanisms defined in this Standard for which spatial, temporal and other filtering prameters would need to be hardcoded in the <<execute-request-body,execute request>>.  When lengthy batch processing is not desirable, completely new <<execute-request-body,execute requests>> each with different spatial, temporal and other filtering parameters and returning a partial output would need to be continuously be re-submitted.
 
 This conformance class supports submitting an <<execute-request-body,execute request>> once and then accessing the output using <<def-data-access-mechanism,OGC API data access mechanisms>> in a manner that is  completely agnostic of process execution.
 
@@ -213,6 +213,7 @@ include::../recommendations/collection-output/PER_collection-output_dynamic.adoc
 
 include::../recommendations/collection-output/PER_collection-output_expiry.adoc[]
 
+[[sc_local_filtering]]
 === REQUIREMENTS CLASS "LOCAL FILTERING"
 
 ==== Overview

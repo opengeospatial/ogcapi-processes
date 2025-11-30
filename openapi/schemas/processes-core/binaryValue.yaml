@@ -1,2 +1,2 @@
 type: string
-format: byte
+contentEncoding: base64

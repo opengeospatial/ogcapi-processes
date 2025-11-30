@@ -1,0 +1,17 @@
+[[ats_remote-collections-access]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/remote-collections/access
+target:: /req/remote-collections/access
+test-purpose:: Verify that the server supports the <<def-data-access-mechanism, OGC data access APIs>> that it advertises for accessing input data from remote collections.
+test-method::
++
+--
+1. Obtain a process description for one or more processes offered by the server as per test <<ats_core_process-description-op,/conf/core/process-description-op>>.
+
+2. Inspect the description of the inputs of each process and identify those inputs that support collection inputs (e.g. see test <<ats_ogc-process-description_data-access-apis,/conf/ogc-process-description/data-access-apis>>).
+
+3. For each of the identified inputs verify that the server supports the the specified <<def-data-access-mechanism, OGC data access API(s)>> by inspecting the server's conformance document obtained from the `/conformance` endpoint.
+--
+====

@@ -5,7 +5,7 @@ The Requirements Class "Profile query parameter" specifies additional provisions
 
 include::../requirements/requirements_class_query-param-profile.adoc[]
 
-Some properties may be represented in multiple representations in the same format, depending on the intended use of the data. One example are references to another web resource (see the <<rc_profile-references>>).
+Some properties may be represented in multiple representations in the same format, depending on the intended use of the data.
 
 <<rfc6906,RFC 6906 The 'profile' Link Relation Type>> defines the concept of a profile to support such use cases.
 
