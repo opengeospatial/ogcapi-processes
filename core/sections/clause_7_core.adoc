@@ -265,23 +265,23 @@ The use of generic media types such as `application/json` makes it difficult to 
 
 It would thus be useful if there was a mechanism for requesting a profile of a resource.  Although there is a new HTTP header, `Accept-Profile`, that is to be defined in an upcoming https://profilenegotiation.github.io/I-D-Profile-Negotiation/I-D-Profile-Negotiation[Internet-Draft] there is currently no standardized was to request a profile of a resource.  Existing standards, however, do provide mechanisms for specifying profile information in HTTP headers.  Specifically (see https://www.w3.org/TR/dx-prof-conneg/#bib-prof-ietf[Content Negotiation by Profile]) profiles of a resource may be requested by:
 
-* using the `profile` parameter an `Accept` HTTP header if the media type includes provisions for such a parameter (e.g. `application/ld+json`)
-* using the `Accept-Profile` header if the media type does not include provisions for such a parameter within the `Accept` header.
-* using the `profile` parameter with the https://www.rfc-editor.org/rfc/rfc7240[HTTP `Prefer` header]
-* using a 'Link` header with `rel="profile"`.
+* using the `profile` parameter if the media type includes provisions for such a parameter (e.g. https://www.iana.org/assignments/media-types/application/ld+json[`application/ld+json profile=http://www.w3.org/ns/json-ld#context`]),
+* using the `Accept-Profile` header if the intended media type does not include provisions for a `profile` parameter and can, thus, not be specified in the `Accept` header,
+* using the `profile` parameter with the https://www.rfc-editor.org/rfc/rfc7240[HTTP `Prefer` header],
+* specified the `Link` header with `rel="profile"` in the request headers.
 
-This standard also defines a query parameter, `profile`, that may be used with an HTTP GET request to specify one or more profiles of a resource that are to be retrieved.
+This standard also defines a query parameter, <<profile-parameter,`profile`>>, that may be used with an HTTP GET request to specify one or more profiles of a resource that are to be retrieved.
 
-When a content negotiation by profile is performed using one of the above headers or query parameters, the corresponding response headers should be returned.
-More specifically:
+When a content negotiation by profile is performed using one of the above mechanisms, the following response headers should be returned:
 
-* the `Preference-Applied` header with the `profile` parameter should be returned if `Prefer` header was used to request it
-* the `Content-Type` header with `profile` parameter should be returned if `Accept` header with a media type including `profile` provisions was used to request it
-* the `Link` header with `profile` parameter should be returned for all other approaches
+* the `Preference-Applied` header with the `profile` parameter should be returned if content negotiation was performed using the `Prefer` header,
+* the `Content-Type` header with `profile` parameter should be returned if content negotiation was performed using the `Accept` header with a media type including `profile` provisions.
 
-Note that the `Link` header with `profile` parameter MUST be returned for any of the content negotiation by profile strategies if an applicable URI could be resolved.  Other headers (`Preference-Applied` and `Content-Type`) containing a `profile` parameter are relevant in the response only when they were explicitly requested by their corresponding request headers (`Prefer` and `Accept`) containing the same `profile` identifier, or when the `profile` does not correspond to an URI than can be provided as `Link: href="<URI>"` value (e.g.: `profile=cloud-optimized` for a GeoTiff).
+In all cases of content negotiation by profile, one or more `Link` (`rel="profile"`) headers indicating the profiles applied should be returned in the response if there is a corresponding URI identifier defined for the profile(s) that can be included as the `href` of the link.
 
-NOTE: A set of profile URIs for content defined in this Standard can be found in the <<profile-uris,Profile identifiers>> table.
+NOTE: This is not always the case (e.g. `image/tiff; application=geotiff; profle=cloud-optimized`).  In such cases, the other the other headers (`Preference-Applied` and `Content-Type`) containing a `profile` parameter may be relevant.
+
+NOTE: A set of profile URIs for JSON content defined in this Standard can be found in the <<profile-uris,Profile identifiers>> table.
 
 [[sc_limit_parameter]]
 === Limit parameter
