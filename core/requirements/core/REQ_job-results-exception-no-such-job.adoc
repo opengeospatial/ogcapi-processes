@@ -1,4 +1,4 @@
-[[req_core_job-results-exception_no-such-job]]
+[[req_core_job-results-exception-no-such-job]]
 [requirement]
 ====
 [%metadata]
