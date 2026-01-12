@@ -55,6 +55,7 @@ conformance-test:: /conf/core/job-result-op
 conformance-test:: /conf/core/job-results-async-one
 conformance-test:: /conf/core/job-results-async-many
 conformance-test:: /conf/core/job-results-exception-invalid-query-parameter-value
+conformance-test:: /conf/core/job-results-exception-no-such-output
 conformance-test:: /conf/core/job-results-exception-no-such-job
 conformance-test:: /conf/core/job-results-exception-results-not-ready
 conformance-test:: /conf/core/job-results-exception_results-not-available
