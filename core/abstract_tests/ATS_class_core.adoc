@@ -184,6 +184,8 @@ include::core/ATS_job-results-success-async-many.adoc[]
 
 include::core/ATS_job-results-exception-invalid-query-parameter-value.adoc[]
 
+include::core/ATS_job-results-exception-no-such-output.adoc[]
+
 include::core/ATS_job-results-exception-no-such-job.adoc[]
 
 include::core/ATS_job-results-exception-results-not-ready.adoc[]
