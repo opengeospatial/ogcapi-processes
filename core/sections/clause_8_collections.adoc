@@ -126,9 +126,9 @@ A dictionary of aliases that can be used as values for the `properties` paramete
 
 include::../requirements/collection-input/REQ_collection-input_pass-through.adoc[]
 
-The `passThroughParameters` parameter is a dictionary of query parameters that are passed directly to the value source server.  The keys used in this object should be identical to query parameters that the value source server recognizes.
+The `passThroughParameters` property is a dictionary of query parameters that are passed directly to the value source server.  The keys used in this object should be identical to query parameters that the value source server recognizes.
 
-In the case where the OAProc server supports local filtering, the `passThroughParameters` parameter provides a mechanism to force filtering to occur on the value source server.
+In the case where the OAProc server supports local filtering, the `passThroughParameters` property provides a mechanism to force filtering to occur on the value source server.
 
 ==== Examples
 

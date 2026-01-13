@@ -250,6 +250,6 @@ allOf:
           source server for processing on that server.  The keys used in this
           object should be identical to query parameters that the value source
           server would recognize.  In the case where the OAProc server supports
-          local filtering, the `passThroughParameters` parameter provides a
+          local filtering, the `passThroughParameters` property provides a
           mechanism to force filtering to happen on the value source server.
         type: object
