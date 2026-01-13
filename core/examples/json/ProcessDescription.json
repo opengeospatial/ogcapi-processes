@@ -360,7 +360,7 @@
       "title": "Execute endpoint"
     },
     {
-      "href": "https://www.opengis.net/dev/profile/OGC/0/ogc-process-description",
+      "href": "https://www.opengis.net/def/profile/OGC/0/ogc-process-description",
       "rel": "profile"
     }
   ]

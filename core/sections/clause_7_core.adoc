@@ -1148,7 +1148,7 @@ Client                                                                Server
   |                                                                     |
   |   POST /processes/compute-spectral-index/execution   HTTP/1.1       |
   |   Content-Type: application/json                                    |
-  |   Link: <https://www.opengis.net/dev/profile/OGC/0/ogc-execute-reque|
+  |   Link: <https://www.opengis.net/def/profile/OGC/0/ogc-execute-reque|
   |          st>; rel="profile"                                         |
   |                                                                     |
   |   {                                                                 |

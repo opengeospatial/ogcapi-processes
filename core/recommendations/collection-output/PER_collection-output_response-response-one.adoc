@@ -12,7 +12,7 @@ label:: /per/collection-output/response-response-one
 . The number of <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>> requested outputs is 1.
 . The server implements the <<profile-parameter,Profile query parameter>> requirements class.
 . The execution request also includes the <<profile-parameter,`profiles`>> query parameter.
-. The value of the <<profile-parameter,`profiles`>> query parameter is `https://www.opengis.net/dev/profile/OGC/0/ogc-results`.
+. The value of the <<profile-parameter,`profiles`>> query parameter is `https://www.opengis.net/def/profile/OGC/0/ogc-results`.
 --
 
 [.component,class=part]
