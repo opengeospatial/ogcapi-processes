@@ -1,9 +1,9 @@
-[[req_collection-input_pass-thru]]
+[[req_collection-input_pass-through]]
 [requirement]
 ====
 [%metadata]
-identifier:: /req/collection-input/pass-thru
-label:: /req/collection-input/pass-thru
+identifier:: /req/collection-input/pass-through
+label:: /req/collection-input/pass-through
 
 [.component,class=description]
 --

@@ -1,10 +1,10 @@
-[[ats_collection-input_pass-thru]]
+[[ats_collection-input_pass-through]]
 
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/collection-input/pass-thru
-target:: /req/collection-input/pass-thru
+identifier:: /conf/collection-input/pass-through
+target:: /req/collection-input/pass-through
 test-purpose:: Verify that the server correctly processes the `passThroughParameters` element in a collection input specification.
 test-method::
 +

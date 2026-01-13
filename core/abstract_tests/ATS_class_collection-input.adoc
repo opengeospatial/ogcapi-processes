@@ -10,7 +10,7 @@ conformance-test:: /conf/collection-input/referencing
 conformance-test:: /conf/collection-input/collection-access
 conformance-test:: /conf/collection-input/filtering
 conformance-test:: /conf/collection-input/property-selection
-conformance-test:: /conf/collection-input/pass-thru
+conformance-test:: /conf/collection-input/pass-through
 ====
 
 include::collection-input/ATS_collection-input_referencing.adoc[]
@@ -21,7 +21,7 @@ include::collection-input/ATS_collection-input_filtering.adoc[]
 
 include::collection-input/ATS_collection-input_property-selection.adoc[]
 
-include::collection-input/ATS_collection-input_pass-thru.adoc[]
+include::collection-input/ATS_collection-input_pass-through.adoc[]
 
 
 
