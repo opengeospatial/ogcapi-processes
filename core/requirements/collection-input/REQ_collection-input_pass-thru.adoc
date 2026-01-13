@@ -14,7 +14,7 @@ To support the ability to opaquely pass query parameters through to the <<value-
 --
 The server SHALL support the following parameters:
 
-* passThruParameters
+* passThroughParameters
 
 as defined in the <<collection-value-schema,"collectionValue.yaml">> schema.
 --
