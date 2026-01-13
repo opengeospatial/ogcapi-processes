@@ -21,7 +21,7 @@ include::../requirements/collection-input/REQ_collection-input_referencing.adoc[
 
 ==== Accessing data from a collection
 
-===== Overview 
+===== Overview
 
 The following requirements describe how to access data from an <<def-collection,OGC API collection>> and the ability of an implementation to modify the accessed data by first applying filters, selecting a subset of fields or deriving new fields before providing the data as input to a process.
 
@@ -109,7 +109,7 @@ T.B.D.  A list of STAC asset tags.
 If the parameter is specified, then the coordinates of all geometry-valued properties in a response document are in the requested CRS. Otherwise the coordinates are in the default CRS, that is http://www.opengis.net/def/crs/OGC/1.3/CRS84 for coordinates without height and http://www.opengis.net/def/crs/OGC/0/CRS84h for coordinates with ellipsoidal height.
 
 [[sc-property-selection]]
-===== Property selection & dervied properties
+===== Property selection & derived properties
 
 include::../requirements/collection-input/REQ_collection-input_property-selection.adoc[]
 
@@ -164,9 +164,9 @@ include::../requirements/remote-collections/REQ_remote-collections_access.adoc[]
 
 See: <<sc-collection-filtering,Filtering>>
 
-===== Property selection & dervied properties
+===== Property selection & derived properties
 
-See: <<sc-property-selection,Property selection & dervied properties>>
+See: <<sc-property-selection,Property selection & derived properties>>
 
 ===== Pass thru parameters
 
@@ -175,7 +175,7 @@ See: <<sc-pass-thru,Pass thru parameters>>
 [[sc_collection_output]]
 === REQUIREMENTS CLASS "COLLECTION OUTPUT"
 
-==== Overview 
+==== Overview
 
 The _Collection Output_ conformance class specifies how clients can trigger the execution of a process as a result of requesting output data using <<def-data-access-mechanism,OGC API data access mechanisms>>.
 
@@ -203,7 +203,7 @@ include::../requirements/collection-output/REQ_collection-output_response-respon
 
 include::../requirements/collection-output/REQ_collection-output_data-access-mechanisms.adoc[]
 
-This Standard does not impose any particular approach to materializing output <<def-collection,collections>> resulting from a process execution request.  
+This Standard does not impose any particular approach to materializing output <<def-collection,collections>> resulting from a process execution request.
 
 include::../recommendations/collection-output/PER_collection-output_static.adoc[]
 
