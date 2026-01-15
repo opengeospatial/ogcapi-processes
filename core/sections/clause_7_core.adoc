@@ -279,7 +279,7 @@ When a content negotiation by profile is performed using one of the above mechan
 
 In all cases of content negotiation by profile, one or more `Link` (`rel="profile"`) headers indicating the profiles applied should be returned in the response if there is a corresponding URI identifier defined for the profile(s) that can be included as the `href` of the link.
 
-NOTE: This is not always the case (e.g. `image/tiff; application=geotiff; profle=cloud-optimized`).  In such cases, the other the other headers (`Preference-Applied` and `Content-Type`) containing a `profile` parameter may be relevant.
+NOTE: This is not always the case (e.g. `image/tiff; application=geotiff; profile=cloud-optimized`).  In such cases, the other the other headers (`Preference-Applied` and `Content-Type`) containing a `profile` parameter may be relevant.
 
 NOTE: A set of profile URIs for JSON content defined in this Standard can be found in the <<profile-uris,Profile identifiers>> table.
 
