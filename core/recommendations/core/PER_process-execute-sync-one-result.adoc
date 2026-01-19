@@ -18,6 +18,6 @@ In the case where a single output is requested (whether <<implicit-process-outpu
 
 [.component,class=part]
 --
-The <<profile-uris,profile URI>> that SHOULD be used in this case is 'https://www.opengis.net/dev/profile/OGC/0/ogc-results'. 
+The <<profile-uris,profile URI>> that SHOULD be used in this case is 'https://www.opengis.net/def/profile/OGC/0/ogc-results'. 
 --
 ====

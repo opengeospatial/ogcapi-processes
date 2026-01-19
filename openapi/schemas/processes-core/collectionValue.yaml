@@ -244,12 +244,12 @@ allOf:
                   oneOf:
                     - type: string
                     - $ref: "https://schemas.opengis.net/cql2/1.0/cql2.json"
-      passThruParameters:
+      passThroughParameters:
         description: |-
           Parameters specified in this object are passed through to the value
           source server for processing on that server.  The keys used in this
           object should be identical to query parameters that the value source
           server would recognize.  In the case where the OAProc server supports
-          local filtering, the `passThruParameters` parameter provides a
+          local filtering, the `passThroughParameters` property provides a
           mechanism to force filtering to happen on the value source server.
         type: object

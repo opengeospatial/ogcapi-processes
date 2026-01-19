@@ -121,14 +121,14 @@ A filter that selects resource properties to be included in a response document.
 
 A dictionary of aliases that can be used as values for the `properties` parameter.  Aliases can be alternative names for resource properties or synthetic properties.  Synthetic properties are named expressions that are computed at run-time.  Expressions for synthetic properties are encoded using some expression language and can include references to resource property names or aliases for resource properties..
 
-[[sc-pass-thru]]
-===== Pass thru parameters
+[[sc-pass-through]]
+===== Pass through parameters
 
-include::../requirements/collection-input/REQ_collection-input_pass-thru.adoc[]
+include::../requirements/collection-input/REQ_collection-input_pass-through.adoc[]
 
-The `passThruParameters` parameter is a dictionary of query parameters that are passed directly to the value source server.  The keys used in this object should be identical to query parameters that the value source server recognizes.
+The `passThroughParameters` property is a dictionary of query parameters that are passed directly to the value source server.  The keys used in this object should be identical to query parameters that the value source server recognizes.
 
-In the case where the OAProc server supports local filtering, the `passThruParameters` parameter provides a mechanism to force filtering to occur on the value source server.
+In the case where the OAProc server supports local filtering, the `passThroughParameters` property provides a mechanism to force filtering to occur on the value source server.
 
 ==== Examples
 
@@ -168,9 +168,9 @@ See: <<sc-collection-filtering,Filtering>>
 
 See: <<sc-property-selection,Property selection & derived properties>>
 
-===== Pass thru parameters
+===== Pass through parameters
 
-See: <<sc-pass-thru,Pass thru parameters>>
+See: <<sc-pass-though,Pass through parameters>>
 
 [[sc_collection_output]]
 === REQUIREMENTS CLASS "COLLECTION OUTPUT"

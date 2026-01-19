@@ -12,6 +12,6 @@ A JSON-encoded OGC process description SHALL validate against the JSON Schema: h
 
 [.component,class=part]
 --
-The JSON-encoded OGC process description SHALL include, in the `links` section, a profile link (href: `https://www.opengis.net/dev/profile/OGC/0/ogc-process-description`, relation: `profile`);
+The JSON-encoded OGC process description SHALL include, in the `links` section, a profile link (href: `https://www.opengis.net/def/profile/OGC/0/ogc-process-description`, relation: `profile`);
 --
 ====
