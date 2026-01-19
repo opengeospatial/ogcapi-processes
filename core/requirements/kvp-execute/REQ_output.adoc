@@ -24,7 +24,7 @@ schema:
   required:
     - include
   properties:
-    include
+    include:
       type: boolean
     mediaType:
       type: string
