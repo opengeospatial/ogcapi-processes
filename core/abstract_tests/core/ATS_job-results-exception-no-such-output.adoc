@@ -1,0 +1,31 @@
+[[ats_core_job-results-exception-no-such-output]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/job-results-exception-no-such-output
+target:: /req/core/job-results-exception-no-such-output
+test-purpose:: Validate that the job results retrieved using an invalid output identifier complies with the require structure and contents.
+test-method::
++
+--
+1. Issue an HTTP GET request to the URL '/jobs/{jobID}/results/{outputID}' using an invalid {outputID}.
+
+2. Validate that the document was returned with a 404.
+
+3. Validate that the document contains the exception type "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-output".
+
+4. Validate the document for all supported media types using the resources and tests identified in <<job-results-exception-no-such-output>>
+--
+====
+
+NOTE: The job results page for a job may be retrieved in one of two formats. The following table identifies the applicable schema document for each format and the test to be used to validate the job results for a non-existent job against that schema.  All supported formats should be exercised.
+
+[[job-results-exception-no-such-output]]
+.Schema and Tests for the Job Result for Non-existent Output
+[cols="3",options="header"]
+|===
+|Format |Schema Document |Test ID
+|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_html_content,/conf/html/content>>
+|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/exception.yaml[exception.yaml] |<<ats_json_content,/conf/json/content>>
+|===
