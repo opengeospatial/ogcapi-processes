@@ -9,9 +9,9 @@ test-purpose:: Validate that the results of a job can be retrieved.
 test-method::
 +
 --
-1. Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the {jobID} assigned to the job.
+1. Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the `{jobID}` assigned to the job.
 
-2. Issue an HTTP GET request to the URL '/jobs/{jobID}/results'.
+2. Issue an HTTP GET request to the URL `/jobs/{jobID}/results`.
 
 3. Validate that the document was returned with a status code 200.
 

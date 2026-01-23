@@ -175,6 +175,8 @@ include::core/ATS_job-results-param-outputs.adoc[]
 
 include::core/ATS_job-results-param-outputs-response.adoc[]
 
+include::core/ATS_job-results-profile.adoc[]
+
 include::core/ATS_job-result-op.adoc[]
 
 include::core/ATS_job-results-success-async-one.adoc[]
@@ -190,4 +192,3 @@ include::core/ATS_job-results-exception-results-not-ready.adoc[]
 include::core/ATS_job-results-exception-results-not-available.adoc[]
 
 include::core/ATS_job-results-failed.adoc[]
-

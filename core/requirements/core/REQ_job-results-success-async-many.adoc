@@ -19,12 +19,12 @@ The server SHALL respond with an HTTP status code of 200.
 
 [.component,class=part]
 --
-The media type of the response SHALL be `application/json`
+The media type of the response SHALL be `application/json`.
 --
 
 [.component,class=part]
 --
-The content of response SHALL conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[results.yaml] schema.
+The content of response SHALL conform to the <<schema_results,results.yaml>> schema.
 --
 
 ====

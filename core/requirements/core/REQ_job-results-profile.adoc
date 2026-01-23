@@ -1,0 +1,45 @@
+[[req_core_job-results-profile]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/job-results-profile
+label:: /req/core/job-results-profile
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is either
+  synchronous with <<per_core_process-execute-sync-job,supported job creation>>
+  or asynchronous with <<req_core_process-execute-success-async,successful job creation>>.
+. The number of requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>) outputs in the <<execute-request-body,execute request>> is irrelevant.
+. The negotiated output content type is `application/json`
+  and the negotiated profile is `https://www.opengis.net/def/profile/OGC/0/ogc-results`.
+--
+
+[.component,class=part]
+--
+The server SHALL respond with an HTTP status code of 200.
+--
+
+[.component,class=part]
+--
+The media type of the response SHALL be `application/json`.
+--
+
+[.component,class=part]
+--
+The response HTTP headers SHALL include a `Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-results", rel="profile"`.
+--
+
+[.component,class=part]
+--
+The content of response SHALL conform to the <<schema_results,results.yaml>> schema.
+--
+
+[.component,class=part]
+--
+The `Prefer` header MAY be considered for specific representations of the <<schema_results,results.yaml>> contents
+according to <<rec_core_job-results-async-many-json-prefer-none,/rec/core/job-results-async-many-json-prefer-none>>,
+<<rec_core_job-results-async-many-json-prefer-minimal,/rec/core/job-results-async-many-json-prefer-minimal>> and
+<<rec_core_job-results-async-many-json-prefer-representation,/rec/core/job-results-async-many-json-prefer-representation>>
+--
+====

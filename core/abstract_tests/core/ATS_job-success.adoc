@@ -9,9 +9,13 @@ test-purpose:: Validate that the job status info complies with the require struc
 test-method::
 +
 --
-1. Validate that the document was returned with an HTTP status code of 200.
+1. Issue an HTTP GET request to the URL `/jobs/{jobID}`, where `{jobID}` is the identifier of a job
+   previously created as per <<ats_core_process-execute-op,/conf/core/process-execute-op>>,
+   either synchronously with <<per_core_process-execute-sync-job,supported job creation>> or asynchronously.
 
-2. Validate the job status info for all supported media types using the resources and tests identified in <<job-status-info-schema>>
+2. Validate that the document was returned with an HTTP status code of 200.
+
+3. Validate the job status info for all supported media types using the resources and tests identified in <<job-status-info-schema>>
 --
 ====
 

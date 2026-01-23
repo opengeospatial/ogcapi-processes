@@ -8,9 +8,12 @@ label:: /per/core/process-execute-sync-many-other-formats
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous.
-. The number of requested (whether <<implicit-explicit-outputs,implicitly or explicity>>) outputs in the <<execute-request-body,execute request>> is 2 or more.
+. The number of requested (whether <<implicit-explicit-outputs,implicitly or explicitly>>) outputs in the <<execute-request-body,execute request>> is 2 or more.
 --
 
-part:: Servers MAY support other response formats or encodings (e.g. ZIP or `multipart/*`) that do not conform to https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[results.yaml].
+part:: Servers MAY support other response formats or encodings (e.g. ZIP or `multipart/*`) that do not conform to <<schema_results,results.yaml>> schema.
+
 part:: This Standard does not provide any guidance on these other formats or encodings.
+
+part:: Servers that do not which to support these alternate formats SHOULD respond with an HTTP status code of 406 (Not Acceptable), as per https://datatracker.ietf.org/doc/html/rfc2616#section-12[HTTP content negotiation rules].
 ====
