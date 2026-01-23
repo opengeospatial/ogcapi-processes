@@ -34,4 +34,12 @@ The response HTTP headers SHALL include a `Link: href="https://www.opengis.net/d
 --
 The content of response SHALL conform to the <<schema_results,results.yaml>> schema.
 --
+
+[.component,class=part]
+--
+The `Prefer` header MAY be considered for specific representations of the <<schema_results,results.yaml>> contents
+according to <<rec_core_job-results-async-many-json-prefer-none,/rec/core/job-results-async-many-json-prefer-none>>,
+<<rec_core_job-results-async-many-json-prefer-minimal,/rec/core/job-results-async-many-json-prefer-minimal>> and
+<<rec_core_job-results-async-many-json-prefer-representation,/rec/core/job-results-async-many-json-prefer-representation>>
+--
 ====
