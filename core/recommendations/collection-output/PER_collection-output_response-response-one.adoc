@@ -17,6 +17,6 @@ label:: /per/collection-output/response-response-one
 
 [.component,class=part]
 --
-The content of response MAY conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[results.yaml] schema.
+The content of response MAY conform to the <<schema_results,results.yaml>> schema.
 --
 ====

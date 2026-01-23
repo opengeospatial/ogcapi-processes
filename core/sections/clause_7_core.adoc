@@ -1322,6 +1322,8 @@ include::../requirements/core/REQ_job-results-param-outputs.adoc[]
 
 include::../requirements/core/REQ_job-results-param-outputs-response.adoc[]
 
+include::../requirements/core/REQ_job-results-profile.adoc[]
+
 ===== Individual processing results
 
 include::../requirements/core/REQ_job-result-op.adoc[]

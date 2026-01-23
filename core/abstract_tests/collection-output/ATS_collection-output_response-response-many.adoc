@@ -4,7 +4,7 @@
 [%metadata]
 identifier:: /conf/collection-output/response-response-many
 target:: /req/collection-output/response-response-many
-test-purpose:: Validate that the response for multiple explicitly or implicitly requested outputs is a https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[results.yaml] document containing references to <<def-collection-description,collection description documents>>.
+test-purpose:: Validate that the response for multiple explicitly or implicitly requested outputs is a <<schema_results,results.yaml>> document containing references to <<def-collection-description,collection description documents>>.
 test-method::
 +
 --
@@ -16,9 +16,9 @@ test-method::
 
 4. Verify that the server responds with an HTTP status code of 200.
 
-5. Verify that the media type of the response is "application/json".
+5. Verify that the media type of the response is `application/json`.
 
-6. Verify that the body of the response conforms to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[results.yaml] schema.
+6. Verify that the body of the response conforms to the <<schema_results,results.yaml>> schema.
 
 7. Verify that that value of each collection output is a link to a <<def-collection-description,collection description document>>.
 --
