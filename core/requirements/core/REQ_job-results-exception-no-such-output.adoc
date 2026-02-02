@@ -5,7 +5,7 @@
 identifier:: /req/core/job-results-exception-no-such-output
 label:: /req/core/job-results-exception-no-such-output
 
-If the endpoint is requested with an invalid output identifier, the response SHALL have an HTTP status code of 404.
+If the endpoint is requested with an invalid output identifier, the response SHALL have an HTTP status code of 400.
 The content of that response SHALL be based upon the OpenAPI
 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml].
 The `type` of the exception SHALL be "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-output".

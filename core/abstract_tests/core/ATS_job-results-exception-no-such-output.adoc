@@ -11,7 +11,7 @@ test-method::
 --
 1. Issue an HTTP GET request to the URL '/jobs/{jobID}/results/{outputID}' using an invalid {outputID}.
 
-2. Validate that the document was returned with a 404.
+2. Validate that the document was returned with a 400.
 
 3. Validate that the document contains the exception type "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/no-such-output".
 
