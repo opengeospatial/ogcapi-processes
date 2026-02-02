@@ -190,7 +190,7 @@ The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-sc
 |http://www.opengis.net/def/format/ogcapi-processes/0/stac |stac |Indicates that the value is an instance of any of the STAC types listed above (i.e. one of `stac-collection`, `stac-catalog`, `stac-item-collection`, or `stac-item`).
 |http://www.opengis.net/def/format/ogcapi-processes/0/ogc-feature-collection |ogc-feature-collection |Indicates that the value is an instance of an https://docs.ogc.org/is/17-069r4/17-069r4.html#_collection_[OGC feature collection].
 |http://www.opengis.net/def/format/ogcapi-processes/0/ogc-coverage-collection |ogc-coverage-collection |Indicates that the value is an instance of an https://docs.ogc.org/DRAFTS/19-087.html#_extended_collection_description_response_collectionscollectionid[OGC coverage collection].
-|http://www.opengis.net/def/format/ogcapi-processes/0/file |directory |Indicates that the string value is a directory path.
+|http://www.opengis.net/def/format/ogcapi-processes/0/directory |directory |Indicates that the string value is a directory path.
 |http://www.opengis.net/def/format/ogcapi-processes/0/file |file |Indicates that the string value is a file path.
 |===
 
