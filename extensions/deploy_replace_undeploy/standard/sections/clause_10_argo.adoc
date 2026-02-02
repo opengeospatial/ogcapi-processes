@@ -1,0 +1,16 @@
+== Requirements Class "Argo"
+
+[[argo-overview]]
+=== Overview
+
+include::../requirements/requirements_class_argo.adoc[]
+
+A server that implements this conformance class supports the use of Argo encoding when interacting with the deploy-replace-undeploy extension from a processes API.
+
+In consequence, the following recommandations become requirements:
+
+ * <<rec_deploy-replace-undeploy_deploy_body-argo,/rec/deploy-replace-undeploy/deploy/body-argo>>
+ * <<rec_deploy-replace-undeploy_replace_body-argo,/rec/deploy-replace-undeploy/replace/body-argo>>
+ * <<rec_ogcapppkg_execution-unit-argo,/rec/deploy-replace-undeploy/ogcapppkg/execution-unit-argo>>
+
+
