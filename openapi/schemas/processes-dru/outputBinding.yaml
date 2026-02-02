@@ -1,0 +1,15 @@
+type: object
+description: Defines how to retrieve the output result from the command.
+properties:
+  glob: 
+    description: |-
+      . Wildcard pattern to find the output on disk or mounted volume.
+      . Uses UNIX "glob" wildcard patterns (see: "man 7 glob").
+      . See inputBinding.yaml for referencing output values in input values
+        in an output binding "glod" expression.
+     oneOf:
+       - type: string
+       - type: array
+         items:
+           type: string
+  additionalProperties: true
