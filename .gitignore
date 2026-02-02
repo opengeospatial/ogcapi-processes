@@ -7,6 +7,8 @@ core/standard/compiled/standard/er.pdf
 core/standard/compiled/
 iev/
 relaton/
+*.asciidoc.log.txt
+*.err.html
 18-062.pdf
 18-062.html
 18-062.doc

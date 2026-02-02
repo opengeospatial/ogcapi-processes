@@ -13,11 +13,12 @@ label:: /per/core/process-execute-sync-one-result
 
 [.component,class=part]
 --
-In the case where a single output is requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>), <<profile-parameter,content negotiation by profile>> MAY be used to request that the response conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[results.yaml] schema.
+In the case where a single output is requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>), <<profile-parameter,content negotiation by profile>> MAY be used to request that the response conform to the <<schema_results,results.yaml>>  schema.
 --
 
 [.component,class=part]
 --
-The <<profile-uris,profile URI>> that SHOULD be used in this case is 'https://www.opengis.net/def/profile/OGC/0/ogc-results'. 
+In this case, the <<profile-uris,profile URI>> SHOULD be returned in the response
+with HTTP header `Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-results", rel="profile"`.
 --
 ====

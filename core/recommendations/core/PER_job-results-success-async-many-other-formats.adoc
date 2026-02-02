@@ -11,7 +11,7 @@ label:: /per/core/job-results-async-many-other-formats
 . The number of requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 2 or more.
 --
 
-part:: Servers MAY support other response formats or encodings (e.g. ZIP or `multipart/*`) that do not conform to https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[results.yaml].
+part:: Servers MAY support other response formats or encodings (e.g. ZIP or `multipart/*`) that do not conform to <<schema_results,results.yaml>> schema.
 
 part:: This Standard does not provide any guidance on these other formats or encodings.
 ====

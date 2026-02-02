@@ -1120,9 +1120,9 @@ A process output may be requested <<explicit-process-output,explicitly>> or <<im
 include::../../openapi/schemas/processes-core/results.yaml[]
 ----
 
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[`results.yaml`].
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/refs/heads/master/openapi/schemas/processes-core/results.yaml[`results.yaml`].
 
-The https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[`results.yaml`] schema defines a map using the respective output identifier as the key. The value of an output can be returned as an in-line value or by reference.
+The https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/refs/heads/master/openapi/schemas/processes-core/results.yaml[`results.yaml`] schema defines a map using the respective output identifier as the key. The value of an output can be returned as an in-line value or by reference.
 
 ===== Response requesting a single processing output
 
@@ -1321,6 +1321,8 @@ include::../requirements/core/REQ_job-results-op.adoc[]
 include::../requirements/core/REQ_job-results-param-outputs.adoc[]
 
 include::../requirements/core/REQ_job-results-param-outputs-response.adoc[]
+
+include::../requirements/core/REQ_job-results-profile.adoc[]
 
 ===== Individual processing results
 
