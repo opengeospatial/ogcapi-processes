@@ -1,0 +1,54 @@
+type: object
+description: |-
+  . Defines how to specify the input for the execution unit.
+  . The value of various properties defined below can be expressions.
+      . The expression language SHALL be JavaScript(???).
+  . The "$(...)" syntax can be used to reference the current input or other
+    process inputs in an expression.
+    . The value "self" refers to the value of the current input.
+    . The value "inputs.<other_input>" refers to the value of another
+      process input.
+    . If the input is defined as a string of format "file" or "directory"
+      then the meta-values ".path", ".basename", ".nameroot" and ".nameext"
+      can be used to manipulate file or directory name without having to
+      resort to complex regular expressions.
+        . ".path" returns the path of a file name without the file name
+        . ".basename" returns the name of the file without the path
+        . ".nameroot" returns the basename without any extension
+        . ".nameext" returns the extension of the basename
+properties:
+  prefix:
+    description: Command line prefix to add before the value.
+    type: string
+  position:
+    description: |-
+      . The zero-based sorting key.
+      . The value can be an integer or a string.
+      . If the value is a string the is number be an expression that evaluates
+        to a single integer value or null.
+    oneOf:
+      - type: integer
+      - type: string
+  valueFrom:
+    description: |-
+      . If valueFrom is a constant string value, use this as the value.
+      . If valueFrom is an expression, evaluate the expression to yield the
+        actual value to use to build the command line.
+      . If the value of the associated input parameter is null, valueFrom is
+        not evaluated and nothing is added to the command line.
+    type: string
+  itemSeparator:
+    description: |-
+      Join the array elements into a single string with the elements separated
+      by itemSeparator.
+    type: string
+  shellQuote:
+    description: |-
+      . A Boolean that controls whether the value is quoted on the command.
+      . A value of true (or if shecllQuote is not provided) means that the
+        implementation SHALL not permit the interpretation of any shell 
+        metacharacters or directives.
+      . A value of false should be used to inject metacharacters for operations 
+        such as pipes.
+    type: boolean
+  additionalProperties: true
