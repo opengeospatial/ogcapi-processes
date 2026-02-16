@@ -19,6 +19,10 @@ The key benefits of the Standard are:
 
 Like other OGC APIs (such as Features or Records), OGC API Processes uses a common core for landing pages, conformance declarations, and API definitions. This consistency allows developers to use similar patterns across different types of geospatial web services.
 
+== Acknowledgements
+
+Requirements integrated within version 2.0 of this OGC API - Processes Standard was sourced from Part 3: Workflows, whose development was undertaken as part of GeoConnections 2020-2021 and 2025-2027 projects GNS20-21IFP02 (Modular OGC API Workflows) and GNS25-27IFP2 (Advancing and Implementing OGC Standards for GeoDataCubes, DGGSs, Data Stores for Digital Twins and Cartographic Symbology). Financial support provided by GeoConnections, a national collaborative initiative led by Natural Resources Canada. GeoConnections supports the modernization of the Canadian Geospatial Data Infrastructure (CGDI). The CGDI is the collection of geospatial data, standards, policies, applications, and governance that facilitate its access, use, integration, and preservation.
+
 == Submitters
 
 All questions regarding this submission should be directed to the editor or the submitters:
@@ -37,7 +41,3 @@ All questions regarding this submission should be directed to the editor or the 
 |Cristiano Lopes|European Space Agency (ESA)
 |Christophe Noel | Spacebel
 |===
-
-== Acknowledgements
-
-Requirements integrated within version 2.0 of this OGC API - Processes Standard was sourced from Part 3: Workflows, whose development was undertaken as part of GeoConnections 2020-2021 and 2025-2027 projects GNS20-21IFP02 (Modular OGC API Workflows) and GNS25-27IFP2 (Advancing and Implementing OGC Standards for GeoDataCubes, DGGSs, Data Stores for Digital Twins and Cartographic Symbology). Financial support provided by GeoConnections, a national collaborative initiative led by Natural Resources Canada. GeoConnections supports the modernization of the Canadian Geospatial Data Infrastructure (CGDI). The CGDI is the collection of geospatial data, standards, policies, applications, and governance that facilitate its access, use, integration, and preservation.
