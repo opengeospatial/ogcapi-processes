@@ -9,9 +9,9 @@ test-purpose:: Validate that the job results retrieved for an incomplete job com
 test-method::
 +
 --
-1. Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the {jobID} assigned to the job. Ensure that the job is long-running.
+1. Create a job as per <<ats_core_process-execute-op,/req/core/process-execute-op>> and note the `{jobID}` assigned to the job. Ensure that the job is long-running.
 
-2. Issue an HTTP GET request to the URL '/jobs/{jobID}/results' before the job completes execution.
+2. Issue an HTTP GET request to the URL `/jobs/{jobID}/results` before the job completes execution.
 
 3. Validate that the document was returned with a 404.
 

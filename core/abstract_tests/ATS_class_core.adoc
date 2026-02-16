@@ -55,6 +55,7 @@ conformance-test:: /conf/core/job-result-op
 conformance-test:: /conf/core/job-results-async-one
 conformance-test:: /conf/core/job-results-async-many
 conformance-test:: /conf/core/job-results-exception-invalid-query-parameter-value
+conformance-test:: /conf/core/job-results-exception-no-such-output
 conformance-test:: /conf/core/job-results-exception-no-such-job
 conformance-test:: /conf/core/job-results-exception-results-not-ready
 conformance-test:: /conf/core/job-results-exception_results-not-available
@@ -175,6 +176,8 @@ include::core/ATS_job-results-param-outputs.adoc[]
 
 include::core/ATS_job-results-param-outputs-response.adoc[]
 
+include::core/ATS_job-results-profile.adoc[]
+
 include::core/ATS_job-result-op.adoc[]
 
 include::core/ATS_job-results-success-async-one.adoc[]
@@ -183,6 +186,8 @@ include::core/ATS_job-results-success-async-many.adoc[]
 
 include::core/ATS_job-results-exception-invalid-query-parameter-value.adoc[]
 
+include::core/ATS_job-results-exception-no-such-output.adoc[]
+
 include::core/ATS_job-results-exception-no-such-job.adoc[]
 
 include::core/ATS_job-results-exception-results-not-ready.adoc[]
@@ -190,4 +195,3 @@ include::core/ATS_job-results-exception-results-not-ready.adoc[]
 include::core/ATS_job-results-exception-results-not-available.adoc[]
 
 include::core/ATS_job-results-failed.adoc[]
-

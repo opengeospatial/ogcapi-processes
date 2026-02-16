@@ -8,7 +8,7 @@
 
 * [[[OGC_19-072]]] OGC 19-072, OGC API - Common - Part 1: Core, Version 1.0
 
-* [[[rfc6906]]] Internet Engineering Task Force (IETF). RFC 6906: **The 'profle' Link Relation Type** [online]. Edited by E. Wilde. 2013]. Available at https://datatracker.ietf.org/doc/html/rfc6906.html
+* [[[rfc6906]]] Internet Engineering Task Force (IETF). RFC 6906: **The 'profile' Link Relation Type** [online]. Edited by E. Wilde. 2013]. Available at https://datatracker.ietf.org/doc/html/rfc6906.html
 
 * [[[rfc2818]]] Internet Engineering Task Force (IETF). RFC 2818: **HTTP Over TLS** [online]. Edited by E. Rescorla. 2000 [viewed 2020-03-16]. Available at https://www.rfc-editor.org/rfc/rfc2818.html
 

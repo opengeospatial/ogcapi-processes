@@ -14,7 +14,7 @@ required: false
 schema:
   type: array
   items:
-    type:string
+    type: string
 style: form
 explode: false
 ----
