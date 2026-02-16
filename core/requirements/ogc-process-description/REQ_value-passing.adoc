@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/ogc-process-description/value-passing
-label:: /req/ogc-process-description/value-passing
 
 [.component,class=part]
 --
@@ -25,4 +24,5 @@ If an input value can be passed by value (https://raw.githubusercontent.com/open
 --
 If an input value can be passed by reference (https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml[`"byReference"`]), then input values shall be referenced in an <<execute-request-body,execute request>> using a https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/link.yaml[link].
 --
+
 ====

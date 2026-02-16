@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/ogc-process-description/links
-label:: /req/ogc-process-description/links
 
 [.component,class=part]
 --

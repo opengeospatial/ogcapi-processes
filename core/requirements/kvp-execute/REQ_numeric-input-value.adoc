@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/numeric-input-value
-label:: /req/kvp-execute/numeric-input-value
 
 [.component,class=conditions]
 --
@@ -28,4 +27,5 @@ explode: false
 
 where the token `{inputID}` represented the identifier of the input and the token {numeric-type} is the value `number` or `integer`.
 --
+
 ====

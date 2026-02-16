@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/local-filtering
-label:: /req/local-filtering
 
 [.component,class=description]
 --

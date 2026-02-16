@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/ogc-process-description/execution-unit-requirements
-label:: /req/ogc-process-description/execution-unit-requirements
 
 [.component,class=part]
 --
@@ -25,4 +24,5 @@ The `staging` parameter SHALL indicate how referenced input data should be prepa
 * A value of `local-file` indicates that referenced input data SHALL be locally staged for the process' execution unit.
 * A value of `remote-access` indicates that a reference to input data SHALL be passed to the execution unit as-is since the process' execution unit itself know how to dereference the input data.
 --
+
 ====

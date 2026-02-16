@@ -3,6 +3,15 @@
 ====
 [%metadata]
 identifier:: /rec/query-param-profile/negotiation
-part:: If the server supports one or more of the requested profile(s) for the media type and resource, these profiles SHOULD be used for the response. 
-part:: The profile negotiation SHOULD NOT result in an error, e.g., because a requested profile cannot be provided.
+
+[.component,class=part]
+--
+If the server supports one or more of the requested profile(s) for the media type and resource, these profiles SHOULD be used for the response. 
+--
+
+[.component,class=part]
+--
+The profile negotiation SHOULD NOT result in an error, e.g., because a requested profile cannot be provided.
+--
+
 ====

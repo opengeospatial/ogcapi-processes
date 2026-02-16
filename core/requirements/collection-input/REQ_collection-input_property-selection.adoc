@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/collection-input/property-selection
-label:: /req/collection-input/property-selection
 
 [.component,class=description]
 --

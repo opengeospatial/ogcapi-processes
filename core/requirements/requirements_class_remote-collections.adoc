@@ -2,7 +2,7 @@
 [requirements_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/remote-collections
+identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/remote-collections
 subject:: Remote Collections
-inherit:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-input
+inherit:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-input
 ====

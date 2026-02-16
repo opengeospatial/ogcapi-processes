@@ -1,0 +1,8 @@
+[[per_core_job-results-exception_job-gone]]
+[permission]
+====
+[%metadata]
+identifier:: /per/core/job-results-exception-job-gone
+
+If the operation is executed using a job identifier that once existed, the server MAY response with a HTTP status code 410.
+====

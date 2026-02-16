@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/input-cardinality
-label:: /req/kvp-execute/input-cardinality
 
 [.component,class=conditions]
 --
@@ -51,4 +50,5 @@ List elements that are objects SHALL be encoded as <<kvp-complex-value-input,URL
 --
 List elements that are arrays SHALL be encoded as <<kvp-array-value-input,URL-encoded strings>>.
 --
+
 ====

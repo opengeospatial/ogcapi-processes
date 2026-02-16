@@ -6,7 +6,7 @@
 [[def-collection]]
 ==== collection; OGC API collection
 
-A resource that may be available as one or more sub-resource distributions that conform to one or more https://www.ogc.org/standards[OGC API standards]. (https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Common - Part 2: Geospatial Data])
+(in the context of OGC APIs) A set of spatiotemporal data that may be available through one or more access mechanisms defined by https://www.ogc.org/standards[OGC API standards]. (https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Common - Part 2: Geospatial Data])
 
 [[def-collection-description]]
 ==== collection description document
@@ -47,7 +47,7 @@ A <<def-collection,collection>> that is local to the <<def-deployment,OGC API de
 [[def-data-access-mechanism]]
 ==== OGC API data access mechanism
 
-A method or procedure, that conforms to an https://www.ogc.org/standards/[OGC API Standard], used to control how users or systems can access and interact with data.
+(in the context of OGC APIs) A mechanism defined by an OGC API Standard to access spatiotemporal data from a <<def-collection,collection>>/
 
 EXAMPLE: https://docs.ogc.org/is/20-057/20-057.html[_OGC API - Tiles - Part 1: Core_], https://docs.ogc.org/DRAFTS/19-087.html[_OGC API - Coverages - Part 1: Core_], https://docs.ogc.org/DRAFTS/21-038r1.html[_OGC API - Discrete Global Grid Systems - Part 1: Core_], https://docs.ogc.org/is/17-069r4/17-069r4.html[_OGC API - Features - Part 1: Core_], https://docs.ogc.org/is/19-086r6/19-086r6.html[_OGC API - Environmental Data Retrieval Standard_], https://docs.ogc.org/is/20-058/20-058.html[_OGC API - Maps - Part 1: Core_]
 
@@ -95,7 +95,7 @@ Process outputs are the results of a process and refer to data returned by a pro
 [[explicit-process-output]]
 ==== process output (explicitly requested)
 
-A process output with identifier `{outputID}` that is explicitly specified in the "outputs" section of an <<execute-request-body,execute request>>.
+A process output that is defined in the <<sc_process_description,description of a process>> and is explicitly specified using its identifier `{outputID}` in the "outputs" section of an <<execute-request-body,execute request>>.
 
 [[implicit-process-output]]
 ==== process output (implicitly requested)
@@ -105,7 +105,7 @@ A process output that is defined in the <<sc_process_description,description of 
 [[def-remote-collection]]
 ==== remote collection
 
-A <<def-collection,collection>> that is not local to the <<def-deployment,OGC API deployment>> <<def-data-access-mechanism,currently being accessed>>.
+A <<def-collection,collection>> that is available from an external OGC API deployment different from the deployment whose process is being executed.
 
 ==== REST
 

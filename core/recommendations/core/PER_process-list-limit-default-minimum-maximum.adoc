@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /per/core/limit-default-minimum-maximum
-label:: /per/core/limit-default-minimum-maximum
 
-part:: The values for `minimum`, `maximum` and `default` in requirement `/req/core/limit-definition` are only examples and MAY be changed.
+The values for `minimum`, `maximum` and `default` in requirement `/req/core/limit-definition` are only examples and MAY be changed.
 ====

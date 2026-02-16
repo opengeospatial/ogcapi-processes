@@ -3,7 +3,20 @@
 ====
 [%metadata]
 identifier:: /req/dismiss/job-dismiss-success
-label:: /req/dismiss/job-dismiss-success
 
-A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.  The content of that response SHALL be based upon the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[statusInfo.yaml]. The status SHALL be set to "dismissed".
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.  
+--
+
+[.component,class=part]
+--
+The content of that response SHALL be based upon the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[statusInfo.yaml].
+--
+
+[.component,class=part]
+--
+The status SHALL be set to "dismissed".
+--
+
 ====

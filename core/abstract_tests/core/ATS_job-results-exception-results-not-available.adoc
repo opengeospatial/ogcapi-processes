@@ -19,6 +19,6 @@ test-method::
 
 5. Verify that the body of the response contains an exception message that conforms to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml] schema.
 
-6. Verify that the `type` of the excpetion is "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-available".
+6. Verify that the `type` of the excpetion is "https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-available".
 --
 ====

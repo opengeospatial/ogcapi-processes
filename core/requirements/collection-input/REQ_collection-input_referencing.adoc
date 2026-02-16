@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/collection-input/referencing
-label:: /req/collection-input/referencing
 
 .component,class=description]
 --
@@ -31,8 +30,6 @@ The server SHALL interpret Relative-URIs as relative to the parent process withi
 -- 
 
 ====
-
-NOTE: PAV: The last part of this requirement is not clear to me.
 
 [[collection-value-schema]]
 .Schema for the collection parameter

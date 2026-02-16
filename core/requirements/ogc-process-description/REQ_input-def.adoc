@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/ogc-process-description/input-def
-label:: /req/ogc-process-description/input-def
 
 [.component,class=part]
 --
@@ -24,4 +23,5 @@ The value of the `schema` parameter SHALL be a JSON fragment that validates acco
 --
 Servers SHALL use this schema fragment to validate the components of a <<sc_process_inputs,process input>> in an <<execute-request-body,execute request>> that is an instance of <<input-value-schema,inputValue.yaml>>.
 --
+
 ====

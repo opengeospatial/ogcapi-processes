@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-sync-many-json
-label:: /req/core/process-execute-sync-many-json
 
 [.component,class=conditions]
 --
@@ -32,4 +31,5 @@ The response HTTP headers SHALL include a link (href="https://www.opengis.net/de
 --
 The content of response SHALL conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/results.yaml[results.yaml] schema.
 --
+
 ====

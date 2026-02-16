@@ -1,11 +1,11 @@
-[[ats_collection-input_pass-thru]]
+[[ats_collection-input_pass-through]]
 
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/collection-input/pass-thru
-target:: /req/collection-input/pass-thru
-test-purpose:: Verify that the server correctly processes the `passThruParameters` element in a collection input specification.
+identifier:: /conf/collection-input/pass-through
+target:: /req/collection-input/pass-through
+test-purpose:: Verify that the server correctly processes the `passThroughParameters` element in a collection input specification.
 test-method::
 +
 --
@@ -15,7 +15,7 @@ test-method::
 
 3. Compose <<execute-request-body,execute requests>> that include the identified inputs and using a supported <<def-data-access-mechanism,data access API>> (see test: <<ats_collection-input_collection-access,/conf/collection-input/collection-access>> to identify supported <<def-data-access-mechanism,data access APIs>>).
 
-4. In the specification of the collection input, specify the `passThruParameters` element, as defined in <<collection-value-schema,"collectionValue.yaml">>, and include query parameters specific to the selected <<def-data-access-mechanism,data access API>>.
+4. In the specification of the collection input, specify the `passThroughParameters` element, as defined in <<collection-value-schema,"collectionValue.yaml">>, and include query parameters specific to the selected <<def-data-access-mechanism,data access API>>.
 
 5. Verify that the execute request completes successfully
 --

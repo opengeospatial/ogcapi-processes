@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-input-validation
-label:: /req/core/process-execute-input-validation
 
 [.component,class=part]
 --
@@ -14,4 +13,5 @@ For process input values specified in-line in an <<execute-request-body,execute 
 --
 For process input values specified by reference in an <<execute-request-body,execute request>>, the server SHALL resolve the value and then validate it as if the value had been specified in-line in the <<execute-request-body,execute request>> (i.e. as per requirement *_A_*).
 --
+
 ====

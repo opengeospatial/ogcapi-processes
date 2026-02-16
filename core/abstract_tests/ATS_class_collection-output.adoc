@@ -3,8 +3,8 @@
 .Collection Output
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/collection-output
-subject:: <<rc_collection-output,http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-output>>
+identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/collection-output
+subject:: <<rc_collection-output,https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-output>>
 classification:: Target Type:Web API
 conformance-test:: /conf/collection-output/response-definition
 conformance-test:: /conf/collection-output/response-response-many

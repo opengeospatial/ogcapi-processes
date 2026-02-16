@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-empty-outputs
-label:: /req/core/process-execute-empty-outputs
 
 [.component,class=conditions]
 --
@@ -14,4 +13,5 @@ label:: /req/core/process-execute-empty-outputs
 --
 An empty "outputs" parameter in the <<execute-request-body,execute request>> SHALL indicate that the execution of a process should occur without generating a response body.
 --
+
 ====

@@ -41,7 +41,7 @@ description: An error occurred.
 content:
   application/json:
     schema:
-      $ref: http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/common-core/exception.yaml
+      $ref: https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/common-core/exception.yaml
   text/html:
     schema:
       type: string
@@ -53,7 +53,7 @@ content:
 
 include::../requirements/oas/REQ_security.adoc[]
 
-The OpenAPI specification currently supports the following link:http://spec.openapis.org/oas/v3.0.3#security-scheme-object[security schemes]:
+The OpenAPI specification currently supports the following link:https://spec.openapis.org/oas/v3.0.3#security-scheme-object[security schemes]:
 
 * HTTP authentication,
 
@@ -65,7 +65,7 @@ The OpenAPI specification currently supports the following link:http://spec.open
 
 === Requirements Class "OpenAPI Specification 3.0"
 
-Servers conforming to this requirements class define their API by an link:http://spec.openapis.org/oas/v3.0.3#openapi-document[OpenAPI 3.0 Document].
+Servers conforming to this requirements class define their API by an link:https://spec.openapis.org/oas/v3.0.3#openapi-document[OpenAPI 3.0 Document].
 
 include::../requirements/requirements_class_oas30.adoc[]
 
@@ -73,7 +73,7 @@ include::../requirements/oas30/REQ_oas-definition.adoc[]
 
 === Requirements Class "OpenAPI Specification 3.1"
 
-Servers conforming to this requirements class define their API by an link:http://spec.openapis.org/oas/v3.1.0#openapi-document[OpenAPI 3.1 Document].
+Servers conforming to this requirements class define their API by an link:https://spec.openapis.org/oas/v3.1.0#openapi-document[OpenAPI 3.1 Document].
 
 include::../requirements/requirements_class_oas31.adoc[]
 

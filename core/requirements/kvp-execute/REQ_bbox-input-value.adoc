@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/bbox-input-value
-label:: /req/kvp-execute/bbox-input-value
 
 [.component,class=conditions]
 --
@@ -22,4 +21,5 @@ include::../../../openapi/parameters/common-geodata/bbox.yaml[]
 
 where the token `{bbox-input-name}` represented the identifier of the input.
 --
+
 ====

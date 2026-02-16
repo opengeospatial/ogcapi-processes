@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-input-inline-binary
-label:: /req/core/process-execute-input-inline-binary
 
 [.component,class=conditions]
 --
@@ -15,4 +14,5 @@ label:: /req/core/process-execute-input-inline-binary
 --
 The service SHALL support binary values encoded as base64-encoded strings.
 --
+
 ====

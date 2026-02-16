@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/collection-input/filtering
-label:: /req/collection-input/filtering
 
 [.component,class=description]
 --

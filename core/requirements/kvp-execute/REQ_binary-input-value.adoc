@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/binary-input-value
-label:: /req/kvp-execute/binary-input-value
 
 [.component,class=conditions]
 --
@@ -30,4 +29,5 @@ explode: false
 
 where the token `{inputID}` represents the identifier of the input.
 --
+
 ====

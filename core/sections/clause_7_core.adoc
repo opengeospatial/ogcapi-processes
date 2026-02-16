@@ -27,7 +27,7 @@ The <<sc_process_description,process description>> contains information about in
 
 A HTTP POST request to the execution-endpoint creates a new job. The inputs and outputs need to be passed in a JSON execute-request.
 
-The URL for accessing status information is delivered in the HTTP header `location`.
+The URL for accessing status information is delivered in the HTTP header `Location`.
 
 After a process is finished (status = successful/failed), the results/exceptions can be retrieved.
 
@@ -42,11 +42,11 @@ The OGC API - Processes Standard utilizes elements of the OGC API-Common Standar
 [cols="2,6"]
 |===
 ^|*API - Processes Section* ^|*API-Common Requirements Class*
-|<<sc_landing_page,API Landing Page>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/core
-|<<sc_api_definition,API Definition>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/core
-|<<sc_conformance_classes,Declaration of Conformance Classes>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/core
-|<<req_oas30_oas-definition,OpenAPI 3.0>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/oas30
-|<<sc_requirements_class_html,HTML>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/html
+|<<sc_landing_page,API Landing Page>>| https://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
+|<<sc_api_definition,API Definition>>| https://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
+|<<sc_conformance_classes,Declaration of Conformance Classes>>| https://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
+|<<req_oas30_oas-definition,OpenAPI 3.0>>| https://www.opengis.net/spec/ogcapi-common-1/2.0/req/oas30
+|<<sc_requirements_class_html,HTML>>| https://www.opengis.net/spec/ogcapi-common-1/2.0/req/html
 |===
 
 
@@ -128,12 +128,13 @@ include::../requirements/core/REQ_api-definition-success.adoc[]
 
 include::../recommendations/core/REC_api-definition-oas.adoc[]
 
-If multiple API definition formats are supported by a server, use
-content negotiation to select the desired representation.
+If multiple API definition formats are supported by a server, use content negotiation to select the desired representation.
 
 [NOTE]
 ====
-Two common approaches are:
+Common approaches include:
+
+* Standard HTTP content negotiation using the HTTP header `Accept`;
 
 * An additional path for each encoding of each resource (this can be expressed,
 for example, using format specific suffixes like ".html");
@@ -265,9 +266,9 @@ The use of generic media types such as `application/json` makes it difficult to 
 
 It would thus be useful if there was a mechanism for requesting a profile of a resource.  Although there is a new HTTP header, `Accept-Profile`, that is to be defined in an upcoming https://profilenegotiation.github.io/I-D-Profile-Negotiation/I-D-Profile-Negotiation[Internet-Draft] there is currently no standardized was to request a profile of a resource.  Existing standards, however, do provide mechanisms for specifying profile information in HTTP headers.  Specifically (see https://www.w3.org/TR/dx-prof-conneg/#bib-prof-ietf[Content Negotiation by Profile]) profiles of a resource may be requested by:
 
-* using the `profile` parameter an `Accept` HTTP header if the media type includes provisions for such a parameter (e.g. `application/ld+json`)
+* using the `profile` query parameter an `Accept` HTTP header if the media type includes provisions for such a parameter (e.g. `application/ld+json`)
 * using the `Accept-Profile` header if the media type does not include provisions for such a parameter within the `Accept` header.
-* using the `profile` parameter with the https://www.rfc-editor.org/rfc/rfc7240[HTTP `Prefer` header]
+* using the `profile` query parameter with the https://www.rfc-editor.org/rfc/rfc7240[HTTP `Prefer` header]
 * using a 'Link` header with `rel="profile"`.
 
 This standard also defines a query parameter, `profile`, that may be used with an HTTP GET request to specify one or more profiles of a resource that are to be retrieved.
@@ -275,18 +276,18 @@ This standard also defines a query parameter, `profile`, that may be used with a
 When a content negotiation by profile is performed using one of the above headers or query parameters, the corresponding response headers should be returned.
 More specifically:
 
-* the `Preference-Applied` header with the `profile` parameter should be returned if `Prefer` header was used to request it
+* the `Preference-Applied` header with the `profile` query parameter should be returned if `Prefer` header was used to request it
 * the `Content-Type` header with `profile` parameter should be returned if `Accept` header with a media type including `profile` provisions was used to request it
 * the `Link` header with `profile` parameter should be returned for all other approaches
 
-Note that the `Link` header with `profile` parameter MUST be returned for any of the content negotiation by profile strategies if an applicable URI could be resolved.  Other headers (`Preference-Applied` and `Content-Type`) containing a `profile` parameter are relevant in the response only when they were explicitly requested by their corresponding request headers (`Prefer` and `Accept`) containing the same `profile` identifier, or when the `profile` does not correspond to an URI than can be provided as `Link: href="<URI>"` value (e.g.: `profile=cloud-optimized` for a GeoTiff).
+Note that the `Link` header with `profile` parameter MUST be returned for any of the content negotiation by profile strategies if an applicable URI could be resolved.  Other headers (`Preference-Applied` and `Content-Type`) containing a `profile` parameter are relevant in the response only when they were explicitly requested by their corresponding request headers (`Prefer` and `Accept`) containing the same `profile` identifier, or when the `profile` query parameter does not correspond to an URI than can be provided as `Link: href="<URI>"` value (e.g.: `profile=cloud-optimized` for a GeoTiff).
 
 NOTE: A set of profile URIs for content defined in this Standard can be found in the <<profile-uris,Profile identifiers>> table.
 
 [[sc_limit_parameter]]
-=== Limit parameter
+=== Limit query parameter
 
-Several resources defined in this Standard (see <<sc_process_list,Retrieve a process list>>, <<sc_job_list,Retrieve a job list>>) use the `limit` parameter to control the maximum number of results that are presented in a response page.
+Several resources defined in this Standard (see <<sc_process_list,Retrieve a process list>>, <<sc_job_list,Retrieve a job list>>) use the `limit` query parameter to control the maximum number of results that are presented in a response page.
 
 * The client can request a limit it is interested in.
 
@@ -309,7 +310,7 @@ This Standard provides requirements and recommendations about links in general a
 [[next-link-discussion]]
 This Stadard does not mandate any specific implementation approach for the `next` links.
 
-An implementation of the Processes API could use opaque links that are managed by the server. It is up to the server to determine how long these links can be dereferenced. Clients should be prepared to receive a 404 response.
+An implementation of the Processes API could use opaque links that are managed by the server. It is up to the server to determine how long these links can be dereferenced. Clients should be prepared to receive a 404 or 410 response.
 
 Another implementation approach is to use an implementation-specific parameter that specifies the index within the result set from which the server begins presenting results in the response, like `offset` or the `startIndex` parameter that was used in <<WFS20,WFS 2.0>>.
 
@@ -328,7 +329,7 @@ include::../recommendations/core/REC_link-header.adoc[]
 [[sc_process_list]]
 === Retrieve a process list
 
-The following section defines the requirements to retrieve the available processes offered by an implmentation of the Processes API.
+The following section defines the requirements to retrieve the available processes offered by an implementation of the Processes API.
 
 It should be noted that the number of processes exposed via the Processes API may be very different than the number of processes offer by a back-end system upon which the Processes API is implemented.
 
@@ -338,8 +339,7 @@ It should be noted that the number of processes exposed via the Processes API ma
 
 include::../requirements/core/REQ_process-list-op.adoc[]
 
-
-===== Parameter `limit`
+===== Query parameter `limit`
 
 include::../requirements/core/REQ_process-list-limit-def.adoc[]
 
@@ -385,13 +385,13 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 
 The number of process summaries returned depends on the server and the parameter `limit.`
 
-See the discussion about the `limit` parameter in the <<sc_limit_parameter,Limit parameter>> section.
+See the discussion about the `limit` query parameter in the <<sc_limit_parameter,Limit query parameter>> section.
 
 include::../requirements/core/REQ_process-list-links.adoc[]
 
 include::../requirements/core/REQ_process-summary-links.adoc[]
 
-See the discussion about the `next` links in the <<next-link-discussion,Limit parameter>> section.
+See the discussion about the `next` links in the <<next-link-discussion,Limit query parameter>> section.
 
 include::../recommendations/core/REC_process-list-next-1.adoc[]
 
@@ -399,7 +399,7 @@ include::../recommendations/core/REC_process-list-next-2.adoc[]
 
 include::../recommendations/core/REC_process-list-next-3.adoc[]
 
-See the discussion about the `prev` link in the  <<prev-link-discussion,Limit parameter>> section.
+See the discussion about the `prev` link in the  <<prev-link-discussion,Limit query parameter>> section.
 
 include::../recommendations/core/PER_process-list-prev.adoc[]
 
@@ -455,6 +455,7 @@ See <<http_status_codes>> for general guidance.
 
 include::../requirements/core/REQ_process-exception-no-such-process.adoc[]
 
+include::../recommendations/core/PER_process-exception-process-gone.adoc[]
 
 [[sc_execute_process]]
 === Execute a process
@@ -517,7 +518,7 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 
 A process may be executed synchronously or asynchronously.
 
-Which mode a server responds with is a function of the job control options specified in the <<sc_process_description,process description>> and the presence or absence of the HTTP `Prefer` header (http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240]).
+Which mode a server responds with is a function of the job control options specified in the <<sc_process_description,process description>> and the presence or absence of the HTTP `Prefer` header (https://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240]).
 
 include::../requirements/core/REQ_process-execute-default-execution-mode.adoc[]
 
@@ -525,7 +526,10 @@ include::../requirements/core/REQ_process-execute-auto-execution-mode.adoc[]
 
 include::../recommendations/core/REC_process-execute-honor-prefer.adoc[]
 
-include::../recommendations/core/REC_process-execute-handle-prefer.adoc[]
+[NOTE]
+====
+A client that accompanies an <<execute-request-body,execute request>> with the HTTP https://datatracker.ietf.org/doc/html/rfc7240#section-2[`Prefer`] header asserting a https://tools.ietf.org/html/rfc7240#section-4.1[`respond-async`] preference and/or a https://tools.ietf.org/html/rfc7240#section-4.3[`wait`] preference SHOULD be prepared to receive either an asynchronous or a synchronous response.
+====
 
 include::../recommendations/core/REC_process-execute-preference-applied.adoc[]
 
@@ -738,10 +742,10 @@ In this second example, the property, `geometryInput` has a cardinality of great
       {
         "type": "string",
         "contentMediaType": "application/gml+xml; version=3.2",
-        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+        "contentSchema": "https://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
       },
       {
-        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+        "$ref": "https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
       }
     ]
   }
@@ -978,11 +982,17 @@ A process output can be defined in the <<sc_process_description,process descript
 
 Since a priori knowledge of the size of any given output is generally not known, hints can be provided to the server to prevent the inadvertent transmission of large volumes of output.
 
-Return preferences signal to a server how output values should be transmitted based on the size of the output and any accompanying https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[`return` preferences] as define defined in http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240].
+Return preferences signal to a server how output values should be transmitted based on the size of the output and any accompanying https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[`return` preferences] as define defined in https://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240].
 
 include::../recommendations/core/REC_process-execute-honor-return-preference.adoc[]
 
-include::../recommendations/core/REC_process-execute-handle-return-preference.adoc[]
+[NOTE]
+====
+A client that accompanies an <<execute-request-body,execute request>> with the HTTP https://datatracker.ietf.org/doc/html/rfc7240#section-2[`Prefer`] header asserting a https://tools.ietf.org/html/rfc7240#section-4.2[`return`] preference SHOULD be prepared to receive output values either:
+
+* in-line in the response,
+* or by reference via a hyperlink in the response.
+====
 
 ==== Example
 
@@ -1309,6 +1319,8 @@ If the process with the specified identifier does not exist on the server, see r
 
 include::../requirements/core/REQ_job-exception-no-such-job.adoc[]
 
+include::../recommendations/core/PER_process-exception-job-gone.adoc[]
+
 [[sc_retrieve_job_results]]
 === Retrieve job results
 
@@ -1459,6 +1471,8 @@ See <<http_status_codes>> for general guidance.
 include::../requirements/core/REQ_job-results-exception-invalid-query-parameter-value.adoc[]
 
 include::../requirements/core/REQ_job-results-exception-no-such-job.adoc[]
+
+include::../recommendations/core/PER_job-results-exception-job-gone.adoc[]
 
 include::../requirements/core/REQ_job-results-exception-results-not-ready.adoc[]
 

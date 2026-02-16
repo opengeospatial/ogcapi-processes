@@ -8,7 +8,7 @@ This section provides details and examples for any conventions used in the docum
 
 The normative provisions in this Standard are denoted by the URI
 
-http://www.opengis.net/spec/ogcapi-processes-1/1.0
+https://www.opengis.net/spec/ogcapi-processes-1/1.0
 
 All requirements, permission, recommendations, and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
 
@@ -48,23 +48,23 @@ The following https://www.iana.org/assignments/link-relations/link-relations.xht
 
 In addition, the following link relation types are used for which no applicable registered link relation type could be identified.
 
-* **http://www.opengis.net/def/rel/ogc/1.0/conformance**: Refers to a resource that identifies the specifications that the link's context conforms to.
+* **https://www.opengis.net/def/rel/ogc/1.0/conformance**: Refers to a resource that identifies the specifications that the link's context conforms to.
 
-* **http://www.opengis.net/def/rel/ogc/1.0/exceptions**: The target URI points to exceptions of a failed process.
+* **https://www.opengis.net/def/rel/ogc/1.0/exceptions**: The target URI points to exceptions of a failed process.
 
-* **http://www.opengis.net/def/rel/ogc/1.0/execute**: The target URI points to the execution endpoint of the server.
+* **https://www.opengis.net/def/rel/ogc/1.0/execute**: The target URI points to the execution endpoint of the server.
 
-* **http://www.opengis.net/def/rel/ogc/1.0/job-list**: The target URI points to the list of jobs.
+* **https://www.opengis.net/def/rel/ogc/1.0/job-list**: The target URI points to the list of jobs.
 
-* **http://www.opengis.net/def/rel/ogc/1.0/processes**: The target URI points to the list of processes the API offers.
+* **https://www.opengis.net/def/rel/ogc/1.0/processes**: The target URI points to the list of processes the API offers.
 
-* **http://www.opengis.net/def/rel/ogc/1.0/results**: The target URI points to the results of a job.
+* **https://www.opengis.net/def/rel/ogc/1.0/results**: The target URI points to the results of a job.
 
 Each resource representation includes an array of links. Implementations are free to add additional links for all resources provided by an implementation of the Processes API.
 
 === Use of HTTPS
 
-For simplicity, this Standard only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. This is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>>, not <<rfc2616,HTTP>>.
+For simplicity, this Standard only refers to the HTTPS protocol. This is not meant to exclude the use of HTTP. This is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>>, not <<rfc2616,HTTP>>.
 
 OGC Web API Standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities which are not in common use could be an impediment to interoperability.
 

@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/array-input-value
-label:: /req/kvp-execute/array-input-value
 
 [.component,class=conditions]
 --

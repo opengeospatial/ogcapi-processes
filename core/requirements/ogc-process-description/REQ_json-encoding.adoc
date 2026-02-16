@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/ogc-process-description/json-encoding
-label:: /req/ogc-process-description/json-encoding
 
 [.component,class=part]
 --
@@ -14,4 +13,5 @@ A JSON-encoded OGC process description SHALL validate against the JSON Schema: h
 --
 The JSON-encoded OGC process description SHALL include, in the `links` section, a profile link (href: `https://www.opengis.net/dev/profile/OGC/0/ogc-process-description`, relation: `profile`);
 --
+
 ====

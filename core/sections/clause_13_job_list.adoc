@@ -98,7 +98,7 @@ include::../recommendations/job-list/PER_prev.adoc[]
 ====
 [source]
 ----
-http://processing.example.org/jobs
+https://processing.example.org/jobs
 ----
 ====
 

@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-success-async-outputs-empty
-label:: /req/core/process-execute-success-async-outputs-empty
 
 [.component,class=conditions]
 --
@@ -18,7 +17,7 @@ The server SHALL asynchoronously execute the process but SHALL not produce any r
 
 [.component,class=part]
 --
-Attempting to retieve any of the process's defined outputs via the `/jobs/{jobID}/results[/{outputID}]` path SHALL result in a response that has HTTP status code 404.
+Attempting to retieve any of the process's defined outputs via the `/jobs/{jobID}/results[/{outputID}]` path SHALL result in a HTTP status code 404 response.
 --
 
 ====
