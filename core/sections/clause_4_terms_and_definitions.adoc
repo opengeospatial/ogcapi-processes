@@ -102,8 +102,8 @@ A process output that is defined in the <<sc_process_description,description of 
 
 A process output that is defined in the <<sc_process_description,description of a process>> and is generated as a result of an <<execute-request-body,execute request>> where the "outputs" parameter has been omitted.  Omitting the "outputs" parameters of an <<execute-request-body,execute request>> is equivalent to explicitly requesting all of the outputs defined in the <<sc_process_description,process description>>
 
-[[def-remote-collection]]
-==== remote collection
+[[def-remote-collections]]
+==== remote collections
 
 A <<def-collection,collection>> that is available from an external OGC API deployment different from the deployment whose process is being executed.
 

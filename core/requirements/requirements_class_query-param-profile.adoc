@@ -1,9 +1,11 @@
 [[rc_query-param-profile]]
 [requirements_class]
+./Requirements Class 'Profile Query Parameter'
 ====
 [%metadata]
 identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/query-param-profile
 subject:: Web API
+inherit:: /req/core
 requirement:: /req/query-param-profile/definition
 requirement:: /req/query-param-profile/response
 ====

@@ -1,12 +1,65 @@
 [[rc_core]]
 [requirements_class]
+.Requirements Class 'Core'
 ====
 [%metadata]
 identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core
-obligation:: requirement
 subject:: Web API
-inherit:: https://www.opengis.net/spec/ogcapi_common-1/1.0/req/core[API - Common Core]
+inherit:: https://www.opengis.net/spec/ogcapi_common-1/1.0/req/core
 inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
 inherit:: <<rfc2818,RFC 2818 (HTTP over TLS)>>
 inherit:: <<rfc8288,RFC 8288 (Web Linking)>>
+requirement:: /req/core/api-definition-op
+requirement:: /req/core/api-definition-success
+requirement:: /req/core/conformance-op
+requirement:: /req/core/conformance-success
+requirement:: /req/core/http
+requirement:: /req/core/job-exception-no-such-job
+requirement:: /req/core/job-op
+requirement:: /req/core/job-result-op
+requirement:: /req/core/job-results-exception-invalid-query-parameter-value
+requirement:: /req/core/job-results-exception-no-such-job
+requirement:: /req/core/job-results-exception-results-not-available
+requirement:: /req/core/job-results-exception-results-not-ready
+requirement:: /req/core/job-results-failed
+requirement:: /req/core/job-results-op
+requirement:: /req/core/job-results-param-outputs
+requirement:: /req/core/job-results-param-outputs-response
+requirement:: /req/core/job-results-async-many
+requirement:: /req/core/job-results-async-one
+requirement:: /req/core/job-results-success-sync
+requirement:: /req/core/job-success
+requirement:: /req/core/landingpage-op
+requirement:: /req/core/landingpage-success
+requirement:: /req/core/process-description-op
+requirement:: /req/core/process-description-success
+requirement:: /req/core/process-exception-no-such-process
+requirement:: /req/core/process-execute-auto-execution-mode
+requirement:: /req/core/process-execute-default-execution-mode
+requirement:: /req/core/process-execute-input-array
+requirement:: /req/core/process-execute-input-inline-bbox
+requirement:: /req/core/process-execute-input-inline-binary
+requirement:: /req/core/process-execute-input-multiple-types
+requirement:: /req/core/process-execute-input-inline-object
+requirement:: /req/core/process-execute-input-validation
+requirement:: /req/core/process-execute-op
+requirement:: /req/core/process-execute-empty-outputs
+requirement:: /req/core/process-execute-omitted-outputs
+requirement:: /req/core/process-execute-request
+requirement:: /req/core/process-execute-success-async
+requirement:: /req/core/process-execute-success-async-outputs
+requirement:: /req/core/process-execute-success-async-outputs-empty
+requirement:: /req/core/process-execute-success-async-outputs-omitted
+requirement:: /req/core/process-execute-sync-many-json
+requirement:: /req/core/process-execute-sync-one
+requirement:: /req/core/process-execute-sync-one-default-content
+requirement:: /req/core/process-execute-success-sync-empty-outputs
+requirement:: /req/core/process-execute-success-sync-outputs-omitted
+requirement:: /req/core/pl-limit-definition
+requirement:: /req/core/pl-limit-response
+requirement:: /req/core/pl-links
+requirement:: /req/core/process-list-op
+requirement:: /req/core/process-list-success
+requirement:: /req/core/process-summary-links
+requirement:: /req/core/test-process
 ====

@@ -1,8 +1,13 @@
 [[rc_oas]]
-[cols="1,4",width="90%"]
-|===
-2+|*Requirements Class*
-2+|https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/oas
-|Target type |Web API
-|Dependency |<<rc_core,Requirements Class "Core">>
-|===
+[requirements_class]
+.Requirements Class 'OpenAPI'
+====
+identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/oas
+subject:: Web API
+inherit:: /req/core
+requirement:: /req/oas/completeness
+requirement:: /req/oas/definition
+requirement:: /req/oas/exceptions-codes
+requirement:: /req/oas/oas-impl
+requirement:: /req/oas/security
+====

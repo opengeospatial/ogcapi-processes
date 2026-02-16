@@ -1,8 +1,14 @@
 [[rc_collection-input]]
 [requirements_class]
+.Requirements Class 'Collection Input'
 ====
 [%metadata]
 identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-input
-subject:: Collection Input
-inherit:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core
+subject:: Web API
+inherit:: /req/core
+requirement:: /req/collection-input/collection-access
+requirement:: /req/collection-input/filtering
+requirement:: /req/collection-input/pass-through
+requirement:: /req/collection-input/property-selection
+requirement:: /req/collection-input/referencing
 ====

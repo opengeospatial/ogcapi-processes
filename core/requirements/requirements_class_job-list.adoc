@@ -1,9 +1,25 @@
 [[rc_job-list]]
 [requirements_class]
+.Requirements Class 'Job List'
 ====
 [%metadata]
 identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/job-list
-obligation:: requirement
 subject:: Web API
-inherit:: <<rc_core,OGC API - Processes Core>>
+inherit:: /req/core
+requirement:: /req/job-list/datetime-definition
+requirement:: /req/job-list/datetime-response
+requirement:: /req/job-list/duration-definition
+requirement:: /req/job-list/duration-response
+requirement:: /req/job-list/limit-definition
+requirement:: /req/job-list/limit-response
+requirement:: /req/job-list/links
+requirement:: /req/job-list/job-list-op
+requirement:: /req/job-list/processID-definition
+requirement:: /req/job-list/processID-mandatory
+requirement:: /req/job-list/processid-response
+requirement:: /req/job-list/status-definition
+requirement:: /req/job-list/status-response
+requirement:: /req/job-list/job-list-success
+requirement:: /req/job-list/type-definition
+requirement:: /req/job-list/type-response
 ====

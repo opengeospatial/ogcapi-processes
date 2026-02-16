@@ -1,5 +1,4 @@
 [[ats_ogc-process-description_data-access-apis]]
-
 [abstract_test]
 ====
 [%metadata]

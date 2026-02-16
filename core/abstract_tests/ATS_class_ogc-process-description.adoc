@@ -11,6 +11,8 @@ conformance-test:: /conf/ogc-process-description/links
 conformance-test:: /conf/ogc-process-description/inputs-def
 conformance-test:: /conf/ogc-process-description/input-def
 conformance-test:: /conf/ogc-process-description/input-multiple-types
+conformance-test:: /conf/ogc-process-description/input-multiple-types
+conformance-test:: /conf/ogc-process-description/data-access-apis
 conformance-test:: /conf/ogc-process-description/outputs-def
 conformance-test:: /conf/ogc-process-description/output-def
 conformance-test:: /conf/ogc-process-description/output-multiple-types
@@ -25,6 +27,8 @@ include::ogc-process-description/ATS_inputs-def.adoc[]
 include::ogc-process-description/ATS_input-def.adoc[]
 
 include::ogc-process-description/ATS_input-multiple-types.adoc[]
+
+include::ogc-process-description/ATS_data-access-apis.adoc[]
 
 include::ogc-process-description/ATS_outputs-def.adoc[]
 

@@ -1,5 +1,4 @@
 [[ats_collection-input_filtering]]
-
 [abstract_test]
 ====
 [%metadata]

@@ -1,9 +1,14 @@
 [[rc_collection-output]]
 [requirements_class]
+.Requirements Class 'Collection Output'
 ====
 [%metadata]
 identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-output
-subject:: Collection Output
-inherit:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core
+subject:: WebAPI
 inherit:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
+inherit:: /req/core
+requirement:: /req/collection-output/data-access-mechanisms
+requirement:: /req/collection-output/response-definition
+requirement:: /req/collection-output/response-response-many
+requirement:: /req/collection-output/response-response-one
 ====

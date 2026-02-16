@@ -47,11 +47,11 @@ Besides the standard input types one might expect for a process (e.g. integer, s
 
 that allows OGC API collections to be specified as process inputs.  The <<rc_collection-input,Collection Input>> class only supports collections that are local to the current deployment to be specified as process inputs.  The following conformance class:
 
-* <<rc_remote-collection,Remote Collections>> 
+* <<rc_remote-collections,Remote Collections>> 
 
 extends the collection input requirements to support specifying remote collections as process inputs.
 
-By default, the <<rc_collection-input,Collection Input>> and <<rc_remote-collection,Remote Collections>> conformance classes rely on the data server being accessed for input values to provide filtering capabilities to identify the subset of data to be fed to a process as input values.  The following conformance class:
+By default, the <<rc_collection-input,Collection Input>> and <<rc_remote-collections,Remote Collections>> conformance classes rely on the data server being accessed for input values to provide filtering capabilities to identify the subset of data to be fed to a process as input values.  The following conformance class:
 
 * <<rc_local-filtering,Local Filtering>>
 
