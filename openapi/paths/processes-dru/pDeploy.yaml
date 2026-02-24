@@ -19,13 +19,13 @@ post:
            $ref: "../../schemas/processes-dru/ogcapppkg.yaml"
        application/cwl:
          schema:
-           $ref: "https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/main/json-schema/cwl.yaml"
+           $ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
        application/cwl+json:
          schema:
-           $ref: "https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/main/json-schema/cwl.yaml"
+           $ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
        application/cwl+yaml:
          schema:
-           $ref: "https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/main/json-schema/cwl.yaml"
+           $ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
    responses:
      201:
        $ref: "../../schemas/processes-core/processSummary.yaml"
