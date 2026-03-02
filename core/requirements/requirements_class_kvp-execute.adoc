@@ -1,10 +1,28 @@
 [[rc_kvp-execute]]
 [requirements_class]
+.Requirements Class 'KVP-Execute'
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/kvp-execute
-label:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/kvp-execute
-obligation:: requirement
+identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/kvp-execute
 subject:: Web API
-inherit:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core
+inherit:: /req/core
+requirement:: /req/kvp-execute/array-input-value
+requirement:: /req/kvp-execute/bbox-crs-input-value
+requirement:: /req/kvp-execute/bbox-input-value
+requirement:: /req/kvp-execute/binary-input-value
+requirement:: /req/kvp-execute/binary-input-value-qualified
+requirement:: /req/kvp-execute/boolean-input-value
+requirement:: /req/kvp-execute/complex-input-value
+requirement:: /req/kvp-execute/f-definition
+requirement:: /req/kvp-execute/f-response
+requirement:: /req/kvp-execute/input-by-reference
+requirement:: /req/kvp-execute/input-cardinality
+requirement:: /req/kvp-execute/input-query-parameters
+requirement:: /req/kvp-execute/input-query-parameter-values
+requirement:: /req/kvp-execute/numeric-input-value
+requirement:: /req/kvp-execute/output
+requirement:: /req/kvp-execute/prefer-definition
+requirement:: /req/kvp-execute/prefer-response
+requirement:: /req/kvp-execute/process-execute-op
+requirement:: /req/kvp-execute/string-input-value
 ====

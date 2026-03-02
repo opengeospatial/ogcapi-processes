@@ -18,9 +18,9 @@ test-method::
 
 .. Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition.
 
-.. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration.
+.. Validate that the landing page includes a "https://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration.
 
-.. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/processes" link to the list of processes.
+.. Validate that the landing page includes a "https://www.opengis.net/def/rel/ogc/1.0/processes" link to the list of processes.
 
 --
 
@@ -33,6 +33,6 @@ NOTE: The landing page may be retrieved in one of two formats. The following tab
 [cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
-|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_html_content,/conf/html/content>>
-|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_json_content,/conf/json/content>>
+|HTML |link:https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_html_content,/conf/html/content>>
+|JSON |link:https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_json_content,/conf/json/content>>
 |===

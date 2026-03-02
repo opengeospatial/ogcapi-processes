@@ -1,0 +1,8 @@
+[[per_core_process-exception_process-gone]]
+[permission]
+====
+[%metadata]
+identifier:: /per/core/process-exception-process-gone
+
+If the operation is executed using a process identifier that once existed, the server MAY response with a HTTP status code 410.
+====

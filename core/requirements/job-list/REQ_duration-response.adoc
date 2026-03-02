@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/job-list/duration-response
-label:: /req/job-list/duration-response
 
 [.component,class=conditions]
 --
@@ -46,4 +45,5 @@ For completed jobs, the duration SHALL be computed as the value of the `finished
 --
 Jobs for which runtime statistics are not included in the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[status information] or are incomplete for computing the duration of the job SHALL be omitted from the response.
 --
+
 ====

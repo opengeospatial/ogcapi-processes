@@ -1,8 +1,11 @@
 [[rc_remote-collections]]
 [requirements_class]
+./Requirements Class 'Remote Collections'
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/remote-collections
-subject:: Remote Collections
-inherit:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-input
+identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/remote-collections
+subject:: Web API
+inherit:: /req/collection-input
+requirement:: /req/remote-collections/access
+requirement:: /req/remote-collections/referencing
 ====

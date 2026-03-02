@@ -3,10 +3,15 @@
 ====
 [%metadata]
 identifier:: /req/job-list/job-list-success
-label:: /req/job-list/job-list-success
 
-A successful execution of the operation SHALL be reported as a
-response with a HTTP status code 200.
-The content of that response SHALL be based upon the OpenAPI
-3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/jobList.yaml[jobList.yaml].
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported as a response with a HTTP status code 200.
+--
+
+[.component,class=part]
+--
+The content of that response SHALL be based upon the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/jobList.yaml[jobList.yaml].
+--
+
 ====

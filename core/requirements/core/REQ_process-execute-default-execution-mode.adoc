@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-default-execution-mode
-label:: /req/core/process-execute-default-execution-mode
 
 [.component,class=conditions]
 --
@@ -24,4 +23,5 @@ The server SHALL respond synchronously if, according to the job control options 
 --
 The server SHALL respond synchronously if, according to the job control options in the <<sc_process_description,process description>>, the process can be executed in either mode.
 --
+
 ====

@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/job-list/datetime-definition
-label:: /req/job-list/datetime-definition
 
 [.component,class=part]
 --

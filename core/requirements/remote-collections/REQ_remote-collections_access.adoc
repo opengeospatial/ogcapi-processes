@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/remote-collections/access
-label:: /req/remote-collections/access
 
 [.component,class=description]
 --
@@ -19,4 +18,5 @@ The server SHALL support accessing <<def-remote-collections,remote collections>>
 --
 The server SHALL, in the <<ogc_process_description,process description>> and for each relevant input, indicate which <<def-data-access-mechanism, OGC data access API(s)>> can be used to retrive input values for that input from the <<def-local-collection,collection>>.
 --
+
 ====

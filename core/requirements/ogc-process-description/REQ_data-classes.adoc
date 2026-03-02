@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/ogc-process-description/data-classes
-label:: /req/ogc-process-description/data-classes
 
 [.component,class=part]
 --
@@ -14,8 +13,9 @@ The `dataClasses` parameter SHALL be an array of zero or more items.
 --
 Each item in the `dataClasses` array SHALL be one of the following:
 
-. The identifier of a data class in the OGC Data Classes Register (the `dataClassId` value in the URI template http://www.opengis.net/def/dataClass/OGC/0/{dataClassId});
+. The identifier of a data class in the OGC Data Classes Register (the `dataClassId` value in the URI template https://www.opengis.net/def/dataClass/OGC/0/{dataClassId});
 
 . A HTTP(S) URI of a data class.
 --
+
 ====

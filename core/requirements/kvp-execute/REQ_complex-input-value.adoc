@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/complex-input-value
-label:: /req/kvp-execute/complex-input-value
 
 [.component,class=conditions]
 --

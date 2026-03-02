@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/collection-output/response-response-one
-label:: /req/collection-output/response-response-one
 
 [.component,class=conditions]
 --
@@ -21,4 +20,5 @@ The server SHALL response with an HTTP status code of https://datatracker.ietf.o
 --
 The response SHALL include a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[`Location`] response header redirecting to a <<def-collection-description,collection description document>>.
 --
+
 ====

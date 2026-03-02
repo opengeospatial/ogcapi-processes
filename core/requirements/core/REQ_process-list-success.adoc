@@ -3,10 +3,15 @@
 ====
 [%metadata]
 identifier:: /req/core/process-list-success
-label:: /req/core/process-list-success
 
-A successful execution of the _process_ operation SHALL be reported as a
-response with a HTTP status code 200.
-The content of that response SHALL be based upon the OpenAPI
-3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/processList.yaml[processList.yaml].
+[.component,class=part]
+--
+A successful execution of the _process_ operation SHALL be reported as a response with a HTTP status code 200.
+--
+
+[.component,class=part]
+--
+The content of that response SHALL be based upon the OpenAPI 3.0 schema https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/processList.yaml[processList.yaml].
+--
+
 ====

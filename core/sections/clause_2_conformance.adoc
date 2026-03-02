@@ -1,8 +1,7 @@
-
 [[sc_conformance]]
 == Conformance
 
-This Standard defines seven requirements / conformance classes.
+This Standard defines sixteen requirements / conformance classes.
 
 The standardization targets of all conformance classes are "Web APIs."
 
@@ -12,14 +11,15 @@ The main requirements class is:
 
 The _Core_ specifies requirements that all Web APIs have to implement.
 
-The _Core_ does not mandate a specific encoding or format for the representation of resources defined in this Standard.  Rather, two requirements classes depend on the _Core_ and specify representations for the resources specified in the _Corea_ in commonly used encodings for data on the Web:
+The _Core_ does not mandate a specific encoding or format for the representation of resources defined in this Standard.  Rather, two requirements classes depend on the _Core_ and specify representations for the resources specified in the _Core_ in commonly used encodings for data on the Web:
 
 * <<rc_json,JSON>>, and
 
 * <<rc_html,HTML>>.
 
-Furthermore, the _Core_ does not mandate any encoding or format for the formal definition of the Processes API. The OpenAPI specification is one option for defining the Processes API. As such a requirements classes have been specified for OpenAPI 3.0 and 3.1, which depends on the requirements class _Core_:
+Furthermore, the _Core_ does not mandate any encoding or format for the formal definition of the Processes API. The OpenAPI specification is one option for defining the Processes API. As such a requirements classes have been specified for supporting OpenAPI and specifically OpenAPI 3.0 and 3.1, which depends on the requirements class _Core_:
 
+* <<rc_oas,OpenAPI Support>>
 * <<rc_oas30,OpenAPI Specification 3.0>>
 * <<rc_oas31,OpenAPI Specification 3.1>>
 
@@ -39,15 +39,49 @@ The _Core_ does not mandate the use of any specific process description language
 * <<rc_ogc-process-description,OGC Process Description>>
 
 This class defines an information model, encoded in JSON, which may be used to
-specify the interface of a process.
+specify the interface of a process including the inputs that the process expects and the outputs that the process will generate.
+
+Besides the standard input types one might expect for a process (e.g. integer, string, double, etc.) this Standard defines the following conformance class: 
+
+* <<rc_collection-input,Collection Input>> 
+
+that allows OGC API collections to be specified as process inputs.  The <<rc_collection-input,Collection Input>> class only supports collections that are local to the current deployment to be specified as process inputs.  The following conformance class:
+
+* <<rc_remote-collections,Remote Collections>> 
+
+extends the collection input requirements to support specifying remote collections as process inputs.
+
+By default, the <<rc_collection-input,Collection Input>> and <<rc_remote-collections,Remote Collections>> conformance classes rely on the data server being accessed for input values to provide filtering capabilities to identify the subset of data to be fed to a process as input values.  The following conformance class:
+
+* <<rc_local-filtering,Local Filtering>>
+
+defines requirements that allow the processing server itself to perform filtering of input values in the cases where the value source server does not support the requested filtering operations (e.g. applying a CQL2 filter to data from a server that does not support CQL2 filtering).
+
+In addition to supporting collections as process inputs, the following conformance class:
+
+* <<rc_collection-output,Collection Output>>
+
+defines requirements that allow process execution to be triggered by requesting output data using an standard <<def-data-access-mechanism,OGC API data access mechanisms>>.  In this way, process execution becomes opaque, hidden behind a standard OGC data access API (e.g. features, coverages, etc.).  
+
+In the <<rc_core,Core>> executing a process requires sending a JSON-encoded execution request to the server using the HTTP POST method.  To support embedding process execution requests into other documents this Standard defines the:
+
+* <<rc_kvp-execute,KVP-encoded Excute>>
+
+conformance class which allows process inputs to be encoded as query parameters on a URL and process execution to be invoked using the HTTP GET method.
+
+The standard request and response encoding used in this Standard is JSON.  The standard media type for JSON is `application/json` which does not allow for the descrimition of one JSON schema from another.  In order to resolve this issue the Standard supports content negotiation by profile and defines the `profile` query parameter in the:
+
+* <<rc_query-param-profile>.
+
+conformance class.  Using the `profile` query parameter JSON-encoded responses can be requested that conform to a specific JSON schemas.
 
 Three additional conformance classes are specified that extend the basic functionality of an API:
 
-* <<rc_job-list,Job list>>, and
+* <<rc_job-list,Job list>> for request a list of jobs with optional filtering capabilities, 
 
-* <<rc_callback,Callback>>, and
+* <<rc_dismiss,Dismiss>> for cancelling active jobs or deleting completed jobs, and
 
-* <<rc_dismiss,Dismiss>>.
+* <<rc_callback,Callback>> for supporting a callback mechnanism to get notification of completed jobs.
 
 Additional capabilities such as support for transactions, extended job monitoring, etc., may be specified in future parts of the OGC API - Processes series or as vendor-specific extensions.
 
@@ -58,14 +92,20 @@ Conformance with this Standard SHALL be checked using all the relevant tests spe
 |===
 | Conformance class | URI
 
-|<<ats_core,Core>> |http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/core
-|<<ats_ogc-process-description,OGC Process Description>> |http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/ogc-process-description
-|<<ats_json_content,JSON>> |http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/json
-|<<ats_html_content,HTML>> |http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/html
-|<<ats_oas,OpenAPI Specification>> |http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas
-|<<ats_oas30,OpenAPI Specification 3.0>> |http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas30
-|<<ats_oas31,OpenAPI Specification 3.1>> |http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas31
-|<<ats_job-list,Job list>> |http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/job-list
-|<<ats_callback,Callback>> |http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/callback
-|<<ats_dismiss,Dismiss>> |http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/dismiss
+|<<ats_core,Core>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/core
+|<<ats_ogc-process-description,OGC Process Description>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/ogc-process-description
+|<<ats_json_content,JSON>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/json
+|<<ats_html_content,HTML>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/html
+|<<ats_oas,OpenAPI Specification>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas
+|<<ats_oas30,OpenAPI Specification 3.0>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas30
+|<<ats_oas31,OpenAPI Specification 3.1>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/oas31
+|<<ats_job-list,Job list>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/job-list
+|<<ats_callback,Callback>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/callback
+|<<ats_dismiss,Dismiss>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/dismiss
+|<<ats_collection-input,Collection Input>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/collection-input
+|<<ats_remote-collections,Remove Collections>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/remote-collections
+|<<ats_collection-output,Collection Output>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/collection-output
+|<<ats_local-filtering,Local Filtering>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/local-filtering
+|<<ats_kvp-execute,KVP-encoded Execute>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/kvp-execute
+|<<ats_query-param-profile,Profile Query Parameter>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/query-param-profile
 |===

@@ -42,8 +42,8 @@ A search or filter condition.  This condition determines which resources from th
 
 Asserts the CRS used for the coordinate values of the `filter` parameter.  The default is WGS 84 or WGS 84h depending on whether ellispoidal jeight is included with the coordinates or not:
 
-* WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
-* WGS 84h longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h_
+* WGS 84 longitude/latitude (https://www.opengis.net/def/crs/OGC/1.3/CRS84)
+* WGS 84h longitude/latitude/ellipsoidal height (https://www.opengis.net/def/crs/OGC/0/CRS84h_
 
 **Parameter filterLang**
 
@@ -58,9 +58,9 @@ Only resources that have a geometry that intersects the bounding box are selecte
 Asserts the CRS used for the coordinate values of the `bbox` parameter.  The default is WGS 84 or WGS84h depending on whether ellipsoidal height is included or not:
 
 * WGS 84 longitude/latitude [4 numbers]
-  (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
+  (https://www.opengis.net/def/crs/OGC/1.3/CRS84)
 * WGS 84h longitude/latitude/ellipsoidal height [6 numbers]
-  (http://www.opengis.net/def/crs/OGC/0/CRS84h_
+  (https://www.opengis.net/def/crs/OGC/0/CRS84h_
 
 **Parameter datetime**
 
@@ -74,8 +74,8 @@ Retrieve only part of the data by slicing or trimming along one or more axis. Fo
 
 Asserts the CRS used for the coordinate values of the `subset` parameter.  The default is WGS 84 or WGS 84h depending on whether ellispoidal height in included with the coordinates or not:
 
-* WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
-* WGS 84h longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h_
+* WGS 84 longitude/latitude (https://www.opengis.net/def/crs/OGC/1.3/CRS84)
+* WGS 84h longitude/latitude/ellipsoidal height (https://www.opengis.net/def/crs/OGC/0/CRS84h_
 
 **Parameter geometry**
 
@@ -85,8 +85,8 @@ Only resources that have a geometry that intersects the geometry specified using
 
 Asserts the CRS used for the coordinate values of the `geometry` parameter.  The default is WGS 84 or WGS84h depending on whether ellipsoidal height is included or not:
 
-* WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
-* WGS 84h longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h_
+* WGS 84 longitude/latitude (https://www.opengis.net/def/crs/OGC/1.3/CRS84)
+* WGS 84h longitude/latitude/ellipsoidal height (https://www.opengis.net/def/crs/OGC/0/CRS84h_
 
 **Parameter limit**
 
@@ -106,7 +106,7 @@ T.B.D.  A list of STAC asset tags.
 
 **Parameter crs**
 
-If the parameter is specified, then the coordinates of all geometry-valued properties in a response document are in the requested CRS. Otherwise the coordinates are in the default CRS, that is http://www.opengis.net/def/crs/OGC/1.3/CRS84 for coordinates without height and http://www.opengis.net/def/crs/OGC/0/CRS84h for coordinates with ellipsoidal height.
+If the parameter is specified, then the coordinates of all geometry-valued properties in a response document are in the requested CRS. Otherwise the coordinates are in the default CRS, that is https://www.opengis.net/def/crs/OGC/1.3/CRS84 for coordinates without height and https://www.opengis.net/def/crs/OGC/0/CRS84h for coordinates with ellipsoidal height.
 
 [[sc-property-selection]]
 ===== Property selection & derived properties
@@ -170,7 +170,7 @@ See: <<sc-property-selection,Property selection & derived properties>>
 
 ===== Pass through parameters
 
-See: <<sc-pass-though,Pass through parameters>>
+See: <<sc-pass-through,Pass through parameters>>
 
 [[sc_collection_output]]
 === REQUIREMENTS CLASS "COLLECTION OUTPUT"

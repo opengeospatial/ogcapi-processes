@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-success-async
-label:: /req/core/process-execute-success-async
 
 [.component,class=conditions]
 --
@@ -24,5 +23,5 @@ The header of the response SHALL return the HTTP https://datatracker.ietf.org/do
 --
 The content of the response SHALL be based upon the JSON Schema fragment https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[statusInfo.yaml].
 --
-====
 
+====

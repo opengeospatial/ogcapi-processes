@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/ogc-process-description/outputs-def
-label:: /req/ogc-process-description/outputs-def
 
 [.component,class=part]
 --
@@ -14,4 +13,5 @@ Each process output definition SHALL be listed in the `outputs` section accordin
 --
 The key for each process output in the `output` section of the process definition SHALL be the identifier for that output.
 --
+
 ====

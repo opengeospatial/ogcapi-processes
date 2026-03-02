@@ -2,12 +2,11 @@
 [requirement]
 ====
 [%metadata]
-identifier:: /req/core/job-results-exception/results-not-ready
-label:: /req/core/job-results-exception/results-not-ready
+identifier:: /req/core/job-results-exception-results-not-ready
 
 [.component,class=conditions]
 --
-. The request is execute on a running job with valid job identifier `jobID`.
+. The request is executed on a running job with valid job identifier `jobID`.
 --
 
 [.component,class=part]
@@ -22,6 +21,7 @@ The content of that response SHALL be based upon the OpenAPI 3.0 schema https://
 
 [.component,class=part]
 --
-The `type` of the exception SHALL be "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-ready".
+The `type` of the exception SHALL be "https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/result-not-ready".
 --
+
 ====

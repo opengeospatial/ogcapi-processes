@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/remote-collections/referencing
-label:: /req/remote-collections/referencing
 
 .component,class=description]
 --
@@ -24,4 +23,5 @@ The value of the `collection` parameter SHALL be a URI identifying a <<def-remot
 --
 The URI path SHALL not extend past the collection element in order to allow the server to decide, based on the expected input value type from the <<sc_process_description,process description>> and other factors, which supported <<def-data-access-mechanism,data access mechanisms>> should be employed to retrived input values from the <<def-remote-collections,collection>>.
 --
+
 ====

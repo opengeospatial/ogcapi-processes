@@ -3,11 +3,8 @@
 ====
 [%metadata]
 identifier:: /req/core/job-results-param-outputs
-label:: /req/core/job-results-param-outputs
 
-[.component,class=part]
---
-The operation at the `/jobs/{jobID}/results` endpoint SHALL support a query parameter `outputs` with the following characteristics (using an OpenAPI Specification fragment):
+The operation at the `/jobs/{jobID}/results` endpoint SHALL support a parameter `outputs` with the following characteristics (using an OpenAPI Specification fragment):
 
 [source,yaml]
 ----
@@ -21,5 +18,4 @@ schema:
 style: form
 explode: false
 ----
---
 ====

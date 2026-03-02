@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/job-results-async-many
-label:: /req/core/job-results-async-many
 
 [.component,class=conditions]
 --

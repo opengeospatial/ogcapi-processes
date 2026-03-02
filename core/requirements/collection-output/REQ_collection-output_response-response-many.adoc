@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/collection-output/response-response-many
-label:: /req/collection-output/response-response-many
 
 [.component,class=conditions]
 --
@@ -31,4 +30,5 @@ The content of response SHALL conform to the <<schema_results,results.yaml>> sch
 --
 Each collection output in the response SHALL be a link to a <<def-collection-description,collection description document>>.
 --
+
 ====

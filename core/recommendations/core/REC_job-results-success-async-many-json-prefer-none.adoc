@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /rec/core/job-results-async-many-json-prefer-none
-label:: /rec/core/job-results-async-many-json-prefer-none
 
 [.component,class=conditions]
 --

@@ -1,5 +1,4 @@
 [[ats_collection-input_collection-access]]
-
 [abstract_test]
 ====
 [%metadata]

@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/collection-input/collection-access
-label:: /req/collection-input/collection-access
 
 [.component,class=description]
 --
@@ -19,6 +18,10 @@ The server SHALL support accessing <<def-local-collection,local collections>> us
 --
 The server SHALL, in the <<ogc_process_description,process description>> and for each relevant input, indicate which <<def-data-access-mechanism, OGC data access API(s)>> can be used to retrive input values for that input from the <<def-local-collection,collection>>.
 --
+
 ====
 
-NOTE: For <<def-local-collection,local collections>>, the specification is agnostic to how data flows from the <<def-local-collection,collection>> to the process.
+[NOTE]
+====
+For <<def-local-collection,local collections>>, the specification is agnostic to how data flows from the <<def-local-collection,collection>> to the process.
+====

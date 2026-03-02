@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/ogc-process-description/data-access-apis
-label:: /req/ogc-process-description/data-access-apis
 
 [.component,class=part]
 --

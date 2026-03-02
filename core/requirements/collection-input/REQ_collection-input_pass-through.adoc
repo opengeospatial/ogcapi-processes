@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/collection-input/pass-through
-label:: /req/collection-input/pass-through
 
 [.component,class=description]
 --
@@ -18,6 +17,7 @@ The server SHALL support the following parameters:
 
 as defined in the <<collection-value-schema,"collectionValue.yaml">> schema.
 --
+
 ====
 
 

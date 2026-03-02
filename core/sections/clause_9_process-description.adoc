@@ -10,7 +10,7 @@ class.
 
 include::../requirements/requirements_class_ogc-process-description.adoc[]
 
-The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the http://docs.opengeospatial.org/is/14-065/14-065.html[OGC WPS 2.0.2 Interface Standard] but also includes elements of the http://spec.openapis.org/oas/v3.0.3[OpenAPI Specification].  Specifically, this process description languages uses https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragments to define the input and output parameters of a process.  As such, this process description provides a bridge from legacy implementations to using the OGC API Framework.
+The OGC process description is an information model that may be used to specify the interface of a process.  This model is an evolution of the process description model originally defined in the https://docs.opengeospatial.org/is/14-065/14-065.html[OGC WPS 2.0.2 Interface Standard] but also includes elements of the https://spec.openapis.org/oas/v3.0.3[OpenAPI Specification].  Specifically, this process description languages uses https://json-schema.org/draft/2020-12/json-schema-core.html[JSON Schema] fragments to define the input and output parameters of a process.  As such, this process description provides a bridge from legacy implementations to using the OGC API Framework.
 
 NOTE: The use of other schema languages for describing the interface to a process is permitted but is outside the scope of this Standards.  A description of how other schema languages would be used to describe the interface of a process would need to be described in a new conformance class added to this Standard or in a new Part of the OGC API - Processes suite of standards.
 
@@ -174,22 +174,22 @@ The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-sc
 [options="header"]
 |===
 ^|Key value ^|Short code ^|Description
-|http://www.opengis.net/def/format/ogcapi-processes/0/geojson-feature-collection |geojson-feature-collection |Indicates that the value is an instance of a GeoJSON feature collection http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.yaml[(featureCollectionGeoJSON.yaml)].
-|http://www.opengis.net/def/format/ogcapi-processes/0/geojson-feature |geojson-feature |Indicates that the value is an instance of a GeoJSON feature http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureGeoJSON.yaml[(featureGeoJSON.yaml)].
-|http://www.opengis.net/def/format/ogcapi-processes/0/geojson-geometry |geojson-geometry |Indicates that the value is an instance of a GeoJSON geometry http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml[(geometryGeoJSON.yaml)].
-|http://www.opengis.net/def/format/ogcapi-processes/0/ogc-bbox |ogc-bbox |Indicates that the value is an instance of an OGC bounding box https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/bbox.yaml[(bbox.yaml)].
-|http://www.opengis.net/def/format/ogcapi-processes/0/epsg-code |epsg-code |Indicates that the string value is a code from the https://epsg.io/[EPSG registry].
-|http://www.opengis.net/def/format/ogcapi-processes/0/wkt2-definition |wkt2-definition |Indicates that the string value is a https://docs.ogc.org/is/18-010r11/18-010r11.pdf[well-known text representation of a coordinate reference system].
-|http://www.opengis.net/def/format/ogcapi-processes/0/cql2-text-filter |cql2-text |Indicates that the string value is a filter expression encoded using the text representation of the https://docs.ogc.org/is/21-065r2/21-065r2.html[Common Query Language (CQL2)].
-|http://www.opengis.net/def/format/ogcapi-processes/0/cql2-json-filter |cql2-json |Indicates that the string value is a filter expression encoded using the JSON representation of the https://docs.ogc.org/is/21-065r2/21-065r2.html[Common Query Language (CQL2)].
-|http://www.opengis.net/def/format/ogcapi-processes/0/collection-id |collection-id |Indicates that the string value is a https://docs.ogc.org/DRAFTS/20-024.html#collection-description[collection identifier] (e.g. a feature collection identifier).
-|http://www.opengis.net/def/format/ogcapi-processes/0/stac-collection |stac-collection |Indicates that the value is an instance of a https://github.com/radiantearth/stac-spec/blob/v1.1.0/collection-spec/collection-spec.md[STAC collection].
-|http://www.opengis.net/def/format/ogcapi-processes/0/stac-catalog |stac-catalog |Indicates that the value is an instance of a https://github.com/radiantearth/stac-spec/blob/v1.1.0/catalog-spec/catalog-spec.md[STAC catalog].
-|http://www.opengis.net/def/format/ogcapi-processes/0/stac-item-collection |stac-item-collection |Indicates that the value is a https://github.com/radiantearth/stac-api-spec/blob/release/v1.0.0/fragments/itemcollection/README.md[STAC ItemCollection].
-|http://www.opengis.net/def/format/ogcapi-processes/0/stac-item |stac-item |Indicates that the value is an instance of a https://github.com/radiantearth/stac-spec/blob/v1.1.0/item-spec/item-spec.md[STAC item].
-|http://www.opengis.net/def/format/ogcapi-processes/0/stac |stac |Indicates that the value is an instance of any of the STAC types listed above (i.e. one of `stac-collection`, `stac-catalog`, `stac-item-collection`, or `stac-item`).
-|http://www.opengis.net/def/format/ogcapi-processes/0/ogc-feature-collection |ogc-feature-collection |Indicates that the value is an instance of an https://docs.ogc.org/is/17-069r4/17-069r4.html#_collection_[OGC feature collection].
-|http://www.opengis.net/def/format/ogcapi-processes/0/ogc-coverage-collection |ogc-coverage-collection |Indicates that the value is an instance of an https://docs.ogc.org/DRAFTS/19-087.html#_extended_collection_description_response_collectionscollectionid[OGC coverage collection].
+|https://www.opengis.net/def/format/ogcapi-processes/0/geojson-feature-collection |geojson-feature-collection |Indicates that the value is an instance of a GeoJSON feature collection https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureCollectionGeoJSON.yaml[(featureCollectionGeoJSON.yaml)].
+|https://www.opengis.net/def/format/ogcapi-processes/0/geojson-feature |geojson-feature |Indicates that the value is an instance of a GeoJSON feature https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/featureGeoJSON.yaml[(featureGeoJSON.yaml)].
+|https://www.opengis.net/def/format/ogcapi-processes/0/geojson-geometry |geojson-geometry |Indicates that the value is an instance of a GeoJSON geometry https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml[(geometryGeoJSON.yaml)].
+|https://www.opengis.net/def/format/ogcapi-processes/0/ogc-bbox |ogc-bbox |Indicates that the value is an instance of an OGC bounding box https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/bbox.yaml[(bbox.yaml)].
+|https://www.opengis.net/def/format/ogcapi-processes/0/epsg-code |epsg-code |Indicates that the string value is a code from the https://epsg.io/[EPSG registry].
+|https://www.opengis.net/def/format/ogcapi-processes/0/wkt2-definition |wkt2-definition |Indicates that the string value is a https://docs.ogc.org/is/18-010r11/18-010r11.pdf[well-known text representation of a coordinate reference system].
+|https://www.opengis.net/def/format/ogcapi-processes/0/cql2-text-filter |cql2-text |Indicates that the string value is a filter expression encoded using the text representation of the https://docs.ogc.org/is/21-065r2/21-065r2.html[Common Query Language (CQL2)].
+|https://www.opengis.net/def/format/ogcapi-processes/0/cql2-json-filter |cql2-json |Indicates that the string value is a filter expression encoded using the JSON representation of the https://docs.ogc.org/is/21-065r2/21-065r2.html[Common Query Language (CQL2)].
+|https://www.opengis.net/def/format/ogcapi-processes/0/collection-id |collection-id |Indicates that the string value is a https://docs.ogc.org/DRAFTS/20-024.html#collection-description[collection identifier] (e.g. a feature collection identifier).
+|https://www.opengis.net/def/format/ogcapi-processes/0/stac-collection |stac-collection |Indicates that the value is an instance of a https://github.com/radiantearth/stac-spec/blob/v1.1.0/collection-spec/collection-spec.md[STAC collection].
+|https://www.opengis.net/def/format/ogcapi-processes/0/stac-catalog |stac-catalog |Indicates that the value is an instance of a https://github.com/radiantearth/stac-spec/blob/v1.1.0/catalog-spec/catalog-spec.md[STAC catalog].
+|https://www.opengis.net/def/format/ogcapi-processes/0/stac-item-collection |stac-item-collection |Indicates that the value is a https://github.com/radiantearth/stac-api-spec/blob/release/v1.0.0/fragments/itemcollection/README.md[STAC ItemCollection].
+|https://www.opengis.net/def/format/ogcapi-processes/0/stac-item |stac-item |Indicates that the value is an instance of a https://github.com/radiantearth/stac-spec/blob/v1.1.0/item-spec/item-spec.md[STAC item].
+|https://www.opengis.net/def/format/ogcapi-processes/0/stac |stac |Indicates that the value is an instance of any of the STAC types listed above (i.e. one of `stac-collection`, `stac-catalog`, `stac-item-collection`, or `stac-item`).
+|https://www.opengis.net/def/format/ogcapi-processes/0/ogc-feature-collection |ogc-feature-collection |Indicates that the value is an instance of an https://docs.ogc.org/is/17-069r4/17-069r4.html#_collection_[OGC feature collection].
+|https://www.opengis.net/def/format/ogcapi-processes/0/ogc-coverage-collection |ogc-coverage-collection |Indicates that the value is an instance of an https://docs.ogc.org/DRAFTS/19-087.html#_extended_collection_description_response_collectionscollectionid[OGC coverage collection].
 |===
 
 NOTE: This list of values has been submitted to the https://www.ogc.org/projects/groups/ogcnasc[OGC Naming Authority] for registration in their definition server.
@@ -217,7 +217,7 @@ The following JSON Schema fragment illustrates the use of the `format` key to in
       {
         "type": "string",
         "contentMediaType": "application/gml+xml; version=3.2",
-        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+        "contentSchema": "https://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
       },
       {
         "format": "geojson-geometry"

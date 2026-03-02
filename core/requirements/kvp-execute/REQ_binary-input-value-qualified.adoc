@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/binary-input-value-qualified
-label:: /req/kvp-execute/binary-input-value-qualified
 
 [.component,class=conditions]
 --
@@ -44,4 +43,5 @@ explode: true
 
 where the token `{inputID}` represents the identifier of the input.
 --
+
 ====

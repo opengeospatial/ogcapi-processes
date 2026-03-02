@@ -15,6 +15,6 @@ test-method::
 
 3. Verify that the body of the response conforms to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml] schema.
 
-4. Verify that the `type` of the exception is "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/invalid-query-parameter-value".
+4. Verify that the `type` of the exception is "https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/invalid-query-parameter-value".
 --
 ====

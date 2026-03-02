@@ -1,4 +1,4 @@
-[[ats_remote-collections-access]]
+[[ats_remote-collections_access]]
 [abstract_test]
 ====
 [%metadata]

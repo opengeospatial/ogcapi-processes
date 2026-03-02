@@ -2,16 +2,52 @@
 [[overview]]
 == Overview
 
-The OGC API - Processes Standard builds on the WPS 2.0 Standard and is modularized. This means that there is a separation between:
+=== Web Processing Service
 
-* Core requirements, that specify basic capabilities and can easily be mapped to existing OGC Web Processing Services.
-* More advanced functionality that is not specified in WPS 2.0.
+The OGC Web Processing Service (WPS) is a legacy interface standard that defines how to offer and execute geospatial processing algorithms over the web.  The WPS standard is designed to wrap any type of GIS functionality—from a simple "buffer" tool to a complex climate model—into a web service that can be discovered and invoked by any compliant client.  The WPS standard is built around three mandatory "requests" (methods) that a client can send to a server.  The methods are:
 
+* **GetCapabilites:** Returns metadata about the service including a list of all
+ avilable processes hosted by the server.
+* **DescribeProcess:** Provides a detailed description of a specific process inc
+luding its required inputs and the output that it produces.
+* **Execute:** Tells the server to run a specified process with the set of provi
+ded inputs.
+
+The WPS uses a rigid RPC-style invocation method using a fixed endpoint with different values for the "request" parameter to invoke the different methods.  It also relies heavily of XML and complex GML schemas.
+
+The requirements in the OGC API – Processes Standard are designed to provide the same functionality as a WPS implementation but based on modern resource-oriented web architectural patterns.
+
+=== Resources overview
+
+The following table provides a summary of the resources and method specified by the OGC API - Processes Standard.
+
+[[table_core_resources]]
+.Requirements class `Core`
+[cols=",,,,",options="header"]
+|===
+|Resource description |Path |HTTP method |Parameter |Document reference
+|Landing page |`/` |GET |N/A |<<sc_landing_page>>
+|Conformance classes |`/conformance` |GET |N/A |<<sc_conformance_classes>>
+|Lists all available processes offered by the server|`/processes` |GET |N/A |<<sc_process_list>>
+|Provides detailed matadata about a specific process |`/processes/{processID}` |GET |processID (in path)|<<sc_process_description>>
+|The endpoint used to trigger execution of a process |`/processes/{processID}/execution` |POST |processID (in path), Execute request (contained in body) |<<sc_execute_process>>
+|List of all current and past processing jobs|`/jobs` |GET | N/A |<<sc_job_list>>
+|Status of a specific job|`/jobs/{jobID}` |GET |jobID (in path) |<<sc_retrieve_status_info>>
+|The endpoint to retrieve all requested processing results|`/jobs/{jobID}/results` |GET |jobID (in path) |<<sc_retrieve_job_results_many>>
+|The endpoint to retrieve a specific processing result|`/jobs/{jobID}/results/{outputID}` |GET |jobID (in path), outputID (in path) |<<sc_retrieve_job_results_one>>
+|Dismiss a job|`/jobs/{jobID}` |DELETE| jobID (in path) | <<Dismiss>>
+|===
 
 === Encodings
 
 JSON is the encoding for requests and responses. The inputs and outputs of a process can be in any format. The formats are defined at the time of job creation and are fixed for the specific job.
 
-<<rc_html,Support for HTML>> is recommended as HTML is the core language of the World Wide Web.
-A server that supports HTML will support browsing with a web browser
-and will enable search engines to crawl and index the processes.
+<<rc_html,Support for HTML>> is recommended as HTML is the core language of the World Wide Web.  A server that supports HTML will support browsing with a web browser and will enable search engines to crawl and index the processes.
+
+=== Execution modes
+
+The standard supports two ways of execution a process:
+
+* **Synchronous:** The client stays connected and waits for the server to finish the task and return the result immediately. This is ideal for quick calculations.
+
+* **Asynchronous:** The server acknowledges the request and provides a job ID. The client polls the job status and retrieves the results later. This is necessary for long-running computations.

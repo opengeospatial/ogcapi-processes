@@ -1,56 +1,27 @@
 .Preface
 
-The OGC API - Processes Standard defines how a client application can request the execution of a process, how the inputs to that process can be provided, and how the output from the process is handled. The Standard specified who to "wrap" computational tasks into an executable process that can be invoked by a client application. Examples of computational processes that can be supported by implementations of API Processes include raster algebra, geometry buffering, constructive area geometry, routing, imagery analysis and several others.
+This Standard specified how to "wrap" computational tasks into an executable process that can be invoked by a client application. Examples of computational processes that can be supported by implementations of API Processes include raster algebra, geometry buffering, constructive area geometry, routing, imagery analysis, AI models, and others.  Specifically, the OGC API - Processes Standard defines how a client application can request the execution of a process, how the inputs to that process can be provided, and how the outputs from that process are retrieved. 
 
 [abstract]
 == Abstract
 
-The OGC API - Processes Standard specifies a Web API that enables the execution of computing processes, the retrieval of metadata describing their purpose and functionality and the retrieval of the results of the process execution.  The requirements specified in the OGC API — Processes Standard build on the OGC Web Processing Service (WPS) 2.0 Standard and specify a processing interface to communicate over a RESTful protocol using JSON encodings.
+The OGC API - Processes Standard is a resource-oriented API that allows for the execution of computing processes and the retrieval of metadata describing those processes. It is the modern, RESTful successor to the older Web Processing Service (WPS) standard.  It utilizes OpenAPI, JSON and modern web architectural patterns to make geospatial processing more accessible to web developers.
 
-By way of background and context, in many cases geospatial or location data (including data from sensors) must be processed before the information can be effectively used. The OGC Web Processing Service (WPS) Interface Standard specifies a standard interface that simplifies the task of making simple or complex computational geospatial processing services accessible via web services. Such services include well-known GIS processes as well as specialized processes for spatiotemporal modeling and simulation. While the OGC WPS Standard was designed with spatial processing in mind, WPS implementations could also be used to readily insert non-spatial processing tasks into a web services environment.  The WPS Standard provides a robust, interoperable, and versatile protocol for process execution on web services. Implementations of the WPS Standard can support both immediate processing for computational tasks that take little time and asynchronous processing for more complex and time-consuming tasks. Moreover, the WPS Standard defines a general process model that is designed to provide an interoperable description of processing functions. The WPS Standard was designed to support process cataloging and discovery in a distributed environment.
+The key benefits of the Standard are:
 
-The requirements in the OGC API – Processes Standard are designed to provide the same implementation functionality as a WPS implementation but are based on a more modern way of programming and interacting with resources over the web while allowing better integration into existing software packages.
+* **Developer friendly:** By default, the Standard uses JSON and integrates easily with modern web frameworks and tools like Swagger/ReDoc.
 
-The resources that are provided by a server implementing the OGC API - Processes Standard are listed in <<table_core_resources>> below and include information about the server, the list of available processes (Process list and Process description), jobs (running processes) and
-results of process executions.
+* **Scalable:** The Standard is designed to work well with cloud-native architectures, microservices and containerized environments.
 
-This following table provides an overview of resources, applicable HTTP methods and links to the related document sections.
+* **Modular:** The "building-blocks" approach allows servers to implement only what they need (e.g. a server might support process execution but not dynamic process deployment).
 
-[[table_core_resources]]
-.Requirements class `Core`
-[cols=",,,,",options="header"]
-|===
-|Resource |Path |HTTP method |Parameter |Document reference
-|Landing page |`/` |GET |N/A |<<sc_landing_page>>
-|Conformance classes |`/conformance` |GET |N/A |<<sc_conformance_classes>>
-|Process list |`/processes` |GET |N/A |<<sc_process_list>>
-|Process description |`/processes/{processID}` |GET |processID (in path)|<<sc_process_description>>
-|Process execution |`/processes/{processID}/execution` |POST |processID (in path), Execute request (contained in body) |<<sc_execute_process>>
-|Job status info |`/jobs/{jobID}` |GET |jobID (in path) |<<sc_retrieve_status_info>>
-|Job results |`/jobs/{jobID}/results` |GET |jobID (in path) |<<sc_retrieve_job_results_many>>
-|Result |`/jobs/{jobID}/results/{outputID}` |GET |jobID (in path), outputID (in path) |<<sc_retrieve_job_results_one>>
-|===
+* **Interoperable:** Standardizing how parameters are passed to algorithms ensures that a client can trigger a process on any compliant server regardless of the underlying programming language (e.g. C, Python, Java, etc.)
 
-In general, the HTTP GET operation is used to provide access to the resources described above.
-However, in order to execute a process, the HTTP POST method is used to send an <<execute-request-body,execute request>> to the server.
+Like other OGC APIs (such as Features or Records), OGC API Processes uses a common core for landing pages, conformance declarations, and API definitions. This consistency allows developers to use similar patterns across different types of geospatial web services.
 
-Additionally, the `/jobs` endpoint can be used to grant access to a list of jobs.
+== Acknowledgements
 
-.Requirements class `Job list`
-[cols="27,25,10,10,28",options="header"]
-|===
-|Resource |Path |HTTP method | Parameter| Document reference
-|Job list |`/jobs` |GET | N/A |<<sc_job_list>>
-|===
-
-In addition to the operations accessible through HTTP GET and POST methods, the DELETE method can be used to cancel a job execution and/or remove traces of the job execution.
-
-.Requirements class `Dismiss`
-[cols="27,25,10,10,28",options="header"]
-|===
-|Resource |Path |HTTP method | Parameter| Document reference
-|Job status info |`/jobs/{jobID}` |DELETE| jobID (in path) | <<Dismiss>>
-|===
+Requirements integrated within version 2.0 of this OGC API - Processes Standard was sourced from Part 3: Workflows, whose development was undertaken as part of GeoConnections 2020-2021 and 2025-2027 projects GNS20-21IFP02 (Modular OGC API Workflows) and GNS25-27IFP2 (Advancing and Implementing OGC Standards for GeoDataCubes, DGGSs, Data Stores for Digital Twins and Cartographic Symbology). Financial support provided by GeoConnections, a national collaborative initiative led by Natural Resources Canada. GeoConnections supports the modernization of the Canadian Geospatial Data Infrastructure (CGDI). The CGDI is the collection of geospatial data, standards, policies, applications, and governance that facilitate its access, use, integration, and preservation.
 
 == Submitters
 

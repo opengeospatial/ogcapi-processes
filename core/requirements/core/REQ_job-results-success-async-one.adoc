@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/job-results-async-one
-label:: /req/core/job-results-async-one
 
 [.component,class=conditions]
 --
@@ -26,4 +25,5 @@ The media type of the response SHALL be as negotiated as per the https://datatra
 --
 The content of response body SHALL be the requested process output value in the negotiated output format.
 --
+
 ====

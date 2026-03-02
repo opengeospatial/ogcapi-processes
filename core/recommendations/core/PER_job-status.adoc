@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /per/core/job-status
-label:: /per/core/job-status
 
 [.component,class=part]
 --
