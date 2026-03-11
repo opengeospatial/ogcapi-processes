@@ -24,7 +24,7 @@ properties:
     description: |-
       . The zero-based sorting key.
       . The value can be an integer or a string.
-      . If the value is a string the is number be an expression that evaluates
+      . If the value is a string then it should be an expression that evaluates
         to a single integer value or null.
     oneOf:
       - type: integer
