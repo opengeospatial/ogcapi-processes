@@ -1,0 +1,10 @@
+[[rec_deploy-replace-undeploy_replace_body-argo]]
+[recommendation]
+====
+[%metadata]
+label:: /rec/deploy-replace-undeploy/replace/body-argo
+
+part:: If a process can be described for the intended use as a <<rc_argo,Argo graph>>, implementations should consider supporting the <<rc_argo,Argo>> encoding for describing the replacement process.
+
+part:: The media type `application/argo` shall be used to indicate that request body contains a processes description encoded as <<rc_ogcapppkg,Argo>>.
+====
