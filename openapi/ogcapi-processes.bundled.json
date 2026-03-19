@@ -177,7 +177,7 @@
         },
         "responses": {
           "201": {
-            "$ref": "#/components/schemas/processSummary"
+            "$ref": "#/components/responses/ProcessDescription"
           },
           "400": {
             "description": "The requested workflow does not exist on the server.",

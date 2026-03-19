@@ -31,7 +31,11 @@ post:
            $ref: "../../schemas/cwl/cwl.yaml"
    responses:
      201:
-       $ref: "../../schemas/processes-core/processSummary.yaml"
+       # This processSummary.yaml is a schema, not a response
+       #$ref: "../../schemas/processes-core/processSummary.yaml"
+       # NOTE: processDescription includes processSummary.yaml, but also specify inputs and outputs (not required)
+       # Define a new ../../responses/processes-dru/processSummary.yaml if a schema without those is needed
+       $ref: "../../responses/processes-core/rProcessDescription.yaml"
      400:
        $ref: "../../responses/processes-dru/rWorkflowNotFound.yaml"
      403:
