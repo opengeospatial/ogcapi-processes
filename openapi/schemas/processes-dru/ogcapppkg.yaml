@@ -4,7 +4,8 @@ required:
 properties:
   processDescription:
     type: object
-    required: process
+    required:
+    - process
     properties:
       process:
         $ref: "../processes-core/process.yaml"
