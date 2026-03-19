@@ -1,0 +1,4 @@
+oneOf:
+  - $ref: "valueNoObject-workflows.yaml"
+  - $ref: "qualifiedValue-workflows.yaml"
+  - $ref: "../common-core/link.yaml"

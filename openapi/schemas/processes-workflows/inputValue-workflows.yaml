@@ -1,3 +1,3 @@
 oneOf:
-  - $ref: "inputValueNoObject-workflows.yaml"
+  - $ref: "valueNoObject-workflows.yaml"
   - type: object

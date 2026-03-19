@@ -1,5 +1,5 @@
 oneOf:
-  - $ref: "inlineOrRefData-workflows.yaml"
+  - $ref: "inlineOrRefValue-workflows.yaml"
   - type: array
     items:
-      $ref: "inlineOrRefData-workflows.yaml"
+      $ref: "inlineOrRefValue-workflows.yaml"

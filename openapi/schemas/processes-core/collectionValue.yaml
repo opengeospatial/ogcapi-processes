@@ -17,34 +17,34 @@ allOf:
           are selected.  The bounding box is provided as four or six numbers,
           depending on whether the coordinate reference system includes a
           vertical axis (height or depth):
-    
+
           * Lower left corner, coordinate axis 1
           * Lower left corner, coordinate axis 2
           * Minimum value, coordinate axis 3 (optional)
           * Upper right corner, coordinate axis 1
           * Upper right corner, coordinate axis 2
           * Maximum value, coordinate axis 3 (optional)
-    
+
           If the value consists of four numbers, the coordinate reference
           system is WGS84 longitude/latitude
             (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
           unless a different coordinate reference system is specified in the
           parameter `bboxCrs`.
-    
+
           If the value consists of six numbers, the coordinate reference system
           is WGS84 (http://www.opengis.net/def/crs/OGC/0/CRS84h) longitude/
           latitude/ ellipsoidal height unless a different coordinate reference
           system is specified in the parameter `bboxCrs`.
-    
+
           For WGS84 longitude/latitude the values are in most cases the sequence
           of minimum longitude, minimum latitude, maximum longitude and maximum
           latitude.  However, in cases where the box spans the antimeridian the
           first value (west-most box edge) is larger than the third value
           (east-most box edge).
-        
+
           If the vertical axis is included, the third and the sixth number are
           the bottom and the top of the 3-dimensional bounding box.
-        
+
           If a resource has multiple spatial geometry properties, it is the
           decision of the server whether only a single spatial geometry property
           is used to determine the extent or all relevant geometries.
@@ -59,7 +59,7 @@ allOf:
       bboxCrs:
         description: |-
           Asserts the CRS used for the coordinate values of the `bbox`
-          parameter.  The default is WGS 84 or WGS84h depending on whether 
+          parameter.  The default is WGS 84 or WGS84h depending on whether
           ellipsoidal height is included or not:
             * WGS 84 longitude/latitude [4 numbers]
               (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
@@ -81,7 +81,7 @@ allOf:
       geometryCrs:
         description: |-
           Asserts the CRS used for the coordinate values of the `geometry`
-          parameter.  The default is WGS 84 or WGS84h depending on whether 
+          parameter.  The default is WGS 84 or WGS84h depending on whether
           ellipsoidal height is included or not:
             * WGS 84 longitude/latitude [4 numbers]
               (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
@@ -93,7 +93,7 @@ allOf:
           Either a date-time or an interval, half-bounded or bounded. Date and
           time expressions adhere to RFC 3339. Half-bounded intervals are
           expressed using double-dots.
-    
+
           Examples:
             * A date-time:
               "2018-02-12T23:20:50Z"
@@ -101,10 +101,10 @@ allOf:
               "2018-02-12T00:00:00Z/2018-03-18T12:31:12Z"
             * Half-bounded intervals:
               "2018-02-12T00:00:00Z/.." or "../2018-03-18T12:31:12Z"
-    
+
           Only resources that have a temporal property that intersects the
           value of `datetime` are selected.
-    
+
           If a resource has multiple temporal properties, it is the decision of
           the server whether only a single temporal property is used to
           determine the extent or all relevant temporal properties.
@@ -131,7 +131,7 @@ allOf:
         type: string
         format: uri
       filter:
-        description: |- 
+        description: |-
            A search or filter condition.  This condition determines which
            resources from the OGC API collection are included in the result
            set and are thus passed as values to the corresponding process input.
@@ -158,7 +158,7 @@ allOf:
            using the `filter` parameter. Query languages can include CQL2 text,
            CQL 2 JSON or OGC Filter Encoding (XML).
         type: string
-        enum: 
+        enum:
         - cql2-text
         - cql2-json
         - fes-xml
@@ -222,7 +222,7 @@ allOf:
           type: string
       aliases:
         description: |-
-          A dictionary of aliases that can be used as values for the 
+          A dictionary of aliases that can be used as values for the
           `properties` parameter.  Aliases can be alternative names for
           resource properties or synthetic properties.  Synthetic properties
           are named expressions that are computed at run-time.  Expressions
@@ -237,7 +237,7 @@ allOf:
               properties:
                 expressionLang:
                   type: string
-                  enum: 
+                  enum:
                   - cql2-text
                   - cql2-json
                 expression:

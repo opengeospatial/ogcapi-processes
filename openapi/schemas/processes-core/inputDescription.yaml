@@ -1,7 +1,7 @@
 allOf:
   - $ref: "descriptionType.yaml"
   - $ref: "dataClasses.yaml"
-  - $ref: "dataAccessApis.yaml"
+  - $ref: "dataAccessAPIs.yaml"
   - $ref: "executionUnitRequirements.yaml"
   - type: object
     required:

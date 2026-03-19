@@ -5,4 +5,4 @@ allOf:
    properties:
      $input:
        type: string
- - $ref: fieldsModifiers.yaml
+ - $ref: ../processes-core/fieldsModifiers.yaml

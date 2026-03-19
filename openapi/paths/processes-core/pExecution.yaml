@@ -9,6 +9,7 @@ post:
      - Processes
    parameters:
      - $ref: "../../parameters/processes-core/processID-path.yaml"
+     - $ref: "../../parameters/processes-core/response.yaml"
      - $ref: "../../parameters/processes-core/prefer-header-execution.yaml"
    requestBody:
      description: |-
@@ -27,6 +28,8 @@ post:
        $ref: "../../responses/processes-core/rExecuteAsync.yaml"
      204:
        $ref: "../../responses/processes-core/rEmpty.yaml"
+     303:
+       $ref: "../../responses/processes-core/rExecuteCollectionRedirect.yaml"
      404:
        $ref: "../../responses/common-core/rNotFound.yaml"
      500:

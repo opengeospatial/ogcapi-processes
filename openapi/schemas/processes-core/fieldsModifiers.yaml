@@ -16,7 +16,7 @@ properties:
               type: string
             args:
               type: {}
-  filter-lang: 
+  filter-lang:
     type: string
     examples:
       - cql2-text

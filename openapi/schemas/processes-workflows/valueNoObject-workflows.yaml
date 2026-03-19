@@ -5,8 +5,8 @@ oneOf:
   - type: boolean
   - type: array
     items: {}
-  - $ref: "../processes-core/binaryInputValue.yaml"
+  - $ref: "../processes-core/binaryValue.yaml"
   - $ref: "../processes-core/bbox.yaml"
-  - $ref: "inputCollection.yaml"
+  - $ref: "../processes-core/collectionValue.yaml"
   - $ref: "inputProcess.yaml"
   - $ref: "inputParameterized.yaml"
