@@ -31,13 +31,16 @@ post:
            $ref: "../../schemas/processes-dru/ogcapppkg.yaml"
        application/cwl:
          schema:
-           $ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
+           #$ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
+           $ref: "../../schemas/cwl/cwl.yaml"
        application/cwl+json:
          schema:
-           $ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
+           #$ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
+           $ref: "../../schemas/cwl/cwl.yaml"
        application/cwl+yaml:
          schema:
-           $ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
+           #$ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
+           $ref: "../../schemas/cwl/cwl.yaml"
    responses:
      201:
        $ref: "../../schemas/processes-core/processSummary.yaml"

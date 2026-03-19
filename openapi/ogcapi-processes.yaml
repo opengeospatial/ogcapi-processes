@@ -100,7 +100,8 @@ components:
 
       # Common Workflow Language
       CWL:
-         $ref: 'https://w3id.org/cwl/v1.2/cwl-json-schema.yaml'
+         #$ref: 'https://w3id.org/cwl/v1.2/cwl-json-schema.yaml'
+         $ref: 'schemas/cwl/cwl.yaml'
 
       # CQL2
       CQL2:

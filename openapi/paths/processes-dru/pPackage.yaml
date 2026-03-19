@@ -17,14 +17,17 @@ get:
          application/cwl:
             schema:
               #$ref: "https://raw.githubusercontent.com/common-workflow-lab/cwl-ts-auto/main/json_schemas/cwl_schema.yaml"
-              $ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
+              #$ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
+              $ref: "../../schemas/cwl/cwl.yaml"
          application/cwl+json:
             schema:
               #$ref: "https://raw.githubusercontent.com/common-workflow-lab/cwl-ts-auto/main/json_schemas/cwl_schema.yaml"
-              $ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
+              #$ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
+              $ref: "../../schemas/cwl/cwl.yaml"
          application/cwl+yaml:
             schema:
               #$ref: "https://raw.githubusercontent.com/common-workflow-lab/cwl-ts-auto/main/json_schemas/cwl_schema.yaml"
-              $ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
+              #$ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
+              $ref: "../../schemas/cwl/cwl.yaml"
      404:
         $ref: "../../responses/common-core/rNotFound.yaml"
