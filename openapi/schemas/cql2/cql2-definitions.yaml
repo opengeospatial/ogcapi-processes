@@ -1,0 +1,693 @@
+definitions:
+  cql2expression:
+  andOrExpression:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - and
+          - or
+      args:
+        type: array
+        minItems: 2
+        items:
+          $ref: cql2.yaml
+  notExpression:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - not
+      args:
+        type: array
+        minItems: 1
+        maxItems: 1
+        items:
+          $ref: cql2.yaml
+  comparisonPredicate:
+    oneOf:
+      - $ref: '#/definitions/binaryComparisonPredicate'
+      - $ref: '#/definitions/isLikePredicate'
+      - $ref: '#/definitions/isBetweenPredicate'
+      - $ref: '#/definitions/isInListPredicate'
+      - $ref: '#/definitions/isNullPredicate'
+  binaryComparisonPredicate:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - =
+          - <>
+          - <
+          - '>'
+          - <=
+          - '>='
+      args:
+        $ref: '#/definitions/scalarOperands'
+  scalarOperands:
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      $ref: '#/definitions/scalarExpression'
+  scalarExpression:
+    oneOf:
+      - $ref: '#/definitions/characterExpression'
+      - $ref: '#/definitions/numericExpression'
+      - type: boolean
+      - $ref: '#/definitions/instantInstance'
+      - $ref: '#/definitions/functionRef'
+      - $ref: '#/definitions/propertyRef'
+  isLikePredicate:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - like
+      args:
+        $ref: '#/definitions/isLikeOperands'
+  isLikeOperands:
+    type: array
+    minItems: 2
+    maxItems: 2
+    prefixItems:
+      - oneOf:
+          - $ref: '#/definitions/characterExpression'
+          - $ref: '#/definitions/propertyRef'
+          - $ref: '#/definitions/functionRef'
+      - $ref: '#/definitions/patternExpression'
+  patternExpression:
+    oneOf:
+      - type: object
+        required:
+          - op
+          - args
+        properties:
+          op:
+            type: string
+            enum:
+              - casei
+          args:
+            type: array
+            items:
+              $ref: '#/definitions/patternExpression'
+            minItems: 1
+            maxItems: 1
+      - type: object
+        required:
+          - op
+          - args
+        properties:
+          op:
+            type: string
+            enum:
+              - accenti
+          args:
+            type: array
+            items:
+              $ref: '#/definitions/patternExpression'
+            minItems: 1
+            maxItems: 1
+      - type: string
+  isBetweenPredicate:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - between
+      args:
+        $ref: '#/definitions/isBetweenOperands'
+  isBetweenOperands:
+    type: array
+    minItems: 3
+    maxItems: 3
+    items:
+      oneOf:
+        - $ref: '#/definitions/numericExpression'
+        - $ref: '#/definitions/propertyRef'
+        - $ref: '#/definitions/functionRef'
+  numericExpression:
+    oneOf:
+      - $ref: '#/definitions/arithmeticExpression'
+      - type: number
+  isInListPredicate:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - in
+      args:
+        $ref: '#/definitions/inListOperands'
+  inListOperands:
+    type: array
+    minItems: 2
+    maxItems: 2
+    prefixItems:
+      - $ref: '#/definitions/scalarExpression'
+      - type: array
+        items:
+          $ref: '#/definitions/scalarExpression'
+  isNullPredicate:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - isNull
+      args:
+        $ref: '#/definitions/isNullOperand'
+  isNullOperand:
+    type: array
+    minItems: 1
+    maxItems: 1
+    items:
+      oneOf:
+        - $ref: '#/definitions/characterExpression'
+        - $ref: '#/definitions/numericExpression'
+        - $ref: cql2.yaml
+        - $ref: '#/definitions/spatialInstance'
+        - $ref: '#/definitions/temporalInstance'
+        - $ref: '#/definitions/propertyRef'
+  spatialPredicate:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - s_contains
+          - s_crosses
+          - s_disjoint
+          - s_equals
+          - s_intersects
+          - s_overlaps
+          - s_touches
+          - s_within
+      args:
+        $ref: '#/definitions/spatialOperands'
+  spatialOperands:
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      oneOf:
+        - $ref: '#/definitions/spatialInstance'
+        - $ref: '#/definitions/propertyRef'
+        - $ref: '#/definitions/functionRef'
+  temporalPredicate:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - t_after
+          - t_before
+          - t_contains
+          - t_disjoint
+          - t_during
+          - t_equals
+          - t_finishedBy
+          - t_finishes
+          - t_intersects
+          - t_meets
+          - t_metBy
+          - t_overlappedBy
+          - t_overlaps
+          - t_startedBy
+          - t_starts
+      args:
+        $ref: '#/definitions/temporalOperands'
+  temporalOperands:
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      oneOf:
+        - $ref: '#/definitions/temporalInstance'
+        - $ref: '#/definitions/propertyRef'
+        - $ref: '#/definitions/functionRef'
+  arrayPredicate:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - a_containedBy
+          - a_contains
+          - a_equals
+          - a_overlaps
+      args:
+        $ref: '#/definitions/arrayOperands'
+  arrayOperands:
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      oneOf:
+        - $ref: '#/definitions/arrayExpression'
+        - $ref: '#/definitions/propertyRef'
+        - $ref: '#/definitions/functionRef'
+  arrayExpression:
+    type: array
+    items:
+      oneOf:
+        - $ref: '#/definitions/characterExpression'
+        - $ref: '#/definitions/numericExpression'
+        - $ref: cql2.yaml
+        - $ref: '#/definitions/spatialInstance'
+        - $ref: '#/definitions/temporalInstance'
+        - $ref: '#/definitions/arrayExpression'
+        - $ref: '#/definitions/propertyRef'
+  arithmeticExpression:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - +
+          - '-'
+          - '*'
+          - /
+          - ^
+          - '%'
+          - div
+      args:
+        $ref: '#/definitions/arithmeticOperands'
+  arithmeticOperands:
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      oneOf:
+        - $ref: '#/definitions/arithmeticExpression'
+        - $ref: '#/definitions/propertyRef'
+        - $ref: '#/definitions/functionRef'
+        - type: number
+  propertyRef:
+    type: object
+    required:
+      - property
+    properties:
+      property:
+        type: string
+  casei:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - casei
+      args:
+        type: array
+        items:
+          oneOf:
+            - $ref: '#/definitions/characterExpression'
+            - $ref: '#/definitions/propertyRef'
+            - $ref: '#/definitions/functionRef'
+        minItems: 1
+        maxItems: 1
+  accenti:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        enum:
+          - accenti
+      args:
+        type: array
+        items:
+          oneOf:
+            - $ref: '#/definitions/characterExpression'
+            - $ref: '#/definitions/propertyRef'
+            - $ref: '#/definitions/functionRef'
+        minItems: 1
+        maxItems: 1
+  characterExpression:
+    oneOf:
+      - $ref: '#/definitions/casei'
+      - $ref: '#/definitions/accenti'
+      - type: string
+  functionRef:
+    type: object
+    required:
+      - op
+      - args
+    properties:
+      op:
+        type: string
+        not:
+          enum:
+            - and
+            - or
+            - not
+            - =
+            - <>
+            - <
+            - '>'
+            - <=
+            - '>='
+            - like
+            - between
+            - in
+            - isNull
+            - casei
+            - accenti
+            - s_contains
+            - s_crosses
+            - s_disjoint
+            - s_equals
+            - s_intersects
+            - s_overlaps
+            - s_touches
+            - s_within
+            - t_after
+            - t_before
+            - t_contains
+            - t_disjoint
+            - t_during
+            - t_equals
+            - t_finishedBy
+            - t_finishes
+            - t_intersects
+            - t_meets
+            - t_metBy
+            - t_overlappedBy
+            - t_overlaps
+            - t_startedBy
+            - t_starts
+            - a_containedBy
+            - a_contains
+            - a_equals
+            - a_overlaps
+            - +
+            - '-'
+            - '*'
+            - /
+            - ^
+            - '%'
+            - div
+      args:
+        type: array
+        items:
+          oneOf:
+            - $ref: '#/definitions/characterExpression'
+            - $ref: '#/definitions/numericExpression'
+            - $ref: cql2.yaml
+            - $ref: '#/definitions/spatialInstance'
+            - $ref: '#/definitions/temporalInstance'
+            - $ref: '#/definitions/arrayExpression'
+            - $ref: '#/definitions/propertyRef'
+  spatialInstance:
+    oneOf:
+      - $ref: '#/definitions/geometryLiteral'
+      - $ref: '#/definitions/bboxLiteral'
+  geometryLiteral:
+    oneOf:
+      - $ref: '#/definitions/point'
+      - $ref: '#/definitions/linestring'
+      - $ref: '#/definitions/polygon'
+      - $ref: '#/definitions/multipoint'
+      - $ref: '#/definitions/multilinestring'
+      - $ref: '#/definitions/multipolygon'
+      - $ref: '#/definitions/geometrycollection'
+  point:
+    title: GeoJSON Point
+    type: object
+    required:
+      - type
+      - coordinates
+    properties:
+      type:
+        type: string
+        enum:
+          - Point
+      coordinates:
+        type: array
+        minItems: 2
+        items:
+          type: number
+      bbox:
+        type: array
+        minItems: 4
+        items:
+          type: number
+  linestring:
+    title: GeoJSON LineString
+    type: object
+    required:
+      - type
+      - coordinates
+    properties:
+      type:
+        type: string
+        enum:
+          - LineString
+      coordinates:
+        type: array
+        minItems: 2
+        items:
+          type: array
+          minItems: 2
+          items:
+            type: number
+      bbox:
+        type: array
+        minItems: 4
+        items:
+          type: number
+  polygon:
+    title: GeoJSON Polygon
+    type: object
+    required:
+      - type
+      - coordinates
+    properties:
+      type:
+        type: string
+        enum:
+          - Polygon
+      coordinates:
+        type: array
+        items:
+          type: array
+          minItems: 4
+          items:
+            type: array
+            minItems: 2
+            items:
+              type: number
+      bbox:
+        type: array
+        minItems: 4
+        items:
+          type: number
+  multipoint:
+    title: GeoJSON MultiPoint
+    type: object
+    required:
+      - type
+      - coordinates
+    properties:
+      type:
+        type: string
+        enum:
+          - MultiPoint
+      coordinates:
+        type: array
+        items:
+          type: array
+          minItems: 2
+          items:
+            type: number
+      bbox:
+        type: array
+        minItems: 4
+        items:
+          type: number
+  multilinestring:
+    title: GeoJSON MultiLineString
+    type: object
+    required:
+      - type
+      - coordinates
+    properties:
+      type:
+        type: string
+        enum:
+          - MultiLineString
+      coordinates:
+        type: array
+        items:
+          type: array
+          minItems: 2
+          items:
+            type: array
+            minItems: 2
+            items:
+              type: number
+      bbox:
+        type: array
+        minItems: 4
+        items:
+          type: number
+  multipolygon:
+    title: GeoJSON MultiPolygon
+    type: object
+    required:
+      - type
+      - coordinates
+    properties:
+      type:
+        type: string
+        enum:
+          - MultiPolygon
+      coordinates:
+        type: array
+        items:
+          type: array
+          items:
+            type: array
+            minItems: 4
+            items:
+              type: array
+              minItems: 2
+              items:
+                type: number
+      bbox:
+        type: array
+        minItems: 4
+        items:
+          type: number
+  geometrycollection:
+    title: GeoJSON GeometryCollection
+    type: object
+    required:
+      - type
+      - geometries
+    properties:
+      type:
+        type: string
+        enum:
+          - GeometryCollection
+      geometries:
+        type: array
+        minItems: 2
+        items:
+          oneOf:
+            - $ref: '#/definitions/point'
+            - $ref: '#/definitions/linestring'
+            - $ref: '#/definitions/polygon'
+            - $ref: '#/definitions/multipoint'
+            - $ref: '#/definitions/multilinestring'
+            - $ref: '#/definitions/multipolygon'
+  bboxLiteral:
+    type: object
+    required:
+      - bbox
+    properties:
+      bbox:
+        $ref: '#/definitions/bbox'
+  bbox:
+    type: array
+    oneOf:
+      - minItems: 4
+        maxItems: 4
+      - minItems: 6
+        maxItems: 6
+    items:
+      type: number
+  temporalInstance:
+    oneOf:
+      - $ref: '#/definitions/instantInstance'
+      - $ref: '#/definitions/intervalInstance'
+  instantInstance:
+    oneOf:
+      - $ref: '#/definitions/dateInstant'
+      - $ref: '#/definitions/timestampInstant'
+  dateInstant:
+    type: object
+    required:
+      - date
+    properties:
+      date:
+        $ref: '#/definitions/dateString'
+  timestampInstant:
+    type: object
+    required:
+      - timestamp
+    properties:
+      timestamp:
+        $ref: '#/definitions/timestampString'
+  instantString:
+    oneOf:
+      - $ref: '#/definitions/dateString'
+      - $ref: '#/definitions/timestampString'
+  dateString:
+    type: string
+    pattern: '^\d{4}-\d{2}-\d{2}$'
+  timestampString:
+    type: string
+    pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$'
+  intervalInstance:
+    type: object
+    required:
+      - interval
+    properties:
+      interval:
+        $ref: '#/definitions/intervalArray'
+  intervalArray:
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      oneOf:
+        - $ref: '#/definitions/instantString'
+        - type: string
+          enum:
+            - ..
+        - $ref: '#/definitions/propertyRef'
+        - $ref: '#/definitions/functionRef'
