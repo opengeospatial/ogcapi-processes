@@ -140,7 +140,8 @@ allOf:
            CQL2 JSON object that encodes the search condition using JSON.
         oneOf:
           - type: string
-          - $ref: "https://schemas.opengis.net/cql2/1.0/cql2.json"
+          - $ref: ../cql2/cql2.yaml
+          # - $ref: "https://schemas.opengis.net/cql2/1.0/cql2.json"
       filterCrs:
         description: |-
           Asserts the CRS used for the coordinate values of the `filter`
@@ -243,7 +244,8 @@ allOf:
                 expression:
                   oneOf:
                     - type: string
-                    - $ref: "https://schemas.opengis.net/cql2/1.0/cql2.json"
+                    - $ref: ../cql2/cql2.yaml
+                    #- $ref: "https://schemas.opengis.net/cql2/1.0/cql2.json"
       passThroughParameters:
         description: |-
           Parameters specified in this object are passed through to the value

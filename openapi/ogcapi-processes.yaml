@@ -102,6 +102,10 @@ components:
       CWL:
          $ref: 'https://w3id.org/cwl/v1.2/cwl-json-schema.yaml'
 
+      # CQL2
+      CQL2:
+         $ref: 'schemas/cql2/cql2.yaml'
+
       # Dynamic (or implementation-specific)
       enumeration:
          $ref: 'schemas/dynamic/enumeration.yaml'
