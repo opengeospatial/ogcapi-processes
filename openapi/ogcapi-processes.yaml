@@ -135,6 +135,8 @@ components:
          $ref: 'schemas/processes-core/inputDescription.yaml'
       inputValue:
          $ref: 'schemas/processes-core/inputValue.yaml'
+      collectionValue:
+         $ref: 'schemas/processes-core/collectionValue.yaml'
       valueNoObject:
          $ref: 'schemas/processes-core/valueNoObject.yaml'
       valueNoObject-workflows:
@@ -153,8 +155,8 @@ components:
          $ref: 'schemas/processes-core/reference.yaml'
       results:
          $ref: 'schemas/processes-core/results.yaml'
-      #schema:
-      #   $ref: 'schemas/processes-core/schema.yaml'
+      schema:
+         $ref: 'schemas/processes-core/schema.yaml'
       statusCode:
          $ref: 'schemas/processes-core/statusCode.yaml'
       subscriber:
@@ -167,6 +169,12 @@ components:
          $ref: 'schemas/processes-core/fieldsModifiers.yaml'
       statusInfo:
          $ref: 'schemas/processes-core/statusInfo.yaml'
+      dataAccessAPIs:
+         $ref: 'schemas/processes-core/dataAccessAPIs.yaml'
+      apis:
+         $ref: 'schemas/processes-core/apis.yaml'
+      dataClasses:
+         $ref: 'schemas/processes-core/dataClasses.yaml'
 
       # OGC API - Common - Part 2: Deploy, Replace, Undeploy
       ogcapppkg:

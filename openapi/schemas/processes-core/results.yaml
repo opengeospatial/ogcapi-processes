@@ -1,2 +1,3 @@
+type: object
 additionalProperties:
   $ref: "inlineOrRefValue.yaml"
