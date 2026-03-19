@@ -16,12 +16,15 @@ get:
               $ref: "../../schemas/processes-dru/ogcapppkg.yaml"
          application/cwl:
             schema:
-              $ref: "https://raw.githubusercontent.com/common-workflow-lab/cwl-ts-auto/main/json_schemas/cwl_schema.yaml"
+              #$ref: "https://raw.githubusercontent.com/common-workflow-lab/cwl-ts-auto/main/json_schemas/cwl_schema.yaml"
+              $ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
          application/cwl+json:
             schema:
-              $ref: "https://raw.githubusercontent.com/common-workflow-lab/cwl-ts-auto/main/json_schemas/cwl_schema.yaml"
+              #$ref: "https://raw.githubusercontent.com/common-workflow-lab/cwl-ts-auto/main/json_schemas/cwl_schema.yaml"
+              $ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
          application/cwl+yaml:
             schema:
-              $ref: "https://raw.githubusercontent.com/common-workflow-lab/cwl-ts-auto/main/json_schemas/cwl_schema.yaml"
+              #$ref: "https://raw.githubusercontent.com/common-workflow-lab/cwl-ts-auto/main/json_schemas/cwl_schema.yaml"
+              $ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
      404:
         $ref: "../../responses/common-core/rNotFound.yaml"

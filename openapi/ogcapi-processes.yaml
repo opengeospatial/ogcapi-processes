@@ -98,6 +98,10 @@ components:
       numberMatched:
          $ref: 'schemas/common-geodata/numberMatched.yaml'
 
+      # Common Workflow Language
+      CWL:
+         $ref: 'https://w3id.org/cwl/v1.2/cwl-json-schema.yaml'
+
       # Dynamic (or implementation-specific)
       enumeration:
          $ref: 'schemas/dynamic/enumeration.yaml'
