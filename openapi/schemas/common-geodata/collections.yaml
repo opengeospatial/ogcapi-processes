@@ -5,20 +5,19 @@ required:
 properties:
   links:
     type: array
+    title: Links to resource in the collections
+    description: Links to this or other resources provided by the collections.
     items:
       $ref: '../common-core/link.yaml'
-  timeStamp:
-    type: string
-    format: date-time
   numberMatched:
-    type: integer
-    minimum: 0
-    example: 1
+    $ref: 'numberMatched.yaml'
   numberReturned:
-    type: integer
-    minimum: 0
-    example: 1
+    $ref: 'numberReturned.yaml'
   collections:
     type: array
+    title: Collections descriptions
+    description: Descriptions of each collection in this API.
     items:
-      $ref: 'collectionInfo.yaml'
+      $ref: 'collectionDesc.yaml'
+      # For APIs conforming to the Uniform Additional Dimensions requirements class, reference the collectionDesc-UAD.yaml schema instead
+      # $ref: 'collectionDesc-UAD.yaml'

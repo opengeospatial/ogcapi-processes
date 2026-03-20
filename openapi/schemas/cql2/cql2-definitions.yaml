@@ -86,12 +86,18 @@ definitions:
     type: array
     minItems: 2
     maxItems: 2
-    prefixItems:
-      - oneOf:
+    #prefixItems:
+    #  - oneOf:
+    #      - $ref: '#/definitions/characterExpression'
+    #      - $ref: '#/definitions/propertyRef'
+    #      - $ref: '#/definitions/functionRef'
+    #  - $ref: '#/definitions/patternExpression'
+    items:
+      oneOf:
           - $ref: '#/definitions/characterExpression'
           - $ref: '#/definitions/propertyRef'
           - $ref: '#/definitions/functionRef'
-      - $ref: '#/definitions/patternExpression'
+          - $ref: '#/definitions/patternExpression'
   patternExpression:
     oneOf:
       - type: object
@@ -166,7 +172,13 @@ definitions:
     type: array
     minItems: 2
     maxItems: 2
-    prefixItems:
+    #prefixItems:
+    #  - $ref: '#/definitions/scalarExpression'
+    #  - type: array
+    #    items:
+    #      $ref: '#/definitions/scalarExpression'
+    items:
+      oneOf:
       - $ref: '#/definitions/scalarExpression'
       - type: array
         items:

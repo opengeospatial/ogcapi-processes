@@ -9,8 +9,8 @@ $defs:
       - $ref: '#/$defs/CWLGraph'
       - $ref: '#/$defs/CWLWorkflow'
   CWLKeywordList:
-    type: array
     title: KeywordList
+    type: array
     description: Keywords applied to the process for search and categorization purposes.
     items:
       type: string
@@ -55,6 +55,7 @@ $defs:
       format: url
       pattern: '^((?:http|ftp)s?://)?(?!.*//.*$)(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+(?:[A-Za-z]{2,6}\.?|[A-Za-z0-9-]{2,}\.?)|localhost|\[[a-f0-9:]+\]|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:/?|[/?]\S+)$'
   CWLImport:
+    title: CWLImport
     description: |
       The schema validation of the CWL will not itself perform the '$import' to resolve and validate its contents.
       Therefore, the complete schema will not be validated entirely, and could still be partially malformed.
@@ -79,8 +80,8 @@ $defs:
     title: CWLRequirementsMap
     type: object
     properties:
-      cwltool:CUDARequirement:
-        $ref: '#/$defs/cwltool:CUDARequirement'
+      'cwltool:CUDARequirement':
+        $ref: '#/$defs/cwltool_CUDARequirement'
       DockerRequirement:
         $ref: '#/$defs/DockerRequirement'
       SoftwareRequirement:
@@ -100,18 +101,21 @@ $defs:
       LoadListingRequirement:
         $ref: '#/$defs/LoadListingRequirement'
       NetworkAccess:
-        description: Not 'NetworkAccessRequirement'
-        $ref: '#/$defs/NetworkAccessRequirement'
+        allOf:
+          - description: "Not 'NetworkAccessRequirement'"
+          - $ref: '#/$defs/NetworkAccessRequirement'
       ResourceRequirement:
         $ref: '#/$defs/ResourceRequirement'
       ScatterFeatureRequirement:
         $ref: '#/$defs/ScatterFeatureRequirement'
       ToolTimeLimit:
-        description: Not 'ToolTimeLimitRequirement'.
-        $ref: '#/$defs/ToolTimeLimitRequirement'
+        allOf:
+          - description: "Not 'ToolTimeLimitRequirement'"
+          - $ref: '#/$defs/ToolTimeLimitRequirement'
       WorkReuse:
-        description: Not 'WorkReuseRequirement'.
-        $ref: '#/$defs/WorkReuseRequirement'
+        allOf:
+          - description: "Not 'WorkReuseRequirement'"
+          - $ref: '#/$defs/WorkReuseRequirement'
       MultipleInputFeatureRequirement:
         $ref: '#/$defs/MultipleInputFeatureRequirement'
       StepInputExpressionRequirement:
@@ -157,7 +161,7 @@ $defs:
         items:
           oneOf:
             - nullable: true
-              type: string
+              #type: string
               enum: [null]
             - $ref: '#/$defs/CWLExpression'
             - $ref: '#/$defs/DirectoryListingDirent'
@@ -872,22 +876,20 @@ $defs:
       (see also: https://www.commonwl.org/v1.2/CommandLineTool.html#Expression).
   WorkReuseRequirement:
     type: object
-    title: WorkReuseRequirement
+    title: 'WorkReuseRequirement'
     description: |
       For implementations that support reusing output from past work
       (on the assumption that same code and same input produce same results),
       control whether to enable or disable the reuse behavior for a particular tool
       or step (to accommodate situations where that assumption is incorrect).
-
       A reused step is not executed but instead returns the same output as the original execution.
-
       If 'WorkReuse' is not specified, correct tools should assume it is enabled by default.
     properties:
       class:
         type: string
         description: Not 'WorkReuseRequirement'.
         enum:
-          - WorkReuse
+          - 'WorkReuse'
       enableReuse:
         $ref: '#/$defs/EnableReuseValue'
     required:
@@ -904,7 +906,7 @@ $defs:
         example: UnknownRequirement
         not:
           enum:
-            - cwltool:CUDARequirement
+            - 'cwltool:CUDARequirement'
             - DockerRequirement
             - SoftwareRequirement
             - ShellCommandRequirement
@@ -922,7 +924,7 @@ $defs:
             - MultipleInputFeatureRequirement
             - StepInputExpressionRequirement
             - SubworkflowFeatureRequirement
-    additionalProperties: {}
+    #additionalProperties: {}
   CWLRequirementsList:
     type: array
     title: CWLRequirementsList
@@ -942,7 +944,7 @@ $defs:
       For any new items added, ensure they are added under 'class' of 'UnknownRequirement' as well.
       Otherwise, insufficiently restrictive classes could cause multiple matches, failing the 'oneOf' condition.
     oneOf:
-      - $ref: '#/$defs/cwltool:CUDARequirement'
+      - $ref: '#/$defs/cwltool_CUDARequirement'
       - $ref: '#/$defs/DockerRequirement'
       - $ref: '#/$defs/SoftwareRequirement'
       - $ref: '#/$defs/ShellCommandRequirement'
@@ -985,9 +987,9 @@ $defs:
     - dotproduct
     - nested_crossproduct
     - flat_crossproduct
-    required:
-    - timelimit
-    - class
+    #required:
+    #- timelimit
+    #- class
   CWLHints:
     oneOf:
     - $ref: '#/$defs/CWLHintsMap'
@@ -1056,14 +1058,14 @@ $defs:
       description: The compute capability supported by the GPU hardware.
       pattern: '^\d+\.\d+$'
     minItems: 1
-  cwltool:CUDARequirement:
+  cwltool_CUDARequirement:
     type: object
-    title: cwltool:CUDARequirement
+    title: 'cwltool:CUDARequirement'
     properties:
       class:
         type: string
         enum:
-          - cwltool:CUDARequirement
+          - 'cwltool:CUDARequirement'
       cudaVersionMin:
         type: string
         title: CUDA version minimum
@@ -1350,7 +1352,7 @@ $defs:
     required:
     - type
     - items
-    additionalProperties: {}
+    #additionalProperties: {}
   CWLTypeSymbols:
     type: array
     title: CWLTypeSymbols (Allowed values composing the enum).
@@ -1376,7 +1378,7 @@ $defs:
     required:
     - type
     - symbols
-    additionalProperties: {}
+    #additionalProperties: {}
   CWLTypeRecordRef:
     description: |
       An IRI with minimally a '{Record}' identifier to look for a schema definition locally or remotely.
@@ -1428,7 +1430,7 @@ $defs:
              type : string
              enum: ['null']
            default:
-             type: string
+             #type: string
              nullable: true
              enum: [null]
          required: [type]
@@ -1477,7 +1479,7 @@ $defs:
                - $ref: '#/$defs/CWLDefaultLocation'
                - nullable: true
                  enum: [null]
-                 type: string
+                 #type: string
          required: [type]
 
        # 6. Arrays (Shorthand: string[], int[], etc.)
@@ -1593,7 +1595,7 @@ $defs:
           enum:
             - File
             - Directory
-    additionalProperties: {}
+    #additionalProperties: {}
   InputBinding:
     type: object
     title: Input Binding
@@ -1645,7 +1647,7 @@ $defs:
         $ref: '#/$defs/CWLType'
       inputBinding:
         $ref: '#/$defs/InputBinding'
-        additionalProperties: { }
+        ##additionalProperties: {}
     required:
       - type
     additionalProperties: { }
@@ -1659,8 +1661,8 @@ $defs:
     type: object
     title: CWLInputMap
     description: Package inputs defined as mapping.
-    properties: {}
-    required: []
+    #properties: {}
+    #required: []
     additionalProperties:
       oneOf:
       - $ref: '#/$defs/CWLType'
@@ -1696,7 +1698,7 @@ $defs:
         - type: array
           items:
             $ref: '#/$defs/CWLExpression'
-    additionalProperties: {}
+    #additionalProperties: {}
   CWLOutputItem:
     type: object
     title: CWLOutputItem
@@ -1718,7 +1720,7 @@ $defs:
     required:
     - type
     - id
-    additionalProperties: {}
+    #additionalProperties: {}
   CWLOutputObjectBase:
     type: object
     title: CWLOutputObject (CWL type definition with parameters).
@@ -1729,7 +1731,7 @@ $defs:
         $ref: '#/$defs/OutputBinding'
     required:
     - type
-    additionalProperties: {}
+    #additionalProperties: {}
   CWLOutputObject:
     allOf:
       - $ref: '#/$defs/CWLDocumentation'
@@ -1738,8 +1740,8 @@ $defs:
     type: object
     title: CWLOutputMap
     description: Package outputs defined as mapping.
-    properties: {}
-    required: []
+    #properties: {}
+    #required: []
     additionalProperties:
       oneOf:
       - $ref: '#/$defs/CWLType'
@@ -2082,7 +2084,7 @@ $defs:
     - id
     - inputs
     - outputs
-    additionalProperties: {}
+    #additionalProperties: {}
   CWLGraphBase:
     type: object
     properties:
@@ -2090,7 +2092,7 @@ $defs:
         $ref: '#/$defs/CWLGraphList'
     required:
     - $graph
-    additionalProperties: {}
+    #additionalProperties: {}
   CWLGraph:
     title: CWLGraph
     allOf:

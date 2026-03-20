@@ -1,0 +1,71 @@
+title: Extent of any additional dimensions
+description: The domain intervals for any additional dimensions of the extent (envelope) beyond those described in temporal and spatial.
+type: object
+oneOf:
+   - required: [ interval, definition ]
+   - required: [ interval, trs ]
+   - required: [ interval, vrs ]
+properties:
+   interval:
+     title: Interval of the extent of this dimension
+     description: |-
+       One or more intervals that describe the extent for this dimension of the dataset.
+       The value `null` is supported and indicates an unbounded or half-bounded interval.
+       The first interval describes the overall extent of the data for this dimension.
+       All subsequent intervals describe more precise intervals, e.g., to identify clusters of data.
+       Clients only interested in the overall extent will only need
+       to access the first item (a pair of lower and upper bound values).
+     type: array
+     minItems: 1
+     items:
+       description: |-
+         Lower and upper bound values of the interval. The values
+         are in the coordinate reference system specified in `crs`, `trs` or `vrs`.
+       type: array
+       minItems: 2
+       maxItems: 2
+       items:
+         oneOf:
+            - type: string
+              nullable: true
+              example: '2011-11-11T12:22:11Z' #, '2011-11-11T08:22:11-04:00', null
+            - type: number
+              example: 32.7
+   trs:
+     title: Temporal Coordinate Reference System
+     description: Temporal Coordinate Reference System (e.g. as defined by Features for 'temporal'). This should be a URI to a registered TRS if one is available, or a full description of the TRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+     anyOf:
+       - type: string
+       - type: object
+   vrs:
+     title: Vertical Coordinate Reference System
+     description: Vertical Coordinate Reference System (e.g. as defined in EDR for 'vertical'). This should be a URI to a registered VRS if one is available, or a full description of the VRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+     anyOf:
+       - type: string
+       - type: object
+   grid:
+     $ref: 'grid.yaml'
+   definition:
+     type: string
+     format: uri
+     title: Observed property definition
+     description: A URI for the definition of the measured or observed property corresponding to this dimension.
+   unit:
+     type: string
+     title: Units of measurement
+     description: The unit of measure in which the interval and/or grid values are expressed.
+   unitLang:
+     type: string
+     default: UCUM
+     title: Units of measurement vocabulary
+     description: The language (or vocabulary) in which the unit is expressed (defaults to "UCUM" if not specified).
+   variableType:
+     title: Variable type
+     description: The type of variable which may inform correct interpretation and interpolation methods.
+     type: string
+     enum:
+       - continuous
+       - numericalOrdinal
+       - numericalNominal
+       - categoricalOrdinal
+       - categoricalNominal

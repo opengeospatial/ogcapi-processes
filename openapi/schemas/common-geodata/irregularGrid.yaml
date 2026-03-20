@@ -1,0 +1,36 @@
+type: object
+title: Irregular grid.
+description: Irregular grid with samples spaced at different intervals.
+required: [ coordinates ]
+properties:
+  coordinates:
+    title: Coordinates of the irregular cells
+    description: |-
+      List of coordinates along the dimension for which data organized as an irregular grid in the collection is available.
+      (e.g., 2, 10, 80, 100).
+    type: array
+    minItems: 1
+    items:
+      oneOf:
+        - type: string
+          nullable: true
+          example: "2020-11-12T12:15:00Z"
+        - type: number
+          example: 12.3
+    example: [2, 10, 80, 100]
+  boundsCoordinates:
+    title: Bounds coordinates
+    description: |-
+      For irregular grids, an ordered list of the coordinates in absolute units of the lower and upper bounds of the dimension for each cell.
+    type: array
+    minItems: 1
+    items:
+       type: array
+       minItems: 2
+       maxItems: 2
+       items:
+         oneOf:
+           - type: string
+             nullable: true
+           - type: number
+    example: [ [ -180, -179 ], [ -179, -178 ] ]
