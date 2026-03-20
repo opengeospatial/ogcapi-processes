@@ -18,4 +18,4 @@ do \
 done
 
 # Bundle with swagger-cli
-swagger-cli bundle ogcapi-processes.yaml -o ogcapi-processes.bundled.json
+redocly bundle ogcapi-processes.yaml -o ogcapi-processes.bundled.json
