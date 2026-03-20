@@ -1,0 +1,218 @@
+type: object
+required:
+  - id
+  - links
+properties:
+  id:
+    type: string
+    title: Identifier of the resource
+    description: Identifier of the collection, for example, used in URI path parameters.
+    minLength: 1
+    example: dem
+  title:
+    type: string
+    title: Title of the collection
+    description: A short, human-readable summary of the collection.
+    example: Digital Elevation Model
+  description:
+    type: string
+    title: Description of the collection
+    description: A human-readable explanation about data in the collection.
+    example: A Digital Elevation Model.
+  attribution:
+    type: string
+    title: Attribution for the collection
+    description: |-
+     Attribution for the collection, providing a way to identify the source of the geographic information, which can contain markup text whose format may be indicated in the `attributionMediaType` property. That format can be either plain text (`text/plain`), HTML (`text/html`) or https://commonmark.org/[CommonMark] (`text/markdown`).
+     If the 'attributionMediaType' indicates something other than `text/plain`, the `attribution` element string should be interpreted by a markup parser selected based on that media type to be presented to the user
+     (e.g., `text/markdown` will be parsed by a library supporting CommonMark). By allowing markup, the attribution string can import images (e.g., organization logos) and format the text (e.g., the name of the organization in italics).
+  attributionMediaType:
+    title: Media type of the attribution
+    description: |-
+     Media type for the markup language of the attribution: It can be either plain text (`text/plain`), HTML (`text/html`) or https://commonmark.org/[CommonMark] (`text/markdown`).
+    enum:
+    - text/plain
+    - text/html
+    - text/markdown
+  accessConstraints:
+    title: Access Constraints of the collection
+    description: |-
+       Restrictions on the availability of the collection that the user needs to be aware of before using or redistributing the data:
+
+       * unclassified: Available for general disclosure
+       * restricted: Not for general disclosure
+       * confidential: Available for someone who can be entrusted with information
+       * secret: Kept or meant to be kept private, unknown, or hidden from all but a select group of people
+       * topSecret: Of the highest secrecy
+    enum:
+    - unclassified
+    - restricted
+    - confidential
+    - secret
+    - topSecret
+  publisher:
+    type: string
+    title: Responsible party publishing the collection
+    description: Organization or individual responsible for making the data available
+  contacts:
+    type: array
+    title: A list of contacts
+    description:
+      A list of contacts qualified by their role(s) in association to the collection.
+    minItems: 1
+    items:
+      $ref: '../records-core/contact.yaml'
+  license:
+    type: string
+    title: License associated to the collection
+    description: The legal provisions under which the data of this collection is made available.
+  rights:
+    type: string
+    title: Rights over the collection
+    description: A statement that concerns all rights not addressed by the license such as a copyright statement.
+  formats:
+    title: Formats for distributing the collection
+    description: A list of formats in which the data of this collection is distributed
+    type: array
+    items:
+      $ref: '../records-core/format.yaml'
+  keywords:
+    type: array
+    title: Keywords representing aspects of the collection
+    description: The topic or topics of the resource. Typically represented using free-form keywords, tags, key phrases, or classification codes.
+    items:
+      type: string
+  themes:
+    type: array
+    title: Themes represented by the resource
+    description:
+      A knowledge organization system used to classify the resource.
+    minItems: 1
+    items:
+      $ref: '../records-core/theme.yaml'
+  resourceLanguages:
+    type: array
+    title: The list of languages of the collection
+    description: The list of languages in which the data of this collection is available.
+    items:
+      $ref: '../records-core/language.yaml'
+  links:
+    type: array
+    title: Links relevant to this collection
+    description: Links to this or other resources related to this collection.
+    example:
+      - href: http://data.example.org/collections/dem?f=json
+        rel: self
+        type: application/json
+        title: Digital Elevation Model
+      - href: http://data.example.org/collections/dem?f=html
+        rel: alternate
+        type: application/json
+        title: Digital Elevation Model
+      - href: http://data.example.org/collections/dem/coverage
+        rel: coverage
+        type: image/tiff; application=geotiff
+        title: Digital Elevation Model
+      - href: http://data.example.org/collections/dem/coverage/domainset
+        rel: domainset
+        type: application/json
+        title: Digital Elevation Model
+      - href: http://data.example.org/collections/dem/coverage/rangetype
+        rel: rangetype
+        type: application/json
+        title: Digital Elevation Model
+      - href: http://data.example.org/collections/dem/coverage/metadata
+        rel: metadata
+        type: application/json
+        title: Digital Elevation Model
+    items:
+      $ref: '../common-core/link.yaml'
+  itemType:
+    title: Type of the items in the collection
+    description: Indicator about the type of the items in the collection if the collection has an accessible `/collections/{collectionId}/items` endpoint (e.g., `feature` or `record`).
+    type: string
+    default: feature
+  dataType:
+    title: Nature of the data in the collection
+    description: Nature of the data in the collection. For example, this could be set to `map`, `vector` or `coverage`. It is not an indication of the available data access mechanism, but a hint regarding the internal representation of the data.
+    $ref: 'dataType.yaml'
+  featureTypes:
+    title: Feature type(s) present in the collection
+    description: The list of feature (or coverage) type(s) which are present inside the collection. This is useful for associating the relevant portrayal rules of a style.
+    type: string
+  parent:
+    title: Identifier of a parent collection (if this collection is part of a hierarchy)
+    description: If this collection is part of a hierarchy, this property allows to identify another collection within the same dataset as its parent (by setting `parent` to the `id` of that collection), enabling clients to construct a hierarchy.
+    type: string
+  geoDataClasses:
+    title: Class of data in the collection
+    description: 'One or more classes of geospatial data, identified by a URI, which implies compatibility with a particular schema (fields/properties, as defined in OGC API - Common - Part 3: Schemas) for one or more collections, each with particular semantic definitions and data types. This is useful for example to determine compatibility with styles or processes, or to identify a particular collection within a dataset based on semantics.'
+    type: array
+    items:
+      type: string
+      format: uri
+  defaultFields:
+    title: List of fields returned by default
+    description: A sorted list of field names. For a Features data access mechanism, it is the list of returnable properties included by default and complementing the geometry of the features. For a Coverage data access mechanism, they are names of fields whose values are included by default. Note that an API may provide a mechanism (e.g., a query parameter called `properties` or `exclude-properties`) to override this default list in customized responses.
+    type: array
+    items:
+       type: string
+    minItems: 1
+  crs:
+    title: List of coordinate reference systems supported in the collection
+    description: The list of coordinate reference systems supported by the API; if present, the list should include the default coordinate reference system (usually listed first). Each item should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+    type: array
+    items:
+      anyOf:
+        - type: string
+        - type: object
+    default:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+    example:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+      - http://www.opengis.net/def/crs/EPSG/0/4326
+  storageCrs:
+    title: Storage or native CRS of the data in the collection
+    description: The native coordinate reference system (i.e., the most efficient CRS in which to request the data, possibly how the data is stored on the server); this is the default output coordinate reference system for Maps and Coverages. This should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+    anyOf:
+      - type: string
+      - type: object
+    default: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+    example: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  epoch:
+    title: Epoch of the data in the collection
+    description: Epoch of the native (storage) Coordinate Reference System (CRS)
+    type: number
+    example: 2021.33
+  geometryDimension:
+    title: Number of spatial dimensions of the primary geometry for the data
+    description: 'Number of spatial dimensions of the primary geometry of individual elements of the data: 0 for points, 1 for curves, 2 for surfaces, 3 for solids and unspecified when mixed or unknown. Not to be confused with the dimensions of the domain which are defined by the extent element.'
+    type: integer
+    minimum: 0
+    maximum: 3
+  minScaleDenominator:
+    title: Minimum scale denominator for the collection
+    description: Minimum scale denominator for usage of the collection.
+    type: number
+  maxScaleDenominator:
+    title: Maximum scale denominator for the collection
+    description: Maximum scale denominator for usage of the collection.
+    type: number
+  minCellSize:
+    title: Minimum cell size for the collection
+    description: Minimum cell size for usage of the collection.
+    type: number
+  maxCellSize:
+    title: Maximum cell size for the collection
+    description: Maximum cell size for usage of the collection.
+    type: number
+  created:
+    title: Timestamp when the collection was first produced
+    description: Timestamp indicating when the data in the collection was first produced.
+    type: string
+    format: date-time
+  updated:
+    title: Timestamp of the last change/revision to the collection
+    description: Timestamp of the last change/revision to the data in the collection.
+    type: string
+    format: date-time

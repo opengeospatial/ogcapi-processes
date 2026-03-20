@@ -7,9 +7,9 @@ description: |-
 in: query
 description: |-
   Asserts the CRS used for the coordinate values of a bounding
-  box input parameter. 
+  box input parameter.
 required: false
-schema: 
+schema:
   type: object
   patternProperties:
     "^.+[crs]$":

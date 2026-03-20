@@ -79,20 +79,20 @@ components:
       # Common - Geospatial Data
       collections:
          $ref: 'schemas/common-geodata/collections.yaml'
-      collectionInfo:
-         $ref: 'schemas/common-geodata/collectionInfo.yaml'
+      collectionDesc:
+         $ref: 'schemas/common-geodata/collectionDesc.yaml'
       extent:
          $ref: 'schemas/common-geodata/extent.yaml'
-      extent-uad:
-         $ref: 'schemas/common-geodata/extent-uad.yaml'
+      extent-UAD:
+         $ref: 'schemas/common-geodata/extent-UAD.yaml'
       crs:
-         $ref: 'schemas/common-geodata/crs.yaml'
+         $ref: 'schemas/crs/crs.yaml'
       dataType:
          $ref: 'schemas/common-geodata/dataType.yaml'
       timeStamp:
          $ref: 'schemas/common-geodata/timeStamp.yaml'
       # projJSON:
-      #   $ref: 'schemas/common-geodata/projJSON.yaml'
+      #   $ref: 'schemas/crs/projJSON.yaml'
       numberReturned:
          $ref: 'schemas/common-geodata/numberReturned.yaml'
       numberMatched:
@@ -102,8 +102,236 @@ components:
       CWL:
          #$ref: 'https://w3id.org/cwl/v1.2/cwl-json-schema.yaml'
          $ref: 'schemas/cwl/cwl.yaml'
+      cwltool_CUDARequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/cwltool_CUDARequirement'
 
-      # CQL2
+      CWLAtomic:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLAtomic'
+      CWLAtomicNested:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLAtomicNested'
+      CWLGraph:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLGraph'
+      CWLWorkflow:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflow'
+      CWLWorkflowClass:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowClass'
+      CWLWorkflowBase:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowBase'
+      CWLWorkflowSteps:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowSteps'
+      CWLInputsDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputsDefinition'
+      CWLOutputsDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputsDefinition'
+      CWLWorkflowStepMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepMap'
+      CWLWorkflowStepList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepList'
+      CWLInputList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputList'
+      CWLInputMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputMap'
+      ResourceQuantityOrFractional:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/ResourceQuantityOrFractional'
+      CWLExpression:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLExpression'
+      InitialWorkDirListing:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/InitialWorkDirListing'
+      CWLRequirementsMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLRequirementsMap'
+      CWLRequirements:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLRequirements'
+      CWLCommand:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLCommand'
+      InputBinding:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/InputBinding'
+      CWLInputItem:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputItem'
+      DirectoryListingDirent:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/DirectoryListingDirent'
+      DirectoryListingFileOrDirectory:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/DirectoryListingFileOrDirectory'
+      SoftwareRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/SoftwareRequirement'
+      DockerRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/DockerRequirement'
+      ShellCommandRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/ShellCommandRequirement'
+      EnvVarRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/EnvVarRequirement'
+      SchemaDefRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/SchemaDefRequirement'
+      InitialWorkDirRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/InitialWorkDirRequirement'
+      InlineJavascriptRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/InlineJavascriptRequirement'
+      InplaceUpdateRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/InplaceUpdateRequirement'
+      LoadListingRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/LoadListingRequirement'
+      NetworkAccessRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/NetworkAccessRequirement'
+      ResourceRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/ResourceRequirement'
+      ScatterFeatureRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/ScatterFeatureRequirement'
+      WorkReuseRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/WorkReuseRequirement'
+      ToolTimeLimitRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/ToolTimeLimitRequirement'
+      MultipleInputFeatureRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/MultipleInputFeatureRequirement'
+      StepInputExpressionRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/StepInputExpressionRequirement'
+      SubworkflowFeatureRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/SubworkflowFeatureRequirement'
+
+      CWLHints:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLHints'
+      CWLWorkflowStepDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepDefinition'
+      CWLWorkflowStepScatter:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepScatter'
+      CWLWorkflowStepId:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepId'
+      CWLHintsMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLHintsMap'
+      CWLHintsList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLHintsList'
+      CWLWorkflowStepIn:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepIn'
+      CWLWorkflowStepRun:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepRun'
+      CWLWorkflowStepWhen:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepWhen'
+      CWLWorkflowStepOut:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepWhen'
+      CWLWorkflowStepInMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInMap'
+      CWLWorkflowStepInList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInList'
+      CWLWorkflowStepInItem:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInItem'
+      CWLWorkflowStepInputId:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInputId'
+      CWLWorkflowStepInputBase:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInputBase'
+      CWLWorkflowStepInputDefault:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInputDefault'
+
+      NetworkAccess:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/NetworkAccess'
+      EnvironmentDef:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/EnvironmentDef'
+
+      CWLType:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLType'
+      CWLOutputObject:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputObject'
+      CWLOutputStdOut:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputStdOut'
+      CWLOutputStdErr:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputStdErr'
+      CWLTypeEnum:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeEnum'
+      CWLTypeRecordSchema:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordSchema'
+      CWLTypeRecordArray:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordArray'
+      CWLDefaultTypedConditional:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLDefaultTypedConditional'
+      CWLTypeBase:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeBase'
+      CWLTypeList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeList'
+      AnyType:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/AnyType'
+      CWLTypeDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeDefinition'
+      CWLTypeArray:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeArray'
+      CWLTypeRecordRef:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordRef'
+      CWLTypeRecordFieldsMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordFieldsMap'
+      CWLTypeRecordFieldsList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordFieldsList'
+      CWLTypeRecordFieldDefBase:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordFieldDefBase'
+      CWLFileOnlyParametersConditional:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLFileOnlyParametersConditional'
+      CWLDirectoryOnlyParametersConditional:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLDirectoryOnlyParametersConditional'
+      CWLFileOnlyParameters:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLFileOnlyParameters'
+      CWLTypeRecordSecondaryFiles:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordSecondaryFiles'
+      CWLTypeRecordSecondaryFileSchema:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordSecondaryFileSchema'
+      CWLRequirementsList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLRequirementsList'
+      CWLRequirementsItem:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLRequirementsItem'
+
+      CWLOutputStdOutDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputStdOutDefinition'
+      CWLOutputStdOutObjectType:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputStdOutObjectType'
+      CWLOutputStdErrDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputStdErrDefinition'
+      CWLOutputStdErrObjectType:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputStdErrObjectType'
+      CWLTypeRecordFieldDef:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordFieldDef'
+
+      CWLDefault:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLDefault'
+      AnyLiteralType:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/AnyLiteralType'
+      AnyLiteralList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/AnyLiteralList'
+      CWLDefaultLocation:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLDefaultLocation'
+      CWLDefaultObject:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLDefaultObject'
+
+      CWLTypeRecordFields:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordFields'
+
+      CWLImport:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLImport'
+
+      CWLVersion:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLVersion'
+      CWLMetadata:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLMetadata'
+      CWLDocumentation:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLDocumentation'
+      CWLAtomicBase:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLAtomicBase'
+      CWLOutputList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputList'
+      CWLOutputMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputMap'
+      CWLOutputItem:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputItem'
+      CWLWorkflowStepObject:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepObject'
+      CWLInputStdInDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputStdInDefinition'
+      CWLInputStdInObjectType:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputStdInObjectType'
+      CWLInputStdIn:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputStdIn'
+      CWLArguments:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLArguments'
+
+      SoftwarePackage:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/SoftwarePackage'
+      SoftwarePackageSpecs:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/SoftwarePackageSpecs'
+
+      # Common Query Language
       CQL2:
          $ref: 'schemas/cql2/cql2.yaml'
 

@@ -1,0 +1,141 @@
+---
+type: object
+title: Contact information
+description: |-
+  Identification of, and means of communication with, person responsible
+  for the resource.
+anyOf:
+  - required:
+    - name
+  - required:
+    - organization
+properties:
+  identifier:
+    type: string
+    title: Identifier of the contact
+    description: A value uniquely identifying a contact.
+  name:
+    type: string
+    title: name of the contact person
+    description: The name of the responsible person.
+  position:
+    type: string
+    title: position in the organization
+    description: |-
+      The name of the role or position of the responsible person taken
+      from the organization's formal organizational hierarchy or chart.
+  organization:
+    type: string
+    title: Name of the organization
+    description: Organization/affiliation of the contact.
+  logo:
+    title: Logo of the contact
+    description: |-
+      Link to a graphic identifying a contact. The link relation should be `icon`
+      and the media type should be an image media type.
+    allOf:
+      - $ref: '../common-core/link.yaml'
+      - type: object
+        required:
+          - rel
+          - type
+        properties:
+          rel:
+            enum:
+              - icon
+  phones:
+    type: array
+    title: Telephone numbers
+    description: Telephone numbers at which contact can be made.
+    items:
+      type: object
+      required:
+        - value
+      properties:
+        value:
+          type: string
+          title: Phone number.
+          description: The value is the phone number itself.
+          pattern: "^\\+[1-9]{1}[0-9]{3,14}$"
+          example: "+14165550142"
+        roles:
+          title: Type of phone number.
+          description: The type of phone number (e.g. home, work, fax, etc.).
+          $ref: 'roles.yaml'
+  emails:
+    type: array
+    title: Email addresses
+    description: Email addresses at which contact can be made.
+    items:
+      type: object
+      required:
+        - value
+      properties:
+        value:
+          type: string
+          title: Email address
+          description: The value is the email itself.
+          format: email
+        roles:
+          title: Type of email
+          description: The type of email (e.g. home, work, etc.).
+          $ref: 'roles.yaml'
+  addresses:
+    type: array
+    title: Postal addresses
+    description: Physical locations at which contact can be made.
+    items:
+      type: object
+      properties:
+        deliveryPoint:
+          type: array
+          title: Details of the address
+          description: Address lines for the location (e.g. street name and door number).
+          items:
+            type: string
+        city:
+          type: string
+          title: City
+          description: City for the location.
+        administrativeArea:
+          type: string
+          title: State of province
+          description: State or province of the location.
+        postalCode:
+          type: string
+          title: Postal code
+          description: ZIP or other postal code.
+        country:
+          type: string
+          title: Country
+          description: Country of the physical address.  ISO 3166-1 is recommended.
+        roles:
+          title: Type of postal address
+          description: The type of postal address (e.g. office, home, etc.).
+          $ref: 'roles.yaml'
+  links:
+    type: array
+    title: Links about the contact
+    description: On-line information about the contact.
+    items:
+      allOf:
+        - $ref: '../common-core/link.yaml'
+        - type: object
+          required:
+            - type
+  hoursOfService:
+    type: string
+    title: Hours of service
+    description: Time period when the contact can be contacted.
+    example: "Hours: Mo-Fr 10am-7pm Sa 10am-22pm Su 10am-21pm"
+  contactInstructions:
+    type: string
+    title: Contact instructions
+    description: Supplemental instructions on how or when to contact can be made.
+  roles:
+    title: Types of contact person
+    description:
+      The set of named duties, job functions and/or permissions
+      associated with this contact.
+      (e.g. developer, administrator, etc.).
+    $ref: 'roles.yaml'

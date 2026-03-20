@@ -4,9 +4,6 @@ get:
    operationId: getCollectionsList
    summary: Retrieve the list of geospatial data collections available from this service.
    parameters:
-     - $ref: '../../parameters/common-geodata/datetime.yaml'
-     - $ref: '../../parameters/common-geodata/bbox.yaml'
-     - $ref: '../../parameters/common-geodata/limit-collections.yaml'
      - $ref: '../../parameters/unspecified/f-metadata.yaml'
    responses:
      '200':

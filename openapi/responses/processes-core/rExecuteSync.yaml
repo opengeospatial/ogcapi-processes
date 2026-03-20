@@ -2,17 +2,18 @@ description: Result of synchronous execution
 content:
   application/json:
     schema:
-      oneOf:
-        - type: string
-        - type: number
-        - type: integer
-        - type: object
-          nullable: true
-        - type: array
-          items: { }
-        - type: boolean
-        - type: string
-          format: binary
+      anyOf:
+        - oneOf:
+          - type: string
+          - type: number
+          - type: integer
+          - type: object
+            nullable: true
+          - type: array
+            items: { }
+          - type: boolean
+          - type: string
+            format: binary
         - $ref: "../../schemas/processes-core/results.yaml"
   image/png:
     schema:
