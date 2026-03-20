@@ -1553,9 +1553,7 @@
                                           "minLength": 1
                                         },
                                         "envValue": {
-                                          "type": {
-                                            "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
-                                          }
+                                          "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
                                         }
                                       },
                                       "required": [
@@ -1603,8 +1601,7 @@
                                   "oneOf": [
                                     {
                                       "type": "object",
-                                      "title": "CWLTypeEnum",
-                                      "summary": "CWL type as enum of values.",
+                                      "title": "CWLTypeEnum (CWL type as enum of values).",
                                       "properties": {
                                         "type": {
                                           "type": "string",
@@ -1615,7 +1612,19 @@
                                           ]
                                         },
                                         "symbols": {
-                                          "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/allOf/8/if/properties/symbols"
+                                          "type": "array",
+                                          "title": "CWLTypeSymbols (Allowed values composing the enum).",
+                                          "items": {
+                                            "oneOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ],
+                                            "title": "CWLTypeSymbolValues"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -1662,203 +1671,107 @@
                                                       {
                                                         "description": "Explicitly disallow these parameters when non-File type is detected.\nOtherwise, validate their schema definitions according to what is permitted.\nParameters that are only valid when 'type' or 'items' evaluates to 'File'.\n",
                                                         "type": "object",
-                                                        "if": {
-                                                          "properties": {
-                                                            "oneOf": [
-                                                              {
-                                                                "description": "Single required or optional 'File'.",
-                                                                "type": {
-                                                                  "enum": [
-                                                                    "File",
-                                                                    "File?",
-                                                                    "File[]",
-                                                                    "File[]?"
-                                                                  ]
-                                                                }
-                                                              },
-                                                              {
-                                                                "description": "Array of required or optional 'File'.",
-                                                                "type": {
-                                                                  "const": "array"
-                                                                },
-                                                                "items": {
-                                                                  "oneOf": [
-                                                                    {
-                                                                      "type": [
-                                                                        {
-                                                                          "const": "File"
-                                                                        },
-                                                                        {
-                                                                          "const": "File?"
-                                                                        }
-                                                                      ]
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "contains": {
-                                                                        "type": [
+                                                        "anyOf": [
+                                                          {
+                                                            "type": "object",
+                                                            "properties": {
+                                                              "secondaryFiles": {
+                                                                "oneOf": [
+                                                                  {
+                                                                    "description": "Either an expression or the regex pattern directly.",
+                                                                    "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
+                                                                  },
+                                                                  {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                      "pattern": {
+                                                                        "description": "Either an expression or the regex pattern directly.",
+                                                                        "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
+                                                                      },
+                                                                      "required": {
+                                                                        "oneOf": [
                                                                           {
-                                                                            "const": "File"
+                                                                            "type": "boolean"
                                                                           },
                                                                           {
-                                                                            "const": "File?"
+                                                                            "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
                                                                           }
                                                                         ]
                                                                       }
-                                                                    }
-                                                                  ]
-                                                                }
-                                                              }
-                                                            ]
-                                                          }
-                                                        },
-                                                        "then": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "secondaryFiles": {
-                                                              "oneOf": [
-                                                                {
-                                                                  "description": "Either an expression or the regex pattern directly.",
-                                                                  "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
-                                                                },
-                                                                {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "pattern": {
+                                                                    },
+                                                                    "required": [
+                                                                      "pattern"
+                                                                    ],
+                                                                    "additionalProperties": false
+                                                                  },
+                                                                  {
+                                                                    "type": "array",
+                                                                    "items": {
                                                                       "description": "Either an expression or the regex pattern directly.",
                                                                       "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
-                                                                    },
-                                                                    "required": {
-                                                                      "oneOf": [
-                                                                        {
-                                                                          "type": "boolean"
-                                                                        },
-                                                                        {
-                                                                          "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
-                                                                        }
-                                                                      ]
                                                                     }
                                                                   },
-                                                                  "required": [
-                                                                    "pattern"
-                                                                  ],
-                                                                  "additionalProperties": false
-                                                                },
-                                                                {
-                                                                  "type": "array",
-                                                                  "items": {
-                                                                    "description": "Either an expression or the regex pattern directly.",
+                                                                  {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                      "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/requirements/oneOf/0/properties/SchemaDefRequirement/properties/types/items/oneOf/1/properties/fields/oneOf/0/additionalProperties/oneOf/1/allOf/1/anyOf/0/properties/secondaryFiles/oneOf/1"
+                                                                    }
+                                                                  }
+                                                                ]
+                                                              },
+                                                              "streamable": {
+                                                                "type": "boolean"
+                                                              },
+                                                              "format": {
+                                                                "oneOf": [
+                                                                  {
                                                                     "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
+                                                                  },
+                                                                  {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                      "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
+                                                                    }
                                                                   }
-                                                                },
-                                                                {
-                                                                  "type": "array",
-                                                                  "items": {
-                                                                    "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/requirements/oneOf/0/properties/SchemaDefRequirement/properties/types/items/oneOf/1/properties/fields/oneOf/0/additionalProperties/oneOf/1/allOf/1/then/properties/secondaryFiles/oneOf/1"
-                                                                  }
-                                                                }
-                                                              ]
-                                                            },
-                                                            "streamable": {
-                                                              "type": "boolean"
-                                                            },
-                                                            "format": {
-                                                              "oneOf": [
-                                                                {
-                                                                  "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
-                                                                },
-                                                                {
-                                                                  "type": "array",
-                                                                  "items": {
-                                                                    "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
-                                                                  }
-                                                                }
-                                                              ]
-                                                            },
-                                                            "loadContents": {
-                                                              "type": "boolean"
+                                                                ]
+                                                              },
+                                                              "loadContents": {
+                                                                "type": "boolean"
+                                                              }
+                                                            }
+                                                          },
+                                                          {
+                                                            "not": {
+                                                              "properties": {
+                                                                "secondaryFiles": {},
+                                                                "streamable": {},
+                                                                "format": {},
+                                                                "loadContents": {}
+                                                              }
                                                             }
                                                           }
-                                                        },
-                                                        "else": {
-                                                          "not": {
-                                                            "properties": {
-                                                              "secondaryFiles": {},
-                                                              "streamable": {},
-                                                              "format": {},
-                                                              "loadContents": {}
-                                                            }
-                                                          }
-                                                        }
+                                                        ]
                                                       },
                                                       {
                                                         "description": "Explicitly disallow these parameters when non-Directory type is detected.\nOtherwise, validate their schema definitions according to what is permitted.\nParameters that are only valid when 'type' or 'items' evaluates to 'Directory'.\n",
                                                         "type": "object",
-                                                        "if": {
-                                                          "properties": {
-                                                            "oneOf": [
-                                                              {
-                                                                "description": "Single required or optional 'Directory'.",
-                                                                "type": {
-                                                                  "enum": [
-                                                                    "Directory",
-                                                                    "Directory?",
-                                                                    "Directory[]",
-                                                                    "Directory[]?"
-                                                                  ]
-                                                                }
-                                                              },
-                                                              {
-                                                                "description": "Array of required or optional 'Directory'.",
-                                                                "type": {
-                                                                  "const": "array"
-                                                                },
-                                                                "items": {
-                                                                  "oneOf": [
-                                                                    {
-                                                                      "type": [
-                                                                        {
-                                                                          "const": "Directory"
-                                                                        },
-                                                                        {
-                                                                          "const": "Directory?"
-                                                                        }
-                                                                      ]
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "contains": {
-                                                                        "type": [
-                                                                          {
-                                                                            "const": "Directory"
-                                                                          },
-                                                                          {
-                                                                            "const": "Directory?"
-                                                                          }
-                                                                        ]
-                                                                      }
-                                                                    }
-                                                                  ]
-                                                                }
-                                                              }
-                                                            ]
-                                                          }
-                                                        },
-                                                        "then": {
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "loadListing": {
-                                                              "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/requirements/oneOf/0/properties/LoadListingRequirement/properties/loadListing"
-                                                            }
-                                                          }
-                                                        },
-                                                        "else": {
-                                                          "not": {
+                                                        "oneOf": [
+                                                          {
+                                                            "type": "object",
                                                             "properties": {
-                                                              "loadListing": {}
+                                                              "loadListing": {
+                                                                "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/requirements/oneOf/0/properties/LoadListingRequirement/properties/loadListing"
+                                                              }
+                                                            }
+                                                          },
+                                                          {
+                                                            "not": {
+                                                              "properties": {
+                                                                "loadListing": {}
+                                                              }
                                                             }
                                                           }
-                                                        }
+                                                        ]
                                                       }
                                                     ]
                                                   }
@@ -1942,7 +1855,11 @@
                                     "items": {
                                       "oneOf": [
                                         {
-                                          "type": "null"
+                                          "nullable": true,
+                                          "type": "string",
+                                          "enum": [
+                                            null
+                                          ]
                                         },
                                         {
                                           "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
@@ -2048,11 +1965,11 @@
                                     }
                                   ]
                                 }
-                              },
-                              "required": [
-                                "expressionLib"
-                              ]
+                              }
                             },
+                            "required": [
+                              "expressionLib"
+                            ],
                             "additionalProperties": false
                           },
                           "InplaceUpdateRequirement": {
@@ -2126,8 +2043,7 @@
                                     "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
                                   }
                                 ],
-                                "title": "ResourceCoresMinimum",
-                                "summary": "Minimum reserved number of CPU cores.",
+                                "title": "ResourceCoresMinimum (Minimum reserved number of CPU cores).",
                                 "description": "Minimum reserved number of CPU cores.\n\nMay be a fractional value to indicate to a scheduling algorithm that one core can be allocated to\nmultiple jobs. For example, a value of 0.25 indicates that up to 4 jobs\nmay run in parallel on 1 core. A value of 1.25 means that up to 3 jobs\ncan run on a 4 core system (4/1.25 ~ 3).\n\nProcesses can only share a core allocation if the sum of each of their 'ramMax', 'tmpdirMax', and\n'outdirMax' requests also do not exceed the capacity of the node.\n\nProcesses sharing a core must have the same level of isolation (typically a container\nor VM) that they would normally have.\n\nThe reported number of CPU cores reserved for the process, which is available to expressions\non the 'CommandLineTool' as 'runtime.cores', must be a non-zero integer, and may be calculated by\nrounding up the cores request to the next whole number.\n\nScheduling systems may allocate fractional CPU resources by setting quotas or scheduling weights.\nScheduling systems that do not support fractional CPUs may round up the request to the next whole number.\n",
                                 "default": 1
                               },
@@ -2140,8 +2056,7 @@
                                     "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
                                   }
                                 ],
-                                "title": "ResourceCoresMaximum",
-                                "summary": "Maximum reserved number of CPU cores.",
+                                "title": "ResourceCoresMaximum (Maximum reserved number of CPU cores).",
                                 "description": "Maximum reserved number of CPU cores.\nSee 'coresMin' for discussion about fractional CPU requests.\n"
                               },
                               "ramMin": {
@@ -2150,15 +2065,15 @@
                                     "title": "An item quantity that can also represent a proportion of use by resources.",
                                     "description": "Technically should be minimum=1, but fractional for scheduling algorithms are allowed.\nThere is no way to distinguish between float/long simultaneously in JSON schema (multi-match oneOf).\nTherefore, only validate that it is greater than zero.\n",
                                     "type": "number",
-                                    "exclusiveMinimum": 0,
+                                    "exclusiveMinimum": true,
+                                    "minimum": 0,
                                     "default": 1
                                   },
                                   {
                                     "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
                                   }
                                 ],
-                                "title": "ResourceRAMMinimum",
-                                "summary": "Minimum reserved RAM in mebibytes.",
+                                "title": "ResourceRAMMinimum (Minimum reserved RAM in mebibytes).",
                                 "description": "Minimum reserved RAM in mebibytes (2**20).\n\nMay be a fractional value. If so, the actual RAM request must be rounded up\nto the next whole number.\n\nThe reported amount of RAM reserved for the process, which is available to\nexpressions on the 'CommandLineTool' as 'runtime.ram', must be a non-zero integer.\n",
                                 "default": 256
                               },
@@ -2171,8 +2086,7 @@
                                     "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
                                   }
                                 ],
-                                "title": "ResourceRAMMaximum",
-                                "summary": "Maximum reserved RAM in mebibytes.",
+                                "title": "ResourceRAMMaximum (Maximum reserved RAM in mebibytes).",
                                 "description": "Maximum reserved RAM in mebibytes (2**20).\nSee 'ramMin' for discussion about fractional RAM requests.\n"
                               },
                               "tmpdirMin": {
@@ -2184,8 +2098,7 @@
                                     "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
                                   }
                                 ],
-                                "title": "ResourceTmpDirMinimum",
-                                "summary": "Minimum reserved filesystem based storage for the designated temporary directory in mebibytes.",
+                                "title": "ResourceTmpDirMinimum (Minimum reserved filesystem based storage for the designated temporary) directory in mebibytes.",
                                 "description": "Minimum reserved filesystem based storage for the designated temporary\ndirectory in mebibytes (2**20).\n\nMay be a fractional value. If so, the actual storage request must be rounded\nup to the next whole number.\n\nThe reported amount of storage reserved for the process, which is available\nto expressions on the 'CommandLineTool' as 'runtime.tmpdirSize', must be a non-zero integer.\n",
                                 "default": 1024
                               },
@@ -2198,8 +2111,7 @@
                                     "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
                                   }
                                 ],
-                                "title": "ResourceTmpDirMaximum",
-                                "summary": "Maximum reserved filesystem based storage for the designated temporary directory in mebibytes.",
+                                "title": "ResourceTmpDirMaximum (Maximum reserved filesystem based storage for the designated temporary directory in mebibytes).",
                                 "description": "Maximum reserved filesystem based storage for the designated temporary directory in mebibytes (2**20).\nSee 'tmpdirMin' for discussion about fractional storage requests.\n"
                               },
                               "outdirMin": {
@@ -2211,8 +2123,7 @@
                                     "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
                                   }
                                 ],
-                                "title": "ResourceOutDirMinimum",
-                                "summary": "Minimum reserved filesystem based storage for the designated output directory in mebibytes.",
+                                "title": "ResourceOutDirMinimum (Minimum reserved filesystem based storage for the designated output directory in mebibytes).",
                                 "description": "Minimum reserved filesystem based storage for the designated output\ndirectory in mebibytes (2**20).\n\nMay be a fractional value. If so, the actual storage request must be rounded\nup to the next whole number.\n\nThe reported amount of storage reserved for the process, which is available\nto expressions on the 'CommandLineTool' as 'runtime.outdirSize', must be a non-zero integer.\n",
                                 "default": 1024
                               },
@@ -2225,8 +2136,7 @@
                                     "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/arguments/items/oneOf/1/properties/valueFrom"
                                   }
                                 ],
-                                "title": "ResourceOutDirMaximum",
-                                "summary": "Maximum reserved filesystem based storage for the designated output directory in mebibytes.",
+                                "title": "ResourceOutDirMaximum (Maximum reserved filesystem based storage for the designated output directory in mebibytes).",
                                 "description": "Maximum reserved filesystem based storage for the designated output\ndirectory in mebibytes (2**20).\nSee 'outdirMin' for discussion about fractional storage requests.\n",
                                 "default": 1
                               }
@@ -2740,22 +2650,22 @@
                             },
                             {
                               "description": "Validate that the 'default' value, if specified, is of same type as the CWL 'type'.\nThis avoids over-accepting anything that does not match the intended type.\nHowever, validation limits itself to data literals and arrays.\nNested type and multi-type definitions will validate against 'Any'.\n",
-                              "allOf": [
+                              "oneOf": [
                                 {
-                                  "description": "Object structure with minimally 'type' and 'default'. Otherwise, no point to continue testing.",
                                   "type": "object",
                                   "properties": {
                                     "type": {
-                                      "type": [
-                                        "boolean",
-                                        "number",
-                                        "string",
-                                        "array",
-                                        "object"
+                                      "type": "string",
+                                      "enum": [
+                                        "null"
                                       ]
                                     },
                                     "default": {
-                                      "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/allOf/0/properties/type"
+                                      "type": "string",
+                                      "nullable": true,
+                                      "enum": [
+                                        null
+                                      ]
                                     }
                                   },
                                   "required": [
@@ -2763,449 +2673,240 @@
                                   ]
                                 },
                                 {
-                                  "description": "Explicit null.",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "const": "null"
-                                      }
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "string",
+                                        "string?"
+                                      ]
+                                    },
+                                    "default": {
+                                      "type": "string",
+                                      "nullable": true
                                     }
                                   },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "type": "null"
-                                      }
-                                    }
-                                  }
+                                  "required": [
+                                    "type"
+                                  ]
                                 },
                                 {
-                                  "description": "Required string.",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "const": "string"
-                                      }
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "boolean",
+                                        "boolean?"
+                                      ]
+                                    },
+                                    "default": {
+                                      "type": "boolean",
+                                      "nullable": true
                                     }
                                   },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "type": "string"
-                                      }
-                                    }
-                                  }
+                                  "required": [
+                                    "type"
+                                  ]
                                 },
                                 {
-                                  "description": "Optional string.",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "const": "string?"
-                                      }
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "int",
+                                        "int?",
+                                        "long",
+                                        "long?",
+                                        "float",
+                                        "float?",
+                                        "double",
+                                        "double?",
+                                        "integer",
+                                        "integer?"
+                                      ]
+                                    },
+                                    "default": {
+                                      "type": "number",
+                                      "nullable": true
                                     }
                                   },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "type": [
-                                          "string",
-                                          "null"
-                                        ]
-                                      }
-                                    }
-                                  }
+                                  "required": [
+                                    "type"
+                                  ]
                                 },
                                 {
-                                  "description": "Required boolean.",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "const": "boolean"
-                                      }
-                                    }
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "type": "boolean"
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "description": "Optional boolean.",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "enum": [
-                                          "double?",
-                                          "float?",
-                                          "int?",
-                                          "integer?",
-                                          "long?"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "type": [
-                                          "number",
-                                          "null"
-                                        ]
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "description": "Required numeric.",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "enum": [
-                                          "double",
-                                          "float",
-                                          "int",
-                                          "integer",
-                                          "long"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "type": "number"
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "description": "Optional numeric.",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "enum": [
-                                          "double?",
-                                          "float?",
-                                          "int?",
-                                          "integer?",
-                                          "long?"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "type": [
-                                          "number",
-                                          "null"
-                                        ]
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "description": "Required enum.",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "const": "enum"
-                                      },
-                                      "symbols": {
-                                        "type": "array",
-                                        "title": "CWLTypeSymbols",
-                                        "summary": "Allowed values composing the enum.",
-                                        "items": {
-                                          "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/allOf/8/then/properties/default/type"
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "type": {
-                                          "oneOf": [
-                                            {
-                                              "type": "number"
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "File",
+                                        "File?",
+                                        "Directory",
+                                        "Directory?"
+                                      ]
+                                    },
+                                    "default": {
+                                      "oneOf": [
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "class": {
+                                              "type": "string",
+                                              "enum": [
+                                                "File",
+                                                "Directory"
+                                              ]
                                             },
-                                            {
+                                            "path": {
+                                              "type": "string"
+                                            },
+                                            "location": {
+                                              "type": "string"
+                                            },
+                                            "basename": {
+                                              "type": "string"
+                                            },
+                                            "nameroot": {
                                               "type": "string"
                                             }
+                                          },
+                                          "required": [
+                                            "class"
                                           ],
-                                          "title": "CWLTypeSymbolValues"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "description": "Optional enum.",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "const": "enum?"
-                                      },
-                                      "symbols": {
-                                        "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/allOf/8/if/properties/symbols"
-                                      }
-                                    }
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "oneOf": [
-                                          {
-                                            "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/allOf/8/then/properties/default/type"
-                                          },
-                                          {
-                                            "type": "null"
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "description": "Required File or Directory.",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "enum": [
-                                          "Directory",
-                                          "File"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "type": "object",
-                                        "properties": {
-                                          "class": {
-                                            "type": "string",
-                                            "enum": [
-                                              "File",
-                                              "Directory"
-                                            ]
-                                          },
-                                          "path": {
-                                            "type": "string"
-                                          },
-                                          "location": {
-                                            "type": "string"
-                                          },
-                                          "basename": {
-                                            "type": "string"
-                                          },
-                                          "nameroot": {
-                                            "type": "string"
-                                          }
+                                          "oneOf": [
+                                            {
+                                              "required": [
+                                                "path"
+                                              ]
+                                            },
+                                            {
+                                              "required": [
+                                                "location"
+                                              ]
+                                            }
+                                          ],
+                                          "additionalProperties": false
                                         },
-                                        "required": [
-                                          "class"
-                                        ],
-                                        "oneOf": [
-                                          {
-                                            "required": [
-                                              "path"
-                                            ]
-                                          },
-                                          {
-                                            "required": [
-                                              "location"
-                                            ]
-                                          }
-                                        ],
-                                        "additionalProperties": false
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "description": "Optional File or Directory.",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "enum": [
-                                          "Directory?",
-                                          "File?"
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "oneOf": [
-                                          {
-                                            "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/allOf/10/then/properties/default"
-                                          },
-                                          {
-                                            "type": "null"
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "description": "Required array of string.",
-                                  "if": {
-                                    "oneOf": [
-                                      {
-                                        "properties": {
-                                          "type": {
-                                            "const": "string[]"
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "properties": {
-                                          "type": {
-                                            "const": "array"
-                                          },
-                                          "items": {
-                                            "const": "string"
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "type": "array",
-                                        "items": {
+                                        {
+                                          "nullable": true,
+                                          "enum": [
+                                            null
+                                          ],
                                           "type": "string"
                                         }
-                                      }
+                                      ]
                                     }
-                                  }
+                                  },
+                                  "required": [
+                                    "type"
+                                  ]
                                 },
                                 {
-                                  "description": "Required array of boolean.",
-                                  "if": {
-                                    "oneOf": [
-                                      {
-                                        "properties": {
-                                          "type": {
-                                            "const": "boolean[]"
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "properties": {
-                                          "type": {
-                                            "const": "array"
-                                          },
-                                          "items": {
-                                            "const": "boolean"
-                                          }
-                                        }
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "pattern": "^[a-zA-Z]+\\\\[\\\\]$"
+                                    },
+                                    "default": {
+                                      "type": "array",
+                                      "items": {
+                                        "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/oneOf/6/properties/items"
                                       }
-                                    ]
+                                    }
                                   },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "type": "array",
-                                        "items": {
+                                  "required": [
+                                    "type"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "array"
+                                      ]
+                                    },
+                                    "items": {
+                                      "oneOf": [
+                                        {
                                           "type": "boolean"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "description": "Required array of numeric.",
-                                  "if": {
-                                    "oneOf": [
-                                      {
-                                        "properties": {
-                                          "type": {
-                                            "enum": [
-                                              "double[]",
-                                              "float[]",
-                                              "int[]",
-                                              "integer[]",
-                                              "long[]"
-                                            ]
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "properties": {
-                                          "type": {
-                                            "const": "array"
-                                          },
-                                          "items": {
-                                            "enum": [
-                                              "double",
-                                              "float",
-                                              "int",
-                                              "integer",
-                                              "long"
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "type": "array",
-                                        "items": {
+                                        },
+                                        {
                                           "type": "number"
+                                        },
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "array",
+                                          "items": {}
+                                        },
+                                        {
+                                          "type": "object"
                                         }
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "description": "Required anything (single).",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "const": "Any"
+                                      ]
+                                    },
+                                    "default": {
+                                      "type": "array",
+                                      "items": {
+                                        "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/oneOf/6/properties/items"
                                       }
                                     }
                                   },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "description": "Match anything.",
-                                        "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/allOf/0/properties/type"
-                                      }
-                                    }
-                                  }
+                                  "required": [
+                                    "type",
+                                    "items"
+                                  ]
                                 },
                                 {
-                                  "description": "Required array of anything.",
-                                  "if": {
-                                    "properties": {
-                                      "type": {
-                                        "const": "Any[]"
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "enum",
+                                        "enum?"
+                                      ]
+                                    },
+                                    "symbols": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
                                       }
+                                    },
+                                    "default": {
+                                      "type": "string",
+                                      "nullable": true
                                     }
                                   },
-                                  "then": {
-                                    "properties": {
-                                      "default": {
-                                        "description": "Match anything as long as under array.",
-                                        "type": "array",
-                                        "items": {
-                                          "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/allOf/0/properties/type"
-                                        }
-                                      }
+                                  "required": [
+                                    "type",
+                                    "symbols"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "Any",
+                                        "Any?"
+                                      ]
+                                    },
+                                    "default": {
+                                      "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/oneOf/6/properties/items"
                                     }
-                                  }
+                                  },
+                                  "required": [
+                                    "type"
+                                  ]
                                 }
                               ]
                             },
@@ -3233,7 +2934,6 @@
                                         {
                                           "type": "string",
                                           "title": "CWL type string definition",
-                                          "summary": "CWL type string definition.",
                                           "description": "Note that 'Any' is equivalent to any of the non-null types.\nTherefore, a nullable 'Any' explicitly specified by 'Any?' or its array-nullable form 'Any[]?' are not equivalent.\nField type definition.\n",
                                           "enum": [
                                             "null",
@@ -3284,8 +2984,7 @@
                                         },
                                         {
                                           "type": "object",
-                                          "title": "CWLTypeArray",
-                                          "summary": "CWL type as list of items.",
+                                          "title": "CWLTypeArray (CWL type as list of items).",
                                           "properties": {
                                             "type": {
                                               "type": "string",
@@ -3346,8 +3045,7 @@
                                     },
                                     {
                                       "type": "array",
-                                      "title": "CWLTypeList",
-                                      "summary": "Combination of allowed CWL types.",
+                                      "title": "CWLTypeList (Combination of allowed CWL types).",
                                       "items": {
                                         "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/1/allOf/0/additionalProperties/oneOf/0/oneOf/0"
                                       }
@@ -3356,8 +3054,7 @@
                                   "title": "CWL Type"
                                 },
                                 {
-                                  "title": "CWLInputObject",
-                                  "summary": "CWL type definition with parameters.",
+                                  "title": "CWLInputObject (CWL type definition with parameters).",
                                   "allOf": [
                                     {
                                       "type": "object",
@@ -3514,8 +3211,7 @@
                                     },
                                     {
                                       "type": "object",
-                                      "title": "CWLOutputObject",
-                                      "summary": "CWL type definition with parameters.",
+                                      "title": "CWLOutputObject (CWL type definition with parameters).",
                                       "properties": {
                                         "type": {
                                           "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/1/allOf/0/additionalProperties/oneOf/0"
@@ -3870,7 +3566,7 @@
                                                     }
                                                   },
                                                   {
-                                                    "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/allOf/10/then/properties/default"
+                                                    "$ref": "#/components/schemas/CWL/oneOf/0/allOf/3/properties/inputs/oneOf/0/items/allOf/1/oneOf/4/properties/default/oneOf/0"
                                                   },
                                                   {
                                                     "type": "object",
@@ -4011,8 +3707,7 @@
                                   "required": [
                                     "timelimit",
                                     "class"
-                                  ],
-                                  "additionalProperties": false
+                                  ]
                                 }
                               }
                             }

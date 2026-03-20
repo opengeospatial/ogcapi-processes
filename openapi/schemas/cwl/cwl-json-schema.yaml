@@ -156,7 +156,9 @@ $defs:
         title: InitialWorkDirListingItems
         items:
           oneOf:
-            - type: 'null'
+            - nullable: true
+              type: string
+              enum: [null]
             - $ref: '#/$defs/CWLExpression'
             - $ref: '#/$defs/DirectoryListingDirent'
             - $ref: '#/$defs/DirectoryListingFileOrDirectory'
@@ -245,8 +247,8 @@ $defs:
           - InlineJavascriptRequirement
       expressionLib:
         $ref: '#/$defs/InlineJavascriptLibraries'
-      required:
-        - expressionLib
+    required:
+      - expressionLib
     additionalProperties: false
   InplaceUpdateRequirement:
     type: object
@@ -326,14 +328,14 @@ $defs:
       There is no way to distinguish between float/long simultaneously in JSON schema (multi-match oneOf).
       Therefore, only validate that it is greater than zero.
     type: number
-    exclusiveMinimum: 0
+    exclusiveMinimum: true
+    minimum: 0
     default: 1
   ResourceCoresMinimum:
     oneOf:
     - $ref: '#/$defs/ResourceQuantityOrFractional'
     - $ref: '#/$defs/CWLExpression'
-    title: ResourceCoresMinimum
-    summary: Minimum reserved number of CPU cores.
+    title: ResourceCoresMinimum (Minimum reserved number of CPU cores).
     description: |
       Minimum reserved number of CPU cores.
 
@@ -359,8 +361,7 @@ $defs:
     oneOf:
     - $ref: '#/$defs/ResourceQuantityOrFractional'
     - $ref: '#/$defs/CWLExpression'
-    title: ResourceCoresMaximum
-    summary: Maximum reserved number of CPU cores.
+    title: ResourceCoresMaximum (Maximum reserved number of CPU cores).
     description: |
       Maximum reserved number of CPU cores.
       See 'coresMin' for discussion about fractional CPU requests.
@@ -368,8 +369,7 @@ $defs:
     oneOf:
     - $ref: '#/$defs/ResourceQuantityOrFractional'
     - $ref: '#/$defs/CWLExpression'
-    title: ResourceRAMMinimum
-    summary: Minimum reserved RAM in mebibytes.
+    title: ResourceRAMMinimum (Minimum reserved RAM in mebibytes).
     description: |
       Minimum reserved RAM in mebibytes (2**20).
 
@@ -383,8 +383,7 @@ $defs:
     oneOf:
     - $ref: '#/$defs/ResourceQuantityOrFractional'
     - $ref: '#/$defs/CWLExpression'
-    title: ResourceRAMMaximum
-    summary: Maximum reserved RAM in mebibytes.
+    title: ResourceRAMMaximum (Maximum reserved RAM in mebibytes).
     description: |
       Maximum reserved RAM in mebibytes (2**20).
       See 'ramMin' for discussion about fractional RAM requests.
@@ -392,8 +391,7 @@ $defs:
     oneOf:
     - $ref: '#/$defs/ResourceQuantityOrFractional'
     - $ref: '#/$defs/CWLExpression'
-    title: ResourceTmpDirMinimum
-    summary: Minimum reserved filesystem based storage for the designated temporary
+    title: ResourceTmpDirMinimum (Minimum reserved filesystem based storage for the designated temporary)
       directory in mebibytes.
     description: |
       Minimum reserved filesystem based storage for the designated temporary
@@ -409,8 +407,7 @@ $defs:
     oneOf:
     - $ref: '#/$defs/ResourceQuantityOrFractional'
     - $ref: '#/$defs/CWLExpression'
-    title: ResourceTmpDirMaximum
-    summary: Maximum reserved filesystem based storage for the designated temporary directory in mebibytes.
+    title: ResourceTmpDirMaximum (Maximum reserved filesystem based storage for the designated temporary directory in mebibytes).
     description: |
       Maximum reserved filesystem based storage for the designated temporary directory in mebibytes (2**20).
       See 'tmpdirMin' for discussion about fractional storage requests.
@@ -418,9 +415,7 @@ $defs:
     oneOf:
     - $ref: '#/$defs/ResourceQuantityOrFractional'
     - $ref: '#/$defs/CWLExpression'
-    title: ResourceOutDirMinimum
-    summary: Minimum reserved filesystem based storage for the designated output
-      directory in mebibytes.
+    title: ResourceOutDirMinimum (Minimum reserved filesystem based storage for the designated output directory in mebibytes).
     description: |
       Minimum reserved filesystem based storage for the designated output
       directory in mebibytes (2**20).
@@ -435,9 +430,7 @@ $defs:
     oneOf:
     - $ref: '#/$defs/ResourceQuantityOrFractional'
     - $ref: '#/$defs/CWLExpression'
-    title: ResourceOutDirMaximum
-    summary: Maximum reserved filesystem based storage for the designated output
-      directory in mebibytes.
+    title: ResourceOutDirMaximum (Maximum reserved filesystem based storage for the designated output directory in mebibytes).
     description: |
       Maximum reserved filesystem based storage for the designated output
       directory in mebibytes (2**20).
@@ -562,33 +555,41 @@ $defs:
       Otherwise, validate their schema definitions according to what is permitted.
       Parameters that are only valid when 'type' or 'items' evaluates to 'File'.
     type: object
-    if:
-      properties:
-        oneOf:
-        - description: Single required or optional 'File'.
-          type:
-            enum:
-            - File
-            - File?
-            - File[]
-            - File[]?
-        - description: Array of required or optional 'File'.
-          type:
-            const: array
-          items:
-            oneOf:
-              - type:
-                - const: File
-                - const: File?
-              - type: array
-                contains:
-                  type:
-                    - const: File
-                    - const: File?
-    then:
-      $ref: '#/$defs/CWLFileOnlyParameters'
-    else:
-      not:
+    #if:
+    #  properties:
+    #    oneOf:
+    #    - description: Single required or optional 'File'.
+    #      type:
+    #        enum:
+    #        - File
+    #        - File?
+    #        - File[]
+    #        - File[]?
+    #    - description: Array of required or optional 'File'.
+    #      type:
+    #        const: array
+    #      items:
+    #        oneOf:
+    #          - type:
+    #            - const: File
+    #            - const: File?
+    #          - type: array
+    #            contains:
+    #              type:
+    #                - const: File
+    #                - const: File?
+    #then:
+    #  $ref: '#/$defs/CWLFileOnlyParameters'
+    #else:
+    #  not:
+    #    properties:
+    #      secondaryFiles: {}
+    #      streamable: {}
+    #      format: {}
+    #      loadContents: {}
+    anyOf:
+    - $ref: '#/$defs/CWLFileOnlyParameters'
+    - not:
         properties:
           secondaryFiles: {}
           streamable: {}
@@ -605,35 +606,40 @@ $defs:
       Otherwise, validate their schema definitions according to what is permitted.
       Parameters that are only valid when 'type' or 'items' evaluates to 'Directory'.
     type: object
-    if:
-      properties:
-        oneOf:
-        - description: Single required or optional 'Directory'.
-          type:
-            enum:
-            - Directory
-            - Directory?
-            - Directory[]
-            - Directory[]?
-        - description: Array of required or optional 'Directory'.
-          type:
-            const: array
-          items:
-            oneOf:
-              - type:
-                - const: Directory
-                - const: Directory?
-              - type: array
-                contains:
-                  type:
-                    - const: Directory
-                    - const: Directory?
-    then:
-      $ref: '#/$defs/CWLDirectoryOnlyParameters'
-    else:
-      not:
-        properties:
-          loadListing: {}
+    #if:
+    #  properties:
+    #    oneOf:
+    #    - description: Single required or optional 'Directory'.
+    #      type:
+    #        enum:
+    #        - Directory
+    #        - Directory?
+    #        - Directory[]
+    #        - Directory[]?
+    #    - description: Array of required or optional 'Directory'.
+    #      type:
+    #        const: array
+    #      items:
+    #        oneOf:
+    #          - type:
+    #            - const: Directory
+    #            - const: Directory?
+    #          - type: array
+    #            contains:
+    #              type:
+    #                - const: Directory
+    #                - const: Directory?
+    #then:
+    #  $ref: '#/$defs/CWLDirectoryOnlyParameters'
+    #else:
+    #  not:
+    #    properties:
+    #      loadListing: {}
+    oneOf:
+      - $ref: '#/$defs/CWLDirectoryOnlyParameters'
+      - not:
+           properties:
+             loadListing: {}
   CWLTypeRecordSecondaryFileSchema:
     type: object
     properties:
@@ -794,8 +800,7 @@ $defs:
         type: string
         minLength: 1
       envValue:
-        type:
-          $ref: '#/$defs/CWLExpression'
+        $ref: '#/$defs/CWLExpression'
     required:
       - envName
       - envValue
@@ -983,7 +988,6 @@ $defs:
     required:
     - timelimit
     - class
-    additionalProperties: false
   CWLHints:
     oneOf:
     - $ref: '#/$defs/CWLHintsMap'
@@ -1274,7 +1278,6 @@ $defs:
   CWLTypeDefinition:
     type: string
     title: CWL type string definition
-    summary: CWL type string definition.
     description: |
       Note that 'Any' is equivalent to any of the non-null types.
       Therefore, a nullable 'Any' explicitly specified by 'Any?' or its array-nullable form 'Any[]?' are not equivalent.
@@ -1334,8 +1337,7 @@ $defs:
     title: CWLTypeBase
   CWLTypeArray:
     type: object
-    title: CWLTypeArray
-    summary: CWL type as list of items.
+    title: CWLTypeArray (CWL type as list of items).
     properties:
       type:
         type: string
@@ -1351,8 +1353,7 @@ $defs:
     additionalProperties: {}
   CWLTypeSymbols:
     type: array
-    title: CWLTypeSymbols
-    summary: Allowed values composing the enum.
+    title: CWLTypeSymbols (Allowed values composing the enum).
     items:
       $ref: '#/$defs/CWLTypeSymbolValues'
   CWLTypeSymbolValues:
@@ -1362,8 +1363,7 @@ $defs:
     title: CWLTypeSymbolValues
   CWLTypeEnum:
     type: object
-    title: CWLTypeEnum
-    summary: CWL type as enum of values.
+    title: CWLTypeEnum (CWL type as enum of values).
     properties:
       type:
         type: string
@@ -1400,8 +1400,7 @@ $defs:
     pattern: '^(((?:http|ftp)s?:\/\/)?(?!.*\/\/.*$)(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+(?:[A-Za-z]{2,6}\.?|[A-Za-z0-9-]{2,}\.?)|localhost|\[[a-f0-9:]+\]|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?::\d+)?(?:\/?|[\/?]\S+))?(?:[A-Za-z0-9\w\-.\/]+)?\#?[A-Za-z0-9\w\-.]+$'
   CWLTypeList:
     type: array
-    title: CWLTypeList
-    summary: Combination of allowed CWL types.
+    title: CWLTypeList (Combination of allowed CWL types).
     items:
       $ref: '#/$defs/CWLTypeBase'
   CWLDefault:
@@ -1421,239 +1420,125 @@ $defs:
       This avoids over-accepting anything that does not match the intended type.
       However, validation limits itself to data literals and arrays.
       Nested type and multi-type definitions will validate against 'Any'.
-    allOf:
-      - description: Object structure with minimally 'type' and 'default'. Otherwise, no point to continue testing.
-        type: object
-        properties:
-          type:
-            $ref: '#/$defs/AnyType'
-          default:
-            $ref: '#/$defs/AnyType'
-        required:
-          - type
-      - description: Explicit null.
-        if:
-          properties:
-            type:
-              const: 'null'
-        then:
-          properties:
-            default:
-              type: 'null'
-      - description: Required string.
-        if:
-          properties:
-            type:
-              const: string
-        then:
-          properties:
-            default:
-              type: string
-      - description: Optional string.
-        if:
-          properties:
-            type:
-              const: string?
-        then:
-          properties:
-            default:
-              type:
-              - string
-              - 'null'
-      - description: Required boolean.
-        if:
-          properties:
-            type:
-              const: boolean
-        then:
-          properties:
-            default:
-              type: boolean
-      - description: Optional boolean.
-        if:
-          properties:
-            type:
-              enum:
-                - double?
-                - float?
-                - int?
-                - integer?
-                - long?
-        then:
-          properties:
-            default:
-              type:
-              - number
-              - 'null'
-      - description: Required numeric.
-        if:
-          properties:
-            type:
-              enum:
-                - double
-                - float
-                - int
-                - integer
-                - long
-        then:
-          properties:
-            default:
-              type: number
-      - description: Optional numeric.
-        if:
-          properties:
-            type:
-              enum:
-                - double?
-                - float?
-                - int?
-                - integer?
-                - long?
-        then:
-          properties:
-            default:
-              type:
-              - number
-              - 'null'
-      - description: Required enum.
-        if:
-          properties:
-            type:
-              const: enum
-            symbols:
-              $ref: '#/$defs/CWLTypeSymbols'
-        then:
-          properties:
-            default:
-              type:
-                $ref: '#/$defs/CWLTypeSymbolValues'
-      - description: Optional enum.
-        if:
-          properties:
-            type:
-              const: enum?
-            symbols:
-              $ref: '#/$defs/CWLTypeSymbols'
-        then:
-          properties:
-            default:
-              oneOf:
-                - $ref: '#/$defs/CWLTypeSymbolValues'
-                - type: 'null'
-      - description: Required File or Directory.
-        if:
-          properties:
-            type:
-              enum:
-              - Directory
-              - File
-        then:
-          properties:
-            default:
-              $ref: '#/$defs/CWLDefaultLocation'
-      - description: Optional File or Directory.
-        if:
-          properties:
-            type:
-              enum:
-              - Directory?
-              - File?
-        then:
-          properties:
-            default:
-              oneOf:
-              - $ref: '#/$defs/CWLDefaultLocation'
-              - type: 'null'
-      - description: Required array of string.
-        if:
-          oneOf:
-          - properties:
-              type:
-                const: string[]
-          - properties:
-              type:
-                const: array
-              items:
-                const: string
-        then:
-          properties:
-            default:
-              type: array
-              items:
-                type: string
-      - description: Required array of boolean.
-        if:
-          oneOf:
-          - properties:
-              type:
-                const: boolean[]
-          - properties:
-              type:
-                const: array
-              items:
-                const: boolean
-        then:
-          properties:
-            default:
-              type: array
-              items:
-                type: boolean
-      - description: Required array of numeric.
-        if:
-          oneOf:
-            - properties:
-                type:
-                  enum:
-                  - double[]
-                  - float[]
-                  - int[]
-                  - integer[]
-                  - long[]
-            - properties:
-                type:
-                  const: array
-                items:
-                  enum:
-                    - double
-                    - float
-                    - int
-                    - integer
-                    - long
-        then:
-          properties:
-            default:
-              type: array
-              items:
-                type: number
-      - description: Required anything (single).
-        if:
-          properties:
-            type:
-              const: Any
-        then:
-          properties:
-            default:
-              description: Match anything.
-              $ref: '#/$defs/AnyType'
-      - description: Required array of anything.
-        if:
-          properties:
-            type:
-              const: Any[]
-        then:
-          properties:
-            default:
-              description: Match anything as long as under array.
-              type: array
-              items:
-                $ref: '#/$defs/AnyType'
+    oneOf:
+       # 1. Null / Explicitly empty
+       - type: object
+         properties:
+           type:
+             type : string
+             enum: ['null']
+           default:
+             type: string
+             nullable: true
+             enum: [null]
+         required: [type]
+
+       # 2. Strings & Optional Strings
+       - type: object
+         properties:
+           type:
+             type: string
+             enum: [string, 'string?']
+           default:
+             type: string
+             nullable: true
+         required: [type]
+
+       # 3. Booleans
+       - type: object
+         properties:
+           type:
+             type: string
+             enum: [boolean, 'boolean?']
+           default:
+             type: boolean
+             nullable: true
+         required: [type]
+
+       # 4. Numeric Types (Int, Long, Float, Double)
+       - type: object
+         properties:
+           type:
+             type: string
+             enum: [int, 'int?', long, 'long?', float, 'float?', double, 'double?', integer, 'integer?']
+           default:
+             type: number
+             nullable: true
+         required: [type]
+
+       # 5. File & Directory (Special CWL Objects)
+       - type: object
+         properties:
+           type:
+             type: string
+             enum: [File, 'File?', Directory, 'Directory?']
+           default:
+             oneOf:
+               - $ref: '#/$defs/CWLDefaultLocation'
+               - nullable: true
+                 enum: [null]
+                 type: string
+         required: [type]
+
+       # 6. Arrays (Shorthand: string[], int[], etc.)
+       - type: object
+         properties:
+           type:
+             type: string
+             pattern: '^[a-zA-Z]+\\[\\]$' # Matches any 'type[]' shorthand
+           default:
+             type: array
+             items:
+               $ref: '#/$defs/AnyType'
+         required: [type]
+
+       # 7. Complex Arrays (type: array + items)
+       - type: object
+         properties:
+           type:
+             type: string
+             enum: [array]
+           items:
+             $ref: '#/$defs/AnyType'
+           default:
+             type: array
+             items:
+               $ref: '#/$defs/AnyType'
+         required: [type, items]
+
+       # 8. Enums (type: enum + symbols)
+       - type: object
+         properties:
+           type:
+             type: string
+             enum: [enum, 'enum?']
+           symbols:
+             type: array
+             items:
+               type: string
+           default:
+             type: string
+             nullable: true
+         required: [type, symbols]
+
+       # 9. Global Fallback (Any)
+       - type: object
+         properties:
+           type:
+             type: string
+             enum: [Any, 'Any?']
+           default:
+             $ref: '#/$defs/AnyType'
+         required: [type]
+
   AnyType:
-    type:
-      - boolean
-      - number
-      - string
-      - array
-      - object
+    oneOf:
+      - type: boolean
+      - type: number
+      - type: string
+      - type: array
+        items: {}
+      - type: object
   AnyLiteralType:
     oneOf:
       - type: number
@@ -1765,8 +1650,7 @@ $defs:
       - type
     additionalProperties: { }
   CWLInputObject:
-    title: CWLInputObject
-    summary: CWL type definition with parameters.
+    title: CWLInputObject (CWL type definition with parameters).
     allOf:
     - $ref: '#/$defs/CWLInputObjectBase'
     - $ref: '#/$defs/CWLDefaultTypedConditional'
@@ -1837,8 +1721,7 @@ $defs:
     additionalProperties: {}
   CWLOutputObjectBase:
     type: object
-    title: CWLOutputObject
-    summary: CWL type definition with parameters.
+    title: CWLOutputObject (CWL type definition with parameters).
     properties:
       type:
         $ref: '#/$defs/CWLType'
