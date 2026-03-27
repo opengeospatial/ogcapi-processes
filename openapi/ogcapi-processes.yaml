@@ -366,8 +366,8 @@ components:
          $ref: 'schemas/processes-core/format.yaml'
       inputDescription:
          $ref: 'schemas/processes-core/inputDescription.yaml'
-      inputValue:
-         $ref: 'schemas/processes-core/inputValue.yaml'
+      value:
+         $ref: 'schemas/processes-core/value.yaml'
       collectionValue:
          $ref: 'schemas/processes-core/collectionValue.yaml'
       valueNoObject:
@@ -378,8 +378,12 @@ components:
          $ref: 'schemas/processes-core/jobControlOptions.yaml'
       metadata:
          $ref: 'schemas/processes-core/metadata.yaml'
-      output:
-         $ref: 'schemas/processes-core/output.yaml'
+      values:
+         $ref: 'schemas/processes-core/values.yaml'
+      values-workflows:
+         $ref: 'schemas/processes-workflows/values-workflows.yaml'
+      outputSelection:
+         $ref: 'schemas/processes-core/outputSelection.yaml'
       outputDescription:
          $ref: 'schemas/processes-core/outputDescription.yaml'
       qualifiedValue:

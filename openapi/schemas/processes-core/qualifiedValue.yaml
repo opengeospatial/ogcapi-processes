@@ -5,4 +5,4 @@ allOf:
       - value
     properties:
       value:
-        $ref: "inputValue.yaml"
+        $ref: "value.yaml"

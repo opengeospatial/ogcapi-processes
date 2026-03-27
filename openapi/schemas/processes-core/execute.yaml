@@ -5,9 +5,9 @@ properties:
     format: uri
   inputs:
     additionalProperties:
-      $ref: "input.yaml"
+      $ref: "values.yaml"
   outputs:
     additionalProperties:
-      $ref: "output.yaml"
+      $ref: "outputSelection.yaml"
   subscriber:
     $ref: "subscriber.yaml"

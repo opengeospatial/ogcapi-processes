@@ -5929,17 +5929,7 @@
               },
               "inputs": {
                 "additionalProperties": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/inlineOrRefValue-workflows"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/inlineOrRefValue-workflows"
-                      }
-                    }
-                  ]
+                  "$ref": "#/components/schemas/values-workflows"
                 }
               },
               "outputs": {
@@ -6098,7 +6088,7 @@
           }
         ]
       },
-      "inputValue": {
+      "value": {
         "anyOf": [
           {
             "$ref": "#/components/schemas/valueNoObject"
@@ -6483,16 +6473,7 @@
           },
           {
             "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/inputValue"
-                },
-                {
-                  "$ref": "#/components/schemas/qualifiedValue"
-                }
-              ]
-            }
+            "items": {}
           },
           {
             "$ref": "#/components/schemas/binaryValue"
@@ -6601,7 +6582,33 @@
           }
         ]
       },
-      "output": {
+      "values": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/inlineOrRefValue"
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inlineOrRefValue"
+            }
+          }
+        ]
+      },
+      "values-workflows": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/inlineOrRefValue-workflows"
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/inlineOrRefValue-workflows"
+            }
+          }
+        ]
+      },
+      "outputSelection": {
         "type": "object",
         "properties": {
           "format": {
@@ -6628,6 +6635,24 @@
             "properties": {
               "schema": {
                 "$ref": "#/components/schemas/schema"
+              },
+              "minOccurs": {
+                "type": "integer",
+                "default": 1
+              },
+              "maxOccurs": {
+                "oneOf": [
+                  {
+                    "type": "integer",
+                    "default": 1
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "unbounded"
+                    ]
+                  }
+                ]
               }
             }
           }
@@ -6645,7 +6670,7 @@
             ],
             "properties": {
               "value": {
-                "$ref": "#/components/schemas/inputValue"
+                "$ref": "#/components/schemas/value"
               }
             }
           }
@@ -6667,7 +6692,7 @@
       "results": {
         "type": "object",
         "additionalProperties": {
-          "$ref": "#/components/schemas/inlineOrRefValue"
+          "$ref": "#/components/schemas/values"
         }
       },
       "schema": {

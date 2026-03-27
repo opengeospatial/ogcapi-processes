@@ -4,10 +4,7 @@ anyOf:
   - type: integer
   - type: boolean
   - type: array
-    items:
-      oneOf:
-        - $ref: "inputValue.yaml"
-        - $ref: "qualifiedValue.yaml"
+    items: { }
   - $ref: "binaryValue.yaml"
   - $ref: "bbox.yaml"
   - $ref: "collectionValue.yaml"

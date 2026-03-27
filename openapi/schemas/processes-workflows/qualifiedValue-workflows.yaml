@@ -6,4 +6,4 @@ allOf:
       - value
     properties:
       value:
-        $ref: "inputValue-workflows.yaml"
+        $ref: "value-workflows.yaml"

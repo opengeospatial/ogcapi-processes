@@ -7,10 +7,10 @@ allOf:
           description: URI to the process description end point (i.e., `.../processes/{processId}`)
         inputs:
           additionalProperties:
-            $ref: "input-workflows.yaml"
+            $ref: "values-workflows.yaml"
         outputs:
           additionalProperties:
-            $ref: "output-workflows.yaml"
+            $ref: "outputSelection-workflows.yaml"
         subscriber:
           $ref: "../processes-core/subscriber.yaml"
    - $ref: "../processes-core/fieldsModifiers.yaml"

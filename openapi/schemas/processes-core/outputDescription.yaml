@@ -9,3 +9,13 @@ allOf:
       schema:
         $ref: schema.yaml
         # $ref: "https://json-schema.org/draft/2020-12/schema"
+      minOccurs:
+        type: integer
+        default: 1
+      maxOccurs:
+        oneOf:
+          - type: integer
+            default: 1
+          - type: string
+            enum:
+              - "unbounded"
