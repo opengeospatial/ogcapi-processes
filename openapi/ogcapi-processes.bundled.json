@@ -375,13 +375,12 @@
           {
             "name": "response",
             "in": "query",
-            "description": "For executing the process using the _Collection Output_ mechanism, where the\nclient is redirected (_303_ status) to either an OGC API landing page or\ncollection resource, from which one or more OGC API data access mechanism\nis available.  Data access requests may trigger processing on-demand for\na given area, time and resolution of interest.",
+            "description": "For executing the process using the _Collection Output_ mechanism, where the\nclient is redirected (_303_ status) to a collection resource, from which one\nor more OGC API data access mechanism is available. Data access requests may\ntrigger processing on-demand for a given area, time and resolution of interest.",
             "required": false,
             "schema": {
               "type": "string",
               "enum": [
-                "collection",
-                "landingPage"
+                "collection"
               ]
             }
           },
