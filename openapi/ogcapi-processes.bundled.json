@@ -177,7 +177,7 @@
         },
         "responses": {
           "201": {
-            "$ref": "#/components/responses/ProcessDescription"
+            "$ref": "#/components/responses/ProcessSummary"
           },
           "400": {
             "description": "The requested workflow does not exist on the server.",
@@ -8047,6 +8047,16 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/staticIndicator"
+            }
+          }
+        }
+      },
+      "ProcessSummary": {
+        "description": "A process summary.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/processSummary"
             }
           }
         }

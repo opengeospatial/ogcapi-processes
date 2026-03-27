@@ -513,8 +513,11 @@ components:
       # OGC API - Common - Part 2: Deploy, Replace, Undeploy
       DeployProcess:
          $ref: 'responses/processes-dru/rDeployProcess.yaml'
+      ProcessSummary:
+         $ref: 'responses/processes-dru/rProcessSummary.yaml'
 
-      # Part 2 additional excepions
+
+      # Part 2 additional exceptions
       DuplicateProcess:
          $ref: 'responses/processes-dru/rDuplicateProcess.yaml'
       ImmutableProcess:
