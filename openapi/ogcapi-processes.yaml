@@ -364,6 +364,8 @@ components:
          $ref: 'schemas/processes-workflows/inputParameterized.yaml'
       format:
          $ref: 'schemas/processes-core/format.yaml'
+      schemaAndOccurrences:
+         $ref: 'schemas/processes-core/schemaAndOccurrences.yaml'
       inputDescription:
          $ref: 'schemas/processes-core/inputDescription.yaml'
       value:

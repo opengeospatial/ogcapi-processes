@@ -6012,6 +6012,35 @@
           }
         }
       },
+      "schemaAndOccurrences": {
+        "type": "object",
+        "required": [
+          "schema"
+        ],
+        "properties": {
+          "schema": {
+            "$ref": "#/components/schemas/schema"
+          },
+          "minOccurs": {
+            "type": "integer",
+            "default": 1
+          },
+          "maxOccurs": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "default": 1
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "unbounded"
+                ]
+              }
+            ]
+          }
+        }
+      },
       "inputDescription": {
         "allOf": [
           {
@@ -6044,32 +6073,11 @@
             }
           },
           {
+            "$ref": "#/components/schemas/schemaAndOccurrences"
+          },
+          {
             "type": "object",
-            "required": [
-              "schema"
-            ],
             "properties": {
-              "schema": {
-                "$ref": "#/components/schemas/schema"
-              },
-              "minOccurs": {
-                "type": "integer",
-                "default": 1
-              },
-              "maxOccurs": {
-                "oneOf": [
-                  {
-                    "type": "integer",
-                    "default": 1
-                  },
-                  {
-                    "type": "string",
-                    "enum": [
-                      "unbounded"
-                    ]
-                  }
-                ]
-              },
               "valuePassing": {
                 "type": "array",
                 "items": {
@@ -6628,33 +6636,7 @@
             "$ref": "#/components/schemas/dataAccessAPIs"
           },
           {
-            "type": "object",
-            "required": [
-              "schema"
-            ],
-            "properties": {
-              "schema": {
-                "$ref": "#/components/schemas/schema"
-              },
-              "minOccurs": {
-                "type": "integer",
-                "default": 1
-              },
-              "maxOccurs": {
-                "oneOf": [
-                  {
-                    "type": "integer",
-                    "default": 1
-                  },
-                  {
-                    "type": "string",
-                    "enum": [
-                      "unbounded"
-                    ]
-                  }
-                ]
-              }
-            }
+            "$ref": "#/components/schemas/schemaAndOccurrences"
           }
         ]
       },
