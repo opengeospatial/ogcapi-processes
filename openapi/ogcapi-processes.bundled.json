@@ -5989,7 +5989,7 @@
               "process": {
                 "type": "string",
                 "format": "uri-reference",
-                "description": "URI to the process description end point (i.e., `.../processes/{processId}`)"
+                "description": "The URI to the description of the process that should be executed.\nFor the top-level process, when the execution request is POSTed to `{root}/processes/{processId}/execution`, this should be an absolute URI,\nand the server should ignore this `process` key since the URI of the request already identifies the process to execute, and a client\nis not required to resolve and replace the URI if passing a nested process block as part of a larger workflow executing a nested process.\nIf a relative URI reference is used, the Base URI is defined as the URI of the description\n(`{root}/processes/{processId}`) of the receiving process, with this receiving process object understood as the\nEncapsulating Entity as per [RFC 3986 Section 5.1.2](https://datatracker.ietf.org/doc/html/rfc3986#section-5.1.2).\nIn the case of a nested process on the same OGC API root as the receiving process, using a simple process ID as the relative URI reference\nwould resolve to a process available at `{root}/processes/{processID}`, where `{root}` represents the landing page of the receiving process.\nFor example, if a top-level process at https://example.com/processes/buffer receives a nested processs `{ \"process\": \"clip\" }`,\nthat clip process is resolved as https://example.com/processes/clip."
               },
               "inputs": {
                 "additionalProperties": {
@@ -6183,8 +6183,17 @@
             "properties": {
               "collection": {
                 "description": "The URI of the OGC API collection that should be accessed to provide\ninput values from the corresponding process input.  The server\noffering this collection is referred to as the \"value source server\".",
-                "type": "string",
-                "format": "uri-reference"
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "Collection identifier for a collection available at `{root}/collections/{collectionID}`, where `{root}` represents the landing page\nof the process using the collection as an input (for the top-level process, that is the landing page of the process execution endpoint\nto which the execution request is posted), or the landing page of the document being retrieved in the case of an output.\nIf the `collection` string includes a `/`, it must be interpreted as a URI reference rather than as a collection ID."
+                  },
+                  {
+                    "type": "string",
+                    "description": "The URI of an OGC API collection.\nIf a relative URI reference is used, the Base URI is defined as such:\n- For a Collection value received as input to a process, the Base URI is defined as the URI of the description\n  (`{root}/processes/{processId}`) of that process, with the receiving process object understood as the Encapsulating Entity as per\n  [RFC 3986 Section 5.1.2](https://datatracker.ietf.org/doc/html/rfc3986#section-5.1.2).\n- For a Collection Output value, the Base URI is defined from the Retrieval URI as as per\n  [RFC 3986 Section 5.1.3](https://datatracker.ietf.org/doc/html/rfc3986#section-5.1.3),\n  for example, `/jobs/{jobId}/results`, `/jobs/{jobId}/results/{outputID}` or `/jobs/{jobId}/results/{outputID}/{N}` depending on the\n  resource being retrieved.\nIf a collection string does not contain any `/`, it must not be interpreted as a URI reference, and must instead be resolved as a\ncollection identifier. For example, `countries` would resolve to `{root}/collections/countries` rather than `{root}/processes/countries`.",
+                    "format": "uri-reference"
+                  }
+                ]
               },
               "bbox": {
                 "description": "Only resources that have a geometry that intersects the bounding box\nare selected.  The bounding box is provided as four or six numbers,\ndepending on whether the coordinate reference system includes a\nvertical axis (height or depth):\n\n* Lower left corner, coordinate axis 1\n* Lower left corner, coordinate axis 2\n* Minimum value, coordinate axis 3 (optional)\n* Upper right corner, coordinate axis 1\n* Upper right corner, coordinate axis 2\n* Maximum value, coordinate axis 3 (optional)\n\nIf the value consists of four numbers, the coordinate reference\nsystem is WGS84 longitude/latitude\n  (http://www.opengis.net/def/crs/OGC/1.3/CRS84)\nunless a different coordinate reference system is specified in the\nparameter `bboxCrs`.\n\nIf the value consists of six numbers, the coordinate reference system\nis WGS84 (http://www.opengis.net/def/crs/OGC/0/CRS84h) longitude/\nlatitude/ ellipsoidal height unless a different coordinate reference\nsystem is specified in the parameter `bboxCrs`.\n\nFor WGS84 longitude/latitude the values are in most cases the sequence\nof minimum longitude, minimum latitude, maximum longitude and maximum\nlatitude.  However, in cases where the box spans the antimeridian the\nfirst value (west-most box edge) is larger than the third value\n(east-most box edge).\n\nIf the vertical axis is included, the third and the sixth number are\nthe bottom and the top of the 3-dimensional bounding box.\n\nIf a resource has multiple spatial geometry properties, it is the\ndecision of the server whether only a single spatial geometry property\nis used to determine the extent or all relevant geometries.",

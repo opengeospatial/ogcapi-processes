@@ -1,8 +1,9 @@
 type: object
 properties:
-  processID:
+  process:
     type: string
     format: uri
+    description: The URI to the description of the process that should be executed.
   inputs:
     additionalProperties:
       $ref: "values.yaml"
