@@ -1,0 +1,8 @@
+description: workflow was not found in the CWL
+content:
+  application/json:
+    schema:
+      $ref: ../../schemas/common-core/exception.yaml
+  text/html:
+    schema:
+      type: string

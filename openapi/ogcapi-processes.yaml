@@ -264,3 +264,5 @@ components:
          $ref: 'responses/processes-dru/rDuplicateProcess.yaml'
       ImmutableProcess:
          $ref: 'responses/processes-dru/rImmutableProcess.yaml'
+      WorkflowNotFound:
+         $ref: 'responses/processes-dru/rWorkflowNotFound.yaml'
