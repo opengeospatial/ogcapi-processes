@@ -1,0 +1,22 @@
+get:
+   summary: retrieve a single value from an output of a job allowing multiple values
+   description: |
+     Retrieve a single value from an output of a job allowing multiple values (maxOccurs > 1)
+
+     For more information, see [Section 7.14](https://docs.ogc.org/is/18-062r3/18-062r3.html#sc_retrieve_job_results_one).
+
+   operationId: getOutputValue
+   tags:
+     - Jobs
+   parameters:
+     - $ref: "../../parameters/processes-core/jobID.yaml"
+     - $ref: "../../parameters/processes-core/outputID.yaml"
+     - $ref: "../../parameters/processes-core/N.yaml"
+     - $ref: "../../parameters/processes-core/prefer-header-results.yaml"
+   responses:
+     200:
+       $ref: "../../responses/processes-core/rOutput.yaml"
+     404:
+       $ref: "../../responses/common-core/rNotFound.yaml"
+     500:
+       $ref: "../../responses/common-core/rServerError.yaml"

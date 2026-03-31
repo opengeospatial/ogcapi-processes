@@ -59,6 +59,11 @@ paths:
    /jobs/{jobID}/results:
       $ref: 'paths/processes-core/pJobResults.yaml'
 
+   /jobs/{jobID}/results/{outputID}:
+      $ref: 'paths/processes-core/pResultOutput.yaml'
+
+   /jobs/{jobID}/results/{outputID}/{N}:
+      $ref: 'paths/processes-core/pResultOutputValue.yaml'
 
 components:
    schemas:
@@ -439,9 +444,12 @@ components:
       # Processes - Core
       processID-path:
          $ref: 'parameters/processes-core/processID-path.yaml'
-      # Processes - Core (1.1?)
+      # Processes - Core (2.0)
       outputID:
          $ref: 'parameters/processes-core/outputID.yaml'
+      # Processes - Core (2.0)
+      N:
+         $ref: 'parameters/processes-core/N.yaml'
 
       # Processes - Core (Jobs)
       jobID:
@@ -503,6 +511,10 @@ components:
 
       Results:
          $ref: 'responses/processes-core/rResults.yaml'
+      Output:
+         $ref: 'responses/processes-core/rOutput.yaml'
+      OutputValue:
+         $ref: 'responses/processes-core/rOutputValue.yaml'
       Status:
          $ref: 'responses/processes-core/rStatus.yaml'
       JobList:

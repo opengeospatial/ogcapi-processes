@@ -580,6 +580,73 @@
           }
         }
       }
+    },
+    "/jobs/{jobID}/results/{outputID}": {
+      "get": {
+        "summary": "retrieve a specific resulting output of a job",
+        "description": "Retrieve a specific resulting output for a job.\n\nFor more information, see [Section 7.14](https://docs.ogc.org/is/18-062r3/18-062r3.html#sc_retrieve_job_results_one).\n",
+        "operationId": "getOutput",
+        "tags": [
+          "Jobs"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/jobID"
+          },
+          {
+            "$ref": "#/components/parameters/outputID"
+          },
+          {
+            "$ref": "#/paths/~1jobs~1%7BjobID%7D~1results/get/parameters/1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Output"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/jobs/{jobID}/results/{outputID}/{N}": {
+      "get": {
+        "summary": "retrieve a single value from an output of a job allowing multiple values",
+        "description": "Retrieve a single value from an output of a job allowing multiple values (maxOccurs > 1)\n\nFor more information, see [Section 7.14](https://docs.ogc.org/is/18-062r3/18-062r3.html#sc_retrieve_job_results_one).\n",
+        "operationId": "getOutputValue",
+        "tags": [
+          "Jobs"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/jobID"
+          },
+          {
+            "$ref": "#/components/parameters/outputID"
+          },
+          {
+            "$ref": "#/components/parameters/N"
+          },
+          {
+            "$ref": "#/paths/~1jobs~1%7BjobID%7D~1results/get/parameters/1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Output"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -7304,6 +7371,15 @@
           "type": "string"
         }
       },
+      "N": {
+        "name": "N",
+        "in": "path",
+        "description": "0-based index identifying a specific value of a multi-values output resulting from a job",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
       "jobID": {
         "name": "jobID",
         "in": "path",
@@ -7628,6 +7704,26 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/results"
+            }
+          }
+        }
+      },
+      "Output": {
+        "description": "An output resulting from a job",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/values"
+            }
+          }
+        }
+      },
+      "OutputValue": {
+        "description": "An individual value of an output allowing multiple values resulting from a job",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/inlineOrRefValue"
             }
           }
         }
