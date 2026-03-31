@@ -630,9 +630,6 @@
           },
           {
             "$ref": "#/components/parameters/N"
-          },
-          {
-            "$ref": "#/paths/~1jobs~1%7BjobID%7D~1results/get/parameters/1"
           }
         ],
         "responses": {
