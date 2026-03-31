@@ -3,7 +3,7 @@
 # Refresh pProcessListDeploy.yaml content
 rm paths/processes-dru/pProcessListDeploy.yaml ; \
 for i in processes-core/pProcessList.yaml \
-    processes-dru/pDeploy.yaml ; \
+    processes-dru/operations/oDeploy.yaml ; \
 do \
    cat paths/$i >> paths/processes-dru/pProcessListDeploy.yaml;
 done
@@ -11,8 +11,8 @@ done
 # Refresh pProcessDescriptionReplaceUndeploy.yaml content
 rm paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml; \
 for i in processes-core/pProcessDescription.yaml \
-    processes-dru/pReplace.yaml \
-    processes-dru/pUndeploy.yaml; \
+    processes-dru/operations/oReplace.yaml \
+    processes-dru/operations/oUndeploy.yaml; \
 do \
    cat paths/$i >> paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml ;\
 done

@@ -1,14 +1,14 @@
-post:
-   summary: deploy a process.
+put:
+   summary: replace a process.
    description: |
-     Deploys a process.
+     Replaces a process.
 
-     For more information, see [Section 6.3](http://docs.ogc.org/DRAFTS/20-044.html#_87a6983e-d060-458c-95ab-27e232e64822).
-   operationId: deploy
+     For more information, see [Section 6.4](http://docs.ogc.org/DRAFTS/20-044.html#_18582f42-ebc6-4284-9333-c089068f62b6).
+   operationId: replace
    tags:
      - DRU
    parameters:
-     - $ref: "../../parameters/processes-dru/w-param.yaml"
+     - $ref: "../../parameters/processes-core/processID-path.yaml"
    requestBody:
      description: |-
        An OGC Application Package used to deploy a new process.
@@ -30,12 +30,14 @@ post:
            #$ref: "https://w3id.org/cwl/v1.2/cwl-json-schema.yaml"
            $ref: "../../schemas/cwl/cwl.yaml"
    responses:
-     201:
-       $ref: "../../responses/processes-dru/rProcessSummary.yaml"
+     204:
+       $ref: "../../responses/processes-core/rEmpty.yaml"
      400:
-       $ref: "../../responses/processes-dru/rWorkflowNotFound.yaml"
+       $ref: "../../responses/common-core/rException.yaml"
      403:
        $ref: "../../responses/processes-dru/rImmutableProcess.yaml"
+     404:
+       $ref: "../../responses/common-core/rNotFound.yaml"
      409:
        $ref: "../../responses/processes-dru/rDuplicateProcess.yaml"
      500:

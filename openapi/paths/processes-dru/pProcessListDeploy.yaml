@@ -45,7 +45,7 @@ post:
      201:
        $ref: "../../responses/processes-dru/rProcessSummary.yaml"
      400:
-       $ref: "../../responses/processes-dru/rWorkflowNotFound.yaml"
+       $ref: "../../responses/common-core/rException.yaml"
      403:
        $ref: "../../responses/processes-dru/rImmutableProcess.yaml"
      409:
