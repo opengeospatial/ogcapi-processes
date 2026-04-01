@@ -498,7 +498,7 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 .Schema for a process output
 [source,yaml]
 ----
-include::../../openapi/schemas/processes-core/output.yaml[]
+include::../../openapi/schemas/processes-core/outputSelection.yaml[]
 ----
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/output.yaml[`output.yaml`].
@@ -682,7 +682,7 @@ Qualified values can be used to encode process input values that, according to t
 
 Qualified values can also be used to encode object-valued process inputs in order to avoid ambiguity with the built-in value schemas defined in this standard (i.e. <<bounding-box-value,bbox.yaml>>, <<link-schema,link.yaml>> or <<qualified-value,qualifiedValue.yaml>> itself).
 
-The actual _value_ in a qualified value object is specified using the `value` key.  The value of the `value` key is an instance of <<input-value-schema,inputValue.yaml>>.
+The actual _value_ in a qualified value object is specified using the `value` key.  The value of the `value` key is an instance of <<input-value-schema,value.yaml>>.
 
 [[qualified-value-schema]]
 .Schema for a qualified value
@@ -699,10 +699,10 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 .Schema of a process input value
 [source,yaml]
 ----
-include::../../openapi/schemas/processes-core/inputValue.yaml[]
+include::../../openapi/schemas/processes-core/value.yaml[]
 ----
 
-NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputValue.yaml[`inputValue.yaml`].
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/value.yaml[`value.yaml`].
 
 (see also: <<value-noobject-schema,valueNoObject.yaml>>)
 
@@ -874,7 +874,7 @@ NOTE: The `crs` property is defined using an `anyOf` of either an enumeration or
 
 *_Input validation_*
 
-Process inputs in an <<execute-request-body,execute request>> and the corresponding process input definition in the <<sc_process_description,process description>> have a validation relationship.  That is to say, the schema of a process input definition from the <<sc_process_description,process description>> can be used to validate the component of the corresponding process input value in an <<execute-request-body,execute request>> that is an instance of <<input-value-schema,inputValue.yaml>>.
+Process inputs in an <<execute-request-body,execute request>> and the corresponding process input definition in the <<sc_process_description,process description>> have a validation relationship.  That is to say, the schema of a process input definition from the <<sc_process_description,process description>> can be used to validate the component of the corresponding process input value in an <<execute-request-body,execute request>> that is an instance of <<input-value-schema,value.yaml>>.
 
 [%unnumbered]
 ====
@@ -937,7 +937,7 @@ and the following instance in an <<execute-request-body,execute request>>:
 
 The process input value in this <<execute-request-body,execute request>> is an instance of a <<qualified-value,qualified value>>.
 
-For the purposes of validation, the server needs to only validate the component of the <<qualified-value,qualified value>> that is an instance of <<input-value-schema,inputValue.yaml>> against the `schema` fragment from the <<ogc_process_description,OGC process description>>.  Specifically, the validation target is:
+For the purposes of validation, the server needs to only validate the component of the <<qualified-value,qualified value>> that is an instance of <<input-value-schema,value.yaml>> against the `schema` fragment from the <<ogc_process_description,OGC process description>>.  Specifically, the validation target is:
 
 [source,json]
 ----
