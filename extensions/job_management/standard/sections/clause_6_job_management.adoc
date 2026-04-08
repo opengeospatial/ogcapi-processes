@@ -22,7 +22,7 @@ classe:
 
  * <<rc_ogcapi-processes,OGC API - Processes - Wrokflow Execute Request>>, that enables support for OGC API - Processes - Part 3: Wofklows for jobs definitions.
  * <<rc_openeo,OpenEO Process Graph>>, that enables support for OpenEO-encoded jobs definitions.
- 
+
 
 [[job-management-http_status_codes]]
 ==== HTTP status codes
@@ -77,7 +77,10 @@ The following diagram illustrates the sequence diagram for deploying
 a new process to the API:
 
 
-```
+.HTTP request to create a new job (potentially pending execution)
+=====
+[source]
+-----
 Client                                                        Server
   |                                                             |
   |  POST /jobs   HTTP/1.1                                      |
@@ -88,7 +91,8 @@ Client                                                        Server
   |  HTTP/1.1 201 Created                                       |
   |  Location: /jobs/{jobID}                                    |
   |<------------------------------------------------------------|
-```
+-----
+=====
 
 
 ==== Operation
@@ -108,6 +112,8 @@ include::../requirements/job-management/create/REQ_content-type.adoc[]
 See https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5[section 3.1.1.5 of RFC 7231] for details.
 
 include::../recommendations/job-management/create/PER_content-schema.adoc[]
+
+FIXME: define the 'status: pending/queued/created' value (https://github.com/opengeospatial/ogcapi-processes/issues/419).
 
 ===== OGC API - Processes - Workflow Execute Request body
 
@@ -145,7 +151,10 @@ previously created job.  The identifier of the job does not change.
 
 NOTE: The new job definition replaces the old job definition. Version control is not discussed in this Standard.
 
-```
+.HTTP request to update an existing job (if pending execution)
+=====
+[source]
+-----
 Client                                                        Server
   |                                                             |
   |  PATCH /jobs/{jobID}   HTTP/1.1                             |
@@ -155,7 +164,8 @@ Client                                                        Server
   |                                                             |
   |  HTTP/1.1 200 OK                                            |
   |<------------------------------------------------------------|
-```
+-----
+=====
 
 ==== Operation
 
@@ -202,11 +212,14 @@ include::../requirements/job-management/update/REQ_response-locked.adoc[]
 
 ==== Sequence diagram
 
-The following diagram illustrates the sequence diagram for starting 
+The following diagram illustrates the sequence diagram for starting
 the execution of a previously created jobs.
 
 
-```
+.HTTP to trigger the execution of an existing job.
+=====
+[source]
+-----
 Client                                                        Server
   |                                                             |
   |  POST /jobs/{jobID}/results   HTTP/1.1                      |
@@ -214,7 +227,8 @@ Client                                                        Server
   |                                                             |
   |  HTTP/1.1 200 OK                                            |
   |<------------------------------------------------------------|
-```
+-----
+=====
 
 ==== Operation
 

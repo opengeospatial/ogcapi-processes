@@ -4,7 +4,9 @@
 in a consistent way. [OpenAPI](http://openapis.org) is used to define the reusable
 API building blocks with responses in JSON and HTML.
 
-The OGC API family of standards is organized by resource type. The draft OGC API - Processes standard enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality. Typically, these processes combine raster, vector, and/or coverage data with well-defined algorithms to produce new raster, vector, and/or coverage information.
+The OGC API family of standards is organized by resource type.
+The _OGC API - Processes_ standard enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality.
+Typically, these processes combine raster, vector, and/or coverage data with well-defined algorithms to produce new raster, vector, and/or coverage information.
 
 ## Overview of OGC API - Processes - Part 1: Core
 
@@ -47,3 +49,54 @@ Cancel a job execution.
 GET /processes/{processID}/jobs/{jobID}/results
 ```
 Returns the result of a job of a process.
+
+
+## Overview of OGC API - Processes - Part 2: Deploy, Replace, Undeploy
+
+```
+POST /processes
+```
+
+Deploy a new process.
+
+```
+PUT /processes/{processID}
+```
+
+Replace an existing process.
+
+```
+DELETE /processes/{processID}
+```
+
+Undeploy a process.
+
+## Overview of OGC API - Processes - Part 3: Workflows and Chaining
+
+No additional endpoints. Execution reuses the same endpoints as in Part 1 with nested processes and additional parameters.
+
+## Overview of OGC API - Processes - Part 4: Job Management
+
+```
+POST /jobs
+```
+
+Create a new job (potentially pending execution).
+
+```
+PATCH /jobs/{jobID}
+```
+
+Update an existing job.
+
+```
+POST /jobs/{jobID}/results
+```
+
+Trigger execution of an existing job.
+
+```
+GET /jobs/{jobID}/prov
+```
+
+Returns provenance details of a completed job.
