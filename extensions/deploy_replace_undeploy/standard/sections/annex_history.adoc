@@ -18,4 +18,5 @@
 |2023-12-07 |None |Gérald Fenoy |all |Fix mixed status code and value in security consideration
 |2023-12-08 |None |Gérald Fenoy |all |Add requirements for managing docker image as execution unit
 |2024-04-26 |None |Gérald Fenoy |all |Add section for retrieving formal description of a mutable process
+|2026-04-09 |None |Francis Charette-Migneault |all |Fix req/rec/per definitions format and references.
 |===
