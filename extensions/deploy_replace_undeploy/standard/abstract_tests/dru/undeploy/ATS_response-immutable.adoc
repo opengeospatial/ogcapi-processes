@@ -9,7 +9,7 @@ test-purpose:: Validate that the server returns a 403 status code when removing 
 test-method::
 +
 --
-1. Construct a path for each "rel=http://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
+1. Construct a path for each "rel=https://www.opengis.net/def/rel/ogc/1.0/processes" link on the landing page as well as for the {root}/processes path.
 
 2. Append `/{processID}` to each path, where `{processID}` is not a mutable process id.
 
@@ -19,7 +19,7 @@ test-method::
 
 4. Validate the document is conform to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml] schema.
 
-5. Validate the type of the exception is “http://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/immutable-process”.
+5. Validate the type of the exception is “https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/immutable-process”.
 
 --
 ====

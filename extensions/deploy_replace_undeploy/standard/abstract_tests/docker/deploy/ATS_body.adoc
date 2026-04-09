@@ -9,7 +9,7 @@ test-purpose:: Validate that the server supports deploy operation using a Docker
 test-method::
 +
 --
-1. Retrieve all links from the landing page with “rel=http://www.opengis.net/def/rel/ogc/1.0/processes” and /processes
+1. Retrieve all links from the landing page with “rel=https://www.opengis.net/def/rel/ogc/1.0/processes” and /processes
 
 2. Issue an HTTP POST request using the media type "application/ogcapppkg+json" with as body a default OGC Application Package
 
