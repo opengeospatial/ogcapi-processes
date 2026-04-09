@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/provenance/inputs-response
 
 [.component,class=part]
 --

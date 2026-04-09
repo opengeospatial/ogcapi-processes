@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/openeo/schema
 
 [.component,class=part]
 --

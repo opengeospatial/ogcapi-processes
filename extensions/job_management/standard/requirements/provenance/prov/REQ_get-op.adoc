@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/provenance/prov-get-op
 
 [.component,class=part]
 --

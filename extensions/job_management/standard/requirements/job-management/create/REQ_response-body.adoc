@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/job-management/create-response-body
 
 [.component,class=part]
 --

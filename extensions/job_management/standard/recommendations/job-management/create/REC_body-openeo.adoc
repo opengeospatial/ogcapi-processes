@@ -2,6 +2,7 @@
 [recommendation]
 ====
 [%metadata]
+identifier:: /rec/job-management/create-body-openeo
 
 [.component,class=part]
 --

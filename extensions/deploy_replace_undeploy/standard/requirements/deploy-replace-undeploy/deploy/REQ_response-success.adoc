@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/deploy-replace-undeploy/deploy-response-success
 
 [.component,class=part]
 --

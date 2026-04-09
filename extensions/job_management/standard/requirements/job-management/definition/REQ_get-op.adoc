@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/job-management/definition-get-op
 
 [.component,class=part]
 --

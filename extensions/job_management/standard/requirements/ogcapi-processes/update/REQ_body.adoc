@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/ogcapi-processes/update-body
 
 [.component,class=part]
 --

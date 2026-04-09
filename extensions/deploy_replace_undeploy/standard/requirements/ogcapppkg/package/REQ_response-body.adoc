@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/ogcapppkg/package-response-body
 
 [.component,class=part]
 --

@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/deploy-replace-undeploy/undeploy-delete-op
 
 [.component,class=part]
 --

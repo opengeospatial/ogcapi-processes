@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/ogcapppkg/deploy-body
 
 [.component,class=part]
 --

@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/job-management/start-response
 
 [.component,class=part]
 --

@@ -2,6 +2,7 @@
 [recommendation]
 ====
 [%metadata]
+identifier:: /rec/job-management/update-body-ogcapi-processes
 
 [.component,class=part]
 --

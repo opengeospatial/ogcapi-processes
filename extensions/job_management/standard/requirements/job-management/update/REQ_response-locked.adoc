@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/job-management/update-response-locked
 
 [.component,class=part]
 --

@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/cwl/execution-unit
 
 [.component,class=part]
 --

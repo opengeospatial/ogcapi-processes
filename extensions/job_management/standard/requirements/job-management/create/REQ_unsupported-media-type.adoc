@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/job-management/create-unsupported-media-type
 
 [.component,class=part]
 --

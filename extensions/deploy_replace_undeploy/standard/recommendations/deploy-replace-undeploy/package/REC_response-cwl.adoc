@@ -2,6 +2,7 @@
 [recommendation]
 ====
 [%metadata]
+identifier:: /rec/deploy-replace-undeploy/package-response-cwl
 
 [.component,class=part]
 --

@@ -2,6 +2,7 @@
 [recommendation]
 ====
 [%metadata]
+identifier:: /rec/ogcapppkg/execution-unit-cwl
 
 [.component,class=part]
 --

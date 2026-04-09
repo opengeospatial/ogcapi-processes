@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/docker/execution-unit
 
 [.component,class=part]
 --

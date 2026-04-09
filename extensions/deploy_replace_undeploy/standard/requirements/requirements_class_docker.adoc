@@ -2,7 +2,7 @@
 [requirements_class]
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker
+identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker
 obligation:: requirement
 subject:: Web API
 inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core>>

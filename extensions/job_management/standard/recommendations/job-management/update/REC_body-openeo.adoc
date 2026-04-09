@@ -2,6 +2,7 @@
 [recommendation]
 ====
 [%metadata]
+identifier:: /rec/job-management/update-body-openeo
 
 [.component,class=part]
 --

@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/ogcapi-processes/definition-response-body
 
 [.component,class=part]
 --

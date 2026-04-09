@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/cwl/replace-body
 
 [.component,class=part]
 --

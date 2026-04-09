@@ -2,6 +2,7 @@
 [recommendation]
 ====
 [%metadata]
+identifier:: /rec/deploy-replace-undeploy/replace-body-ogcapppkg
 
 [.component,class=part]
 --

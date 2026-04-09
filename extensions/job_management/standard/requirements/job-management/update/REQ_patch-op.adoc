@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/job-management/update-patch-op
 
 [.component,class=part]
 --

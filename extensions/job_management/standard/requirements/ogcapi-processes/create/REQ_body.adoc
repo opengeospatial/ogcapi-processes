@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/ogcapi-processes/create-body
 
 [.component,class=part]
 --

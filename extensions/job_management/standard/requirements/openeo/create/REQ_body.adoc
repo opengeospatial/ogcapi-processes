@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/openeo/create-body
 
 [.component,class=part]
 --

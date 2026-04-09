@@ -2,6 +2,7 @@
 [requirement]
 ====
 [%metadata]
+identifier:: /req/job-management/create-response-jobid
 
 [.component,class=part]
 --

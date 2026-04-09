@@ -2,6 +2,7 @@
 [recommendation]
 ====
 [%metadata]
+identifier:: /rec/ogcapppkg/execution-unit-docker
 
 [.component,class=part]
 --
