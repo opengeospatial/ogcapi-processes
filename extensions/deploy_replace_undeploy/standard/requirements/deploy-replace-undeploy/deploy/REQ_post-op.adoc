@@ -2,6 +2,10 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/deploy-post-op
-part:: The server SHALL support the HTTP POST operation at the path `/processes`.
+
+[.component,class=part]
+--
+The server SHALL support the HTTP POST operation at the path `/processes`.
+--
+
 ====

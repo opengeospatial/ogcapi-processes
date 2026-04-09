@@ -2,6 +2,10 @@
 [permission]
 ====
 [%metadata]
-label:: /per/deploy-replace-undeploy/deploy-body
-part:: A server MAY support any processes description encoding in the body of a HTTP POST operation.
+
+[.component,class=part]
+--
+A server MAY support any processes description encoding in the body of a HTTP POST operation.
+--
+
 ====

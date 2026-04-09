@@ -2,6 +2,10 @@
 [recommendation]
 ====
 [%metadata]
-label:: /rec/ogcapppkg/execution-unit-cwl
-part:: If the execution unit is encoded in CWL, implementations SHOULD consider supporting the <<rc_cwl,CWL Requirement class>>.
+
+[.component,class=part]
+--
+If the execution unit is encoded in CWL, implementations SHOULD consider supporting the <<rc_cwl,CWL Requirement class>>.
+--
+
 ====

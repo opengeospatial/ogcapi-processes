@@ -2,6 +2,10 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/docker/schema
-part:: The `executionUnit` property of an `OGC Application Package` document SHALL be based upon the schema https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-dru/executionUnit.yaml[executionUnit.yaml].
+
+[.component,class=part]
+--
+The `executionUnit` property of an `OGC Application Package` document SHALL be based upon the schema https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-dru/executionUnit.yaml[executionUnit.yaml].
+--
+
 ====

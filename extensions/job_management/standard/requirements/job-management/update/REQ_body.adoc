@@ -2,6 +2,10 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-management/update-body
-part:: The body of a PATCH request SHALL be in JSON format.
+
+[.component,class=part]
+--
+The body of a PATCH request SHALL be in JSON format.
+--
+
 ====

@@ -2,6 +2,10 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/deploy-body
-part:: The body of the POST request SHALL contain a formal description of the process to be dynamically deployed to the API.
+
+[.component,class=part]
+--
+The body of the POST request SHALL contain a formal description of the process to be dynamically deployed to the API.
+--
+
 ====

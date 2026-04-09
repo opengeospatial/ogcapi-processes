@@ -2,6 +2,10 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-management/create-post-op
-part:: The server SHALL support the HTTP POST operation at the path `/jobs`.
+
+[.component,class=part]
+--
+The server SHALL support the HTTP POST operation at the path `/jobs`.
+--
+
 ====

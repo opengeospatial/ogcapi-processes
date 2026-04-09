@@ -2,6 +2,10 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/ogcapppkg/process-description
-part:: The value of the `process` member of the `processDescription` property SHALL be based upon the OpenAPI schema https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/process.yaml[process.yaml].
+
+[.component,class=part]
+--
+The value of the `process` member of the `processDescription` property SHALL be based upon the OpenAPI schema https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/process.yaml[process.yaml].
+--
+
 ====
