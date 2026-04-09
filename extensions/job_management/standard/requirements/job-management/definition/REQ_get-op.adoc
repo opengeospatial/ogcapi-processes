@@ -6,7 +6,7 @@ identifier:: /req/job-management/definition-get-op
 
 [.component,class=part]
 --
-For every jobs (using method: POST on path: /jobs/{jobID}), the server SHALL support the HTTP GET operation at the path `/jobs/{jobID}/definition`.
+For every jobs (using method: POST on path: `/jobs/{jobID}`), the server SHALL support the HTTP GET operation at the path `/jobs/{jobID}/definition`.
 --
 
 [.component,class=part]

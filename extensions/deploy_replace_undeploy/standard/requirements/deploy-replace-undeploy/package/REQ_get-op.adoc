@@ -6,7 +6,7 @@ identifier:: /req/deploy-replace-undeploy/package-get-op
 
 [.component,class=part]
 --
-For every dynamically added process (using method: POST on path: /processes/{processID}), the server SHALL support the HTTP GET operation at the path `/processes/{processID}/package`.
+For every dynamically added process (using method: POST on path: `/processes/{processID}`), the server SHALL support the HTTP GET operation at the path `/processes/{processID}/package`.
 --
 
 [.component,class=part]
