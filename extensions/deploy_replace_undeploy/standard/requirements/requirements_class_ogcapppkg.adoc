@@ -8,4 +8,11 @@ obligation:: requirement
 subject:: Web API
 inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core>>
 inherit:: <<rc_deploy-replace-undeploy,http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy>>
+requirement:: /req/ogcapppkg/body
+requirement:: /req/ogcapppkg/deploy-body
+requirement:: /req/ogcapppkg/package-response-body
+requirement:: /req/ogcapppkg/process-description
+requirement:: /req/ogcapppkg/profile-docker
+requirement:: /req/ogcapppkg/replace-body
+requirement:: /req/ogcapppkg/schema
 ====

@@ -8,4 +8,23 @@ obligation:: requirement
 subject:: Web API
 inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core, Conformance Class 'core'>>
 inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
+requirement:: /req/deploy-replace-undeploy/deploy-body
+requirement:: /req/deploy-replace-undeploy/deploy-content-type
+requirement:: /req/deploy-replace-undeploy/deploy-post-op
+requirement:: /req/deploy-replace-undeploy/deploy-response-body
+requirement:: /req/deploy-replace-undeploy/deploy-response-duplicate
+requirement:: /req/deploy-replace-undeploy/deploy-response-immutable
+requirement:: /req/deploy-replace-undeploy/deploy-response-pid
+requirement:: /req/deploy-replace-undeploy/deploy-response-success
+requirement:: /req/deploy-replace-undeploy/deploy-unsupported-media-type
+requirement:: /req/deploy-replace-undeploy/package-get-op
+requirement:: /req/deploy-replace-undeploy/package-response-body
+requirement:: /req/deploy-replace-undeploy/package-response-success
+requirement:: /req/deploy-replace-undeploy/replace-body
+requirement:: /req/deploy-replace-undeploy/replace-content-type
+requirement:: /req/deploy-replace-undeploy/replace-put-op
+requirement:: /req/deploy-replace-undeploy/replace-response
+requirement:: /req/deploy-replace-undeploy/static-indicator
+requirement:: /req/deploy-replace-undeploy/undeploy-delete-op
+requirement:: /req/deploy-replace-undeploy/undeploy-response
 ====

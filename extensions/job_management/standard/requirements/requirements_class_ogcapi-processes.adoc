@@ -9,4 +9,8 @@ subject:: Web API
 inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core>>
 inherit:: <<OAProc-3,OGC API - Processes - Part 3: Workflows, Conformance Class 'nested-processing'>>
 inherit:: <<rc_job-management,http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/job-management>>
+requirement:: /req/ogcapi-processes/create-body
+requirement:: /req/ogcapi-processes/definition-response-body
+requirement:: /req/ogcapi-processes/schema
+requirement:: /req/ogcapi-processes/update-body
 ====
