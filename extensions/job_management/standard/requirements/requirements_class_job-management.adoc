@@ -1,5 +1,6 @@
 [[rc_job-mangement]]
 [requirements_class]
+.Requirements Class 'Job Management'
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/job-management

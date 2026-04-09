@@ -1,5 +1,6 @@
 [[rc_ogcapppkg]]
 [requirements_class]
+.Requirements Class 'OGC Application Package'
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg

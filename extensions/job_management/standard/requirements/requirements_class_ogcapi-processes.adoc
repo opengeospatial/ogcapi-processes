@@ -1,5 +1,6 @@
 [[rc_ogcapi-processes]]
 [requirements_class]
+.Requirements Class 'OGC API - Processes'
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/ogcapi-processes

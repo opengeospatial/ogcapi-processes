@@ -1,5 +1,6 @@
 [[rc_cwl]]
 [requirements_class]
+.Requirements Class 'CWL'
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/cwl

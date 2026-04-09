@@ -1,5 +1,6 @@
 [[rc_deploy-replace-undeploy]]
 [requirements_class]
+.Requirements Class 'Deploy, Replace, Undeploy'
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy

@@ -1,5 +1,6 @@
 [[rc_openeo]]
 [requirements_class]
+.Requirements Class 'openEO'
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/openeo

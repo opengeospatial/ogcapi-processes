@@ -1,5 +1,6 @@
 [[rc_docker]]
 [requirements_class]
+.Requirements Class 'Docker'
 ====
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker
