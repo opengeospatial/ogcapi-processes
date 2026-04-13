@@ -13,7 +13,7 @@ test-method::
 
 4. Validate that the document is conform to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml]
 
-5. Validate that the type of the exception is “http://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/duplicated-process”.
+5. Validate that the type of the exception is “https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/duplicated-process”.
 --
 ====
 

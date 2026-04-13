@@ -3,8 +3,8 @@
 .Job Management
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/conf/job-management
-subject:: <<rc_job-management,http://www.opengis.net/spec/ogcapi-processes-4/1.0/conf/job-management>>
+identifier:: https://www.opengis.net/spec/ogcapi-processes-4/1.0/conf/job-management
+subject:: <<rc_job-management,https://www.opengis.net/spec/ogcapi-processes-4/1.0/conf/job-management>>
 classification:: Target Type:Web API
 conformance-test:: /conf/dru/deploy/post-op
 ====

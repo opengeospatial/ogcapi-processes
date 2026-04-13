@@ -2,6 +2,11 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/openeo/create-body
-part:: The media type `application/json` SHALL be used to indicate that request body contains a processes description encoded as an <<rc_openeo,OpenEO Process Graph>>.
+identifier:: /req/openeo/create-body
+
+[.component,class=part]
+--
+The media type `application/json` SHALL be used to indicate that request body contains a processes description encoded as an <<rc_openeo,OpenEO Process Graph>>.
+--
+
 ====

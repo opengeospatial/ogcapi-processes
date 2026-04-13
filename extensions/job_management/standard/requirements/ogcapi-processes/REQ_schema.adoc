@@ -2,6 +2,11 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/ogcapi-processes/schema
-part:: An `OGC API - Processes - Workflow - Execute Request` document SHALL be based upon the JSON schema https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-workflows/execute-workflows.yaml[execute-workflow.yaml].
+identifier:: /req/ogcapi-processes/schema
+
+[.component,class=part]
+--
+An `OGC API - Processes - Workflow - Execute Request` document SHALL be based upon the JSON schema https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-workflows/execute-workflows.yaml[execute-workflow.yaml].
+--
+
 ====

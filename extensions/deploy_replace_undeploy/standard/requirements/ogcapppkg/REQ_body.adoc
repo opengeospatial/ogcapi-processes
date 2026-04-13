@@ -2,6 +2,11 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/ogcapppkg/body
-part:: The media type `application/ogcapppkg+json` SHALL be used to indicate that request body contains a processes description encoded as an <<rc_ogcapppkg,OGC Application Package>>.
+identifier:: /req/ogcapppkg/body
+
+[.component,class=part]
+--
+The media type `application/ogcapppkg+json` SHALL be used to indicate that request body contains a processes description encoded as an <<rc_ogcapppkg,OGC Application Package>>.
+--
+
 ====

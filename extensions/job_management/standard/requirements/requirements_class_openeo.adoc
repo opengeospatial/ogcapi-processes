@@ -1,9 +1,14 @@
 [[rc_openeo]]
 [requirements_class]
+.Requirements Class 'openEO'
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/openeo
+identifier:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/openeo
 obligation:: requirement
 subject:: Web API
 inherit:: <<rc_job-management,http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/job-management>>
+requirement:: /req/openeo/create-body
+requirement:: /req/openeo/definition-response-body
+requirement:: /req/openeo/schema
+requirement:: /req/openeo/update-body
 ====

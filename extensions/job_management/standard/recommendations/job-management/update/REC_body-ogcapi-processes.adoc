@@ -2,8 +2,11 @@
 [recommendation]
 ====
 [%metadata]
-label:: /rec/job-management/update-body-ogcapi-processes
+identifier:: /rec/job-management/update-body-ogcapi-processes
 
-part:: If a job can be created from an <<rc_ogcapi-processes,OGC API - Processes - Workflow Execute Request>>, implementations SHOULD consider supporting the <<rc_ogcapi-processes,OGC API - Processes - Workflow Execute Request>> encoding.
+[.component,class=part]
+--
+If a job can be created from an <<rc_ogcapi-processes,OGC API - Processes - Workflow Execute Request>>, implementations SHOULD consider supporting the <<rc_ogcapi-processes,OGC API - Processes - Workflow Execute Request>> encoding.
+--
 
 ====

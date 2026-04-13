@@ -2,8 +2,11 @@
 [recommendation]
 ====
 [%metadata]
-label:: /rec/deploy-replace-undeploy/package-response-cwl
+identifier:: /rec/deploy-replace-undeploy/package-response-cwl
 
-part:: If a process deployed as a <<rc_cwl,CWL>>, implementations SHOULD consider supporting the <<rc_cwl,CWL>> encoding.
+[.component,class=part]
+--
+If a process deployed as a <<rc_cwl,CWL>>, implementations SHOULD consider supporting the <<rc_cwl,CWL>> encoding.
+--
 
 ====

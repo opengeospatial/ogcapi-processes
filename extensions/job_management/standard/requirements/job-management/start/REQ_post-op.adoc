@@ -2,7 +2,16 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/job-management/start-post-op
-part:: For every created jobs (path: `/jobs/{jobID}/results`), the server SHALL support the HTTP POST operation.
-part:: The parameter `jobID` is each `id` property in the job list response (JSONPath: `$.jobs[*].id`).
+identifier:: /req/job-management/start-post-op
+
+[.component,class=part]
+--
+For every created jobs (path: `/jobs/{jobID}/results`), the server SHALL support the HTTP POST operation.
+--
+
+[.component,class=part]
+--
+The parameter `jobID` is each `id` property in the job list response (JSONPath: `$.jobs[*].id`).
+--
+
 ====

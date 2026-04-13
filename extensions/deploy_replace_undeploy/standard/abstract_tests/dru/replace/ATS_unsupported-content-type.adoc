@@ -13,7 +13,7 @@ test-method::
 
 2. Validate that the document is conform to the JSON Schema: https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml]
 
-3. Validate that the document contains the exception `type` “http://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/unsupported-content-type”.
+3. Validate that the document contains the exception `type` “https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/unsupported-content-type”.
 --
 ====
 

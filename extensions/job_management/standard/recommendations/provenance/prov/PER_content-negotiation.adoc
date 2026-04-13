@@ -11,8 +11,8 @@ Content negotiation MAY be supported to provide alternate representations of the
 
 [.component,class=part]
 --
-The server MAY support the following content type: `application/json` _explicitly provided_
-in accordance to the default requirement (see <<req_provenance_prov_response,PROV Response>>)
+The server SHOULD support the following content type: `application/json` when _explicitly provided_
+in accordance to the default <<req_provenance_prov_response,PROV Response>> requirement
 for link:https://www.w3.org/submissions/prov-json/[PROV-JSON] as
 a link:https://www.w3.org/TR/2013/NOTE-prov-overview-20130430/[PROV] representation
 in JSON using the link:https://www.w3.org/TR/2013/REC-prov-dm-20130430/[PROV-DM] data model.

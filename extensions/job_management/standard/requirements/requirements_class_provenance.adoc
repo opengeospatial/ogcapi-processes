@@ -1,9 +1,14 @@
 [[rc_cwl]]
 [requirements_class]
+.Requirements Class 'Provenance'
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/provenance
+identifier:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/provenance
 obligation:: requirement
 subject:: Web API
 inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core>>
+requirement:: /req/provenance/inputs-get-op
+requirement:: /req/provenance/inputs-response
+requirement:: /req/provenance/prov-get-op
+requirement:: /req/provenance/prov-response
 ====

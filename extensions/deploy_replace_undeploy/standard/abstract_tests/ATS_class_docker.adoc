@@ -3,8 +3,8 @@
 .Docker
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/docker
-subject:: <<rc_docker,http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/docker>>
+identifier:: https://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/docker
+subject:: <<rc_docker,https://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/docker>>
 classification:: Target Type:Web API
 conformance-test:: /conf/docker/deploy-body
 conformance-test:: /conf/docker/replace-body

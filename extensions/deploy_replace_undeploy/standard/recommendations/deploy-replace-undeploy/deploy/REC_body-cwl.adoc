@@ -2,8 +2,11 @@
 [recommendation]
 ====
 [%metadata]
-label:: /rec/deploy-replace-undeploy/deploy-body-cwl
+identifier:: /rec/deploy-replace-undeploy/deploy-body-cwl
 
-part:: If a process can be encoded for the intended use in <<rc_cwl,CWL>>, implementations SHOULD consider supporting the <<rc_cwl,CWL>> encoding for describing the process to be deployed to the API.
+[.component,class=part]
+--
+If a process can be encoded for the intended use in <<rc_cwl,CWL>>, implementations SHOULD consider supporting the <<rc_cwl,CWL>> encoding for describing the process to be deployed to the API.
+--
 
 ====

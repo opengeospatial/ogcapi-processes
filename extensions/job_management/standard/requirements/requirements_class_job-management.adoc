@@ -1,10 +1,29 @@
 [[rc_job-mangement]]
 [requirements_class]
+.Requirements Class 'Job Management'
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/job-management
+identifier:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/job-management
 obligation:: requirement
 subject:: Web API
 inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core, Conformance Class 'core'>>
 inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
+requirement:: /req/job-management/create-body
+requirement:: /req/job-management/create-content-type
+requirement:: /req/job-management/create-post-op
+requirement:: /req/job-management/create-response-body
+requirement:: /req/job-management/create-response-jobid
+requirement:: /req/job-management/create-response-success
+requirement:: /req/job-management/create-unsupported-media-type
+requirement:: /req/job-management/create-unsupported-schema
+requirement:: /req/job-management/definition-get-op
+requirement:: /req/job-management/definition-response-body
+requirement:: /req/job-management/definition-response-success
+requirement:: /req/job-management/start-post-op
+requirement:: /req/job-management/start-response
+requirement:: /req/job-management/update-body
+requirement:: /req/job-management/update-content-type
+requirement:: /req/job-management/update-patch-op
+requirement:: /req/job-management/update-response
+requirement:: /req/job-management/update-response-locked
 ====

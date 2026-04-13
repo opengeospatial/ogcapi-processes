@@ -2,6 +2,11 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/replace-content-type
-part:: As per <<rfc2616,HTTP 1.1>> (https://tools.ietf.org/html/rfc2616#section-14.17) the 'Content-Type' header SHALL be used to indicate the media type of a request body containing the description of the replacement processes.
+identifier:: /req/deploy-replace-undeploy/replace-content-type
+
+[.component,class=part]
+--
+As per <<rfc2616,HTTP 1.1>> (https://tools.ietf.org/html/rfc2616#section-14.17) the 'Content-Type' header SHALL be used to indicate the media type of a request body containing the description of the replacement processes.
+--
+
 ====
