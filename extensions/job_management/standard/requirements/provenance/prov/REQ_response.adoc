@@ -6,17 +6,19 @@ identifier:: /req/provenance/prov-response
 
 [.component,class=part]
 --
-A successful execution of the operation SHALL be reported as a response with a HTTP status code '200'.
+A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
 --
 
 [.component,class=part]
 --
-Per default, the response SHALL contains a JSON document that conforms to the https://www.w3.org/submissions/prov-json/schema[schema for PROV-JSON].
+Per default, the response SHALL contains a JSON document that conforms to the
+link:https://www.w3.org/submissions/prov-json/schema[PROV-JSON] schema.
 --
 
 [.component,class=part]
 --
-In case content-negotiation is used, the response MAY contain other representations including PROV-O as JSON-LD, PROV-XML or PROV-N.
+In case content-negotiation is used, the response MAY contain other representations including but not limited to
+PROV-O as JSON-LD, PROV-XML or PROV-N. See also <<per_job-provenance_prov_content-negotiation,PROV Content Negotiation>>.
 --
 
 ====

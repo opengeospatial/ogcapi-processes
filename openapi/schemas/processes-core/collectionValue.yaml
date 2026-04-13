@@ -9,8 +9,27 @@ allOf:
            The URI of the OGC API collection that should be accessed to provide
            input values from the corresponding process input.  The server
            offering this collection is referred to as the "value source server".
-        type: string
-        format: uri-reference
+        anyOf:
+           - type: string
+             description: |-
+               Collection identifier for a collection available at `{root}/collections/{collectionID}`, where `{root}` represents the landing page
+               of the process using the collection as an input (for the top-level process, that is the landing page of the process execution endpoint
+               to which the execution request is posted), or the landing page of the document being retrieved in the case of an output.
+               If the `collection` string includes a `/`, it must be interpreted as a URI reference rather than as a collection ID.
+           - type: string
+             description: |-
+                The URI of an OGC API collection.
+                If a relative URI reference is used, the Base URI is defined as such:
+                - For a Collection value received as input to a process, the Base URI is defined as the URI of the description
+                  (`{root}/processes/{processId}`) of that process, with the receiving process object understood as the Encapsulating Entity as per
+                  [RFC 3986 Section 5.1.2](https://datatracker.ietf.org/doc/html/rfc3986#section-5.1.2).
+                - For a Collection Output value, the Base URI is defined from the Retrieval URI as as per
+                  [RFC 3986 Section 5.1.3](https://datatracker.ietf.org/doc/html/rfc3986#section-5.1.3),
+                  for example, `/jobs/{jobId}/results`, `/jobs/{jobId}/results/{outputID}` or `/jobs/{jobId}/results/{outputID}/{N}` depending on the
+                  resource being retrieved.
+                If a collection string does not contain any `/`, it must not be interpreted as a URI reference, and must instead be resolved as a
+                collection identifier. For example, `countries` would resolve to `{root}/collections/countries` rather than `{root}/processes/countries`.
+             format: uri-reference
       bbox:
         description: |-
           Only resources that have a geometry that intersects the bounding box

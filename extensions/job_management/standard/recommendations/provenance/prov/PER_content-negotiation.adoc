@@ -11,17 +11,58 @@ Content negotiation MAY be supported to provide alternate representations of the
 
 [.component,class=part]
 --
-The server MAY support the following additional content type: `application/ld+json` for PROV-O as JSON-LD
+The server SHOULD support the following content type: `application/json` when _explicitly provided_
+in accordance to the default <<req_provenance_prov_response,PROV Response>> requirement
+for link:https://www.w3.org/submissions/prov-json/[PROV-JSON] as
+a link:https://www.w3.org/TR/2013/NOTE-prov-overview-20130430/[PROV] representation
+in JSON using the link:https://www.w3.org/TR/2013/REC-prov-dm-20130430/[PROV-DM] data model.
 --
 
 [.component,class=part]
 --
-The server MAY support the following additional content type: `application/xml` for PROV-XML
+The server MAY support the following additional content type: `application/ld+json`
+for link:https://www.w3.org/submissions/prov-jsonld/[PROV-JSONLD] as
+a link:https://www.w3.org/TR/2013/NOTE-prov-overview-20130430/[PROV] representation
+in link:https://www.w3.org/TR/json-ld/[JSON-LD].
 --
 
 [.component,class=part]
 --
-The server MAY support the following additional content type: `text/provenance-notation; charset="UTF-8"` for PROV-N.
+The server MAY support the following additional content type: `application/xml`
+for link:https://www.w3.org/TR/2013/NOTE-prov-xml-20130430/[PROV-XML] as
+a link:https://www.w3.org/TR/2013/NOTE-prov-overview-20130430/[PROV] representation
+in XML using namespaces defined by the link:https://www.w3.org/TR/2013/REC-prov-dm-20130430/[PROV-DM] data model.
+--
+
+[.component,class=part]
+--
+The server MAY support the following additional content type: `text/provenance-notation`
+for link:https://www.w3.org/TR/2013/REC-prov-n-20130430/[PROV-N] as
+a human-readable provenance notation
+of the link:https://www.w3.org/TR/2013/REC-prov-dm-20130430/[PROV-DM] data model.
+--
+
+[.component,class=part]
+--
+The server MAY support the following additional content type: `application/n-triples`
+for PROV-NT as link:https://www.w3.org/TR/n-triples/[N-Triples RDF]
+using the link:https://www.w3.org/TR/2013/REC-prov-o-20130430/[PROV-O] RDF ontology.
+--
+
+[.component,class=part]
+--
+The server MAY support the following additional content type: `text/turtle`
+for PROV-TURTLE as link:https://www.w3.org/TR/rdf12-turtle/[Turtle RDF]
+using the link:https://www.w3.org/TR/2013/REC-prov-o-20130430/[PROV-O] RDF ontology.
+--
+
+[.component,class=part]
+--
+For all supported content media-types, the server MAY support
+link:https://datatracker.ietf.org/doc/html/rfc2616#section-12["Content Negotiation"] of the Provenance
+representation either through the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header,
+the `f` query parameter, by link:https://docs.ogc.org/DRAFTS/18-062r3.html#con-neg-by-profile["Profile"]
+or any other mechanism it deems fit.
 --
 
 ====

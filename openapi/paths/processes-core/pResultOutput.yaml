@@ -1,0 +1,21 @@
+get:
+   summary: retrieve a specific resulting output of a job
+   description: |
+     Retrieve a specific resulting output for a job.
+
+     For more information, see [Section 7.14](https://docs.ogc.org/is/18-062r3/18-062r3.html#sc_retrieve_job_results_one).
+
+   operationId: getOutput
+   tags:
+     - Jobs
+   parameters:
+     - $ref: "../../parameters/processes-core/jobID.yaml"
+     - $ref: "../../parameters/processes-core/outputID.yaml"
+     - $ref: "../../parameters/processes-core/prefer-header-results.yaml"
+   responses:
+     200:
+       $ref: "../../responses/processes-core/rOutput.yaml"
+     404:
+       $ref: "../../responses/common-core/rNotFound.yaml"
+     500:
+       $ref: "../../responses/common-core/rServerError.yaml"

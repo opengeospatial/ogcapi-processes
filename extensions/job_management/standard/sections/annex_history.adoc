@@ -6,4 +6,5 @@
 |Date |Release |Editor | Primary clauses modified |Description
 |2024-08-22 |None |Gérald Fenoy |all |Boostraping the document
 |2026-04-09 |None |Francis Charette-Migneault |all |Fix req/rec/per definitions format and references.
+|2026-04-13 |None |Francis Charette-Migneault |all |Improve listing and details of Job PROV alternate representations.
 |===
