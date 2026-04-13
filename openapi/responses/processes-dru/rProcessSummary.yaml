@@ -1,0 +1,5 @@
+description: A process summary.
+content:
+  application/json:
+    schema:
+      $ref: "../../schemas/processes-core/processSummary.yaml"

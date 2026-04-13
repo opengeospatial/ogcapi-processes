@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env sh
+
+cd "$(dirname "$0")" || exit 1
 
 # Refresh pProcessListDeploy.yaml content
 rm paths/processes-dru/pProcessListDeploy.yaml ; \

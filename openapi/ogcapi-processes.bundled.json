@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "0.1",
+    "version": "2.0rc1",
     "title": "OGC API - Processes",
     "description": "Example API Definition for OGC API - Processes",
     "contact": {
@@ -177,7 +177,7 @@
         },
         "responses": {
           "201": {
-            "$ref": "#/components/responses/rProcessDescription"
+            "$ref": "#/components/responses/rProcessSummary"
           },
           "400": {
             "$ref": "#/components/responses/rWorkflowNotFound"
@@ -7356,6 +7356,11 @@
             "description": "Nature of the data in the collection. For example, this could be set to `map`, `vector` or `coverage`. It is not an indication of the available data access mechanism, but a hint regarding the internal representation of the data.",
             "$ref": "#/components/schemas/dataType"
           },
+          "featureTypes": {
+            "title": "Feature type(s) present in the collection",
+            "description": "The list of feature (or coverage) type(s) which are present inside the collection. This is useful for associating the relevant portrayal rules of a style.",
+            "type": "string"
+          },
           "parent": {
             "title": "Identifier of a parent collection (if this collection is part of a hierarchy)",
             "description": "If this collection is part of a hierarchy, this property allows to identify another collection within the same dataset as its parent (by setting `parent` to the `id` of that collection), enabling clients to construct a hierarchy.",
@@ -8081,13 +8086,12 @@
       "response": {
         "name": "response",
         "in": "query",
-        "description": "For executing the process using the _Collection Output_ mechanism, where the\nclient is redirected (_303_ status) to either an OGC API landing page or\ncollection resource, from which one or more OGC API data access mechanism\nis available.  Data access requests may trigger processing on-demand for\na given area, time and resolution of interest.",
+        "description": "For executing the process using the _Collection Output_ mechanism, where the\nclient is redirected (_303_ status) to a collection resource, from which one\nor more OGC API data access mechanism is available. Data access requests may\ntrigger processing on-demand for a given area, time and resolution of interest.",
         "required": false,
         "schema": {
           "type": "string",
           "enum": [
-            "collection",
-            "landingPage"
+            "collection"
           ]
         }
       },
@@ -8168,6 +8172,9 @@
       },
       "DeployProcess": {
         "$ref": "#/components/responses/rDeployProcess"
+      },
+      "ProcessSummary": {
+        "$ref": "#/components/responses/rProcessSummary"
       },
       "DuplicateProcess": {
         "$ref": "#/components/responses/rDuplicateProcess"
@@ -8321,12 +8328,12 @@
           }
         }
       },
-      "rProcessDescription": {
-        "description": "A process description.",
+      "rProcessSummary": {
+        "description": "A process summary.",
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/process"
+              "$ref": "#/components/schemas/processSummary"
             }
           }
         }
@@ -8372,6 +8379,16 @@
           "text/html": {
             "schema": {
               "type": "string"
+            }
+          }
+        }
+      },
+      "rProcessDescription": {
+        "description": "A process description.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/process"
             }
           }
         }

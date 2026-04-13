@@ -136,6 +136,10 @@ properties:
     title: Nature of the data in the collection
     description: Nature of the data in the collection. For example, this could be set to `map`, `vector` or `coverage`. It is not an indication of the available data access mechanism, but a hint regarding the internal representation of the data.
     $ref: 'dataType.yaml'
+  featureTypes:
+    title: Feature type(s) present in the collection
+    description: The list of feature (or coverage) type(s) which are present inside the collection. This is useful for associating the relevant portrayal rules of a style.
+    type: string
   parent:
     title: Identifier of a parent collection (if this collection is part of a hierarchy)
     description: If this collection is part of a hierarchy, this property allows to identify another collection within the same dataset as its parent (by setting `parent` to the `id` of that collection), enabling clients to construct a hierarchy.
