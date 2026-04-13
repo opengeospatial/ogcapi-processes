@@ -19,51 +19,41 @@ API building blocks.
 
 ## Overview
 
-The OGC API - Processes enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality.
+The _OGC API - Processes_ enables the execution of computing processes and the retrieval of metadata describing their purpose and functionality.
 Typically, these processes combine raster, vector, and/or coverage data with well-defined algorithms to produce new raster, vector, and/or coverage information.
 
-```
-GET /processes
-```
+### Part 1: Core
 
-Lists the processes this API offers.
+| Method | Endpoint                           | Description                                                                |
+|--------|------------------------------------|----------------------------------------------------------------------------|
+| GET    | `/processes`                       | Lists the processes this API offers.                                       |
+| GET    | `/processes/{processID}`           | Returns a detailed description of a process.                               |
+| POST   | `/processes/{processID}/execution` | Executes a process, synchrously or asynchrously (i.e.: creates a new job). |
+| GET    | `/jobs`                            | Returns the running and finished jobs for a process.                       |
+| GET    | `/jobs/{jobID}`                    | Returns the status of a job of a process.                                  |
+| DELETE | `/jobs/{jobID}`                    | Cancel a job execution.                                                    |
+| GET    | `/jobs/{jobID}/results`            | Returns the result of a job of a process.                                  |
 
-```
-GET /processes/{processID}
-```
+### Part 2: Deploy, Replace, Undeploy
 
-Returns a detailed description of a process.
+| Method | Endpoint                 | Description                          |
+|--------|--------------------------|--------------------------------------|
+| POST   | `/processes`             | Deploy a new process.                |
+| PUT    | `/processes/{processID}` | Replace an existing process.         |
+| DELETE | `/processes/{processID}` | Undeploy a process.                  |
 
-```
-GET /jobs
-```
+### Part 3: Workflows and Chaining
 
-Returns the running and finished jobs for a process (optional).
+No additional endpoints. Execution reuses the same endpoints as in Part 1 with nested processes and additional parameters.
 
-```
-POST /processes/{processID}/execution
-```
+### Part 4: Job Management
 
-Executes a process, i.e. creates a new job. Inputs, outputs and the process id will have to be specified in
-a JSON document that needs to be send in the POST body.
-
-```
-GET /jobs/{jobID}
-```
-
-Returns the status of a job of a process.
-
-```
-DELETE /jobs/{jobID}
-```
-
-Cancel a job execution.
-
-```
-GET /jobs/{jobID}/results
-```
-
-Returns the result of a job of a process.
+| Method | Endpoint                | Description                                       |
+|--------|-------------------------|---------------------------------------------------|
+| POST   | `/jobs`                 | Create a new job (potentially pending execution). |
+| PATCH  | `/jobs/{jobID}`         | Update an existing job (if pending execution).    |
+| POST   | `/jobs/{jobID}/results` | Trigger execution of an existing job.             |
+| GET    | `/jobs/{jobID}/prov`    | Returns provenance details of a completed job.    |
 
 ## Using the standard
 

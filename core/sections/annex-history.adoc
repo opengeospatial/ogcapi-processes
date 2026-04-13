@@ -274,5 +274,6 @@
 |2021-08-25|1.0-draft.7| Benjamin Pross|X | Fix ordering of requirements
 |2021-08-26|1.0-draft.7| Benjamin Pross|7 | Revert changes - replace GET method with GET operation
 |2021-09-03|1.0-draft.7| Benjamin Pross|7 | Add informative text about execution paths
+|2026-04-08|2.0|Francis Charette-Migneault |all |Update format rendering of code snippets
 
 |===
