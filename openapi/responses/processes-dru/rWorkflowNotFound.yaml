@@ -1,9 +1,0 @@
-# NOTE: References to this missing file were added in 3cd54af60cd7fede3fc9647aa39c5fbeddd219f0 -- the correct version should be added.
-description: The requested workflow does not exist on the server.
-content:
-   application/json:
-      schema:
-         $ref: '../../schemas/common-core/exception.yaml'
-   text/html:
-      schema:
-         type: string

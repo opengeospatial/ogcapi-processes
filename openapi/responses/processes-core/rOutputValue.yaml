@@ -1,0 +1,5 @@
+description: An individual value of an output allowing multiple values resulting from a job
+content:
+  application/json:
+    schema:
+      $ref: "../../schemas/processes-core/inlineOrRefValue.yaml"

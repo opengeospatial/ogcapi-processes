@@ -4,7 +4,18 @@ allOf:
         process:
           type: string
           format: uri-reference
-          description: URI to the process description end point (i.e., `.../processes/{processId}`)
+          description: |-
+             The URI to the description of the process that should be executed.
+             For the top-level process, when the execution request is POSTed to `{root}/processes/{processId}/execution`, this should be an absolute URI,
+             and the server should ignore this `process` key since the URI of the request already identifies the process to execute, and a client
+             is not required to resolve and replace the URI if passing a nested process block as part of a larger workflow executing a nested process.
+             If a relative URI reference is used, the Base URI is defined as the URI of the description
+             (`{root}/processes/{processId}`) of the receiving process, with this receiving process object understood as the
+             Encapsulating Entity as per [RFC 3986 Section 5.1.2](https://datatracker.ietf.org/doc/html/rfc3986#section-5.1.2).
+             In the case of a nested process on the same OGC API root as the receiving process, using a simple process ID as the relative URI reference
+             would resolve to a process available at `{root}/processes/{processID}`, where `{root}` represents the landing page of the receiving process.
+             For example, if a top-level process at https://example.com/processes/buffer receives a nested processs `{ "process": "clip" }`,
+             that clip process is resolved as https://example.com/processes/clip.
         inputs:
           additionalProperties:
             $ref: "values-workflows.yaml"
