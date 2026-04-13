@@ -22,7 +22,7 @@ classes:
 
  * <<rc_ogcapppkg,OGC Application Package>>, that defines a formal process description language encoded using JSON,
  * <<rc_cwl,CWL>>, that enables support for CWL-encoded process definition.
- 
+
 A recommendation is made later in this Standard that all implementations of Processes API Part 2 extension support the `OGC Application Package`.
 
 [[deploy-replace-undeploy-http_status_codes]]
@@ -99,7 +99,10 @@ The following diagram illustrates the sequence diagram for deploying
 a new process to the API:
 
 
-```
+.Process deployment example.
+====
+[source]
+----
 Client                                                        Server
   |                                                             |
   |  POST /processes   HTTP/1.1                                 |
@@ -112,8 +115,8 @@ Client                                                        Server
   |  HTTP/1.1 201 Created                                       |
   |  Location: /processes/{processID}                           |
   |<------------------------------------------------------------|
-```
-
+----
+====
 
 ==== Operation
 
@@ -168,7 +171,10 @@ previously deployed processes.  The identifier of the process does not change.
 
 NOTE: The new process definition replaces the old process definition. Version control is not discussed in this Standard.
 
-```
+.Process replacement example.
+====
+[source]
+----
 Client                                                        Server
   |                                                             |
   |  PUT /processes/{processID}   HTTP/1.1                      |
@@ -181,7 +187,8 @@ Client                                                        Server
   |                                                             |
   |  HTTP/1.1 204 OK                                            |
   |<------------------------------------------------------------|
-```
+----
+====
 
 ==== Operation
 
@@ -232,7 +239,10 @@ The following diagram illustrates the sequence diagram for undeploying a
 previously deployed process.
 
 
-```
+.Process undeployment example.
+====
+[source]
+----
 Client                                                        Server
   |                                                             |
   |  DELETE /processes/{processID}   HTTP/1.1                   |
@@ -240,7 +250,8 @@ Client                                                        Server
   |                                                             |
   |  HTTP/1.1 204 OK                                            |
   |<------------------------------------------------------------|
-```
+----
+====
 
 ==== Operation
 

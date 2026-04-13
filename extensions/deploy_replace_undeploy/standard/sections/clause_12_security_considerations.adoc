@@ -38,7 +38,7 @@ The following OpenAPI definition declares that the API accepts either api keys i
   "security" : [ {
     "JWT" : [ ],
     "api_key": [ ]
-  } ], 
+  } ],
   "paths" : { },
   "components" : {
     "securitySchemes": {
@@ -93,8 +93,9 @@ If valid authentication credentials have been provided, but the API refuses to e
 
 [#auth-example-3,reftext=`Forbidden request`]
 .Forbidden request
-
-```
+====
+[source]
+----
 Client                                                              Server
   |                                                                   |
   | DELETE /processes/SampleProcess HTTP/1.1                          |
@@ -114,6 +115,7 @@ Client                                                              Server
   |   "detail" : "HTTP 403 Forbidden"                                 |
   | }                                                                 |
   |<------------------------------------------------------------------|
-```
+----
+====
 
 However, for security reasons, the server may also decide to return other status codes to hide information from a potential attacker. For example, the server may decide to return a 401 response even for a valid, but un-privileged user. Or the server may return a 404 response ("Not Found") to hide the fact that the resource exists in the first place, typically if the user would also not be privileged to fetch the resource with a GET operation.
