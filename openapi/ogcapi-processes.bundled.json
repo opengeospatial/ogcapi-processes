@@ -180,19 +180,7 @@
             "$ref": "#/components/responses/ProcessSummary"
           },
           "400": {
-            "description": "The requested workflow does not exist on the server.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/exception"
-                }
-              },
-              "text/html": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
+            "$ref": "#/components/responses/Exception"
           },
           "403": {
             "$ref": "#/components/responses/ImmutableProcess"
@@ -271,7 +259,7 @@
             "$ref": "#/components/responses/EmptyResponse"
           },
           "400": {
-            "$ref": "#/paths/~1processes/post/responses/400"
+            "$ref": "#/components/responses/Exception"
           },
           "403": {
             "$ref": "#/components/responses/ImmutableProcess"
