@@ -12,6 +12,8 @@
 
 * [[[rfc3339]]] Internet Engineering Task Force (IETF). RFC 3339: **Date and Time on the Internet: Timestamps** [online]. Edited by G. Klyne, C. Newman. 2002 [viewed 2020-03-16]. Available at https://www.rfc-editor.org/rfc/rfc3339.html
 
+* [[[rfc5829]]] Internet Engineering Task Force (IETF). RFC 5829: **Link Relation Types for Simple Version Navigation between Web Resources** [online]. Edited by A. Brown, G. Clemm, J. Reschke. 2010 [viewed 2026-04-14]. Available at https://www.rfc-editor.org/rfc/rfc5829.html
+
 * [[[rfc8288]]] Internet Engineering Task Force (IETF). RFC 8288: **Web Linking** [online]. Edited by M. Nottingham. 2017 [viewed 2020-03-16]. Available at https://www.rfc-editor.org/rfc/rfc8288.html
 
 * [[[rfc9110]]] Internet Engineering Task Force (IETF). RFC 9110: **HTTP Semantics** [online]. Edited by R. Fielding, J. Reschke, Y. Lafon, M. Nottingham. 2022 [viewed 2023-04-10]. Available at https://www.rfc-editor.org/rfc/rfc9110.html

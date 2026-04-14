@@ -11,6 +11,14 @@ A successful execution of the operation SHALL be reported as a response with a H
 
 [.component,class=part]
 --
+If the operation results in the immediate creation of a distinct process definition (rather than a literal replacement)
+which can be distinguished from the originally referenced `{processID}` by some versioning mechanism, the response SHALL
+have a HTTP status code `201` to hint clients about this separate resource.
+The `{processID}` SHALL then reference the newly created process definition used as replacement.
+--
+
+[.component,class=part]
+--
 If the operation is not executed immediately, but is added to a processing queue, the response SHALL have a HTTP status code `202`.
 --
 

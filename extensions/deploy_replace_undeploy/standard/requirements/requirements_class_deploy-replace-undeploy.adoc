@@ -24,6 +24,7 @@ requirement:: /req/deploy-replace-undeploy/replace-body
 requirement:: /req/deploy-replace-undeploy/replace-content-type
 requirement:: /req/deploy-replace-undeploy/replace-put-op
 requirement:: /req/deploy-replace-undeploy/replace-response
+requirement:: /req/deploy-replace-undeploy/replace-response-body
 requirement:: /req/deploy-replace-undeploy/static-indicator
 requirement:: /req/deploy-replace-undeploy/undeploy-delete-op
 requirement:: /req/deploy-replace-undeploy/undeploy-response
