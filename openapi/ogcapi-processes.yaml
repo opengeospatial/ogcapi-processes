@@ -450,6 +450,9 @@ components:
       # Processes - Core (2.0)
       N:
          $ref: 'parameters/processes-core/N.yaml'
+      # Prefer: return
+      prefer-header-return:
+         $ref: 'parameters/processes-core/prefer-header-return.yaml'
 
       # Processes - Core (Jobs)
       jobID:

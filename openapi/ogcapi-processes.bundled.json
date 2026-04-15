@@ -548,12 +548,7 @@
             "$ref": "#/components/parameters/jobID"
           },
           {
-            "in": "header",
-            "description": "Indicates client preferences, such as whether the client wishes a self-contained or minimal response.\nA `return=minimal` preference indicates that the client would prefer that links be returned to larger object to minimize the response payload.\nA `return=representation` indicates that the client would prefer if the server can return a self-contained response.",
-            "name": "Prefer",
-            "schema": {
-              "type": "string"
-            }
+            "$ref": "#/components/parameters/prefer-header-return"
           }
         ],
         "responses": {
@@ -585,7 +580,7 @@
             "$ref": "#/components/parameters/outputID"
           },
           {
-            "$ref": "#/paths/~1jobs~1%7BjobID%7D~1results/get/parameters/1"
+            "$ref": "#/components/parameters/prefer-header-return"
           }
         ],
         "responses": {
@@ -7177,19 +7172,25 @@
           "executionUnit": {
             "oneOf": [
               {
-                "description": "Resource containing an executable or runtime information for executing the process.",
                 "type": "object",
+                "description": "Resource containing executable or runtime information for executing the\nprocess.",
                 "required": [
-                  "type",
-                  "image"
+                  "type"
                 ],
                 "properties": {
                   "type": {
                     "description": "Type of execution unit.",
                     "type": "string",
-                    "enum": [
-                      "docker",
-                      "oci"
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "docker",
+                          "oci"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
                     ]
                   },
                   "image": {
@@ -7199,16 +7200,23 @@
                   "deployment": {
                     "description": "Deployment information for the execution unit.",
                     "type": "string",
-                    "enum": [
-                      "local",
-                      "remote",
-                      "hpc",
-                      "cloud"
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "local",
+                          "remote",
+                          "hpc",
+                          "cloud"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
                     ]
                   },
                   "config": {
                     "type": "object",
-                    "description": "Hardware requirements and configuration properties for executing the process.",
+                    "description": "Hardware requirements and configuration properties for executing the\nprocess.",
                     "properties": {
                       "cpuMin": {
                         "description": "Minimum number of CPUs required to run the process (unit is CPU core).",
@@ -7241,12 +7249,89 @@
                       }
                     },
                     "additionalProperties": true
+                  },
+                  "bindings": {
+                    "type": "object",
+                    "properties": {
+                      "inputBindings": {
+                        "additionalProperties": {
+                          "type": "object",
+                          "description": ". Defines how to specify the input for the execution unit.\n. The value of various properties defined below can be expressions.\n    . The expression language SHALL be JavaScript(???).\n. The \"$(...)\" syntax can be used to reference the current input or other\n  process inputs in an expression.\n  . The value \"self\" refers to the value of the current input.\n  . The value \"inputs.<other_input>\" refers to the value of another\n    process input.\n  . If the input is defined as a string of format \"file\" or \"directory\"\n    then the meta-values \".path\", \".basename\", \".nameroot\" and \".nameext\"\n    can be used to manipulate file or directory name without having to\n    resort to complex regular expressions.\n      . \".path\" returns the path of a file name without the file name\n      . \".basename\" returns the name of the file without the path\n      . \".nameroot\" returns the basename without any extension\n      . \".nameext\" returns the extension of the basename",
+                          "properties": {
+                            "prefix": {
+                              "description": "Command line prefix to add before the value.",
+                              "type": "string"
+                            },
+                            "position": {
+                              "description": ". The zero-based sorting key.\n. The value can be an integer or a string.\n. If the value is a string then it should be an expression that evaluates\n  to a single integer value or null.",
+                              "oneOf": [
+                                {
+                                  "type": "integer"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "valueFrom": {
+                              "description": ". If valueFrom is a constant string value, use this as the value.\n. If valueFrom is an expression, evaluate the expression to yield the\n  actual value to use to build the command line.\n. If the value of the associated input parameter is null, valueFrom is\n  not evaluated and nothing is added to the command line.",
+                              "type": "string"
+                            },
+                            "itemSeparator": {
+                              "description": "Join the array elements into a single string with the elements separated\nby itemSeparator.",
+                              "type": "string"
+                            },
+                            "shellQuote": {
+                              "description": ". A Boolean that controls whether the value is quoted on the command.\n. A value of true (or if shecllQuote is not provided) means that the\n  implementation SHALL not permit the interpretation of any shell\n  metacharacters or directives.\n. A value of false should be used to inject metacharacters for operations\n  such as pipes.",
+                              "type": "boolean"
+                            }
+                          },
+                          "additionalProperties": true
+                        }
+                      },
+                      "outputBindings": {
+                        "additionalProperties": {
+                          "type": "object",
+                          "description": "Defines how to retrieve the output result from the command.",
+                          "properties": {
+                            "glob": {
+                              "description": ". Wildcard pattern to find the output on disk or mounted volume.\n. Uses UNIX \"glob\" wildcard patterns (see: \"man 7 glob\").\n. See inputBinding.yaml for referencing input values in an output\n  binding \"glob\" expression.",
+                              "oneOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "additionalProperties": true
+                        }
+                      }
+                    }
                   }
                 },
                 "additionalProperties": true,
                 "example": {
                   "type": "docker",
                   "image": "mydocker/ndvi:latest",
+                  "bindings": {
+                    "inputBindings": {
+                      "inputImage": {
+                        "prefix": "inputsImages=",
+                        "inputSeparator": ","
+                      }
+                    },
+                    "outputBindings": {
+                      "outputImage": {
+                        "glob": "$(\"/outputs/ndvi_\" + inputs.inputImage.basename)"
+                      }
+                    }
+                  },
                   "deployment": "local",
                   "config": {
                     "cpuMin": 2,
@@ -7370,6 +7455,14 @@
         "in": "path",
         "description": "0-based index identifying a specific value of a multi-values output resulting from a job",
         "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "prefer-header-return": {
+        "in": "header",
+        "description": "Indicates client preferences, such as whether the client wishes a self-contained or minimal response.\nA `return=minimal` preference indicates that the client would prefer that links be returned to larger object to minimize the response payload.\nA `return=representation` indicates that the client would prefer if the server can return a self-contained response.",
+        "name": "Prefer",
         "schema": {
           "type": "string"
         }
