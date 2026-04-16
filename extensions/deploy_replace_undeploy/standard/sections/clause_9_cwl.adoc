@@ -5,6 +5,8 @@
 
 include::../requirements/requirements_class_cwl.adoc[]
 
+include::../requirements/cwl/REQ_body.adoc[]
+
 A server that implements the CWL Requirement Class SHALL support the use of CWL encoding when interacting with the Processes API Part 2 deploy-replace-undeploy extension endpoint.
 
 === OGC Application Package
