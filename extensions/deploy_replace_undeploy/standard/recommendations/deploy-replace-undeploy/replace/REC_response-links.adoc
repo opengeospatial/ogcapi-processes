@@ -2,7 +2,7 @@
 [recommendation]
 ====
 [%metadata]
-identifier:: /per/deploy-replace-undeploy/replace-response-links
+identifier:: /rec/deploy-replace-undeploy/replace-response-links
 
 [.component,class=part]
 --
