@@ -1,8 +1,9 @@
-[[rec_deploy-replace-undeploy_replace_response-links]]
+[[rec_versioning_process_response-links]]
 [recommendation]
 ====
 [%metadata]
-identifier:: /rec/deploy-replace-undeploy/replace-response-links
+identifier:: /rec/versioning/replace-response-links
+conditions:: The server supports DRU <<req_deploy-replace-undeploy_replace_response,/req/deploy-replace-undeploy/replace-response>>
 
 [.component,class=part]
 --

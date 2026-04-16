@@ -220,8 +220,6 @@ include::../requirements/deploy-replace-undeploy/replace/REQ_response-body.adoc[
 
 include::../recommendations/deploy-replace-undeploy/replace/PER_response-insert.adoc[]
 
-include::../recommendations/deploy-replace-undeploy/replace/REC_response-links.adoc[]
-
 The status code depends on the server. If the server has replaced the process, the response is either `200` (if the response includes additional content) or `204` (if the response has no additional content).
 
 If the server will process the replace request later, a `202` status code will be returned. In this case, the processing can succeed or fail, without further notification to the client.
