@@ -13,7 +13,8 @@ was directly submitted for deployment as per <<req_deploy-replace-undeploy_deplo
 
 [.component,class=part]
 --
-If the operation SHOULD reflect the appropriate HTTP status code as per the requirement
+If the operation results in an insertion creating a new process definition rather than an update, it SHOULD reflect
+the appropriate HTTP status code as per the requirement
 <<req_deploy-replace-undeploy_replace_response,/req/deploy-replace-undeploy/replace-response>>.
 --
 
