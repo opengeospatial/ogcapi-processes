@@ -29,18 +29,18 @@
         "summary": "Retrieve the OGC API landing page for this service.",
         "parameters": [
           {
-            "$ref": "#/components/parameters/f-metadata"
+            "$ref": "#/components/parameters/unspecified-f-metadata"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rLandingPage"
+            "$ref": "#/components/responses/common-core-rLandingPage"
           },
           "406": {
-            "$ref": "#/components/responses/rNotAcceptable"
+            "$ref": "#/components/responses/common-core-rNotAcceptable"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       }
@@ -54,18 +54,18 @@
         "summary": "Retrieve the set of OGC API conformance classes that are supported by this service.",
         "parameters": [
           {
-            "$ref": "#/components/parameters/f-metadata"
+            "$ref": "#/components/parameters/unspecified-f-metadata"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rConformance"
+            "$ref": "#/components/responses/common-core-rConformance"
           },
           "406": {
-            "$ref": "#/components/responses/rNotAcceptable"
+            "$ref": "#/components/responses/common-core-rNotAcceptable"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       }
@@ -79,18 +79,18 @@
         "summary": "Retrieve this API definition.",
         "parameters": [
           {
-            "$ref": "#/components/parameters/f-metadata"
+            "$ref": "#/components/parameters/unspecified-f-metadata"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rAPI"
+            "$ref": "#/components/responses/common-core-rAPI"
           },
           "406": {
-            "$ref": "#/components/responses/rNotAcceptable"
+            "$ref": "#/components/responses/common-core-rNotAcceptable"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       }
@@ -104,21 +104,21 @@
         "summary": "Retrieve the list of processes available from this API implementation & deployment.",
         "parameters": [
           {
-            "$ref": "#/components/parameters/f-metadata"
+            "$ref": "#/components/parameters/unspecified-f-metadata"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rEnumeration"
+            "$ref": "#/components/responses/dynamic-rEnumeration"
           },
           "404": {
-            "$ref": "#/components/responses/rNotFound"
+            "$ref": "#/components/responses/common-core-rNotFound"
           },
           "406": {
-            "$ref": "#/components/responses/rNotAcceptable"
+            "$ref": "#/components/responses/common-core-rNotAcceptable"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       }
@@ -133,7 +133,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rProcessList"
+            "$ref": "#/components/responses/processes-core-rProcessList"
           }
         }
       },
@@ -146,7 +146,7 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/w-param"
+            "$ref": "#/components/parameters/processes-dru-w-param"
           }
         ],
         "requestBody": {
@@ -177,19 +177,19 @@
         },
         "responses": {
           "201": {
-            "$ref": "#/components/responses/rProcessSummary"
+            "$ref": "#/components/responses/processes-dru-rProcessSummary"
           },
           "400": {
-            "$ref": "#/components/responses/rException"
+            "$ref": "#/components/responses/common-core-rException"
           },
           "403": {
-            "$ref": "#/components/responses/rImmutableProcess"
+            "$ref": "#/components/responses/processes-dru-rImmutableProcess"
           },
           "409": {
-            "$ref": "#/components/responses/rDuplicateProcess"
+            "$ref": "#/components/responses/processes-dru-rDuplicateProcess"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       }
@@ -204,15 +204,15 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/processID-path"
+            "$ref": "#/components/parameters/processes-core-processID-path"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rProcessDescription"
+            "$ref": "#/components/responses/processes-core-rProcessDescription"
           },
           "404": {
-            "$ref": "#/components/responses/rNotFound"
+            "$ref": "#/components/responses/common-core-rNotFound"
           }
         }
       },
@@ -225,7 +225,7 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/processID-path"
+            "$ref": "#/components/parameters/processes-core-processID-path"
           }
         ],
         "requestBody": {
@@ -256,22 +256,22 @@
         },
         "responses": {
           "204": {
-            "$ref": "#/components/responses/rEmpty"
+            "$ref": "#/components/responses/processes-core-rEmpty"
           },
           "400": {
-            "$ref": "#/components/responses/rException"
+            "$ref": "#/components/responses/common-core-rException"
           },
           "403": {
-            "$ref": "#/components/responses/rImmutableProcess"
+            "$ref": "#/components/responses/processes-dru-rImmutableProcess"
           },
           "404": {
-            "$ref": "#/components/responses/rNotFound"
+            "$ref": "#/components/responses/common-core-rNotFound"
           },
           "409": {
-            "$ref": "#/components/responses/rDuplicateProcess"
+            "$ref": "#/components/responses/processes-dru-rDuplicateProcess"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       },
@@ -284,21 +284,21 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/processID-path"
+            "$ref": "#/components/parameters/processes-core-processID-path"
           }
         ],
         "responses": {
           "204": {
-            "$ref": "#/components/responses/rEmpty"
+            "$ref": "#/components/responses/processes-core-rEmpty"
           },
           "403": {
-            "$ref": "#/components/responses/rImmutableProcess"
+            "$ref": "#/components/responses/processes-dru-rImmutableProcess"
           },
           "404": {
-            "$ref": "#/components/responses/rNotFound"
+            "$ref": "#/components/responses/common-core-rNotFound"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       }
@@ -313,7 +313,7 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/processID-path"
+            "$ref": "#/components/parameters/processes-core-processID-path"
           }
         ],
         "responses": {
@@ -343,7 +343,7 @@
             }
           },
           "404": {
-            "$ref": "#/components/responses/rNotFound"
+            "$ref": "#/components/responses/common-core-rNotFound"
           }
         }
       }
@@ -358,13 +358,13 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/processID-path"
+            "$ref": "#/components/parameters/processes-core-processID-path"
           },
           {
-            "$ref": "#/components/parameters/response"
+            "$ref": "#/components/parameters/processes-core-response"
           },
           {
-            "$ref": "#/components/parameters/prefer-header-execution"
+            "$ref": "#/components/parameters/processes-core-prefer-header-execution"
           }
         ],
         "requestBody": {
@@ -380,22 +380,22 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rExecuteSync"
+            "$ref": "#/components/responses/processes-core-rExecuteSync"
           },
           "201": {
-            "$ref": "#/components/responses/rExecuteAsync"
+            "$ref": "#/components/responses/processes-core-rExecuteAsync"
           },
           "204": {
-            "$ref": "#/components/responses/rEmpty"
+            "$ref": "#/components/responses/processes-core-rEmpty"
           },
           "303": {
-            "$ref": "#/components/responses/rExecuteCollectionRedirect"
+            "$ref": "#/components/responses/processes-core-rExecuteCollectionRedirect"
           },
           "404": {
-            "$ref": "#/components/responses/rNotFound"
+            "$ref": "#/components/responses/common-core-rNotFound"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         },
         "callbacks": {
@@ -432,33 +432,33 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/limit"
+            "$ref": "#/components/parameters/processes-core-limit"
           },
           {
-            "$ref": "#/components/parameters/processID-query"
+            "$ref": "#/components/parameters/processes-core-processID-query"
           },
           {
-            "$ref": "#/components/parameters/status"
+            "$ref": "#/components/parameters/processes-core-status"
           },
           {
-            "$ref": "#/components/parameters/minDuration"
+            "$ref": "#/components/parameters/processes-core-minDuration"
           },
           {
-            "$ref": "#/components/parameters/maxDuration"
+            "$ref": "#/components/parameters/processes-core-maxDuration"
           },
           {
-            "$ref": "#/components/parameters/type"
+            "$ref": "#/components/parameters/processes-core-type"
           },
           {
-            "$ref": "#/components/parameters/datetime"
+            "$ref": "#/components/parameters/common-geodata-datetime"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rJobList"
+            "$ref": "#/components/responses/processes-core-rJobList"
           },
           "404": {
-            "$ref": "#/components/responses/rNotFound"
+            "$ref": "#/components/responses/common-core-rNotFound"
           }
         }
       }
@@ -473,18 +473,18 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/jobID"
+            "$ref": "#/components/parameters/processes-core-jobID"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rStatus"
+            "$ref": "#/components/responses/processes-core-rStatus"
           },
           "404": {
-            "$ref": "#/components/responses/rNotFound"
+            "$ref": "#/components/responses/common-core-rNotFound"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       },
@@ -497,18 +497,18 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/jobID"
+            "$ref": "#/components/parameters/processes-core-jobID"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rStatus"
+            "$ref": "#/components/responses/processes-core-rStatus"
           },
           "404": {
-            "$ref": "#/components/responses/rNotFound"
+            "$ref": "#/components/responses/common-core-rNotFound"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       }
@@ -523,21 +523,21 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/jobID"
+            "$ref": "#/components/parameters/processes-core-jobID"
           },
           {
-            "$ref": "#/components/parameters/prefer-header-return"
+            "$ref": "#/components/parameters/processes-core-prefer-header-return"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rResults"
+            "$ref": "#/components/responses/processes-core-rResults"
           },
           "404": {
-            "$ref": "#/components/responses/rNotFound"
+            "$ref": "#/components/responses/common-core-rNotFound"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       }
@@ -552,24 +552,24 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/jobID"
+            "$ref": "#/components/parameters/processes-core-jobID"
           },
           {
-            "$ref": "#/components/parameters/outputID"
+            "$ref": "#/components/parameters/processes-core-outputID"
           },
           {
-            "$ref": "#/components/parameters/prefer-header-return"
+            "$ref": "#/components/parameters/processes-core-prefer-header-return"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rOutput"
+            "$ref": "#/components/responses/processes-core-rOutput"
           },
           "404": {
-            "$ref": "#/components/responses/rNotFound"
+            "$ref": "#/components/responses/common-core-rNotFound"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       }
@@ -584,24 +584,24 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/jobID"
+            "$ref": "#/components/parameters/processes-core-jobID"
           },
           {
-            "$ref": "#/components/parameters/outputID"
+            "$ref": "#/components/parameters/processes-core-outputID"
           },
           {
-            "$ref": "#/components/parameters/N"
+            "$ref": "#/components/parameters/processes-core-N"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/rOutput"
+            "$ref": "#/components/responses/processes-core-rOutput"
           },
           "404": {
-            "$ref": "#/components/responses/rNotFound"
+            "$ref": "#/components/responses/common-core-rNotFound"
           },
           "500": {
-            "$ref": "#/components/responses/rServerError"
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       }
@@ -3942,7 +3942,10 @@
       }
     },
     "parameters": {
-      "f-metadata": {
+      "w": {
+        "$ref": "#/components/parameters/processes-dru-w-param"
+      },
+      "unspecified-f-metadata": {
         "name": "f",
         "in": "query",
         "description": "The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.",
@@ -3957,7 +3960,7 @@
         "style": "form",
         "explode": false
       },
-      "datetime": {
+      "common-geodata-datetime": {
         "name": "datetime",
         "in": "query",
         "description": "Either a date-time or an interval, half-bounded or bounded. Date and time expressions\nadhere to RFC 3339. Half-bounded intervals are expressed using double-dots.\n\nExamples:\n\n* A date-time: \"2018-02-12T23:20:50Z\"\n* A bounded interval: \"2018-02-12T00:00:00Z/2018-03-18T12:31:12Z\"\n* Half-bounded intervals: \"2018-02-12T00:00:00Z/..\" or \"../2018-03-18T12:31:12Z\"\n\nOnly features that have a temporal property that intersects the value of\n`datetime` are selected.\n\nIf a feature has multiple temporal properties, it is the decision of the\nserver whether only a single temporal property is used to determine\nthe extent or all relevant temporal properties.",
@@ -3968,7 +3971,7 @@
         "style": "form",
         "explode": false
       },
-      "crs": {
+      "common-crs-crs": {
         "name": "crs",
         "in": "query",
         "description": "reproject the output to the given crs",
@@ -3979,7 +3982,7 @@
           "type": "string"
         }
       },
-      "subset-crs": {
+      "common-crs-subset-crs": {
         "name": "subset-crs",
         "in": "query",
         "description": "crs for the specified subset",
@@ -3990,7 +3993,7 @@
           "type": "string"
         }
       },
-      "processID-path": {
+      "processes-core-processID-path": {
         "name": "processID",
         "in": "path",
         "required": true,
@@ -3998,7 +4001,7 @@
           "$ref": "#/components/schemas/processes-list"
         }
       },
-      "outputID": {
+      "processes-core-outputID": {
         "name": "outputID",
         "in": "path",
         "description": "identifier of an output",
@@ -4007,7 +4010,7 @@
           "type": "string"
         }
       },
-      "N": {
+      "processes-core-N": {
         "name": "N",
         "in": "path",
         "description": "0-based index identifying a specific value of a multi-values output resulting from a job",
@@ -4016,7 +4019,7 @@
           "type": "string"
         }
       },
-      "prefer-header-return": {
+      "processes-core-prefer-header-return": {
         "in": "header",
         "description": "Indicates client preferences, such as whether the client wishes a self-contained or minimal response.\nA `return=minimal` preference indicates that the client would prefer that links be returned to larger object to minimize the response payload.\nA `return=representation` indicates that the client would prefer if the server can return a self-contained response.",
         "name": "Prefer",
@@ -4024,7 +4027,7 @@
           "type": "string"
         }
       },
-      "jobID": {
+      "processes-core-jobID": {
         "name": "jobID",
         "in": "path",
         "description": "local identifier of a job",
@@ -4033,7 +4036,7 @@
           "type": "string"
         }
       },
-      "processID-query": {
+      "processes-core-processID-query": {
         "name": "processID",
         "in": "query",
         "required": false,
@@ -4044,7 +4047,7 @@
           }
         }
       },
-      "output": {
+      "processes-core-output": {
         "name": "output",
         "in": "query",
         "required": false,
@@ -4078,7 +4081,7 @@
         },
         "explode": false
       },
-      "limit": {
+      "processes-core-limit": {
         "name": "limit",
         "in": "query",
         "required": false,
@@ -4089,7 +4092,7 @@
           "default": 10
         }
       },
-      "type": {
+      "processes-core-type": {
         "name": "type",
         "in": "query",
         "required": false,
@@ -4103,7 +4106,7 @@
           }
         }
       },
-      "status": {
+      "processes-core-status": {
         "name": "status",
         "in": "query",
         "required": false,
@@ -4114,7 +4117,7 @@
           }
         }
       },
-      "minDuration": {
+      "processes-core-minDuration": {
         "name": "minDuration",
         "in": "query",
         "required": false,
@@ -4122,7 +4125,7 @@
           "type": "integer"
         }
       },
-      "maxDuration": {
+      "processes-core-maxDuration": {
         "name": "maxDuration",
         "in": "query",
         "required": false,
@@ -4130,10 +4133,7 @@
           "type": "integer"
         }
       },
-      "w": {
-        "$ref": "#/components/parameters/w-param"
-      },
-      "w-param": {
+      "processes-dru-w-param": {
         "name": "w",
         "description": "Point to the workflow identifier for deploying a CWL containing multiple workflow definitions",
         "in": "query",
@@ -4142,7 +4142,7 @@
           "type": "string"
         }
       },
-      "response": {
+      "processes-core-response": {
         "name": "response",
         "in": "query",
         "description": "For executing the process using the _Collection Output_ mechanism, where the\nclient is redirected (_303_ status) to a collection resource, from which one\nor more OGC API data access mechanism is available. Data access requests may\ntrigger processing on-demand for a given area, time and resolution of interest.",
@@ -4154,7 +4154,7 @@
           ]
         }
       },
-      "prefer-header-execution": {
+      "processes-core-prefer-header-execution": {
         "in": "header",
         "description": "Indicates client preferences, including whether the client is capable of asynchronous processing.\nA `respond-async` preference indicates a preference for asynchronous processing.\nA `wait: <x>s` preference indicates that the client prefers to wait up to x seconds to receive a reponse synchronously before the server falls back to asynchronous processing.",
         "name": "Prefer",
@@ -4165,81 +4165,81 @@
     },
     "responses": {
       "NotFound": {
-        "$ref": "#/components/responses/rNotFound"
+        "$ref": "#/components/responses/common-core-rNotFound"
       },
       "NotAcceptable": {
-        "$ref": "#/components/responses/rNotAcceptable"
+        "$ref": "#/components/responses/common-core-rNotAcceptable"
       },
       "ServerError": {
-        "$ref": "#/components/responses/rServerError"
+        "$ref": "#/components/responses/common-core-rServerError"
       },
       "InvalidParameter": {
-        "$ref": "#/components/responses/rInvalidParameter"
+        "$ref": "#/components/responses/common-core-rInvalidParameter"
       },
       "NotAllowed": {
-        "$ref": "#/components/responses/rNotAllowed"
+        "$ref": "#/components/responses/common-core-rNotAllowed"
       },
       "Exception": {
-        "$ref": "#/components/responses/rException"
+        "$ref": "#/components/responses/common-core-rException"
       },
       "LandingPage": {
-        "$ref": "#/components/responses/rLandingPage"
+        "$ref": "#/components/responses/common-core-rLandingPage"
       },
       "Conformance": {
-        "$ref": "#/components/responses/rConformance"
+        "$ref": "#/components/responses/common-core-rConformance"
       },
       "API": {
-        "$ref": "#/components/responses/rAPI"
+        "$ref": "#/components/responses/common-core-rAPI"
       },
       "Enumeration": {
-        "$ref": "#/components/responses/rEnumeration"
+        "$ref": "#/components/responses/dynamic-rEnumeration"
       },
       "ProcessList": {
-        "$ref": "#/components/responses/rProcessList"
+        "$ref": "#/components/responses/processes-core-rProcessList"
       },
       "ProcessDescription": {
-        "$ref": "#/components/responses/rProcessDescription"
+        "$ref": "#/components/responses/processes-core-rProcessDescription"
       },
       "Results": {
-        "$ref": "#/components/responses/rResults"
+        "$ref": "#/components/responses/processes-core-rResults"
       },
       "Output": {
-        "$ref": "#/components/responses/rOutput"
+        "$ref": "#/components/responses/processes-core-rOutput"
       },
       "OutputValue": {
-        "$ref": "#/components/responses/rOutputValue"
+        "$ref": "#/components/responses/processes-core-rOutputValue"
       },
       "Status": {
-        "$ref": "#/components/responses/rStatus"
+        "$ref": "#/components/responses/processes-core-rStatus"
       },
       "JobList": {
-        "$ref": "#/components/responses/rJobList"
+        "$ref": "#/components/responses/processes-core-rJobList"
       },
       "ExecuteAsync": {
-        "$ref": "#/components/responses/rExecuteAsync"
+        "$ref": "#/components/responses/processes-core-rExecuteAsync"
       },
       "ExecuteSync": {
-        "$ref": "#/components/responses/rExecuteSync"
+        "$ref": "#/components/responses/processes-core-rExecuteSync"
       },
       "ExecuteSyncRawRef": {
-        "$ref": "#/components/responses/rExecuteSyncRawRef"
+        "$ref": "#/components/responses/processes-core-rExecuteSyncRawRef"
       },
       "EmptyResponse": {
-        "$ref": "#/components/responses/rEmpty"
+        "$ref": "#/components/responses/processes-core-rEmpty"
       },
       "DeployProcess": {
-        "$ref": "#/components/responses/rDeployProcess"
+        "$ref": "#/components/responses/processes-dru-rDeployProcess"
       },
       "ProcessSummary": {
-        "$ref": "#/components/responses/rProcessSummary"
+        "$ref": "#/components/responses/processes-dru-rProcessSummary"
       },
       "DuplicateProcess": {
-        "$ref": "#/components/responses/rDuplicateProcess"
+        "$ref": "#/components/responses/processes-dru-rDuplicateProcess"
       },
       "ImmutableProcess": {
-        "$ref": "#/components/responses/rImmutableProcess"
+        "$ref": "#/components/responses/processes-dru-rImmutableProcess"
       },
-      "rLandingPage": {
+      "common-core-rLandingPage": {
         "description": "The landing page provides links to the API definition (link relation `service-desc`, in this case path `/api`),\nto the Conformance declaration (path `/conformance`, link relation `http://www.opengis.net/def/rel/ogc/1.0/conformance`), and to other resources.",
         "content": {
           "application/json": {
@@ -4254,7 +4254,7 @@
           }
         }
       },
-      "rNotAcceptable": {
+      "common-core-rNotAcceptable": {
         "description": "Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.",
         "content": {
           "application/json": {
@@ -4269,7 +4269,7 @@
           }
         }
       },
-      "rServerError": {
+      "common-core-rServerError": {
         "description": "A server error occurred.",
         "content": {
           "application/json": {
@@ -4284,7 +4284,7 @@
           }
         }
       },
-      "rConformance": {
+      "common-core-rConformance": {
         "description": "The URIs of all conformance classes supported by the server\n\nTo support \"generic\" clients that want to access multiple\nOGC API - Processes implementations - and not \"just\" a specific\nAPI / server, the server declares the conformance\nclasses it implements and conforms to.",
         "content": {
           "application/json": {
@@ -4330,7 +4330,7 @@
           }
         }
       },
-      "rAPI": {
+      "common-core-rAPI": {
         "description": "The OpenAPI definition of the API.",
         "content": {
           "application/vnd.oai.openapi+json;version=3.0": {
@@ -4345,7 +4345,7 @@
           }
         }
       },
-      "rEnumeration": {
+      "dynamic-rEnumeration": {
         "description": "An enumerated list of valid string values for API parameters.",
         "content": {
           "application/json": {
@@ -4360,7 +4360,7 @@
           }
         }
       },
-      "rNotFound": {
+      "common-core-rNotFound": {
         "description": "The requested resource does not exist on the server. For example, a path parameter had an incorrect value.",
         "content": {
           "application/json": {
@@ -4375,7 +4375,7 @@
           }
         }
       },
-      "rProcessList": {
+      "processes-core-rProcessList": {
         "description": "Information about the available processes",
         "content": {
           "application/json": {
@@ -4385,7 +4385,7 @@
           }
         }
       },
-      "rProcessSummary": {
+      "processes-dru-rProcessSummary": {
         "description": "A process summary.",
         "content": {
           "application/json": {
@@ -4395,7 +4395,7 @@
           }
         }
       },
-      "rException": {
+      "common-core-rException": {
         "description": "An error occured.",
         "content": {
           "application/json": {
@@ -4410,7 +4410,7 @@
           }
         }
       },
-      "rImmutableProcess": {
+      "processes-dru-rImmutableProcess": {
         "description": "the processes is not mutable",
         "content": {
           "application/json": {
@@ -4425,7 +4425,7 @@
           }
         }
       },
-      "rDuplicateProcess": {
+      "processes-dru-rDuplicateProcess": {
         "description": "the processes being added is already deployed (i.e. duplicate)",
         "content": {
           "application/json": {
@@ -4440,7 +4440,7 @@
           }
         }
       },
-      "rProcessDescription": {
+      "processes-core-rProcessDescription": {
         "description": "A process description.",
         "content": {
           "application/json": {
@@ -4450,10 +4450,10 @@
           }
         }
       },
-      "rEmpty": {
+      "processes-core-rEmpty": {
         "description": "successful operation (no response body)"
       },
-      "rExecuteSync": {
+      "processes-core-rExecuteSync": {
         "description": "Result of synchronous execution",
         "content": {
           "application/json": {
@@ -4525,7 +4525,7 @@
           }
         }
       },
-      "rExecuteAsync": {
+      "processes-core-rExecuteAsync": {
         "description": "Started asynchronous execution. Created job.",
         "headers": {
           "Location": {
@@ -4549,7 +4549,7 @@
           }
         }
       },
-      "rExecuteCollectionRedirect": {
+      "processes-core-rExecuteCollectionRedirect": {
         "description": "For _Collection Output_ execution, redirection to an OGC API landing page or collection.",
         "headers": {
           "Location": {
@@ -4560,7 +4560,7 @@
           }
         }
       },
-      "rJobList": {
+      "processes-core-rJobList": {
         "description": "A list of jobs for this process.",
         "content": {
           "application/json": {
@@ -4570,7 +4570,7 @@
           }
         }
       },
-      "rStatus": {
+      "processes-core-rStatus": {
         "description": "The status of a job.",
         "content": {
           "application/json": {
@@ -4580,7 +4580,7 @@
           }
         }
       },
-      "rResults": {
+      "processes-core-rResults": {
         "description": "The processing results of a job.",
         "content": {
           "application/json": {
@@ -4590,7 +4590,7 @@
           }
         }
       },
-      "rOutput": {
+      "processes-core-rOutput": {
         "description": "An output resulting from a job",
         "content": {
           "application/json": {
@@ -4600,7 +4600,7 @@
           }
         }
       },
-      "rInvalidParameter": {
+      "common-core-rInvalidParameter": {
         "description": "A query parameter has an invalid value.",
         "content": {
           "application/json": {
@@ -4615,7 +4615,7 @@
           }
         }
       },
-      "rNotAllowed": {
+      "common-core-rNotAllowed": {
         "description": "The method is not allowed at the path.",
         "content": {
           "application/json": {
@@ -4630,7 +4630,7 @@
           }
         }
       },
-      "rOutputValue": {
+      "processes-core-rOutputValue": {
         "description": "An individual value of an output allowing multiple values resulting from a job",
         "content": {
           "application/json": {
@@ -4640,7 +4640,7 @@
           }
         }
       },
-      "rExecuteSyncRawRef": {
+      "processes-core-rExecuteSyncRawRef": {
         "description": "Synchronous execution response.",
         "headers": {
           "Link": {
@@ -4651,7 +4651,7 @@
           }
         }
       },
-      "rDeployProcess": {
+      "processes-dru-rDeployProcess": {
         "description": "the process is deployed",
         "headers": {
           "Location": {
