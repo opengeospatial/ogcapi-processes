@@ -210,7 +210,7 @@ components:
       CWLWorkflowStepWhen:
          $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepWhen'
       CWLWorkflowStepOut:
-         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepWhen'
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepOut'
       CWLWorkflowStepInMap:
          $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInMap'
       CWLWorkflowStepInList:
