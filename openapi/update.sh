@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env sh
+
+cd "$(dirname "$0")" || exit 1
 
 # Refresh pProcessListDeploy.yaml content
 rm paths/processes-dru/pProcessListDeploy.yaml ; \
@@ -18,4 +20,4 @@ do \
 done
 
 # Bundle with swagger-cli
-swagger-cli bundle ogcapi-processes.yaml -o ogcapi-processes.bundled.json
+redocly bundle ogcapi-processes.yaml -o ogcapi-processes.bundled.json
