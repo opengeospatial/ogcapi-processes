@@ -177,7 +177,7 @@ See: <<sc-pass-through,Pass through parameters>>
 
 ==== Overview
 
-The _Collection Output_ conformance class specifies how clients can trigger the execution of a process as a result of requesting output data using <<def-data-access-mechanism,OGC API data access mechanisms>>.
+The _Collection Output_ conformance class specifies how the execution of a process can be triggered as the result of requesting output data using an <<def-data-access-mechanism,OGC API data access mechanisms>>.
 
 This provides an alternative to the synchronous and asynchronous execution mechanisms defined in this Standard for which spatial, temporal and other filtering prameters would need to be hardcoded in the <<execute-request-body,execute request>>.  When lengthy batch processing is not desirable, completely new <<execute-request-body,execute requests>> each with different spatial, temporal and other filtering parameters and returning a partial output would need to be continuously be re-submitted.
 

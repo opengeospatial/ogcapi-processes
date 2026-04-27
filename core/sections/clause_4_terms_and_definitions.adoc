@@ -19,7 +19,7 @@ A collection of data, published or curated by a single agent, and available for 
 
 ==== distribution
 
-A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above). (https://www.w3.org/TR/vocab-dcat-2/[Data Catalog Vocabulary (DCAT) - Version 2])
+A specific representation of a dataset. A dataset might be available in multiple distributions that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above). (https://www.w3.org/TR/vocab-dcat-2/[Data Catalog Vocabulary (DCAT) - Version 2])
 
 EXAMPLE: a downloadable file, an RSS feed or an API.
 
@@ -29,7 +29,7 @@ The (processing) job is a server-side object created by a processing service for
 
 ==== JSON
 
-JavaScript Object Notation is a lightweight data-interchange format. JSON is easy for humans to read and write and it is easy for machines to parse and generate.
+JavaScript Object Notation is a lightweight text-based, data-interchange format.
 
 ==== link
 
@@ -54,11 +54,11 @@ EXAMPLE: https://docs.ogc.org/is/20-057/20-057.html[_OGC API - Tiles - Part 1: C
 [[def-deployment]]
 ==== OGC API deployment
 
-An implementation of an https://www.ogc.org/standards/[OGC API Standard] that is accessible to users and other system typically through the internet.
+An implementation of an https://www.ogc.org/standards/[OGC API Standard] that is accessible to users and other system typically through the Web.
 
 ==== process
 
-A process p is a function that for each input returns a corresponding output
+A process _p_ is a function that for each input returns a corresponding output
 
 [stem%unnumbered]
 ++++
@@ -71,8 +71,7 @@ The term "process" is one of the most used terms both in the information and geo
 
 ==== process description
 
-A process description is an information model that specifies the interface of a process. A process description is used for a machine-readable description of the process itself but also provides some basic information about the process inputs and outputs.
-
+A specific documented account of steps, roles, and rules involved in a computing process, often described using standard like the https://swagger.io/specification/[OpenAPI Standard].
 
 ==== process execution
 
@@ -114,7 +113,7 @@ The Representational State Transfer (REST) style is an abstraction of the archit
 [[value-source-server]]
 ==== Value source server
 
-A server that implements one or more <<def-data-access-mechanism,data access mechanisms>> for accessing data from an <<def-collection,OGC API collection>>.  The server acts as a source of values that are passed to a process being executed by an implementation of this Standard.
+A server that implements one or more <<def-data-access-mechanism,data access mechanisms>> for accessing data from an <<def-collection,OGC collection>>.  The server acts as a source of values that are passed to a process being executed by an implementation of this Standard.
 
 === Abbreviated Terms
 

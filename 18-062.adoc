@@ -13,10 +13,10 @@
 :toc:
 :toc-placement!:
 :toclevels: 7
-:copyright-year: 2023
-:received-date: 2022-01-01
-:issued-date: 2022-01-01
-:published-date: 2024-01-01
+:copyright-year: 2026
+:received-date: 2026-01-01
+:issued-date: 2026-02-17
+:published-date: 2026-01-01
 :fullname: Benjamin Pross
 :fullname_2: Panagiotis (Peter) A. Vretanos
 :keywords: ogcdoc, OGC document, OGC API, Geospatial API, processes, Web Processing Service, WPS, JSON, HTML, geoprocessing, API, OpenAPI, HTML

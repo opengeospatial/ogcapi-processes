@@ -1,11 +1,11 @@
 .Preface
 
-This Standard specified how to "wrap" computational tasks into an executable process that can be invoked by a client application. Examples of computational processes that can be supported by implementations of API Processes include raster algebra, geometry buffering, constructive area geometry, routing, imagery analysis, AI models, and others.  Specifically, the OGC API - Processes Standard defines how a client application can request the execution of a process, how the inputs to that process can be provided, and how the outputs from that process are retrieved. 
+This Standard specifies how to "wrap" computational tasks into an executable process that can be invoked either locally or remotely via the Web using a standarized API.  Examples of computational processes that can be supported by implementations of API Processes include raster algebra, geometry buffering, constructive area geometry, routing, imagery analysis, AI models, and others.  Specifically, the OGC API - Processes Standard defines the requirements for a server that supports the execution of a process via the Web, how the inputs to that process can be specified and how the output(s) from that process can be retrieved.
 
 [abstract]
 == Abstract
 
-The OGC API - Processes Standard is a resource-oriented API that allows for the execution of computing processes and the retrieval of metadata describing those processes. It is the modern, RESTful successor to the older Web Processing Service (WPS) standard.  It utilizes OpenAPI, JSON and modern web architectural patterns to make geospatial processing more accessible to web developers.
+The OGC API - Processes Standard is a resource-oriented API that allows for the execution of computing processes and the retrieval of metadata describing those processes. It is the modern, RESTful successor to the older https://docs.ogc.org/is/14-065/14-065r2.html[Web Processing Service (WPS) 2.0 Interface Standard].  It utilizes OpenAPI, JSON and modern web architectural patterns to make geospatial processing more accessible to web developers.
 
 The key benefits of the Standard are:
 
@@ -15,7 +15,7 @@ The key benefits of the Standard are:
 
 * **Modular:** The "building-blocks" approach allows servers to implement only what they need (e.g. a server might support process execution but not dynamic process deployment).
 
-* **Interoperable:** Standardizing how parameters are passed to algorithms ensures that a client can trigger a process on any compliant server regardless of the underlying programming language (e.g. C, Python, Java, etc.)
+* **Interoperable:** Standardizing how parameters are passed to algorithms ensures that process execution can be triggered on any compliant server regardless of the underlying programming language (e.g. C, Python, Java, etc.)
 
 Like other OGC APIs (such as Features or Records), OGC API Processes uses a common core for landing pages, conformance declarations, and API definitions. This consistency allows developers to use similar patterns across different types of geospatial web services.
 

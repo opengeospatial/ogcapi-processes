@@ -4,7 +4,7 @@
 
 === Web Processing Service
 
-The OGC Web Processing Service (WPS) is a legacy interface standard that defines how to offer and execute geospatial processing algorithms over the web.  The WPS standard is designed to wrap any type of GIS functionality—from a simple "buffer" tool to a complex climate model—into a web service that can be discovered and invoked by any compliant client.  The WPS standard is built around three mandatory "requests" (methods) that a client can send to a server.  The methods are:
+The https://docs.ogc.org/is/14-065/14-065r2.html[OGC Web Processing Service (WPS)] is a legacy interface standard that defines how to offer and execute geospatial processing algorithms over the Web.  The WPS standard is designed to wrap any type of GIS functionality—from a simple "buffer" tool to a complex climate model—into a Web service that can be discovered and invoked by any compliant client.  The WPS standard is built around three mandatory "requests" (methods) that a client can send to a server.  The methods are:
 
 * **GetCapabilites:** Returns metadata about the service including a list of all
  avilable processes hosted by the server.
@@ -19,7 +19,7 @@ The requirements in the OGC API – Processes Standard are designed to provide t
 
 === Resources overview
 
-The following table provides a summary of the resources and method specified by the OGC API - Processes Standard.
+The following table provides a summary of the resources and HTTP methods specified by this Standard:
 
 [[table_core_resources]]
 .Requirements class `Core`

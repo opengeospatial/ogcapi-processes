@@ -9,7 +9,7 @@ The main requirements class is:
 
 * <<rc_core,Core>>.
 
-The _Core_ specifies requirements that all Web APIs have to implement.
+The _Core_ specifies requirements that any implementation of the Processes API in a Web API deploymnet must implement.
 
 The _Core_ does not mandate a specific encoding or format for the representation of resources defined in this Standard.  Rather, two requirements classes depend on the _Core_ and specify representations for the resources specified in the _Core_ in commonly used encodings for data on the Web:
 
@@ -17,13 +17,13 @@ The _Core_ does not mandate a specific encoding or format for the representation
 
 * <<rc_html,HTML>>.
 
-Furthermore, the _Core_ does not mandate any encoding or format for the formal definition of the Processes API. The OpenAPI specification is one option for defining the Processes API. As such a requirements classes have been specified for supporting OpenAPI and specifically OpenAPI 3.0 and 3.1, which depends on the requirements class _Core_:
+Furthermore, the _Core_ does not mandate any encoding or format for the formal definition of the Processes API. The OpenAPI specification is one option for defining the Processes API. As such, requirements classes have been specified for supporting OpenAPI and specifically OpenAPI 3.0 and 3.1, which depends on the requirements class _Core_:
 
 * <<rc_oas,OpenAPI Support>>
 * <<rc_oas30,OpenAPI Specification 3.0>>
 * <<rc_oas31,OpenAPI Specification 3.1>>
 
-An implementation of the _Core_ requirements class may also decide to use other API definition representations in addition to, or instead of, an OpenAPI 3.0 or 3.1 definition. Examples for alternative API definitions: OpenAPI 2.0 (Swagger), future versions of the OpenAPI specification, an OWS Common 2.0 capabilities document, or WSDL.
+Implementors of the _Core_ requirements class may also decide to use other API definition representations in addition to, or instead of, an OpenAPI 3.0 or 3.1 definition. Examples for alternative API definitions: OpenAPI 2.0 (Swagger), future versions of the OpenAPI specification, an OWS Common 2.0 capabilities document, or WSDL.
 
 [NOTE]
 ====
@@ -32,9 +32,9 @@ While the use of OpenAPI for the formal definition of the API is not mandatory, 
 See also the note regarding <<req_core_landingpage-success,/req/core/landingpage-success>>
 ====
 
-An implementation of the _Core_ is intended to be a minimal useful API for the execution of processes in the geospatial domain. The Core is designed to map the operations of a Web Processing Service 2.0 instance.
+An implementation of the _Core_ is intended to be a minimally useful API for the execution of processes in the geospatial domain. The _Core_ is designed to map the operations of a https://docs.ogc.org/is/14-065/14-065r2.html[Web Processing Service 2.0] instance.
 
-The _Core_ does not mandate the use of any specific process description language to specify the interface of a process. Instead this Standard defines and recommends the use of the following conformance class:
+The _Core_ does not mandate the use of any specific process description language to specify the interface of a process. Instead, this Standard defines and recommends the use of the following conformance class:
 
 * <<rc_ogc-process-description,OGC Process Description>>
 
@@ -75,9 +75,9 @@ The standard request and response encoding used in this Standard is JSON.  The s
 
 conformance class.  Using the `profile` query parameter JSON-encoded responses can be requested that conform to a specific JSON schemas.
 
-Three additional conformance classes are specified that extend the basic functionality of an API:
+Three additional conformance classes are specified that extend the basic functionality defined in the _Core_ requirements class:
 
-* <<rc_job-list,Job list>> for request a list of jobs with optional filtering capabilities, 
+* <<rc_job-list,Job list>> for requesting a list of jobs with optional filtering capabilities, 
 
 * <<rc_dismiss,Dismiss>> for cancelling active jobs or deleting completed jobs, and
 

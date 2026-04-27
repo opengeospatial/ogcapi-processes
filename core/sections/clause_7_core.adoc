@@ -113,7 +113,7 @@ The following section defines the requirements to retrieve an API definition.  T
 
 ==== Operation
 
-Every implementation of OGC API - Processes must provide metadata that describe the functional capabilities of the server instance that the API definition provides access to.  In this document, this is known as the "API definition".  This definition is used by developers to understand the functionality provided by the API endpoing, so software clients can connect to the server, or by development tools to support the implementation of servers and clients.
+Every implementation of OGC API - Processes must provide metadata that describe the functional capabilities of the server instance that the API definition provides access to.  In this document, this is known as the "API definition".  This definition is used by developers to understand the functionality provided by the API endpoint, so software clients can connect to the server, or by development tools to support the implementation of servers and clients.
 
 include::../requirements/core/REQ_api-definition-op.adoc[]
 
@@ -198,7 +198,7 @@ This include the correct use of status codes, headers. etc.
 
 include::../recommendations/core/REC_http-head.adoc[]
 
-Supporting the method HEAD in addition to GET can be useful for clients and is simple to implement.  In particular, the HEAD method is useful in determining the size of a potential response.
+Supporting the HEAD method, in addition to GET, is simple and can provide useful information such as the size of a protential response without needing to transmite the entire content of the response beforehand.
 
 include::../recommendations/core/REC_content-length.adoc[]
 
