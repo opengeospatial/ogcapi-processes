@@ -22,10 +22,10 @@ jobs:
             cd openapi
             ./update.sh
       - name: Run linting
-        run: redocly lint openapi/ogcapi-processes.bundle.json --format=github-actions
+        run: redocly lint openapi/ogcapi-processes.bundled.json --format=github-actions
 
       - name: Commit updated OpenAPI bundle
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: Auto-update OpenAPI bundle
-          file_pattern: 'openapi/ogcapi-processes.bundle.json'
+          file_pattern: 'openapi/ogcapi-processes.bundled.json'
