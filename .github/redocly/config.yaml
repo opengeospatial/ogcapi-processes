@@ -1,3 +1,9 @@
+plugins:
+  - './schema-name-prefix.plugin.js'
+
+decorators:
+  schema-prefix/preserve-schema-name-prefixes: on
+
 rules:
   security-defined: off
 
