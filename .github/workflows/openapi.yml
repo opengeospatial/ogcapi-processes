@@ -3,7 +3,7 @@ name: API linting
 on: [pull_request]
 
 jobs:
-  build:
+  lint-check-openapi:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -17,13 +17,6 @@ jobs:
         run: npm install -g @redocly/cli@latest
       - name: Bundle OpenAPI
         run: openapi/update.sh
-      - name: Debug
-        run: |
-          ls -la openapi
-          ls -la .github
-          ls -la .github/redocly
-          ls -la .github/workflows
-          redocly --version
       - name: Run linting
         run: |
           redocly lint \
