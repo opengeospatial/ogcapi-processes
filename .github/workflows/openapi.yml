@@ -24,7 +24,7 @@ jobs:
         run: |
           redocly lint \
             --format github-actions \
-            --config '.github/workflows/redocly.lint-config.yaml' \
+            --config .github/redocly/config.yaml \
             openapi/ogcapi-processes.bundled.json
 
       - name: Commit updated OpenAPI bundle
