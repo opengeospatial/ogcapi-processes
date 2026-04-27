@@ -1841,7 +1841,7 @@
             "$ref": "#/components/schemas/CWLExpression"
           },
           "out": {
-            "$ref": "#/components/schemas/CWLWorkflowStepOut-2"
+            "$ref": "#/components/schemas/CWLWorkflowStepOut"
           }
         },
         "required": [
@@ -1939,7 +1939,18 @@
         "$ref": "#/components/schemas/CWLExpression"
       },
       "CWLWorkflowStepOut": {
-        "$ref": "#/components/schemas/CWLExpression"
+        "description": "Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.",
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/CWLIdentifier"
+            },
+            {
+              "$ref": "#/components/schemas/CWLWorkflowStepOutId"
+            }
+          ]
+        }
       },
       "CWLWorkflowStepInMap": {
         "type": "object",
@@ -6611,20 +6622,6 @@
           "id"
         ],
         "additionalProperties": false
-      },
-      "CWLWorkflowStepOut-2": {
-        "description": "Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.",
-        "type": "array",
-        "items": {
-          "oneOf": [
-            {
-              "$ref": "#/components/schemas/CWLIdentifier"
-            },
-            {
-              "$ref": "#/components/schemas/CWLWorkflowStepOutId"
-            }
-          ]
-        }
       },
       "IdentifierArray": {
         "type": "array",
