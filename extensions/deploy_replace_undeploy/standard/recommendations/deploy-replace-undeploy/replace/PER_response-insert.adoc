@@ -1,0 +1,21 @@
+[[per_deploy-replace-undeploy_replace_response-insert]]
+[permission]
+====
+[%metadata]
+identifier:: /per/deploy-replace-undeploy/replace-response-insert
+
+[.component,class=part]
+--
+A server MAY support immediate creation of the initial process definition when none exists using the HTTP PUT operation
+in an "upsert" fashion (i.e.: update or insert as applicable). In this case, the process creation SHOULD behave as if it
+was directly submitted for deployment as per <<req_deploy-replace-undeploy_deploy_post-op,/req/deploy-replace-undeploy/deploy-post-op>>.
+--
+
+[.component,class=part]
+--
+If the operation results in an insertion creating a new process definition rather than an update, it SHOULD reflect
+the appropriate HTTP status code as per the requirement
+<<req_deploy-replace-undeploy_replace_response,/req/deploy-replace-undeploy/replace-response>>.
+--
+
+====

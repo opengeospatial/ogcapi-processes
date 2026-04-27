@@ -20,4 +20,6 @@
 |2024-04-26 |None |Gérald Fenoy |all |Add section for retrieving formal description of a mutable process
 |2026-04-08 |None |Francis Charette-Migneault |all |Update format rendering of code snippets
 |2026-04-13 |None |Francis Charette-Migneault |all |Fix req/rec/per definitions format and references.
+|2026-04-14 |None |Francis Charette-Migneault |Replace |Add more explicit details about replacement conditions and body expectations.
+|2026-04-16 |None |Francis Charette-Migneault |Replace |Fix missing req/rec/per document references in sections.
 |===

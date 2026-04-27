@@ -23,6 +23,8 @@ The information contained in an `OGC Application Package` can include:
 
 include::../requirements/ogcapppkg/REQ_schema.adoc[]
 
+include::../requirements/ogcapppkg/REQ_body.adoc[]
+
 [[schema_ogcappkg]]
 .link:http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[Schema for the OGC Application Package]
 [source,yaml]
@@ -46,6 +48,10 @@ If the schema defined for the executionUnit property of an OGC Application Packa
 include::../recommendations/ogcapppkg/REC_execution-unit-docker.adoc[]
 
 include::../recommendations/ogcapppkg/REC_ogcapppkg_execution-unit-cwl.adoc[]
+
+==== deploymentProfile property
+
+include::../requirements/ogcapppkg/REQ_profile-docker.adoc[]
 
 === Deploy
 
