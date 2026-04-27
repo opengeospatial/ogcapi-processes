@@ -20,10 +20,11 @@ jobs:
       - name: Bundle OpenAPI
         run: openapi/update.sh
       - name: Run linting
+        working-directory: ${{ github.workspace }}
         run: |
           redocly lint \
-            --format=github-actions \
-            --config .github/workflows/redocly.lint-config.yaml \
+            --format github-actions \
+            --config '.github/workflows/redocly.lint-config.yaml' \
             openapi/ogcapi-processes.bundled.json
 
       - name: Commit updated OpenAPI bundle
