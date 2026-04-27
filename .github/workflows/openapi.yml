@@ -18,9 +18,7 @@ jobs:
       - name: Install Redocly CLI
         run: npm install -g @redocly/cli@latest
       - name: Bundle OpenAPI
-        run: |
-            cd openapi
-            ./update.sh
+        run: openapi/update.sh
       - name: Run linting
         run: |
           redocly lint \
