@@ -23,4 +23,4 @@ done
 # Default below assumes global install (e.g.: npm install -g @redocly/cli)
 # If using a local install, set BUNDLE_TOOL='npx @redocly/cli' or 'npx @apidevtools/swagger-cli'
 BUNDLE_TOOL=${BUNDLE_TOOL:-redocly}
-${BUNDLE_TOOL} bundle ogcapi-processes.yaml -o ogcapi-processes.bundled.json
+${BUNDLE_TOOL} bundle ogcapi-processes.yaml -o ogcapi-processes.bundled.json "$@"
