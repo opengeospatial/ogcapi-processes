@@ -24,7 +24,7 @@ jobs:
           redocly lint \
             openapi/ogcapi-processes.bundled.json \
             --format=github-actions \
-            --config=.github/workflows/redocly.lint-config.yaml
+            --config=${{ github.workspace }}/.github/workflows/redocly.lint-config.yaml
 
       - name: Commit updated OpenAPI bundle
         uses: stefanzweifel/git-auto-commit-action@v7
