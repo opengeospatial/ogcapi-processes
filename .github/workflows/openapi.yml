@@ -1,6 +1,8 @@
 name: API linting
 
-on: [pull_request]
+on:
+  - pull_request
+  - push
 
 jobs:
   lint-check-openapi:
@@ -10,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: '0'
 
       - name: Set up node
         uses: actions/setup-node@v6
@@ -29,3 +33,4 @@ jobs:
         with:
           commit_message: Auto-update OpenAPI bundle
           file_pattern: 'openapi/ogcapi-processes.bundled.json'
+          branch: ${{ github.head_ref }}
