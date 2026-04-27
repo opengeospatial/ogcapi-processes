@@ -29,3 +29,6 @@ extensions/workflows/21-009.doc
 extensions/workflows/21-009.err
 extensions/workflows/21-009.xml
 extensions/workflows/21-009.presentation.xml
+node_modules
+package.json
+package-lock.json
