@@ -12,7 +12,7 @@ The schema of each <<input-value-schema,process **input** value>> SHALL be speci
 
 [.component,class=part]
 --
-The `schema` parameter SHALL define the schema of a **single instance** of an inpuit value.
+The `schema` parameter SHALL define the schema of a **single instance** of an input value.
 --
 
 [.component,class=part]
