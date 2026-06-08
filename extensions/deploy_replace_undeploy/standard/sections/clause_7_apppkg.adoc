@@ -24,7 +24,7 @@ The information contained in an `OGC Application Package` can include:
 include::../requirements/ogcapppkg/REQ_schema.adoc[]
 
 [[schema_ogcappkg]]
-.link:http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[Schema for the OGC Application Package]
+.link:https://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[Schema for the OGC Application Package]
 [source,yaml]
 ----
 include::../../../../openapi/schemas/processes-dru/ogcapppkg.yaml[]
@@ -41,7 +41,7 @@ include::../requirements/ogcapppkg/REQ_process-description.adoc[]
 [[executionUnit]]
 ==== executionUnit property
 
-If the schema defined for the executionUnit property of an OGC Application Package remains open, it can be restricted in other Requirements.
+If the schema defined for the `executionUnit` property of an OGC Application Package remains open, it can be restricted in other Requirements.
 
 include::../recommendations/ogcapppkg/REC_execution-unit-docker.adoc[]
 

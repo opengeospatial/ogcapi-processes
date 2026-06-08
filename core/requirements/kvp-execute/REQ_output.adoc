@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/output
-label:: /req/kvp-execute/output
 
 [.component,class=conditions]
 --
@@ -41,4 +40,5 @@ explode: true
 
 where the token `{outputID}` represents the identifier of the output.
 --
+
 ====

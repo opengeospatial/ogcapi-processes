@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /per/collection-output/response-response-one
-label:: /per/collection-output/response-response-one
 
 [.component,class=conditions]
 --

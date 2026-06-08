@@ -5,7 +5,7 @@
 [%metadata]
 identifier:: /conf/kvp-execute/bbox-crs-input-value
 target:: /req/kvp-execute/bbox-crs-input-value
-test-purpose:: Verify that bbox-valued process inputs for KVP-encoded execute request with CRSs other than http://www.opengis.net/def/crs/OGC/1.3/CRS84 or http://www.opengis.net/def/crs/OGC/0/CRS84h are correctly handled.
+test-purpose:: Verify that bbox-valued process inputs for KVP-encoded execute request with CRSs other than https://www.opengis.net/def/crs/OGC/1.3/CRS84 or https://www.opengis.net/def/crs/OGC/0/CRS84h are correctly handled.
 test-method::
 +
 --
@@ -15,7 +15,7 @@ test-method::
 
 3. Inspect the input definitions of each process and identify the processes that have at least one bounding-box-typed input.
 
-4. Identify that subset of the processes identified in Step #2 that support CRSs other than http://www.opengis.net/def/crs/OGC/1.3/CRS84 or http://www.opengis.net/def/crs/OGC/0/CRS84h.
+4. Identify that subset of the processes identified in Step #2 that support CRSs other than https://www.opengis.net/def/crs/OGC/1.3/CRS84 or https://www.opengis.net/def/crs/OGC/0/CRS84h.
 
 5. Compose a KVP-encoded execute request encoding the bbox-typed input(s) according to <<req_kvp-execute_bbox-input-value,/req/kvp-execute/bbox-input-value>> and encoding the CRS according to <<req_kvp-execute_bbox-crs-input-value,/req/kvp-execute/bbox-crs-input-value>>.
 

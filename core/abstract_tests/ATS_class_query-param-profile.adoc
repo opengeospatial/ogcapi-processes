@@ -3,8 +3,8 @@
 .Query Profile Parameter
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/query-param-profile
-subject:: <<profile-parameter,http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/query-param-profile>>
+identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/query-param-profile
+subject:: <<profile-parameter,https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/query-param-profile>>
 classification:: Target Type:Web API
 conformance-test:: /conf/query-param-profile/definition
 conformance-test:: /conf/query-param-profile/response

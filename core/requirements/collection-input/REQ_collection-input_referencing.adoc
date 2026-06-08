@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/collection-input/referencing
-label:: /req/collection-input/referencing
 
 .component,class=description]
 --
@@ -22,7 +21,7 @@ The value of the `collection` parameter SHALL be URI or Relative-URI identifying
 
 [.component,class=part]
 --
-The URI or Relative-URI path SHALL not extend past the collection element in order to allow the server to decide, based on the expected input value type from the <<sc_process_description,process description>> and other factors, which supported <<def-data-access-mechanism,data access mechanisms>> should be employed to retrived input values from the <<def-local-collection,collection>>.
+The URI or Relative-URI path SHALL not extend past the collection element in order to allow the server to decide, based on the expected input value type from the <<sc_process_description,process description>> and other factors, which supported <<def-data-access-mechanism,data access mechanisms>> should be employed to retrieve input values from the <<def-local-collection,collection>>.
 --
 
 [.component,class=part]
@@ -31,8 +30,6 @@ The server SHALL interpret Relative-URIs as relative to the parent process withi
 -- 
 
 ====
-
-NOTE: PAV: The last part of this requirement is not clear to me.
 
 [[collection-value-schema]]
 .Schema for the collection parameter

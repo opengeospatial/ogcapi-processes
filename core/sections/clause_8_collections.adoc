@@ -5,15 +5,15 @@
 
 ==== Overview
 
-The _Collection Input_ conformance class allows an <<def-collection,OGC API collection>>, accessible using one or more <<def-data-access-mechanism,OGC API data access mechanisms>>, to be specified as an input to a process.  Specifically, the processing server acts as a client and fetches values from the <<def-collection,OGC API collection>> using one of the available <<def-data-access-mechanism,OGC API data access mechanisms>> and then feeds the fetched values as input values to the process being executed.  The server from which input values are retrieved is referred to as the <<value-source-server,_value source server_>>.
+The _Collection Input_ Requirements Class supports specifying as an input to a process an <<def-collection,OGC API acessible collection>> via using one or more <<def-data-access-mechanism,OGC API data access mechanisms>>.  Specifically, the processing server acts as a client and fetches values from the <<def-collection,OGC API accessible collection>> using one of the available <<def-data-access-mechanism,OGC API data access mechanisms>> and then feeds the fetched values as input values to the process being executed.  The server from which input values are retrieved is referred to as the <<value-source-server,_value source server_>>.
 
 Unless an implementation also conforms to the <<sc_remote_collections,_Remote Collections_>> conformance class, only <<def-collection,collections>> that are locally accessible in the current <<def-deployment,OGC API deployment>> are supported.
 
-Unless an implementation also conforms to the <<sc_local_filtering,_Local Filtering_>> conformance class, filtering of values retrived from an <<def-collection,OGC API collection>> is performed by the <<value-source-server,value source server>>.
+Unless an implementation also conforms to the <<sc_local_filtering,_Local Filtering_>> conformance class, filtering of values retrieved from an <<def-collection,OGC API acessible collection>> is performed by the <<value-source-server,value source server>>.
 
 include::../requirements/requirements_class_collection-input.adoc[]
 
-The following requirements describe how an <<execute-request-body,execute requests>> references an <<def-collection,OGC API collection>> and how an implementation requests data from that collection to use as input to a process.
+The following requirements describe how an <<execute-request-body,execute request>> references an <<def-collection,OGC API accessible collection>> and how an implementation requests data from that collection to use as input to a process.
 
 ==== Referencing a collection
 
@@ -23,7 +23,7 @@ include::../requirements/collection-input/REQ_collection-input_referencing.adoc[
 
 ===== Overview
 
-The following requirements describe how to access data from an <<def-collection,OGC API collection>> and the ability of an implementation to modify the accessed data by first applying filters, selecting a subset of fields or deriving new fields before providing the data as input to a process.
+The following requirements describe how to access data from an <<def-collection,OGC API accessible collection>> and the ability of an implementation to modify the accessed data by first applying filters, selecting a subset of fields or deriving new fields before providing the data as input to a process.
 
 include::../requirements/collection-input/REQ_collection-input_access.adoc[]
 
@@ -36,14 +36,14 @@ NOTE: The server may also do some intelligent remapping of parameters.  For exam
 
 **Parameter filter**
 
-A search or filter condition.  This condition determines which resources from the OGC API collection are included in the result set and are thus passed as values to the corresponding process input.  The `filter` parameter can be a string where the search condition is encoded in some text-based query langauge (e.g. cql2-text) or a CQL2 JSON object that encodes the search condition using JSON.
+A search or filter condition.  This condition determines which resources from the OGC API collection are included in the result set and are thus passed as values to the corresponding process input.  The `filter` parameter can be a string where the search condition is encoded in some text-based query language (e.g. cql2-text) or a CQL2 JSON object that encodes the search condition using JSON.
 
 **Parameter filterCrs**
 
-Asserts the CRS used for the coordinate values of the `filter` parameter.  The default is WGS 84 or WGS 84h depending on whether ellispoidal jeight is included with the coordinates or not:
+Asserts the CRS used for the coordinate values of the `filter` parameter.  The default is WGS 84 or WGS 84h depending on whether ellipsoidal height is included with the coordinates or not:
 
-* WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
-* WGS 84h longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h_
+* WGS 84 longitude/latitude (https://www.opengis.net/def/crs/OGC/1.3/CRS84)
+* WGS 84h longitude/latitude/ellipsoidal height (https://www.opengis.net/def/crs/OGC/0/CRS84h_
 
 **Parameter filterLang**
 
@@ -58,9 +58,9 @@ Only resources that have a geometry that intersects the bounding box are selecte
 Asserts the CRS used for the coordinate values of the `bbox` parameter.  The default is WGS 84 or WGS84h depending on whether ellipsoidal height is included or not:
 
 * WGS 84 longitude/latitude [4 numbers]
-  (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
+  (https://www.opengis.net/def/crs/OGC/1.3/CRS84)
 * WGS 84h longitude/latitude/ellipsoidal height [6 numbers]
-  (http://www.opengis.net/def/crs/OGC/0/CRS84h_
+  (https://www.opengis.net/def/crs/OGC/0/CRS84h_
 
 **Parameter datetime**
 
@@ -68,25 +68,25 @@ Either a date-time or an interval, half-bounded or bounded. Date and time expres
 
 **Parameter subset**
 
-Retrieve only part of the data by slicing or trimming along one or more axis. For trimming: {axisAbbrev}({low}:{high}) (preserves dimensionality). An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value. For slicing: {axisAbbrev}({value}) (reduces dimensionality).
+Retrieve only part of the data by slicing or trimming along one or more axis. For psecifying a trim operation: {axisAbbrev}({low}:{high}) (preserves dimensionality). An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value. For expression a slice operation: {axisAbbrev}({value}) (reduces dimensionality).
 
 **Parameter subsetCrs**
 
-Asserts the CRS used for the coordinate values of the `subset` parameter.  The default is WGS 84 or WGS 84h depending on whether ellispoidal height in included with the coordinates or not:
+Asserts the CRS used for the coordinate values of the `subset` parameter.  The default is WGS 84 or WGS 84h depending on whether ellipsoidal height in included with the coordinates or not:
 
-* WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
-* WGS 84h longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h_
+* WGS 84 longitude/latitude (https://www.opengis.net/def/crs/OGC/1.3/CRS84)
+* WGS 84h longitude/latitude/ellipsoidal height (https://www.opengis.net/def/crs/OGC/0/CRS84h_
 
 **Parameter geometry**
 
-Only resources that have a geometry that intersects the geometry specified using the `geometry` parameter are selected.  The value of the `geometry` parameter can be specified using WKT or GeoJSON.  If a resource has multiple spatial geometry properties, it is the decision of the server whether only a single spatial geometry property is used to determine the extent or all relevant geometries.
+Only resources that have a geometry that intersects the geometry specified using the `geometry` parameter are selected.  The value of the `geometry` parameter can be specified using Well Known Text (WKT) or GeoJSON.  If a resource has multiple spatial geometry properties, it is the decision of the server whether only a single spatial geometry property is used to determine the extent or all relevant geometries.
 
 **Parameter geometryCrs**
 
 Asserts the CRS used for the coordinate values of the `geometry` parameter.  The default is WGS 84 or WGS84h depending on whether ellipsoidal height is included or not:
 
-* WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
-* WGS 84h longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h_
+* WGS 84 longitude/latitude (https://www.opengis.net/def/crs/OGC/1.3/CRS84)
+* WGS 84h longitude/latitude/ellipsoidal height (https://www.opengis.net/def/crs/OGC/0/CRS84h_
 
 **Parameter limit**
 
@@ -94,11 +94,11 @@ The optional limit parameter limits the number of items that are presented in th
 
 **Parameter ids**
 
-The optional ids parameter allows a specific list of resources, indicated by their identifiers, to be fetched from the OGC API collection. Only resources whose identifier matches one of the values listed for this parameter shall appear in the result set.
+The optional _ids_ parameter allows a specific list of resources, indicated by their identifiers, to be fetched from an OGC API accessible collection. Only resources whose identifier matches one of the values listed for this parameter shall appear in the result set.
 
 **Parameter q**
 
-The optional q parameter supports keyword searching.  Only resources whose text fields contain one or more of the specified search terms are selected.  The specific set of text keys/fields/properties of a resource to which the q operator is applied is up to the discretion of the server.   Implementations should, however, apply the q operator to the title, description and keywords keys/fields/properties if they exist in the resource.
+The optional _q_ parameter supports keyword searching.  Only resources whose text fields contain one or more of the specified search terms are selected.  The specific set of text keys/fields/properties of a resource to which the _q_ operator is applied is up to the discretion of the server.   Implementations should, however, apply the _q_ operator to the title, description and keywords keys/fields/properties if they exist in the resource.
 
 **Parameter assets**
 
@@ -106,7 +106,7 @@ T.B.D.  A list of STAC asset tags.
 
 **Parameter crs**
 
-If the parameter is specified, then the coordinates of all geometry-valued properties in a response document are in the requested CRS. Otherwise the coordinates are in the default CRS, that is http://www.opengis.net/def/crs/OGC/1.3/CRS84 for coordinates without height and http://www.opengis.net/def/crs/OGC/0/CRS84h for coordinates with ellipsoidal height.
+If the parameter is specified, then the coordinates of all geometry-valued properties in a response document are in the requested CRS. Otherwise the coordinates are in the default CRS, that is https://www.opengis.net/def/crs/OGC/1.3/CRS84 for coordinates without height and https://www.opengis.net/def/crs/OGC/0/CRS84h for coordinates with ellipsoidal height.
 
 [[sc-property-selection]]
 ===== Property selection & derived properties
@@ -119,7 +119,7 @@ A filter that selects resource properties to be included in a response document.
 
 **Parameter aliases**
 
-A dictionary of aliases that can be used as values for the `properties` parameter.  Aliases can be alternative names for resource properties or synthetic properties.  Synthetic properties are named expressions that are computed at run-time.  Expressions for synthetic properties are encoded using some expression language and can include references to resource property names or aliases for resource properties..
+A dictionary of aliases that can be used as values for the `properties` parameter.  Aliases can be alternative names for resource properties or synthetic properties.  Synthetic properties are named expressions that are computed at run-time.  Expressions for synthetic properties are encoded using some expression language and can include references to resource property names or aliases for resource properties.
 
 [[sc-pass-through]]
 ===== Pass through parameters
@@ -146,11 +146,11 @@ include::../examples/json/Execute2.json[]
 
 ==== Overview
 
-The _Remote Collections_ conformance class allows to reference a remote OGC API collection in addition to any local collections.
+The _Remote Collections_ Requirements Class allows to reference a remote OGC API accessible collection in addition to any local collections.
 
 include::../requirements/requirements_class_remote-collections.adoc[]
 
-The following requirements describe how an <<execute-request-body,execute request>> references a <<def-remote-collections,remote OGC API collection>> as a source of input values to a process.
+The following requirements describe how an <<execute-request-body,execute request>> references a <<def-remote-collections,remote OGC API accessible collection>> as a source of input values to a process.
 
 ==== Referencing a remote collection
 
@@ -170,16 +170,16 @@ See: <<sc-property-selection,Property selection & derived properties>>
 
 ===== Pass through parameters
 
-See: <<sc-pass-though,Pass through parameters>>
+See: <<sc-pass-through,Pass through parameters>>
 
 [[sc_collection_output]]
 === REQUIREMENTS CLASS "COLLECTION OUTPUT"
 
 ==== Overview
 
-The _Collection Output_ conformance class specifies how clients can trigger the execution of a process as a result of requesting output data using <<def-data-access-mechanism,OGC API data access mechanisms>>.
+The _Collection Output_ Requirements Class specifies how the execution of a process can be triggered as the result of requesting output data using an <<def-data-access-mechanism,OGC API data access mechanisms>>.
 
-This provides an alternative to the synchronous and asynchronous execution mechanisms defined in this Standard for which spatial, temporal and other filtering prameters would need to be hardcoded in the <<execute-request-body,execute request>>.  When lengthy batch processing is not desirable, completely new <<execute-request-body,execute requests>> each with different spatial, temporal and other filtering parameters and returning a partial output would need to be continuously be re-submitted.
+This provides an alternative to the synchronous and asynchronous execution mechanisms defined in this Standard for which spatial, temporal and other filtering parameters would need to be hardcoded in the <<execute-request-body,execute request>>.  When lengthy batch processing is not desirable, completely new <<execute-request-body,execute requests>> each with different spatial, temporal and other filtering parameters and returning a partial output would need to be continuously re-submitted.
 
 This conformance class supports submitting an <<execute-request-body,execute request>> once and then accessing the output using <<def-data-access-mechanism,OGC API data access mechanisms>> in a manner that is  completely agnostic of process execution.
 
@@ -220,7 +220,7 @@ include::../recommendations/collection-output/PER_collection-output_expiry.adoc[
 
 As described in <<sc-collection-filtering>>, implementation of this Standard that support <<sc_collection_input,collection input>> rely on the <<value-source-server,value source server>> to perform any input data filtering specified in an execution request.
 
-Servers that implement this conformance class, support local filtering in those instances where the <<value-source-server,value source server>> does not support the input data filtering requested in the execution request.
+Servers that implement this Requirements Class, support local filtering in those instances where the <<value-source-server,value source server>> does not support the input data filtering requested in the execution request.
 
 include::../requirements/requirements_class_local-filtering.adoc[]
 

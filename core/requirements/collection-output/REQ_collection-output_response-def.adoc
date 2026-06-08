@@ -3,10 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/collection-output/response-definition
-label:: /req/collection-output/response-definition
 
-[.component,class=part]
---
 The server SHALL, at the execution endpoint (path: `/processes/{processId}/execution`), support a parameter `response` with the following characteristics (using an OpenAPI Specification fragment):
 
 [source,yaml]
@@ -18,5 +15,4 @@ schema:
   type: string
   enum: [ collection ]
 ----
---
 ====

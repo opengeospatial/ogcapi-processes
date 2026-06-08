@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/pl-limit-response
-label:: /req/core/pl-limit-response
 
 [.component,class=part]
 --
@@ -14,4 +13,5 @@ The response SHALL not contain more process summaries than specified by the opti
 --
 If the API definition specifies a maximum value for `limit` parameter, the response SHALL not contain more process summaries than this maximum value.
 --
+
 ====

@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-success-async-outputs-omitted
-label:: /req/core/process-execute-success-async-outputs-omitted
 
 [.component,class=conditions]
 --
@@ -15,4 +14,5 @@ label:: /req/core/process-execute-success-async-outputs-omitted
 --
 The server SHALL produce and make available for retrieval all of the outputs defined for the process in its <<sc_process_description,process description>>.
 --
+
 ====

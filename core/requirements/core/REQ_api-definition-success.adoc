@@ -3,10 +3,15 @@
 ====
 [%metadata]
 identifier:: /req/core/api-definition-success
-label:: /req/core/api-definition-success
 
-A successful execution of the operation to get the API definition document SHALL be reported as a
-response with a HTTP status code `200`.
+[.component,class=part]
+--
+A successful execution of the operation to get the API definition document SHALL be reported as a response with a HTTP status code `200`.
+--
 
+[.component,class=part]
+--
 The server SHALL return an API definition document.
+--
+
 ====

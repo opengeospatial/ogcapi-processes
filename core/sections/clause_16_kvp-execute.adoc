@@ -23,7 +23,7 @@ variables=TMAX,TMIN,PRCP
 
 [source]
 ----
-http://www.someserver.com/processes/echo/execution?
+https://www.someserver.com/processes/echo/execution?
 stringInput=Value2&
 measureInput=%7B%22value%22%3A%7B%22measurement%22%3A10.3%2C%22uom%22%3A%22m%22%2C%22reference%22%3A%22https%3A%2F%2Fucum.org%2Fucum-essence.xml%22%7D%7D
 dateInput=2021-03-06T07:21:00&
@@ -179,7 +179,7 @@ booleanInput=true
 [[kvp-complex-value-input]]
 ====== Complex-valued input
 
-A complex value is a value with structure that is defined using a schema.  The schema of a complex process input value is defined in the <<sc_process_description,process description>> and can be specified using <<process-input-schema,JSON-Schema>>.  
+A complex value is a value whose structure is defined using a schema.  The schema of a complex process input value is defined in the <<sc_process_description,process description>> and can be specified using <<process-input-schema,JSON-Schema>>.  
 
 include::../requirements/kvp-execute/REQ_complex-input-value.adoc[]
 
@@ -324,11 +324,11 @@ images=%5B%7B%22href%22%3A%22http%3A%2F%2Fwww.imagearchive.com%2Fimages%2Fimage0
 Decoded value is:
 images=[
   {
-    "href":"http://www.imagearchive.com/images/image01.tif",
+    "href":"https://www.imagearchive.com/images/image01.tif",
     "type":"image/tiff;applcation=geotiff"
   },
   {
-    "href":"http://www.imagearchive.com/images/image19.jp2,
+    "href":"https://www.imagearchive.com/images/image19.jp2,
     "type":"image/jp2"
   }
 ]
@@ -371,7 +371,7 @@ and an example instance value in an execute request might be:
 imageInput="R0lGODdhNAHCAfcAAAcHDD+Gs4sLDQpDaqGFdaHE54dJPEoECUlGRteKgcdITgokG4hoVkpY\ngNzHwKKkqOLm7RRjlEgpHU9iZ44lHQYqVdmki6doVmhHOMOIeJG20HiDjCcKBglIeadISrso\nJGooFNbN2d2qr8aljyklHwQJQkdvkWaKxIdrb442LidLeGhMTp6LkeP1+Kh3aiUuVAoUHmlu\ngkcwNYdZRmkJDYGcsDFokElVYyk1NsWWhLEPDtmQldrUyoyFhrjo+Nna5d+4tMGstspoXgc4\n...qgu7sSu7qbtCs2u7t6u6rLsrp4u7veu76eO6vyu8w0u8xWu8x4u8yau8shu8y+u8zwu90Su9\n00u91Wu914u92au928u9whsQADs="
 ----
 
-In this second example, the image input can be one of a number of value types denoted in JSON Schema by the use of the `oneOf[]` construct.  An example schema for this a process input might be:
+In this second example, the image input can be one of a number of value types denoted in JSON Schema using the `oneOf[]` construct.  An example schema for this process input might be:
 
 [source,json]
 ----
@@ -434,7 +434,7 @@ include::../requirements/kvp-execute/REQ_input-by-reference.adoc[]
 ====
 [source]
 ----
-imageInput[href]=http://www.someserver.com/image.tiff&imageInput[type]=image/tiff;application=geotiff
+imageInput[href]=https://www.someserver.com/image.tiff&imageInput[type]=image/tiff;application=geotiff
 ----
 ====
 
@@ -452,7 +452,7 @@ An example of a string-value input with cardinality greater than 1.
 ...&color=blue,green,red,yellow&...
 ----
 
-An example of a object-valued input with cardinality greater than 1.  In this case, two geometries are specified as input.  The first geometry is encoded as GML object and the second geometry is encoded as GeoJSON object.
+An example of a object-valued input with cardinality greater than 1.  In this case, two geometries are specified as input.  The first geometry is encoded as a GML object and the second geometry is encoded as a GeoJSON object.
 
 [source]
 ----

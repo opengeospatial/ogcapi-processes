@@ -1,5 +1,4 @@
 [[ats_collection-input_property-selection]]
-
 [abstract_test]
 ====
 [%metadata]

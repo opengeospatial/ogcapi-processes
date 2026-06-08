@@ -3,8 +3,8 @@
 .Core
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/core
-subject:: <<rc_core,http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core>>
+identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/core
+subject:: <<rc_core,https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core>>
 classification:: Target Type:Web API
 conformance-test:: /conf/core/test-process
 conformance-test:: /conf/core/landingpage-op

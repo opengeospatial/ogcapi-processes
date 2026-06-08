@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-success-sync-empty-outputs
-label:: /req/core/process-execute-success-sync-empty-outputs
 
 [.component,class=conditions]
 --
@@ -20,6 +19,7 @@ A successful execution of the operation SHALL be reported with a response with a
 --
 The response body SHALL be empty.
 --
+
 ====
 
 

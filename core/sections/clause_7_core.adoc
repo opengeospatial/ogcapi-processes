@@ -17,7 +17,7 @@ Each implementation of the OGC API - Processes Standard has a single `LandingPag
 
 Note that additional requirements classes may introduce additional links for inclusion in the landing page.
 
-The `APIDefinition` describes the capabilities of the server that can be used by clients to connect to the server or by development tools to support the implementation of servers and clients. Accessing the `APIDefinition` using HTTP GET returns a description of the an API that includes the Processes API defined in this Standard but may include the description of additional components that are part of a broader containing API.
+The `APIDefinition` describes the capabilities of the server that can be used by clients to connect to the server or by development tools to support the implementation of servers and clients. Accessing the `APIDefinition` using HTTP GET returns a description of the API deployment that includes the Processes API defined in this Standard but may include the description of additional components that are part of a broader containing API.
 
 Accessing `Conformance` using HTTP GET returns a list of URIs of conformance classes implemented by the server.
 
@@ -27,7 +27,7 @@ The <<sc_process_description,process description>> contains information about in
 
 A HTTP POST request to the execution-endpoint creates a new job. The inputs and outputs need to be passed in a JSON execute-request.
 
-The URL for accessing status information is delivered in the HTTP header `location`.
+The URL for accessing status information is delivered in the HTTP header `Location`.
 
 After a process is finished (status = successful/failed), the results/exceptions can be retrieved.
 
@@ -42,11 +42,11 @@ The OGC API - Processes Standard utilizes elements of the OGC API-Common Standar
 [cols="2,6"]
 |===
 ^|*API - Processes Section* ^|*API-Common Requirements Class*
-|<<sc_landing_page,API Landing Page>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/core
-|<<sc_api_definition,API Definition>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/core
-|<<sc_conformance_classes,Declaration of Conformance Classes>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/core
-|<<req_oas30_oas-definition,OpenAPI 3.0>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/oas30
-|<<sc_requirements_class_html,HTML>>| http://www.opengis.net/spec/ogcapi-common-1/2.0/req/html
+|<<sc_landing_page,API Landing Page>>| https://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
+|<<sc_api_definition,API Definition>>| https://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
+|<<sc_conformance_classes,Declaration of Conformance Classes>>| https://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
+|<<req_oas30_oas-definition,OpenAPI 3.0>>| https://www.opengis.net/spec/ogcapi-common-1/2.0/req/oas30
+|<<sc_requirements_class_html,HTML>>| https://www.opengis.net/spec/ogcapi-common-1/2.0/req/html
 |===
 
 
@@ -66,12 +66,12 @@ include::../requirements/core/REQ_landingpage-success.adoc[]
 
 [NOTE]
 ====
-The term “_...based upon the OpenAPI 3.0 schema..._” used in the requirements of this Standard means that OpenAPI 3.0 is used to define:
+The term “_...based upon the OpenAPI 3.0 schema..._” used in requirements specified in this Standard means that OpenAPI 3.0 is used to define:
 
 * All the required properties of the respective request/response schema,
 * Any optional properties of the respective request/response schema.
 
-It also means that unless explicitly excluded these OpenAPI schemas are extensible with additional properties not defined in the schema using the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#schemaObject[`additionalProperties`] mechanism defined in the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md[OpenAPI 3.0 specification].
+Unless explicitly excluded, these OpenAPI schemas are extensible with additional properties not defined in the schema using the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#schemaObject[`additionalProperties`] mechanism defined in the https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md[OpenAPI 3.0 specification].
 ====
 
 [[landing-page-schema]]
@@ -109,11 +109,11 @@ See <<http_status_codes>> for general guidance.
 [[sc_api_definition]]
 === Retrieve an API definition
 
-The following section defines the requirements to retrieve an API definition.  This API may only implement components of the Processes API defined in this Standard but may define the implementation of a broader API into which the Processes API is embedded.
+The following section defines the requirements to retrieve an API definition.  This API may only implement components of the Processes API defined in this Standard but may define the implementation of a broader API deployment into which the Processes API is embedded.
 
 ==== Operation
 
-Every implementation of OGC API - Processes must provide metadata that describe the functional capabilities of the server instance that the API definition provides access to.  In this document, this is known as the "API definition".  This definition is used by developers to understand the functionality provided by the API endpoing, so software clients can connect to the server, or by development tools to support the implementation of servers and clients.
+Every implementation of OGC API - Processes must provide metadata that describes the functional capabilities of the server instance that the API definition provides access to.  In this document, this is known as the "API definition".  This definition is used by developers to understand the functionality provided by the API endpoint, so software clients can connect to the server, or by development tools to support the implementation of servers and clients.
 
 include::../requirements/core/REQ_api-definition-op.adoc[]
 
@@ -128,12 +128,13 @@ include::../requirements/core/REQ_api-definition-success.adoc[]
 
 include::../recommendations/core/REC_api-definition-oas.adoc[]
 
-If multiple API definition formats are supported by a server, use
-content negotiation to select the desired representation.
+If multiple API definition formats are supported by a server, use content negotiation to select the desired representation.
 
 [NOTE]
 ====
-Two common approaches are:
+Common approaches include:
+
+* Standard HTTP content negotiation using the HTTP header `Accept`;
 
 * An additional path for each encoding of each resource (this can be expressed,
 for example, using format specific suffixes like ".html");
@@ -142,7 +143,7 @@ for example, using format specific suffixes like ".html");
 the Accept header of the HTTP request.
 ====
 
-The API definition document describes the API. In other words, there is no need to include the `/api` operation in the API definition itself.
+The API definition document describes the API implementation instance. In other words, there is no need to include the `/api` operation in the API definition itself.
 
 The idea is that any implementation of OGC API - Processes can be used by developers that are familiar with the API definition language(s) supported by the server. For example, if an OpenAPI definition is used, it should be possible to create the skeleton of a working client using the OpenAPI definition alone.
 
@@ -193,11 +194,11 @@ See <<http_status_codes>> for general guidance.
 
 include::../requirements/core/REQ_http.adoc[]
 
-This include the correct use of status codes, headers. etc.
+This includes the correct use of status codes, headers. etc.
 
 include::../recommendations/core/REC_http-head.adoc[]
 
-Supporting the method HEAD in addition to GET can be useful for clients and is simple to implement.  In particular, the HEAD method is useful in determining the size of a potential response.
+Supporting the HEAD method, in addition to GET, is simple and can provide useful information such as the size of a protential response without needing to transmite the entire content of the response beforehand.
 
 include::../recommendations/core/REC_content-length.adoc[]
 
@@ -245,7 +246,7 @@ include::../recommendations/core/REC_problem-details.adoc[]
 
 === Support for cross-origin requests
 
-Access to content from a HTML page is by default prohibited for security reasons if the content is located on another host than the webpage ("same-origin policy"). Cross-origin resource sharing is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. A typical example is a web-application accessing processes and data from multiple servers.
+If the content is located on another host that the webpage ("same-origin policy") access to content from that HTML page is by default prohibited for security reasons.  Cross-origin resource sharing is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. A typical example is a web-application accessing processes and data from multiple servers.
 
 include::../recommendations/core/REC_cross-origin.adoc[]
 
@@ -263,19 +264,19 @@ include::../recommendations/core/REC_html.adoc[]
 
 The use of generic media types such as `application/json` makes it difficult to request or identify different flavors or profiles of a resource.  For example, the media type `application/json` could be used to describe an <<ogc_process_description,OGC process description document>> as well as an https://documentation.dataspace.copernicus.eu/APIs/openEO/Processes.html[OpenEO process description document].
 
-It would thus be useful if there was a mechanism for requesting a profile of a resource.  Although there is a new HTTP header, `Accept-Profile`, that is to be defined in an upcoming https://profilenegotiation.github.io/I-D-Profile-Negotiation/I-D-Profile-Negotiation[Internet-Draft] there is currently no standardized was to request a profile of a resource.  Existing standards, however, do provide mechanisms for specifying profile information in HTTP headers.  Specifically (see https://www.w3.org/TR/dx-prof-conneg/#bib-prof-ietf[Content Negotiation by Profile]) profiles of a resource may be requested by:
+Therefore, a mechanism for requesting a profile of a resource would be useful.  Although there is a new HTTP header, `Accept-Profile`, that is to be defined in an upcoming https://profilenegotiation.github.io/I-D-Profile-Negotiation/I-D-Profile-Negotiation[Internet-Draft], there is currently no standardized was to request a profile of a resource.  Existing standards, however, do provide mechanisms for specifying profile information in HTTP headers.  Specifically (see https://www.w3.org/TR/dx-prof-conneg/#bib-prof-ietf[Content Negotiation by Profile]) profiles of a resource may be requested by:
 
-* using the `profile` parameter if the media type includes provisions for such a parameter (e.g. https://www.iana.org/assignments/media-types/application/ld+json[`application/ld+json profile=http://www.w3.org/ns/json-ld#context`]),
-* using the `Accept-Profile` header if the intended media type does not include provisions for a `profile` parameter and can, thus, not be specified in the `Accept` header,
-* using the `profile` parameter with the https://www.rfc-editor.org/rfc/rfc7240[HTTP `Prefer` header],
-* specified the `Link` header with `rel="profile"` in the request headers.
+* Using the `profile` parameter if the media type includes provisions for such a parameter (e.g. https://www.iana.org/assignments/media-types/application/ld+json[`application/ld+json profile=http://www.w3.org/ns/json-ld#context`]),
+* Using the `Accept-Profile` header if the intended media type does not include provisions for a `profile` parameter and can, thus, not be specified in the `Accept` header,
+* Using the `profile` parameter with the https://www.rfc-editor.org/rfc/rfc7240[HTTP `Prefer` header],
+* Specified the `Link` header with `rel="profile"` in the request headers.
 
-This standard also defines a query parameter, <<profile-parameter,`profile`>>, that may be used with an HTTP GET request to specify one or more profiles of a resource that are to be retrieved.
+This Standard also defines a query parameter <<profile-parameter,`profile`>>, that may be used with an HTTP GET request to specify one or more profiles of a resource that are to be retrieved.
 
-When a content negotiation by profile is performed using one of the above mechanisms, the following response headers should be returned:
+When a content negotiation by _profile_ is performed using one of the above mechanisms, the following response headers should be returned:
 
-* the `Preference-Applied` header with the `profile` parameter should be returned if content negotiation was performed using the `Prefer` header,
-* the `Content-Type` header with `profile` parameter should be returned if content negotiation was performed using the `Accept` header with a media type including `profile` provisions.
+* The `Preference-Applied` header with the `profile` parameter should be returned if content negotiation was performed using the `Prefer` header,
+* The `Content-Type` header with `profile` parameter should be returned if content negotiation was performed using the `Accept` header with a media type including `profile` provisions.
 
 In all cases of content negotiation by profile, one or more `Link` (`rel="profile"`) headers indicating the profiles applied should be returned in the response if there is a corresponding URI identifier defined for the profile(s) that can be included as the `href` of the link.
 
@@ -284,9 +285,9 @@ NOTE: This is not always the case (e.g. `image/tiff; application=geotiff; profil
 NOTE: A set of profile URIs for JSON content defined in this Standard can be found in the <<profile-uris,Profile identifiers>> table.
 
 [[sc_limit_parameter]]
-=== Limit parameter
+=== Limit query parameter
 
-Several resources defined in this Standard (see <<sc_process_list,Retrieve a process list>>, <<sc_job_list,Retrieve a job list>>) use the `limit` parameter to control the maximum number of results that are presented in a response page.
+Several resources defined in this Standard (see <<sc_process_list,Retrieve a process list>>, <<sc_job_list,Retrieve a job list>>) use the `limit` query parameter to control the maximum number of results that are presented in a response page.
 
 * The client can request a limit it is interested in.
 
@@ -307,15 +308,15 @@ As an example, using the default/maximum values of 10/1000 from the OpenAPI frag
 This Standard provides requirements and recommendations about links in general and the `next` link in particular at the appropriate resource end points.
 
 [[next-link-discussion]]
-This Stadard does not mandate any specific implementation approach for the `next` links.
+This Standard does not mandate any specific implementation approach for the `next` links.
 
-An implementation of the Processes API could use opaque links that are managed by the server. It is up to the server to determine how long these links can be dereferenced. Clients should be prepared to receive a 404 response.
+An implementation of the Processes API could use opaque links that are managed by the server. It is up to the server to determine how long these links can be dereferenced. Clients should be prepared to receive a 404 or 410 response.
 
 Another implementation approach is to use an implementation-specific parameter that specifies the index within the result set from which the server begins presenting results in the response, like `offset` or the `startIndex` parameter that was used in <<WFS20,WFS 2.0>>.
 
-An implementation of the Processes API will return no `next` link, if all selected results have been returned, and the server knows for certain that there are no further results to be presented.  However, in some cases, the server may not be aware that it has already returned all selected results. For example, if the request states `limit=10` and the query to the backend returns exactly 10 results.  The server may not know if there are more results or not (in most cases there will be more results), unless the total number of results is also computed, which may be too costly. The server will then prudently add the `next` link, and if there are no more results, dereferencing the next link will return an empty results list and no `next` link. This behavior is consistent with the statements above.
+If all selected results have been returned, an implementation of the Processes API will note return a `next` link, and as such the server knows for certain that there are no further results to be presented.  However, in some cases, the server may not be aware that it has already returned all selected results. For example, if the request states `limit=10` and the query to the backend returns exactly 10 results.  Unless the total number results is also computed the server may not know if there are more results or not (in most cases there will be more results). However such a computation may be too costly. The server will then prudently add the `next` link, and if there are no more results, dereferencing the next link will return an empty results list and no `next` link. This behavior is consistent with the statements above.
 
-Clients should not assume that paging is safe against changes to the dataset being accesses while a client iterates through `next` links. If a server provides opaque links these could be safe and maintain the state during the original request. Using a parameter for the start index, however, will not be safe.
+Clients should not assume that paging is safe against changes to the dataset being accessed while a client iterates through `next` links. If a server provides opaque links, these could be safe and maintain the state during the original request. Using a parameter for the start index, however, will not be safe.
 
 [[prev-link-discussion]]
 This Standard also has recommendations about including a `prev` link at the appropriate resource end points.  Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach, it may be too complex to implement.
@@ -328,9 +329,9 @@ include::../recommendations/core/REC_link-header.adoc[]
 [[sc_process_list]]
 === Retrieve a process list
 
-The following section defines the requirements to retrieve the available processes offered by an implmentation of the Processes API.
+The following section defines the requirements to retrieve the available processes offered by an implementation of the Processes API.
 
-It should be noted that the number of processes exposed via the Processes API may be very different than the number of processes offer by a back-end system upon which the Processes API is implemented.
+It should be noted that the number of processes exposed via the Processes API may be very different from the number of processes offered by a back-end system upon which the Processes API is implemented.
 
 ==== Operation
 
@@ -338,8 +339,7 @@ It should be noted that the number of processes exposed via the Processes API ma
 
 include::../requirements/core/REQ_process-list-op.adoc[]
 
-
-===== Parameter `limit`
+===== Query parameter `limit`
 
 include::../requirements/core/REQ_process-list-limit-def.adoc[]
 
@@ -385,13 +385,13 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 
 The number of process summaries returned depends on the server and the parameter `limit.`
 
-See the discussion about the `limit` parameter in the <<sc_limit_parameter,Limit parameter>> section.
+See the discussion about the `limit` query parameter in the <<sc_limit_parameter,Limit query parameter>> section.
 
 include::../requirements/core/REQ_process-list-links.adoc[]
 
 include::../requirements/core/REQ_process-summary-links.adoc[]
 
-See the discussion about the `next` links in the <<next-link-discussion,Limit parameter>> section.
+See the discussion about the `next` links in the <<next-link-discussion,Limit query parameter>> section.
 
 include::../recommendations/core/REC_process-list-next-1.adoc[]
 
@@ -399,7 +399,7 @@ include::../recommendations/core/REC_process-list-next-2.adoc[]
 
 include::../recommendations/core/REC_process-list-next-3.adoc[]
 
-See the discussion about the `prev` link in the  <<prev-link-discussion,Limit parameter>> section.
+See the discussion about the `prev` link in the  <<prev-link-discussion,Limit query parameter>> section.
 
 include::../recommendations/core/PER_process-list-prev.adoc[]
 
@@ -455,6 +455,7 @@ See <<http_status_codes>> for general guidance.
 
 include::../requirements/core/REQ_process-exception-no-such-process.adoc[]
 
+include::../recommendations/core/PER_process-exception-process-gone.adoc[]
 
 [[sc_execute_process]]
 === Execute a process
@@ -517,7 +518,7 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 
 A process may be executed synchronously or asynchronously.
 
-Which mode a server responds with is a function of the job control options specified in the <<sc_process_description,process description>> and the presence or absence of the HTTP `Prefer` header (http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240]).
+Which mode a server responds with is a function of the job control options specified in the <<sc_process_description,process description>> and the presence or absence of the HTTP `Prefer` header (https://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240]).
 
 include::../requirements/core/REQ_process-execute-default-execution-mode.adoc[]
 
@@ -525,7 +526,10 @@ include::../requirements/core/REQ_process-execute-auto-execution-mode.adoc[]
 
 include::../recommendations/core/REC_process-execute-honor-prefer.adoc[]
 
-include::../recommendations/core/REC_process-execute-handle-prefer.adoc[]
+[NOTE]
+====
+A client that accompanies an <<execute-request-body,execute request>> with the HTTP https://datatracker.ietf.org/doc/html/rfc7240#section-2[`Prefer`] header asserting a https://tools.ietf.org/html/rfc7240#section-4.1[`respond-async`] preference and/or a https://tools.ietf.org/html/rfc7240#section-4.3[`wait`] preference SHOULD be prepared to receive either an asynchronous or a synchronous response.
+====
 
 include::../recommendations/core/REC_process-execute-preference-applied.adoc[]
 
@@ -681,7 +685,7 @@ A qualified value is a <<input-value-schema,value>> that can be optionally quali
 
 Qualified values can be used to encode process input values that, according to their definition in the <<sc_process_description,process description>>, can be of multiple media types.  The `format` parameter is used to identify the specific media type being provided as the process input.
 
-Qualified values can also be used to encode object-valued process inputs in order to avoid ambiguity with the built-in value schemas defined in this standard (i.e. <<bounding-box-value,bbox.yaml>>, <<link-schema,link.yaml>> or <<qualified-value,qualifiedValue.yaml>> itself).
+Qualified values can also be used to encode object-valued process inputs in order to avoid ambiguity with the built-in value schemas defined in this Standard (i.e. <<bounding-box-value,bbox.yaml>>, <<link-schema,link.yaml>> or <<qualified-value,qualifiedValue.yaml>> itself).
 
 The actual _value_ in a qualified value object is specified using the `value` key.  The value of the `value` key is an instance of <<input-value-schema,value.yaml>>.
 
@@ -725,7 +729,7 @@ An example of a complex process input value.
 }
 ----
 
-In this second example, the property, `geometryInput` has a cardinality of greater than 1 and value instances can be one of a number of enumerated media types.  The schema of `geometryInput` from the <<ogc_process_description,OGC process description>> for the process might be:
+In this second example, the property `geometryInput` has a cardinality of greater than 1 and value instances can be one of a number of enumerated media types.  The schema of `geometryInput` from the <<ogc_process_description,OGC process description>> for the process might be:
 
 [source,json]
 ----
@@ -739,10 +743,10 @@ In this second example, the property, `geometryInput` has a cardinality of great
       {
         "type": "string",
         "contentMediaType": "application/gml+xml; version=3.2",
-        "contentSchema": "http://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+        "contentSchema": "https://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
       },
       {
-        "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+        "$ref": "https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
       }
     ]
   }
@@ -820,7 +824,7 @@ and an example instance value in an <<execute-request-body,execute request>> mig
 
 NOTE: Even though the schema indicates that the input type is `binary`, when the input value is encoded in-line in an <<execute-request-body,execute request>>, as per requirement <<req_core_process-execute-input-inline-binary,/req/core/process-execute-input-inline-binary>>, the binary value is encoded as base64-encoded string.
 
-In this second example, the image input can be one of a number of value types denoted in JSON Schema by the use of the `oneOf[]` construct.  An example schema for this a process input might be:
+In this second example, the image input can be one of a number of value types denoted in JSON Schema by the use of the `oneOf[]` construct.  An example schema for this process input might be:
 
 [source,json]
 ----
@@ -867,7 +871,7 @@ include::../../openapi/schemas/processes-core/bbox.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/bbox.yaml[`bbox.yaml`].
 
-This schema is meant to be a template for defining bounding box process inputs. If the specified `default` and `enum` are suitable for the client's requirements then this file can be referenced directly in the process description.
+This schema is meant to be a template for defining bounding box process inputs. If the specified `default` and `enum` are suitable for the client's requirements, then this file can be referenced directly in the process description.
 
 include::../recommendations/core/PER_process-execute-input-inline-bbox.adoc[]
 
@@ -979,11 +983,17 @@ A process output can be defined in the <<sc_process_description,process descript
 
 Since a priori knowledge of the size of any given output is generally not known, hints can be provided to the server to prevent the inadvertent transmission of large volumes of output.
 
-Return preferences signal to a server how output values should be transmitted based on the size of the output and any accompanying https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[`return` preferences] as define defined in http://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240].
+Return preferences signal to a server how output values should be transmitted based on the size of the output and any accompanying https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[`return` preferences] as define defined in https://tools.ietf.org/rfc/rfc7240.txt[IETF RFC 7240].
 
 include::../recommendations/core/REC_process-execute-honor-return-preference.adoc[]
 
-include::../recommendations/core/REC_process-execute-handle-return-preference.adoc[]
+[NOTE]
+====
+A client that accompanies an <<execute-request-body,execute request>> with the HTTP https://datatracker.ietf.org/doc/html/rfc7240#section-2[`Prefer`] header asserting a https://tools.ietf.org/html/rfc7240#section-4.2[`return`] preference SHOULD be prepared to receive output values either:
+
+* in-line in the response,
+* or by reference via a hyperlink in the response.
+====
 
 ==== Example
 
@@ -1000,7 +1010,7 @@ include::../examples/json/Execute.json[]
 
 ===== Overview
 
-The way a server responds to a process an <<execute-request-body,execute request>> is determined by the following parameters:
+The way a server responds to <<execute-request-body,execute request>> is determined by the following parameters:
 
 * The <<sc_execution_mode,negotiated execution mode>> (synchronous or asynchronous),
 * The number of outputs requested,
@@ -1074,7 +1084,7 @@ The following table maps the possible responses based on the combinations of the
 
 [NOTE]
 ====
-This above table shows all possible combinations of execute parameters that are specified by this Standard.  Not all these combinations need to be implemented by a server conforming to this Standard.  For example, a server that only offers processes that can be executed synchronously does not need to implement any of the asynchronous requirements.
+The above table shows all possible combinations of execute parameters that are specified by this Standard.  Not all these combinations need to be implemented by a server conforming to this Standard.  For example, a server that only offers processes that can be executed synchronously does not need to implement any of the asynchronous requirements.
 ====
 
 [[implicit-explicit-outputs]]
@@ -1139,7 +1149,7 @@ include::../recommendations/core/PER_process-execute-sync-one-result.adoc[]
 
 *Example*
 
-In the example below the process "copmpute-spectral-index" has a single output also named "spectral-index-output".  This processes is implemented to store the result file in some Web-accessible location.  In this example the process is executed synchronously and the single output is requested.  According to <<table_core_execute_responses>>, in this case, the server should respond with the output image generated by the process.  The server can either stream the response from its Web-accessiblke location to the client OR the server can use a HTTP 303 redirect to point to the result as shown in the example.
+In the example below the process "compute-spectral-index" has a single output also named "spectral-index-output".  This processes is implemented to store the result file in some Web-accessible location.  In this example the process is executed synchronously and the single output is requested.  According to <<table_core_execute_responses>>, in this case, the server should respond with the output image generated by the process.  The server can either stream the response from its Web-accessiblke location to the client OR the server can use a HTTP 303 redirect to point to the result as shown in the example.
 
 .HTTP 303 redirect example.
 ====
@@ -1310,6 +1320,8 @@ If the process with the specified identifier does not exist on the server, see r
 
 include::../requirements/core/REQ_job-exception-no-such-job.adoc[]
 
+include::../recommendations/core/PER_process-exception-job-gone.adoc[]
+
 [[sc_retrieve_job_results]]
 === Retrieve job results
 
@@ -1426,7 +1438,7 @@ The following requirements apply when retrieving the results of a job that was c
 include::../requirements/core/REQ_job-results-success-async-one.adoc[]
 
 [[sc_retrieve_job_results_many]]
-===== Retrieving multiple results simultaneouly
+===== Retrieving multiple results simultaneously
 
 include::../requirements/core/REQ_job-results-success-async-many.adoc[]
 
@@ -1464,6 +1476,8 @@ include::../requirements/core/REQ_job-results-exception-invalid-query-parameter-
 include::../requirements/core/REQ_job-results-exception-no-such-output.adoc[]
 
 include::../requirements/core/REQ_job-results-exception-no-such-job.adoc[]
+
+include::../recommendations/core/PER_job-results-exception-job-gone.adoc[]
 
 include::../requirements/core/REQ_job-results-exception-results-not-ready.adoc[]
 

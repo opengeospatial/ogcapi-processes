@@ -7,18 +7,18 @@ include::../requirements/requirements_class_cwl.adoc[]
 
 A server that implements the CWL Requirement Class SHALL support the use of CWL encoding when interacting with the Processes API Part 2 deploy-replace-undeploy extension endpoint.
 
-=== OGC Application Package
+=== OGC Application Package as CWL
 
 ==== executionUnit property
 
-In case the OGC Application Package encoding is used, the following Requirement applies.
+In case the <<rc_ogcapppkg,OGC Application Package>> encoding is used to provide a <<rc_cwl,CWL>> definition, the following Requirement applies.
 
 include::../requirements/cwl/REQ_execution-unit.adoc[]
 
-Below is an example of a deploy body request using a CWL-encoded execution unit by reference.
+Below is an example of a deploy body request using a <<rc_cwl,CWL>>-encoded execution unit by reference.
 
-[[cwl_ogcapppkg_example1]]
-[source%unnumbered]
+[[cwl_ogcapppkg_example_reference]]
+[source%unnumbered,json]
 ----
 {
   "executionUnit": {
@@ -28,15 +28,45 @@ Below is an example of a deploy body request using a CWL-encoded execution unit 
 }
 ----
 
-Below is an example of a deploy body request using a CWL-encoded execution unit by value. The value is not included for readability and results from converting from the original CWL format (YAML) into JSON.
+Below is an example of a deploy body request using a <<rc_cwl,CWL>>-encoded execution unit by value.
+The <<rc_cwl,CWL>> value is not included entirely for readability. It is to be noted that the JSON object is directly
+included in the same JSON structure as the execution unit parameter.
+Therefore, the <<rc_cwl,CWL>> additional encoding (i.e.: JSON) does not need to be explicitly indicated in this case
+because it can be inferred from the body structure itself.
 
-[[cwl_ogcapppkg_example2]]
-[source%unnumbered]
+[[cwl_ogcapppkg_example_object]]
+[source%unnumbered,json]
 ----
 {
   "executionUnit": {
-    "value": { ... },
+    "value": { "cwlVersion": "v1.2", "class": "CommandLineTool", ... },
+    "mediaType": "application/cwl"
+  }
+}
+----
+
+Below are other examples of deploy body request using a <<rc_cwl,CWL>>-encoded execution unit by value.
+However, the <<rc_cwl,CWL>> content is included as an embedded string within the execution unit parameter.
+In these cases, the <<rc_cwl,CWL>> additional encoding (i.e.: JSON or YAML) needs to be provided to disambiguate the content structure.
+
+[[cwl_ogcapppkg_example_string_json]]
+[source%unnumbered,json]
+----
+{
+  "executionUnit": {
+    "value": "{ \"cwlVersion\": \"v1.2\", \"class\": \"CommandLineTool\", ... }",
     "mediaType": "application/cwl+json"
+  }
+}
+----
+
+[[cwl_ogcapppkg_example_string_yaml]]
+[source%unnumbered,json]
+----
+{
+  "executionUnit": {
+    "value": "cwlVersion: 'v1.2'\nclass: CommandLineTool\n...",
+    "mediaType": "application/cwl+yaml"
   }
 }
 ----
@@ -45,11 +75,136 @@ Below is an example of a deploy body request using a CWL-encoded execution unit 
 
 ==== CWL body
 
+In case a <<rc_cwl,CWL>> document is provided directly as body content of the request, the following Requirement applies.
+
 include::../requirements/cwl/deploy/REQ_body.adoc[]
+
+==== Multipart CWL body
+
+include::../recommendations/cwl/deploy/REC_body-cwl-multipart.adoc[]
+
+The following multipart example illustrates one request payload with a root workflow selected by the `start` parameter,
+with supporting documents referenced by `filename`, `cid:` URI and remote URL combinations. The full contents of the
+individual <<rc_cwl,CWL>> documents are not included for simplification. Note that the <<rc_cwl,CWL>> YAML representation
+are employed to provide a concise example, but other <<rc_cwl,CWL>> media-types are permitted in any desired combination.
+
+In the example, the `Content-ID` headers and embedded `id` fields of respective parts are provided to illustrate the
+expected interpretation of equivalent definitions, but some might be omitted as described in the recommendation text.
+
+The last <<rc_cwl,CWL>> part illustrates how its corresponding definition can be omitted because of the
+provided `Content-Location` header. However, each part (including the ones providing the content directly),
+could also include the `Content-Location` header for complementary identification of their origin if desired.
+
+The last process description part illustrates how additional metadata can be included in the multipart body
+to refine the definition of the process being deployed, irrespective of its <<rc_cwl,CWL>> encoding.
+
+[[cwl_deploy_multipart_generic_example]]
+[source%unnumbered,http]
+----
+POST /processes HTTP/1.1
+Host: example.org
+Content-Type: multipart/related; type="application/cwl+yaml"; start="<workflow-main@example.org>"; boundary="===CWL-BUNDLE==="
+Content-ID: <workflow-main@example.com>
+
+--===CWL-BUNDLE===
+Content-Type: application/cwl+yaml
+Content-ID: <workflow-main@example.org>
+Content-Disposition: attachment; filename="workflows/main.cwl"
+
+cwlVersion: v1.2
+class: Workflow
+id: workflow-main
+steps:
+  by_filename:
+    run: "tools/tool-1.cwl"
+    ...  # rest of the definition
+  by_cid_host:
+    run: "cid:tool-2@example.org"
+    ...  # rest of the definition
+  by_cid_uuid:
+    run: "cid:urn:uuid:550e8400-e29b-41d4-a716-446655440002"
+    ...  # rest of the definition
+  by_remote_url:
+    run: "https://example.org/cwl/tools/tool-4.cwl"
+    ...  # rest of the definition
+
+--===CWL-BUNDLE===
+Content-Type: application/cwl+yaml
+Content-Disposition: attachment; filename="tools/tool-1.cwl"
+Content-ID: <tool-1@example.org>
+
+cwlVersion: v1.2
+class: CommandLineTool
+id: tool-1
+...  # rest of the definition
+
+--===CWL-BUNDLE===
+Content-Type: application/cwl+yaml
+Content-ID: <tool-2@example.org>
+Content-Disposition: attachment; filename="tools/tool-2.cwl"
+
+cwlVersion: v1.2
+class: CommandLineTool
+id: tool-2
+...  # rest of the definition
+
+--===CWL-BUNDLE===
+Content-Type: application/cwl+yaml
+Content-ID: <urn:uuid:550e8400-e29b-41d4-a716-446655440002>
+Content-Disposition: attachment; filename="tools/tool-3.cwl"
+
+cwlVersion: v1.2
+class: CommandLineTool
+id: tool-3
+...  # rest of the definition
+
+--===CWL-BUNDLE===
+Content-Type: application/cwl+yaml
+Content-Location: https://example.org/cwl/tools/tool-4.cwl
+Content-Disposition: attachment; filename="tools/tool-4.cwl"
+
+--===CWL-BUNDLE===
+Content-Type: application/json
+Content-Profile: <https://www.opengis.net/def/profile/OGC/0/ogc-process-description>
+
+...  # additional metadata for the process being deployed
+--===CWL-BUNDLE===--
+----
+
+The following partial example illustrates how the main <<rc_cwl,CWL>> part can be represented by the `#main` identifier
+in accordance to the <<https://www.commonwl.org/v1.2/CommandLineTool.html#Packed_documents,CWL Packed documents>>
+representation, instead of using the multipart `start` parameter. In this case, the `Content-ID` header of the entire
+request (i.e.: `<workflow-main@example.com>`) indicates that the `{processID}` should be `workflow-main`, while the
+`Content-ID` within the part (i.e.: `<#main@example.com>`) indicates that this part is the main <<rc_cwl,CWL>> document.
+The rest of the definition is identical to the previous example.
+
+[[cwl_deploy_multipart_main_ref_example]]
+[source%unnumbered,http]
+----
+POST /processes HTTP/1.1
+Host: example.org
+Content-Type: multipart/related; type="application/cwl+yaml"; boundary="===CWL-BUNDLE==="
+Content-ID: <workflow-main@example.com>
+
+--===CWL-BUNDLE===
+Content-Type: application/cwl+yaml
+Content-ID: <#main@example.org>
+Content-Disposition: attachment; filename="workflows/main.cwl"
+
+cwlVersion: v1.2
+class: Workflow
+id: workflow-main
+...  # rest of the definition
+
+--===CWL-BUNDLE===
+...  # other parts are identical to the previous example
+--===CWL-BUNDLE===--
+----
+
 
 ==== w parameter
 
-When encoded in CWL, processes are identified as instances of the workflow class.
+When encoded in <<rc_cwl,CWL>>, processes are identified as instances of the workflow class.
 
 include::../requirements/cwl/deploy/REQ_w-param.adoc[]
 
@@ -61,10 +216,18 @@ include::../requirements/cwl/deploy/REQ_exception-workflow-not-found.adoc[]
 
 ==== CWL body
 
+In case a <<rc_cwl,CWL>> document is provided directly as body content of the request, the following Requirement applies.
+
 include::../requirements/cwl/replace/REQ_body.adoc[]
+
+==== Multipart CWL body
+
+include::../recommendations/cwl/replace/REC_body-cwl-multipart.adoc[]
 
 === Formal description
 
 ==== CWL content
 
 include::../requirements/cwl/package/REQ_response-body.adoc[]
+
+include::../recommendations/deploy-replace-undeploy/package/REC_response-cwl.adoc[]

@@ -13,7 +13,7 @@ test-method::
 
 2. Retrieve the description of each process according to test <<ats_core_process-description-op,/conf/core/process-description-op>>.
 
-3. Inspect the input definitions of each process and identify a process with an input that supports passing values by reference.  The absence of the `valuePassing` parameter in the inputs definition indicates that values passed by reference is supported.  If the `valuePassing` parameter is present then it must include the value `byReference` to indicate the value passing by reference is supported.
+3. Inspect the input definitions of each process and identify a process with an input that supports passing values by reference.  The absence of the `valuePassing` parameter in the inputs definition indicates that values passed by reference is supported.  If the `valuePassing` parameter is present, then it must include the value `byReference` to indicate the value passing by reference is supported.
 
 4. Compose a KVP-encoded execute request encoding input values by reference as per <<req_kvp-execute_input-by-reference,/req/kvp-execute/input-by-reference>>.
 

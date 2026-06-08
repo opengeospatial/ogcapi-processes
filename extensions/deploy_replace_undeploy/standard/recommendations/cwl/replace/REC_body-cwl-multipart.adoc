@@ -1,0 +1,20 @@
+[[rec_deploy-replace-undeploy_replace_body_cwl_multipart]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/deploy-replace-undeploy/replace-body-cwl-multipart
+
+[.component,class=part]
+--
+A server MAY support process replacement encoded as <<rc_cwl,CWL>> using the same `multipart/related` content approach
+described in <<rec_deploy-replace-undeploy_deploy_body_cwl_multipart,/rec/deploy-replace-undeploy/deploy-body-cwl-multipart>>.
+--
+
+[.component,class=part]
+--
+A server MAY support replacing only partial <<rc_cwl,CWL>> parts of the full process definition
+by supplying only the relevant parts that require an update. Omitted parts SHOULD be considered as unchanged
+and retained from previous process definition deployment or updates.
+--
+
+====

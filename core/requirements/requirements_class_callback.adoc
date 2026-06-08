@@ -1,10 +1,10 @@
 [[rc_callback]]
 [requirements_class]
+.Requirements Class 'Callback'
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/callback
-label:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/callback
-obligation:: requirement
+identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/callback
 subject:: Web API
-inherit:: <<rc_core,OGC API - Processes Core>>
+inherit:: /req/core
+requirement:: /req/callback/job-callback
 ====

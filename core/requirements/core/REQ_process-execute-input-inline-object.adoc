@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-input-inline-object
-label:: /req/core/process-execute-input-inline-object
 
 [.component,class=conditions]
 --
@@ -20,4 +19,5 @@ The server SHALL support process input values encoded as qualified values (https
 --
 The value of the `value` key SHALL be an _object_ instance of <<input-value-schema,inputValue.yaml>>.
 --
+
 ====

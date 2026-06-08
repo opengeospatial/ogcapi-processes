@@ -22,7 +22,7 @@ The content of that response SHALL be based upon the OpenAPI
 
 [.component,class=part]
 --
-The `type` of the exception SHALL be “http://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/duplicated-process”.
+The `type` of the exception SHALL be “https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/duplicated-process”.
 --
 
 ====

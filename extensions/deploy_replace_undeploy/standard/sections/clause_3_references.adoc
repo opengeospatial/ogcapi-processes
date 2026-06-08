@@ -7,3 +7,5 @@
 * [[[OAFeat-1,OGC 17-069r3]]], OGC 17-069r3, OGC API - Features - Part 1: Core
 
 * [[rfc6902,IETF RFC 6902]] Bryan, P., Nottingham, M.: IETF RFC 6902, *JavaScript Object Notation (JSON) Patch*, 2013 http://tools.ietf.org/rfc/rfc6902.txt
+
+* [[rfc2387,IETF RFC 2387]] E. Levinson: IETF RFC 2387, *The MIME Multipart/Related Content-type*, 1998 http://tools.ietf.org/rfc/rfc2387.txt

@@ -15,7 +15,7 @@ test-method::
 
 3. Select a process to execute.
 
-4. Inspect the output definitions of the process taking note of the defined characetristics of each output (e.g. whether more that one output format is supported, etc.).
+4. Inspect the output definitions of the process taking note of the defined characteristics of each output (e.g. whether more that one output format is supported, etc.).
 
 5. Compose a KVP-encoded execute request encoding each requested output according to <<req_kvp-execute_output,/req/kvp-execute/output>>.
 

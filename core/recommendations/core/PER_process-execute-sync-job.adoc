@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /per/core/process-execute-sync-job
-label:: /per/core/process-execute-sync-job
 
 Servers MAY support the creation of a job for synchronously executed processes.
 ====

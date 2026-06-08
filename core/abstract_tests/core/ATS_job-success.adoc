@@ -19,13 +19,13 @@ test-method::
 --
 ====
 
-NOTE: The status info page for a job may be retrieved in a one of two formats. The following table identifies the applicable schema document for each format and the test to be used to validate the status info against that schema. All supported formats should be exercised.
+NOTE: The status info page for a job may be retrieved in one of two formats. The following table identifies the applicable schema document for each format and the test to be used to validate the status info against that schema. All supported formats should be exercised.
 
 [[job-status-info-schema]]
 .Schema and Tests for the Job Status Info
 [cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
-|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_html,/conf/html/content>>
-|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_json_content,/conf/json/content>>
+|HTML |link:https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_html,/conf/html/content>>
+|JSON |link:https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_json_content,/conf/json/content>>
 |===

@@ -11,6 +11,6 @@ test-method::
 --
 1. Negotiate asynchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/conf/core/process-execute-auto-execution-mode>> or <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>>.
 
-2. Validate that each process output can be retrived as per requirement <<req_core_job-result,/req/core/job-result>>.
+2. Validate that each process output can be retrived as per requirement <<req_core_job-result-op,/req/core/job-result-op>>.
 --
 ====

@@ -11,6 +11,6 @@ test-method::
 --
 1. Verify that the `profile` query parameter complies with its schema definition in requirement <<req_query-param-profile_definition,/req/query-param-profile/definition>>.
 
-2. Verify that each element in the profile list is either a HTTP(S) URI or a profile identifier (i.e. `{profileId}`) in the URI template `\http://www.opengis.net/def/profile/OGC/0/{profileId}`.
+2. Verify that each element in the profile list is either a HTTP(S) URI or a profile identifier (i.e. `{profileId}`) in the URI template `\https://www.opengis.net/def/profile/OGC/0/{profileId}`.
 --
 ====

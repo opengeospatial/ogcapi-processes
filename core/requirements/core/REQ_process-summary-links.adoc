@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-summary-links
-label:: /req/core/process-summary-links
 
 [.component,class=part]
 --
@@ -14,4 +13,5 @@ Each process summary SHALL include a link (relation: `self`) that points to the 
 --
 Each process summary SHALL include one or more links (relation: `alternate`) that points to each alternative representation of the full description of the process (path: `/processes/{processID}`).
 --
+
 ====

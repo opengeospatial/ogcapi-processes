@@ -6,7 +6,9 @@ identifier:: /req/docker/execution-unit
 
 [.component,class=part]
 --
-If the execution unit is specified as a Docker image, the  value of the `type` property SHALL be `docker'.
+If the execution unit is specified as a Docker image, the value of the `type` property from the
+https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-dru/executionUnit.yaml[executionUnit.yaml]
+schema SHALL be `docker`.
 --
 
 [.component,class=part]

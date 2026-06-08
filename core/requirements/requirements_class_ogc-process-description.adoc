@@ -1,11 +1,22 @@
 [[rc_ogc-process-description]]
 [requirements_class]
+.Requirements Class 'OGC Process Description'
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/ogc-process-description
-label:: http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/ogc-process-description
-obligation:: requirement
+identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/ogc-process-description
 subject:: Web API
-inherit:: <<rc_core,OGC API - Processes Core>>
 inherit:: <<rfc8259,JSON>>
+inherit:: /req/core
+requirement:: /req/ogc-process-description/data-access-apis
+requirement:: /req/ogc-process-description/data-classes
+requirement:: /req/ogc-process-description/execution-unit-requirements
+requirement:: /req/ogc-process-description/input-def
+requirement:: /req/ogc-process-description/input-multiple-types
+requirement:: /req/ogc-process-description/inputs-def
+requirement:: /req/ogc-process-description/json-encoding
+requirement:: /req/ogc-process-description/links
+requirement:: /req/ogc-process-description/output-def
+requirement:: /req/ogc-process-description/output-multiple-types
+requirement:: /req/ogc-process-description/outputs-def
+requirement:: /req/ogc-process-description/value-passing
 ====

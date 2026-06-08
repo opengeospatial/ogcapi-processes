@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-omitted-outputs
-label:: /req/core/process-execute-omitted-outputs
 
 [.component,class=conditions]
 --
@@ -15,4 +14,5 @@ label:: /req/core/process-execute-omitted-outputs
 --
 Omitting the "outputs" parameter in the <<execute-request-body,execute request>> SHALL be equivalent to explicitly requesting all of the defined outputs of the process.
 --
+
 ====

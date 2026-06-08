@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/collection-output/data-access-mechanisms
-label:: /req/collection-output/data-access-mechanisms
 
 [.component,class=description]
 --
@@ -14,6 +13,7 @@ For returning resulting output data as a response to <<def-data-access-mechanism
 --
 The server SHALL support at least one <<def-data-access-mechanism,OGC API data access mechanisms>> corresponding to the data access links included in the target <<def-collection-description,collection description document>>.
 --
+
 ====
 
 

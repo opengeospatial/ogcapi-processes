@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-input-multiple-types
-label:: /req/core/process-execute-input-multiple-types
 
 [.component,class=conditions]
 --
@@ -26,4 +25,5 @@ The value of the `value` key SHALL be an instance of <<input-value-schema,inputV
 --
 The `format` parameter of the qualified value (https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/qualifiedValue.yaml[qualifiedValue.yaml]) SHALL be used to indicate, for this value instance, the specific input type selected from the list of type choices defined by the input value's schema from the <<sc_process_description,process description>>.
 --
+
 ====

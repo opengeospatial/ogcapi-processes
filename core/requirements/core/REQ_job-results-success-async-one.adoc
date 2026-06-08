@@ -3,13 +3,12 @@
 ====
 [%metadata]
 identifier:: /req/core/job-results-async-one
-label:: /req/core/job-results-async-one
 
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is asynchronous,
 . The number of requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
-. The result is retieved from the `/jobs/{jobID}/results/{outputID}` endpoint.
+. The result is retrieved from the `/jobs/{jobID}/results/{outputID}` endpoint.
 --
 
 [.component,class=part]
@@ -26,4 +25,5 @@ The media type of the response SHALL be as negotiated as per the https://datatra
 --
 The content of response body SHALL be the requested process output value in the negotiated output format.
 --
+
 ====

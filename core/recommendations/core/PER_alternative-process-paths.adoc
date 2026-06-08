@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /per/core/alternative-process-paths
-label:: /per/core/alternative-process-paths
 
 Servers MAY support alternative API paths.
 ====

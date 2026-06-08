@@ -9,12 +9,12 @@ test-purpose:: Validate that the job results retrieved using an invalid job iden
 test-method::
 +
 --
-1. Issue an HTTP GET request to the URL '/jobs/{jobID}/results' using a parameters (e.g. `outputs`) with an invalid parameter value.
+1. Issue an HTTP GET request to the URL '/jobs/{jobID}/results' using a parameter (e.g. `outputs`) with an invalid parameter value.
 
 2. Verify that the server responds with an HTTP status code 400.
 
 3. Verify that the body of the response conforms to the https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/common-core/exception.yaml[exception.yaml] schema.
 
-4. Verify that the `type` of the exception is "http://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/invalid-query-parameter-value".
+4. Verify that the `type` of the exception is "https://www.opengis.net/def/exceptions/ogcapi-processes-1/1.0/invalid-query-parameter-value".
 --
 ====

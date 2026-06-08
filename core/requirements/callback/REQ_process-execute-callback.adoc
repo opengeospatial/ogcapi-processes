@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/callback/job-callback
-label:: /req/callback/job-callback
 
 [.component,class=part]
 --
@@ -21,4 +20,5 @@ The schema of the `subscriber` element of the <<execute-request-body,execute>> r
 
 include::../../../openapi/schemas/processes-core/subscriber.yaml[]
 --
+
 ====

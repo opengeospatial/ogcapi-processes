@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/html/definition
-label:: /req/html/definition
 
 `200`-responses of the server SHALL support the following media type:
 

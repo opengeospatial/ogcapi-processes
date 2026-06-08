@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/job-list/datetime-definition
-label:: /req/job-list/datetime-definition
 
 [.component,class=part]
 --
@@ -37,12 +36,12 @@ datetime            = date-time / interval
 
 [.component,class=part]
 --
-The syntax of `date-time` is specified by link:https://tools.ietf.org/html/rfc3339#section-5.6[RFC 3339, 5.6].
+The syntax of `date-time` is specified by link:https://tools.ietf.org/html/rfc3339#section-5.6[RFC 3339, section 5.6].
 --
 
 [.component,class=part]
 --
-Open ranges in time intervals at the start or end are supported using a double-dot (`..`) or an empty string for the start/end.
+Open ranges in time intervals at the start or end are specified by using a double-dot (`..`) or an empty string for the start/end.
 --
 
 ====

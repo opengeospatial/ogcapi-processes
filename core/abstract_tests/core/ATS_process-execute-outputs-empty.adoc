@@ -12,6 +12,6 @@ test-method::
 
 2. Ensure that the content of the `outputs` parameter, specified in the <<execute-request-body,execute request>>, is empty.
 
-3. Verify that no processing outputs are generated (see tests: <<ats_core_process-execute-success-sync-outputs-empty,/conf/core/process-execute-success-sync-outputs-empty>>, <<ats_core_process-execute-success-async-outputs-empty,/conf/core/process-execute-success-async-outputs-empty>>).
+3. Verify that no processing outputs are generated (see tests: <<ats_core_process-execute-success-sync-empty-outputs,/conf/core/process-execute-success-sync-empty-outputs>>, <<ats_core_process-execute-success-async-outputs-empty,/conf/core/process-execute-success-async-outputs-empty>>).
 --
 ====

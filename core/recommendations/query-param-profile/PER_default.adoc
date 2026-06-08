@@ -3,5 +3,6 @@
 ====
 [%metadata]
 identifier:: /per/query-param-profile/default
-part:: The server MAY specify a default value for the query parameter "profile".
+
+The server MAY specify a default value for the query parameter "profile".
 ====

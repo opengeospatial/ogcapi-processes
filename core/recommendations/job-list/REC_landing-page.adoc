@@ -3,9 +3,8 @@
 ====
 [%metadata]
 identifier:: /rec/job-list/job-list-landing-page
-label:: /rec/job-list/job-list-landing-page
 
 A link to the following resource SHOULD be added to the API landing page:
 
-/jobs (relation type 'http://www.opengis.net/def/rel/ogc/1.0/job-list')
+/jobs (relation type 'https://www.opengis.net/def/rel/ogc/1.0/job-list')
 ====

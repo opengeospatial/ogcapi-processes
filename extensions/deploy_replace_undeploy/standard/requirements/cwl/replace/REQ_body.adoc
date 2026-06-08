@@ -6,7 +6,20 @@ identifier:: /req/cwl/replace-body
 
 [.component,class=part]
 --
-The media type `application/cwl` SHALL be used to indicate that request body contains a processes description encoded as <<rc_ogcapppkg,CWL>>.
+The media type `application/cwl` indicated by the `Content-Type` header
+SHALL be used to indicate that request body contains a processes description encoded as <<rc_cwl,CWL>>.
+--
+
+[.component,class=part]
+--
+If the <<rc_cwl,CWL>> encoding is known to be a JSON document,
+the request MAY employ `application/cwl+json` instead of `application/cwl` to advertise it more explicitly.
+--
+
+[.component,class=part]
+--
+If the <<rc_cwl,CWL>> encoding is known to be a YAML document,
+the request MAY employ `application/cwl+yaml` instead of `application/cwl` to advertise it more explicitly.
 --
 
 ====

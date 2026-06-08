@@ -6,10 +6,10 @@ identifier:: /req/cwl/package-response-body
 
 [.component,class=part]
 --
-A response with HTTP status code `200` SHALL include a body that contains:
- * the <<rc_cwl,CWL>> to use to deploy the process, in case the Content-Type used to deploy the process was `application/cwl`. 
- * the <<rc_ogcapppkg,OGC Application Package>> to use to deploy the process, in case the Content-Type used to deploy the process was `application/ogcapppkg+json`.
- 
+A response with HTTP status code `200` SHALL include a body that contains, by default:
+
+* the <<rc_cwl,CWL>> to use to deploy the process, in case the `Content-Type` used to deploy the process was `application/cwl`, `application/cwl+json`, or `application/cwl+yaml`.
+* the <<rc_ogcapppkg,OGC Application Package>> to use to deploy the process, in case the `Content-Type` used to deploy the process was `application/ogcapppkg+json`.
 --
 
 ====

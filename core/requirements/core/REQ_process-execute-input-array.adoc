@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-input-array
-label:: /req/core/process-execute-input-array
 
 [.component,class=conditions]
 --
@@ -19,4 +18,5 @@ The server SHALL support process input values encoded as an array.
 --
 This SHALL be true even if the input consists of a single value.
 --
+
 ====

@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/local-filtering
-label:: /req/local-filtering
 
 [.component,class=description]
 --
@@ -12,7 +11,7 @@ To support the local filtering of data accessed from a <<def-collection,collecti
 
 [.component,class=part]
 --
-The server SHALL support local filtering of input data, retrived from a <<value-source-server,value source server>>, based on the filtering parameters:
+The server SHALL support local filtering of input data, retrieved from a <<value-source-server,value source server>>, based on the filtering parameters:
 
 * filter, filterCrs, filterLang
 * bbox, bboxCrs

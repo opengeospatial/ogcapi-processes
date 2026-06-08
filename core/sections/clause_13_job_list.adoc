@@ -3,7 +3,7 @@
 
 === Overview
 
-This class specifies the requirements of a request that retrieves a list of jobs from the Processes API.
+The Job list Requirements Class specifies the requirements for a request that retrieves a list of jobs from a Processes API endpoint.
 
 include::../requirements/requirements_class_job-list.adoc[]
 
@@ -98,7 +98,7 @@ include::../recommendations/job-list/PER_prev.adoc[]
 ====
 [source]
 ----
-http://processing.example.org/jobs
+https://processing.example.org/jobs
 ----
 ====
 

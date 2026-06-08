@@ -15,6 +15,6 @@ test-method::
 
 3. Explicitly fetch each of the requested outputs via the `/jobs/{jobID}/results/{outputID}` endpoint and verify that the server responds successfully.
 
-4. Explicity fetch one or more of the outputs that were omitted from the <<execute-request-body,execute request>> and verify that the server responds with HTTP status code of `404`.
+4. Explicitly fetch one or more of the outputs that were omitted from the <<execute-request-body,execute request>> and verify that the server responds with HTTP status code of `404`.
 --
 ====

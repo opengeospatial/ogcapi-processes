@@ -3,7 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/boolean-input-value
-label:: /req/kvp-execute/boolean-input-value
 
 [.component,class=conditions]
 --
@@ -28,4 +27,5 @@ explode: false
 
 where the token `{inputID}` represented the identifier of the input.
 --
+
 ====

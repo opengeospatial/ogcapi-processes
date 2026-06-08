@@ -6,19 +6,46 @@ identifier:: /req/cwl/execution-unit
 
 [.component,class=part]
 --
-If the execution unit is encoded in CWL, the content of the `executionUnit` parameter SHALL be an object with the following properties:
- * `type`  and `href` if passed by reference
- * `value` and `mediaType` property if passed by value
+If the execution unit is encoded in <<rc_cwl,CWL>>, the content of the `executionUnit` parameter SHALL be an object
+with the following properties:
+
+* `type` and `href` if passed by reference
+* `value` and `mediaType` if passed by qualified value
 --
 
 [.component,class=part]
 --
-If the execution unit is encoded in CWL, the value of the `type` property SHALL be `application/cwl`, when for `mediaType` it should be `application/cwl+json`.
+If the execution unit is encoded in <<rc_cwl,CWL>> provided by reference with the `href` property,
+the value of the `type` property SHALL be `application/cwl` for a generic encoding (either JSON or YAML),
+`application/cwl+json` if the encoding is known to be a JSON document,
+or `application/cwl+yaml` if the encoding is known to be a YAML document.
 --
 
 [.component,class=part]
 --
-If the execution unit is encoded in CWL, the value of the `href` property SHALL be a reference to the CWL encoded file, when the value of the `value` property shall be the CWL encoded in JSON format.
+If the execution unit is encoded in <<rc_cwl,CWL>> provided by reference, the value of the `href` property SHALL
+be a reference to the <<rc_cwl,CWL>> encoded file in JSON or YAML format in accordance to the `type` property.
+--
+
+[.component,class=part]
+--
+If the execution unit is encoded in <<rc_cwl,CWL>> provided by qualified value with the `value` property,
+and content of that `value` are directly encoded as JSON object within the execution unit parameter,
+the value of the `mediaType` property SHALL be `application/cwl` or `application/cwl+json`.
+--
+
+[.component,class=part]
+--
+If the execution unit is encoded in <<rc_cwl,CWL>> provided by qualified value with the `value` property,
+and content of that `value` are encoded as an embedded string representing JSON within the execution unit parameter,
+the value of the `mediaType` property SHALL be `application/cwl+json`.
+--
+
+[.component,class=part]
+--
+If the execution unit is encoded in <<rc_cwl,CWL>> provided by qualified value with the `value` property,
+and content of that `value` are encoded as an embedded string representing YAML within the execution unit parameter,
+the value of the `mediaType` property SHALL be `application/cwl+yaml`.
 --
 
 ====

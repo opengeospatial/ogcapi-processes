@@ -6,7 +6,7 @@
 [[def-collection]]
 ==== collection; OGC API collection
 
-A resource that may be available as one or more sub-resource distributions that conform to one or more https://www.ogc.org/standards[OGC API standards]. (https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Common - Part 2: Geospatial Data])
+(in the context of OGC APIs) A set of spatiotemporal data that may be available through one or more access mechanisms defined by https://www.ogc.org/standards[OGC API standards]. (https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Common - Part 2: Geospatial Data])
 
 [[def-collection-description]]
 ==== collection description document
@@ -19,7 +19,7 @@ A collection of data, published or curated by a single agent, and available for 
 
 ==== distribution
 
-A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above). (https://www.w3.org/TR/vocab-dcat-2/[Data Catalog Vocabulary (DCAT) - Version 2])
+A specific representation of a dataset. A dataset might be available in multiple distributions that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above). (https://www.w3.org/TR/vocab-dcat-2/[Data Catalog Vocabulary (DCAT) - Version 2])
 
 EXAMPLE: a downloadable file, an RSS feed or an API.
 
@@ -29,7 +29,7 @@ The (processing) job is a server-side object created by a processing service for
 
 ==== JSON
 
-JavaScript Object Notation is a lightweight data-interchange format. JSON is easy for humans to read and write and it is easy for machines to parse and generate.
+JavaScript Object Notation is a lightweight text-based, data-interchange format.
 
 ==== link
 
@@ -47,18 +47,18 @@ A <<def-collection,collection>> that is local to the <<def-deployment,OGC API de
 [[def-data-access-mechanism]]
 ==== OGC API data access mechanism
 
-A method or procedure, that conforms to an https://www.ogc.org/standards/[OGC API Standard], used to control how users or systems can access and interact with data.
+(in the context of OGC APIs) A mechanism defined by an OGC API Standard to access spatiotemporal data from a <<def-collection,collection>>/
 
 EXAMPLE: https://docs.ogc.org/is/20-057/20-057.html[_OGC API - Tiles - Part 1: Core_], https://docs.ogc.org/DRAFTS/19-087.html[_OGC API - Coverages - Part 1: Core_], https://docs.ogc.org/DRAFTS/21-038r1.html[_OGC API - Discrete Global Grid Systems - Part 1: Core_], https://docs.ogc.org/is/17-069r4/17-069r4.html[_OGC API - Features - Part 1: Core_], https://docs.ogc.org/is/19-086r6/19-086r6.html[_OGC API - Environmental Data Retrieval Standard_], https://docs.ogc.org/is/20-058/20-058.html[_OGC API - Maps - Part 1: Core_]
 
 [[def-deployment]]
 ==== OGC API deployment
 
-An implementation of an https://www.ogc.org/standards/[OGC API Standard] that is accessible to users and other system typically through the internet.
+An implementation of an https://www.ogc.org/standards/[OGC API Standard] that is accessible to users and other system(s) typically through the Web.
 
 ==== process
 
-A process p is a function that for each input returns a corresponding output
+A process _p_ is a function that for each input returns a corresponding output
 
 [stem%unnumbered]
 ++++
@@ -71,8 +71,7 @@ The term "process" is one of the most used terms both in the information and geo
 
 ==== process description
 
-A process description is an information model that specifies the interface of a process. A process description is used for a machine-readable description of the process itself but also provides some basic information about the process inputs and outputs.
-
+A specific documented account of steps, roles, and rules involved in a computing process, often described using standard like the https://swagger.io/specification/[OpenAPI Standard].
 
 ==== process execution
 
@@ -95,17 +94,17 @@ Process outputs are the results of a process and refer to data returned by a pro
 [[explicit-process-output]]
 ==== process output (explicitly requested)
 
-A process output with identifier `{outputID}` that is explicitly specified in the "outputs" section of an <<execute-request-body,execute request>>.
+A process output that is defined in the <<sc_process_description,description of a process>> and is explicitly specified using its identifier `{outputID}` in the "outputs" section of an <<execute-request-body,execute request>>.
 
 [[implicit-process-output]]
 ==== process output (implicitly requested)
 
 A process output that is defined in the <<sc_process_description,description of a process>> and is generated as a result of an <<execute-request-body,execute request>> where the "outputs" parameter has been omitted.  Omitting the "outputs" parameters of an <<execute-request-body,execute request>> is equivalent to explicitly requesting all of the outputs defined in the <<sc_process_description,process description>>
 
-[[def-remote-collection]]
-==== remote collection
+[[def-remote-collections]]
+==== remote collections
 
-A <<def-collection,collection>> that is not local to the <<def-deployment,OGC API deployment>> <<def-data-access-mechanism,currently being accessed>>.
+A <<def-collection,collection>> that is available from an external OGC API deployment different from the deployment whose process is being executed.
 
 ==== REST
 
@@ -114,7 +113,7 @@ The Representational State Transfer (REST) style is an abstraction of the archit
 [[value-source-server]]
 ==== Value source server
 
-A server that implements one or more <<def-data-access-mechanism,data access mechanisms>> for accessing data from an <<def-collection,OGC API collection>>.  The server acts as a source of values that are passed to a process being executed by an implementation of this Standard.
+A server that implements one or more <<def-data-access-mechanism,data access mechanisms>> for accessing data from an <<def-collection,OGC collection>>.  The server acts as a source of values that are passed to a process being executed by an implementation of this Standard.
 
 === Abbreviated Terms
 

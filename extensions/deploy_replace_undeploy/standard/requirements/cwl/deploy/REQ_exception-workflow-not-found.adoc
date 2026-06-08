@@ -6,7 +6,8 @@ identifier:: /req/cwl/deploy-exception-workflow-not-found
 
 [.component,class=part]
 --
-If the `w` parameter has a value and the server cannot find the `w` identifier in the worflows from the body POST request, the status code SHALL be `400`.
+If the `w` parameter has a value and the server cannot find the `w` identifier in the workflows from the
+body `POST` request, the status code SHALL be `400`.
 --
 
 [.component,class=part]
@@ -16,7 +17,7 @@ The content of that response SHALL be based upon the schema https://raw.githubus
 
 [.component,class=part]
 --
-The `type` of the exception SHALL be “http://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/workflow-not-found”.
+The `type` of the exception SHALL be `"https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/workflow-not-found"`.
 --
 
 ====

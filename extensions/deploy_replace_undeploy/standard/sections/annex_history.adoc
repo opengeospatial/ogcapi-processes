@@ -20,4 +20,7 @@
 |2024-04-26 |None |Gérald Fenoy |all |Add section for retrieving formal description of a mutable process
 |2026-04-08 |None |Francis Charette-Migneault |all |Update format rendering of code snippets
 |2026-04-13 |None |Francis Charette-Migneault |all |Fix req/rec/per definitions format and references.
+|2026-05-27 |None |Francis Charette-Migneault |all |Replace HTTP by HTTPS for requirement/conformance class references.
+|2026-05-27 |None |Francis Charette-Migneault |CWL |Add multiple clarifications to CWL media-type and their operations.
+|2026-05-27 |None |Francis Charette-Migneault |CWL |Add CWL multipart deployment details and guidance.
 |===
