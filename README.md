@@ -48,12 +48,13 @@ No additional endpoints. Execution reuses the same endpoints as in Part 1 with n
 
 ### Part 4: Job Management
 
-| Method | Endpoint                | Description                                       |
-|--------|-------------------------|---------------------------------------------------|
-| POST   | `/jobs`                 | Create a new job (potentially pending execution). |
-| PATCH  | `/jobs/{jobID}`         | Update an existing job (if pending execution).    |
-| POST   | `/jobs/{jobID}/results` | Trigger execution of an existing job.             |
-| GET    | `/jobs/{jobID}/prov`    | Returns provenance details of a completed job.    |
+| Method | Endpoint                   | Description                                                                                    |
+|--------|----------------------------|------------------------------------------------------------------------------------------------|
+| POST   | `/jobs`                    | Create a new job (potentially pending execution).                                              |
+| PATCH  | `/jobs/{jobID}`            | Update an existing job (if pending execution).                                                 |
+| PATCH  | `/jobs/{jobID}/definition` | Retrieve the definition of a job (submitted inputs, selected outputs, header parmeters, etc.). |
+| POST   | `/jobs/{jobID}/results`    | Trigger execution of a pending job.                                                            |
+| GET    | `/jobs/{jobID}/prov`       | Returns provenance details of a completed job.                                                 |
 
 ## Using the standard
 
