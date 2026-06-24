@@ -11,3 +11,9 @@ requirement:: /req/oas/exceptions-codes
 requirement:: /req/oas/oas-impl
 requirement:: /req/oas/security
 ====
+
+[[cc_oas]]
+[.conformance class]
+====
+target:: <<rc_oas>>
+====

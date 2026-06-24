@@ -66,7 +66,7 @@ include::../requirements/kvp-execute/REQ_f-definition.adoc[]
 
 include::../requirements/kvp-execute/REQ_f-response.adoc[]
 
-.Negotiating a respone format.
+.Negotiating a response format.
 ====
 This is an execution example where an input image is provided, along with other parameters, to the `myProcess` process and the response format is requested to be either a PNG or JPEG image (in that order of preference).
 
@@ -319,13 +319,13 @@ arrayOfArrays=[[1,2,3,4],["a","b","c","d"]]
 An array of value references:
 [source]
 ----
-images=%5B%7B%22href%22%3A%22http%3A%2F%2Fwww.imagearchive.com%2Fimages%2Fimage01.tif%22%2C%22type%22%3A%22image%2Ftiff%3Bapplcation%3Dgeotiff%22%7D%2C%7B%22href%22%3A%22http%3A%2F%2Fwww.imagearchive.com%2Fimages%2Fimage19.jp2%2C%22type%22%3A%22image%2Fjp2%22%7D%5D
+images=%5B%7B%22href%22%3A%22http%3A%2F%2Fwww.imagearchive.com%2Fimages%2Fimage01.tif%22%2C%22type%22%3A%22image%2Ftiff%3Bapplication%3Dgeotiff%22%7D%2C%7B%22href%22%3A%22http%3A%2F%2Fwww.imagearchive.com%2Fimages%2Fimage19.jp2%2C%22type%22%3A%22image%2Fjp2%22%7D%5D
 
 Decoded value is:
 images=[
   {
     "href":"https://www.imagearchive.com/images/image01.tif",
-    "type":"image/tiff;applcation=geotiff"
+    "type":"image/tiff;application=geotiff"
   },
   {
     "href":"https://www.imagearchive.com/images/image19.jp2,
@@ -500,6 +500,11 @@ include::../requirements/kvp-execute/REQ_output.adoc[]
 [source]
 ----
 ...&out1[include]=true&out1[mediaType]=application/geo+tiff&...
+----
+
+[source]
+----
+...&out1[include]=true&out1[mediaType]=application/geo+tiff&out1[index]=4&...
 ----
 ====
 

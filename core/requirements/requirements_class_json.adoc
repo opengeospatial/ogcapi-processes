@@ -9,3 +9,9 @@ inherit:: <<rfc8259,JSON>>
 inherit:: /req/core
 requirement:: /req/json/definition
 ====
+
+[[cc_json]]
+[.conformance class]
+====
+target:: <<rc_json>>
+====

@@ -17,7 +17,7 @@ The server SHALL asynchronously execute the process but SHALL not produce any re
 
 [.component,class=part]
 --
-Attempting to retieve any of the process's defined outputs via the `/jobs/{jobID}/results[/{outputID}]` path SHALL result in a HTTP status code 404 response.
+Attempting to retrieve any of the process's defined outputs via the `/jobs/{jobID}/results[/{outputID}]` path SHALL result in a HTTP status code 404 response.
 --
 
 ====

@@ -4,5 +4,5 @@
 [%metadata]
 identifier:: /req/core/job-results-param-outputs-response
 
-Only the outputs with identifers specified using the optional <<req_core_job-results-param-outputs,`outputs` parameter>> SHALL be included in the response.
+Only the outputs with identifiers specified using the optional <<req_core_job-results-param-outputs,`outputs` parameter>> SHALL be included in the response.
 ====

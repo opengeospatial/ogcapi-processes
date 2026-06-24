@@ -23,3 +23,9 @@ requirement:: /req/job-list/job-list-success
 requirement:: /req/job-list/type-definition
 requirement:: /req/job-list/type-response
 ====
+
+[[cc_job-list]]
+[.conformance class]
+====
+target:: <<rc_job-list>>
+====

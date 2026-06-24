@@ -198,7 +198,7 @@ This includes the correct use of status codes, headers. etc.
 
 include::../recommendations/core/REC_http-head.adoc[]
 
-Supporting the HEAD method, in addition to GET, is simple and can provide useful information such as the size of a protential response without needing to transmite the entire content of the response beforehand.
+Supporting the HEAD method, in addition to GET, is simple and can provide useful information such as the size of a potential response without needing to transmit the entire content of the response beforehand.
 
 include::../recommendations/core/REC_content-length.adoc[]
 
@@ -1034,7 +1034,7 @@ The following table maps the possible responses based on the combinations of the
 |===
 |Negotiated execute mode
 |Requested # outputs<<implicit-explicit-outputs,^3^>>
-|Defined # of outputs
+|Output cardinality
 |Return preference (`Prefer` header)
 |Response HTTP code
 |Response headers
@@ -1042,15 +1042,28 @@ The following table maps the possible responses based on the combinations of the
 |Response body
 |Req./Rec./Perm.
 
-.4+|sync
+.7+|sync
 |1
-|_n/a_
+|maxOccurs=1
 |_n/a_
 |200
 |
 |_as negotiated_
 |requested process output
 |See requirement: <<req_core_process-execute-sync-one,/req/core/process-execute-sync-one>>
+
+1.3+|1
+.3+|maxOccurs>1
+|_none_
+.3+|200
+.3+|
+.3+|application/json<<sync_note_4,^13^>>
+.3+|<<schema_values,values.yaml>>
+|See <<sync_note_9,Note 9.>>,<<sync_note_10,Note 10>>
+|minimal
+|See <<sync_note_9,Note 9.>>,<<sync_note_11,Note 11>>
+|representation
+|See <<sync_note_9,Note 9.>>,<<sync_note_12,Note 12>>
 
 1.3+|N
 .3+|_n/a_
@@ -1073,7 +1086,7 @@ The following table maps the possible responses based on the combinations of the
 |_Location_ to newly created job
 |application/json
 |<<schema-statusInfo,statusInfo.yaml>>
-|See <<async-response,Response for asynchronous processes execution>>
+|See <<async-response,Response for asynchronous process execution>>
 |===
 
 [NOTE]
@@ -1124,6 +1137,37 @@ A process output may be requested <<explicit-process-output,explicitly>> or <<im
 * See recommendation: <<rec_core_process-execute-sync-many-json-prefer-representation,/rec/core/process-execute-sync-many-json-prefer-representation>>.
 ====
 
+[[sync_note_9]]
+[NOTE]
+====
+* See requirement: <<req_core_process-execute-sync-one-multi-valued-json,/req/core/process-execute-sync-one-multi-valued-json>>.
+* See permission: <<per_core_process-execute-sync-one-multi-valued-other-formats,/per/core/process-execute-sync-one-multi-valued-other-formats>>
+====
+
+[[sync_note_10]]
+[NOTE]
+====
+* See recommendation: <<rec_core_process-execute-sync-one-multi-valued-json-prefer-none,/rec/core/process-execute-sync-one-multi-valued-json-prefer-none>>.
+====
+
+[[sync_note_11]]
+[NOTE]
+====
+* See recommendation: <<rec_core_process-execute-sync-one-multi-valued-json-prefer-minimal,/rec/core/process-execute-sync-many-json-prefer-minimal>>.
+====
+
+[[sync_note_12]]
+[NOTE]
+====
+* See recommendation: <<rec_core_process-execute-sync-one-multi-valued-json-prefer-representation,/rec/core/process-execute-sync-many-json-prefer-representation>>.
+====
+
+[[sync_note_13]]
+[NOTE]
+====
+* See recommendation: <<per_core_process-execute-multiple-values-pkg,/per/core/process-execute-multiple-values-pkg>>.
+====
+
 [[schema_results]]
 .Schema for processing results presented as a JSON document
 [source,yaml]
@@ -1135,7 +1179,16 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 
 The https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/refs/heads/master/openapi/schemas/processes-core/results.yaml[`results.yaml`] schema defines a map using the respective output identifier as the key. The value of an output can be returned as an in-line value or by reference.
 
-===== Response requesting a single processing output
+[[schema_values]]
+.Schema for processing values presented as a JSON document
+[source,yaml]
+----
+include::../../openapi/schemas/processes-core/values.yaml[]
+----
+
+NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/refs/heads/master/openapi/schemas/processes-core/values.yaml[`values.yaml`].
+
+===== Response requesting a single processing output (maxOccurs=1)
 
 When a process is executed synchronously and a single processing output is generated (whether requested <<implicit-explicit-outputs,implicitly or explicitly>> in the <<execute-request-body,execute request>>) the following requirements and recommendations apply:
 
@@ -1149,7 +1202,7 @@ include::../recommendations/core/PER_process-execute-sync-one-result.adoc[]
 
 *Example*
 
-In the example below the process "compute-spectral-index" has a single output also named "spectral-index-output".  This processes is implemented to store the result file in some Web-accessible location.  In this example the process is executed synchronously and the single output is requested.  According to <<table_core_execute_responses>>, in this case, the server should respond with the output image generated by the process.  The server can either stream the response from its Web-accessiblke location to the client OR the server can use a HTTP 303 redirect to point to the result as shown in the example.
+In the example below the process "compute-spectral-index" has a single output also named "spectral-index-output".  This processes is implemented to store the result file in some Web-accessible location.  In this example the process is executed synchronously and the single output is requested.  According to <<table_core_execute_responses>>, in this case, the server should respond with the output image generated by the process.  The server can either stream the response from its Web-accessible location to the client OR the server can use a HTTP 303 redirect to point to the result as shown in the example.
 
 .HTTP 303 redirect example.
 ====
@@ -1187,9 +1240,25 @@ Client                                                                Server
 ----
 ====
 
+===== Response requesting a single processing output (`maxOccurs>1`)
+
+In the case where the cardinality of a processing output is defined as being greater than one (i.e. `maxOccurs>1`), possibly resulting in multiple values being generate by the processing server for that output, the following requirements, recommendations and permissions applies:
+
+include::../requirements/core/REQ_process-execute-success-sync-one-multi-valued-json.adoc[]
+
+include::../recommendations/core/PER_process-execute-multiple-values-pkg.adoc[]
+
+include::../recommendations/core/REC_process-execute-success-sync-one-multi-valued-json-prefer-none.adoc[]
+
+include::../recommendations/core/REC_process-execute-success-sync-one-multi-valued-json-prefer-minimal.adoc[]
+
+include::../recommendations/core/REC_process-execute-success-sync-one-multi-valued-json-prefer-representation.adoc[]
+
+include::../recommendations/core/PER_process-execute-success-sync-one-multi-valued-other-formats.adoc[]
+
 ===== Response requesting multiple processing outputs
 
-When a process is executes synchronously and a multiple processing outputs are generated (whether requested implicitly or explicitly in the <<execute-request-body,execute>> request) the following requirements and recommendations apply:
+When a process is executed synchronously and multiple processing outputs are generated (whether requested implicitly or explicitly in the <<execute-request-body,execute>> request) the following requirements, recommendations and permissions apply:
 
 include::../requirements/core/REQ_process-execute-success-sync-many-json.adoc[]
 
@@ -1232,13 +1301,15 @@ include::../requirements/core/REQ_job-results-success-sync.adoc[]
 The job reference in the header can then be used to <<req_core_process-execute-success-async,re-fetch the results>> of the original synchronous execution.
 
 [[async-response]]
-===== Response for asynchronous processes execution
+===== Response for asynchronous process execution
 
 In the case of asynchronous execution, the following requirement applies:
 
 include::../requirements/core/REQ_process-execute-success-async.adoc[]
 
 include::../requirements/core/REQ_process-execute-success-async-outputs.adoc[]
+
+include::../requirements/core/REQ_process-execute-success-async-outputs-Nth.adoc[]
 
 include::../requirements/core/REQ_process-execute-success-async-outputs-empty.adoc[]
 
@@ -1337,11 +1408,23 @@ include::../requirements/core/REQ_job-results-param-outputs-response.adoc[]
 
 include::../requirements/core/REQ_job-results-profile.adoc[]
 
-===== Individual processing results
+===== Individual processing results (maxOccurs=1)
 
 include::../requirements/core/REQ_job-result-op.adoc[]
 
 NOTE: The size of individual processing results may be determined without actually transmitting the entire result by using the <<rec_core_http-head,HTTP HEAD>> method to retrieve the <<rec_core_content-length,`Content-Length`>> header.
+
+===== Individual processing results (maxOccurs>1)
+
+include::../requirements/core/REQ_job-result-op-Nth.adoc[]
+
+NOTE: The size of the value may be determined without actually transmitting the entire result by using the <<rec_core_http-head,HTTP HEAD>> method to retrieve the <<rec_core_content-length,`Content-Length`>> header.
+
+===== The "0-th" result
+
+include::../requirements/core/REQ_job-result-op-0th.adoc[]
+
+In other words, regardless of the defined cardinality of an output, the first result (i.e. at index value 0) is always accessible.  If, however, the cardinality of the output is 1 (i.e. `maxOccurs=1`) then attempting to retrieve an output value using any index value other than _0_ will result in an HTTP 404 exception.  Also, if the cardinality of the output is greater than one (i.e. `maxOccurs>1`) then other non-zero index values may be used to retrieve output values.  However, out-of-bounds index values will results in an HTTP 404 exception (see requirement: <<req_core_process-execute-success-async-outputs-Nth,/req/core/process-execute-success-async-outputs-Nth>>).  
 
 ==== Response
 
@@ -1352,12 +1435,14 @@ The way a server responds when retrieving job results depends on:
 * The number of outputs requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) in an <<execute-request-body,execute request>>.
 * The negotiated content type for the response (via the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header) or lack thereof,
 * Any negotiated client preferences (via the HTTP Prefer header).
+* Whether an output is single-valued (i.e. `maxOccurs=1`) or multi-valued (i.e. `maxOccurs>1`).
 
 The following table maps the possible responses based on the combinations of parameters in the <<execute-request-body,execute request>>.
 
 The column headers in the following table denote:
 
 . *Requested # outputs*: The number of outputs requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) in the <<execute-request-body,execute request>>.
+. *Output cardinality*: The maximum number of values that can be generated for this output.
 . *Access path*: The API endpoint from which the result(s) can be retrieved.
 . *Return preference*: The negotiated <<sc_output_value_size,return preferences>>.
 . *Response HTTP code*: The https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context.
@@ -1367,9 +1452,10 @@ The column headers in the following table denote:
 
 [[table_core_getresults_responses]]
 .Table mapping `get` results responses based on the input parameter values used on the original <<execute-request-body,execute request>>.
-[cols=7,options="header"]
+[cols=8,options="header"]
 |===
 |Requested # outputs<<implicit-explicit-outputs,^6^>>
+|Output cardinality
 |Access path
 |Return preference (`Prefer` header)
 |Response HTTP code
@@ -1378,6 +1464,16 @@ The column headers in the following table denote:
 |Req./Rec./Perm.
 
 |1
+|maxOccurs>1
+|/jobs/{jobID}/results/{outputID}/{N}
+|_n/a_
+|200
+|_as negotiated_
+|Nth value of the requested process output
+|See requirement: <<req_core_job-results-async-one-Nth,/req/core/job-results-async-one-Nth>>
+
+|1
+|maxOccurs=1
 |/jobs/{jobID}/results/{outputID}
 |_n/a_
 |200
@@ -1385,17 +1481,31 @@ The column headers in the following table denote:
 |requested process output value
 |See requirement: <<req_core_job-results-async-one,/req/core/job-results-async-one>>
 
+1.3+|1
+.3+|maxOccurs>1
+.3+|/jobs/{jobID}/results/{outputID}
+|_none_
+.3+|200
+.3+|application/json
+.3+|<<schema_values,values.yaml>>
+|See <<async_note_2,Note 2>>,<<async_note_3,Note 3>>
+|minimal
+|See <<async_note_2,Note 2>>,<<async_note_4,Note 4>>
+|representation
+|See <<async_note_2,Note 2>>,<<async_note_5,Note 5>>
+
 1.3+|N
+.3+| _n/a_
 .3+|/jobs/{jobID}/results
 |_none_
 .3+|200
 .3+|application/json
 .3+|<<schema_results,results.yaml>>
-|See <<async_note_2,Note 2>>,<<async_note_3,Note 3>>
+|See <<async_note_6,Note 6>>,<<async_note_7,Note 7>>
 |minimal
-|See <<async_note_2,Note 2>>,<<async_note_3,Note 4>>
+|See <<async_note_6,Note 6>>,<<async_note_8,Note 8>>
 |representation
-|See <<async_note_2,Note 2>>,<<async_note_3,Note 5>>
+|See <<async_note_6,Note 6>>,<<async_note_9,Note 9>>
 
 |===
 
@@ -1408,23 +1518,48 @@ The column headers in the following table denote:
 [[async_note_2]]
 [NOTE]
 ====
-* See requirement: <<req_core_job-results-async-many,/req/core/job-results-async-many>>
-* See permission: <<per_core_job-results-async-many-other-formats,/per/core/job-results-async-many-other-formats>>
+* See requirement: <<req_core_job-results-async-one-multi-valued,/req/core/job-results-async-one-multi-valued>>
+* See permission: <<per_core_job-results-async-one-multi-valued-other-formats,/per/core/job-results-async-one-multi-valued-other-formats>>
 ====
 
 [[async_note_3]]
 [NOTE]
 ====
-* See recommendation: <<rec_core_job-results-async-many-json-prefer-none,/rec/core/job-results-async-many-json-prefer-none>>
+* See recommendation: <<rec_core_job-results-async-one-multi-valued-json-prefer-none,/rec/core/job-results-async-one-multi-valued-json-prefer-none>>
 ====
 
 [[async_note_4]]
 [NOTE]
 ====
-* See recommendation: <<rec_core_job-results-async-many-json-prefer-minimal,/rec/core/job-results-async-many-json-prefer-minimal>>
+* See recommendation: <<rec_core_job-results-async-one-multi-valued-json-prefer-minimal,/rec/core/job-results-async-one-multi-valued-json-prefer-minimal>>
 ====
 
 [[async_note_5]]
+[NOTE]
+====
+* See recommendation: <<rec_core_job-results-async-one-multi-valued-json-prefer-representation,/rec/core/job-results-async-one-multi-valued-json-prefer-representation>>
+====
+
+[[async_note_6]]
+[NOTE]
+====
+* See requirement: <<req_core_job-results-async-many,/req/core/job-results-async-many>>
+* See permission: <<per_core_job-results-async-many-other-formats,/per/core/job-results-async-many-other-formats>>
+====
+
+[[async_note_7]]
+[NOTE]
+====
+* See recommendation: <<rec_core_job-results-async-many-json-prefer-none,/rec/core/job-results-async-many-json-prefer-none>>
+====
+
+[[async_note_8]]
+[NOTE]
+====
+* See recommendation: <<rec_core_job-results-async-many-json-prefer-minimal,/rec/core/job-results-async-many-json-prefer-minimal>>
+====
+
+[[async_note_9]]
 [NOTE]
 ====
 * See recommendation: <<rec_core_job-results-async-many-json-prefer-representation,/rec/core/job-results-async-many-json-prefer-representation>>
@@ -1433,9 +1568,23 @@ The column headers in the following table denote:
 The following requirements apply when retrieving the results of a job that was created by executing a process asynchronously OR was created by executing a process synchronously on a server that creates a job even for synchronous execution:
 
 [[sc_retrieve_job_results_one]]
-===== Retrieving results individually
+===== Retrieving results individually (maxOccurs=1)
 
 include::../requirements/core/REQ_job-results-success-async-one.adoc[]
+
+===== Retrieving results individually (maxOccurs>1)
+
+include::../requirements/core/REQ_job-results-success-async-one-Nth.adoc[]
+
+include::../requirements/core/REQ_job-results-success-async-one-multi-valued.adoc[]
+
+include::../recommendations/core/REC_job-results-success-async-one-multi-valued-json-prefer-none.adoc[]
+
+include::../recommendations/core/REC_job-results-success-async-one-multi-valued-json-prefer-minimal.adoc[]
+
+include::../recommendations/core/REC_job-results-success-async-one-multi-valued-json-prefer-representation.adoc[]
+
+include::../recommendations/core/PER_job-results-success-async-one-multi-valued-other-formats.adoc[]
 
 [[sc_retrieve_job_results_many]]
 ===== Retrieving multiple results simultaneously

@@ -11,3 +11,9 @@ inherit:: /req/html
 requirement:: /req/html/content
 requirement:: /req/html/definition
 ====
+
+[[cc_html]]
+[.conformance class]
+====
+target:: <<rc_html>>
+====

@@ -1,0 +1,40 @@
+[[req_core_job-results-async-one-multi-valued]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/job-results-async-one-multi-valued
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is asynchronous.
+. The number of requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
+- In its <<sc_process_description,process description>> the requested output is defined as having `maxOccurs>1`.
+. The results are retrieved from the `/jobs/{jobID}/results/{outputID}` endpoint.
+--
+
+[.component,class=part]
+--
+The server SHALL respond with an HTTP status code of 200.
+--
+
+[.component,class=part]
+--
+In the response headers, the server SHALL include an HTTP header named `OGC-Output-Values-Count` indicating how many processing values are retrievable for this output.
+--
+
+[.component,class=part]
+--
+The media type of the response SHALL be `application/json`.
+--
+
+[.component,class=part]
+--
+The response HTTP headers SHALL include a `Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-values", rel="profile"`.
+--
+
+[.component,class=part]
+--
+The content of response SHALL conform to the <<schema_values,values.yaml>> schema.
+--
+
+====

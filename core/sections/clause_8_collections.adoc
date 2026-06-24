@@ -5,11 +5,11 @@
 
 ==== Overview
 
-The _Collection Input_ Requirements Class supports specifying as an input to a process an <<def-collection,OGC API acessible collection>> via using one or more <<def-data-access-mechanism,OGC API data access mechanisms>>.  Specifically, the processing server acts as a client and fetches values from the <<def-collection,OGC API accessible collection>> using one of the available <<def-data-access-mechanism,OGC API data access mechanisms>> and then feeds the fetched values as input values to the process being executed.  The server from which input values are retrieved is referred to as the <<value-source-server,_value source server_>>.
+The _Collection Input_ Requirements Class supports specifying as an input to a process an <<def-collection,OGC API accessible collection>> via using one or more <<def-data-access-mechanism,OGC API data access mechanisms>>.  Specifically, the processing server acts as a client and fetches values from the <<def-collection,OGC API accessible collection>> using one of the available <<def-data-access-mechanism,OGC API data access mechanisms>> and then feeds the fetched values as input values to the process being executed.  The server from which input values are retrieved is referred to as the <<value-source-server,_value source server_>>.
 
 Unless an implementation also conforms to the <<sc_remote_collections,_Remote Collections_>> conformance class, only <<def-collection,collections>> that are locally accessible in the current <<def-deployment,OGC API deployment>> are supported.
 
-Unless an implementation also conforms to the <<sc_local_filtering,_Local Filtering_>> conformance class, filtering of values retrieved from an <<def-collection,OGC API acessible collection>> is performed by the <<value-source-server,value source server>>.
+Unless an implementation also conforms to the <<sc_local_filtering,_Local Filtering_>> conformance class, filtering of values retrieved from an <<def-collection,OGC API accessible collection>> is performed by the <<value-source-server,value source server>>.
 
 include::../requirements/requirements_class_collection-input.adoc[]
 
@@ -68,7 +68,7 @@ Either a date-time or an interval, half-bounded or bounded. Date and time expres
 
 **Parameter subset**
 
-Retrieve only part of the data by slicing or trimming along one or more axis. For psecifying a trim operation: {axisAbbrev}({low}:{high}) (preserves dimensionality). An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value. For expression a slice operation: {axisAbbrev}({value}) (reduces dimensionality).
+Retrieve only part of the data by slicing or trimming along one or more axis. For specifying a trim operation: {axisAbbrev}({low}:{high}) (preserves dimensionality). An asterisk (`*`) can be used instead of {low} or {high} to indicate the minimum/maximum value. For expression a slice operation: {axisAbbrev}({value}) (reduces dimensionality).
 
 **Parameter subsetCrs**
 

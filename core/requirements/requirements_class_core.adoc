@@ -63,3 +63,9 @@ requirement:: /req/core/process-list-success
 requirement:: /req/core/process-summary-links
 requirement:: /req/core/test-process
 ====
+
+[[cc_core]]
+[.conformance class]
+====
+target:: <<rc_core>>
+====

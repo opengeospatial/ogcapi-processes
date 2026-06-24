@@ -20,3 +20,9 @@ requirement:: /req/ogc-process-description/output-multiple-types
 requirement:: /req/ogc-process-description/outputs-def
 requirement:: /req/ogc-process-description/value-passing
 ====
+
+[[cc_ogc-process-description]]
+[.conformance class]
+====
+target:: <<rc_ogc-process-description>>
+====

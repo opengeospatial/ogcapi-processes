@@ -1,0 +1,35 @@
+[[req_core_job-results-async-one-Nth]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/job-results-async-one-Nth
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is asynchronous,
+. The number of requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
+. The requested output with identifier `outputID` is defined in the <<sc_process_description,process description>> as having `maxOccurs>1`.
+. The path `/jobs/{jobID}/results/{outputID}/{N}` is accessed to retrieve the 0-based _N^th^_ value from the array of values produced for this output.
+--
+
+[.component,class=part]
+--
+The server SHALL respond with an HTTP status code of 200.
+--
+
+[.component,class=part]
+--
+In the response headers, the server SHALL include an HTTP header named `OGC-Output-Values-Count` indicating how many processing values are retrievable for this output.
+--
+
+[.component,class=part]
+--
+The media type of the response SHALL be as negotiated as per the https://datatracker.ietf.org/doc/html/rfc2616#section-12[HTTP content negotiation rules].
+--
+
+[.component,class=part]
+--
+The content of the response body SHALL be the 0-based _N^th^_ value in the negotiated output format.
+--
+
+====

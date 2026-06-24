@@ -10,7 +10,7 @@ test-method::
 --
 1. Retrieve the description of each process the server offers according to test <<ats_core_process-description-op,/conf/core/process-description-op>>.
 
-2. Inspect each input of each process and determine if the `dataAccessApi` parmater is present.
+2. Inspect each input of each process and determine if the `dataAccessApi` parameter is present.
 
 3. If it is present then verify that the value of the parameter is either empty or contains a list of data access APIs (e.g. ogc-api-features, ogc-api-coverages, etc.).
 

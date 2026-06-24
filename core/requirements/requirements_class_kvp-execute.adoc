@@ -26,3 +26,9 @@ requirement:: /req/kvp-execute/prefer-response
 requirement:: /req/kvp-execute/process-execute-op
 requirement:: /req/kvp-execute/string-input-value
 ====
+
+[[cc_kvp-execute]]
+[.conformance class]
+====
+target:: <<rc_kvp-execute>>
+====

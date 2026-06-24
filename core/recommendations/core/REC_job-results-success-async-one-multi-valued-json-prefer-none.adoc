@@ -1,0 +1,24 @@
+[[rec_core_job-results-async-one-multi-valued-json-prefer-none]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/core/job-results-async-one-multi-valued-json-prefer-none
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is asynchronous.
+. The number of requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
+. In the <<sc_process_description,process description>> the output is defined as having `maxOccurs>1`.
+. A return preference is _**not**_ specified via the HTTP https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[`prefer`] header.
+--
+
+[.component,class=part]
+--
+If the server deems that the size of an output value is _small_, that value SHOULD be included in-line in the response.
+--
+
+[.component,class=part]
+--
+If the server deems that the size of an output value is _large_, that value SHOULD be included by reference via hyperlink in the response.
+--
+====

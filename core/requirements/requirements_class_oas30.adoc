@@ -8,3 +8,9 @@ inherit:: <<OpenAPI30,OpenAPI Specification 3.0>>
 inherit:: /req/oas
 requirement:: /req/oas30/oas-definition
 ====
+
+[[cc_oas30]]
+[.conformance class]
+====
+target:: <<rc_oas30>>
+====

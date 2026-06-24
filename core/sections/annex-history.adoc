@@ -94,9 +94,9 @@
 |2021-03-29|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | * Remove unnecessary schemas that can now be defined using JSON Schema   and propagate those changes to the other schemas. * Update some of the indentation in the yaml files so the yamllint does   not complain. * Further refine the examples. * Update the text of the specification accordingly.
 |2021-03-29|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Move additionalProperties from output.yaml to execute.yaml to be consistent with what was done with input.yaml.
 |2021-03-29|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Allow simple values to be encoded directly.  So, `"key": {"value":10}` becomes `"key": 10`.
-|2021-03-29|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add array, in additiona to string, number & boolean, to possible direct input types.
+|2021-03-29|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add array, in addition to string, number & boolean, to possible direct input types.
 |2021-04-09|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Update example to use new, more compact form for specifying simple scalar values.
-|2021-04-09|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | 1. Make mediateType optional 2. Modify the schema tag to be a reference to a schema or be an inline    JSON schema. 3. Change name of "encoding" tag to "characterEncoding" to make more    clear what it means.
+|2021-04-09|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | 1. Make mediaType optional 2. Modify the schema tag to be a reference to a schema or be an inline    JSON schema. 3. Change name of "encoding" tag to "characterEncoding" to make more    clear what it means.
 |2021-04-09|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Add missing input type array.
 |2021-04-09|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Patch merge inconsistency between issues #122, #152 and #155.
 |2021-04-09|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Fix some spacing issues with the yaml files.
@@ -144,7 +144,7 @@
 |2021-04-20|1.0-draft.6| Benjamin Pross|X | Remove unused schema, fixes #173
 |2021-04-20|1.0-draft.6| Benjamin Pross|X | Remove link to execute endpoint from landing page
 |2021-04-20|1.0-draft.6| Benjamin Pross|X | Add recommendation to add link to job monitoring endpoint to the landing page
-|2021-04-25|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove the patternProperties key that allow JSON Schema extensions keys that begin with "x-".  Two point about this extension mechanism... (1) it breaks compatablity with swagger which is bad; (2) I can't really think of a good reason right now that we would want to extend the syntax of JSON Schema using this mechanism and so I think removing it is OK.
+|2021-04-25|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove the patternProperties key that allow JSON Schema extensions keys that begin with "x-".  Two point about this extension mechanism... (1) it breaks compatability with swagger which is bad; (2) I can't really think of a good reason right now that we would want to extend the syntax of JSON Schema using this mechanism and so I think removing it is OK.
 |2021-04-26|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | - Update ATS to handle JSON Schema compliance levels. - Update examples to add a multi-type feature collection input. - Add a general inline value structure (qualifiedValue.yaml) that allows   selection of a specified input type of a multi-type input.
 |2021-04-26|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove duplicate facet definitions.
 |2021-04-29|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove the various schema levels and only support the full OpenApi 3.0 compatible version of JSON Schema (formerly called schemaLevel3.yaml).
@@ -164,7 +164,7 @@
 |2021-05-06|1.0-draft.6| Ubuntu|X | Make Swagger-UI working again and the api able to validate.
 |2021-05-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Remove the concept of Level 0,1,2,3 JSON schema and simply use what was called Level 3 which is the full JSON Schema.
 |2021-05-10|1.0-draft.6| Panagiotis (Peter) A. Vretanos|X | Make the mode on execute options with the default being specified in the process description.
-|2021-05-10|1.0-draft.6| Ubuntu|X | Remove uneeded yaml file.
+|2021-05-10|1.0-draft.6| Ubuntu|X | Remove unneeded yaml file.
 |2021-05-11|1.0-draft.6| Ubuntu|X | Get the not, allOf, oneOf, anyOf, items and contentSchema available in the meta-schema.
 |2021-05-11|1.0-draft.6| Gérald Fenoy|X | Reset example despite warnings messages.
 |2021-05-11|1.0-draft.6| Gérald Fenoy|X | Reset additionalProperties in schema.yaml

@@ -12,3 +12,9 @@ requirement:: /req/collection-input/pass-through
 requirement:: /req/collection-input/property-selection
 requirement:: /req/collection-input/referencing
 ====
+
+[[cc_collection-input]]
+[.conformance_class]
+====
+target:: <<rc_collection-input>>
+====

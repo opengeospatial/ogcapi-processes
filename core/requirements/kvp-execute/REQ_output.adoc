@@ -29,6 +29,8 @@ schema:
       type: string
     encoding:
       type: string
+    index:
+      type: integer
     schema:
       oneOf:
         - type: string

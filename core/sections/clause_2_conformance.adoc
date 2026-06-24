@@ -9,7 +9,7 @@ The main requirements class is:
 
 * <<rc_core,Core>>.
 
-The _Core_ specifies requirements that any implementation of the Processes API in a Web API deploymnet must implement.
+The _Core_ specifies requirements that any implementation of the Processes API in a Web API deployment must implement.
 
 The _Core_ does not mandate a specific encoding or format for the representation of resources defined in this Standard.  Rather, two requirements classes depend on the _Core_ and specify representations for the resources specified in the _Core_ in commonly used encodings for data on the Web:
 
@@ -65,11 +65,11 @@ defines requirements that allow process execution to be triggered by requesting 
 
 In the <<rc_core,Core>> executing a process requires sending a JSON-encoded execution request to the server using the HTTP POST method.  To support embedding process execution requests into other documents this Standard defines the:
 
-* <<rc_kvp-execute,KVP-encoded Excute>>
+* <<rc_kvp-execute,KVP-encoded Execute>>
 
 conformance class which allows process inputs to be encoded as query parameters on a URL and process execution to be invoked using the HTTP GET method.
 
-The standard request and response encoding used in this Standard is JSON.  The standard media type for JSON is `application/json` which does not allow for the descrimition of one JSON schema from another.  In order to resolve this issue the Standard supports content negotiation by profile and defines the `profile` query parameter in the:
+The standard request and response encoding used in this Standard is JSON.  The standard media type for JSON is `application/json` which does not allow for the discrimination of one JSON schema from another.  In order to resolve this issue the Standard supports content negotiation by profile and defines the `profile` query parameter in the:
 
 * <<rc_query-param-profile>.
 
@@ -81,7 +81,7 @@ Three additional conformance classes are specified that extend the basic functio
 
 * <<rc_dismiss,Dismiss>> for cancelling active jobs or deleting completed jobs, and
 
-* <<rc_callback,Callback>> for supporting a callback mechnanism to get notification of completed jobs.
+* <<rc_callback,Callback>> for supporting a callback mechanism to get notification of completed jobs.
 
 Additional capabilities such as support for transactions, extended job monitoring, etc., may be specified in future parts of the OGC API - Processes series or as vendor-specific extensions.
 

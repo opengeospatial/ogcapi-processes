@@ -10,3 +10,9 @@ requirement:: /req/dismiss/job-dismiss-op
 requirement:: /req/dismiss/job-dismiss-status
 requirement:: /req/dismiss/job-dismiss-success
 ====
+
+[[cc_dismiss]]
+[.conformance class]
+====
+target:: <<rc_dismiss>>
+====

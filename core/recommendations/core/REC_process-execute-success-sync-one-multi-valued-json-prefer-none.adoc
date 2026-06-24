@@ -1,0 +1,24 @@
+[[rec_core_process-execute-sync-one-multi-valued-json-prefer-none]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/core/process-execute-sync-one-multi-valued-json-prefer-none
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is synchronous.
+. The number of requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
+. In the <<sc_process_description,process description>> the output is defined as having `maxOccurs>1`.
+. No https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[return preference] accompanies the request.
+--
+
+[.component,class=part]
+--
+If the server deems that the size of the output values is _small_, that value SHOULD be included in-line in the response.
+--
+
+[.component,class=part]
+--
+If the server deems that the size of an output values is _large_, that value SHOULD be included by reference via hyperlink in the response.
+--
+====

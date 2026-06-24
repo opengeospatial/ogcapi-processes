@@ -12,3 +12,9 @@ requirement:: /req/collection-output/response-definition
 requirement:: /req/collection-output/response-response-many
 requirement:: /req/collection-output/response-response-one
 ====
+
+[[cc_collection-output]]
+[.conformance_class]
+====
+target:: <<rc_collection-output>>
+====

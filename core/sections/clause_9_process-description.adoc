@@ -394,13 +394,9 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 
 ==== Data classes parameter
 
-T.B.D. 
-
 See <<sc_data_classes>>.
 
 ==== Data access APIs
-
-T.B.D. 
 
 See <<sc_data_access_APIs>>.
 

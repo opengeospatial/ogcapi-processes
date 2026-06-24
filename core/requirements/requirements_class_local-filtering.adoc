@@ -10,3 +10,9 @@ inherit:: /req/collection-input
 inherit:: /req/remote-collections
 requirement:: /req/local-filtering
 ====
+
+[[cc_local-filtering]]
+[.conformance class]
+====
+target:: <<rc_local-filtering>>
+====

@@ -8,3 +8,9 @@ subject:: Web API
 inherit:: /req/core
 requirement:: /req/callback/job-callback
 ====
+
+[[cc_callback]]
+[.conformance_class]
+====
+target:: <<rc_callback>>
+====

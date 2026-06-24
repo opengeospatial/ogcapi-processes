@@ -9,3 +9,9 @@ inherit:: /req/core
 requirement:: /req/query-param-profile/definition
 requirement:: /req/query-param-profile/response
 ====
+
+[[cc_query-param-profile]]
+[.conformance class]
+====
+target:: <<rc_query-param-profile>>
+====

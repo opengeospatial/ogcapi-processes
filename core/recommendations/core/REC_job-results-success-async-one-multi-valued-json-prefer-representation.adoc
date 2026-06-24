@@ -1,0 +1,19 @@
+[[rec_core_job-results-async-one-multi-valued-json-prefer-representation]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/core/job-results-async-one-multi-valued-json-prefer-representation
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is asynchronous.
+. The number of requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
+. In the <<sc_process_description,process description>> the output is defined as having `maxOccurs>1`.
+. The negotiated https://datatracker.ietf.org/doc/html/rfc7240#section-4.2[return preference] is `representation`.
+--
+
+[.component,class=part]
+--
+Each requested output value SHOULD be included in-line in the response.
+--
+====

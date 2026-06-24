@@ -1,0 +1,8 @@
+[[req_core_job-result-op-0th]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/job-result-op-0th
+
+For each output, with output identifier `outputID`, defined in the <<sc_process_description,description of a process>> and requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) in an <<execute-request-body,execute request>>, the server SHALL support the HTTP GET operation at the path `/jobs/{jobID}/results/{outputID}/0`.
+====

@@ -9,3 +9,9 @@ inherit:: /req/collection-input
 requirement:: /req/remote-collections/access
 requirement:: /req/remote-collections/referencing
 ====
+
+[[cc_remote-collections]]
+[.conformance class]
+====
+target:: <<rc_remote-collections>>
+====
