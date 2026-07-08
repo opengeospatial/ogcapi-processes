@@ -1,0 +1,16 @@
+[[rec_provenance_job-prov_content-type-json]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/provenance/prov-content-type-json
+
+[.component,class=part]
+--
+When explicitly requested through <<prov-content-negotiation,provenance content-negotiation>>,
+the server SHOULD support the content type `application/json`
+as an alias to `application/provenance+json` in accordance to
+the default <<req_provenance_job-prov_response,PROV Response>> requirement
+for link:https://www.w3.org/submissions/prov-json/[PROV-JSON] representation.
+--
+
+====

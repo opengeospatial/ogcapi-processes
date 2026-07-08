@@ -1,0 +1,15 @@
+[[ats_prov]]
+[conformance_class]
+.Provenance
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-processes-5/1.0/conf/provenance
+subject:: <<rc_provenance,https://www.opengis.net/spec/ogcapi-processes-5/1.0/conf/provenance>>
+classification:: Target Type:Web API
+conformance-test:: /conf/prov/prov/get-op
+====
+
+==== PROV operation
+
+include::prov/prov/ATS_get-op.adoc[]
+

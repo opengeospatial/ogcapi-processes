@@ -1,0 +1,92 @@
+== Requirements Class "Provenance"
+
+[[provenance-overview]]
+=== Overview
+
+This requirements class defines how to allow client application accessing the provenance of a completed job resulting from
+the execution of a process. Such process might be a predefined definition (<<OAProc-1,OGC API - Processes - Part 1: Core>>),
+a mutable process (<<OAProc-2,OGC API - Processes - Part 2: Deploy, Replace, Undeploy>>), or a process that represents
+a workflow (<<OAProc-3,OGC API - Processes - Part 3: Workflows and Chaining>>). The submitted job where provenance
+details are collected from can result from a <<OAProc-1,OGC API - Processes - Part 1: Core>> process execution,
+from <<OAProc-4,OGC API - Processes - Part 4: Job Management>> additional endpoints, or any other compatible extension.
+
+For general information about provenance, see the link:https://www.w3.org/TR/prov-overview/[W3C PROV Overview] document.
+
+include::../requirements/requirements_class_provenance.adoc[]
+
+=== Endpoints
+
+==== PROV
+
+The server SHALL provide an endpoint to retrieve the provenance details of a job.
+
+===== Operation
+
+include::../requirements/provenance/job-prov/REQ_get-op.adoc[]
+
+===== Response
+
+include::../requirements/provenance/job-prov/REQ_response.adoc[]
+
+include::../recommendations/provenance/job-prov/REC_prov-contents.adoc[]
+
+[[prov-content-negotiation]]
+===== PROV Content Negotiation
+
+include::../recommendations/provenance/job-prov/REC_content-type-json.adoc[]
+
+include::../recommendations/provenance/job-prov/PER_content-negotiation.adoc[]
+
+===== Errors
+
+include::../requirements/provenance/job-prov/REQ_unsupported-format.adoc[]
+
+===== Examples
+
+NOTE: Following examples were generated using a combination of
+link:https://github.com/common-workflow-language/cwlprov[cwlprov] and additional metadata defined by
+link:https://github.com/crim-ca/weaver[crim-ca/weaver] server implementation, for an `EchoProcess` (see <<OAProc-1>> example)
+runtime encoded in Common Workflow Language (CWL). This standard does not require these specific tools
+and provides the examples for illustration purposes only.
+
+[[example-provenance-job-prov-json]]
+.Example: PROV-JSON
+[source,json]
+----
+include::../examples/job_prov.json[]
+----
+
+[[example-provenance-job-prov-jsonld]]
+.Example: PROV-JSONLD
+[source,json]
+----
+include::../examples/job_prov.jsonld[]
+----
+
+[[example-provenance-job-prov-xml]]
+.Example: PROV-XML
+[source,xml]
+----
+include::../examples/job_prov.xml[]
+----
+
+[[example-provenance-job-prov-provn]]
+.Example: PROV-N
+[source,text]
+----
+include::../examples/job_prov.provn[]
+----
+
+[[example-provenance-job-prov-nt]]
+.Example: PROV-NT
+[source,ntriples]
+----
+include::../examples/job_prov.nt[]
+----
+
+[[example-provenance-job-prov-ttl]]
+.Example: PROV-TURTLE
+[source,turtle]
+----
+include::../examples/job_prov.ttl[]
+----

@@ -1,0 +1,27 @@
+[[req_provenance_prov-content_job-activity]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/provenance/prov-content-job-activity
+
+[.component,class=part]
+--
+The PROV metadata SHALL minimally include one link:https://www.w3.org/TR/prov-o/#Activity[`prov:Activity`]
+that associates the <<req_provenance_job-prov_relation-job-entity,PROV Job Entity>> with its
+<<req_provenance_prov-content_process-entity,PROV Process Entity>>.
+--
+
+[.component,class=part]
+--
+The PROV job activity SHALL indicate a `prov:type` of relevant value to represent the execution
+(e.g., `wfprov:WorkflowRun` or `wfprov:ProcessRun`).
+--
+
+====
+
+NOTE: Multiple activities might be associated between each other (`wasInformedBy`) or might
+be related though intermediate agents (e.g., <<rec_provenance_prov-content_software-agent,PROV Software Agent>>)
+via `wasAssociatedWith`, `wasAttributedTo`, or `actedOnBehalfOf` relationships
+(see link:http://www.w3.org/TR/prov-o/#description-starting-point-terms[PROV-O Starting Point Terms] for more details).
+The specific association combinations and `prov:type` are not imposed by this standard to allow granularity and
+flexibility in the representation of the provenance of the job and involved components to accomplish its execution.

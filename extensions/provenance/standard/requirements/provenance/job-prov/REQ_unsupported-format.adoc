@@ -1,0 +1,28 @@
+[[req_provenance_job-prov_unsupported-format]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/provenance/prov-unsupported-format
+
+[.component,class=part]
+--
+If the server does not support the <<per_provenance_job-prov_content-negotiation,negotiated PROV content>>,
+the code of the response SHALL be `406 Not Acceptable`.
+--
+
+[.component,class=part]
+--
+The content of that response SHALL validate against the following OpenAPI schema fragment:
+
+[source,yaml]
+----
+include::../../../../../../openapi/schemas/common-core/exception.yaml[]
+----
+--
+
+[.component,class=part]
+--
+The `type` of the exception SHALL be `"https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/prov-unsupported-format"`.
+--
+
+====
