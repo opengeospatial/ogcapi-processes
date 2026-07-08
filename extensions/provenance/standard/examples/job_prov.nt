@@ -17,7 +17,7 @@ _:Nf79009e1132246c5aa29e452c3e3017a <http://www.w3.org/ns/prov#entity> <urn:uuid
 <urn:uuid:ef9384d4-880f-4398-9e10-1bce1d54e51e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
 _:N6bf312a525af437282f381053e55d478 <http://www.w3.org/ns/prov#atTime> "2026-01-15T16:46:11.106731"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 <urn:hash::sha1:838cdfa4bbf09d1aedd26d79b46bfa8778ede2e0> <http://schema.org/name> "crim-ca/weaver"^^<http://www.w3.org/2001/XMLSchema#string> .
-<urn:uuid:6e5f8b71-eb5c-45d8-a497-7f6df55e1990> <http://xmlns.com/foaf/0.1/name> "crim-ca/weaver:6.9.0-dev2"^^<http://www.w3.org/2001/XMLSchema#string> .
+<urn:uuid:6e5f8b71-eb5c-45d8-a497-7f6df55e1990> <http://xmlns.com/foaf/0.1/name> "weaver-worker@crim-ca/weaver:6.9.0-dev2"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:N41eeedad6813494c80bc67f688ec0360 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Usage> .
 <urn:uuid:79e5fa0b-4998-46da-bbe8-920533c7940b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
 <urn:uuid:9c60ce13-37d4-4dd2-98f5-d1c3bea1f304> <https://w3id.org/cwl/prov#basename> "input_50x5752r"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -54,7 +54,7 @@ _:Nf513b957acdd4845a25967d8b23139c2 <http://www.w3.org/ns/prov#hadRole> <arcp://
 <urn:uuid:5ec5c130-692c-48d5-9cef-be41cec00d11> <https://w3id.org/cwl/prov#basename> "input_9i61gfqe"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:N26b26f53152842fb9fcee13b20001e9b <http://www.w3.org/ns/prov#activity> <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> .
 <urn:uuid:6d234b31-69fb-4949-b096-924f234097a1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<urn:uuid:dc49c9ee-a913-4e5c-b89a-2201af36af9c> <http://xmlns.com/foaf/0.1/accountName> "crim-ca/weaver:6.9.0-dev2"^^<http://www.w3.org/2001/XMLSchema#string> .
+<urn:uuid:dc49c9ee-a913-4e5c-b89a-2201af36af9c> <http://xmlns.com/foaf/0.1/accountName> "weaver-worker@crim-ca/weaver:6.9.0-dev2"^^<http://www.w3.org/2001/XMLSchema#string> .
 <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/ns/prov#qualifiedUsage> _:N35efb7509caf4f778e66e178daff9612 .
 <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/ns/prov#qualifiedUsage> _:N41eeedad6813494c80bc67f688ec0360 .
 <urn:uuid:fbb085ae-d3ad-4639-a448-b01188f1ce9f> <http://www.w3.org/ns/prov#specializationOf> <urn:hash::sha1:3f88b16b3b80316d30a93bc4035da306170884e2> .
@@ -81,12 +81,12 @@ _:N3819ffacc3114edcacc0e43d60a5c773 <http://www.w3.org/ns/prov#hadRole> <arcp://
 _:Nd80bca147141491da8187a017409f073 <http://www.w3.org/ns/prov#atTime> "2026-01-15T16:46:10.813646"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 <urn:hash::sha1:fc6f6f7466a49edf8dd6d0aa6d30457c85263b2d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
 _:Nf36709ec1aa5455aa80e633e7075442d <http://www.w3.org/ns/prov#entity> <urn:hash::sha1:9ddf13e345a6b6376bc2fa817bd4b749f4cfae72> .
-<urn:uuid:6e5f8b71-eb5c-45d8-a497-7f6df55e1990> <http://www.w3.org/2000/01/rdf-schema#label> "crim-ca/weaver:6.9.0-dev2"^^<http://www.w3.org/2001/XMLSchema#string> .
+<urn:uuid:6e5f8b71-eb5c-45d8-a497-7f6df55e1990> <http://www.w3.org/2000/01/rdf-schema#label> "weaver-worker@crim-ca/weaver:6.9.0-dev2"^^<http://www.w3.org/2001/XMLSchema#string> .
 <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Activity> .
 <urn:uuid:a9b3da73-190e-4a3a-affb-a12396f0eac3> <http://www.w3.org/ns/prov#specializationOf> <urn:hash::sha1:da39a3ee5e6b4b0d3255bfef95601890afd80709> .
 <urn:uuid:96f693e2-3eac-4a04-8887-7285b7605f49> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
 <urn:uuid:c790f3f7-ac11-4d13-9c71-4d68c73ed040> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<urn:uuid:6e5f8b71-eb5c-45d8-a497-7f6df55e1990> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Person> .
+<urn:uuid:6e5f8b71-eb5c-45d8-a497-7f6df55e1990> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#SoftwareAgent> .
 _:Ne3499c3e61194710b9d2d70e0c7dafa6 <http://www.w3.org/ns/prov#activity> <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> .
 _:Nd80bca147141491da8187a017409f073 <http://www.w3.org/ns/prov#entity> <urn:uuid:d4ac4ab8-25a3-4412-82b6-07b92da98795> .
 <urn:uuid:9c60ce13-37d4-4dd2-98f5-d1c3bea1f304> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
@@ -132,7 +132,7 @@ _:N401efcc6ab424149ae2f4583a9516895 <http://www.w3.org/ns/prov#atTime> "2026-01-
 <urn:uuid:1b6185c0-b83d-431b-a2ba-7c2b026b1823> <http://www.w3.org/ns/prov#hadMember> <urn:uuid:5ec5c130-692c-48d5-9cef-be41cec00d11> .
 <urn:hash::sha1:adc83b19e793491b1c6ea0fd8b46cd9f32e592fc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
 _:Nc9caf63850954cec884076b45b9ed0c2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Usage> .
-<urn:uuid:6e5f8b71-eb5c-45d8-a497-7f6df55e1990> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Person> .
+<urn:uuid:6e5f8b71-eb5c-45d8-a497-7f6df55e1990> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/SoftwareApplication> .
 <urn:uuid:541c0738-ac5c-4a35-b592-a3cbc87246f1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wfprov#Artifact> .
 <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/2000/01/rdf-schema#label> "Run of workflow/packed.cwl#main"^^<http://www.w3.org/2001/XMLSchema#string> .
 <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/ns/prov#atLocation> "https://hirondelle.crim.ca/weaver/processes/EchoProcess/jobs/53f5a04e-b531-466d-81be-62c34a1431ba"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -176,7 +176,7 @@ _:Nf513b957acdd4845a25967d8b23139c2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <urn:uuid:a326f7d5-60b5-4b9d-802f-58f2411c993e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wfprov#Artifact> .
 <urn:uuid:79e5fa0b-4998-46da-bbe8-920533c7940b> <http://www.w3.org/ns/prov#hadMember> <urn:uuid:c8dbab29-6641-40d9-b5c1-626872f5337d> .
 <urn:uuid:5ec5c130-692c-48d5-9cef-be41cec00d11> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wf4ever#File> .
-<urn:uuid:dc49c9ee-a913-4e5c-b89a-2201af36af9c> <http://www.w3.org/2000/01/rdf-schema#label> "crim-ca/weaver:6.9.0-dev2"^^<http://www.w3.org/2001/XMLSchema#string> .
+<urn:uuid:dc49c9ee-a913-4e5c-b89a-2201af36af9c> <http://www.w3.org/2000/01/rdf-schema#label> "weaver-worker@crim-ca/weaver:6.9.0-dev2"^^<http://www.w3.org/2001/XMLSchema#string> .
 <urn:uuid:5226c081-e3dc-4963-987b-92142bd75102> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
 <urn:uuid:1b6185c0-b83d-431b-a2ba-7c2b026b1823> <http://www.w3.org/ns/prov#hadMember> <urn:uuid:9c60ce13-37d4-4dd2-98f5-d1c3bea1f304> .
 _:Nc9caf63850954cec884076b45b9ed0c2 <http://www.w3.org/ns/prov#hadRole> <arcp://uuid,53f5a04e-b531-466d-81be-62c34a1431ba/workflow/packed.cwl#main/EchoProcess/complexObjectInput> .
@@ -450,7 +450,7 @@ _:Nc9f91ee0fe7d40d3afbe384582e212e6 <http://www.w3.org/ns/prov#atTime> "2026-01-
 <urn:uuid:d4ac4ab8-25a3-4412-82b6-07b92da98795> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wfprov#Artifact> .
 _:N4a9853bcd9ca44dfbfbcceecf6d578e5 <http://www.w3.org/ns/prov#atTime> "2026-01-15T16:46:10.775855"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 <urn:uuid:a326f7d5-60b5-4b9d-802f-58f2411c993e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Collection> .
-<urn:uuid:6e5f8b71-eb5c-45d8-a497-7f6df55e1990> <http://schema.org/name> "crim-ca/weaver:6.9.0-dev2"^^<http://www.w3.org/2001/XMLSchema#string> .
+<urn:uuid:6e5f8b71-eb5c-45d8-a497-7f6df55e1990> <http://schema.org/name> "weaver-worker@crim-ca/weaver:6.9.0-dev2"^^<http://www.w3.org/2001/XMLSchema#string> .
 <urn:uuid:5ec5c130-692c-48d5-9cef-be41cec00d11> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
 <urn:uuid:d57aaff6-a93f-4927-a2d8-112beb358d4d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#SoftwareAgent> .
 <urn:uuid:64c45605-d8a9-4a56-929d-47dcad5543f1> <http://www.w3.org/ns/prov#value> "2"^^<http://www.w3.org/2001/XMLSchema#int> .

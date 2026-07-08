@@ -33,28 +33,28 @@
           "$": "foaf:OnlineAccount",
           "type": "prov:QUALIFIED_NAME"
         },
-        "prov:label": "crim-ca/weaver:6.9.0-dev2",
-        "foaf:accountName": "crim-ca/weaver:6.9.0-dev2"
+        "prov:label": "weaver-worker@crim-ca/weaver:6.9.0-dev2",
+        "foaf:accountName": "weaver-worker@crim-ca/weaver:6.9.0-dev2"
       }
     ],
     "id:6e5f8b71-eb5c-45d8-a497-7f6df55e1990": {
       "prov:type": [
         {
-          "$": "prov:Person",
+          "$": "prov:SoftwareAgent",
           "type": "prov:QUALIFIED_NAME"
         },
         {
-          "$": "schema:Person",
+          "$": "schema:SoftwareApplication",
           "type": "prov:QUALIFIED_NAME"
         }
       ],
-      "prov:label": "crim-ca/weaver:6.9.0-dev2",
-      "foaf:name": "crim-ca/weaver:6.9.0-dev2",
+      "prov:label": "weaver-worker@crim-ca/weaver:6.9.0-dev2",
+      "foaf:name": "weaver-worker@crim-ca/weaver:6.9.0-dev2",
       "foaf:account": {
         "$": "id:dc49c9ee-a913-4e5c-b89a-2201af36af9c",
         "type": "prov:QUALIFIED_NAME"
       },
-      "schema:name": "crim-ca/weaver:6.9.0-dev2"
+      "schema:name": "weaver-worker@crim-ca/weaver:6.9.0-dev2"
     },
     "id:d57aaff6-a93f-4927-a2d8-112beb358d4d": {
       "prov:type": [

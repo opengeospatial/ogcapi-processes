@@ -27,17 +27,17 @@
     <cwlprov:hostname>hirondelle.crim.ca</cwlprov:hostname>
   </prov:agent>
   <prov:agent prov:id="id:dc49c9ee-a913-4e5c-b89a-2201af36af9c">
-    <prov:label>crim-ca/weaver:6.9.0-dev2</prov:label>
+    <prov:label>weaver-worker@crim-ca/weaver:6.9.0-dev2</prov:label>
     <prov:type xsi:type="xsd:QName">foaf:OnlineAccount</prov:type>
-    <foaf:accountName>crim-ca/weaver:6.9.0-dev2</foaf:accountName>
+    <foaf:accountName>weaver-worker@crim-ca/weaver:6.9.0-dev2</foaf:accountName>
   </prov:agent>
-  <prov:person prov:id="id:6e5f8b71-eb5c-45d8-a497-7f6df55e1990">
-    <prov:label>crim-ca/weaver:6.9.0-dev2</prov:label>
-    <prov:type xsi:type="xsd:QName">schema:Person</prov:type>
+  <prov:SoftwareAgent prov:id="id:6e5f8b71-eb5c-45d8-a497-7f6df55e1990">
+    <prov:label>weaver-worker@crim-ca/weaver:6.9.0-dev2</prov:label>
+    <prov:type xsi:type="xsd:QName">schema:SoftwareApplication</prov:type>
     <foaf:account xsi:type="xsd:QName">id:dc49c9ee-a913-4e5c-b89a-2201af36af9c</foaf:account>
-    <foaf:name>crim-ca/weaver:6.9.0-dev2</foaf:name>
-    <schema:name>crim-ca/weaver:6.9.0-dev2</schema:name>
-  </prov:person>
+    <foaf:name>weaver-worker@crim-ca/weaver:6.9.0-dev2</foaf:name>
+    <schema:name>weaver-worker@crim-ca/weaver:6.9.0-dev2</schema:name>
+  </prov:SoftwareAgent>
   <prov:actedOnBehalfOf>
     <prov:delegate prov:ref="id:dc49c9ee-a913-4e5c-b89a-2201af36af9c"/>
     <prov:responsible prov:ref="id:6e5f8b71-eb5c-45d8-a497-7f6df55e1990"/>

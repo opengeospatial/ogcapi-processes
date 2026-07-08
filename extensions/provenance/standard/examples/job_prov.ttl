@@ -348,13 +348,13 @@ id:5ec5c130-692c-48d5-9cef-be41cec00d11 a wf4ever:File,
     cwlprov:nameext ""^^xsd:string ;
     cwlprov:nameroot "input_9i61gfqe"^^xsd:string .
 
-id:6e5f8b71-eb5c-45d8-a497-7f6df55e1990 a schema1:Person,
+id:6e5f8b71-eb5c-45d8-a497-7f6df55e1990 a schema1:SoftwareApplication,
         prov:Agent,
-        prov:Person ;
-    rdfs:label "crim-ca/weaver:6.9.0-dev2"^^xsd:string ;
-    schema1:name "crim-ca/weaver:6.9.0-dev2"^^xsd:string ;
+        prov:SoftwareAgent ;
+    rdfs:label "weaver-worker@crim-ca/weaver:6.9.0-dev2"^^xsd:string ;
+    schema1:name "weaver-worker@crim-ca/weaver:6.9.0-dev2"^^xsd:string ;
     foaf:account id:dc49c9ee-a913-4e5c-b89a-2201af36af9c ;
-    foaf:name "crim-ca/weaver:6.9.0-dev2"^^xsd:string .
+    foaf:name "weaver-worker@crim-ca/weaver:6.9.0-dev2"^^xsd:string .
 
 id:9c60ce13-37d4-4dd2-98f5-d1c3bea1f304 a wf4ever:File,
         wfprov:Artifact,
@@ -379,7 +379,7 @@ data:644e201526525f62152815a76a2dc773450f3dd9 a prov:Entity,
 
 id:dc49c9ee-a913-4e5c-b89a-2201af36af9c a prov:Agent,
         foaf:OnlineAccount ;
-    rdfs:label "crim-ca/weaver:6.9.0-dev2"^^xsd:string ;
+    rdfs:label "weaver-worker@crim-ca/weaver:6.9.0-dev2"^^xsd:string ;
     prov:actedOnBehalfOf id:6e5f8b71-eb5c-45d8-a497-7f6df55e1990 ;
     prov:atLocation "https://hirondelle.crim.ca/weaver"^^xsd:string ;
     prov:wasDerivedFrom data:4e5feeeb8209de47c8dfb7c3f50a893e505af067 ;
@@ -389,7 +389,7 @@ id:dc49c9ee-a913-4e5c-b89a-2201af36af9c a prov:Agent,
 data:4e5feeeb8209de47c8dfb7c3f50a893e505af067 a prov:Agent,
         prov:SoftwareAgent ;
     rdfs:label "Weaver is an Execution Management Service (EMS) that allows the execution of workflows chaining various applications and Web Processing Services (WPS) inputs and outputs. Remote execution is deferred by the EMS to an Application Deployment and Execution Service (ADES), as defined by Common Workflow Language (CWL) configurations."^^xsd:string,
-        "crim-ca/weaver:6.9.0-dev2"^^xsd:string ;
+        "weaver-worker@crim-ca/weaver:6.9.0-dev2"^^xsd:string ;
     prov:actedOnBehalfOf id:6e5f8b71-eb5c-45d8-a497-7f6df55e1990 ;
     prov:atLocation "https://hirondelle.crim.ca/weaver"^^xsd:string ;
     prov:generalEntity data:644e201526525f62152815a76a2dc773450f3dd9 ;

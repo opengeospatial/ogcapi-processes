@@ -15,11 +15,11 @@ document
   prefix input <arcp://uuid,53f5a04e-b531-466d-81be-62c34a1431ba/workflow/primary-job.json#>
   prefix doi <https://doi.org/>
   prefix wf4ever <http://purl.org/wf4ever/wf4ever#>
-  
+
   agent(id:dc49c9ee-a913-4e5c-b89a-2201af36af9c)
   agent(id:dc49c9ee-a913-4e5c-b89a-2201af36af9c, [prov:type='foaf:OnlineAccount', prov:location="https://hirondelle.crim.ca/weaver", cwlprov:hostname="hirondelle.crim.ca"])
-  agent(id:dc49c9ee-a913-4e5c-b89a-2201af36af9c, [prov:type='foaf:OnlineAccount', prov:label="crim-ca/weaver:6.9.0-dev2", foaf:accountName="crim-ca/weaver:6.9.0-dev2"])
-  agent(id:6e5f8b71-eb5c-45d8-a497-7f6df55e1990, [prov:type='prov:Person', prov:type='schema:Person', prov:label="crim-ca/weaver:6.9.0-dev2", foaf:name="crim-ca/weaver:6.9.0-dev2", foaf:account='id:dc49c9ee-a913-4e5c-b89a-2201af36af9c', schema:name="crim-ca/weaver:6.9.0-dev2"])
+  agent(id:dc49c9ee-a913-4e5c-b89a-2201af36af9c, [prov:type='foaf:OnlineAccount', prov:label="weaver-worker@crim-ca/weaver:6.9.0-dev2", foaf:accountName="weaver-worker@crim-ca/weaver:6.9.0-dev2"])
+  agent(id:6e5f8b71-eb5c-45d8-a497-7f6df55e1990, [prov:type='prov:SoftwareAgent', prov:type='schema:SoftwareApplication', prov:label="weaver-worker@crim-ca/weaver:6.9.0-dev2", foaf:name="weaver-worker@crim-ca/weaver:6.9.0-dev2", foaf:account='id:dc49c9ee-a913-4e5c-b89a-2201af36af9c', schema:name="weaver-worker@crim-ca/weaver:6.9.0-dev2"])
   actedOnBehalfOf(id:dc49c9ee-a913-4e5c-b89a-2201af36af9c, id:6e5f8b71-eb5c-45d8-a497-7f6df55e1990, -)
   agent(id:d57aaff6-a93f-4927-a2d8-112beb358d4d, [prov:type='prov:SoftwareAgent', prov:type='wfprov:WorkflowEngine', prov:label="cwltool 3.1.20260108082145"])
   wasStartedBy(id:d57aaff6-a93f-4927-a2d8-112beb358d4d, -, id:dc49c9ee-a913-4e5c-b89a-2201af36af9c, 2026-01-15T16:46:10.775855)

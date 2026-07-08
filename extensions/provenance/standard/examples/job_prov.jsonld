@@ -146,7 +146,7 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "crim-ca/weaver:6.9.0-dev2"
+        "@value": "weaver-worker@crim-ca/weaver:6.9.0-dev2"
       }
     ],
     "http://www.w3.org/ns/prov#actedOnBehalfOf": [
@@ -168,7 +168,7 @@
     "http://xmlns.com/foaf/0.1/accountName": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "crim-ca/weaver:6.9.0-dev2"
+        "@value": "weaver-worker@crim-ca/weaver:6.9.0-dev2"
       }
     ],
     "https://w3id.org/cwl/prov#hostname": [
@@ -1561,20 +1561,20 @@
   {
     "@id": "urn:uuid:6e5f8b71-eb5c-45d8-a497-7f6df55e1990",
     "@type": [
-      "http://www.w3.org/ns/prov#Person",
-      "http://schema.org/Person",
+      "http://www.w3.org/ns/prov#SoftwareAgent",
+      "http://schema.org/SoftwareApplication",
       "http://www.w3.org/ns/prov#Agent"
     ],
     "http://schema.org/name": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "crim-ca/weaver:6.9.0-dev2"
+        "@value": "weaver-worker@crim-ca/weaver:6.9.0-dev2"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "crim-ca/weaver:6.9.0-dev2"
+        "@value": "weaver-worker@crim-ca/weaver:6.9.0-dev2"
       }
     ],
     "http://xmlns.com/foaf/0.1/account": [
@@ -1585,7 +1585,7 @@
     "http://xmlns.com/foaf/0.1/name": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "crim-ca/weaver:6.9.0-dev2"
+        "@value": "weaver-worker@crim-ca/weaver:6.9.0-dev2"
       }
     ]
   },
