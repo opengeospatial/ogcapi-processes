@@ -14,4 +14,5 @@
 |2026-06-23 |None |Francis Charette-Migneault |all |Align the `/jobs/{jobId}/definition` with processingEntityType from Core.
 |2026-06-23 |None |Francis Charette-Migneault |all |Add the definitions for `created` status and pending job req/rec/per.
 |2026-06-23 |None |Francis Charette-Migneault |all |Clarify multiple ambiguities and permissions related to managing jobs updates.
+|2026-07-06 |None |Francis Charette-Migneault |all |Moved Provenance definitions from Part 4 (this document) to a dedicated Part 5.
 |===
