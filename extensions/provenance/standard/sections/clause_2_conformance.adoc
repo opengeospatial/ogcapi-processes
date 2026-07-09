@@ -19,6 +19,12 @@ or process execution. Therefore, a server is not required to support <<OAProc-3>
 The concepts are applicable to "single" processes (<<OAProc-1>>) and mutable processes (<<OAProc-2>>) as well,
 and can be seamlessly integrated with <<OAProc-4>> job management endpoints.
 
+Due to the nature of provenance metadata retrieved after completion of a job execution, the `Provenance` class
+assumes that the server implementation performs process or workflow executions asynchronously (necessarily creating a job)
+or synchronously by leveraging the <<OAProc-1>> permission to create a job; nevertheless unrequired for the execution itself
+(i.e., link:https://docs.ogc.org/DRAFTS/18-062r3.html#per_core_process-execute-sync-job[`/per/core/process-execute-sync-job`]).
+The standard does not cover patterns to store and retrieve provenance information when no job is available.
+
 The standardization target for all Conformance class defined in this Standard is “Web API”.
 
 Conformance with this Standard shall be checked using all the relevant tests

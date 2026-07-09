@@ -3,8 +3,6 @@
 The OGC API - Processes - Part 4 Standard is an extension to the
 OGC API – Processes – Part 1: Core Standard [<<OAProc-1>>] and defines the behavior of a server that
 supports the ability to create jobs without implying the process execution starts right away.
-It also extends the job endpoints to support the management of provenance information associated with a job
-once the execution of that job has completed successfully.
 
 Specifically, the Processes Part 4 Standard specifies:
 
@@ -13,7 +11,5 @@ Specifically, the Processes Part 4 Standard specifies:
 * How to submit a job with pending execution for parametrization inspection and validation.
 
 * How to trigger a pending job to initiate its execution.
-
-* How to handle provenance information associated with a job.
 
 * Bridge job execution strategies between <<OAProc-1,Core>>, <<<<OAProc-3,Workflows>> and other standards.
