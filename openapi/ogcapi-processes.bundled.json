@@ -759,7 +759,8 @@
         "description": "Retrieve the job provenance details.\n",
         "operationId": "getJobProvenance",
         "tags": [
-          "Jobs Management"
+          "Jobs",
+          "Provenance"
         ],
         "parameters": [
           {
@@ -768,10 +769,13 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/processes-job-management-rJobProvenance"
+            "$ref": "#/components/responses/processes-provenance-rJobProvenance"
           },
           "404": {
-            "$ref": "#/components/responses/common-core-rNotFound"
+            "$ref": "#/components/responses/processes-provenance-rJobProvMissing"
+          },
+          "406": {
+            "$ref": "#/components/responses/processes-provenance-rJobProvUnsupportedFormat"
           },
           "500": {
             "$ref": "#/components/responses/common-core-rServerError"
@@ -8449,11 +8453,17 @@
       "ImmutableProcess": {
         "$ref": "#/components/responses/processes-dru-rImmutableProcess"
       },
-      "JobProvenance": {
-        "$ref": "#/components/responses/processes-job-management-rJobProvenance"
-      },
       "JobDefinition": {
         "$ref": "#/components/responses/processes-job-management-rJobDefinition"
+      },
+      "JobProvenance": {
+        "$ref": "#/components/responses/processes-provenance-rJobProvenance"
+      },
+      "JobProvMissing": {
+        "$ref": "#/components/responses/processes-provenance-rJobProvMissing"
+      },
+      "JobProvUnsupportedFormat": {
+        "$ref": "#/components/responses/processes-provenance-rJobProvUnsupportedFormat"
       },
       "common-core-rLandingPage": {
         "description": "The landing page provides links to the API definition (link relation `service-desc`, in this case path `/api`),\nto the Conformance declaration (path `/conformance`, link relation `http://www.opengis.net/def/rel/ogc/1.0/conformance`), and to other resources.",
@@ -8826,10 +8836,15 @@
           }
         }
       },
-      "processes-job-management-rJobProvenance": {
+      "processes-provenance-rJobProvenance": {
         "description": "Provenance details of a completed job.",
         "content": {
           "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/schema-2"
+            }
+          },
+          "application/provenance+json": {
             "schema": {
               "$ref": "#/components/schemas/schema-2"
             }
@@ -8867,6 +8882,60 @@
           "text/turtle": {
             "schema": {
               "type": "string"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "processes-provenance-rJobProvMissing": {
+        "description": "Provenance missing, not yet completed (job pending, running, failed) or dismissed.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/common-core-exception"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "const": "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/prov-missing"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "processes-provenance-rJobProvUnsupportedFormat": {
+        "description": "Provenance format unsupported.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/common-core-exception"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "const": "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/prov-unsupported-format"
+                    }
+                  }
+                }
+              ]
             }
           },
           "text/html": {
