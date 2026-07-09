@@ -43,6 +43,8 @@ include::sections/clause_10_security_considerations.adoc[]
 
 include::sections/annex_ats.adoc[]
 
+include::sections/annex_examples.adoc[]
+
 ////
 Revision History should be the last annex before the Bibliography
 Bibliography should be the last annex

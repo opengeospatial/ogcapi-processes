@@ -1,0 +1,50 @@
+[[prov-content-examples]]
+=== Examples
+
+NOTE: Following examples were generated using a combination of
+link:https://github.com/common-workflow-language/cwlprov[cwlprov] and additional metadata defined by
+link:https://github.com/crim-ca/weaver[crim-ca/weaver] server implementation, for an `EchoProcess` (see <<OAProc-1>> example)
+runtime encoded in Common Workflow Language (CWL). This standard does not require these specific tools
+and provides the examples for illustration purposes only.
+
+[[example-provenance-job-prov-json]]
+.Example: PROV-JSON
+[source,json]
+----
+include::../examples/job_prov.json[]
+----
+
+[[example-provenance-job-prov-jsonld]]
+.Example: PROV-JSONLD
+[source,json]
+----
+include::../examples/job_prov.jsonld[]
+----
+
+[[example-provenance-job-prov-xml]]
+.Example: PROV-XML
+[source,xml]
+----
+include::../examples/job_prov.xml[]
+----
+
+[[example-provenance-job-prov-provn]]
+.Example: PROV-N
+[source,text]
+----
+include::../examples/job_prov.provn[]
+----
+
+[[example-provenance-job-prov-nt]]
+.Example: PROV-NT
+[source,ntriples]
+----
+include::../examples/job_prov.nt[]
+----
+
+[[example-provenance-job-prov-ttl]]
+.Example: PROV-TURTLE
+[source,turtle]
+----
+include::../examples/job_prov.ttl[]
+----
