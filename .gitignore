@@ -42,6 +42,9 @@ extensions/job_management/**/24-051.doc
 extensions/job_management/**/24-051.err
 extensions/job_management/**/24-051.xml
 extensions/job_management/**/24-051.presentation.xml
+extensions/provenance/**/26-038.html
+extensions/provenance/**/26-038.presentation.xml
+extensions/provenance/**/26-038.xml
 node_modules
 package.json
 package-lock.json
