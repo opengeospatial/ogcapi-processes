@@ -20,5 +20,3 @@ test-method::
 5. Validate that the response structure respects the provenance schema if applicable.
 --
 ====
-
-

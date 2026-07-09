@@ -12,4 +12,3 @@ conformance-test:: /conf/prov/prov/get-op
 ==== PROV operation
 
 include::prov/prov/ATS_get-op.adoc[]
-

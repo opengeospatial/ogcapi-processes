@@ -83,6 +83,8 @@ paths:
    /jobs/{jobID}/definition:
       $ref: 'paths/processes-job-management/pJobDefinition.yaml'
 
+   # OGC API - Processes - Part 5: Provenance
+
    /jobs/{jobID}/prov:
       $ref: 'paths/processes-job-management/pJobProvenance.yaml'
 
@@ -526,7 +528,7 @@ components:
       Enumeration:
          $ref: 'responses/dynamic/rEnumeration.yaml'
 
-      # Processes - Core
+      # OGC API - Processes - Part 1: Core
       ProcessList:
          $ref: 'responses/processes-core/rProcessList.yaml'
 
@@ -552,27 +554,32 @@ components:
       EmptyResponse:
          $ref: 'responses/processes-core/rEmpty.yaml'
 
-      # OGC API - Common - Part 2: Deploy, Replace, Undeploy
+      # OGC API - Processes - Part 2: Deploy, Replace, Undeploy
       DeployProcess:
          $ref: 'responses/processes-dru/rDeployProcess.yaml'
       ProcessSummary:
          $ref: 'responses/processes-dru/rProcessSummary.yaml'
-
-
       # Part 2 additional exceptions
       DuplicateProcess:
          $ref: 'responses/processes-dru/rDuplicateProcess.yaml'
       ImmutableProcess:
          $ref: 'responses/processes-dru/rImmutableProcess.yaml'
 
-      # OGC API - Common - Part 3: Workflows and Chaining
+      # OGC API - Processes - Part 3: Workflows and Chaining
       # (pre injected elsewhere as applicable - no extra endpoints)
 
-      # OGC API - Common - Part 4: Job Management
-      JobProvenance:
-         $ref: 'responses/processes-job-management/rJobProvenance.yaml'
+      # OGC API - Processes - Part 4: Job Management
       JobDefinition:
          $ref: 'responses/processes-job-management/rJobDefinition.yaml'
+
+      # OGC API - Processes - Part 5: Provenance
+      JobProvenance:
+         $ref: 'responses/processes-provenance/rJobProvenance.yaml'
+      JobProvMissing:
+         $ref: 'responses/processes-provenance/rJobProvMissing.yaml'
+      JobProvUnsupportedFormat:
+         $ref: 'responses/processes-provenance/rJobProvUnsupportedFormat.yaml'
+
 
 # patches for above 'JobProvenance', which includes a JSON-LD schema context that doesn't resolve definitions otherwise
 definitions:

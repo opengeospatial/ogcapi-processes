@@ -27,6 +27,3 @@ corresponding `type` attribute and the same `rel="https://www.w3.org/ns/prov"` r
 --
 
 ====
-
-
-

@@ -12,8 +12,7 @@ Content negotiation MAY be supported to provide alternate representations of the
 [.component,class=part]
 --
 The server MAY support the additional content type `application/ld+json`
-for link:https://www.w3.org/submissions/prov-jsonld/[PROV-JSONLD] as
-a link:https://www.w3.org/TR/2013/NOTE-prov-overview-20130430/[PROV] representation
+for link:https://www.w3.org/submissions/prov-jsonld/[PROV-JSONLD] as a <<W3C-PROV>> representation
 in link:https://www.w3.org/TR/json-ld/[JSON-LD], where the contents respect the
 link:https://openprovenance.org/prov-jsonld/schema.json[PROV-JSONLD] schema.
 --
@@ -22,16 +21,15 @@ link:https://openprovenance.org/prov-jsonld/schema.json[PROV-JSONLD] schema.
 --
 The server MAY support the additional content type `application/provenace+xml`
 (and optionally `application/xml` or `text/xml` as acceptable aliases)
-for link:https://www.w3.org/TR/prov-xml/[PROV-XML] as
-a link:https://www.w3.org/TR/2013/NOTE-prov-overview-20130430/[PROV] representation
-in XML using namespaces defined by the link:https://www.w3.org/TR/2013/REC-prov-dm-20130430/[PROV-DM] data model.
+for link:https://www.w3.org/TR/prov-xml/[PROV-XML] as a <<W3C-PROV>> representation
+in XML using namespaces defined by the link:https://www.w3.org/ns/prov.xsd[PROV-XML] schema.
 --
 
 [.component,class=part]
 --
 The server MAY support the additional content type `text/provenance-notation`
 for link:https://www.w3.org/TR/prov-n/[PROV-N] as a human-readable provenance notation
-of the link:https://www.w3.org/TR/2013/REC-prov-dm-20130430/[PROV-DM] data model.
+of the link:http://www.w3.org/TR/prov-dm/[PROV-DM] data model.
 --
 
 [.component,class=part]
