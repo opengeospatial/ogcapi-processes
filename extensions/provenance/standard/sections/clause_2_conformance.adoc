@@ -1,26 +1,23 @@
 
 == Conformance
 
-The OGC API - Processes - Part 4 Standard defines the following requirements classes.
+The OGC API - Processes - Part 5 Standard defines the following requirements classes.
 
 The main requirements class is:
 
-* <<rc_job-management,Job Management>>.
+* <<rc_provenance,Provenance>>.
 
-This class specifies requirements that any Web API implementing Processes Part 4 must conform with.
+This class specifies requirements that any Web API implementing Processes Part 5 must conform with.
 
-The `Job Management` class does not mandate a specific encoding for the job definition.  
-However, the Part 4 extension defines the following conformance class:
+The `Provenance` class does not mandate a specific encoding for the job provenance details beside the default PROV-JSON
+representation. Part 5 extension demonstrates multiple <<prov-content-negotiation,PROV Content Negotiation>>
+and <<prov-content-examples,PROV Content Examples>> for commonly used <<W3C-PROV>> formats.
 
-* <<rc_ogcapi-processes,OGC API - Processes - Workflow Execute Request>>
-* <<rc_openeo,OpenEO Process Graph>>
-
-The `OGC API - Processes - Workflow Execute Request` class defines that jobs can be created from an OGC API - Processes - Workflow Execute Request.
-
-The `OpenEO Process Graph` class defines that jobs can be created from an OpenEO Process Graph.
-
-The provenance information associated with a job is not mandated to be supported by the server.
-A dedicated requirements class <<rc_provenance,Provenance>> is defined for this feature.
+The `Provenance` encodings are typically defined with "_workflow_" ontologies (e.g., CWLProv, Wf4Ever, WfProv, etc.)
+in order to support the more complex processing graph they require. However, provenance can be applied to any workflow
+or process execution. Therefore, a server is not required to support <<OAProc-3>> to implement this standard.
+The concepts are applicable to "single" processes (<<OAProc-1>>) and mutable processes (<<OAProc-2>>) as well,
+and can be seamlessly integrated with <<OAProc-4>> job management endpoints.
 
 The standardization target for all Conformance class defined in this Standard is “Web API”.
 

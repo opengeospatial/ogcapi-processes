@@ -10,7 +10,7 @@ a workflow (<<OAProc-3,OGC API - Processes - Part 3: Workflows and Chaining>>). 
 details are collected from can result from a <<OAProc-1,OGC API - Processes - Part 1: Core>> process execution,
 from <<OAProc-4,OGC API - Processes - Part 4: Job Management>> additional endpoints, or any other compatible extension.
 
-For general information about provenance, see the link:https://www.w3.org/TR/prov-overview/[W3C PROV Overview] document.
+For general information about provenance, see the <<W3C-PROV>> document.
 
 include::../requirements/requirements_class_provenance.adoc[]
 
