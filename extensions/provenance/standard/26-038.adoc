@@ -12,7 +12,7 @@
 :external-id: http://www.opengis.net/doc/IS/ogcapi-processes-5/1.0
 :keywords: process, provenance, W3C PROV, job, spatial, data, openapi
 :submitting-organizations: Technologies Luqia, Centre de Recherche Informatique de Montréal (CRIM); Geolabs; CubeWerx Inc.
-:editor: Gérald Fenoy, Francis Charette-Migneault
+:editor: Francis Charette-Migneault, Gérald Fenoy
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf
 

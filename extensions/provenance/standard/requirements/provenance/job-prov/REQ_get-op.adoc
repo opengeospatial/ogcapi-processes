@@ -6,13 +6,8 @@ identifier:: /req/provenance/prov-get-op
 
 [.component,class=conditions]
 --
-The parameter `{jobID}` resolves to a valid job as per <<OAProc-1,OGC API - Processes - Part 1: Core, Conformance Class 'Core'>>.
---
-
-[.component,class=conditions]
---
-The job reference (path: `/jobs/{jobID}`) for which provenance information is requested
-has completed successfully (`status: successful`).
+. The parameter `{jobID}` resolves to a valid job as per <<OAProc-1,OGC API - Processes - Part 1: Core, Conformance Class 'Core'>>.
+. The job reference (path: `/jobs/{jobID}`) for which provenance information is requested has completed successfully (`status: successful`).
 --
 
 [.component,class=part]

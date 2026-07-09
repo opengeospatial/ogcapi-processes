@@ -20,8 +20,10 @@ The PROV job activity SHALL indicate a `prov:type` of relevant value to represen
 ====
 
 NOTE: Multiple activities might be associated between each other (`wasInformedBy`) or might
-be related though intermediate agents (e.g., <<rec_provenance_prov-content_software-agent,PROV Software Agent>>)
+be related through intermediate agents (e.g., <<rec_provenance_prov-content_software-agent,PROV Software Agent>>)
 via `wasAssociatedWith`, `wasAttributedTo`, or `actedOnBehalfOf` relationships
 (see link:http://www.w3.org/TR/prov-o/#description-starting-point-terms[PROV-O Starting Point Terms] for more details).
 The specific association combinations and `prov:type` are not imposed by this standard to allow granularity and
 flexibility in the representation of the provenance of the job and involved components to accomplish its execution.
+Implementers are encouraged to employ multiple activities, agents and entities if they can help illustrate complex
+relationships, dependencies or interactions involved between the job submission and the generation of its execution results.
