@@ -1,0 +1,35 @@
+[[per_cwl-workflows_adhoc-cwl-multipart-alternate-encoding]]
+[permission]
+====
+[%metadata]
+identifier:: /per/cwl-workflows/adhoc-cwl-multipart-alternate-encoding
+description:: Allow using alternate presentations of equivalent contents.
+
+[.component,class=part]
+--
+For each part of the <<REQ_cwl-workflows_adhoc-cwl-multipart-content,/req/cwl-workflows/adhoc-cwl-multipart-content>>
+multipart request, the server MAY support alternate presentations of equivalent contents (e.g.: YAML instead of JSON).
+--
+
+[.component,class=part]
+--
+The corresponding part SHOULD report the corresponding `Content-Type` best representing the encoding
+(e.g., `application/cwl+yaml` instead of `application/yaml` if the part represents CWL).
+--
+
+[.component,class=part]
+--
+The server SHOULD rely on other profiling details (i.e.: `Content-Profile` to identify parts regardless of encoding.
+--
+
+[.component,class=part]
+--
+The server MAY apply other heuristics to identify alternate representations of equivalent contents,
+such as file extension, or other metadata.
+--
+
+====
+
+NOTE: This standard does not specify any explicit strategy to convert between alternate media-type representations.
+However, it is expected that if such permission is employed, equivalent interpretation of corresponding part contents
+can be achieved unambiguously.

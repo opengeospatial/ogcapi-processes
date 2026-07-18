@@ -1,0 +1,59 @@
+[[REQ_cwl-workflows_adhoc-cwl-multipart-content]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/cwl-workflows/adhoc-cwl-multipart-content
+inherit:: <<rfc2387,RFC 2387 (The MIME Multipart/Related Content-type)>>
+description:: Multipart content to combine Common Workflow Language (CWL) definition and execution parameters.
+
+[.component,class=part]
+--
+The request SHALL employ the `Content-Type: multipart/related` media type as defined in <<rfc2387>> to submit the
+CWL definition and its associated execution parameters.
+--
+
+[.component,class=part]
+--
+At least one part corresponding to CWL contents SHALL be provided.
+--
+
+[.component,class=part]
+--
+The media-type of each individual CWL part in the multipart body SHALL be specified by their respective
+part `Content-Type` header using `application/cwl`, `application/cwl+json` or `application/cwl+yaml` media-types
+in accordance to their respective content encoding.
+--
+
+[.component,class=part]
+--
+If the CWL definition contains multiple workflow steps defined across multiple parts
+(e.g: as if providing multiple files where each part implements part of the workflow),
+the multipart `Content-Type` SHALL provide a `start=` parameter (as per  <<rfc2387,RFC 2387 section-3.2>>)
+referring to the `Content-ID` value of the corresponding part that represents this workflow "root" as the
+entrypoint part for execution.
+--
+
+[.component,class=part]
+--
+The header portion of the part corresponding to
+the <<https://docs.ogc.org/DRAFTS/18-062r3.html#execute-request-body,execute request body>>
+SHALL contain:
+
+. the `+Content-Profile: <https://www.opengis.net/def/profile/OGC/0/ogc-execute-request>+` profile header
+to indicate the semantics of the part.
+. the `Content-Type: application/json` header to indicate its encoding.
+--
+
+[.component,class=part]
+--
+Exactly one part corresponding to the execution content (`inputs`, `outputs`, etc.) SHALL be provided and respect the
+https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/execute.yaml[execute.yaml] schema.
+--
+
+[.component,class=part]
+--
+If a part employs a `Content-Location` header, it contents SHALL be retrieved from the provided URL,
+unless the literal data contents are also provided explicitly within the part.
+--
+
+====

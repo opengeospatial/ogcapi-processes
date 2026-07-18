@@ -1,0 +1,38 @@
+[[REQ_cwl-workflows_adhoc-cwl-job-execution]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/cwl-workflows/adhoc-cwl-job-execution
+inherit:: <<OAProc-4,http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/job-management>>
+description:: For executing a workflow defined using the Common Workflow Language (CWL) definition, through _Job Management_ execution.
+
+[.component,class=part]
+--
+The server SHALL support ad-hoc execution of a CWL workflow definition on `POST /jobs` endpoint.
+--
+
+[.component,class=part]
+--
+The execution and response handling SHALL behave according to other execution parametrization (`Prefer` header, etc.)
+defined by <<OAProc-4>>.
+--
+
+[.component,class=part]
+--
+The request SHALL employ the `Content-Type: multipart/related` media type as defined in <<rfc2387>> to submit the
+CWL definition and its associated execution parameters.
+--
+
+[.component,class=part]
+--
+The multipart contents SHALL follow <<REQ_cwl-workflows_adhoc-cwl-multipart-content,/req/cwl-workflows/adhoc-cwl-multipart-content>>
+for the definition of part contents.
+--
+
+[.component,class=part]
+--
+The `inputs` and `outputs` IDs of the execution body SHALL be aligned with the CWL definition IDs of respective sections
+to allow chaining their respective values and results.
+--
+
+====
