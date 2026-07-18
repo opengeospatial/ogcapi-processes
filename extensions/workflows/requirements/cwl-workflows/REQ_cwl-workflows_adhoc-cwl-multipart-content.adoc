@@ -52,7 +52,7 @@ https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi
 
 [.component,class=part]
 --
-If a part employs a `Content-Location` header, it contents SHALL be retrieved from the provided URL,
+If a part employs a `Content-Location` header, its contents SHALL be retrieved from the provided URL,
 unless the literal data contents are also provided explicitly within the part.
 --
 
