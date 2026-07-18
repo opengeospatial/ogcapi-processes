@@ -18,7 +18,7 @@ The server SHALL respond with an HTTP status code of https://datatracker.ietf.or
 
 [.component,class=part]
 --
-The response SHALL include a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[`Location`] response header redirecting to a <<def-collection-description,collection description document>>.
+The response SHALL include a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[`Location`] response header redirecting to a <<def_collection-description,collection description document>>.
 --
 
 ====

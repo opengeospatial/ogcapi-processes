@@ -6,7 +6,7 @@ identifier:: /req/remote-collections/referencing
 
 .component,class=description]
 --
-For referencing a <<def-remote-collections,remote collection>> as a source of <<sc_process_inputs,input values to a process>>:
+For referencing a <<def_remote-collections,remote collection>> as a source of <<sc_process_inputs,input values to a process>>:
 --
 
 [.component,class=part]
@@ -16,12 +16,12 @@ The server SHALL support inputs in an <<execute-request-body,execute requests>> 
 
 [.component,class=part]
 --
-The value of the `collection` parameter SHALL be a URI identifying a <<def-remote-collections,remote collection>> from which <<sc_process_inputs,process input values>> are retrieved.
+The value of the `collection` parameter SHALL be a URI identifying a <<def_remote-collections,remote collection>> from which <<sc_process_inputs,process input values>> are retrieved.
 --
 
 [.component,class=part]
 --
-The URI path SHALL not extend past the collection element in order to allow the server to decide, based on the expected input value type from the <<sc_process_description,process description>> and other factors, which supported <<def-data-access-mechanism,data access mechanisms>> should be employed to retrieved input values from the <<def-remote-collections,collection>>.
+The URI path SHALL not extend past the collection element in order to allow the server to decide, based on the expected input value type from the <<sc_process_description,process description>> and other factors, which supported <<def_data-access-mechanism,data access mechanisms>> should be employed to retrieved input values from the <<def_remote-collections,collection>>.
 --
 
 ====

@@ -6,7 +6,7 @@ identifier:: /req/ogc-process-description/data-access-apis
 
 [.component,class=part]
 --
-The list of possible <<def-data-access-mechanism,OGC API data access mechanisms>> that can be used to retrieve process input or output values from an OGC collection shall be indicated by the `dataAccessApi` parameter in the <<ogc_process_description,process' description>>.
+The list of possible <<def_data-access-mechanism,OGC API data access mechanisms>> that can be used to retrieve process input or output values from an OGC collection shall be indicated by the `dataAccessApi` parameter in the <<ogc_process_description,process' description>>.
 --
 
 [.component,class=part]

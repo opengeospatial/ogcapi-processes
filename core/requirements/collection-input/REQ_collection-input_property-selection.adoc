@@ -6,7 +6,7 @@ identifier:: /req/collection-input/property-selection
 
 [.component,class=description]
 --
-The support property and derived property selection from a <<def-collection,collection>> before providing the data as <<sc_process_inputs,inputs to a process>>
+The support property and derived property selection from a <<def_collection,collection>> before providing the data as <<sc_process_inputs,inputs to a process>>
 --
 
 [.component,class=part]
@@ -22,12 +22,12 @@ as defined in the <<collection-value-schema,"collectionValue.yaml">> schema.
 
 [.component,class=part]
 --
-If supported by the <<def-data-access-mechanism,data access API>> chosen to retrieve input values from the <<def-local-collection,collection>>, then the server SHALL map these parameters to the corresponding query parameters in the <<def-data-access-mechanism,data access API>>.
+If supported by the <<def_data-access-mechanism,data access API>> chosen to retrieve input values from the <<def_local-collection,collection>>, then the server SHALL map these parameters to the corresponding query parameters in the <<def_data-access-mechanism,data access API>>.
 --
 
 [.component,class=part]
 --
-If NOT supported by the <<def-data-access-mechanism,data access API>> chosen to retrieve input values from the <<def-local-collection,collection>>, then the server SHALL perform the property selection operation before providing the data as input to the process.
+If NOT supported by the <<def_data-access-mechanism,data access API>> chosen to retrieve input values from the <<def_local-collection,collection>>, then the server SHALL perform the property selection operation before providing the data as input to the process.
 --
 
 ====

@@ -1020,7 +1020,7 @@ The way a server responds to <<execute-request-body,execute request>> is determi
 The following table maps the possible responses based on the combinations of these execute parameters.  The column headers denote:
 
 . *Negotiated execute mode*: see <<sc_execution_mode>>
-. *Requested # outputs*: The number of requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>>
+. *Requested # outputs*: The number of requested (whether <<def_implicit-process-output,implicitly>> or <<def_explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>>
 . *Return preference*: The negotiated <<sc_output_value_size,return preferences>>
 . *Response HTTP code*: The https://datatracker.ietf.org/doc/html/rfc2616#section-6.1.1[HTTP status code] that the server should generate in this context.
 . *Response headers*: Any required https://datatracker.ietf.org/doc/html/rfc2616#section-14[HTTP headers] that the server must include in this context.
@@ -1103,7 +1103,7 @@ The above table shows all possible combinations of execute parameters that are s
 [[implicit-explicit-outputs]]
 [NOTE]
 ====
-A process output may be requested <<explicit-process-output,explicitly>> or <<implicit-process-output,implicitly>> in an <<execute-request-body,execute request>> .
+A process output may be requested <<def_explicit-process-output,explicitly>> or <<def_implicit-process-output,implicitly>> in an <<execute-request-body,execute request>> .
 ====
 
 [[sync_note_4]]
@@ -1424,7 +1424,7 @@ NOTE: The size of the value may be determined without actually transmitting the 
 
 include::../requirements/core/REQ_job-result-op-0th.adoc[]
 
-In other words, regardless of the defined cardinality of an output, the first result (i.e. at index value 0) is always accessible.  If, however, the cardinality of the output is 1 (i.e. `maxOccurs=1`) then attempting to retrieve an output value using any index value other than _0_ will result in an HTTP 404 exception.  Also, if the cardinality of the output is greater than one (i.e. `maxOccurs>1`) then other non-zero index values may be used to retrieve output values.  However, out-of-bounds index values will results in an HTTP 404 exception (see requirement: <<req_core_process-execute-success-async-outputs-Nth,/req/core/process-execute-success-async-outputs-Nth>>).  
+In other words, regardless of the defined cardinality of an output, the first result (i.e. at index value 0) is always accessible.  If, however, the cardinality of the output is 1 (i.e. `maxOccurs=1`) then attempting to retrieve an output value using any index value other than _0_ will result in an HTTP 404 exception.  Also, if the cardinality of the output is greater than one (i.e. `maxOccurs>1`) then other non-zero index values may be used to retrieve output values.  However, out-of-bounds index values will results in an HTTP 404 exception (see requirement: <<req_core_process-execute-success-async-outputs-Nth,/req/core/process-execute-success-async-outputs-Nth>>).
 
 ==== Response
 
@@ -1432,7 +1432,7 @@ In other words, regardless of the defined cardinality of an output, the first re
 
 The way a server responds when retrieving job results depends on:
 
-* The number of outputs requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) in an <<execute-request-body,execute request>>.
+* The number of outputs requested (whether <<def_implicit-process-output,implicitly>> or <<def_explicit-process-output,explicitly>>) in an <<execute-request-body,execute request>>.
 * The negotiated content type for the response (via the https://www.rfc-editor.org/rfc/rfc2616#section-14.1[HTTP Accept] header) or lack thereof,
 * Any negotiated client preferences (via the HTTP Prefer header).
 * Whether an output is single-valued (i.e. `maxOccurs=1`) or multi-valued (i.e. `maxOccurs>1`).
@@ -1441,7 +1441,7 @@ The following table maps the possible responses based on the combinations of par
 
 The column headers in the following table denote:
 
-. *Requested # outputs*: The number of outputs requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) in the <<execute-request-body,execute request>>.
+. *Requested # outputs*: The number of outputs requested (whether <<def_implicit-process-output,implicitly>> or <<def_explicit-process-output,explicitly>>) in the <<execute-request-body,execute request>>.
 . *Output cardinality*: The maximum number of values that can be generated for this output.
 . *Access path*: The API endpoint from which the result(s) can be retrieved.
 . *Return preference*: The negotiated <<sc_output_value_size,return preferences>>.

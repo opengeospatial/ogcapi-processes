@@ -6,12 +6,12 @@ identifier:: /req/local-filtering
 
 [.component,class=description]
 --
-To support the local filtering of data accessed from a <<def-collection,collection>> before providing the data as <<sc_process_inputs,inputs to a process>>:
+To support the local filtering of data accessed from a <<def_collection,collection>> before providing the data as <<sc_process_inputs,inputs to a process>>:
 --
 
 [.component,class=part]
 --
-The server SHALL support local filtering of input data, retrieved from a <<value-source-server,value source server>>, based on the filtering parameters:
+The server SHALL support local filtering of input data, retrieved from a <<def_value-source-server,value source server>>, based on the filtering parameters:
 
 * filter, filterCrs, filterLang
 * bbox, bboxCrs

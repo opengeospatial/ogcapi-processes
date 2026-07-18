@@ -41,13 +41,13 @@ The _Core_ does not mandate the use of any specific process description language
 This class defines an information model, encoded in JSON, which may be used to
 specify the interface of a process including the inputs that the process expects and the outputs that the process will generate.
 
-Besides the standard input types one might expect for a process (e.g. integer, string, double, etc.) this Standard defines the following conformance class: 
+Besides the standard input types one might expect for a process (e.g. integer, string, double, etc.) this Standard defines the following conformance class:
 
-* <<rc_collection-input,Collection Input>> 
+* <<rc_collection-input,Collection Input>>
 
 that allows OGC API collections to be specified as process inputs.  The <<rc_collection-input,Collection Input>> class only supports collections that are local to the current deployment to be specified as process inputs.  The following conformance class:
 
-* <<rc_remote-collections,Remote Collections>> 
+* <<rc_remote-collections,Remote Collections>>
 
 extends the collection input requirements to support specifying remote collections as process inputs.
 
@@ -61,7 +61,7 @@ In addition to supporting collections as process inputs, the following conforman
 
 * <<rc_collection-output,Collection Output>>
 
-defines requirements that allow process execution to be triggered by requesting output data using an standard <<def-data-access-mechanism,OGC API data access mechanisms>>.  In this way, process execution becomes opaque, hidden behind a standard OGC data access API (e.g. features, coverages, etc.).  
+defines requirements that allow process execution to be triggered by requesting output data using an standard <<def_data-access-mechanism,OGC API data access mechanisms>>.  In this way, process execution becomes opaque, hidden behind a standard OGC data access API (e.g. features, coverages, etc.).
 
 In the <<rc_core,Core>> executing a process requires sending a JSON-encoded execution request to the server using the HTTP POST method.  To support embedding process execution requests into other documents this Standard defines the:
 
@@ -77,7 +77,7 @@ conformance class.  Using the `profile` query parameter JSON-encoded responses c
 
 Three additional conformance classes are specified that extend the basic functionality defined in the _Core_ requirements class:
 
-* <<rc_job-list,Job list>> for requesting a list of jobs with optional filtering capabilities, 
+* <<rc_job-list,Job list>> for requesting a list of jobs with optional filtering capabilities,
 
 * <<rc_dismiss,Dismiss>> for cancelling active jobs or deleting completed jobs, and
 

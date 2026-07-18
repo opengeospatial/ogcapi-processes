@@ -5,16 +5,17 @@
 :status: swg-draft
 :committee: technical
 :draft: 1.0
-:external-id: http://www.opengis.net/doc/is/ogcapi-processes-3/0.0
+:external-id: https://www.opengis.net/doc/is/ogcapi-processes-3/0.0
 :docnumber: 21-009
 :received-date: 2029-03-30
 :issued-date: 2029-03-30
 :published-date: 2029-03-30
 :fullname: Jérôme Jacovella-St-Louis
 :fullname_2: Panagiotis (Peter) A. Vretanos
+:fullname_3: Francis Charette-Migneault
 :docsubtype: implementation
 :keywords: ogcdoc, OGC document, API, openapi, html, ogcapi
-:submitting-organizations: Ecere Corporation; CubeWerx Inc.; GeoLabs; University of Calgary; Pangaea Innovations Pty. Ltd.; Natural Resources Canada; EOX IT Services GmbH; Universitat Autònoma de Barcelona (CREAF); Technologies Luqia, Centre de Recherche Informatique de Montréal (CRIM); 52°North Spatial Information Research GmbH; European Space Agency (ESA); US Army Geospatial Center (AGC); Hexagon; Haute École d'Ingénierie et de Gestion du Canton de Vaud (HEIG-VD); Laboratoire des Sciences et Techniques de l'information de la Communication et de la Connaissance / Centre national de la recherche scientifique (Lab-STICC CNRS)
+:submitting-organizations: Ecere Corporation; CubeWerx Inc.; Technologies Luqia, Centre de Recherche Informatique de Montréal (CRIM); GeoLabs; University of Calgary; Pangaea Innovations Pty. Ltd.; Natural Resources Canada; EOX IT Services GmbH; Universitat Autònoma de Barcelona (CREAF); 52°North Spatial Information Research GmbH; European Space Agency (ESA); US Army Geospatial Center (AGC); Hexagon; Haute École d'Ingénierie et de Gestion du Canton de Vaud (HEIG-VD); Laboratoire des Sciences et Techniques de l'information de la Communication et de la Connaissance / Centre national de la recherche scientifique (Lab-STICC CNRS)
 :docfile: document.adoc
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf
@@ -44,13 +45,9 @@ include::sections/clause_6_overview.adoc[]
 
 include::sections/clause_7_nested_processes.adoc[]
 
-include::sections/clause_8_collection_input.adoc[]
-
 include::sections/clause_9_input_output_fields_modifiers.adoc[]
 
 include::sections/clause_10_deployable_workflow.adoc[]
-
-include::sections/clause_11_collection_output.adoc[]
 
 include::sections/clause_12_cwl_workflows.adoc[]
 

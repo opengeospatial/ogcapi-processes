@@ -7,7 +7,7 @@ identifier:: /req/core/job-results-async-one-Nth
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is asynchronous,
-. The number of requested (whether <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
+. The number of requested (whether <<def_implicit-process-output,implicitly>> or <<def_explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
 . The requested output with identifier `outputID` is defined in the <<sc_process_description,process description>> as having `maxOccurs>1`.
 . The path `/jobs/{jobID}/results/{outputID}/{N}` is accessed to retrieve the 0-based _N^th^_ value from the array of values produced for this output.
 --
