@@ -183,7 +183,9 @@ Content-Profile: <https://www.opengis.net/def/profile/OGC/0/ogc-execute-request>
 Content-Type: application/json
 
 {
-  "inputs": {},
+  "inputs": {
+    "features": {"href": "file://./features.geojson"}
+  },
   "outputs": {"info": {}}
 }
 

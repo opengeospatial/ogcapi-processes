@@ -24,4 +24,15 @@ link:https://www.commonwl.org/v1.2/CommandLineTool.html#File[CWL File] supported
 to collect this file during execution (e.g., `glob`, `path`, `location`, etc.).
 --
 
+[.component,class=part]
+--
+The part corresponding to the execution body SHOULD employ the corresponding `href` input
+definition matching the specified file path from the resolved `Content-Disposition` header.
+--
+
 ====
+
+NOTE: Although explicit indication of the `href` for a given input might not always be strictly necessary
+when the ad-hoc CWL definition can itself resolve it, it is recommended to indicate it for traceability
+and explicit representation of the inputs through the _OGC API - Processes_ interface. This will allow
+clients not aware of the _Part 3_ implementation details to still interact with jobs through _Part 1: Core_ interface.
