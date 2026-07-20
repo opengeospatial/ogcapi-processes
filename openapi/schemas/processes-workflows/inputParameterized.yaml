@@ -1,8 +1,8 @@
 allOf:
- - type: object
-   required:
-     - $input
-   properties:
-     $input:
-       type: string
- - $ref: ../processes-core/fieldsModifiers.yaml
+  - type: object
+    required:
+      - $input
+    properties:
+      $input:
+        type: string
+  - $ref: ../processes-core/fieldsModifiers.yaml

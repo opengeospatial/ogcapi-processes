@@ -94,10 +94,10 @@ definitions:
     #  - $ref: '#/definitions/patternExpression'
     items:
       oneOf:
-          - $ref: '#/definitions/characterExpression'
-          - $ref: '#/definitions/propertyRef'
-          - $ref: '#/definitions/functionRef'
-          - $ref: '#/definitions/patternExpression'
+        - $ref: '#/definitions/characterExpression'
+        - $ref: '#/definitions/propertyRef'
+        - $ref: '#/definitions/functionRef'
+        - $ref: '#/definitions/patternExpression'
   patternExpression:
     oneOf:
       - type: object
