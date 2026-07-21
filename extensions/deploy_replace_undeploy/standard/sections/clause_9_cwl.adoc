@@ -84,7 +84,7 @@ include::../requirements/cwl/REQ_body.adoc[]
 
 ==== Multipart CWL request body
 
-include::../recommendations/cwl/REC_body-cwl-multipart.adoc[]
+include::../recommendations/cwl/PER_body-cwl-multipart.adoc[]
 
 The following multipart example illustrates one request payload with a root workflow selected by the `start` parameter, with supporting documents referenced by `filename`, `cid:` URI and remote URL combinations. The full contents of the individual <<rc_cwl,CWL>> documents are not included for simplification. Note that the <<rc_cwl,CWL>> YAML representation are employed to provide a concise example, but other <<rc_cwl,CWL>> media-types are permitted in any desired combination.
 
