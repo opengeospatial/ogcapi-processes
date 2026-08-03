@@ -1,0 +1,34 @@
+
+== Conformance
+
+The OGC API - Processes - Part 5 Standard defines the following requirements classes.
+
+The main requirements class is:
+
+* <<rc_provenance,Provenance>>.
+
+This class specifies requirements that any Web API implementing Processes Part 5 must conform with.
+
+The `Provenance` class does not mandate a specific encoding for the job provenance details beside the default PROV-JSON
+representation. Part 5 extension demonstrates multiple <<prov-content-negotiation,PROV Content Negotiation>>
+and <<prov-content-examples,PROV Content Examples>> for commonly used <<W3C-PROV>> formats.
+
+The `Provenance` encodings are typically defined with "_workflow_" ontologies (e.g., CWLProv, Wf4Ever, WfProv, etc.)
+in order to support the more complex processing graph they require. However, provenance can be applied to any workflow
+or process execution. Therefore, a server is not required to support <<OAProc-3>> to implement this standard.
+The concepts are applicable to "single" processes (<<OAProc-1>>) and mutable processes (<<OAProc-2>>) as well,
+and can be seamlessly integrated with <<OAProc-4>> job management endpoints.
+
+Due to the nature of provenance metadata retrieved after completion of a job execution, the `Provenance` class
+assumes that the server implementation performs process or workflow executions asynchronously (necessarily creating a job)
+or synchronously by leveraging the <<OAProc-1>> permission to create a job; nevertheless unrequired for the execution itself
+(i.e., link:https://docs.ogc.org/DRAFTS/18-062r3.html#per_core_process-execute-sync-job[`/per/core/process-execute-sync-job`]).
+The standard does not cover patterns to store and retrieve provenance information when no job is available.
+
+The standardization target for all Conformance class defined in this Standard is “Web API”.
+
+Conformance with this Standard shall be checked using all the relevant tests
+specified in <<ats>> of this document. The framework, concepts, and
+methodology for testing, and the criteria to be achieved to claim conformance
+are specified in the OGC Compliance Testing Policies and Procedures and the
+OGC Compliance Testing web site.

@@ -30,7 +30,7 @@ content:
   application/geo+json:
     schema:
       allOf:
-         - format: geojson-feature-collection
-         # JSON Schema not supported in OpenAPI 3.0
-         # - $ref: https://geojson.org/schema/FeatureCollection.json
-         - $ref: '../../schemas/geojson/FeatureCollection.yaml'
+        - format: geojson-feature-collection
+        # JSON Schema not supported in OpenAPI 3.0
+        # - $ref: https://geojson.org/schema/FeatureCollection.json
+        - $ref: '../../schemas/geojson/FeatureCollection.yaml'

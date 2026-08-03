@@ -1,0 +1,36 @@
+[[rec_provenance_prov-content_software-agent]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/provenance/prov-content-software-agent
+
+[.component,class=part]
+--
+The PROV metadata SHOULD include at least one link:https://www.w3.org/TR/prov-o/#Agent[`prov:Agent`]
+to indicate any related software reference involved for completing the job execution.
+--
+
+[.component,class=part]
+--
+Software references SHOULD employ the `prov:type` property with (at least) the value
+link:https://www.w3.org/TR/prov-o/#SoftwareAgent[`prov:SoftwareAgent`] or another equivalent derived type,
+and along other supplementary types as applicable, to indicate the software nature and involvement of the agent
+within the job execution.
+--
+
+[.component,class=part]
+--
+Complex compositions of software agents (e.g., a workflow engine that orchestrates multiple software components)
+SHOULD employ multiple link:https://www.w3.org/TR/prov-o/#Activity[`prov:Activity`]
+and link:https://www.w3.org/TR/prov-o/#Entity[`prov:Entity`], with adequate relationships, to adequately
+represent the nuances of their interactions during the job execution.
+--
+
+[.component,class=part]
+--
+If the main software agent processes a job submitted by a user, machine or other procedure that can be identified,
+the PROV metadata SHOULD include another link:https://www.w3.org/TR/prov-o/#Agent[`prov:Agent`] to represent it and
+relate them via a link:https://www.w3.org/TR/prov-o/#wasAssociatedWith[`prov:wasAssociatedWith`] relationship.
+--
+
+====

@@ -71,7 +71,7 @@ conformance class which allows process inputs to be encoded as query parameters 
 
 The standard request and response encoding used in this Standard is JSON.  The standard media type for JSON is `application/json` which does not allow for the discrimination of one JSON schema from another.  In order to resolve this issue the Standard supports content negotiation by profile and defines the `profile` query parameter in the:
 
-* <<rc_query-param-profile>.
+* <<rc_query-param-profile>>.
 
 conformance class.  Using the `profile` query parameter JSON-encoded responses can be requested that conform to a specific JSON schemas.
 

@@ -3,17 +3,23 @@ content:
    application/json:
       schema:
          $ref: 'https://www.w3.org/submissions/prov-json/schema'
+   application/provenance+json:
+      schema:
+         $ref: 'https://www.w3.org/submissions/prov-json/schema'
    application/ld+json:
       schema:
          $ref: 'https://www.w3.org/submissions/prov-jsonld/schema.json'
    application/provenance+xml:
       schema:
+         # https://www.w3.org/ns/prov.xsd
          type: string
    application/xml:
       schema:
+         # https://www.w3.org/ns/prov.xsd
          type: string
    text/xml:
       schema:
+         # https://www.w3.org/ns/prov.xsd
          type: string
    text/provenance-notation:
       schema:

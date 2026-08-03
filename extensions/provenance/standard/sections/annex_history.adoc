@@ -1,0 +1,10 @@
+[appendix]
+== Revision History
+
+[cols="12,18,12,12,46",options="header,unnumbered"]
+|===
+|Date |Release |Editor | Primary clauses modified |Description
+|2026-07-06 |None |Francis Charette-Migneault |all |Moved Provenance definitions from Part 4 to Part 5 (this document).
+|2026-07-06 |None |Francis Charette-Migneault |all |Added Provenance response examples based on CWL-Prov execution.
+|2026-07-07 |None |Francis Charette-Migneault |all |Added extensive req/rec definitions for PROV contents.
+|===

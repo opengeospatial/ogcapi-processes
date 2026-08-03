@@ -3,11 +3,11 @@
 .Requirements Class 'Provenance'
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-4/1.0/req/provenance
+identifier:: https://www.opengis.net/spec/ogcapi-processes-5/1.0/req/provenance
 obligation:: requirement
 subject:: Web API
 inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core, Conformance Class 'Core'>>
 requirement:: /req/provenance/prov-get-op
 requirement:: /req/provenance/prov-response
-requirement:: /req/provenance/prov-exception
+requirement:: /req/provenance/prov-unsupported-format
 ====
