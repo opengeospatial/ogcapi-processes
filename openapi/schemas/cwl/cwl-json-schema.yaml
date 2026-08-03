@@ -1424,114 +1424,114 @@ $defs:
       Nested type and multi-type definitions will validate against 'Any'.
     oneOf:
        # 1. Null / Explicitly empty
-       - type: object
-         properties:
-           type:
-             type : string
-             enum: ['null']
-           default:
-             #type: string
-             nullable: true
-             enum: [null]
-         required: [type]
+      - type: object
+        properties:
+          type:
+            type : string
+            enum: ['null']
+          default:
+            #type: string
+            nullable: true
+            enum: [null]
+        required: [type]
 
-       # 2. Strings & Optional Strings
-       - type: object
-         properties:
-           type:
-             type: string
-             enum: [string, 'string?']
-           default:
-             type: string
-             nullable: true
-         required: [type]
+      # 2. Strings & Optional Strings
+      - type: object
+        properties:
+          type:
+            type: string
+            enum: [string, 'string?']
+          default:
+            type: string
+            nullable: true
+        required: [type]
 
-       # 3. Booleans
-       - type: object
-         properties:
-           type:
-             type: string
-             enum: [boolean, 'boolean?']
-           default:
-             type: boolean
-             nullable: true
-         required: [type]
+      # 3. Booleans
+      - type: object
+        properties:
+          type:
+            type: string
+            enum: [boolean, 'boolean?']
+          default:
+            type: boolean
+            nullable: true
+        required: [type]
 
-       # 4. Numeric Types (Int, Long, Float, Double)
-       - type: object
-         properties:
-           type:
-             type: string
-             enum: [int, 'int?', long, 'long?', float, 'float?', double, 'double?', integer, 'integer?']
-           default:
-             type: number
-             nullable: true
-         required: [type]
+      # 4. Numeric Types (Int, Long, Float, Double)
+      - type: object
+        properties:
+          type:
+            type: string
+            enum: [int, 'int?', long, 'long?', float, 'float?', double, 'double?', integer, 'integer?']
+          default:
+            type: number
+            nullable: true
+        required: [type]
 
-       # 5. File & Directory (Special CWL Objects)
-       - type: object
-         properties:
-           type:
-             type: string
-             enum: [File, 'File?', Directory, 'Directory?']
-           default:
-             oneOf:
-               - $ref: '#/$defs/CWLDefaultLocation'
-               - nullable: true
-                 enum: [null]
-                 #type: string
-         required: [type]
+      # 5. File & Directory (Special CWL Objects)
+      - type: object
+        properties:
+          type:
+            type: string
+            enum: [File, 'File?', Directory, 'Directory?']
+          default:
+            oneOf:
+              - $ref: '#/$defs/CWLDefaultLocation'
+              - nullable: true
+                enum: [null]
+                #type: string
+        required: [type]
 
-       # 6. Arrays (Shorthand: string[], int[], etc.)
-       - type: object
-         properties:
-           type:
-             type: string
-             pattern: '^[a-zA-Z]+\\[\\]$' # Matches any 'type[]' shorthand
-           default:
-             type: array
-             items:
-               $ref: '#/$defs/AnyType'
-         required: [type]
+      # 6. Arrays (Shorthand: string[], int[], etc.)
+      - type: object
+        properties:
+          type:
+            type: string
+            pattern: '^[a-zA-Z]+\\[\\]$' # Matches any 'type[]' shorthand
+          default:
+            type: array
+            items:
+              $ref: '#/$defs/AnyType'
+        required: [type]
 
-       # 7. Complex Arrays (type: array + items)
-       - type: object
-         properties:
-           type:
-             type: string
-             enum: [array]
-           items:
-             $ref: '#/$defs/AnyType'
-           default:
-             type: array
-             items:
-               $ref: '#/$defs/AnyType'
-         required: [type, items]
+      # 7. Complex Arrays (type: array + items)
+      - type: object
+        properties:
+          type:
+            type: string
+            enum: [array]
+          items:
+            $ref: '#/$defs/AnyType'
+          default:
+            type: array
+            items:
+              $ref: '#/$defs/AnyType'
+        required: [type, items]
 
-       # 8. Enums (type: enum + symbols)
-       - type: object
-         properties:
-           type:
-             type: string
-             enum: [enum, 'enum?']
-           symbols:
-             type: array
-             items:
-               type: string
-           default:
-             type: string
-             nullable: true
-         required: [type, symbols]
+      # 8. Enums (type: enum + symbols)
+      - type: object
+        properties:
+          type:
+            type: string
+            enum: [enum, 'enum?']
+          symbols:
+            type: array
+            items:
+              type: string
+          default:
+            type: string
+            nullable: true
+        required: [type, symbols]
 
-       # 9. Global Fallback (Any)
-       - type: object
-         properties:
-           type:
-             type: string
-             enum: [Any, 'Any?']
-           default:
-             $ref: '#/$defs/AnyType'
-         required: [type]
+      # 9. Global Fallback (Any)
+      - type: object
+        properties:
+          type:
+            type: string
+            enum: [Any, 'Any?']
+          default:
+            $ref: '#/$defs/AnyType'
+        required: [type]
 
   AnyType:
     oneOf:

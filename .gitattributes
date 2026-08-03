@@ -1,0 +1,11 @@
+* text=auto eol=lf
+
+# Ensures that GitHub detects non-programming files as content of the repository since code is not the main content
+# https://github.com/github-linguist/linguist/blob/main/docs/overrides.md#detectable
+*.adoc              linguist-detectable
+openapi/**/*.json   linguist-detectable
+openapi/**/*.yaml   linguist-detectable
+openapi/**/*.yml    linguist-detectable
+**/examples/*.json  linguist-detectable
+**/examples/*.yaml  linguist-detectable
+**/examples/*.yml   linguist-detectable

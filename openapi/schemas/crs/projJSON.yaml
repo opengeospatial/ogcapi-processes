@@ -815,12 +815,12 @@ definitions:
             - datum
             - datum_ensemble
       - oneOf:
-          - type: object
-            required:
-              - datum
-          - type: object
-            required:
-              - datum_ensemble
+        - type: object
+          required:
+            - datum
+        - type: object
+          required:
+            - datum_ensemble
   object_usage:
     anyOf:
       - type: object

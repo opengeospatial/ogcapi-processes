@@ -16,8 +16,8 @@ oneOf:
     properties:
       wkt:
         allOf:
-           - description: An object defining the CRS using the JSON encoding for Well-known text representation of coordinate reference systems 2.0
-           - type: object # - $ref: 'projJSON.yaml'
+          - description: An object defining the CRS using the JSON encoding for Well-known text representation of coordinate reference systems 2.0
+          - type: object # - $ref: 'projJSON.yaml'
   - required:
     - referenceSystem
     properties:

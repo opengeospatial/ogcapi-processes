@@ -2,9 +2,9 @@ title: Extent of any additional dimensions
 description: The domain intervals for any additional dimensions of the extent (envelope) beyond those described in temporal and spatial.
 type: object
 oneOf:
-   - required: [ interval, definition ]
-   - required: [ interval, trs ]
-   - required: [ interval, vrs ]
+  - required: [ interval, definition ]
+  - required: [ interval, trs ]
+  - required: [ interval, vrs ]
 properties:
    interval:
      title: Interval of the extent of this dimension
@@ -26,11 +26,11 @@ properties:
        maxItems: 2
        items:
          oneOf:
-            - type: string
-              nullable: true
-              example: '2011-11-11T12:22:11Z' #, '2011-11-11T08:22:11-04:00', null
-            - type: number
-              example: 32.7
+           - type: string
+             nullable: true
+             example: '2011-11-11T12:22:11Z' #, '2011-11-11T08:22:11-04:00', null
+           - type: number
+             example: 32.7
    trs:
      title: Temporal Coordinate Reference System
      description: Temporal Coordinate Reference System (e.g. as defined by Features for 'temporal'). This should be a URI to a registered TRS if one is available, or a full description of the TRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.

@@ -1,8 +1,8 @@
 type: object
 required:
-   - id
-   - status
-   - processingEntityType
+  - id
+  - status
+  - processingEntityType
 properties:
    id:
       type: string
