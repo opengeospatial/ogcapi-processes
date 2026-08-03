@@ -1,0 +1,19 @@
+[[req_provenance_prov-content_file-entity]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/provenance/prov-content-file-entity
+
+[.component,class=conditions]
+--
+The job input or result consist of a file reference (i.e., provided through `href` in job submission and results).
+--
+
+[.component,class=part]
+--
+The PROV entity corresponding to the file SHALL employ the `prov:type` property to indicate
+a `wf4ever:File` referring to the link:http://purl.org/wf4ever/wf4ever[wf4ever] ontology.
+--
+
+
+====

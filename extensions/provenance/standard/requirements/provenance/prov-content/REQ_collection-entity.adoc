@@ -1,0 +1,28 @@
+[[req_provenance_prov-content_collection-entity]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/provenance/prov-content-collection-entity
+
+[.component,class=conditions]
+--
+The job input or result consist of an array of data values or references (cardinality greater than one).
+--
+
+[.component,class=part]
+--
+The corresponding entity `pro:type` SHALL also include the value `prov:Collection`.
+--
+
+[.component,class=part]
+--
+For each element that composes the array, a distinct data entity SHALL be provided
+(e.g., corresponding to `/jobs/{jobId}/results/{outputID}/{N}`).
+--
+
+[.component,class=part]
+--
+Each data sub-entity SHALL be linked with `hadMember` association to the array entity.
+--
+
+====

@@ -3,15 +3,15 @@
 :docsubtype: implementation
 :docnumber: 24-051
 :status: draft
-:copyright-year: 2019
+:copyright-year: 2026
 :edition: 1.0
 :language: en
 :published-date: yyyy-mm-dd
 :received-date: yyyy-mm-dd
 :issued-date: yyyy-mm-dd
 :external-id: http://www.opengis.net/doc/IS/ogcapi-processes-4/1.0
-:keywords: process, instance, spatial, data, openapi, job, create, update, delete, add, remove, REST, PATCH, POST, DELETE, W3C PROV, Provenance
-:submitting-organizations: Geolabs; Terradue Srl.; Technologies Luqia, Centre de Recherche Informatique de Montréal (CRIM)
+:keywords: process, instance, spatial, data, openapi, job, create, update, delete, add, remove, REST, PATCH, POST, DELETE
+:submitting-organizations: Geolabs; Terradue Srl.; Technologies Luqia, Centre de Recherche Informatique de Montréal (CRIM); CubeWerx Inc.
 :editor: Gérald Fenoy, Francis Charette-Migneault
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf
@@ -37,13 +37,11 @@ include::sections/clause_7_ogcapi-processes.adoc[]
 
 include::sections/clause_8_openeo.adoc[]
 
-include::sections/clause_9_provenance.adoc[]
+include::sections/clause_9_oas.adoc[]
 
-include::sections/clause_10_oas.adoc[]
+include::sections/clause_10_media_types.adoc[]
 
-include::sections/clause_11_media_types.adoc[]
-
-include::sections/clause_12_security_considerations.adoc[]
+include::sections/clause_11_security_considerations.adoc[]
 
 include::sections/annex_ats.adoc[]
 

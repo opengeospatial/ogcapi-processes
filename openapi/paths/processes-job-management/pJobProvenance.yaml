@@ -4,13 +4,16 @@ get:
      Retrieve the job provenance details.
    operationId: getJobProvenance
    tags:
-     - Jobs Management
+     - Jobs
+     - Provenance
    parameters:
      - $ref: "../../parameters/processes-core/jobID.yaml"
    responses:
      200:
-       $ref: "../../responses/processes-job-management/rJobProvenance.yaml"
+       $ref: "../../responses/processes-provenance/rJobProvenance.yaml"
      404:
-       $ref: "../../responses/common-core/rNotFound.yaml"
+       $ref: "../../responses/processes-provenance/rJobProvMissing.yaml"
+     406:
+       $ref: "../../responses/processes-provenance/rJobProvUnsupportedFormat.yaml"
      500:
        $ref: "../../responses/common-core/rServerError.yaml"

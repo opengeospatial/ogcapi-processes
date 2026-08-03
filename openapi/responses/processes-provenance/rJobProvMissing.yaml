@@ -1,0 +1,13 @@
+description: Provenance missing, not yet completed (job pending, running, failed) or dismissed.
+content:
+   application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/common-core/exception.yaml'
+          - type: object
+            properties:
+              type:
+                const: "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/prov-missing"
+   text/html:
+      schema:
+         type: string

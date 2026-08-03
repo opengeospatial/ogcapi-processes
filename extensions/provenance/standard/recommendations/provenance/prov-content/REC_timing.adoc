@@ -1,0 +1,27 @@
+[[rec_provenance_prov-content_timing]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/provenance/prov-content-timing
+
+[.component,class=part]
+--
+The PROV metadata SHOULD include relevant job timing information using `wasStartedBy` and `wasEndedBy` relationships
+which include the start and end timestamps of the job execution.
+--
+
+[.component,class=part]
+--
+When job timing information is provided in PROV metadata, it SHOULD be related to appropriate
+link:https://www.w3.org/TR/prov-o/#Activity[`prov:Activity`] definitions that are associated to the
+link:https://www.w3.org/TR/prov-o/#Entity[`prov:Entity`] representing the job.
+--
+
+[.component,class=part]
+--
+When job timing information is provided in PROV metadata, it SHOULD align with corresponding
+`started` and `finished` properties from <<OAProc-1>> job status
+(link:https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml]).
+--
+
+====

@@ -1,0 +1,13 @@
+description: Provenance format unsupported.
+content:
+   application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/common-core/exception.yaml'
+          - type: object
+            properties:
+              type:
+                const: "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/prov-unsupported-format"
+   text/html:
+      schema:
+         type: string

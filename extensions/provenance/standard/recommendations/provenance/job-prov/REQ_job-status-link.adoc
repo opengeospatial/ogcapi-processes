@@ -1,0 +1,29 @@
+[[rec_provenance_job-prov_job-status-link]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/provenance/prov-job-status-link
+
+[.component,class=part]
+--
+If the job status is not `successful`, or that the server does not offer provenance details for a given job
+(e.g., cleaned up or provenance not applied for a given execution), the job status response (path: `/jobs/{jobID}`)
+SHOULD NOT include a link of `rel="https://www.w3.org/ns/prov"`.
+--
+
+[.component,class=part]
+--
+If the job status is `successful` and provides provenance details, the job status response (path: `/jobs/{jobID}`)
+SHOULD include a link of `rel="https://www.w3.org/ns/prov"`
+using a `href` URI to the job provenance information (path: `/jobs/{jobID}/prov`)
+and the `type` attribute set to `application/provenance+json` to advertise its availability.
+--
+
+[.component,class=part]
+--
+If other <<prov-content-negotiation,provenance content-negotiation>> media-types are supported, the job status
+SHOULD advertise these different PROV representations with the links of
+corresponding `type` attribute and the same `rel="https://www.w3.org/ns/prov"` relation.
+--
+
+====
