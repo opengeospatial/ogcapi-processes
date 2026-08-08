@@ -21,9 +21,9 @@ method.
 
 [#endpoint_method_matrix,reftext='{table-caption} {counter:table-num}']
 .Supported HTTP methods by resource
-[cols="50,12,13,12",options="header"]
+[cols="40,15,15,15,15",options="header"]
 |===
-|Resource endpoint 3+|HTTP method
+|Resource endpoint 4+|HTTP method
 | |**GET** |**POST** |**PUT** |**DELETE**
 |`/processes`  |n/a |<<deploy,deploy>> |n/a |n/a
 |`/processes/{processID}` |n/a |n/a |<<replace,replace>> |<<undeploy,undeploy>>
