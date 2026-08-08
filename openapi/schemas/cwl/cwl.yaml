@@ -1,1 +1,4 @@
+# this schema is preserved for cross-reference backward-compatibility
+# for references within OpenAPI, use explicit reference to below $ref value and component instead
+# this avoids creating duplicate entries for which tools like redocly tries to dinstinguish with unnecessary suffixes
 $ref: './cwl-json-schema.yaml#/$defs/CWL'

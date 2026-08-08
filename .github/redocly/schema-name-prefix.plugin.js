@@ -138,15 +138,13 @@ const PreserveComponentNamePrefixes = () => {
   };
 };
 
-module.exports = {
-  id: 'schema-prefix',
-  decorators: {
-    oas3: {
-      'preserve-schema-name-prefixes': PreserveComponentNamePrefixes,
+module.exports = function () {
+  return {
+    id: 'schema-prefix',
+    decorators: {
+      oas3: {
+        'preserve-schema-name-prefixes': PreserveComponentNamePrefixes,
+      }
     }
   }
 };
-
-
-
-
