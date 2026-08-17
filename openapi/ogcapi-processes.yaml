@@ -129,7 +129,8 @@ components:
       # Common Workflow Language
       CWL:
          #$ref: 'https://w3id.org/cwl/v1.2/cwl-json-schema.yaml'
-         $ref: 'schemas/cwl/cwl.yaml'
+         #$ref: 'schemas/cwl/cwl.yaml'  # alias, can use either one interchangeably
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWL'
       cwltool_CUDARequirement:
          $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/cwltool_CUDARequirement'
 
