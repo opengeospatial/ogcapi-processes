@@ -27,7 +27,9 @@ oneOf:
             enum:
               - application/cwl
           value:
-            $ref: "https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/main/json-schema/cwl.yaml"
+            #$ref: "https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/main/json-schema/cwl.yaml"
+            #$ref: "../cwl/cwl-json-schema.yaml#/$defs/CWL"
+            $ref: "../cwl/cwl.yaml"
       - description: |-
           The execution unit is not Docker/OCI or CWL and cannot be properly
           described via the "mediaType" property of a qualified value 

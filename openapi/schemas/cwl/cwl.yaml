@@ -1,1 +1,4 @@
+# this schema can be used to more easily refer to the top-most CWL schema directly
+# for references within OpenAPI, use explicit reference to below local CWL schema rather than the remote one
+# this avoids creating duplicate entries for which tools like redocly tries to dinstinguish with unnecessary suffixes
 $ref: './cwl-json-schema.yaml#/$defs/CWL'
