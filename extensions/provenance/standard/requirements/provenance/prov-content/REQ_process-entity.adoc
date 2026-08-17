@@ -1,0 +1,31 @@
+[[req_provenance_prov-content_process-entity]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/provenance/prov-content-process-entity
+
+[.component,class=part]
+--
+The PROV metadata SHALL provide a link:https://www.w3.org/TR/prov-o/#Entity[`prov:Entity`] definition
+to represent the associated process description.
+--
+
+[.component,class=part]
+--
+If the PROV metadata represents a job embedding a workflow execution combining multiple processes (e.g., <<OAProc-3>>),
+the process entity SHALL correspond to the main process defined at the root of this workflow.
+--
+
+[.component,class=part]
+--
+The PROV entity corresponding to the process SHALL employ the `prov:type` property to indicate
+a `wfdesc:Process` referring to the link:http://purl.org/wf4ever/wfdesc[wfDesc] ontology.
+--
+
+[.component,class=part]
+--
+The PROV entity corresponding to the process SHALL include
+a `prov:location` attribute with the absolute URI of the process description (i.e.: `{root}/processes/{processID}`) as value.
+--
+
+====

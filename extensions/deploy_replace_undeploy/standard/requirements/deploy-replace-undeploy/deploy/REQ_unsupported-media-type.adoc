@@ -22,7 +22,7 @@ include::../../../../../../openapi/schemas/common-core/exception.yaml[]
 
 [.component,class=part]
 --
-The `type` of the exception SHALL be `"https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/unsupported-media-type"`.
+The `type` of the exception SHALL be `pass:["https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/unsupported-media-type"]`.
 --
 
 ====

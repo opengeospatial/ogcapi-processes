@@ -1,0 +1,13 @@
+[[rec_provenance_prov-content_associations]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/provenance/prov-content-associations
+
+[.component,class=part]
+--
+A link:https://www.w3.org/TR/prov-o/#Agent[`prov:Agent`] definition SHOULD
+be defined to associate the <<req_
+--
+
+====

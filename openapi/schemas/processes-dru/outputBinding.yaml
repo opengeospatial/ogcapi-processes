@@ -8,8 +8,8 @@ properties:
       . See inputBinding.yaml for referencing input values in an output
         binding "glob" expression.
     oneOf:
-       - type: string
-       - type: array
-         items:
-           type: string
+      - type: string
+      - type: array
+        items:
+          type: string
 additionalProperties: true

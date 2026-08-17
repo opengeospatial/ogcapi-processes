@@ -1,0 +1,29 @@
+[[req_provenance_job-prov_missing]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/provenance/prov-missing
+
+[.component,class=part]
+--
+If the job status is not `successful`, or that the server does not offer provenance details for a given job,
+requesting the job provenance information (path: `/jobs/{jobID}/prov`)
+SHALL be reported as a response with a HTTP status code `404`.
+--
+
+[.component,class=part]
+--
+The content of that response SHALL validate against the following OpenAPI schema fragment:
+
+[source,yaml]
+----
+include::../../../../../../openapi/schemas/common-core/exception.yaml[]
+----
+--
+
+[.component,class=part]
+--
+The `type` of the exception SHALL be `pass:["https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/prov-missing"]`.
+--
+
+====

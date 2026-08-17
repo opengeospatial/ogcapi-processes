@@ -1,0 +1,17 @@
+== Scope
+
+The *OGC API - Processes - Part 5* Standard is an extension to the
+<<OAProc-1>> Standard and defines the behavior of a server that
+supports the ability to collect and document job provenance metadata.
+
+It also extends the job endpoints to support the management of provenance information associated with a job
+once the execution of that job has completed successfully.
+
+Specifically, the Processes Part 5 Standard specifies:
+
+* How to handle provenance information associated with a job.
+
+* How to negotiate provenance content types.
+
+* How to provide sufficient provenance information to interpret where input data came from,
+  how it was processed, and made available for downstream processing or decision-making.

@@ -1,19 +1,19 @@
 title: Extent with (optional) Uniform Additional Dimensions Schema
 description: |-
-   The extent of the data in the collection.
-   This extent schema includes optional additional dimensions, but will still validate for objects not conforming to UAD.
-   OGC API - Common - Part 2 "Collections" requirements class specifies only the definition of the spatial and temporal extents.
-   The "Uniform Additional Dimensions" requirements class specifies a generic schema for describing any additional dimension, such as thermal or pressure ranges.
+  The extent of the data in the collection.
+  This extent schema includes optional additional dimensions, but will still validate for objects not conforming to UAD.
+  OGC API - Common - Part 2 "Collections" requirements class specifies only the definition of the spatial and temporal extents.
+  The "Uniform Additional Dimensions" requirements class specifies a generic schema for describing any additional dimension, such as thermal or pressure ranges.
 allOf:
-   - type: object
-     properties:
-        spatial:
-          $ref: 'spatialExtent.yaml'
-        temporal:
-          $ref: 'temporalExtent.yaml'
-   - anyOf:
-     - type: object
-       description: General object extension point
-     - type: object
-       additionalProperties:
+  - type: object
+    properties:
+      spatial:
+        $ref: 'spatialExtent.yaml'
+      temporal:
+        $ref: 'temporalExtent.yaml'
+  - anyOf:
+      - type: object
+        description: General object extension point
+      - type: object
+        additionalProperties:
           $ref: 'additionalDimensionExtent.yaml'
