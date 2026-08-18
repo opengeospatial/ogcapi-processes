@@ -36,11 +36,12 @@ Typically, these processes combine raster, vector, and/or coverage data with wel
 
 ### Part 2: Deploy, Replace, Undeploy
 
-| Method | Endpoint                 | Description                          |
-|--------|--------------------------|--------------------------------------|
-| POST   | `/processes`             | Deploy a new process.                |
-| PUT    | `/processes/{processID}` | Replace an existing process.         |
-| DELETE | `/processes/{processID}` | Undeploy a process.                  |
+| Method | Endpoint                           | Description                                                                |
+|--------|------------------------------------|----------------------------------------------------------------------------|
+| POST   | `/processes`                       | Deploy a new process.                                                      |
+| PUT    | `/processes/{processID}`           | Replace an existing process.                                               |
+| DELETE | `/processes/{processID}`           | Undeploy a process.                                                        |
+| GET    | `/processes/{processID}/package`   | Retrieve the Application Package describing the process execution unit.    |
 
 ### Part 3: Workflows and Chaining
 
