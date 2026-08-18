@@ -1,0 +1,30 @@
+[[ats_provenance_job-prov_get-op]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/job-prov/get-op
+target:: /req/provenance/prov-get-op
+test-purpose:: Validate that the server supports HTTP GET operation at the `/jobs/{jobID}/prov` path to retrieve job provenance.
+test-method::
++
+--
+1. Construct a path for the `{root}/jobs/{jobID}` path with a valid job identifier.
+
+2. Issue an HTTP GET request to the job status path.
+
+3. Validate that the response status code is 200 (OK) and that the job status is `successful`.
+
+4. Construct a path for the `{root}/jobs/{jobID}/prov` path with a valid job identifier.
+
+5. Issue an HTTP GET request to the job provenance path.
+
+6. Validate that the response status code is 200 (OK) (note: default content negotiation is assumed functional).
+
+7. Validate that the response contains provenance information in the supported format.
+
+8. Validate that the response structure respects the provenance schema if applicable.
+
+9. Validate alternate provenance encodings using content negotiation as supported by the implementation.
+--
+====

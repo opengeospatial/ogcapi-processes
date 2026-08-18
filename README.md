@@ -13,6 +13,8 @@ The latest Draft of _OGC API - Processes - Part 3: Workflows and Chaining_ is fo
 
 The latest Draft of _OGC API - Processes - Part 4: Job Management_ is found here in [HTML](https://docs.ogc.org/DRAFTS/24-051.html) or [PDF](https://docs.ogc.org/DRAFTS/24-051.pdf).
 
+The latest Draft of _OGC API - Processes - Part 5: Provenance_ is found here in [HTML](https://docs.ogc.org/DRAFTS/26-038.html) or [PDF](https://docs.ogc.org/DRAFTS/26-038.pdf).
+
 [OGC API standards](https://ogcapi.ogc.org) define modular API building blocks to spatially enable Web APIs
 in a consistent way. [OpenAPI](http://openapis.org) is used to define the reusable
 API building blocks.
@@ -55,10 +57,15 @@ No additional endpoints. Execution reuses the same endpoints as in Part 1 with n
 | PATCH  | `/jobs/{jobID}`            | Update an existing job (if pending execution).                                                 |
 | PATCH  | `/jobs/{jobID}/definition` | Retrieve the definition of a job (submitted inputs, selected outputs, header parmeters, etc.). |
 | POST   | `/jobs/{jobID}/results`    | Trigger execution of a pending job.                                                            |
+
+### Part 5: Provenance
+
+| Method | Endpoint                   | Description                                                                                    |
+|--------|----------------------------|------------------------------------------------------------------------------------------------|
 | GET    | `/jobs/{jobID}/prov`       | Returns provenance details of a completed job.                                                 |
 
-## Using the standard
 
+## Using the standard
 
 The standard is on the OGC website:
 
