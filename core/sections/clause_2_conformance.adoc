@@ -103,7 +103,7 @@ Conformance with this Standard SHALL be checked using all the relevant tests spe
 |<<ats_callback,Callback>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/callback
 |<<ats_dismiss,Dismiss>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/dismiss
 |<<ats_collection-input,Collection Input>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/collection-input
-|<<ats_remote-collections,Remove Collections>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/remote-collections
+|<<ats_remote-collections,Remote Collections>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/remote-collections
 |<<ats_collection-output,Collection Output>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/collection-output
 |<<ats_local-filtering,Local Filtering>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/local-filtering
 |<<ats_kvp-execute,KVP-encoded Execute>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/kvp-execute
