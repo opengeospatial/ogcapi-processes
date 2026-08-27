@@ -7,12 +7,18 @@ link:https://github.com/crim-ca/weaver[crim-ca/weaver] server implementation, fo
 runtime encoded in Common Workflow Language (CWL). This standard does not require these specific tools
 and provides the examples for illustration purposes only.
 
+[[prov-content-examples-prov-json]]
+==== Example of Provenance in PROV-JSON representation
+
 [[example-provenance-job-prov-json]]
 .Example: PROV-JSON
 [source,json]
 ----
 include::../examples/job_prov.json[]
 ----
+
+[[prov-content-examples-prov-jsonld]]
+==== Example of Provenance in PROV-JSONLD representation
 
 [[example-provenance-job-prov-jsonld]]
 .Example: PROV-JSONLD
@@ -21,6 +27,9 @@ include::../examples/job_prov.json[]
 include::../examples/job_prov.jsonld[]
 ----
 
+[[prov-content-examples-prov-xml]]
+==== Example of Provenance in PROV-XML representation
+
 [[example-provenance-job-prov-xml]]
 .Example: PROV-XML
 [source,xml]
@@ -28,12 +37,18 @@ include::../examples/job_prov.jsonld[]
 include::../examples/job_prov.xml[]
 ----
 
-[[example-provenance-job-prov-provn]]
+[[prov-content-examples-prov-n]]
+==== Example of Provenance in PROV-N representation
+
+[[example-provenance-job-prov-n]]
 .Example: PROV-N
 [source,text]
 ----
 include::../examples/job_prov.provn[]
 ----
+
+[[prov-content-examples-prov-nt]]
+==== Example of Provenance in PROV-NT representation
 
 [[example-provenance-job-prov-nt]]
 .Example: PROV-NT
@@ -42,7 +57,10 @@ include::../examples/job_prov.provn[]
 include::../examples/job_prov.nt[]
 ----
 
-[[example-provenance-job-prov-ttl]]
+[[prov-content-examples-prov-turtle]]
+==== Example of Provenance in PROV-TURTLE representation
+
+[[example-provenance-job-prov-turtle]]
 .Example: PROV-TURTLE
 [source,turtle]
 ----
