@@ -61,7 +61,7 @@ In addition to supporting collections as process inputs, the following conforman
 
 * <<rc_collection-output,Collection Output>>
 
-defines requirements that allow process execution to be triggered by requesting output data using an standard <<def-data-access-mechanism,OGC API data access mechanisms>>.  In this way, process execution becomes opaque, hidden behind a standard OGC data access API (e.g. features, coverages, etc.).
+defines requirements that allow process execution to be triggered by requesting output data using an standard <<def_data-access-mechanism,OGC API data access mechanisms>>.  In this way, process execution becomes opaque, hidden behind a standard OGC data access API (e.g. features, coverages, etc.).
 
 In the <<rc_core,Core>> executing a process requires sending a JSON-encoded execution request to the server using the HTTP POST method.  To support embedding process execution requests into other documents this Standard defines the:
 

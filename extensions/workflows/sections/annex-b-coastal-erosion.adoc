@@ -2,10 +2,14 @@
 == Coastal Erosion Susceptibility Example Workflow
 
 This annex presents a sample workflow predicting the susceptibility of coastal erosion from four data sources.
-This workflow (purely intended as a demonstrative example, not to be scientificaly accurate in any way), was assembled in collaboration with Perry Peterson and Marta Padilla Ruiz from the University of Calgary
+This workflow (purely intended as a demonstrative example, not to be scientifically accurate in any way),
+was assembled in collaboration with Perry Peterson and Marta Padilla Ruiz from the University of Calgary
 in the context of the OGC Federated Marine SDI Phase 3 Innovation Program initiative.
 
-It demonstrates the use of the _Nested Processes_, _Collection Input_, _Input fields modifiers_ and _Output fields modifiers_ conformance classes.
+It demonstrates the use of the <<rc_nested-processes,_Nested Processes_>>,
+<<rc_input-fields-modifiers,_Input fields modifiers_>> and <<rc_output-fields-modifiers,_Output fields modifiers_>>
+from this standard, combined to the
+<<https://docs.ogc.org/DRAFTS/18-062r3.html#rc_collection-input,_Collection Input_>> conformance class from <<OAProc-1>>.
 
 The expressions used to derive field values (`"properties"`) are written using the CQL2 language extended with a ternary conditional operator as found
 in the C programming language and its derivatives, as well as with the ability to return not only boolean values, but also numeric values.
@@ -18,7 +22,7 @@ depending on whether the _Slope_ and _Aspect_ processes generating the data, or 
 [#img-coastal-erosion-workflow]
 image::figures/coastal-erosion-workflow.png[Coastal Erosion Example Workflow]
 
-.Coastal Erosion Example Workflow Exectution Request
+.Coastal Erosion Example Workflow Execution Request
 [source,json]
 ----
 {

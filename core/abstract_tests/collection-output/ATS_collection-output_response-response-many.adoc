@@ -4,7 +4,7 @@
 [%metadata]
 identifier:: /conf/collection-output/response-response-many
 target:: /req/collection-output/response-response-many
-test-purpose:: Validate that the response for multiple explicitly or implicitly requested outputs is a <<schema_results,results.yaml>> document containing references to <<def-collection-description,collection description documents>>.
+test-purpose:: Validate that the response for multiple explicitly or implicitly requested outputs is a <<schema_results,results.yaml>> document containing references to <<def_collection-description,collection description documents>>.
 test-method::
 +
 --
@@ -20,6 +20,6 @@ test-method::
 
 6. Verify that the body of the response conforms to the <<schema_results,results.yaml>> schema.
 
-7. Verify that that value of each collection output is a link to a <<def-collection-description,collection description document>>.
+7. Verify that that value of each collection output is a link to a <<def_collection-description,collection description document>>.
 --
 ====

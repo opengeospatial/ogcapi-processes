@@ -4,5 +4,5 @@
 [%metadata]
 identifier:: /per/collection-output/dynamic
 
-The server MAY arrange for the <<def-collection,output collection>> to be a "virtual" collection with processing being triggered at run-time each time the data of the collection is accessed using an <<def-data-access-mechanism,OGC API data access mechanisms>> and taking into account any spatial, temporal and other filters specified on that data access request.
+The server MAY arrange for the <<def_collection,output collection>> to be a "virtual" collection with processing being triggered at run-time each time the data of the collection is accessed using an <<def_data-access-mechanism,OGC API data access mechanisms>> and taking into account any spatial, temporal and other filters specified on that data access request.
 ====

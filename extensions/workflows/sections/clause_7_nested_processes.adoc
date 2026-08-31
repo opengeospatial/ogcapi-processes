@@ -24,10 +24,11 @@ include::../requirements/nested-processes/REQ_nested-processes_referenced-proces
 
 include::../requirements/nested-processes/REQ_nested-processes_process-execution.adoc[]
 
+[[section_remote-core-process]]
 === Requirement Class _Remote Core Processes_
 
-The _Remote Core Processes_ conformance class allows to reference and execute a remote OGC API process
-using the _Core_ conformance class of _OGC API - Processes - Part 1: Core_ in addition to any local process.
+The _Remote Core Processes_ conformance class allows to reference and execute an OGC API <<def_remote-process>>
+using the _Core_ conformance class of <<OAProc-1>> in addition to any local process.
 
 include::../requirements/requirements_class_remote-core-processes.adoc[]
 

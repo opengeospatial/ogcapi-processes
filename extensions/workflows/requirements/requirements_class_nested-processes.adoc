@@ -2,11 +2,11 @@
 [requirements_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/nested-processes
+identifier:: https://www.opengis.net/spec/ogcapi-processes-3/0.0/req/nested-processes
 subject:: Nested Processes
-inherit:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core
-inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/input-fields-modifiers (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/output-fields-modifiers (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/collection-input (optional)
-inherit:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/remote-collections (optional)
+inherit:: <<https://docs.ogc.org/DRAFTS/18-062r3.html#rc_core,https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core>>
+inherit:: <<https://docs.ogc.org/DRAFTS/18-062r3.html#rc_collection-input,https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-input>> (optional)
+inherit:: <<https://docs.ogc.org/DRAFTS/18-062r3.html#rc_remote-collections,https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/remote-collections>> (optional)
+inherit:: <<rc_input-fields-modifiers,https://www.opengis.net/spec/ogcapi-processes-3/0.0/req/input-fields-modifiers>> (optional)
+inherit:: <<rc_output-fields-modifiers,https://www.opengis.net/spec/ogcapi-processes-3/0.0/req/output-fields-modifiers>> (optional)
 ====
