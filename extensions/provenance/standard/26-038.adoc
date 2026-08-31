@@ -15,6 +15,9 @@
 :editor: Francis Charette-Migneault, Gérald Fenoy
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf
+:toc:
+:toc-placement!:
+:toclevels: 7
 
 ////
 Make sure to complete each included document
