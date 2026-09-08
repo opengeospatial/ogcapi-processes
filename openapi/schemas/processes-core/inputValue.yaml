@@ -1,3 +1,0 @@
-anyOf:
-  - $ref: "inputValueNoObject.yaml"
-  - type: object

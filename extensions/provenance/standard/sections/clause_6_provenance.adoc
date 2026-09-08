@@ -1,0 +1,86 @@
+== Requirements Class "Provenance"
+
+[[provenance-overview]]
+=== Overview
+
+This requirements class defines how to allow client application accessing the provenance of a completed job resulting from
+the execution of a process. Such process might be a predefined definition (<<OAProc-1,OGC API - Processes - Part 1: Core>>),
+a mutable process (<<OAProc-2,OGC API - Processes - Part 2: Deploy, Replace, Undeploy>>), or a process that represents
+a workflow (<<OAProc-3,OGC API - Processes - Part 3: Workflows and Chaining>>). The submitted job where provenance
+details are collected from can result from a <<OAProc-1,OGC API - Processes - Part 1: Core>> process execution,
+from <<OAProc-4,OGC API - Processes - Part 4: Job Management>> additional endpoints, or any other compatible extension.
+
+For general information about provenance, see the <<W3C-PROV>> document.
+
+include::../requirements/requirements_class_provenance.adoc[]
+
+=== Endpoints
+
+==== PROV
+
+The server SHALL provide an endpoint to retrieve the provenance details of a job.
+
+===== Operation
+
+include::../requirements/provenance/job-prov/REQ_get-op.adoc[]
+
+===== Response
+
+include::../requirements/provenance/job-prov/REQ_response.adoc[]
+
+===== Errors
+
+include::../requirements/provenance/job-prov/REQ_missing.adoc[]
+
+include::../requirements/provenance/job-prov/REQ_unsupported-format.adoc[]
+
+[[prov-content-negotiation]]
+===== PROV Content Negotiation
+
+include::../recommendations/provenance/job-prov/REC_content-type-json.adoc[]
+
+include::../recommendations/provenance/job-prov/PER_content-negotiation.adoc[]
+
+==== PROV Content
+
+The server SHOULD provide structured PROV metadata elements that describe the executed process, job activity,
+input/output entities, and useful associated metadata. Some definitions are required to ensure minimal interoperability
+with guaranteed entities (e.g., Process and Job), while others are recommended guide server implementations toward
+common practices. See also <<prov-content-examples>> for concrete representations across various PROV formats.
+
+include::../requirements/provenance/prov-content/REQ_namespaces.adoc[]
+
+===== Core Entities and Activity
+
+include::../requirements/provenance/prov-content/REQ_job-entity.adoc[]
+
+include::../requirements/provenance/prov-content/REQ_process-entity.adoc[]
+
+include::../requirements/provenance/prov-content/REQ_job-activity.adoc[]
+
+===== Data Inputs and Results Entities
+
+include::../requirements/provenance/prov-content/REQ_input-entity.adoc[]
+
+include::../requirements/provenance/prov-content/REQ_result-entity.adoc[]
+
+include::../requirements/provenance/prov-content/REQ_collection-entity.adoc[]
+
+include::../requirements/provenance/prov-content/REQ_file-entity.adoc[]
+
+===== Recommended Metadata
+
+include::../recommendations/provenance/prov-content/REC_data-entity.adoc[]
+
+include::../recommendations/provenance/prov-content/REC_timing.adoc[]
+
+include::../recommendations/provenance/prov-content/REC_software-agent.adoc[]
+
+include::../recommendations/provenance/prov-content/REC_prov-associations.adoc[]
+
+==== Job Status
+
+To ensure provenance availability and discoverability, servers offering this capability are encouraged to
+extend the <<OAProc-1>> job response to include corresponding links.
+
+include::../recommendations/provenance/job-prov/REQ_job-status-link.adoc[]

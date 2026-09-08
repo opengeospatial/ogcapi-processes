@@ -4,6 +4,6 @@
 [%metadata]
 identifier:: /rec/job-list/next-1
 
-If more jobs have been selected than returned in the respose, a `200`-response SHOULD include a link to the next page (relation: `next`) of jobs.
+If more jobs have been selected than returned in the response, a `200`-response SHOULD include a link to the next page (relation: `next`) of jobs.
 ====
 

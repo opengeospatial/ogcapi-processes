@@ -3,10 +3,11 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-sync-one
+
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous,
-. The number of requested outputs is 1.
+. The number of requested (whether <<def_implicit-process-output,implicitly>> or <<def_explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
 --
 
 [.component,class=part]
@@ -23,4 +24,5 @@ The media type of the response SHALL be as negotiated as per the https://datatra
 --
 The content of response body SHALL be the requested process output value in the negotiated output format.
 --
+
 ====

@@ -1,6 +1,6 @@
 oneOf:
   - allOf:
-    - $ref: ../common-core/link.yaml
+    - $ref: "link.yaml"
     - type: object
       properties:
         role:

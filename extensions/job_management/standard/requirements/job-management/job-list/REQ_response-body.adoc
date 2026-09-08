@@ -1,0 +1,17 @@
+[[req_job-management_job-list_response-body]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/job-management/job-list-response-body
+
+[.component,class=conditions]
+--
+. Requirement link:https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/job-list[] is supported by the server.
+--
+
+[.component,class=part]
+--
+The job `status` property SHALL support the `created` value for jobs pending execution.
+--
+
+====

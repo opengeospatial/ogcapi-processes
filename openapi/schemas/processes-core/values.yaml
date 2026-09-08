@@ -1,0 +1,5 @@
+anyOf:
+  - $ref: "inlineOrRefValue.yaml"
+  - type: array
+    items:
+      $ref: "inlineOrRefValue.yaml"

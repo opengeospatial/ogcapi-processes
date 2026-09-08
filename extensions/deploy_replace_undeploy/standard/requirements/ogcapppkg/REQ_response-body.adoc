@@ -1,0 +1,12 @@
+[[req_ogcapppkg_package_response-body]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/ogcapppkg/package-response-body
+
+[.component,class=part]
+--
+For the <<application-package-retrieval-operation,Application Package retrieval operation>> the media type `application/ogcapppkg+json` SHALL be used to indicate that the response body contains an <<clause_ogcapppkg,OGC Application Package>>.
+--
+
+====

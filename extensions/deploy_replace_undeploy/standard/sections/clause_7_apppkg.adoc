@@ -1,4 +1,4 @@
-
+[[clause_ogcapppkg]]
 == Requirements Class "OGC Application Package"
 
 [[ogcapppkg-overview]]
@@ -6,61 +6,86 @@
 
 include::../requirements/requirements_class_ogcapppkg.adoc[]
 
-This requirements class defines the schema of an `OGC Application Package`. An
-`OGC Application Package` is a document that describes a process in sufficient
-detail so that an implementation of this extension can dynamically deploy the
-process and make it accessible via an OGC API - Processes implementation.
+This requirements class defines the schema of an `OGC Application Package`.
 
-The information contained in an `OGC Application Package` can include:
+An `OGC Application Package` is a document that describes a process in sufficient
+detail so that an implementation of this Standard can dynamically deploy that
+process and make it accessible via an the processes API defined in https://fix.me["OGC API - Processes - Part 1: Core"].
+
+The information contained in an `OGC Application Package` includes:
 
 * A formal description of the process including what inputs the process takes and what outputs the process generates.
-* Either an inline or by reference execution unit which is the `code` that the server needs to execute whenever the process is invoked.
-* Additional resource information required by the execution unit.
+* Either an inline or by-reference execution unit which describes the `code` that the server needs to execute whenever the process is invoked.
+* Additional resource information the server may require in order to establish an execution environment for the execution unit.
 
-=== OGC Application Package schema
-
-==== Overview
+=== Schema
 
 include::../requirements/ogcapppkg/REQ_schema.adoc[]
 
-[[schema_ogcappkg]]
-.link:http://schemas.opengis.net/ogcapi/processes/part2/1.0/openapi/schemas/ogcapppkg.yaml[Schema for the OGC Application Package]
-[source,yaml]
-----
-include::../../../../openapi/schemas/processes-dru/ogcapppkg.yaml[]
-----
+[[processDescription-property]]
+=== processDescription property
 
-==== processDescription property
-
-The formal process description (i.e. its inputs, its output, etc.) is provided,
-either in-line using the `processDescription` property or may be inferred from
-the information provided in the <<executionUnit,execution unit>>.
+The formal process description (i.e. its inputs, its output, etc.) is provided via the `processDescription` property of the application package.
 
 include::../requirements/ogcapppkg/REQ_process-description.adoc[]
 
-[[executionUnit]]
-==== executionUnit property
+NOTE: The `processDescription` property is optional and if it is not included in the application package, the process interface must be inferred from the information in the <<executionUnit-property,execution unit>>.
 
-If the schema defined for the executionUnit property of an OGC Application Package remains open, it can be restricted in other Requirements.
+[[executionUnit-property]]
+=== executionUnit property
+
+The execution unit, specified using the <<executionUnit-property,`executionUnit` property>>, describes the code that a processing server must execute whenever a mutable process is invoked.
+
+include::../requirements/ogcapppkg/REQ_executionUnit-schema.adoc[]
+
+Conformance classes for two types of execution units are defined in this Standard:
+
+* execution units where the executable code is encapsulated with a container (e.g. Docker),
+* execution units encoded as a workflow that is executed by some workflow runner (e.g. CWL).
 
 include::../recommendations/ogcapppkg/REC_execution-unit-docker.adoc[]
 
-include::../recommendations/ogcapppkg/REC_ogcapppkg_execution-unit-cwl.adoc[]
+include::../recommendations/ogcapppkg/REC_execution-unit-cwl.adoc[]
 
-=== Deploy
+include::../recommendations/ogcapppkg/PER_other-execution-units.adoc[]
 
-==== OGC Application Package body
+The following example illustrates an execution unit where the executable code is encapsulated in a Docker image:
 
-include::../requirements/ogcapppkg/deploy/REQ_body.adoc[]
+[[docker_ogcapppkg_example]]
+[source%unnumbered,json]
+----
+{
+  "executionUnit": {
+    "type": "docker",
+    "value": {
+      "image": "mydocker/ndvi:latest",
+      "bindings": {
+        "inputBindings": {
+          "inputImage": {
+            "prefix": "inputsImages=",
+            "inputSeparator": ","
+          }
+        },
+        "outputBindings": {
+          "outputImage": {
+            "glob": "$(\"/outputs/ndvi_\" + inputs.inputImage.basename)"
+          }
+        }
+      },
+      "deployment": "local",
+      "config": {
+        "cpuMin": 2,
+        "cpuMax": 5,
+        "memoryMin": 1,
+        "memoryMax": 3
+      }
+    }
+  }
+}
+----
 
-=== Replace
+=== Media types in operations
 
-==== OGC Application Package body
+include::../requirements/ogcapppkg/REQ_request-body.adoc[]
 
-include::../requirements/ogcapppkg/replace/REQ_body.adoc[]
-
-=== Formal description
-
-==== OGC Application Package content
-
-include::../requirements/ogcapppkg/package/REQ_response-body.adoc[]
+include::../requirements/ogcapppkg/REQ_response-body.adoc[]

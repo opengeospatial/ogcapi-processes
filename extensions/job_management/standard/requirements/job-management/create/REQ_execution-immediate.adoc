@@ -1,0 +1,23 @@
+[[req_job-management_create_execution-immediate]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/job-management/create-execution-immediate
+
+[.component,class=conditions]
+--
+. The job submission is submitted without any indication of pending status (i.e., not `created`).
+--
+
+[.component,class=part]
+--
+The job SHALL start processing immediately as deemed appropriate by the server.
+--
+
+[.component,class=part]
+--
+The response SHALL conform to <<OAProc-1,OGC API - Processes - Part 1: Core>> with all relevant
+considerations from provided definitions in the request body, headers, and query parameters.
+--
+
+====

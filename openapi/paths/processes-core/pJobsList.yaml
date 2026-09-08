@@ -7,6 +7,14 @@ get:
    operationId: getJobs
    tags:
      - Jobs
+   parameters:
+     - $ref: "../../parameters/processes-core/limit.yaml"
+     - $ref: "../../parameters/processes-core/processID-query.yaml"
+     - $ref: "../../parameters/processes-core/status.yaml"
+     - $ref: "../../parameters/processes-core/minDuration.yaml"
+     - $ref: "../../parameters/processes-core/maxDuration.yaml"
+     - $ref: "../../parameters/processes-core/type.yaml"
+     - $ref: "../../parameters/common-geodata/datetime.yaml"
    responses:
      200:
        $ref: "../../responses/processes-core/rJobList.yaml"

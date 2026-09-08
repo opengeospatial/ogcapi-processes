@@ -1,0 +1,17 @@
+[[ats_core_process-execute-omitted-outputs]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/process-execute-omitted-outputs
+target:: /req/core/process-execute-omitted-outputs
+test-purpose:: Validate that all processing results are available when the `outputs` parameter is omitted from a process execution request.
+test-method::
++
+--
+1. Negotiate process execution as per test <<ats_core_process-execute-auto-execution-mode,/conf/core/process-execute-auto-execution-mode>> or <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>>.
+
+2. Ensure that the `outputs` parameter is not specified in the <<execute-request-body,execute request>>.
+
+3. Verify that all processing outputs are available (see tests: <<ats_core_process-execute-success-sync-outputs-omitted,/conf/core/process-execute-success-sync-outputs-omitted>>, <<ats_core_process-execute-success-async-outputs-omitted,/conf/core/process-execute-success-async-outputs-omitted>>).
+--
+====

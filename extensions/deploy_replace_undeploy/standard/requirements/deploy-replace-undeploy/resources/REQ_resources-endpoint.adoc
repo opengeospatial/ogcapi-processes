@@ -1,0 +1,17 @@
+[[req_deploy-replace-undeploy_resources-endpoints]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/deploy-replace-undeploy/resource-endpoints
+
+[.component,class=part]
+--
+For processes, the resources endpoints SHALL be URIs specified by the URI template `{landingPageUri}/processes`.
+--
+
+[.component,class=part]
+--
+The parameter `landingPageUri` SHALL be the URI of the Landing Page resource. 
+--
+
+====

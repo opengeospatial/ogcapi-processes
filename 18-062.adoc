@@ -13,14 +13,14 @@
 :toc:
 :toc-placement!:
 :toclevels: 7
-:copyright-year: 2023
-:received-date: 2022-01-01
-:issued-date: 2022-01-01
-:published-date: 2024-01-01
+:copyright-year: 2026
+:received-date: 2026-01-01
+:issued-date: 2026-02-17
+:published-date: 2026-01-01
 :fullname: Benjamin Pross
 :fullname_2: Panagiotis (Peter) A. Vretanos
 :keywords: ogcdoc, OGC document, OGC API, Geospatial API, processes, Web Processing Service, WPS, JSON, HTML, geoprocessing, API, OpenAPI, HTML
-:submitting-organizations: 52°North GmbH; Hexagon; CubeWerx Inc.; Ecere Corporation; Terradue Srl; European Space Agency (ESA); Spacebel
+:submitting-organizations: 52°North GmbH; Hexagon; CubeWerx Inc.; Ecere Corporation; Terradue Srl; European Space Agency (ESA); Spacebel; Centre de Recherche Informatique de Montréal (CRIM)
 :local-cache-only:
 :data-uri-image:
 :mn-document-class: ogc
@@ -50,25 +50,29 @@ include::core/sections/clause_6_overview.adoc[]
 
 include::core/sections/clause_7_core.adoc[]
 
-include::core/sections/clause_8_ogc-process-description.adoc[]
+include::core/sections/clause_8_collections.adoc[]
 
-include::core/sections/clause_9_security-considerations.adoc[]
+include::core/sections/clause_9_process-description.adoc[]
 
-include::core/sections/clause_10_encodings.adoc[]
+include::core/sections/clause_10_security-considerations.adoc[]
 
-include::core/sections/clause_11_oas.adoc[]
+include::core/sections/clause_11_encodings.adoc[]
 
-include::core/sections/clause_12_job_list.adoc[]
+include::core/sections/clause_12_oas.adoc[]
 
-include::core/sections/clause_13_callback.adoc[]
+include::core/sections/clause_13_job_list.adoc[]
 
-include::core/sections/clause_14_dismiss.adoc[]
+include::core/sections/clause_14_callback.adoc[]
 
-include::core/sections/clause_15_kvp-execute.adoc[]
+include::core/sections/clause_15_dismiss.adoc[]
 
-include::core/sections/clause_16_media_types.adoc[]
+include::core/sections/clause_16_kvp-execute.adoc[]
 
-include::core/sections/clause_17_additional-api-building-blocks.adoc[]
+include::core/sections/clause_17_media_types.adoc[]
+
+include::core/sections/clause_18_profile.adoc[]
+
+include::core/sections/clause_19_additional-api-building-blocks.adoc[]
 
 ////
 add or remove annexes after "A" as necessary

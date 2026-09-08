@@ -1,0 +1,14 @@
+[[ats_kvp-execute_f-definition]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/kvp-execute/f-definition
+target:: /req/kvp-execute/f-definition
+test-purpose:: Validate that the format query parameter is constructed correctly.
+test-method::
++
+--
+Verify that the format query parameter (i.e. `response[f]`) complies with its definition in requirement <<req_kvp-execute_f-definition,/req/kvp-execute/f-definition>>.
+--
+====

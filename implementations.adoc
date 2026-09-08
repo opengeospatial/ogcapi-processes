@@ -19,7 +19,7 @@
 
 | https://github.com/crim-ca/weaver[crim-ca/weaver]
 | OGC API - Processes
-| https://github.com/fmigneault[Francis Charette Migneault]
+| https://github.com/fmigneault[Francis Charette-Migneault]
 
 | https://www.zoo-project.org/[ZOO-Project] , see the http://tb17.geolabs.fr:8119/ogc-api/[demo].
 | OGC API - Processes
@@ -66,7 +66,7 @@
 
 | https://pavics-weaver.readthedocs.io/en/latest/cli.html[Weaver]
 | OGC API - Processes, Python, CLI
-| https://github.com/fmigneault[Francis Charette Migneault]
+| https://github.com/fmigneault[Francis Charette-Migneault]
 
 | TBA
 | TBA

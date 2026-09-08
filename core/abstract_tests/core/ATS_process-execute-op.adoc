@@ -9,7 +9,7 @@ test-purpose:: Validate the execution of a process.
 test-method::
 +
 --
-1. Issue an HTTP POST request to the URL '/processes/{processID}/execution' for each execution mode according to requirements <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>> or <<ats_core_process-execute-auto-execution-mode,/conf/core/process-execute-auto-execution-mode>>.
+1. Issue an HTTP POST request to the URL `/processes/{processID}/execution` for each execution mode according to requirements <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>> or <<ats_core_process-execute-auto-execution-mode,/conf/core/process-execute-auto-execution-mode>>.
 
 2. Validate that the server supports a POST request for that operation according to the test <<ats_core_process-execute-request,/conf/core/process-execute-request>>.
 

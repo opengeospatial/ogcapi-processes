@@ -1,0 +1,41 @@
+{
+  "$comment": "This example executes a process called `isotermal`. This process accepts a collection of features that include a position and a temperature and this process uses that information to generate an isothermal map.",
+  "inputs": {
+    "features": {
+       "collection": "/collection/temps",
+       "aliases": {
+          "geometry": "pos",
+          "acquisition-date": "acq",
+          "tempK": {
+            "expressionLang": "cql2-text",
+            "expression": "tempC+273.15"
+          },
+          "tempF": {
+            "expressionLang": "cql2-json",
+            "expression": {
+              "op": "+",
+              "args": [
+                { 
+                  "op": "*",
+                  "args": [ { "property": "tempC" }, 1.8 ]
+                },
+                32
+              ]
+            }
+          }
+       },
+       "properties": [
+         "pos",
+         "acq",
+         "tempC",
+         "tempF",
+         "tempK"
+       ],
+       "datetime": "2025-01-01T00:00:00/..",
+       "geometry": "POLYGON((-79.639212 43.712105, -79.192306 43.855457, -79.121321 43.782197, -79.521818 43.585996, -79.639212 43.712105))"
+    }
+  },
+  "outputs": {
+    "isothermalmap": { }
+  }
+}

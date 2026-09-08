@@ -1,0 +1,12 @@
+[[per_ogcapi-processes_create_content-schema]]
+[permission]
+====
+[%metadata]
+identifier:: /per/ogcapi-processes/create-content-schema
+
+[.component,class=part]
+--
+The `Content-Schema` header MAY be pointing to the OpenAPI 3.0 schema https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-workflows/execute-workflows.yaml[execute-workflows.yaml].
+--
+
+====

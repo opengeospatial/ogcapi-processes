@@ -1,10 +1,14 @@
 type: object
 properties:
+  process:
+    type: string
+    format: uri
+    description: The URI to the description of the process that should be executed.
   inputs:
     additionalProperties:
-      $ref: "input.yaml"
+      $ref: "values.yaml"
   outputs:
     additionalProperties:
-      $ref: "output.yaml"
+      $ref: "outputSelection.yaml"
   subscriber:
     $ref: "subscriber.yaml"

@@ -1,0 +1,8 @@
+[[rec_query-param-profile_link-header]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/query-param-profile/link-header
+
+The response SHOULD include links to the selected profile(s) in the HTTP response headers.
+====

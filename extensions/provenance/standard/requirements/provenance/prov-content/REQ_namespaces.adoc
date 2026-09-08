@@ -1,0 +1,22 @@
+[[req_provenance_prov-content_namespaces]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/provenance/prov-content-namespaces
+
+[.component,class=part]
+--
+The PROV metadata SHALL minimally include the namespace references to following ontologies:
+
+* link:http://purl.org/wf4ever/wf4ever[`wf4ever`]
+* link:http://purl.org/wf4ever/wfprov[`wfprov`]
+* link:http://purl.org/wf4ever/wfdesc[`wfdesc`]
+--
+
+[.component,class=part]
+--
+All properties across the PROV document SHALL reserve the `prov:` prefix for the `http://www.w3.org/ns/prov#` namespace
+and refer to corresponding definitions in the link:https://www.w3.org/TR/prov-o/[PROV-O] RDF ontology.
+--
+
+====

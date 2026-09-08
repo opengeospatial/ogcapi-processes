@@ -1,0 +1,17 @@
+[[ats_core_process-execute-success-sync-empty-outputs]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/process-execute-success-sync-empty-outputs
+target:: /req/core/process-execute-success-sync-empty-outputs
+test-purpose:: Validate that no processing results are generated when the `outputs` parameter is present in a process execution request but is empty.
+test-method::
++
+--
+1. Negotiate synchronous process execution as per test <<ats_core_process-execute-auto-execution-mode,/conf/core/process-execute-auto-execution-mode>> or <<ats_core_process-execute-default-execution-mode,/conf/core/process-execute-default-execution-mode>>.
+
+2. Ensure that the content of the `outputs` parameter, specified in the <<execute-request-body,execute request>>, is empty.
+
+3. Verify that the server responds with an empty response body and an HTTP status code of 204.
+--
+====

@@ -1,0 +1,25 @@
+[[per_job-management_update_put-op]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/job-management/update-put-op
+
+[.component,class=part]
+--
+For every created jobs (path `/jobs/{jobID}`), the server MAY support the HTTP PUT operation.
+--
+
+[.component,class=part]
+--
+The operation SHOULD be handled the same way as <<req_job-management_create_post-op,/req/job-management/create-post-op>>
+to replace the job definition inplace.
+--
+
+[.component,class=part]
+--
+The server MAY perform inplace update of only the contents, only the headers, or both simultaneously.
+However, each element of the <<job-management-definition>> should replace their respective portions entirely
+(i.e., in contrast to PATCH <<req_job-management_update_patch-op,/req/job-management/update-patch-op>> for partial updates).
+--
+
+====

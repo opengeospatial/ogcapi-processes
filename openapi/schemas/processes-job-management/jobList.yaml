@@ -1,0 +1,13 @@
+type: object
+required:
+  - jobs
+  - links
+properties:
+  jobs:
+    type: array
+    items:
+      $ref: "statusInfo.yaml"
+  links:
+    type: array
+    items:
+      $ref: "../common-core/link.yaml"

@@ -1,0 +1,11 @@
+description: |
+  The server understood the content type of the request content,
+  and the syntax of the request content was correct,
+  but it was unable to process the contained instructions.
+content:
+   application/json:
+      schema:
+         $ref: '../../schemas/common-core/exception.yaml'
+   text/html:
+      schema:
+         type: string

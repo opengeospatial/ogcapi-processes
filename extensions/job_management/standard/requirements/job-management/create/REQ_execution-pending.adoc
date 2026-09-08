@@ -1,0 +1,35 @@
+[[req_job-management_create_execution-pending]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/job-management/create-execution-pending
+
+[.component,class=conditions]
+--
+. The job submission is submitted with a `Prefer` header that contains the `status="created"` parameter.
+--
+
+[.component,class=part]
+--
+The submitted job SHALL be set to the `created` status code.
+--
+
+[.component,class=part]
+--
+The job SHALL remain in pending `created` state until further instruction to start processing the job
+(e.g., <<req_job-management_start_post-op,/req/job-management/start-post-op>>).
+--
+
+[.component,class=part]
+--
+The server SHALL store any relevant definitions provided in the request body, headers, and query parameters
+in accordance to <<OAProc-1,OGC API - Processes - Part 1: Core>> for later reference.
+--
+
+[.component,class=part]
+--
+If any additional https://docs.ogc.org/DRAFTS/18-062r3.html#sc_execution_mode[execution mode] is provided
+in the request (e.g., `Prefer: respond-async`), they SHALL be considered for the later execution instructions.
+--
+
+====

@@ -1,0 +1,8 @@
+[[pre_ogc-process-description_value-passing]]
+[permission]
+====
+[%metadata]
+identifier:: /per/ogc-process-description/value-passing
+
+The https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inputDescription.yaml[`valuePassing`] parameter MAY be specified per input in the <<sc_process_description,process description>>.
+====

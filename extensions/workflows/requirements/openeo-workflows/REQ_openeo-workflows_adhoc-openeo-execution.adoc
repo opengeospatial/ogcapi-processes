@@ -1,9 +1,9 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/openeo-workflows/adhoc-openeo-execution
+identifier:: /req/openeo-workflows/adhoc-openeo-execution
 description:: For executing a workflow defined as an OpenEO Process Graph:
 part:: The Implementation SHALL support ad-hoc execution of a workflow defined using an OpenEO Process Graph POSTed to `/processes/OpenEO/execution`
 ====
 
-TODO: Verify whether a `{processId}` for the execution end-point is relevant or not for OpenEO.
+TODO: Verify whether a `{processID}` for the execution end-point is relevant or not for OpenEO.

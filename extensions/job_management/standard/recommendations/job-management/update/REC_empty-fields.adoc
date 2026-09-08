@@ -1,0 +1,24 @@
+[[rec_job-management_update_empty-fields]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/job-management/update-empty-fields
+
+[.component,class=part]
+--
+If a field within the body of the job definition needs to be removed, the implementation SHOULD
+consider supporting the `null` value for that field in the body of the update request.
+--
+
+[.component,class=part]
+--
+If a header the job definition needs to be removed (e.g.: `Prefer`), the implementation SHOULD
+consider supporting the `""` value for these headers in the update request.
+--
+
+====
+
+NOTE: Using other "empty" definitions such as `""`, `{}`, `[]` values might result in misinterpretation of the
+behaviour depending on their intended use case. For example, an empty string `""` might be interpreted as a valid
+value for a process input. Similarly, `outputs: {}` has a special semantic meaning (i.e., select no outputs for the result),
+which makes it unsuitable for removing outputs from a job definition.

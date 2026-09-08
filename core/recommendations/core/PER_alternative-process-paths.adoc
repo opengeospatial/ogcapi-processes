@@ -2,7 +2,7 @@
 [permission]
 ====
 [%metadata]
-label:: /per/core/alternative-process-paths
+identifier:: /per/core/alternative-process-paths
 
 Servers MAY support alternative API paths.
 ====

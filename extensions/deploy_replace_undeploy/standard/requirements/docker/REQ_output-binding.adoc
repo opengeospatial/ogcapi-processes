@@ -1,0 +1,23 @@
+[[req_docker_output-binding]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/docker/output-binding
+
+[.component,class=part]
+--
+The schema of an output binding SHALL be defined by the following OpenAPI schema fragment:
+
+outputBinding.yaml
+[source,yaml]
+----
+include::../../../../../openapi/schemas/processes-dru/outputBinding.yaml[]
+----
+--
+
+[.component,class=part]
+--
+The value of the `glob` parameter SHALL be a regular expression using the syntax defined for the https://www.man7.org/linux/man-pages/man7/glob.7.html[UNIX glob program].
+--
+
+====

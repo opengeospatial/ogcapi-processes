@@ -34,7 +34,7 @@
 | https://github.com/gfenoy[gfenoy]
 
 | Francis Charette-Migneault
-| Computer Research Institute of Montréal (CRIM)
+| Centre de Recherche Informatique de Montréal (CRIM)
 | https://github.com/fmigneault[fmigneault]
 
 | Stan Tillman

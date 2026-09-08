@@ -1,0 +1,12 @@
+anyOf:
+  - type: string
+  - type: number
+  - type: integer
+  - type: boolean
+  - type: array
+    items: {}
+  - $ref: "../processes-core/binaryValue.yaml"
+  - $ref: "../processes-core/bbox.yaml"
+  - $ref: "../processes-core/collectionValue.yaml"
+  - $ref: "inputProcess.yaml"
+  - $ref: "inputParameterized.yaml"

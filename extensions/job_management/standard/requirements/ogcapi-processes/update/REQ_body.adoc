@@ -1,0 +1,20 @@
+[[req_ogcapi-processes_update_body]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/ogcapi-processes/update-body
+
+[.component,class=part]
+--
+The media type `application/json` SHALL be used to indicate that request body contains a
+job encoded as an <<rc_ogcapi-processes,OGC API - Processes - Workflow Execute Request>>.
+--
+
+[.component,class=part]
+--
+The body SHALL support partial definitions of the
+https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-workflows/execute-workflows.yaml[execute-workflows.yaml]
+schema, meaning that omitted fields SHALL be interpreted as unchanged values.
+--
+
+====

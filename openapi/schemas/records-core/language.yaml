@@ -1,0 +1,42 @@
+---
+type: object
+title: Resource language
+description: The language used for textual values in this resource.
+required:
+  - code
+properties:
+  code:
+    type: string
+    title: Code
+    description: The language tag as per RFC-5646.
+    example: el
+  name:
+    type: string
+    minLength: 1
+    title: Original name
+    description: The untranslated name of the language.
+    example: Ελληνικά
+  alternate:
+    type: string
+    title: Translated name
+    description:
+      The name of the language in another well-understood language,
+      usually English.
+    example: Greek
+  dir:
+    type: string
+    title: Direction of the text
+    description:
+      The direction for text in this language. The default, `ltr`
+      (left-to-right), represents the most common situation.
+      However, care should be taken to set the value of `dir`
+      appropriately if the language direction is not `ltr`.
+      Other values supported are `rtl` (right-to-left), `ttb`
+      (top-to-bottom), and `btt` (bottom-to-top).
+    enum:
+      - ltr
+      - rtl
+      - ttb
+      - btt
+    default:
+      ltr

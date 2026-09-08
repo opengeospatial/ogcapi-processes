@@ -1,0 +1,30 @@
+[[req_job-management_create_body]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/job-management/create-body
+
+[.component,class=part]
+--
+The body of the POST request SHALL support JSON content media type.
+--
+
+[.component,class=part]
+--
+The body SHALL contain a `process` property representing a URI that refers to the process to be executed by the job.
+--
+
+[.component,class=part]
+--
+The body SHALL include any other relevant execution parameters that are required for submitting the job.
+These parameters can be defined by <<OAProc-1,OGC API - Processes - Part 1: Core, Conformance Class 'Core'>>,
+<<OAProc-3,OGC API - Processes - Part 3: Workflows and Chaining>> or other relevant properties for the
+indicated `processingEntityType`.
+--
+
+[.component,class=part]
+--
+The body SHALL consider `processingEntityType` of value `ogc-api-processes` by default if omitted.
+--
+
+====

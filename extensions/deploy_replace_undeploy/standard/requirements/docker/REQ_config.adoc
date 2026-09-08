@@ -1,0 +1,32 @@
+[[req_docker_config]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/docker/config
+
+[.component,class=part]
+--
+The `config` field of the <<executionUnit-property,`executionUnit` property>> of an <<clause_ogcapppkg,OGC Application Package>> SHALL be used to convey to the processing server hardware and configuration requirements for running the Docker image encapsulating the executable code of a process.
+--
+
+[.component,class=part]
+--
+The hardware and configuration requirements that can specified using the `config` field include:
+
+* **cpuMin**
+** Minimum number of CPUs required to run the process (unit is CPU core).
+* **cpuMax**
+** Maximum number of CPU dedicated to the process (unit is CPU core)
+* **memoryMin**
+** Minimum RAM memory required to run the application (unit is GB)
+* **memoryMax**
+** Maximum RAM memory dedicated to the application (unit is GB)
+* **storageTempMin**
+** Minimum required temporary storage size (unit is GB)
+* **storageOutputsMin**
+** Minimum required output storage size (unit is GB)
+* **jobTimeout**
+** Timeout delay for a job execution (in seconds)
+--
+
+====

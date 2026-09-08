@@ -3,8 +3,8 @@
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/cwl/replace/response
-target:: /req/deploy-replace-undeploy/replace/response-success
+identifier:: /conf/cwl/replace-response
+target:: /req/deploy-replace-undeploy/replace-response-success
 test-purpose:: Validate that the server return HTTP Status code 200 or 204
 test-method::
 +

@@ -4,7 +4,6 @@
 [%metadata]
 identifier:: /req/ogc-process-description/links
 
-
 [.component,class=part]
 --
 Each process description SHALL include a link (relation: `self`) that points to itself.

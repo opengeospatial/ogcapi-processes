@@ -1,0 +1,6 @@
+name: N
+in: path
+description: 0-based index identifying a specific value of a multi-values output resulting from a job
+required: true
+schema:
+  type: string

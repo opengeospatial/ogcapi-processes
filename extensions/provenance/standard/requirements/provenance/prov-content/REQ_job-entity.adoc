@@ -1,0 +1,25 @@
+[[req_provenance_job-prov_relation-job-entity]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/provenance/prov-content-job-entity
+
+[.component,class=part]
+--
+The PROV metadata SHALL provide a link:https://www.w3.org/TR/prov-o/#Entity[`prov:Entity`] definition
+to represent the associated job execution.
+--
+
+[.component,class=part]
+--
+The PROV entity corresponding to the job SHALL employ the `prov:type` property to indicate
+a `wfdesc:ProcessRun` referring to the link:http://purl.org/wf4ever/wfdesc[wfDesc] ontology.
+--
+
+[.component,class=part]
+--
+The PROV entity corresponding to the job SHALL include
+a `prov:location` attribute with the absolute URI of the job status (i.e.: `{root}/jobs/{jobID}`) as value.
+--
+
+====

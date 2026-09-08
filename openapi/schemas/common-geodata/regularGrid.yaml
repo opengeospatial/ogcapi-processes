@@ -1,0 +1,45 @@
+type: object
+title: Regular grid
+description: Regular grid with samples spaced at equal intervals.
+required: [ resolution, firstCoordinate ]
+properties:
+  resolution:
+    title: Resolution
+    description: Resolution of regularly gridded data along the dimension in the collection.
+    oneOf:
+      - type: string
+        nullable: true
+        example: "PT1H"
+      - type: number
+        example: 0.0006866455078
+  availableResolutions:
+    title: Available resolutions
+    description: List of resolutions made available by the API. If not specified, there are no limit other than the limits indicated in `minCellSize` and `maxCellSize` of the collection description (though the API might still allow requesting data beyond these).
+    type: array
+    items:
+       oneOf:
+         - type: string
+           nullable: true
+         - type: number
+    example: [ "P1H", "P1D", "P1M" ]
+  firstCoordinate:
+    title: First coordinate
+    description: First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step.
+    oneOf:
+      - type: string
+        nullable: true
+      - type: number
+    example: -180
+  relativeBounds:
+    title: Relative bounds
+    description: |-
+      Distance in units from coordinate to the lower and upper bounds of each cell for regular grids, describing the geometry of the cells.
+    type: array
+    minItems: 2
+    maxItems: 2
+    items:
+      oneOf:
+        - type: string
+          nullable: true
+        - type: number
+    example: [ -0.5, 0.5 ]

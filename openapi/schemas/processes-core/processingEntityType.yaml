@@ -1,0 +1,7 @@
+anyOf:
+  - $ref: "apis.yaml"
+  - type: string
+    enum:
+      - ogc-api-processes
+      - openeo
+    default: ogc-api-processes

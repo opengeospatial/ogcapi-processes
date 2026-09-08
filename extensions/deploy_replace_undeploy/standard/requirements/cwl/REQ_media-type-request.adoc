@@ -1,0 +1,22 @@
+[[req_cwl_media-type-request]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/cwl/media-type-request
+
+[.component,class=part]
+--
+The media type `application/cwl` SHALL be used to indicate that request body contains a processes description encoded as CWL of a generic encoding (JSON or YAML).
+--
+
+[.component,class=part]
+--
+If the CWL encoding is known to be a JSON document, the request MAY employ `application/cwl+json` instead of `application/cwl` to advertise it more explicitly.
+--
+
+[.component,class=part]
+--
+If the CWL encoding is known to be a YAML document, the request MAY employ `application/cwl+yaml` instead of `application/cwl` to advertise it more explicitly.
+--
+
+====

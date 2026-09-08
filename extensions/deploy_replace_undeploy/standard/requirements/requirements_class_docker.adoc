@@ -1,11 +1,20 @@
 [[rc_docker]]
 [requirements_class]
+.Requirements Class 'Docker'
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker
+identifier:: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/docker
 obligation:: requirement
 subject:: Web API
 inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core>>
-inherit:: <<rc_deploy-replace-undeploy,http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy>>
-inherit:: <<rc_ogcapppkg,http://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg>>
+inherit:: <<rc_deploy-replace-undeploy,https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-replace-undeploy>>
+inherit:: <<rc_ogcapppkg,https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/ogcapppkg>>
+requirement:: /req/docker/schema
+requirement:: /req/docker/deployment
+requirement:: /req/docker/config
+requirement:: /req/docker/execution-unit
+requirement:: /req/docker/bindings
+requirement:: /req/docker/input-binding
+requirement:: /req/docker/output-binding
+requirement:: /req/docker/expression-lang
 ====

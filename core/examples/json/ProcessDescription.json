@@ -132,7 +132,7 @@
             "format": "ogc-bbox"
           },
           {
-            "$ref": "../../openapi/schemas/bbox.yaml"
+            "$ref": "bbox.json"
           }
         ]
       }
@@ -155,6 +155,10 @@
             "contentMediaType": "image/jp2"
           }
         ]
+      },
+      "dataAccessApis": [
+        "ogc-api-coverage",
+        "stac-api"
       }
     },
     "featureCollectionInput": {
@@ -182,7 +186,10 @@
             ]
           }
         ]
-      }
+      },
+      "dataAccessApis": [
+        "ogc-api-features"
+      ]
     }
   },
   "outputs": {
@@ -285,7 +292,7 @@
                 "format": "geojson-geometry"
               },
               {
-                "$ref": "http://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.yaml"
+                "$ref": "https://geojson.org/schema/Geometry.json"
               }
             ]
           }
@@ -299,7 +306,7 @@
              "format": "ogc-bbox"
            },
            {
-             "$ref": "../../openapi/schemas/bbox.yaml"
+             "$ref": "bbox.json"
            }
         ]
       }
@@ -351,6 +358,10 @@
       "href": "https://processing.example.org/oapi-p/processes/EchoProcess/execution",
       "rel": "http://www.opengis.net/def/rel/ogc/1.0/execute",
       "title": "Execute endpoint"
+    },
+    {
+      "href": "https://www.opengis.net/def/profile/OGC/0/ogc-process-description",
+      "rel": "profile"
     }
   ]
 }

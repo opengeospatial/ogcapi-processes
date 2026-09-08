@@ -1,0 +1,82 @@
+{
+        "0":  {
+                "OGC_doc_number": "18-062r3",
+                "urn":"https://www.opengis.net/doc/IS/ogcapi-processes-1/2.0",
+                "title":"OGC API - Processes - Part 1: Core",
+                "version":"2.0.0",
+                "path":"18-062.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
+        },
+        "1":  {
+                "OGC_doc_number": "20-044",
+                "urn":"https://www.opengis.net/doc/IS/ogcapi-processes-2/1.0",
+                "title":"OGC API - Processes - Part 2: Deploy, Replace, Undeploy",
+                "version":"1.0.0",
+                "path":"extensions/deploy_replace_undeploy/standard/20-044.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
+        },
+        "2":  {
+                "OGC_doc_number": "21-099",
+                "urn":"https://www.opengis.net/doc/IS/ogcapi-processes-3/1.0",
+                "title":"OGC API - Processes - Part 3: Workflows and Chaining",
+                "version":"1.0.0",
+                "path":"extensions/workflows/21-099.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
+        },
+        "3":  {
+                "OGC_doc_number": "24-051",
+                "urn":"https://www.opengis.net/doc/IS/ogcapi-processes-4/1.0",
+                "title":"OGC API - Processes - Part 4: Job Management",
+                "version":"1.0.0",
+                "path":"extensions/job_management/standard/24-051.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
+        },
+        "4":  {
+                "OGC_doc_number": "26-038",
+                "urn":"https://www.opengis.net/doc/IS/ogcapi-processes-5/1.0",
+                "title":"OGC API - Processes - Part 5: Provenance",
+                "version":"1.0.0",
+                "path":"extensions/provenance/standard/26-038.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
+        }
+}

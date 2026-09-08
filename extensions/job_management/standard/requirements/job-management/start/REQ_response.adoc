@@ -1,0 +1,24 @@
+[[req_job-management_start_response]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/job-management/start-response
+
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+--
+
+[.component,class=part]
+--
+The job `status` SHALL be updated from `created` to `accepted` or `running` as deemed appropriate by the server
+and accordingly to the predefined job parametrization.
+--
+
+[.component,class=part]
+--
+A response SHALL be a document that conforms to
+https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/statusInfo.yaml[statusInfo.yaml].
+--
+
+====

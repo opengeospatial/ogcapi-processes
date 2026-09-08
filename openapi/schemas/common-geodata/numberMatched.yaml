@@ -1,6 +1,5 @@
-description: |-
-  The number of features of the feature type that match the selection
-  parameters like `bbox`.
+title: The number of elements in the response
+description: The number of elements in the response that match the selection parameters like `bbox`.
 type: integer
 minimum: 0
 example: 127

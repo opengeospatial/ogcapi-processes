@@ -1,0 +1,8 @@
+[[per_query-param-profile_default]]
+[permission]
+====
+[%metadata]
+identifier:: /per/query-param-profile/default
+
+The server MAY specify a default value for the query parameter "profile".
+====

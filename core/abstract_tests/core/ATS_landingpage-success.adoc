@@ -12,15 +12,15 @@ test-method::
 
 . Validate that a document was returned with an HTTP status code or 200.
 
-. Validate the landing page for all supported media types using the resources and tests identified in <<landing-page-schema>>
+. Validate the landing page for all supported media types using the resources and tests identified in <<landing-page-schemas>>
 
 . For formats that require manual inspection, perform the following:
 
 .. Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition.
 
-.. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration.
+.. Validate that the landing page includes a "https://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration.
 
-.. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/processes" link to the list of processes.
+.. Validate that the landing page includes a "https://www.opengis.net/def/rel/ogc/1.0/processes" link to the list of processes.
 
 --
 
@@ -28,11 +28,11 @@ test-method::
 
 NOTE: The landing page may be retrieved in one of two formats. The following table identifies the applicable schema document for each format and the test to be used to validate the landing page against that schema. All supported formats should be exercised.
 
-[[landing-page-schema]]
+[[landing-page-schemas]]
 .Schema and Tests for Landing Pages
 [cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
-|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_html_content,/conf/html/content>>
-|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_json_content,/conf/json/content>>
+|HTML |link:https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_html_content,/conf/html/content>>
+|JSON |link:https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/landingPage.yaml[landingPage.yaml] |<<ats_json_content,/conf/json/content>>
 |===

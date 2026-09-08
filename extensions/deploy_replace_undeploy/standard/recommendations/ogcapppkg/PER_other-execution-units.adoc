@@ -1,0 +1,12 @@
+[[per_ogcapppkg_other-execution-units]]
+[permission]
+====
+[%metadata]
+identifier:: /per/ogcapppkg/other-execution-units
+
+[.component,class=part]
+--
+Servers MAY support other execution unit types but those types are not described in this Standard.
+--
+
+====

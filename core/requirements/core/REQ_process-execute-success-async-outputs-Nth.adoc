@@ -1,0 +1,31 @@
+[[req_core_process-execute-success-async-outputs-Nth]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/process-execute-success-async-outputs-Nth
+
+[.component,class=conditions]
+--
+. The <<sc_execution_mode,negotiated execution mode>> is asynchronous.
+. The output with identifier `{outputID}` is specified in the <<execute-request-body,execute request>>.
+. The output with identifier `{outputID}` is defined as having `maxOccurs>1` in the <<sc_process_description,process description>>.
+--
+
+[.component,class=part]
+--
+The server SHALL produce and make available for retrieval all the values of the output with identifier `{outputID}`.
+--
+
+[.component,class=part]
+--
+The server SHALL respond with an HTTP status code of `404` if an attempt is made to access an unrequested output via the `/jobs/{jobsID}/resultes/{outputID}` path.
+--
+
+[.component,class=part]
+--
+The server SHALL respond with an HTTP status code of `404` if an attempt is made to access an array element with an out-of-bound index, _N_, via the `/jobs/{jobsID}/resultes/{outputID}/{N}` path.
+--
+
+====
+
+NOTE: The number of retrievable values for an output can be determined by reading the `OGC-Output-Values-Count` header.  Using the HTTP HEAD method can obtain this information without incurring the cost of transmitting the actual output value.

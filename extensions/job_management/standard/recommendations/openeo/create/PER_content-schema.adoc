@@ -1,0 +1,13 @@
+[[per_openeo_create_content-schema]]
+[permission]
+====
+[%metadata]
+identifier:: /per/openeo/create-content-schema
+
+[.component,class=part]
+--
+A `Content-Schema` header MAY be provided and refer to
+https://raw.githubusercontent.com/Open-EO/openeo-processes/master/meta/subtype-schemas.json#/definitions/process-graph[OpenEO Process Graph schema].
+--
+
+====

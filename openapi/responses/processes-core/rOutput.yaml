@@ -1,0 +1,5 @@
+description: An output resulting from a job
+content:
+  application/json:
+    schema:
+      $ref: "../../schemas/processes-core/values.yaml"

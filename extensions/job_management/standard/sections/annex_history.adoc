@@ -1,0 +1,18 @@
+[appendix]
+== Revision History
+
+[cols="12,18,12,12,46",options="header,unnumbered"]
+|===
+|Date |Release |Editor | Primary clauses modified |Description
+|2024-08-22 |None |Gérald Fenoy |all |Boostraping the document
+|2026-04-13 |None |Francis Charette-Migneault |all |Improve listing and details of Job PROV alternate representations.
+|2026-04-13 |None |Francis Charette-Migneault |all |Update format rendering of code snippets
+|2026-04-13 |None |Francis Charette-Migneault |all |Fix req/rec/per definitions format and references.
+|2026-06-23 |None |Francis Charette-Migneault |all |Fix all missing OpenAPI definitions, schemas, and broken conformance references.
+|2026-06-23 |None |Francis Charette-Migneault |all |Improve Job PROV definitions withe OpenAPI schema integration.
+|2026-06-23 |None |Francis Charette-Migneault |all |Unify the `/jobs/{jobId}/{definition,inputs}` and other variants.
+|2026-06-23 |None |Francis Charette-Migneault |all |Align the `/jobs/{jobId}/definition` with processingEntityType from Core.
+|2026-06-23 |None |Francis Charette-Migneault |all |Add the definitions for `created` status and pending job req/rec/per.
+|2026-06-23 |None |Francis Charette-Migneault |all |Clarify multiple ambiguities and permissions related to managing jobs updates.
+|2026-07-06 |None |Francis Charette-Migneault |all |Moved Provenance definitions from Part 4 (this document) to a dedicated Part 5.
+|===

@@ -1,0 +1,38 @@
+name: API linting
+
+on:
+  - pull_request
+  - push
+
+jobs:
+  lint-check-openapi:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: '0'
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+
+      - name: Set up node
+        uses: actions/setup-node@v6
+      - name: Install Redocly CLI
+        run: npm install -g @redocly/cli@latest
+      - name: Bundle OpenAPI
+        run: openapi/update.sh
+      - name: Run linting
+        run: |
+          redocly lint \
+            --format github-actions \
+            --config .github/redocly/config.yaml \
+            openapi/ogcapi-processes.bundled.json
+
+      - name: Commit updated OpenAPI bundle
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: Auto-update OpenAPI bundle
+          file_pattern: 'openapi/ogcapi-processes.bundled.json'
+          branch: ${{ github.head_ref }}

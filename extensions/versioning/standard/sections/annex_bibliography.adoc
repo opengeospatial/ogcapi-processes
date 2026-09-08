@@ -1,0 +1,22 @@
+[bibliography]
+[[Bibliography]]
+== Bibliography
+
+////
+The TC has approved Springer LNCS as the official document citation type.
+
+Springer LNCS is widely used in technical and computer science journals and other publications
+
+* For citations in the text please use square brackets and consecutive numbers: [1], [2], [3]
+
+– Actual References:
+
+[n] Journal: Author Surname, A.: Title. Publication Title. Volume number, Issue number, Pages Used (Year Published)
+
+[n] Web: Author Surname, A.: Title, http://Website-Url
+
+* [[[OGC2015,OGCTB12]]], _OGC: OGC Testbed 12 Annex B: Architecture_ (2015).
+
+////
+
+* [[[rfc5829]]] Internet Engineering Task Force (IETF). RFC 5829: **Link Relation Types for Simple Version Navigation between Web Resources** [online]. Edited by A. Brown, G. Clemm, J. Reschke. 2010 [viewed 2026-04-14]. Available at https://www.rfc-editor.org/rfc/rfc5829.html

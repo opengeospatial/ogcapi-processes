@@ -2,7 +2,21 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/replace/put-op
-part:: For every dynamically deployed processes (path '/processes/{processId}'), the server SHALL support the HTTP PUT operation.
-part:: The parameter 'processId' is each 'id' property in the process collection response (JSONPath: `$.processes[*].id`).
+identifier:: /req/deploy-replace-undeploy/replace-put-op
+
+[.component,class=part]
+--
+The server SHALL support the HTTP PUT operation at the resource endpoint (path `/processes/{processID}`).
+--
+
+[.component,class=part]
+--
+The parameter `processID` is each `id` property in the processes response (JSONPath: `$.processes[*].id`).
+--
+
+[.component,class=part]
+--
+The HTTP PUT operation SHALL only be supported for dynamically deployed resources (i.e. those where the value of the <<req_deploy-replace-undeploy_static-indicator,`mutable`>> property is set to `true`).
+--
+
 ====

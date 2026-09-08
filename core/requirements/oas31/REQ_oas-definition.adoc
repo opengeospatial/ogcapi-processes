@@ -1,0 +1,9 @@
+[[req_oas31_oas-definition]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/oas31/oas-definition
+
+The JSON representation SHALL conform to the https://spec.openapis.org/oas/v3.1.1[OpenAPI Specification 3.1].
+====
+

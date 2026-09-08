@@ -2,8 +2,23 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/deploy-replace-undeploy/package/get-op
-part:: For every dynamically added process (using method: POST on path: /processes/{processId}), the server SHALL support the HTTP GET operation at the path `/processes/{processId}/package`.
-part:: The parameter `processId` is each `id` property in the process collection response (JSONPath: `$.processes[*].id`).
+identifier:: /req/deploy-replace-undeploy/package-get-op
+
+[.component,class=part]
+--
+For every process the server SHALL support the HTTP GET operation at the path `/processes/{processID}/package`.
+--
+
+[.component,class=part]
+--
+The parameter `processID` is each `id` property in the process collection response (JSONPath: `$.processes[*].id`).
+--
+
+[.component,class=part]
+--
+The operation SHALL only be supported for dynamically deployed processes (i.e. those where the value of the <<req_deploy-replace-undeploy_static-indicator,`mutable`>> property is set to `true`).
+--
 
 ====
+
+

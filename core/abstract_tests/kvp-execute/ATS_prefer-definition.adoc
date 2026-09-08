@@ -1,0 +1,14 @@
+[[ats_kvp-execute_prefer-definition]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/kvp-execute/prefer-definition
+target:: /req/kvp-execute/prefer-definition
+test-purpose:: Validate that the prefer query parameter is constructed correctly.
+test-method::
++
+--
+Verify that the prefer query parameter (i.e. `response[prefer]`) complies with its definition in requirement <<req_kvp-execute_prefer-definition,/req/kvp-execute/prefer-definition>>.
+--
+====

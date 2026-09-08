@@ -1,0 +1,19 @@
+[[ats_jm_deploy_post-op]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/jm/create/post-op
+target:: <<req_job-management_create_post-op,/req/job-management/create-post-op>>
+test-purpose:: Validate that the server support HTTP POST operation at the path /jobs/
+test-method::
++
+--
+1. Construct a path for the {root}/jobs path.
+
+2. Issue an HTTP POST request for each path.
+
+3. Validate that the response header does not contain `405 Method not allowed`
+--
+====
+

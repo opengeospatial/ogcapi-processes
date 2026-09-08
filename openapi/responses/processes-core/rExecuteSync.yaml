@@ -2,17 +2,18 @@ description: Result of synchronous execution
 content:
   application/json:
     schema:
-      oneOf:
-        - type: string
-        - type: number
-        - type: integer
-        - type: object
-          nullable: true
-        - type: array
-          items: { }
-        - type: boolean
-        - type: string
-          format: binary
+      anyOf:
+        - oneOf:
+          - type: string
+          - type: number
+          - type: integer
+          - type: object
+            nullable: true
+          - type: array
+            items: { }
+          - type: boolean
+          - type: string
+            format: binary
         - $ref: "../../schemas/processes-core/results.yaml"
   image/png:
     schema:
@@ -29,7 +30,7 @@ content:
   application/geo+json:
     schema:
       allOf:
-         - format: geojson-feature-collection
-         # JSON Schema not supported in OpenAPI 3.0
-         # - $ref: https://geojson.org/schema/FeatureCollection.json
-         - $ref: '../../schemas/geojson/FeatureCollection.yaml'
+        - format: geojson-feature-collection
+        # JSON Schema not supported in OpenAPI 3.0
+        # - $ref: https://geojson.org/schema/FeatureCollection.json
+        - $ref: '../../schemas/geojson/FeatureCollection.yaml'

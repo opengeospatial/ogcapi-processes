@@ -1,0 +1,12 @@
+[[req_ogcappkg_body]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/ogcapppkg/body
+
+[.component,class=part]
+--
+For the <<deploy-operation,Deploy operation>> and the <<replace-operation,Replace operation>>, the media type `application/ogcapppkg+json` SHALL be used to indicate that the request body contains an <<clause_ogcapppkg,OGC Application Package>>.
+--
+
+====

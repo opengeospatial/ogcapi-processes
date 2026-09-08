@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /req/dru/test-process
-test-purpose:: Ensure that an application package URL can be provided in CWL encodig to test deploying processes using OGC Application Package and CWL conformance classes.
+test-purpose:: Ensure that an application package URL can be provided in CWL encoding to test deploying processes using OGC Application Package and CWL conformance classes.
 test-method::
 +
 --

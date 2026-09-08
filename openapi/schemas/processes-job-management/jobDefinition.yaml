@@ -1,0 +1,55 @@
+description: Definition of the parameters of a submitted job.
+type: object
+required:
+  - entity
+  - inputs
+  - outputs
+properties:
+  entity:
+    description: |-
+      Definition corresponding to the `processingEntityType` of the submitted job (from the 'statusInfo').
+      If the process is a complex workflow, the extended or ad-hoc definition can be provided here.
+      Otherwise, preexising processes and APIs should aim at providing a minimal definition by URI.
+    anyOf:
+      - description: |-
+          Minimal definition of the entity (Process or other OGC API) to be executed for direct invocation.
+          This parameter uses the URI directly (rather than nesting under 'process') purposely to allow other entities.
+        type: string
+        format: uri-reference
+      - allOf:
+          - description: |-
+              Extended Process entity definition, with support of nested 'process' workflow and chaining,
+              field-modifiers, parametrized inputs, or simply a single-level core process definition.
+          - $ref: "../processes-workflows/execute-workflows.yaml"
+      - type: object
+        description: |-
+          Open definition for custom representations, such as an embedded process graph or other link references.
+          Alternate media-types/profiles negotiation should be considered if this is representation cannot express it.
+  inputs:
+    description: Inputs values of the process submitted to the job.
+    type: object
+    additionalProperties:
+      $ref: "../processes-workflows/values-workflows.yaml"
+  outputs:
+    description: Selected process outputs and formats submitted to the job.
+    type: object
+    additionalProperties:
+      $ref: "../processes-workflows/outputSelection-workflows.yaml"
+  headers:
+    allOf:
+      - description: |-
+          HTTP headers included in the job submission request.
+          This can be used to provide relevant headers that impact the job execution, such as the `Prefer` header
+          that can indicate the desired execution mode (e.g., synchronous or asynchronous) or preferred return format.
+      - $ref: "headers.yaml"
+  metadata:
+    description: Additional metadata associated to the job submission.
+    type: array
+    items:
+      $ref: "../processes-core/metadata.yaml"
+  links:
+    description: Link references to other resources related to the job.
+    type: array
+    items:
+      $ref: "../common-core/link.yaml"
+additionalProperties: true

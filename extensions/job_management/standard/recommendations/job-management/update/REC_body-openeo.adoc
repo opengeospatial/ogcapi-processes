@@ -1,0 +1,13 @@
+[[rec_job-management_update-openeo]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/job-management/update-body-openeo
+
+[.component,class=part]
+--
+If a job can be created from an <<rc_openeo,OpenEO Process Graph>>,
+implementations SHOULD consider supporting the <<rc_openeo,OpenEO Process Graph>> encoding.
+--
+
+====

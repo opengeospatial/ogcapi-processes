@@ -1,0 +1,12 @@
+[[per_job-management_create_content-schema]]
+[permission]
+====
+[%metadata]
+identifier:: /per/job-management/create-content-schema
+
+[.component,class=part]
+--
+The `Content-Schema` header MAY be an URI to a JSON or OpenAPI 3.0 Schema document that describes the structure of the request body.
+--
+
+====

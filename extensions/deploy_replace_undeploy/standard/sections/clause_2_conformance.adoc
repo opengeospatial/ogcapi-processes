@@ -19,7 +19,7 @@ The `OGC Application Package` class defines the schema of a
 document that formally defines the inputs, outputs and other necessary metadata
 about a process that is to be dynamically deployed through the API.
 
-The Application Package encoding is not mandatory. An implementation of this extension may
+The Application Package encoding is not mandatory. An implementation of this Standard may
 choose to implement some other process description instead.  That said, the
 `Deploy, Replace, Undeploy` conformance class includes recommendations to
 support the `OGC Application Package`.

@@ -1,0 +1,12 @@
+[[per_job-management_definition_content-schema]]
+[permission]
+====
+[%metadata]
+identifier:: /per/job-management/definition-content-schema
+
+[.component,class=part]
+--
+The `Content-Schema` header MAY be used to indicate the schema of a response body defining the job.
+--
+
+====

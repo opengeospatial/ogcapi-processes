@@ -1,0 +1,29 @@
+[[req_job-management_start_post-op]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/job-management/start-post-op
+
+[.component,class=part]
+--
+For every created jobs (path: `/jobs/{jobID}`) in pending state,
+the server SHALL support the HTTP POST operation on path `/jobs/{jobID}/results`.
+--
+
+[.component,class=part]
+--
+The parameter `jobID` resolves to a valid job as per <<OAProc-1,OGC API - Processes - Part 1: Core, Conformance Class 'Core'>>.
+--
+
+[.component,class=part]
+--
+The contents of the HTTP request SHALL be empty (i.e., `{}` or omitted entirely) and are not considered by the request.
+--
+
+[.component,class=part]
+--
+HTTP headers typically employed for job execution SHALL not be considered. Instead, the predefined parametrization
+of the job during pending creation are to be considered for its execution.
+--
+
+====

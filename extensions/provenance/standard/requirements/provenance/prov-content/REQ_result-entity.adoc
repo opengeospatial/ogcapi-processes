@@ -1,0 +1,32 @@
+[[req_provenance_prov-content_result-entity]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/provenance/prov-content-result-entity
+
+[.component,class=conditions]
+--
+The number of selected job outputs (implicitly or explicitly) is greater than zero.
+--
+
+[.component,class=part]
+--
+For each job result produced by the process execution,
+the PROV metadata SHALL provide a link:https://www.w3.org/TR/prov-o/#Entity[`prov:Entity`] definition
+that employs the `prov:type` property with (at least) the value `wfprov:Artifact`.
+--
+
+[.component,class=part]
+--
+For each job result produced by the process execution,
+the PROV metadata SHALL include a `prov:wasGeneratedBy` association between
+to the corresponding data result entity and the <<req_provenance_prov-content_job-activity,PROV Job Activity>>.
+--
+
+[.component,class=part]
+--
+For each `prov:wasGeneratedBy` association, a `prov:role` property SHALL be provided
+with a value that allows identification of the `{outputID}` for the corresponding process output and job result.
+--
+
+====

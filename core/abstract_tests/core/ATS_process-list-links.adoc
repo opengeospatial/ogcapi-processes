@@ -1,10 +1,10 @@
-[[ats_core_pl-links]]
+[[ats_core_process-list-links]]
 
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/core/pl-links
-target:: /req/core/pl-links
+identifier:: /conf/core/process-list-links
+target:: /req/core/process-list-links
 test-purpose:: Validate that the proper links are included in a response.
 test-method::
 +

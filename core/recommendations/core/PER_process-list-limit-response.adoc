@@ -2,6 +2,7 @@
 [permission]
 ====
 [%metadata]
-label:: /per/core/limit-response
-part:: The server MAY return fewer process summaries than requested (but not more).
+identifier:: /per/core/limit-response
+
+The server MAY return fewer process summaries than requested (but not more).
 ====

@@ -1,9 +1,18 @@
 [[rc_dismiss]]
 [requirements_class]
+.Requirements Class 'Dismiss'
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/dismiss
-obligation:: requirement
+identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/dismiss
 subject:: Web API
-inherit:: <<rc_core,OGC API - Processes Core>>
+inherit:: /req/core
+requirement:: /req/dismiss/job-dismiss-op
+requirement:: /req/dismiss/job-dismiss-status
+requirement:: /req/dismiss/job-dismiss-success
+====
+
+[[cc_dismiss]]
+[.conformance class]
+====
+target:: <<rc_dismiss>>
 ====

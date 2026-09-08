@@ -3,18 +3,18 @@
 .Deploy, Replace, Undeploy
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/deploy-replace-undeploy
-subject:: <<rc_deploy-replace-undeploy,http://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/deploy-replace-undeploy>>
+identifier:: https://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/deploy-replace-undeploy
+subject:: <<rc_deploy-replace-undeploy,https://www.opengis.net/spec/ogcapi-processes-2/1.0/conf/deploy-replace-undeploy>>
 classification:: Target Type:Web API
 conformance-test:: /conf/dru/static-indicator
-conformance-test:: /conf/dru/deploy/post-op
-conformance-test:: /conf/dru/deploy/content-type
-conformance-test:: /conf/dru/deploy/unsupported-content-type
-conformance-test:: /conf/dru/replace/put-op
-conformance-test:: /conf/dru/replace/content-type
-conformance-test:: /conf/dru/undeploy/delete-op
-conformance-test:: /conf/dru/undeploy/response
-conformance-test:: /conf/dru/undeploy/response-immutable
+conformance-test:: /conf/dru/deploy-post-op
+conformance-test:: /conf/dru/deploy-content-type
+conformance-test:: /conf/dru/deploy-unsupported-media-type
+conformance-test:: /conf/dru/replace-put-op
+conformance-test:: /conf/dru/replace-content-type
+conformance-test:: /conf/dru/undeploy-delete-op
+conformance-test:: /conf/dru/undeploy-response
+conformance-test:: /conf/dru/undeploy-response-immutable
 ====
 
 ==== Immutable processes
@@ -25,7 +25,7 @@ include::dru/ATS_static-indicator.adoc[]
 
 include::dru/deploy/ATS_post-op.adoc[]
 include::dru/deploy/ATS_content-type.adoc[]
-include::dru/deploy/ATS_unsupported-content-type.adoc[]
+include::dru/deploy/ATS_unsupported-media-type.adoc[]
 
 ==== Replace operation
 

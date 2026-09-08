@@ -1,9 +1,6 @@
-description: |-
-  The number of features in the feature collection.
-  A server may omit this information in a response, if the information
-  about the number of features is not known or difficult to compute.
-  If the value is provided, the value shall be identical to the number
-  of items in the "features" array.
+title: The number of elements in the response
+description: A server may omit this information, if the information about the number of elements is not known or difficult to compute.
+  If the value is provided, the value shall be identical to the number of elements in the response.
 type: integer
 minimum: 0
 example: 10

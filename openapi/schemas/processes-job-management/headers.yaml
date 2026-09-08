@@ -1,0 +1,5 @@
+description: Mapping of included or resolved HTTP headers names and values relevant for the job submission request.
+type: object
+additionalProperties:
+  type: string
+  nullable: true

@@ -1,0 +1,10 @@
+anyOf:
+  - type: string
+  - type: number
+  - type: integer
+  - type: boolean
+  - type: array
+    items: { }
+  - $ref: "binaryValue.yaml"
+  - $ref: "bbox.yaml"
+  - $ref: "collectionValue.yaml"

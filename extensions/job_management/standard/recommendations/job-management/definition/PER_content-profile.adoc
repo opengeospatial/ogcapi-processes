@@ -1,0 +1,14 @@
+[[per_job-management_definition_content-profile]]
+[permission]
+====
+[%metadata]
+identifier:: /per/job-management/definition-content-profile
+
+[.component,class=part]
+--
+Any combination of `Profile`, `Link` (with `rel="profile"`), and `Content-Profile` MAY
+be used to indicate the link:https://docs.ogc.org/DRAFTS/18-062r3.html#con-neg-by-profile[`negotiated content by profile`]
+of a response body defining the job.
+--
+
+====

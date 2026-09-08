@@ -1,0 +1,34 @@
+[[req_job-management_definition_response-body-ogcapi]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/job-management/definition-response-body-ogcapi
+
+[.component,class=conditions]
+--
+. No content negotiation has been specified using either HTTP headers or other methods to resolve alternate representations.
+--
+
+[.component,class=part]
+--
+A response with HTTP status code `200` SHALL include a body as JSON document that conforms to the schema
+https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-job-management/jobDefinition.yaml[jobDefinition.yaml].
+--
+
+[.component,class=part]
+--
+The `entity` property of the response body SHALL provide a representation corresponding to the `processingEntityType`
+found within the link:https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml]
+detail of the job (i.e., `GET /jobs/{jobId}`), either by URI reference or by embedding the representation directly in the
+response body.
+--
+
+====
+
+NOTE: The intent of the `entity` property is to provide supplementary details of the entire job processing entity, along
+with its inputs/outputs, and other parametrization details. If the `entity` simply consist of a Process, the URI to that
+Process (corresponding to the `process` URI submitted in the `POST /jobs` request) can be reused for simplicity.
+The main distinction where an embedded `entity` representation might be required is when the job processing entity is a
+composite of multiple processes or a complex processing graph that cannot by itself be represented by a single predefined
+URI. However, server implementations are free to always provide embedded process definition if preferred, and clients should
+be ready to receive either forms.

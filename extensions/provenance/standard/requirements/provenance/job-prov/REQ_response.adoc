@@ -1,0 +1,33 @@
+[[req_provenance_job-prov_response]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/provenance/prov-response
+
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+--
+
+[.component,class=part]
+--
+By default or if explicitly negotiated as such, the response SHALL contains a JSON document that conforms to the
+link:https://www.w3.org/submissions/prov-json/schema[W3C PROV-JSON] schema.
+An example of such representation is provided in <<example-provenance-job-prov-json>>.
+--
+
+[.component,class=part]
+--
+In case content-negotiation is used (i.e., using `Accept` of relevant media-type),
+the response SHALL contain the negotiated provenance representation of the job execution.
+Such representations can include but is not limited to PROV-O as JSON-LD, PROV-XML or PROV-N.
+See <<prov-content-negotiation,PROV Content Negotiation>> for additional
+representations and schema references.
+--
+
+[.component,class=part]
+--
+The `Content-Type` header of the response SHALL indicate the specific media-type of the returned provenance representation.
+--
+
+====

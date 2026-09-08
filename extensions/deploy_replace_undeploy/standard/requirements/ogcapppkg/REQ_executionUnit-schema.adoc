@@ -1,0 +1,25 @@
+[[req_ogcapppkg_executionUnit-schema]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/ogcapppkg/executionUnit-schema
+
+[.component,class=part]
+--
+The value of the <<executionUnit-property,`executionUnit` property>> of an <<rc_ogcapppkg,OGC Application Package>> SHALL be defined by the following OpenAPI schema fragments:
+
+executionUnit.yaml
+[source,yaml]
+----
+include::../../../../../openapi/schemas/processes-dru/executionUnit.yaml[]
+----
+
+executionUnitBase.yaml
+[source,yaml]
+----
+include::../../../../../openapi/schemas/processes-dru/executionUnitBase.yaml[]
+----
+
+--
+
+====

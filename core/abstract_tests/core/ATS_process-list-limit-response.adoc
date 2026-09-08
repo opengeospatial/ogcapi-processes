@@ -1,10 +1,10 @@
-[[ats_core_pl-limit-response]]
+[[ats_core_process-list-limit-response]]
 
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/core/pl-limit-response
-target:: /req/core/pl-limit-response
+identifier:: /conf/core/process-list-limit-response
+target:: /req/core/process-list-limit-response
 test-purpose:: Validate that the `limit` query parameter is processed correctly.
 test-method::
 +

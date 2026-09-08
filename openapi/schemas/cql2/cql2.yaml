@@ -1,0 +1,11 @@
+#$schema: 'https://json-schema.org/draft/2020-12/schema'
+#$dynamicAnchor: cql2expression
+oneOf:
+  - $ref: './cql2-definitions.yaml#/definitions/andOrExpression'
+  - $ref: './cql2-definitions.yaml#/definitions/notExpression'
+  - $ref: './cql2-definitions.yaml#/definitions/comparisonPredicate'
+  - $ref: './cql2-definitions.yaml#/definitions/spatialPredicate'
+  - $ref: './cql2-definitions.yaml#/definitions/temporalPredicate'
+  - $ref: './cql2-definitions.yaml#/definitions/arrayPredicate'
+  - $ref: './cql2-definitions.yaml#/definitions/functionRef'
+  - type: boolean

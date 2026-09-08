@@ -1,0 +1,29 @@
+[[ats_core_job-results-profile]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/job-results-profile
+target:: /req/core/job-results-profile
+test-purpose:: Validate that the results of a job can be retrieved with <<schema_results,results.yaml>> contents.
+test-method::
++
+--
+1. Create a job as per <<ats_core_process-execute-op,/conf/core/process-execute-op>> and note the `{jobID}` assigned to the job. In the case of synchronous execution, the server must <<per_core_process-execute-sync-job,support job creation>>. Otherwise, asynchronous execution should be employed.
+   If the process supports more than one output, the job MUST be created with only one output
+   using `{"outputs": {"<outputID>": {}}}` where `<outputID>` is the identifier of one of the process outputs.
+
+2. Ensure job has completed successfully, as per <<ats_core_job-success,/conf/core/job-success>>.
+
+3. Issue an HTTP GET request to the URL `/jobs/{jobID}/results`
+   with <<con-neg-by-profile,Content negotiations by profile>> requesting the
+   profile `https://www.opengis.net/def/profile/OGC/0/ogc-results`.
+
+4. Validate that the document was returned with a status code 200.
+
+5. Regardless of the amount of outputs requested, validate that the media type of the response is `application/json`
+   and validates against the <<schema_results,results.yaml>> schema.
+
+6. Validate that the response HTTP headers include a `Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-results", rel="profile"`.
+--
+====

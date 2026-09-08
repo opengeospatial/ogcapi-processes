@@ -3,10 +3,11 @@
 ====
 [%metadata]
 identifier:: /req/kvp-execute/binary-input-value
+
 [.component,class=conditions]
 --
-. The process input value is specified in-line in an execute request.
-. A process input, with identifier `{input-name}`, is defined as <<req_ogc-process-description_input-binary,binary>> type in the <<sc_process_description,process description>>.
+. The process input value is specified in-line in an <<execute-request-body,execute request>>.
+. A process input, with identifier `{inputID}`, is defined a binary type (i.e. `"type": "string", "contentEncoding": "base64"`) in the <<sc_process_description,process description>>.
 . The input value does not need to be <<qualified-value-schema,qualified>> with a <<format-schema,format>> specification.
 --
 
@@ -16,16 +17,17 @@ The input parameter SHALL have the following characteristics:
 
 [source,YAML]
 ----
-name: {input-name}
+name: {inputID}
 in: query
 required: false
 schema:
   type: string
-  format: byte
+  contentEncoding: base64
 style: form
 explode: false
 ----
 
-where the token `{input-name}` represents the identifier of the input.
+where the token `{inputID}` represents the identifier of the input.
 --
+
 ====

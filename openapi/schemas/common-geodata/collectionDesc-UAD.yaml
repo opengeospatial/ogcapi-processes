@@ -1,0 +1,6 @@
+allOf:
+  - $ref: 'collectionProperties.yaml'
+  - type: object
+    properties:
+      extent:
+         $ref: 'extent-UAD.yaml'

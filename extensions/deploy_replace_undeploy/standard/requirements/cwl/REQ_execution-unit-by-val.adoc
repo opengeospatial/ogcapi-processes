@@ -1,0 +1,32 @@
+[[req_cwl_execution-unit-by-val]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/cwl/execution-unit-by-val
+
+[.component,class=part]
+--
+If encoded in-line within an <<clause_ogcapppkg,OGC Application Package>>, the CWL value of the <<executionUnit-property,`executionUnit` property>> SHALL be specified using a qualified value.
+--
+
+[.component,class=part]
+--
+Both the `mediaType` and `value` fields of the qualified value SHALL be specified.
+--
+
+[.component,class=part]
+--
+If the CWL value is specified as a JSON object then the value of  the `mediaType` field SHALL be `application/cwl`.
+--
+
+[.component,class=part]
+--
+If the CWL value is specified as an embedded JSON string then the value of the `mediaType` field SHALL be `application/cwl+json`.
+--
+
+[.component,class=part]
+--
+If the CWL value is specified as an embedded YAML string then the value of the `mediaType` field SHALL be `application/cwl+yaml`.
+--
+
+====

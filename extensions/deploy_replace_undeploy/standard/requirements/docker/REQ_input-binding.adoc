@@ -1,0 +1,18 @@
+[[req_docker_input-binding]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/docker/input-binding
+
+[.component,class=part]
+--
+The schema of an input binding SHALL be defined by the following OpenAPI schema fragment:
+
+inputBinding.yaml
+[source,yaml]
+----
+include::../../../../../openapi/schemas/processes-dru/inputBinding.yaml[]
+----
+--
+
+====

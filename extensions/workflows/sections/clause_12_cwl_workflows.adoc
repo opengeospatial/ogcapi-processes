@@ -5,10 +5,10 @@
 
 The _Common Workflow Language Definitions_ conformance class specifies the use of the
 https://www.commonwl.org/v1.2/Workflow.html[Common Workflow Language (CWL) Workflow Description] as an alternative to an extended
-_OGC API - Processes - Part 1: Core_ execution request to define an ad-hoc workflow
+<<OAProc-1>> execution request to define an ad-hoc workflow
 (a workflow that is not first required to be deployed as a process before being executed).
 
-The capability to deploy a CWL workflow as a process using _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_
+The capability to deploy a CWL workflow as a process using <<OAProc-2>>
 is already covered by a conformance class of Part 2.
 
 *TODO*: Verify that a CWL conformance class already exists or is planned for _Part 2_.

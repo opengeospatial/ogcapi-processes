@@ -1,0 +1,13 @@
+[[req_job-management_create_response-body]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/job-management/create-response-body
+
+[.component,class=part]
+--
+The response SHALL include a body that contains a status information of the created job that conforms to
+the https://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] schema.
+--
+
+====

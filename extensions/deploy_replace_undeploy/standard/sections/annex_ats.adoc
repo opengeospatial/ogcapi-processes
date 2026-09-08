@@ -12,7 +12,7 @@ The following requirements apply for a server implementing the OGC API — P
 
 include::../abstract_tests/dru/ATS_mutable-process.adoc[]
 
-In case both an OGC Application Package and CWL conformance classes are supported, the following requirement applies for a server implementing the OGC API — Processes — Part 2: Deploy, Replace, Undeploy being tested:
+In case both an <<rc_ogcapppkg,OGC Application Package>> and <<rc_cwl,CWL>> conformance classes are supported, the following requirement applies for a server implementing the OGC API — Processes — Part 2: Deploy, Replace, Undeploy being tested:
 
 include::../abstract_tests/dru/ATS_test-process.adoc[]
 

@@ -1,0 +1,25 @@
+[[req_job-management_definition_response-body-alternate]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/job-management/definition-response-body-alternate
+
+[.component,class=conditions]
+--
+. link:https://docs.ogc.org/DRAFTS/18-062r3.html#con-neg-by-profile[Content negotiation by profile]
+  has been specified using either HTTP headers or other methods.
+--
+
+[.component,class=part]
+--
+A response with HTTP status code `200` SHALL include a body that
+conforms to the requested link:https://docs.ogc.org/DRAFTS/18-062r3.html#con-neg-by-profile[content negotiation by profile].
+--
+
+[.component,class=part]
+--
+The response SHALL include a HTTP header `Link` with parameter `rel="profile"`
+corresponding to the negotiated content profile.
+--
+
+====

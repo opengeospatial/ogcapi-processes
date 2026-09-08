@@ -1,0 +1,26 @@
+[[req_docker_deployment]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/docker/deployment
+
+[.component,class=part]
+--
+The `deployment` field of the <<executionUnit-property,`executionUnit` property>> of an <<clause_ogcapppkg,OGC Application Package>> SHALL be used to indicate where the Docker image, containing the executable code of a process, should be executed.
+--
+
+[.component,class=part]
+--
+The valid values for the `deployment` field are:
+
+* **local**
+** The Docker image SHALL be run on the local machine where the processing server is installed.
+* **remote**
+** The Docker image SHALL be run on a machine that is remote from the machine where the processing server is installed.
+* **hpc**
+** The Docker image SHALL be run on an accessible high performance computing cluster.
+* **cloud**
+** The Docker image SHALL to be run on a cloud platform (e.g. AWS EKS).
+--
+
+====

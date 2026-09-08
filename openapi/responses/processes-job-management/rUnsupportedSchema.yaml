@@ -1,0 +1,8 @@
+description: Unprocessable Content. For example, the `Content-Schema` header submitted in the request did not support any of schemas supported by the server for the requested resource.
+content:
+   application/json:
+      schema:
+         $ref: '../../schemas/common-core/exception.yaml'
+   text/html:
+      schema:
+         type: string

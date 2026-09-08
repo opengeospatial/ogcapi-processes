@@ -1,0 +1,29 @@
+[[req_cwl_w-param]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/cwl/deploy-w-param
+
+[.component,class=part]
+--
+If the CWL contains more than a single workflow identifier, an additional `w` query parameter SHALL be used to target a specific workflow identifier to be deployed. 
+--
+
+[.component,class=part]
+--
+The `w` query parameter SHALL be defined by the following OpenAPI schema fragment:
+
+w-param.yaml
+[source,yaml]
+----
+include::../../../../../openapi/parameters/processes-dru/w-param.yaml[]
+----
+--
+
+[.component,class=part]
+--
+If, in this case, the `w` query parameter is not specified the the first process found SHALL be deployed.
+--
+
+
+====

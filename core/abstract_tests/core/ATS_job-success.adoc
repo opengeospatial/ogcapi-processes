@@ -9,19 +9,23 @@ test-purpose:: Validate that the job status info complies with the require struc
 test-method::
 +
 --
-1. Validate that the document was returned with an HTTP status code of 200.
+1. Issue an HTTP GET request to the URL `/jobs/{jobID}`, where `{jobID}` is the identifier of a job
+   previously created as per <<ats_core_process-execute-op,/conf/core/process-execute-op>>,
+   either synchronously with <<per_core_process-execute-sync-job,supported job creation>> or asynchronously.
 
-2. Validate the job status info for all supported media types using the resources and tests identified in <<job-status-info-schema>>
+2. Validate that the document was returned with an HTTP status code of 200.
+
+3. Validate the job status info for all supported media types using the resources and tests identified in <<job-status-info-schema>>
 --
 ====
 
-NOTE: The status info page for a job may be retrieved in a one of two formats. The following table identifies the applicable schema document for each format and the test to be used to validate the status info against that schema. All supported formats should be exercised.
+NOTE: The status info page for a job may be retrieved in one of two formats. The following table identifies the applicable schema document for each format and the test to be used to validate the status info against that schema. All supported formats should be exercised.
 
 [[job-status-info-schema]]
 .Schema and Tests for the Job Status Info
 [cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
-|HTML |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_html,/conf/html/content>>
-|JSON |link:http://schemas.opengis.net/ogcapi/processes/part1/1.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_json_content,/conf/json/content>>
+|HTML |link:https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_html,/conf/html/content>>
+|JSON |link:https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] |<<ats_json_content,/conf/json/content>>
 |===

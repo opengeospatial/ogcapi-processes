@@ -1,0 +1,44 @@
+oneOf:
+  - $ref: "../common-core/link.yaml"
+  - allOf:
+    - $ref: "../processes-core/qualifiedValue.yaml"
+    - anyOf:
+      - description: |-
+          The execute unit is a container image.
+        type: object
+        required:
+          - type
+        properties:
+          type:
+            type: string
+            enum:
+              - docker
+              - oci
+          value:
+            $ref: "executionUnitContainer.yaml"
+      - description: |-
+          The execution unit is CWL script.
+        type: object
+        required:
+          - mediaType
+        properties:
+          mediaType:
+            type: string
+            enum:
+              - application/cwl
+          value:
+            #$ref: "https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/main/json-schema/cwl.yaml"
+            #$ref: "../cwl/cwl-json-schema.yaml#/$defs/CWL"
+            $ref: "../cwl/cwl.yaml"
+      - description: |-
+          The execution unit is not Docker/OCI or CWL and cannot be properly
+          described via the "mediaType" property of a qualified value 
+          using an RFC 2046 media type (e.g. an "R" or "Python" script).
+          In this case a community-defined or custom token may be used
+          with the "type" property.
+        type: object
+        required:
+          - type
+        properties:
+          type:
+            type: string

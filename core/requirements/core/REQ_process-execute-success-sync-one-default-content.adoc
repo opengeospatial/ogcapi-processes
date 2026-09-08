@@ -3,10 +3,11 @@
 ====
 [%metadata]
 identifier:: /req/core/process-execute-sync-one-default-content
+
 [.component,class=conditions]
 --
 . The <<sc_execution_mode,negotiated execution mode>> is synchronous,
-. The number of requested outputs is 1.
+. The number of requested (whether <<def_implicit-process-output,implicitly>> or <<def_explicit-process-output,explicitly>>) outputs in the <<execute-request-body,execute request>> is 1.
 . No content negotiation has been specified using either HTTP headers or other methods.
 --
 
@@ -19,6 +20,10 @@ The media type of the response SHALL be the default media type for the requested
 --
 The content of response body SHALL be the requested process output value in the default output format.
 --
+
 ====
 
-NOTE: For servers that support the <<rc_ogc-process-description,OGC Process Description>> conformance class see requirements <<req_ogc-process-description_output-def,/req/ogc-process-description/output-def>> and <<req_ogc-process-description_output-multiple-types,/req/ogc-process-description/output-multiple-types>> for determining the default format for a process output.
+[NOTE]
+====
+For servers that support the <<rc_ogc-process-description,OGC Process Description>> conformance class see requirements <<req_ogc-process-description_output-def,/req/ogc-process-description/output-def>> and <<req_ogc-process-description_output-multiple-types,/req/ogc-process-description/output-multiple-types>> for determining the default format for a process output.
+====

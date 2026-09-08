@@ -2,7 +2,11 @@
 [bibliography]
 == Bibliography
 
-* [[[WFS20,OGC 09-025r2]]] Open Geospatial Consortium (OGC). OGC 09-025r2: Web Feature Service 2.0 [online]. Edited by P. Vretanos. 2014 [viewed 2020-03-16]. Available at: http://docs.opengeospatial.org/is/09-025r2/09-025r2.html
+* [[[OGC_06-121r9]]] OGC 06-121r9, OGC Web Service Common Specification, version 2.0
+
+* [[[WFS20,OGC 09-025r2]]] Open Geospatial Consortium (OGC). OGC 09-025r2: Web Feature Service 2.0 [online]. Edited by P. Vretanos. 2014 [viewed 2020-03-16]. Available at: https://docs.opengeospatial.org/is/09-025r2/09-025r2.html
+
+* [[[OGC_14-065]]] OGC 14-065, OGC WPS 2.0 Interface Standard, version 2.0.2
 
 * [[[ogc15-022,OGC 15-022]]] Matheus, A.: OGC® Testbed 11 Engineering Report: Implementing Common Security Across the OGC Suite of Service Standards, https://portal.opengeospatial.org/files/?artifact_id=63312
 
@@ -13,6 +17,3 @@
 * [[[jsonschema-pointers,Relative JSON Pointers]]] Hutton, B.: Relative JSON Pointers, https://json-schema.org/draft/2020-12/relative-json-pointer.html
 
 * [[[w3c-html5,W3C HTML 5]]], https://www.w3.org/TR/html5/
-
-* [[[OpenAPI-Spec,OpenAPI Specification 3.0.2]]] Open API Initiative. OpenAPI Specification 3.0.2. Available at:
-https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md.

@@ -1,0 +1,69 @@
+[[per_cwl_multipart-cwl-body]]
+[permission]
+====
+[%metadata]
+identifier:: /per/cwl/multipart-cwl-body
+inherit:: <<rfc2387,RFC 2387 (The MIME Multipart/Related Content-type)>>
+description:: Recommendation for supporting multipart deployment of related CWL documents forming a process.
+
+[.component,class=part]
+--
+If a process requires the deployment of multiple CWL documents to represent its execution unit (e.g.: a `class: Workflow` that depends on multiple other `steps` referring to separate `class: CommandLineTool` documents), a server MAY support the `multipart/related` media-type (https://datatracker.ietf.org/doc/html/rfc2387[RFC 2387]).
+--
+
+[.component,class=part]
+--
+The media-type of each individual CWL part in the multipart body SHOULD be specified by their respective part `Content-Type` header using `application/cwl`, `application/cwl+json` or `application/cwl+yaml` media-types in accordance to their respective content encoding.
+--
+
+[.component,class=part]
+--
+The CWL parts of the multipart body SHOULD employ the `start` parameter (https://datatracker.ietf.org/doc/html/rfc2387#section-3.2[RFC 2387, section 3.2]) within the request `Content-Type` header to indicate a part identifier of the part consisting of the main CWL `Workflow` documents that invokes other `steps`.
+--
+
+[.component,class=part]
+--
+If the `start` parameter is not provided in the request `Content-Type` header, the CWL part corresponding to the main `Workflow` document MAY include a part `Content-ID` header indicating a `#main` reference in accordance to <<https://www.commonwl.org/v1.2/CommandLineTool.html#Packed_documents,CWL Packed documents>> specification to identify itself as the main part of the multipart body.
+--
+
+[.component,class=part]
+--
+If no indication of `start` or `Content-ID` parameter can be resolved to identify the main CWL part, the server MAY assume that the **first** part of the multipart body is the main one or use other means of identification outside the multipart body such as using <<req_cwl_w-param,/req/cwl/w-param>>.
+--
+
+[.component,class=part]
+--
+Part identifiers MAY be resolved using `Content-ID` header or an embedded `id` field within the CWL content of each respective part, while request-level `Content-ID` header SHOULD be reserved for identifying the main `{processID}` resulting from the deployment of this multipart CWL definition.
+--
+
+[.component,class=part]
+--
+Part identifiers SHOULD employ consistent values between `Content-ID`, embedded `id` field within the CWL and `steps[*].run` references of other CWL parts using them.
+--
+
+[.component,class=part]
+--
+If the main CWL part employs `run` references to other `steps` referring to documents by file names (e.g.: `run: tools/tool-1.cwl`), the server SHOULD consider supporting a `Content-Disposition: attachment; filename="tools/tool-1.cwl"` header for each part to resolve the corresponding execution units that compose the process.
+--
+
+[.component,class=part]
+--
+If the main CWL part employs `run` references to other `steps` referring to documents by unique IDs (e.g.: `run: "cid:tool-2@bundle.example"` or `run: "cid:urn:uuid:550e8400-e29b-41d4-a716-446655440002"`), the server SHOULD consider supporting a `Content-ID: <CID-ref@server>` header for each part to resolve the corresponding execution units that compose the process.
+--
+
+[.component,class=part]
+--
+If the main CWL part employs `run` references to other `steps` referring to external document URIs (e.g.: `run: "https://repo.example.org/cwl/tools/tool-4.cwl"`), the server SHOULD consider supporting a `Content-Location` header that indicates the location of the original part content for traceability.
+--
+
+[.component,class=part]
+--
+A CWL part that provides a `Content-Location` header MAY omit its corresponding content to let the server retrieve it from the indicated location, or include it explicitly to provide an alternative local copy of the content.
+--
+
+[.component,class=part]
+--
+Additional parts providing supplementary metadata information about the overall process being deployed (e.g.: using a process description or other profile negotiation by `Content-Profile` header) MAY be included using `Content-Type` media-types other than the ones reserved by the CWL parts.  Specific interpretation and parsing of such additional parts are outside the scope of this recommendation.
+--
+
+====

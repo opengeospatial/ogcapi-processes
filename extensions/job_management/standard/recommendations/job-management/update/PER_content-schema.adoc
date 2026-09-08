@@ -1,0 +1,12 @@
+[[per_job-management_update_content-schema]]
+[permission]
+====
+[%metadata]
+identifier:: /per/job-management/update-content-schema
+
+[.component,class=part]
+--
+The `Content-Schema` header MAY be used to indicate the schema of a request body for updating a job.
+--
+
+====

@@ -1,0 +1,20 @@
+[[per_job-management_create_body]]
+[permission]
+====
+[%metadata]
+identifier:: /per/job-management/create-body
+
+[.component,class=part]
+--
+A server MAY support alternate encoding than JSON in the body to submit the job creation,
+by using the applicable `Content-Type` header to indicate the encoding of the request body.
+--
+
+[.component,class=part]
+--
+A server MAY support alternate schema and/or profile representations in the body to submit the job creation,
+by using the applicable `Content-Schema` and `Content-Profile` headers, or other means of
+link:https://docs.ogc.org/DRAFTS/18-062r3.html#con-neg-by-profile[content negotiation by profile].
+--
+
+====

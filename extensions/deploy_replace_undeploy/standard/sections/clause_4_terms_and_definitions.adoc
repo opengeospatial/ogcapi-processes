@@ -1,24 +1,30 @@
-
+[[sc_terms]]
 == Terms, definitions and abbreviated terms
 
+[[sc_terms_definitions]]
 === Terms and definitions
 
+[[def_execution-unit]]
 ==== Execution unit
 
 A component containing a process that an implementation of the Processes API Part 1 can run.
 
+[[def_deploy]]
 ==== Deploy
 
 Deploy refers to installing a desired execution unit onto a Processes API server so that client applications can interact with it as a process using the Processes API Part 1 Standard.
 
+[[def_replace]]
 ==== Replace
 
 Replace refers to upgrading a deployed process from a Processes API implementation.
 
+[[def_undeploy]]
 ==== Undeploy
 
 Undeploy refers to removing a deployed process from a Processes API implementation so that it does not appear as an available process.
 
+[[sc_terms_abbreviations]]
 === Abbreviated Terms
 
 CWL:: Common Workflow Language

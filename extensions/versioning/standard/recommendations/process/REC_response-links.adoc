@@ -1,0 +1,24 @@
+[[rec_versioning_process_response-links]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/versioning/replace-response-links
+conditions:: The server supports DRU <<req_deploy-replace-undeploy_replace_response,/req/deploy-replace-undeploy/replace-response>>
+
+[.component,class=part]
+--
+If a server supports multiple versions of a process definition as per
+<<req_deploy-replace-undeploy_replace_response,/req/deploy-replace-undeploy/replace-response>>,
+its process description `links` SHOULD consider providing references to these versions for improved retrieval.
+Such links SHOULD use standard
+<<rfc5829,RFC 5829 Link Relation Types for Simple Version Navigation between Web Resources>>.
+--
+
+[.component,class=part]
+--
+If the `latest-version` link relation type is provided, it SHOULD point to the latest version of
+the process definition or an equivalent description corresponding to the `/processes/{processID}` endpoint
+after resource resolution.
+--
+
+====

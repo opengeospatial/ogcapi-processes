@@ -1,10 +1,10 @@
-[[ats_core_process-description]]
+[[ats_core_process-description-op]]
 
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/core/process-description
-target:: /req/core/process-description
+identifier:: /conf/core/process-description-op
+target:: /req/core/process-description-op
 test-purpose:: Validate that a process description can be retrieved from the expected location.
 test-method::
 +

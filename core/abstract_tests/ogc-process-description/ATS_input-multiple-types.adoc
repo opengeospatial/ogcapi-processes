@@ -9,7 +9,7 @@ test-purpose:: Validate that each input of multiple type complies with the requi
 test-method::
 +
 --
-1. Retrieve a description of each process according to test <<ats_core_process-description,/conf/core/process-description>>.
+1. Retrieve a description of each process according to test <<ats_core_process-description-op,/conf/core/process-description-op>>.
 
 2. For each process identify if the process has one or more inputs of multiple types.
 

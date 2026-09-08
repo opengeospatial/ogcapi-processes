@@ -1,0 +1,25 @@
+[[per_job-management_create_response-pending]]
+[permission]
+====
+[%metadata]
+identifier:: /per/job-management/create-response-pending
+
+[.component,class=conditions]
+--
+. The link:https://docs.ogc.org/DRAFTS/18-062r3.html#sc_execution_mode[negotiated execution mode] indicated
+  a `status="created"` preference at job submission.
+. Other execution preference may or may not have been indicated in the request.
+--
+
+[.component,class=part]
+--
+The server SHOULD respond with `Preference-Applied: status="created"` asserting that the pending job submission
+has been considered and will not start processing immediately.
+--
+
+[.component,class=part]
+--
+Other execution mode indicators SHOULD be omitted from `Preference-Applied` to avoid misinterpreting the response.
+--
+
+====

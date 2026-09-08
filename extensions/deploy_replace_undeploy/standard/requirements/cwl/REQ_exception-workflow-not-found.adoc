@@ -1,0 +1,27 @@
+[[req_cwl_deploy_exception-workflow-not-found]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/cwl/deploy-exception-workflow-not-found
+
+[.component,class=part]
+--
+If the `w` parameter has a value that cannot be located with the request body, the server SHALL respond with an HTTP status code `400`.
+--
+
+[.component,class=part]
+--
+The content of that response SHALL validate against the following OpenAPI schema fragment:
+
+[source,yaml]
+----
+include::../../../../../openapi/schemas/common-core/exception.yaml[]
+----
+--
+
+[.component,class=part]
+--
+The `type` of the exception SHALL be `pass:["https://www.opengis.net/def/exceptions/ogcapi-processes-2/1.0/workflow-not-found"]`.
+--
+
+====

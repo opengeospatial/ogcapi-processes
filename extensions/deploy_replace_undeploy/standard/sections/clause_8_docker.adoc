@@ -1,3 +1,4 @@
+[[clause_docker]]
 == Requirements Class "Docker"
 
 [[docker-overview]]
@@ -5,25 +6,77 @@
 
 include::../requirements/requirements_class_docker.adoc[]
 
-A server that implements the Docker Requirement Class supports the management of Docker image as execution units by implementing the Processes API Part2 deploy-replace-undeploy extension.
+This clause defines the requirements for describing, in the execution unit of an <<clause_ogcapppkg,OGC Application Package>>, a processes' executable code encapsulated in a Docker container.
 
-=== OGC Application Package
-
-==== executionUnit property
-
-===== Overview
+=== Schema
 
 include::../requirements/docker/REQ_schema.adoc[]
 
-[[schema_executionUnit]]
-.link:https://github.com/opengeospatial/ogcapi-processes/blob/master/openapi/schemas/processes-dru/executionUnit.yaml[Schema for the Docker execution unit parameter]
-[source,yaml]
-----
-include::../../../../openapi/schemas/processes-dru/executionUnit.yaml[]
-----
-
-===== type and image properties
-
-The execution unit can be specified by reference, using a Docker image reference.
+=== Properties `type` and `image`
 
 include::../requirements/docker/REQ_execution-unit.adoc[]
+
+=== Property `deployment` 
+
+include::../requirements/docker/REQ_deployment.adoc[]
+
+=== Property `config`
+
+include::../requirements/docker/REQ_config.adoc[]
+
+=== Property `bindings`
+
+==== Overview
+
+include::../requirements/docker/REQ_bindings.adoc[]
+
+==== Input binding 
+
+===== Overview
+
+include::../requirements/docker/REQ_input-binding.adoc[]
+
+The following input binding parameters can be specified:
+
+* **prefix**:
+** A prefix to be added before an argument value that is used for the execution unit invocation.
+* **position**:
+** The value can be an integer or a string.
+** If it is an integer then it is assumed to be 0-based and the argument is added in this position to the execution unit invocation.
+** If the value is a string then it should be an expression that evaluates to single integer value or null.
+** If the value expression evaluates to null, nothing is added to the execution unit invocation. 
+* **valueFrom**:
+** If the `valueFrom` is a constant string value then this value is added verbatim as an argument to the execution unit invocation.
+** If the `valueFrom` is an expression, evaluate the expression to yield the actual value and add that as an argument to the execute unit invocation.
+** If the `valueFrom` is null, nothing is added to the execution unit invocation.
+* **itemSeparator**
+** Join the array elements into a single string with the elements separated by the `itemSeparator` and add that as an argument to the execution unit invocation.
+* **shellQuote**
+** A boolean that controls whether the value used as an argument in the execution unit invocation is quoted or not.
+** A value of `true` (the default value) means metacharacters or directives are not interpreted when the execution unit is invoked.
+** If metacharacters or directives need to be specified when the execution unit is invoked the value of this parameter should be set to `false`.
+
+[[macro-expressions]]
+===== Macro substitution in expressions
+
+The value of a binding parameters can be an expression.  
+
+include::../requirements/docker/REQ_expression-lang.adoc[]
+
+The macro syntax "$(...)" can be used to reference an process input value in an expression.
+
+* The value `self` (e.g. `$(self)`) refers to the value of the current process input in the current execution unit invocation.
+* The value `inputs.<other_input>` (e.g. `$(inputs.arg2)`) refers to the value of another process input in the current execution unit invocation.
+* If the input is defined as a string type of format "file" or "directory", the following meta-values can be used to manipulate the file or directory path without having to resort to complex regular expressions.
+** ".path" returns the path of a name without the basename
+** ".basename" returns the name of the file or directory without the path
+** ".nameroot" returns the basename with any extension
+** ".nameext" return the extension of the basename
+
+==== Output binding
+
+include::../requirements/docker/REQ_output-binding.adoc[]
+
+The optional `glob` parameter can be used in an output binding to define a wildcard pattern to find the output on a disk or a mounted volume.
+
+The same <<macro-expressions,macro expressions>> that can be used in an input binding expression can also be used with `glob` expressions.

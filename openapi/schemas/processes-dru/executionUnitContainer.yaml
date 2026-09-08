@@ -1,0 +1,64 @@
+type: object
+required: image
+properties:
+  image:
+    description: |-
+      Container image reference for the execution unit.
+    type: string
+  deployment:
+    description: |-
+      Deployment information for the execution unit.
+    type: string
+    anyOf:
+      - type: string
+      - enum:
+          - local
+          - remote
+          - hpc
+          - cloud
+  config:
+    type: object
+    description: |-
+      Hardware requirements and configuration properties for executing the
+      process.
+    properties:
+      cpuMin:
+        description: |-
+          Minimum number of CPUs required to run the process (unit is CPU core).
+        type: number
+        minimum: 1
+      cpuMax:
+        description: |-
+          Maximum number of CPU dedicated to the process (unit is CPU core)
+        type: number
+      memoryMin:
+        description: |-
+          Minimum RAM memory required to run the application (unit is GB)
+        type: number
+      memoryMax:
+        description: |-
+          Maximum RAM memory dedicated to the application (unit is GB)
+        type: number
+      storageTempMin:
+        description: |-
+          Minimum required temporary storage size (unit is GB)
+        type: number
+      storageOutputsMin:
+        description: |-
+          Minimum required output storage size (unit is GB)
+        type: number
+      jobTimeout:
+        description: |-
+          Timeout delay for a job execution (in seconds)
+        type: number
+    additionalProperties: true
+  bindings:
+    type: object
+    properties:
+      inputBindings:
+        additionalProperties:
+          $ref: "inputBinding.yaml"
+      outputBindings:
+        additionalProperties:
+          $ref: "outputBinding.yaml"
+additionalProperties: true

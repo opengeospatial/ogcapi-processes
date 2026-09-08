@@ -1,0 +1,20 @@
+[[req_job-management_create_response_success]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/job-management/create-response-success
+
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported as a response with a
+HTTP status code `200`, `201`, `202` or `204`, accordingly to the
+https://docs.ogc.org/DRAFTS/18-062r3.html#sc_execution_mode[negotiated execution mode]
+(synchronous, asynchronous or pending execution).
+--
+
+[.component,class=part]
+--
+The response SHALL include a `Location` header with the URI of job (path: `/jobs/{jobID}`) resulting from the submission.
+--
+
+====

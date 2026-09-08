@@ -1,0 +1,19 @@
+[[per_job-management_create_response-sync]]
+[permission]
+====
+[%metadata]
+identifier:: /per/job-management/create-response-sync
+
+[.component,class=conditions]
+--
+. The link:https://docs.ogc.org/DRAFTS/18-062r3.html#sc_execution_mode[negotiated execution mode] at job submission is synchronous.
+. No preference indication of pending job `status` was provided in the request.
+--
+
+[.component,class=part]
+--
+The server MAY respond immediately to the request as <<OAProc-1,OGC API - Processes - Part 1: Core>>
+with the HTTP status code `200` to indicate synchronous response.
+--
+
+====

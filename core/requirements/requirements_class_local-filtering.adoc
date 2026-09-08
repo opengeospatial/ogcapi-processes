@@ -1,0 +1,18 @@
+[[rc_local-filtering]]
+[requirements_class]
+.Requirements Class 'Local Filtering'
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/local-filtering
+subject:: Web API
+inherit:: /req/core
+inherit:: /req/collection-input
+inherit:: /req/remote-collections
+requirement:: /req/local-filtering
+====
+
+[[cc_local-filtering]]
+[.conformance class]
+====
+target:: <<rc_local-filtering>>
+====

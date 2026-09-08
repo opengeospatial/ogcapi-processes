@@ -1,14 +1,16 @@
 description: |-
-  Information about a particular collection of (mostly geospatial) data available from this API. The collection is accessible via one or more OGC API set of specifications, for which a link to relevant accessible resources, e.g. /collections/{collectionId}/(items, coverage, map, tiles...) is contained in the response, with the corresponding relation type, as well as key information about the collection. This information includes:
+  Information about a particular collection of (mostly geospatial) data available from this API. The collection is accessible via one or more OGC API set of specifications, for which a link to relevant accessible resources, e.g. /collections/{collectionId}/(items, coverage, map, tiles...) is contained in the response, with the corresponding relation type, as well as key information about the collection. This information includes (among other things):
   * a local identifier for the collection that is unique for the dataset;
-  * a list of coordinate reference systems (CRS) in which data may be returned by the server. The first CRS is the default coordinate reference system (the default is always WGS 84 with axis order longitude/latitude);
+  * a list of coordinate reference systems (CRS) in which data may be returned by the server;
   * an optional title and description for the collection;
   * an optional extent that can be used to provide an indication of the spatial and temporal extent of the collection - typically derived from the data;
   * for collections accessible via the Features or Records API, an optional indicator about the type of the items in the collection (the default value, if the indicator is not provided, is 'feature').
 content:
   application/json:
     schema:
-      $ref: '../../schemas/common-geodata/collectionInfo.yaml'
+      $ref: '../../schemas/common-geodata/collectionDesc.yaml'
+      # For APIs conforming to the Uniform Additional Dimensions requirements class, reference the collectionDesc-UAD.yaml schema instead
+      # $ref: '../../schemas/common-geodata/collectionDesc-UAD.yaml'
     example:
       id: buildings
       title: Buildings

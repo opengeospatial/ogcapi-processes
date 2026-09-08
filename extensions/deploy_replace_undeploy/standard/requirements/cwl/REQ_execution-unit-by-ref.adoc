@@ -1,0 +1,32 @@
+[[req_cwl_execution-unit-by-ref]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/cwl/execution-unit-by-ref
+
+[.component,class=part]
+--
+If passed by reference, the value of the <<executionUnit-property,`executionUnit` property>> SHALL be a link pointing to the CWL file describing the execution unit of the process.
+--
+
+[.component,class=part]
+--
+Both the `href` and `type` fields of the link SHALL be specified.
+--
+
+[.component,class=part]
+--
+If the encoding of the CWL is known to be JSON then the value of the `type` field SHALL be `application/cwl+json`.
+--
+
+[.component,class=part]
+--
+If the encoding of the CWL is known to be YAML then the value of the `type` field SHALL be `application/cwl+yaml`.
+--
+
+[.component,class=part]
+--
+If the specific encoding of the CWL is unknown then the value of the `type` field SHALL be the generic media type `application/cwl`.
+--
+
+====

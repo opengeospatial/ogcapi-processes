@@ -1,0 +1,24 @@
+[[req_docker_bindings]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/docker/bindings
+
+[.component,class=part]
+--
+The `bindings` field of the <<executionUnit-property,`executionUnit` property>> of an <<clause_ogcapppkg,OGC Application Package>> SHALL be used to map the inputs and outputs of a process to arguments to be used in the invocation of the execution unit (e.g. command line arguments).
+--
+
+[.component,class=part]
+--
+The `inputBindings` field SHALL be used to specify the binding information for a process' inputs.
+--
+
+[.component,class=part]
+--
+The `outputBindings` field SHALL be used to specify the binding information for a process' outputs.
+--
+
+====
+
+NOTE: If a binding information is not specified, it is assumed that the processing server will apply some internally-defined default mapping; this is an implementation detail and beyond the scope of this Standard.

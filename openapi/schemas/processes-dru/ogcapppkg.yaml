@@ -3,10 +3,11 @@ required:
   - executionUnit
 properties:
   processDescription:
-    $ref: "../processes-core/process.yaml"
+    type: object
+    required:
+    - process
+    properties:
+      process:
+        $ref: "../processes-core/process.yaml"
   executionUnit:
-    oneOf:
-      - $ref: "executionUnit.yaml"
-      - $ref: "../common-core/link.yaml"
-      - $ref: "../processes-core/qualifiedInputValue.yaml"
-      - $ref: "ogcapppkg-array.yaml"
+    $ref: "executionUnit.yaml"

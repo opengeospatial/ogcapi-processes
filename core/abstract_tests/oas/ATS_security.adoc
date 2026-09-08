@@ -1,0 +1,15 @@
+[[ats_oas_security]]
+
+[abstract-test]
+====
+[%metadata]
+identifier:: /conf/oas/security
+target:: /req/oas/security
+test-purpose:: Verify that any authentication protocols implemented by the API are documented in the OpenAPI document. 
+test-method::
++
+--
+. Identify all authentication protocols supported by the API.
+. Validate that each authentication protocol is described in the OpenAPI document by a Security Schema Object and its use is specified by a Security Requirement Object.
+--
+====

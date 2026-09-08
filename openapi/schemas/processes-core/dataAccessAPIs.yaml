@@ -1,0 +1,6 @@
+type: object
+properties:
+  dataAccessAPIs:
+    type: array
+    items:
+      $ref: "apis.yaml"

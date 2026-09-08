@@ -1,0 +1,9 @@
+allOf:
+  - $ref: "../processes-core/format.yaml"
+  - $ref: "../processes-core/fieldsModifiers.yaml"
+  - type: object
+    required:
+      - value
+    properties:
+      value:
+        $ref: "value-workflows.yaml"

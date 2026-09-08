@@ -1,5 +1,0 @@
-oneOf:
-  - $ref: "inlineOrRefData.yaml"
-  - type: array
-    items:
-      $ref: "inlineOrRefData.yaml"
