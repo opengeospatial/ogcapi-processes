@@ -8,14 +8,5 @@ The operation at the `/jobs/{jobID}/results` endpoint SHALL support a parameter 
 
 [source,yaml]
 ----
-name: outputs
-in: query
-required: false
-schema:
-  type: array
-  items:
-    type: string
-style: form
-explode: false
+include::../../openapi/schemas/processes-core/outputs.yaml[role=include]
 ----
-====
