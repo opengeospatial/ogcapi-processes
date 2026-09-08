@@ -6,16 +6,5 @@ identifier:: /req/core/job-results-param-outputs
 
 The operation at the `/jobs/{jobID}/results` endpoint SHALL support a parameter `outputs` with the following characteristics (using an OpenAPI Specification fragment):
 
-[source,yaml]
-----
-name: outputs
-in: query
-required: false
-schema:
-  type: array
-  items:
-    type: string
-style: form
-explode: false
-----
-====
+link:../../openapi/schemas/processes-core/outputs.yaml[role=include]
+
