@@ -55,6 +55,7 @@ jobs:
               - 'openapi/schemas/*.json'
 
   build:
+    name: Build Part ${{ matrix.part }}
     needs: changes
     runs-on: ubuntu-latest
     strategy:
