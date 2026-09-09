@@ -6,7 +6,7 @@ identifier:: /req/collection-input/pass-through
 
 [.component,class=description]
 --
-To support the ability to opaquely pass query parameters through to the <<value-source-server,value source server>>:
+To support the ability to opaquely pass query parameters through to the <<def_value-source-server,value source server>>:
 --
 
 [.component,class=part]

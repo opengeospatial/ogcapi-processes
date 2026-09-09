@@ -11,3 +11,9 @@ requirement:: /req/provenance/prov-get-op
 requirement:: /req/provenance/prov-response
 requirement:: /req/provenance/prov-unsupported-format
 ====
+
+[[cc_provenance]]
+[.conformance class]
+====
+target:: <<rc_provenance>>
+====

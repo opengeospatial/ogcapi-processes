@@ -7,11 +7,14 @@ The _Common Workflow Language (CWL) Definitions_ conformance class specifies the
 https://www.commonwl.org/v1.2/Workflow.html[Common Workflow Language (CWL) - `Workflow`] or
 the https://www.commonwl.org/v1.2/CommandLineTool.html[Common Workflow Language (CWL) - `CommandLineTool`] definitions
 as the representation of the _Workflow and Chaining_ steps, combined with an execution request akin
-to _OGC API - Processes - Part 1: Core_ to provide input and output parameters.
+to <<OAProc-1>> to provide input and output parameters.
 
 However, due to the nature of CWL itself representing the workflow and chaining between processing steps,
 an ad-hoc CWL workflow is **NOT** requested through the `POST /processes/{processId}/execution` endpoint,
-as this would require a preexisting `{processId}`, defeating the purpose of an ad-hoc definition.
+as this would require a preexisting `{processId}`, defeating the purpose of an ad-hoc workflow definition.
+
+The capability to deploy a CWL workflow as a process using <<OAProc-2>>
+is already covered by a distinct conformance class of Part 2.
 
 Instead, the ad-hoc CWL is requested either through the `POST /jobs` endpoint,
 or a as a sub-workflow processing step under _another_ process on `POST /processes/{processId}/execution`.

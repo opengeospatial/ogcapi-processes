@@ -28,7 +28,7 @@ The content of response SHALL conform to the <<schema_results,results.yaml>> sch
 
 [.component,class=part]
 --
-Each collection output in the response SHALL be a link to a <<def-collection-description,collection description document>>.
+Each collection output in the response SHALL be a link to a <<def_collection-description,collection description document>>.
 --
 
 ====

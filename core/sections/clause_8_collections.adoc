@@ -5,15 +5,15 @@
 
 ==== Overview
 
-The _Collection Input_ Requirements Class supports specifying as an input to a process an <<def-collection,OGC API accessible collection>> via using one or more <<def-data-access-mechanism,OGC API data access mechanisms>>.  Specifically, the processing server acts as a client and fetches values from the <<def-collection,OGC API accessible collection>> using one of the available <<def-data-access-mechanism,OGC API data access mechanisms>> and then feeds the fetched values as input values to the process being executed.  The server from which input values are retrieved is referred to as the <<value-source-server,_value source server_>>.
+The _Collection Input_ Requirements Class supports specifying as an input to a process an <<def_collection,OGC API accessible collection>> via using one or more <<def_data-access-mechanism,OGC API data access mechanisms>>.  Specifically, the processing server acts as a client and fetches values from the <<def_collection,OGC API accessible collection>> using one of the available <<def_data-access-mechanism,OGC API data access mechanisms>> and then feeds the fetched values as input values to the process being executed.  The server from which input values are retrieved is referred to as the <<def_value-source-server,_value source server_>>.
 
-Unless an implementation also conforms to the <<sc_remote_collections,_Remote Collections_>> conformance class, only <<def-collection,collections>> that are locally accessible in the current <<def-deployment,OGC API deployment>> are supported.
+Unless an implementation also conforms to the <<sc_remote_collections,_Remote Collections_>> conformance class, only <<def_collection,collections>> that are locally accessible in the current <<def_deployment,OGC API deployment>> are supported.
 
-Unless an implementation also conforms to the <<sc_local_filtering,_Local Filtering_>> conformance class, filtering of values retrieved from an <<def-collection,OGC API accessible collection>> is performed by the <<value-source-server,value source server>>.
+Unless an implementation also conforms to the <<sc_local_filtering,_Local Filtering_>> conformance class, filtering of values retrieved from an <<def_collection,OGC API accessible collection>> is performed by the <<def_value-source-server,value source server>>.
 
 include::../requirements/requirements_class_collection-input.adoc[]
 
-The following requirements describe how an <<execute-request-body,execute request>> references an <<def-collection,OGC API accessible collection>> and how an implementation requests data from that collection to use as input to a process.
+The following requirements describe how an <<execute-request-body,execute request>> references an <<def_collection,OGC API accessible collection>> and how an implementation requests data from that collection to use as input to a process.
 
 ==== Referencing a collection
 
@@ -23,7 +23,7 @@ include::../requirements/collection-input/REQ_collection-input_referencing.adoc[
 
 ===== Overview
 
-The following requirements describe how to access data from an <<def-collection,OGC API accessible collection>> and the ability of an implementation to modify the accessed data by first applying filters, selecting a subset of fields or deriving new fields before providing the data as input to a process.
+The following requirements describe how to access data from an <<def_collection,OGC API accessible collection>> and the ability of an implementation to modify the accessed data by first applying filters, selecting a subset of fields or deriving new fields before providing the data as input to a process.
 
 include::../requirements/collection-input/REQ_collection-input_access.adoc[]
 
@@ -32,7 +32,7 @@ include::../requirements/collection-input/REQ_collection-input_access.adoc[]
 
 include::../requirements/collection-input/REQ_collection-input_filtering.adoc[]
 
-NOTE: The server may also do some intelligent remapping of parameters.  For example, if a `bbox` parameter is specified in the execute request, but the <<value-source-server,value source server>> only supports the `geometry` parameter, the implementation may convert the bounding box to a 4-point polygon and map the specified `bbox` parameter to the `geometry` parameter supported by the <<value-source-server,value source server>>.
+NOTE: The server may also do some intelligent remapping of parameters.  For example, if a `bbox` parameter is specified in the execute request, but the <<def_value-source-server,value source server>> only supports the `geometry` parameter, the implementation may convert the bounding box to a 4-point polygon and map the specified `bbox` parameter to the `geometry` parameter supported by the <<def_value-source-server,value source server>>.
 
 **Parameter filter**
 
@@ -150,7 +150,7 @@ The _Remote Collections_ Requirements Class allows to reference a remote OGC API
 
 include::../requirements/requirements_class_remote-collections.adoc[]
 
-The following requirements describe how an <<execute-request-body,execute request>> references a <<def-remote-collections,remote OGC API accessible collection>> as a source of input values to a process.
+The following requirements describe how an <<execute-request-body,execute request>> references a <<def_remote-collections,remote OGC API accessible collection>> as a source of input values to a process.
 
 ==== Referencing a remote collection
 
@@ -177,17 +177,17 @@ See: <<sc-pass-through,Pass through parameters>>
 
 ==== Overview
 
-The _Collection Output_ Requirements Class specifies how the execution of a process can be triggered as the result of requesting output data using an <<def-data-access-mechanism,OGC API data access mechanisms>>.
+The _Collection Output_ Requirements Class specifies how the execution of a process can be triggered as the result of requesting output data using an <<def_data-access-mechanism,OGC API data access mechanisms>>.
 
 This provides an alternative to the synchronous and asynchronous execution mechanisms defined in this Standard for which spatial, temporal and other filtering parameters would need to be hardcoded in the <<execute-request-body,execute request>>.  When lengthy batch processing is not desirable, completely new <<execute-request-body,execute requests>> each with different spatial, temporal and other filtering parameters and returning a partial output would need to be continuously re-submitted.
 
-This conformance class supports submitting an <<execute-request-body,execute request>> once and then accessing the output using <<def-data-access-mechanism,OGC API data access mechanisms>> in a manner that is  completely agnostic of process execution.
+This conformance class supports submitting an <<execute-request-body,execute request>> once and then accessing the output using <<def_data-access-mechanism,OGC API data access mechanisms>> in a manner that is  completely agnostic of process execution.
 
 Compared to separate <<execute-request-body,execute requests>>, this mechanism makes it easier for implementations to optimize for scenarios where small partial outputs are streamed from the same pre-established processing pipeline. Parsing the <<execute-request-body,execute request>>, validating inputs, and handshakes with remote components only needs to be performed once. An implementation could also preempt future requests based on past requests, offsetting the latency of a complex processing pipeline.
 
 include::../requirements/requirements_class_collection-output.adoc[]
 
-The following requirements describe an execution mechanism that triggers on-demand processing for particular spatial, temporal and other filtering parameters and results in one or more references to a <<def-collection-description,collection description document>> that provides links to request output data using standard <<def-data-access-mechanism,OGC API data access mechanisms>>.
+The following requirements describe an execution mechanism that triggers on-demand processing for particular spatial, temporal and other filtering parameters and results in one or more references to a <<def_collection-description,collection description document>> that provides links to request output data using standard <<def_data-access-mechanism,OGC API data access mechanisms>>.
 
 ==== Parameter `response`
 
@@ -203,7 +203,7 @@ include::../requirements/collection-output/REQ_collection-output_response-respon
 
 include::../requirements/collection-output/REQ_collection-output_data-access-mechanisms.adoc[]
 
-This Standard does not impose any particular approach to materializing output <<def-collection,collections>> resulting from a process execution request.
+This Standard does not impose any particular approach to materializing output <<def_collection,collections>> resulting from a process execution request.
 
 include::../recommendations/collection-output/PER_collection-output_static.adoc[]
 
@@ -218,9 +218,9 @@ include::../recommendations/collection-output/PER_collection-output_expiry.adoc[
 
 ==== Overview
 
-As described in <<sc-collection-filtering>>, implementation of this Standard that support <<sc_collection_input,collection input>> rely on the <<value-source-server,value source server>> to perform any input data filtering specified in an execution request.
+As described in <<sc-collection-filtering>>, implementation of this Standard that support <<sc_collection_input,collection input>> rely on the <<def_value-source-server,value source server>> to perform any input data filtering specified in an execution request.
 
-Servers that implement this Requirements Class, support local filtering in those instances where the <<value-source-server,value source server>> does not support the input data filtering requested in the execution request.
+Servers that implement this Requirements Class, support local filtering in those instances where the <<def_value-source-server,value source server>> does not support the input data filtering requested in the execution request.
 
 include::../requirements/requirements_class_local-filtering.adoc[]
 

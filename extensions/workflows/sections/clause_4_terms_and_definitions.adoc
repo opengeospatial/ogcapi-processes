@@ -1,4 +1,5 @@
-== Terms and definitions
+[[sc_terms]]
+== Terms, definitions and abbreviated terms
 
 ////
 // Something equivalent to the following seems to be automatically added by metanorma...
@@ -9,14 +10,36 @@ In particular, the word "`shall`" (not "`must`") is the verb form used to indica
 For the purposes of this document, the following additional terms and definitions apply.
 ////
 
-=== example term
+[[sc_terms_definitions]]
+=== Terms and definitions
 
-term used for exemplary purposes
+[[def_collection]]
+==== collection; OGC API collection
 
-[.source]
-<<ISO19101-1>>
+(in the context of OGC APIs) A set of spatiotemporal data that may be available through one or more access mechanisms defined by https://www.ogc.org/standards[OGC API standards]. (https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Common - Part 2: Geospatial Data])
 
-NOTE: An example note.
+[[def_field-modifiers]]
+==== field modifiers
 
-[example]
-Here's an example of an example term.
+Parameters provided as fields in the relevant execution context, which modifies the obtained data according to applied operations.
+
+[[def_remote-collection]]
+==== remote collection
+
+A <<def_collection,collection>> that is available from an external OGC API deployment different from the deployment whose process is being executed.
+
+[[def_remote-process]]
+==== remote process
+
+A process that is available from an external OGC API deployment different from the deployment whose process is being executed.
+
+[[sc_terms_abbreviations]]
+=== Abbreviated Terms
+
+API:: Application Programming Interface
+CWL:: Common Workflow Language
+HTTP:: Hypertext Transfer Protocol
+JSON:: JavaScript Object Notation
+URI:: Uniform Resource Identifier
+URL:: Uniform Resource Locator
+YAML:: YAML Ain't Markup Language

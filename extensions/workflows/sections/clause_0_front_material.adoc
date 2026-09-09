@@ -41,7 +41,7 @@ through OGC API data delivery specifications such as _OGC API - Tiles_, _DGGS_, 
 Conformance classes defined in this specification enable clients to integrate discovered data and processes as a workflow in an ad-hoc manner
 (without first requiring to deploy the workflow as a process), then drive the execution on-demand for a particular area, time and resolution of interest using
 a "pull" mechanism (pulling the final required output from the client, as opposed to a batch execution starting from source inputs of the first processing step).
-The workflows defined with this specification can also be deployed as processes using the _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_ extension.
+The workflows defined with this specification can also be deployed as processes using the <<OAProc-2>> extension.
 
 == Submitters
 

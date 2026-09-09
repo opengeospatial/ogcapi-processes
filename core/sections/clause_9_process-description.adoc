@@ -101,7 +101,7 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 [[sc_data_classes]]
 ==== Data classes
 
-One common input type that a process might accept is a https://docs.ogc.org/is/17-069r4/17-069r4.html#_collection_[feature collection] indicating that the process will operate over the items of the collection.  This implies that the process will have certain expectations about the structure of the collection with regard to which properties the collection contains, their types, etc.  To properly handle any arbitrary input collection, a process would need to inspect the structure of the collection to ensure that all the expected properties with the expected schemas and semantics are present.  To alleviate the server from having to perform such a tedious, and perhaps computationally expensive, validation step this Standard introduces the concept of the _Data Class_ via the `dataClasses` parameter.  
+One common input type that a process might accept is a https://docs.ogc.org/is/17-069r4/17-069r4.html#_collection_[feature collection] indicating that the process will operate over the items of the collection.  This implies that the process will have certain expectations about the structure of the collection with regard to which properties the collection contains, their types, etc.  To properly handle any arbitrary input collection, a process would need to inspect the structure of the collection to ensure that all the expected properties with the expected schemas and semantics are present.  To alleviate the server from having to perform such a tedious, and perhaps computationally expensive, validation step this Standard introduces the concept of the _Data Class_ via the `dataClasses` parameter.
 
 include::../requirements/ogc-process-description/REQ_data-classes.adoc[]
 
@@ -127,7 +127,7 @@ This clause started by introducing the concept of the _Data Class_ in relation t
 [[sc_data_access_APIs]]
 ==== Data access APIs
 
-If a server supports <<rc_collection-input,collection input>> and/or <<rc_collection-output,collection output>>, the `dataAccessAPIs` parameters in the process description allows the server to indicate, on a per-input/output basis, which <<def-data-access-mechanism,OGC API data access mechanism(s)>> are supported for providing input values to the process or retrieving output values from the process.
+If a server supports <<rc_collection-input,collection input>> and/or <<rc_collection-output,collection output>>, the `dataAccessAPIs` parameters in the process description allows the server to indicate, on a per-input/output basis, which <<def_data-access-mechanism,OGC API data access mechanism(s)>> are supported for providing input values to the process or retrieving output values from the process.
 
 include::../requirements/ogc-process-description/REQ_data-access-apis.adoc[]
 
@@ -165,7 +165,7 @@ The following JSON Schema fragment illustrates how to define an input that allow
 
 include::../recommendations/ogc-process-description/REC_format-key.adoc[]
 
-Processes that perform geospatial processing can be expected to have geometric and feature input types.  In JSON, geometries, features, and feature collections are commonly encoded using https://datatracker.ietf.org/doc/html/rfc7946[GeoJSON].  Rather the requiring processes descriptions to embed or reference the full schemas for https://datatracker.ietf.org/doc/html/rfc7946[GeoJSON] geometries, features or feature collections, this Standard defines a common set of convenience tokens that can be used instead.  
+Processes that perform geospatial processing can be expected to have geometric and feature input types.  In JSON, geometries, features, and feature collections are commonly encoded using https://datatracker.ietf.org/doc/html/rfc7946[GeoJSON].  Rather the requiring processes descriptions to embed or reference the full schemas for https://datatracker.ietf.org/doc/html/rfc7946[GeoJSON] geometries, features or feature collections, this Standard defines a common set of convenience tokens that can be used instead.
 
 The <<jsonschemavalidation,JSON Schema specification>> defines a https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7[set of values] for the `format` key.  This Standard extends this list by defining the following additional key values for use specifically in OGC process descriptions.
 

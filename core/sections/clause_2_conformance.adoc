@@ -61,7 +61,7 @@ In addition to supporting collections as process inputs, the following conforman
 
 * <<rc_collection-output,Collection Output>>
 
-defines requirements that allow process execution to be triggered by requesting output data using an standard <<def-data-access-mechanism,OGC API data access mechanisms>>.  In this way, process execution becomes opaque, hidden behind a standard OGC data access API (e.g. features, coverages, etc.).
+defines requirements that allow process execution to be triggered by requesting output data using an standard <<def_data-access-mechanism,OGC API data access mechanisms>>.  In this way, process execution becomes opaque, hidden behind a standard OGC data access API (e.g. features, coverages, etc.).
 
 In the <<rc_core,Core>> executing a process requires sending a JSON-encoded execution request to the server using the HTTP POST method.  To support embedding process execution requests into other documents this Standard defines the:
 
@@ -103,7 +103,7 @@ Conformance with this Standard SHALL be checked using all the relevant tests spe
 |<<ats_callback,Callback>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/callback
 |<<ats_dismiss,Dismiss>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/dismiss
 |<<ats_collection-input,Collection Input>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/collection-input
-|<<ats_remote-collections,Remove Collections>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/remote-collections
+|<<ats_remote-collections,Remote Collections>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/remote-collections
 |<<ats_collection-output,Collection Output>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/collection-output
 |<<ats_local-filtering,Local Filtering>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/local-filtering
 |<<ats_kvp-execute,KVP-encoded Execute>> |https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/kvp-execute

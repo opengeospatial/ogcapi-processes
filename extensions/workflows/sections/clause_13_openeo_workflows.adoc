@@ -8,7 +8,7 @@ https://openeo.org/documentation/1.0/developers/api/reference.html#section/Proce
 _OGC API - Processes - Part 1: Core_ execution request, to be executed in an ad-hoc manner
 (a workflow that is not first required to be deployed as a process before being executed).
 
-The capability to deploy an OpenEO workflow definition as a process using _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_
+The capability to deploy an OpenEO workflow definition as a process using <<OAProc-2>>
 is already covered by a conformance class of Part 2.
 
 *TODO*: Verify that an OpenEO conformance class already exists or is planned for _Part 2_.

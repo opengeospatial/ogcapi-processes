@@ -1,0 +1,9 @@
+name: outputs
+in: query
+required: false
+schema:
+  type: array
+  items:
+    type: string
+style: form
+explode: false

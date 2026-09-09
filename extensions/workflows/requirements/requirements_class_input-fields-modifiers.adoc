@@ -2,8 +2,8 @@
 [requirements_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-processes-3/0.0/req/input-fields-modifiers
+identifier:: https://www.opengis.net/spec/ogcapi-processes-3/0.0/req/input-fields-modifiers
 subject:: Input Fields Modifiers
-inherit:: http://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core
-inherit:: http://www.opengis.net/spec/ogcapi-features-3/0.0/req/features-filter (optional)
+inherit:: <<https://docs.ogc.org/DRAFTS/18-062r3.html#rc_core,https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core>>
+inherit:: <<https://docs.ogc.org/DRAFTS/19-079r3.html#_requirements_class_features_filter,https://www.opengis.net/spec/ogcapi-features-3/1.0/req/features-filter>> (optional)
 ====

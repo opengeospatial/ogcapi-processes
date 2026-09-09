@@ -21,12 +21,11 @@ method.
 
 [#endpoint_method_matrix,reftext='{table-caption} {counter:table-num}']
 .Supported HTTP methods by resource
-[cols="50,12,13,12",options="header"]
+[cols="40,15,15,15,15",options="header"]
 |===
-|Resource endpoint 3+|HTTP method
-| |**POST** |**PUT** |**DELETE**
-|`/processes` |<<deploy,deploy>> |n/a |n/a
-|`/processes/{processID}` |n/a |<<replace,replace>> |<<undeploy,undeploy>>
+|Resource endpoint 4+|HTTP method
+| |**GET** |**POST** |**PUT** |**DELETE**
+|`/processes`  |n/a |<<deploy,deploy>> |n/a |n/a
+|`/processes/{processID}` |n/a |n/a |<<replace,replace>> |<<undeploy,undeploy>>
+|`/processes/{processID}/package` |<<application-package-retrieval-operation,package>> |n/a |n/a |n/a
 |===
-
-

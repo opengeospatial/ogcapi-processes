@@ -8,7 +8,7 @@ identifier:: /req/core/job-result-op-Nth
 [.component,class=conditions]
 --
 . The output with output identifier `outputID` is defined in the <<sc_process_description,process description>> as having `maxOccurs>1`.
-. The output with output identifier `outputID` is  <<implicit-process-output,implicitly>> or <<explicit-process-output,explicitly>> requested in an <<execute-request-body,execute request>>.
+. The output with output identifier `outputID` is  <<def_implicit-process-output,implicitly>> or <<def_explicit-process-output,explicitly>> requested in an <<execute-request-body,execute request>>.
 --
 
 [.component,class=part]
