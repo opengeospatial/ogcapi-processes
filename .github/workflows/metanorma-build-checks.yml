@@ -1,0 +1,129 @@
+# Builds and pre-checks each part of OGC API - Processes (as listed in ogcmetanorma.json)
+# with OGC Metanorma, mirroring the https://docs.ogc.org/DRAFTS/ builds.
+# Ensures that changes do not introduce a broken reference which are not detected by the OGC Metanorma build,
+# and which results in incorrectly formatted contents (it still publishes the failed results).
+name: Metanorma build checks
+
+on:
+  - pull_request
+  - push
+
+env:
+  METANORMA_DOCKER_IMAGE: metanorma/metanorma
+  METANORMA_EXPORT_FORMATS: html,xml
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      part1: ${{ steps.filter.outputs.part1 }}
+      part2: ${{ steps.filter.outputs.part2 }}
+      part3: ${{ steps.filter.outputs.part3 }}
+      part4: ${{ steps.filter.outputs.part4 }}
+      part5: ${{ steps.filter.outputs.part5 }}
+      common: ${{ steps.filter.outputs.common }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Detect affected parts
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            part1:
+              - '18-062.adoc'
+              - 'implementations.adoc'
+              - 'core/**'
+              - 'openapi/**/processes-core/**'
+            part2:
+              - 'extensions/deploy_replace_undeploy/**'
+              - 'openapi/**/processes-dru/**'
+            part3:
+              - 'extensions/workflows/**'
+              - 'openapi/**/processes-workflows/**'
+            part4:
+              - 'extensions/job_management/**'
+              - 'openapi/**/processes-job-management/**'
+            part5:
+              - 'extensions/provenance/**'
+              - 'openapi/**/processes-provenance/**'
+            common:
+              - 'ogcmetanorma.json'
+              - 'openapi/update.sh'
+              - 'openapi/api/**'
+              - 'openapi/**/common-*/**'
+              - 'openapi/schemas/*.yaml'
+              - 'openapi/schemas/*.json'
+
+  build:
+    needs: changes
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        part: ['1', '2', '3', '4', '5']
+    steps:
+      - name: Decide whether this part needs a rebuild
+        id: should_build
+        # Common always triggers other parts since the inclusion mix is complex.
+        run: |
+          case "${{ matrix.part }}" in
+            1) changed="${{ needs.changes.outputs.part1 }}" ;;
+            2) changed="${{ needs.changes.outputs.part2 }}" ;;
+            3) changed="${{ needs.changes.outputs.part3 }}" ;;
+            4) changed="${{ needs.changes.outputs.part4 }}" ;;
+            5) changed="${{ needs.changes.outputs.part5 }}" ;;
+          esac
+          if [ "$changed" = "true" ] || [ "${{ needs.changes.outputs.common }}" = "true" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        if: steps.should_build.outputs.run == 'true'
+        uses: actions/checkout@v6
+
+      - name: Resolve document metadata
+        if: steps.should_build.outputs.run == 'true'
+        id: doc
+        # Keys (part1..part5) are 1-based to match the actual "Part N"
+        # but numbering of ogcmetanorma.json itself uses 0-based keys "0".."4".
+        run: |
+          json_key=$(( ${{ matrix.part }} - 1 ))
+          path=$(jq -r ".\"${json_key}\".path" ogcmetanorma.json)
+          title=$(jq -r ".\"${json_key}\".title" ogcmetanorma.json)
+          echo "path=$path" >> "$GITHUB_OUTPUT"
+          echo "title=$title" >> "$GITHUB_OUTPUT"
+          echo "dir=$(dirname "$path")" >> "$GITHUB_OUTPUT"
+
+      - name: Cache fontist fonts
+        if: steps.should_build.outputs.run == 'true'
+        uses: actions/cache@v4
+        with:
+          path: ~/.fontist/fonts
+          key: fontist-${{ runner.os }}
+          restore-keys: fontist-${{ runner.os }}
+
+      - name: Ensure fontist cache dir exists
+        if: steps.should_build.outputs.run == 'true'
+        run: mkdir -p "${HOME}/.fontist/fonts"
+
+      - name: "Metanorma compile: ${{ steps.doc.outputs.title }}"
+        if: steps.should_build.outputs.run == 'true'
+        run: |
+          docker run \
+            -w /metanorma \
+            -v "$(pwd)":/metanorma \
+            -v "${HOME}/.fontist/fonts/":/config/fonts \
+            "${METANORMA_DOCKER_IMAGE}" metanorma compile \
+            --agree-to-terms -t ogc -x "${METANORMA_EXPORT_FORMATS}" "${{ steps.doc.outputs.path }}"
+
+      - name: Upload build output
+        if: steps.should_build.outputs.run == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: metanorma-part-${{ matrix.part }}
+          path: |
+            ${{ steps.doc.outputs.dir }}/*.html
+            ${{ steps.doc.outputs.dir }}/*.xml
+          if-no-files-found: warn
