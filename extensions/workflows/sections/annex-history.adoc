@@ -8,4 +8,5 @@
 |2020-10-19 |0.1 |J. St-Louis |all |initial draft
 |2022-10-19 |0.2 |J. St-Louis |all |reorganized into multiple conformance classes, using metanorma template, with more detailed descriptions and requirements
 |2026-07-18 |0.3 |Francis Charette-Migneault |all |removed collection requirement classes now in core, update references to other standard references, apply https and define terms
+|2026-07-18 |0.4 |Francis Charette-Migneault |CWL Ad-hoc Execution |Adjust the definitions to make them applicable to CWL definitions that must combine workflow + execution
 |===

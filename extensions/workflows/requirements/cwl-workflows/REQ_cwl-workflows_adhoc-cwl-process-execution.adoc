@@ -1,0 +1,41 @@
+[[REQ_cwl-workflows_adhoc-cwl-process-execution]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/cwl-workflows/adhoc-cwl-process-execution
+inherit:: <<rfc2387,RFC 2387 (The MIME Multipart/Related Content-type)>>
+inherit:: <<OAProc-1,http://www.opengis.net/spec/ogcapi-processes-1/2.0/req/core>>
+description:: For executing a workflow defined using the Common Workflow Language (CWL) definition, through _Core_ nested process execution.
+
+[.component,class=part]
+--
+The server SHALL support ad-hoc execution of a CWL workflow definition on `POST /processes/{processId}/execution` endpoint.
+--
+
+[.component,class=part]
+--
+The execution and response handling SHALL behave according to other execution parametrization (`Prefer` header, etc.)
+defined by <<OAProc-1>>.
+--
+
+[.component,class=part]
+--
+The request SHALL employ the `Content-Type: multipart/related` media type as defined in <<rfc2387>> to submit the
+CWL definition and its associated execution parameters.
+--
+
+[.component,class=part]
+--
+The multipart contents SHALL follow <<REQ_cwl-workflows_adhoc-cwl-multipart-content,/req/cwl-workflows/adhoc-cwl-multipart-content>>
+for the definition of part contents.
+--
+
+[.component,class=part]
+--
+The part containing the <<https://docs.ogc.org/DRAFTS/18-062r3.html#execute-request-body,execute request body>>
+SHALL provide in the `"inputs"` any necessary mapping to a `+{"$output": "<cwl-output>"}+` where the `+<cwl-output>+`
+indicates the output identifier from the main CWL workflow from which the resulting value SHALL be chained from
+the CWL execution into the corresponding input of the parent `{processId}`.
+--
+
+====

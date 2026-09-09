@@ -13,6 +13,8 @@ References are to follow the Springer LNCS style, with the exception that option
 
 * [[[OAProc-2,_OGC API - Processes - Part 2: Deploy, Replace, Undeploy_]]] Panagiotis (Peter) A. Vretanos, OGC API - Processes - Part 2: Deploy, Replace, Undeploy (Draft). OGC 20-044, Open Geospatial Consortium, https://github.com/opengeospatial/ogcapi-processes/tree/master/extensions/deploy_replace_undeploy/standard[https://github.com/opengeospatial/ogcapi-processes/tree/master/extensions/deploy_replace_undeploy/standard]
 
+* [[[OAProc-4,_OGC API - Processes - Part 4: Job Management_]]] Fenoy, G., Charette-Migneault, F.: OGC 24-051, *OGC API - Processes - Part 4: Job Management* (Draft). OGC 24-051, Open Geospatial Consortium, https://github.com/opengeospatial/ogcapi-processes/tree/master/extensions/job_management/standard[https://github.com/opengeospatial/ogcapi-processes/tree/master/extensions/job_management/standard]
+
 * [[[OGC20-057,OGC 20-057]]], OGC API - Tiles - Part 1: Core (2022)
 
 * [[[OGC17-069r3,OGC 17-069r3]]], OGC API - Features - Part 1: Core (2019)
@@ -33,3 +35,5 @@ References are to follow the Springer LNCS style, with the exception that option
 * [[[OGC20-058-fixme,OGC 20-058-fixme]]], Joan Masó, Jérôme Jacovella-St-Louis: OGC API - Maps - Part 1: Core (Draft). OGC 19-058, Open Geospatial Consortium, https://docs.ogc.org/DRAFTS/20-058.html[https://docs.ogc.org/DRAFTS/20-058.html]
 
 * [[[OGC21-038,OGC 21-038]]], Matthew B.J. Purss, Jérôme Jacovella-St-Louis: OGC API - Discrete Global Grid Systems - Part 1: Core (Draft). OGC 21-038, Open Geospatial Consortium, https://opengeospatial.github.io/ogcna-auto-review/21-038.html[https://opengeospatial.github.io/ogcna-auto-review/21-038.html]
+
+* [[rfc2387,IETF RFC 2387]] E. Levinson: IETF RFC 2387, *The MIME Multipart/Related Content-type*, 1998 http://tools.ietf.org/rfc/rfc2387.txt

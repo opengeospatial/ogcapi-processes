@@ -76,7 +76,7 @@ Below are other examples of <<deploy,Deploy request>> bodies where the CWL value
 
 ==== Overview
 
-This clause defines the requirements for sending a CWL document directly to the process deployment endpoint (i.e. /processes) without embedding the CWL into an <<clause_ogcapppkg,OGC Application Package>>
+This clause defines the requirements for sending a CWL document directly to the process deployment endpoint (i.e. `/processes`) without embedding the CWL into an <<clause_ogcapppkg,OGC Application Package>>
 
 ==== CWL request body
 

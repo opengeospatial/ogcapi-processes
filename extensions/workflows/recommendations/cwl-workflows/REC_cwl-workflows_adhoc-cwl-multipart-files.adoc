@@ -1,0 +1,38 @@
+[[rec_cwl-workflows_adhoc-cwl-multipart-files]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/cwl-workflows/adhoc-cwl-multipart-files
+description:: Capability to provide additional files required for execution of the ad-hoc CWL workflow.
+
+[.component,class=part]
+--
+If the execution of the ad-hoc CWL requires additional data files to be provided,
+they MAY be supplied with additional multipart parts.
+--
+
+[.component,class=part]
+--
+Additional files encoded within multipart parts SHOULD leverage
+the `Content-Disposition: filename="<name.ext>"` header to indicate how part contents might be referenced.
+--
+
+[.component,class=part]
+--
+The CWL ad-hoc execution SHOULD reuse the provided file name in the part to bind it with
+link:https://www.commonwl.org/v1.2/CommandLineTool.html#File[CWL File] supported mechanisms
+to collect this file during execution (e.g., `glob`, `path`, `location`, etc.).
+--
+
+[.component,class=part]
+--
+The part corresponding to the execution body SHOULD employ the corresponding `href` input
+definition matching the specified file path from the resolved `Content-Disposition` header.
+--
+
+====
+
+NOTE: Although explicit indication of the `href` for a given input might not always be strictly necessary
+when the ad-hoc CWL definition can itself resolve it, it is recommended to indicate it for traceability
+and explicit representation of the inputs through the _OGC API - Processes_ interface. This will allow
+clients not aware of the _Part 3_ implementation details to still interact with jobs through _Part 1: Core_ interface.

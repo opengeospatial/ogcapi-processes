@@ -27,7 +27,7 @@
 |2019-10-01 |1.0-draft.3 |Benjamin Pross| 7 |1.0-draft.3, minor edits
 |2019-10-10 |1.0-draft.3 |Gérald Fenoy, Tom Kralidis| 7 |Add implementations, Use status in place of infos in jobInfo definition
 |2019-10-22 |1.0-draft.3 |Benjamin Pross| 7 |Remove mandatory path /api, fix for #50
-|2020-01-06 |1.0-draft.3 |Francis Charette| 7 |Add implementation
+|2020-01-06 |1.0-draft.3 |Francis Charette-Migneault| 7 |Add implementation
 |2020-01-28 |1.0-draft.3 |Gérald Fenoy| 7 |Adjust schemas and examples
 |2020-02-03 |1.0-draft.3 |Benjamin Pross| 7 |Fix for #63
 |2020-02-18 |1.0-draft.3 |Chris Durbin| 7 |Fix for #61
