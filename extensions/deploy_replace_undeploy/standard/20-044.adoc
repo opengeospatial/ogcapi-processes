@@ -56,5 +56,3 @@ Bibliography should be the last annex
 include::sections/annex_history.adoc[]
 
 include::sections/annex_bibliography.adoc[]
-
-// CI test: touch Part 2 (DRU) to verify selective Metanorma build trigger
