@@ -25,3 +25,8 @@ NOTE: It is assumed that minimally two agents should be involved. One _User Agen
 server implementation that will perform the task. However, multiple agents are still recommended to make such
 particular cases easier to interpret (e.g., through a link:https://www.w3.org/TR/prov-o/#Delegation[`prov:Delegation`]
 or other appropriate relationship illustrating how work flows between processing steps).
+
+NOTE: Multiple "_User Agent_" definitions may be involved. For example, distinguishing a "Person"
+that employs a "Web Client" through a certain "Organization" account to submit a job. The standard does not limit nor
+provide further indication regarding how their interactions should be related, or which of their metadata should be
+included, to offer flexibility and avoid limiting usage of provenance over certain application policy constraints.

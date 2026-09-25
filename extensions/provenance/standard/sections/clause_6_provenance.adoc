@@ -56,6 +56,8 @@ include::../requirements/provenance/prov-content/REQ_job-entity.adoc[]
 
 include::../requirements/provenance/prov-content/REQ_process-entity.adoc[]
 
+include::../recommendations/provenance/prov-content/REC_process-entity-persistence.adoc[]
+
 include::../requirements/provenance/prov-content/REQ_job-activity.adoc[]
 
 ===== Data Inputs and Results Entities
