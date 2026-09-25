@@ -6,8 +6,34 @@ identifier:: /rec/provenance/prov-content-associations
 
 [.component,class=part]
 --
-A link:https://www.w3.org/TR/prov-o/#Agent[`prov:Agent`] definition SHOULD
-be defined to associate the <<req_
+Distinct link:https://www.w3.org/TR/prov-o/#Agent[`prov:Agent`] definitions SHOULD be employed to associate
+interactions between various entities involved (i.e., <<req_provenance_prov-content_input-entity,Job Inputs>>,
+<<req_provenance_prov-content_result-entity,Job Results>>, <<req_provenance_job-prov_relation-job-entity, Job Information>>,
+<<req_provenance_prov-content_process-entity, Process Description>>, etc.) when they represent different actors in
+the processing steps (e.g., the workflow engine, the server instance, the user submitting the job, etc.).
+--
+
+[.component,class=part]
+--
+The distinct link:https://www.w3.org/TR/prov-o/#Agent[`prov:Agent`] definitions should provide sufficient metadata
+(including with the integration of other ontologies than PROV-O)
+to allow propert interpretation of their specific involvement in the job execution,
+as well as during other agent interactions.
+--
+
+[.component,class=part]
+--
+The distinct link:https://www.w3.org/TR/prov-o/#Agent[`prov:Agent`] definitions should leverage subclasses
+(e.g., <<rec_provenance_prov-content_software-agent,Software Agent>>, <<rec_provenance_prov-content_user-agent,User Agent>>
+link:https://www.w3.org/TR/prov-o/#Organization[`prov:Organization`], etc.) to help disambiguate the their involvement
+and liability during each operation of a processing job.
+--
+
+[.component,class=part]
+--
+Each involved link:https://www.w3.org/TR/prov-o/#Agent[`prov:Agent`] SHOULD employ adequate
+link:https://www.w3.org/TR/prov-o/#Activity[`prov:Activity`] types that leverage the allowed properties they
+offer for those activities (e.g., an "_Execute Job_" activity with <<rec_provenance_prov-content_timing,Job Timing>> details).
 --
 
 ====
