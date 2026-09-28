@@ -1,6 +1,7 @@
+[[clause_provenance]]
 == Requirements Class "Provenance"
 
-[[provenance-overview]]
+[[sc_provenance_overview]]
 === Overview
 
 This requirements class defines how to allow client application accessing the provenance of a completed job resulting from
@@ -14,42 +15,49 @@ For general information about provenance, see the <<W3C-PROV>> document.
 
 include::../requirements/requirements_class_provenance.adoc[]
 
+[[sc_provenance_endpoints]]
 === Endpoints
 
-==== PROV
+[[sc_provenance]]
+==== Provenance (PROV)
 
 The server SHALL provide an endpoint to retrieve the provenance details of a job.
 
+[[sc_provenance_operation]]
 ===== Operation
 
 include::../requirements/provenance/job-prov/REQ_get-op.adoc[]
 
+[[sc_provenance_response]]
 ===== Response
 
 include::../requirements/provenance/job-prov/REQ_response.adoc[]
 
+[[sc_provenance_errors]]
 ===== Errors
 
 include::../requirements/provenance/job-prov/REQ_missing.adoc[]
 
 include::../requirements/provenance/job-prov/REQ_unsupported-format.adoc[]
 
-[[prov-content-negotiation]]
+[[sc_provenance_content-negotiation]]
 ===== PROV Content Negotiation
 
 include::../recommendations/provenance/job-prov/REC_content-type-json.adoc[]
 
 include::../recommendations/provenance/job-prov/PER_content-negotiation.adoc[]
 
+[[sc_provenance_content]]
 ==== PROV Content
 
 The server SHOULD provide structured PROV metadata elements that describe the executed process, job activity,
 input/output entities, and useful associated metadata. Some definitions are required to ensure minimal interoperability
 with guaranteed entities (e.g., Process and Job), while others are recommended guide server implementations toward
-common practices. See also <<prov-content-examples>> for concrete representations across various PROV formats.
+common practices. See also <<sc_prov-content-examples>> for concrete representations across various PROV formats.
 
 include::../requirements/provenance/prov-content/REQ_namespaces.adoc[]
 
+[[sc_provenance_content-core-entities-and-activity]]
 ===== Core Entities and Activity
 
 include::../requirements/provenance/prov-content/REQ_job-entity.adoc[]
@@ -58,6 +66,7 @@ include::../requirements/provenance/prov-content/REQ_process-entity.adoc[]
 
 include::../requirements/provenance/prov-content/REQ_job-activity.adoc[]
 
+[[sc_provenance_content-data-inputs-and-results-entities]]
 ===== Data Inputs and Results Entities
 
 include::../requirements/provenance/prov-content/REQ_input-entity.adoc[]
@@ -68,6 +77,7 @@ include::../requirements/provenance/prov-content/REQ_collection-entity.adoc[]
 
 include::../requirements/provenance/prov-content/REQ_file-entity.adoc[]
 
+[[sc_provenance_content-recommended-metadata]]
 ===== Recommended Metadata
 
 include::../recommendations/provenance/prov-content/REC_data-entity.adoc[]
@@ -78,6 +88,7 @@ include::../recommendations/provenance/prov-content/REC_software-agent.adoc[]
 
 include::../recommendations/provenance/prov-content/REC_prov-associations.adoc[]
 
+[[sc_provenance_job-status]]
 ==== Job Status
 
 To ensure provenance availability and discoverability, servers offering this capability are encouraged to

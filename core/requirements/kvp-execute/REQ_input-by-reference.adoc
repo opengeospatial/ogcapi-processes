@@ -45,7 +45,7 @@ where the token `{inputID}` represented the identifier of the input.
 
 [.component,class=part]
 --
-If the input cardinality is greater than 1 then the value of the input parameter SHALL be encoded as a <<link-schema,link object>> and appropriately <<kvp-complex-value-input,URL-encoded>> to a string.
+If the input cardinality is greater than 1 then the value of the input parameter SHALL be encoded as a <<link-schema,link object>> and appropriately <<sc_kvp-execute_complex-value-input,URL-encoded>> to a string.
 --
 
 ====

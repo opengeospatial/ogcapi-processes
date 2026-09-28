@@ -1,4 +1,4 @@
-[[ats_dismiss_job-dismiss-success]]
+[[ats_dismiss_job-dismiss-status]]
 
 [abstract_test]
 ====

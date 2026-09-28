@@ -1,15 +1,17 @@
-[[sc_openeo-process-graph]]
+[[clause_openeo-process-graph]]
 == Requirements Class "OpenEO Process Graph"
 
-[[openeo-overview]]
+[[sc_openeo-process-graph_overview]]
 === Overview
 
 include::../requirements/requirements_class_openeo.adoc[]
 
 This requirements class defines that the server supports the OpenEO Process Graph as an encoding for job definitions.
 
+[[sc_openeo-process-graph_schema]]
 === OpenEO Process Graph
 
+[[sc_openeo-process-graph_schema-overview]]
 ==== Overview
 
 include::../requirements/openeo/REQ_schema.adoc[]
@@ -21,24 +23,30 @@ include::../requirements/openeo/REQ_schema.adoc[]
 include::../../../../openapi/schemas/processes-job-management/openeo-process-graph.yaml[]
 ----
 
+[[sc_openeo-process-graph_create-job]]
 === Creating a new job
 
+[[sc_openeo-process-graph_create-job-request-body]]
 ==== Request body
 
 include::../requirements/openeo/create/REQ_body.adoc[]
 
 include::../recommendations/openeo/create/PER_content-schema.adoc[]
 
+[[sc_openeo-process-graph_update-job]]
 === Updating an existing job
 
+[[sc_openeo-process-graph_update-job-request-body]]
 ==== Request body
 
 include::../requirements/openeo/update/REQ_body.adoc[]
 
 include::../recommendations/openeo/update/PER_content-schema.adoc[]
 
+[[sc_openeo-process-graph_job-definition]]
 === Job definition
 
+[[sc_openeo-process-graph_job-definition-response-content]]
 ==== Response content
 
 include::../requirements/openeo/definition/REQ_response-body.adoc[]

@@ -1,4 +1,4 @@
-[[sc_terms]]
+[[clause_terms]]
 == Terms, definitions and abbreviated terms
 
 ////

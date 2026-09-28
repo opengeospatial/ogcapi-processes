@@ -1,10 +1,13 @@
 
+[[clause_terms-definitions-and-abbreviated-terms]]
 == Terms, definitions and abbreviated terms
 
+[[sc_terms-and-definitions]]
 === Terms and definitions
 
 See <<OAProc-1>>, Clause 4.1.
 
+[[sc_abbreviated-terms]]
 === Abbreviated Terms
 
 See <<OAProc-1>>, Clause 4.2.

@@ -1,12 +1,14 @@
 
+[[clause_kvp-execute]]
 == Requirements Class "KVP-encoded Execute"
 
 
+[[sc_kvp-execute_overview]]
 === Overview
 
 include::../requirements/requirements_class_kvp-execute.adoc[]
 
-The <<sc_execute_process,"Execute a process">> clause describes how to invoke a process by sending a <<execute-request-body,JSON-encoded execute request>> to the <<req_core_process-execute-op,execution endpoint>> of a server using the https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3[HTTP POST method].  This invocation pattern does not, however, allow dynamic execute requests to be embedded in other documents.  This clause describes a process invocation method that encodes an execute request as a URL with query parameters.
+The <<sc_process-execute,"Execute a process">> clause describes how to invoke a process by sending a <<execute-request-body,JSON-encoded execute request>> to the <<req_core_process-execute-op,execution endpoint>> of a server using the https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3[HTTP POST method].  This invocation pattern does not, however, allow dynamic execute requests to be embedded in other documents.  This clause describes a process invocation method that encodes an execute request as a URL with query parameters.
 
 The following examples illustrate KVP-encoded process execution requests.
 
@@ -50,16 +52,20 @@ featureCollectionOutput[include]=true
 NOTE: Add more examples!
 ====
 
+[[sc_kvp-execute_process]]
 === Execute a process
 
 This section describes the requirements for an operation that invokes a process with an execute request encoded as a URL with query parameters.
 
+[[sc_kvp-execute_operation]]
 ==== Operation
 
 include::../requirements/kvp-execute/REQ_process-execute-op.adoc[]
 
+[[sc_kvp-execute_parameters]]
 ==== Parameters
 
+[[sc_kvp-execute_format-parameter]]
 ===== Format parameter
 
 include::../requirements/kvp-execute/REQ_f-definition.adoc[]
@@ -81,6 +87,7 @@ response[f]=image%2Fjpeg%3B%20q%3D0.5%2Cimage%2Fpng%20q%3D0.8
 ----
 ====
 
+[[sc_kvp-execute_prefer-parameter]]
 ===== Prefer parameter
 
 include::../requirements/kvp-execute/REQ_prefer-definition.adoc[]
@@ -103,8 +110,10 @@ response[prefer]=handling%3Dlenient%2C%20wait%3D100%2C%20respond-async
 ----
 ====
 
+[[sc_kvp-execute_process-inputs]]
 ===== Process inputs
 
+[[sc_kvp-execute_process-inputs-overview]]
 ====== Overview
 
 include::../requirements/kvp-execute/REQ_input-query-parameters.adoc[]
@@ -120,9 +129,9 @@ The value of an input URI query parameter in a KVP-encoded execute request can b
 * an array of values,
 * or a reference to a value.
 
-<<sc_collection_input,Collection inputs>> are not defined for KVP-encoded execute requests.
+<<sc_collection-input,Collection inputs>> are not defined for KVP-encoded execute requests.
 
-[[kvp-simple-value]]
+[[sc_kvp-execute_simple-value]]
 ====== Simple string input
 
 include::../requirements/kvp-execute/REQ_string-input-value.adoc[]
@@ -144,6 +153,7 @@ dateInput=2021-05-24T20:40:13-05:00
 ----
 ====
 
+[[sc_kvp-execute_simple-numeric-input]]
 ====== Simple numeric input
 
 include::../requirements/kvp-execute/REQ_numeric-input-value.adoc[]
@@ -164,6 +174,7 @@ An integer:
 integerInput=10
 ----
 
+[[sc_kvp-execute_simple-boolean-input]]
 ====== Simple boolean input
 
 include::../requirements/kvp-execute/REQ_boolean-input-value.adoc[]
@@ -176,7 +187,7 @@ A Boolean:
 booleanInput=true
 ----
 
-[[kvp-complex-value-input]]
+[[sc_kvp-execute_complex-value-input]]
 ====== Complex-valued input
 
 A complex value is a value whose structure is defined using a schema.  The schema of a complex process input value is defined in the <<sc_process_description,process description>> and can be specified using <<process-input-schema,JSON-Schema>>.  
@@ -200,16 +211,16 @@ Decoded value is:
 ----
 ====
 
-[[kvp-array-value-input]]
+[[sc_kvp-execute_array-value-input]]
 ====== Array-valued input
 
 include::../requirements/kvp-execute/REQ_array-input-value.adoc[]
 
 The elements of an array input value can be:
 
-* a <<kvp-simple-value,simple value>>,
+* a <<sc_kvp-execute_simple-value,simple value>>,
 * a <<qualified-value,complex value>>,
-* a <<kvp-binary-value,binary value>>,
+* a <<sc_kvp-execute_binary-value,binary value>>,
 * a <<bounding-box-value,bounding box value>>,
 * an embedded array,
 * or references to values using <<link-schema,links>>.
@@ -336,7 +347,7 @@ images=[
 
 ====
 
-[[kvp-binary-value]]
+[[sc_kvp-execute_binary-value]]
 ====== Binary-valued input
 
 NOTE: Not sure we should specify this.  Binary input values should be by reference only in my opinion.  It really makes no sense to specify a binary value by-value in a URL-encoded execute request.  Does it? Something small like icons ... maybe?
@@ -399,7 +410,7 @@ imageInput[value]=VBORw0KGgoAAAANSUhEUgAABvwAAAa4CAYAAABMB35kAAABhGlDQ1BJQ0MgcHJ
 ----
 ====
 
-[[kvp-bbox-value]]
+[[sc_kvp-execute_bbox-value]]
 ====== Bounding box-valued input 
 
 include::../requirements/kvp-execute/REQ_bbox-input-value.adoc[]
@@ -425,7 +436,7 @@ my_bbox=43.570691463538644,-79.63732855116733,43.86582298161152,-79.102272790767
 
 ====
 
-[[kvp-value-by-ref]]
+[[sc_kvp-execute_value-by-ref]]
 ====== Input parameters value by reference
 
 include::../requirements/kvp-execute/REQ_input-by-reference.adoc[]
@@ -438,7 +449,7 @@ imageInput[href]=https://www.someserver.com/image.tiff&imageInput[type]=image/ti
 ----
 ====
 
-[[kvp-input-cardinality]]
+[[sc_kvp-execute_input-cardinality]]
 ===== Input cardinality
 
 include::../requirements/kvp-execute/REQ_input-cardinality.adoc[]
@@ -484,7 +495,7 @@ param1=[1,2,3],[6,7,8]
 ----
 ====
 
-[[sc_kvp_process_outputs]]
+[[sc_kvp-execute_process-outputs]]
 ===== Process outputs
 
 include::../requirements/kvp-execute/REQ_output.adoc[]
@@ -508,6 +519,7 @@ include::../requirements/kvp-execute/REQ_output.adoc[]
 ----
 ====
 
+[[sc_kvp-execute_response]]
 === Response
 
-Whether a process is invoked using a <<req_core_process-execute-request,JSON-encoded request>> that is https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3[HTTP POST'ed] to the <<req_core_process-execute-op,execution endpoint>> or a URL-encoded request is used, the behavior of the server with regard to the response is the same.  The details of the response can be found in <<sc_execute_response>>.
+Whether a process is invoked using a <<req_core_process-execute-request,JSON-encoded request>> that is https://datatracker.ietf.org/doc/html/rfc7231#section-4.3.3[HTTP POST'ed] to the <<req_core_process-execute-op,execution endpoint>> or a URL-encoded request is used, the behavior of the server with regard to the response is the same.  The details of the response can be found in <<sc_process-execute_response>>.

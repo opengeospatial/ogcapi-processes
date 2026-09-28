@@ -10,10 +10,12 @@ conformance-test:: /conf/docker/deploy-body
 conformance-test:: /conf/docker/replace-body
 ====
 
+[[ats_docker_deploy-operation]]
 ==== Deploy operation
 
 include::docker/deploy/ATS_body.adoc[]
 
+[[ats_docker_replace-operation]]
 ==== Replace operation
 
 include::docker/replace/ATS_body.adoc[]

@@ -6,7 +6,7 @@ identifier:: /rec/provenance/prov-content-type-json
 
 [.component,class=part]
 --
-When explicitly requested through <<prov-content-negotiation,provenance content-negotiation>>,
+When explicitly requested through <<sc_provenance_content-negotiation,provenance content-negotiation>>,
 the server SHOULD support the content type `application/json`
 as an alias to `application/provenance+json` in accordance to
 the default <<req_provenance_job-prov_response,PROV Response>> requirement

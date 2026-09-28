@@ -1,3 +1,4 @@
+[[req_openeo-workflows_adhoc-openeo-execution]]
 [requirement]
 ====
 [%metadata]

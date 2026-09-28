@@ -1,3 +1,4 @@
+[[clause_scope]]
 == Scope
 
 The OGC API - Processes - Part 2 Standard is an extension to the OGC API – Processes – Part 1: Core Standard [<<OAProc-1>>] and defines the behavior of a server that
@@ -19,13 +20,13 @@ phrase "n/a" which is used to indicate that this Standard does not
 specify any behavior for that combination of resource endpoints and the HTTP
 method.
 
-[#endpoint_method_matrix,reftext='{table-caption} {counter:table-num}']
+[#table_endpoint-method-matrix,reftext='{table-caption} {counter:table-num}']
 .Supported HTTP methods by resource
 [cols="40,15,15,15,15",options="header"]
 |===
 |Resource endpoint 4+|HTTP method
 | |**GET** |**POST** |**PUT** |**DELETE**
-|`/processes`  |n/a |<<deploy,deploy>> |n/a |n/a
-|`/processes/{processID}` |n/a |n/a |<<replace,replace>> |<<undeploy,undeploy>>
-|`/processes/{processID}/package` |<<application-package-retrieval-operation,package>> |n/a |n/a |n/a
+|`/processes`  |n/a |<<sc_deploy,deploy>> |n/a |n/a
+|`/processes/{processID}` |n/a |n/a |<<sc_replace,replace>> |<<sc_undeploy,undeploy>>
+|`/processes/{processID}/package` |<<sc_application-package,package>> |n/a |n/a |n/a
 |===

@@ -6,7 +6,7 @@ identifier:: /rec/core/header-profile-link
 
 [.component,class=conditions]
 --
-An <<ogc_process_description,OGC process description>> is requested.
+An <<clause_process-description,OGC process description>> is requested.
 --
 
 [.component,class=part]

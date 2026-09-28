@@ -1,5 +1,5 @@
 
-[[Dismiss]]
+[[clause_dismiss]]
 == Requirements Class "Dismiss"
 
 The Dismiss requirement class specifies how to dismiss a job.
@@ -11,12 +11,14 @@ prescribed by this standard.
 include::../requirements/requirements_class_dismiss.adoc[]
 
 
+[[sc_job-dismiss_operation]]
 === Operation
 
 include::../requirements/dismiss/REQ_job-dismiss-op.adoc[]
 
 include::../requirements/dismiss/REQ_job-dismiss-status.adoc[]
 
+[[sc_job-dismiss_response]]
 === Response
 
 include::../requirements/dismiss/REQ_job-dismiss-success.adoc[]
@@ -30,9 +32,10 @@ include::../examples/json/StatusInfo-dismissed.json[]
 ====
 
 
+[[sc_dismiss_error-situations]]
 === Error situations
 
-See <<http_status_codes>> for general guidance.
+See <<sc_http-1-1_status-codes>> for general guidance.
 
 If the process with the specified identifier does not exist on the server, the status code of the response SHALL
 be `404` (see <<req_core_process-exception-no-such-process,/req/core/process-exception/no-such-process>>).

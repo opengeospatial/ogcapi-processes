@@ -1,5 +1,5 @@
 [bibliography]
-[[Bibliography]]
+[[sc_bibliography]]
 == Bibliography
 
 ////

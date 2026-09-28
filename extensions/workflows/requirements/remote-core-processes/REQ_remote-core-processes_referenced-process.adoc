@@ -1,3 +1,4 @@
+[[req_remote-core-processes_referenced-process]]
 [requirement]
 ====
 [%metadata]

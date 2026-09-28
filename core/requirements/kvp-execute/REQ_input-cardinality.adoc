@@ -43,12 +43,12 @@ where the token `{inputID}` represents the identifier of the input.
 
 [.component,class=part]
 --
-List elements that are objects SHALL be encoded as <<kvp-complex-value-input,URL-encoded strings>>.
+List elements that are objects SHALL be encoded as <<sc_kvp-execute_complex-value-input,URL-encoded strings>>.
 --
 
 [.component,class=part]
 --
-List elements that are arrays SHALL be encoded as <<kvp-array-value-input,URL-encoded strings>>.
+List elements that are arrays SHALL be encoded as <<sc_kvp-execute_array-value-input,URL-encoded strings>>.
 --
 
 ====

@@ -14,6 +14,7 @@ conformance-test:: /conf/ogcapppkg/replace-body
 conformance-test:: /conf/ogcapppkg/replace-response
 ====
 
+[[ats_ogcapppkg_deploy-operation]]
 ==== Deploy operation
 
 include::ogcapppkg/deploy/ATS_body.adoc[]
@@ -21,6 +22,7 @@ include::ogcapppkg/deploy/ATS_response.adoc[]
 include::ogcapppkg/deploy/ATS_response-success.adoc[]
 include::ogcapppkg/deploy/ATS_response-duplicate.adoc[]
 
+[[ats_ogcapppkg_replace-operation]]
 ==== Replace operation
 
 include::ogcapppkg/replace/ATS_body.adoc[]

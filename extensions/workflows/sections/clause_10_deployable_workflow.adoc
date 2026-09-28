@@ -1,6 +1,7 @@
-[[section_deployable_workflows]]
+[[clause_deployable-workflows]]
 == Deployable Workflows Conformance Class
 
+[[sc_deployable-workflows]]
 === Requirement Class _Deployable Workflows_
 
 The _Deployable Workflows_ conformance class specifies how a workflow execution request as defined in
@@ -32,14 +33,17 @@ conformance class (using `Content-Type: application/ogcapppkg+json`).
 
 NOTE: The `application/ogcapppkg+json` media type needs to be registered with IANA.
 
+[[sc_deployable-workflows_parameterized-inputs]]
 ==== Parameterized inputs
 
 include::../requirements/deployable-workflows/REQ_deployable-workflows_parameterized-inputs.adoc[]
 
+[[sc_deployable-workflows_selected-outputs]]
 ==== Selected outputs
 
 include::../requirements/deployable-workflows/REQ_deployable-workflows_selected-outputs.adoc[]
 
+[[sc_deployable-workflows_deploying-workflow]]
 ==== Deploying workflow as process
 
 include::../requirements/deployable-workflows/REQ_deployable-workflows_deploying-workflow.adoc[]

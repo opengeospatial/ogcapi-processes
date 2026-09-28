@@ -32,11 +32,11 @@
                 ]
         },
         "2":  {
-                "OGC_doc_number": "21-099",
+                "OGC_doc_number": "21-009",
                 "urn":"https://www.opengis.net/doc/IS/ogcapi-processes-3/1.0",
                 "title":"OGC API - Processes - Part 3: Workflows and Chaining",
                 "version":"1.0.0",
-                "path":"extensions/workflows/21-099.adoc",
+                "path":"extensions/workflows/21-009.adoc",
                 "options": ["--trace"],
                 "a":[
                         "data-uri",

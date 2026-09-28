@@ -1,6 +1,8 @@
 
+[[sc_who-is-testing-what]]
 == Who is testing what
 
+[[table_who-is-testing-what]]
 [cols="40e,^20m,>20s,20s",width="75%",options="header",align="center"]
 |===
 |Client | Server | What is tested | Contact

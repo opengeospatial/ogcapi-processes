@@ -6,7 +6,7 @@ identifier:: /req/cwl/execution-unit-by-val
 
 [.component,class=part]
 --
-If encoded in-line within an <<clause_ogcapppkg,OGC Application Package>>, the CWL value of the <<executionUnit-property,`executionUnit` property>> SHALL be specified using a qualified value.
+If encoded in-line within an <<clause_ogcapppkg,OGC Application Package>>, the CWL value of the <<sc_execution-unit-property,`executionUnit` property>> SHALL be specified using a qualified value.
 --
 
 [.component,class=part]

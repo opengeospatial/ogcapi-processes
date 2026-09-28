@@ -1,3 +1,4 @@
+[[clause_scope]]
 == Scope
 
 The OGC API - Processes - Part 4 Standard is an extension to the

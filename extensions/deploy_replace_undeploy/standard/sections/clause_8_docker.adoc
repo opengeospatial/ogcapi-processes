@@ -1,37 +1,45 @@
 [[clause_docker]]
 == Requirements Class "Docker"
 
-[[docker-overview]]
+[[sc_docker_overview]]
 === Overview
 
 include::../requirements/requirements_class_docker.adoc[]
 
 This clause defines the requirements for describing, in the execution unit of an <<clause_ogcapppkg,OGC Application Package>>, a processes' executable code encapsulated in a Docker container.
 
+[[sc_docker_schema]]
 === Schema
 
 include::../requirements/docker/REQ_schema.adoc[]
 
+[[sc_docker_properties-type-and-image]]
 === Properties `type` and `image`
 
 include::../requirements/docker/REQ_execution-unit.adoc[]
 
+[[sc_docker_property-deployment]]
 === Property `deployment` 
 
 include::../requirements/docker/REQ_deployment.adoc[]
 
+[[sc_docker_property-config]]
 === Property `config`
 
 include::../requirements/docker/REQ_config.adoc[]
 
+[[sc_docker_property-bindings]]
 === Property `bindings`
 
+[[sc_docker_property-bindings-overview]]
 ==== Overview
 
 include::../requirements/docker/REQ_bindings.adoc[]
 
+[[sc_docker_input-binding]]
 ==== Input binding 
 
+[[sc_docker_input-binding-overview]]
 ===== Overview
 
 include::../requirements/docker/REQ_input-binding.adoc[]
@@ -56,7 +64,7 @@ The following input binding parameters can be specified:
 ** A value of `true` (the default value) means metacharacters or directives are not interpreted when the execution unit is invoked.
 ** If metacharacters or directives need to be specified when the execution unit is invoked the value of this parameter should be set to `false`.
 
-[[macro-expressions]]
+[[sc_docker_input-binding-macro-expressions]]
 ===== Macro substitution in expressions
 
 The value of a binding parameters can be an expression.  
@@ -73,10 +81,11 @@ The macro syntax "$(...)" can be used to reference an process input value in an 
 ** ".nameroot" returns the basename with any extension
 ** ".nameext" return the extension of the basename
 
+[[sc_docker_output-binding]]
 ==== Output binding
 
 include::../requirements/docker/REQ_output-binding.adoc[]
 
 The optional `glob` parameter can be used in an output binding to define a wildcard pattern to find the output on a disk or a mounted volume.
 
-The same <<macro-expressions,macro expressions>> that can be used in an input binding expression can also be used with `glob` expressions.
+The same <<sc_docker_input-binding-macro-expressions,macro expressions>> that can be used in an input binding expression can also be used with `glob` expressions.

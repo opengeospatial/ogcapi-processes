@@ -1,4 +1,5 @@
 
+[[clause_conformance]]
 == Conformance
 
 The OGC API - Processes - Part 5 Standard defines the following requirements classes.
@@ -10,8 +11,8 @@ The main requirements class is:
 This class specifies requirements that any Web API implementing Processes Part 5 must conform with.
 
 The `Provenance` class does not mandate a specific encoding for the job provenance details beside the default PROV-JSON
-representation. Part 5 extension demonstrates multiple <<prov-content-negotiation,PROV Content Negotiation>>
-and <<prov-content-examples,PROV Content Examples>> for commonly used <<W3C-PROV>> formats.
+representation. Part 5 extension demonstrates multiple <<sc_provenance_content-negotiation,PROV Content Negotiation>>
+and <<sc_prov-content-examples,PROV Content Examples>> for commonly used <<W3C-PROV>> formats.
 
 The `Provenance` encodings are typically defined with "_workflow_" ontologies (e.g., CWLProv, Wf4Ever, WfProv, etc.)
 in order to support the more complex processing graph they require. However, provenance can be applied to any workflow

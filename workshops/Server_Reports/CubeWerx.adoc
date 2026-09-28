@@ -1,13 +1,17 @@
+[[sc_cubewerx-server-report]]
 == Cubewerx server report
 
+[[sc_server-base-url_cubewerx]]
 === Server base URL
 
 https://www.pvretano.com/cubewerx/cubeserv/default/ogcapi/wpstest
 
+[[sc_test-scripts]]
 === Test scripts
 
 https://www.pvretano.com/Projects/OAPIP_WORKSHOP_JUN2021/demo/
 
+[[sc_execute-request_cubewerx]]
 === Execute request
 
 Sample execute request for `dsi` process.
@@ -34,10 +38,12 @@ Sample execute request for `dsi` process.
 }
 ====
 
+[[sc_test-report_cubewerx]]
 === Test report
 
 Just basic tests returning JSON.
 
+[[table_test-report]]
 [cols="40e,20m,20s,20s",width="75%",options="header",align="center"]
 |===
 |Resource |Access URL |Result |Notes

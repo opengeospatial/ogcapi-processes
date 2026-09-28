@@ -1,4 +1,4 @@
-[[mediatypes]]
+[[clause_media-types]]
 == Media Types
 
 See <<OAProc-1>>, Clause 13.

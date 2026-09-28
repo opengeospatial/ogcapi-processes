@@ -1,37 +1,45 @@
-[[sc_ogcapi-processes-workflow-execute-request]]
+[[clause_ogcapi-processes-workflow-execute-request]]
 == Requirements Class "OGC API - Process - Workflow Execute Request"
 
-[[ogcapi-processes-overview]]
+[[sc_oap-workflow-execute-request_overview]]
 === Overview
 
 include::../requirements/requirements_class_ogcapi-processes.adoc[]
 
 This requirements class defines that the OGC API - Process - Workflow Execute Request is supported as an encoding for job definitions.
 
+[[sc_oap-workflow-execute-request_schema]]
 === OGC API - Processes - Workflow Execute Request
 
+[[sc_oap-workflow-execute-request_schema-overview]]
 ==== Overview
 
 include::../requirements/ogcapi-processes/REQ_schema.adoc[]
 
+[[sc_oap-workflow-execute-request_create-job]]
 === Creating a new job
 
+[[sc_oap-workflow-execute-request_create-job-request-body]]
 ==== Request body
 
 include::../requirements/ogcapi-processes/create/REQ_body.adoc[]
 
 include::../recommendations/ogcapi-processes/create/PER_content-schema.adoc[]
 
+[[sc_oap-workflow-execute-request_update-job]]
 === Updating an existing job
 
+[[sc_oap-workflow-execute-request_update-job-request-body]]
 ==== Request body
 
 include::../requirements/ogcapi-processes/update/REQ_body.adoc[]
 
 include::../recommendations/ogcapi-processes/update/PER_content-schema.adoc[]
 
+[[sc_oap-workflow-execute-request_job-definition]]
 === Job definition
 
+[[sc_oap-workflow-execute-request_job-definition-response-content]]
 ==== Response content
 
 include::../requirements/ogcapi-processes/definition/REQ_response-body.adoc[]

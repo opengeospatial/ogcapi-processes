@@ -17,21 +17,25 @@ conformance-test:: /conf/dru/undeploy-response
 conformance-test:: /conf/dru/undeploy-response-immutable
 ====
 
+[[ats_dru_immutable-processes]]
 ==== Immutable processes
 
 include::dru/ATS_static-indicator.adoc[]
 
+[[ats_dru_deploy-operation]]
 ==== Deploy operation
 
 include::dru/deploy/ATS_post-op.adoc[]
 include::dru/deploy/ATS_content-type.adoc[]
 include::dru/deploy/ATS_unsupported-media-type.adoc[]
 
+[[ats_dru_replace-operation]]
 ==== Replace operation
 
 include::dru/replace/ATS_put-op.adoc[]
 include::dru/replace/ATS_content-type.adoc[]
 
+[[ats_dru_undeploy-operation]]
 ==== Undeploy operation
 
 include::dru/undeploy/ATS_delete-op.adoc[]

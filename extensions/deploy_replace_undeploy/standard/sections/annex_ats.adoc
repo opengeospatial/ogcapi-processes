@@ -1,7 +1,9 @@
 [[ats]]
 [appendix,obligation="normative"]
+[[ats_abstract-test-suite]]
 == Abstract Test Suite
 
+[[ats_introduction]]
 === Introduction
 
 OGC Web Application Programming Interfaces (APIs) are not Web Services in the traditional sense. Rather, they define the behavior and content of a set of Resources exposed through a Web API. Therefore, an API endpoint may expose resources in addition to those defined by the standard. A test engine must be able to traverse an implementation of the API, identify and validate test points, and ignore resource paths which are not to be tested.
@@ -16,18 +18,22 @@ In case both an <<rc_ogcapppkg,OGC Application Package>> and <<rc_cwl,CWL>> conf
 
 include::../abstract_tests/dru/ATS_test-process.adoc[]
 
+[[ats_conformance-class_deploy-replace-undeploy]]
 === Conformance Class Deploy, Replace, Undeploy
 
 include::../abstract_tests/ATS_class_dru.adoc[]
 
+[[ats_conformance-class_ogc-application-package]]
 === Conformance Class OGC Application Package
 
 include::../abstract_tests/ATS_class_ogcapppkg.adoc[]
 
+[[ats_conformance-class_docker]]
 === Conformance Class Docker
 
 include::../abstract_tests/ATS_class_docker.adoc[]
 
+[[ats_conformance-class_cwl]]
 === Conformance Class CWL
 
 include::../abstract_tests/ATS_class_cwl.adoc[]
