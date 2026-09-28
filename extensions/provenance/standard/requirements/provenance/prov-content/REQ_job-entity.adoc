@@ -7,7 +7,7 @@ identifier:: /req/provenance/prov-content-job-entity
 [.component,class=part]
 --
 The PROV metadata SHALL provide a link:https://www.w3.org/TR/prov-o/#Entity[`prov:Entity`] definition
-to represent the associated job execution.
+to represent the information of the associated job execution.
 --
 
 [.component,class=part]

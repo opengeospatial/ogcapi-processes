@@ -64,6 +64,8 @@ include::../requirements/provenance/prov-content/REQ_job-entity.adoc[]
 
 include::../requirements/provenance/prov-content/REQ_process-entity.adoc[]
 
+include::../recommendations/provenance/prov-content/REC_process-entity-persistence.adoc[]
+
 include::../requirements/provenance/prov-content/REQ_job-activity.adoc[]
 
 [[sc_provenance_content-data-inputs-and-results-entities]]
@@ -85,6 +87,8 @@ include::../recommendations/provenance/prov-content/REC_data-entity.adoc[]
 include::../recommendations/provenance/prov-content/REC_timing.adoc[]
 
 include::../recommendations/provenance/prov-content/REC_software-agent.adoc[]
+
+include::../recommendations/provenance/prov-content/REC_prov-user-agent.adoc[]
 
 include::../recommendations/provenance/prov-content/REC_prov-associations.adoc[]
 
