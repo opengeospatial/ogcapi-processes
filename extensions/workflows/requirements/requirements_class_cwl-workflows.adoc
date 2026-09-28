@@ -6,4 +6,7 @@ identifier:: https://www.opengis.net/spec/ogcapi-processes-3/0.0/req/cwl-workflo
 subject:: Common Workflow Language Definitions
 inherit:: <<https://docs.ogc.org/DRAFTS/18-062r3.html#rc_core,https://www.opengis.net/spec/ogcapi-processes-1/1.0/req/core>>
 inherit:: <<Common_Workflow_Language,Common Workflow Language (CWL)>>
+requirement:: /req/cwl-workflows/adhoc-cwl-process-execution
+requirement:: /req/cwl-workflows/adhoc-cwl-job-execution
+requirement:: /req/cwl-workflows/adhoc-cwl-multipart-content
 ====
