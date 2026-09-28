@@ -1,4 +1,4 @@
-[[per_cwl-workflows_adhoc-cwl-deploy]]
+[[per_cwl-workflows_adhoc-cwl-process-execution-passthrough]]
 [permission]
 ====
 [%metadata]
