@@ -1,0 +1,32 @@
+[[rec_provenance_prov-content_user-agent]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/provenance/prov-content-user-agent
+
+[.component,class=part]
+--
+The PROV metadata SHOULD include at least one link:https://www.w3.org/TR/prov-o/#Agent[`prov:Agent`]
+to indicate a link:https://www.w3.org/TR/prov-o/#Person[`prov:Person`], a machine, a web client, or
+any other relevant trigger that represents the "_User Agent_" that initiated job submission.
+--
+
+[.component,class=part]
+--
+The nature of the "_User Agent_" may be anonymized or omitted for security and personal information sensibility concerns.
+In such case, a placeholder link:https://www.w3.org/TR/prov-o/#Agent[`prov:Agent`] with a generic name
+(e.g., "_Anonymous User Agent_") SHOULD be employed to represent it.
+--
+
+====
+
+NOTE: It is assumed that minimally two agents should be involved. One _User Agent_ submitting a job and another
+"performing" the execution of that job. In certain cases, the submitter may itself be from the same code base or
+server implementation that will perform the task. However, multiple agents are still recommended to make such
+particular cases easier to interpret (e.g., through a link:https://www.w3.org/TR/prov-o/#Delegation[`prov:Delegation`]
+or other appropriate relationship illustrating how work flows between processing steps).
+
+NOTE: Multiple "_User Agent_" definitions may be involved. For example, distinguishing a "Person"
+that employs a "Web Client" through a certain "Organization" account to submit a job. The standard does not limit nor
+provide further indication regarding how their interactions should be related, or which of their metadata should be
+included, to offer flexibility and avoid limiting usage of provenance over certain application policy constraints.

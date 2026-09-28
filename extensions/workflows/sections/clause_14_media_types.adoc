@@ -1,4 +1,4 @@
-[[section_media_types]]
+[[clause_media-types]]
 == Media Types
 
 The following follow media types are referenced by this specification.

@@ -21,7 +21,7 @@ An example of such representation is provided in <<example-provenance-job-prov-j
 In case content-negotiation is used (i.e., using `Accept` of relevant media-type),
 the response SHALL contain the negotiated provenance representation of the job execution.
 Such representations can include but is not limited to PROV-O as JSON-LD, PROV-XML or PROV-N.
-See <<prov-content-negotiation,PROV Content Negotiation>> for additional
+See <<sc_provenance_content-negotiation,PROV Content Negotiation>> for additional
 representations and schema references.
 --
 

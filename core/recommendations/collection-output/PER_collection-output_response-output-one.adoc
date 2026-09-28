@@ -1,4 +1,4 @@
-[[pre_collection-output_response-output-one]]
+[[per_collection-output_response-output-one]]
 [permission]
 ====
 [%metadata]
@@ -9,9 +9,9 @@ identifier:: /per/collection-output/response-output-one
 . The execution request includes the `response` parameter by <<req_collection-output_response-definition,query or property>> as appropriate for the HTTP request strategy.
 . The value of the `response` parameter is `collection`.
 . The number of <<def_implicit-process-output,implicitly>> or <<def_explicit-process-output,explicitly>> requested outputs is 1.
-. The server implements <<con-neg-by-profile,"Content negotiations by profile">> (e.g., `?profile=`, `Accept-Profile:`, etc.).
+. The server implements <<sc_con-neg-by-profile,"Content negotiations by profile">> (e.g., `?profile=`, `Accept-Profile:`, etc.).
 . The execution request includes the selected profile content negotiation parameter.
-. The value of the negotiated profile is `https://www.opengis.net/def/profile/OGC/0/ogc-results`.
+. The value of the <<profile-parameter,negotiated profile>> is `https://www.opengis.net/def/profile/OGC/0/ogc-results`.
 --
 
 [.component,class=part]

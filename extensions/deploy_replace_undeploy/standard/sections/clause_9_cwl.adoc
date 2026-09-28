@@ -1,9 +1,10 @@
 [[clause_cwl]]
 == Requirements Class "CWL"
 
-[[cwl-overview]]
+[[sc_cwl_deploy-embedded]]
 === Sending CWL embedded in an OGC Application Package
 
+[[sc_cwl_deploy-embedded-overview]]
 ==== Overview
 
 include::../requirements/requirements_class_cwl.adoc[]
@@ -12,11 +13,12 @@ This clause defines the requirements for sending a CWL document to the process d
 
 Embedding the CWL document in the <<clause_ogcapppkg,OGC Application Package>> means that the `processDescription` property does not need to be specified because the description of the process can be inferred from the CWL value specified in the `executionUnit`.
 
+[[sc_cwl_execution-unit-by-reference]]
 ==== Specifying the CWL by reference
 
 include::../requirements/cwl/REQ_execution-unit-by-ref.adoc[]
 
-Below is an example of a <<deploy,Deploy request>> body using a CWL-encoded execution unit by reference.
+Below is an example of a <<sc_deploy,Deploy request>> body using a CWL-encoded execution unit by reference.
 
 [[cwl_ogcapppkg_example_reference]]
 [source%unnumbered,json]
@@ -29,11 +31,12 @@ Below is an example of a <<deploy,Deploy request>> body using a CWL-encoded exec
 }
 ----
 
+[[sc_cwl_execution-unit-by-value]]
 ==== Specifying the CWL by value
 
 include::../requirements/cwl/REQ_execution-unit-by-val.adoc[]
 
-Below is an example of a <<deploy,Deploy request>> body using a qualified value to pass the CWL value.  In this example, the CWL is encoded as a JSON object and so the value of the `mediaType` field does not need to explicitly state that the CWL is JSON-encoded.  This is implied by the structure of the content of the `value` field.
+Below is an example of a <<sc_deploy,Deploy request>> body using a qualified value to pass the CWL value.  In this example, the CWL is encoded as a JSON object and so the value of the `mediaType` field does not need to explicitly state that the CWL is JSON-encoded.  This is implied by the structure of the content of the `value` field.
 
 [[cwl_ogcapppkg_example_object]]
 [source,json]
@@ -48,7 +51,7 @@ Below is an example of a <<deploy,Deploy request>> body using a qualified value 
 
 NOTE: The CWL content is truncated for readability.
 
-Below are other examples of <<deploy,Deploy request>> bodies where the CWL value is included as an embedded string within the qualified value.  In these cases the value of the `mediaType` field needs to be explicit in order to disambiguate the structure of the string content.
+Below are other examples of <<sc_deploy,Deploy request>> bodies where the CWL value is included as an embedded string within the qualified value.  In these cases the value of the `mediaType` field needs to be explicit in order to disambiguate the structure of the string content.
 
 [[cwl_ogcapppkg_example_string_json]]
 [source,json]
@@ -72,16 +75,20 @@ Below are other examples of <<deploy,Deploy request>> bodies where the CWL value
 }
 ----
 
+[[sc_cwl_deploy-directly]]
 === Sending CWL directly
 
+[[sc_cwl_deploy-directly-overview]]
 ==== Overview
 
-This clause defines the requirements for sending a CWL document directly to the process deployment endpoint (i.e. /processes) without embedding the CWL into an <<clause_ogcapppkg,OGC Application Package>>
+This clause defines the requirements for sending a CWL document directly to the process deployment endpoint (i.e. `/processes`) without embedding the CWL into an <<clause_ogcapppkg,OGC Application Package>>
 
+[[sc_cwl_deploy-request-body]]
 ==== CWL request body
 
 include::../requirements/cwl/REQ_body.adoc[]
 
+[[sc_cwl_deploy-multipart-request-body]]
 ==== Multipart CWL request body
 
 include::../recommendations/cwl/PER_body-cwl-multipart.adoc[]
@@ -204,6 +211,7 @@ Client                                                            Server
   .                                                                 .
 ----
 
+[[sc_cwl_w-parameter]]
 === w parameter
 
 When encoded in CWL processes are identified as instances of the workflow class.
@@ -212,6 +220,7 @@ include::../requirements/cwl/REQ_w-param.adoc[]
 
 include::../requirements/cwl/REQ_exception-workflow-not-found.adoc[]
 
+[[sc_cwl_media-types]]
 === Media types in operations
 
 include::../requirements/cwl/REQ_media-type-request.adoc[]

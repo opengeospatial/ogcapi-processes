@@ -1,9 +1,9 @@
-[[ats_collection-output_response-output-many]]
+[[ats_collection-output_response-output-many-results]]
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/collection-output/response-output-many
-target:: /req/collection-output/response-output-many
+identifier:: /conf/collection-output/response-output-many-results
+target:: /req/collection-output/response-output-many-results
 test-purpose:: Validate that the response for multiple <<implicit-explicit-outputs,explicitly or implicitly>> requested outputs is a <<schema_results,results.yaml>> document containing references to <<def_collection-description,collection description documents>>.
 test-method::
 +

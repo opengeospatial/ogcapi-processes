@@ -48,3 +48,5 @@ extensions/provenance/**/26-038.xml
 node_modules
 package.json
 package-lock.json
+**/__pycache__/
+*.py[cod]

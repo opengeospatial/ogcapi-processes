@@ -1,13 +1,17 @@
+[[sc_hexagon-server-report]]
 == Hexagon server report
 
+[[sc_server-base-url_hexagon]]
 === Server base URL
 
 http://ogc.intergraph.com/oapi-p
 
+[[sc_test-scripts_hexagon]]
 === Test scripts
 
 https://www.pvretano.com/Projects/OAPIP_WORKSHOP_JUN2021/demo/
 
+[[sc_execute-request_hexagon]]
 === Execute request
 
 Sample execute request for `_sample` process.
@@ -23,8 +27,10 @@ Sample execute request for `_sample` process.
 }
 ====
 
+[[sc_test-report_hexagon]]
 === Test report
 
+[[table_test-report]]
 [cols="40e,^20m,>20s,20s",width="75%",options="header",align="center"]
 |===
 |Resource |Access URL |Result |Notes

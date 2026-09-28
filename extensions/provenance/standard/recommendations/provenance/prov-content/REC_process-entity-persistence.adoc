@@ -1,0 +1,17 @@
+[[rec_provenance_prov-content_process-persistence]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/provenance/prov-content-process-persistence
+
+[.component,class=part]
+--
+To ensure persistent provenance, the <<req_provenance_prov-content_process-entity,PROV Process Entity>> reference
+(i.e., the `prov:location`) SHOULD employ an immutable `processID` when available.
+--
+
+====
+
+NOTE: An example when immutable `processID` are relevant could be when the server implementation support updating
+processes (e.g., "_Replace_" requests from  <<OAProc-2>>) where versioning may be involved. The specific methods
+to represent an immutable reference are not prescribed in this standard, but may be addressed in future parts.

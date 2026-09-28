@@ -1,5 +1,7 @@
+[[sc_day-1]]
 == Day 1
 
+[[sc_kick-off-plenary]]
 === Kick-off plenary
 ----
 1. Please join my meeting, Mon Sep 18th 9:00 AM EDT.

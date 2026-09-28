@@ -1,6 +1,8 @@
 [appendix]
+[[sc_revision-history_annex-history]]
 == Revision History
 
+[[table_revision-history]]
 .Revision history
 [width="90%",options="header"]
 |===

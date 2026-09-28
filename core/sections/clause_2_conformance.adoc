@@ -1,4 +1,4 @@
-[[sc_conformance]]
+[[clause_conformance]]
 == Conformance
 
 This Standard defines sixteen requirements / conformance classes.
@@ -87,6 +87,7 @@ Additional capabilities such as support for transactions, extended job monitorin
 
 Conformance with this Standard SHALL be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
 
+[[table_conformance-class-uris]]
 .Conformance class URIs
 [cols="40,60",options="header"]
 |===

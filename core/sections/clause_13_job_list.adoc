@@ -1,6 +1,7 @@
-[[sc_job_list]]
+[[clause_job-list]]
 == Requirements Class "Job list"
 
+[[sc_job-list_overview]]
 === Overview
 
 The Job list Requirements Class specifies the requirements for a request that retrieves a list of jobs from a Processes API endpoint.
@@ -8,20 +9,24 @@ The Job list Requirements Class specifies the requirements for a request that re
 include::../requirements/requirements_class_job-list.adoc[]
 
 
+[[sc_job-list_operation]]
 === Operation
 
+[[sc_job-list]]
 ==== Job list
 
 include::../requirements/job-list/REQ_op.adoc[]
 include::../recommendations/job-list/REC_landing-page.adoc[]
 
 
+[[sc_job-list_parameter-type]]
 ==== Parameter `type`
 
 include::../requirements/job-list/REQ_type-def.adoc[]
 include::../requirements/job-list/REQ_type-response.adoc[]
 
 
+[[sc_job-list_parameter-processid]]
 ==== Parameter `processID`
 
 include::../requirements/job-list/REQ_processid-mandatory.adoc[]
@@ -30,24 +35,28 @@ include::../requirements/job-list/REQ_processid-def.adoc[]
 include::../requirements/job-list/REQ_processid-response.adoc[]
 
 
+[[sc_job-list_parameter-status]]
 ==== Parameter `status`
 
 include::../requirements/job-list/REQ_status-def.adoc[]
 include::../requirements/job-list/REQ_status-response.adoc[]
 
 
+[[sc_job-list_parameter-datetime]]
 ==== Parameter `datetime`
 
 include::../requirements/job-list/REQ_datetime-def.adoc[]
 include::../requirements/job-list/REQ_datetime-response.adoc[]
 
 
+[[sc_job-list_parameter-minduration-maxduration]]
 ==== Parameter `minDuration`, `maxDuration`
 
 include::../requirements/job-list/REQ_duration-def.adoc[]
 include::../requirements/job-list/REQ_duration-response.adoc[]
 
 
+[[sc_job-list_parameter-limit]]
 ==== Parameter `limit`
 
 include::../requirements/job-list/REQ_jl-limit-def.adoc[]
@@ -58,7 +67,7 @@ include::../requirements/job-list/REQ_jl-limit-response.adoc[]
 
 include::../recommendations/job-list/PER_jl-limit-response.adoc[]
 
-[[sc_job_list_response]]
+[[sc_job-list_response]]
 === Response
 
 include::../requirements/job-list/REQ_success.adoc[]
@@ -111,8 +120,9 @@ include::../examples/json/JobList.json[]
 ====
 
 
+[[sc_job-list_error-situations]]
 === Error situations
 
-See <<http_status_codes>> for general guidance.
+See <<sc_http-1-1_status-codes>> for general guidance.
 
 If the process with the specified identifier does not exist on the server, the status code of the response SHALL be `404` (see <<req_core_process-exception-no-such-process>>).

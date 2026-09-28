@@ -6,7 +6,7 @@ identifier:: /req/cwl/body
 
 [.component,class=part]
 --
-The content of the request body of a <<deploy,Deploy>> or <<replace,Replace>> operation SHALL be a CWL document.
+The content of the request body of a <<sc_deploy,Deploy>> or <<sc_replace,Replace>> operation SHALL be a CWL document.
 --
 
 ====

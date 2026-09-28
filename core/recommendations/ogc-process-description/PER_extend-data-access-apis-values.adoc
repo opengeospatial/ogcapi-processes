@@ -1,4 +1,4 @@
-[[pre_ogc-process-description_data-access-apis]]
+[[per_ogc-process-description_data-access-apis]]
 [permission]
 ====
 [%metadata]

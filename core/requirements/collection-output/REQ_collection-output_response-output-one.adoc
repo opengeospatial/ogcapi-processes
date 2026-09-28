@@ -6,7 +6,7 @@ identifier:: /req/collection-output/response-output-one
 
 [.component,class=conditions]
 --
-. The <<sc_execute_process,Execution request>> includes the `response` parameter by <<req_collection-output_response-definition,query or property>> as appropriate for the HTTP request strategy.
+. The <<sc_process-execute,Execution request>> includes the `response` parameter by <<req_collection-output_response-definition,query or property>> as appropriate for the HTTP request strategy.
 . The value of the `response` parameter is `collection`.
 . The number of implicitly or explicitly requested outputs is 1.
 --

@@ -1,3 +1,4 @@
+[[req_cwl-workflows_adhoc-cwl-execution]]
 [requirement]
 ====
 [%metadata]

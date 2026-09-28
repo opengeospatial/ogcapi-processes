@@ -1,5 +1,6 @@
 
 [abstract]
+[[sc_abstract]]
 == Abstract
 
 OGC API Standards define modular API building blocks to spatially enable Web APIs in a consistent way. The https://spec.openapis.org/oas/[OpenAPI specification] is used to define the API building blocks.
@@ -10,10 +11,13 @@ OGC API - Processes - Part 2: Deploy, Replace, Undeploy extends the core capabil
 
 CAUTION: This is a DRAFT version of the 2nd part of the OGC API - Processes standards. This draft is not complete and there are open issues that are still under discussion.
 
+[[sc_submitters]]
 == Submitters
 
 All questions regarding this submission should be directed to the editors or the submitters:
 
+[[table_submitters]]
+.Submitters
 [cols="2",options="header,unnumbered"]
 |===
 | Name | Affiliation

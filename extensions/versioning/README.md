@@ -1,1 +1,1 @@
-Backup of versioning definitions to be considereconditions::d for a separate part.
+Backup of versioning definitions to be considered for a separate part.

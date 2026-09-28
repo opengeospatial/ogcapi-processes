@@ -1,6 +1,6 @@
 [[ats_dru_test-process]]
 
-[requirement]
+[abstract_test]
 ====
 [%metadata]
 identifier:: /req/dru/test-process

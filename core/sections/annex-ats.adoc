@@ -1,7 +1,9 @@
 
 [appendix,obligation="normative"]
+[[ats_abstract-test-suite]]
 == Abstract Test Suite
 
+[[ats_introduction]]
 === Introduction
 
 OGC Web Application Programming Interfaces (APIs) are not Web Services in the traditional sense. Rather, they define the behavior and content of a set of Resources exposed through a Web API implementation instance. Therefore, an API endpoint may expose resources in addition to those defined by the standard. A test engine must be able to traverse the API definition, identify and validate test points, and ignore resource paths which are not to be tested.
@@ -12,10 +14,12 @@ include::../requirements/core/REQ_test-process.adoc[]
 
 include::../recommendations/core/REC_test-process.adoc[]
 
+[[ats_conformance-class_core]]
 === Conformance Class Core
 
 include::../abstract_tests/ATS_class_core.adoc[]
 
+[[ats_conformance-class_collections]]
 === Collections
 
 include::../abstract_tests/ATS_class_collection-input.adoc[]
@@ -26,50 +30,63 @@ include::../abstract_tests/ATS_class_remote-collections.adoc[]
 
 include::../abstract_tests/ATS_class_local-filtering.adoc[]
 
+[[ats_conformance-class_ogc-process-description]]
 === Conformance Class OGC Process Description
 
 include::../abstract_tests/ATS_class_ogc-process-description.adoc[]
 
+[[ats_conformance-class-encodings]]
 === Conformance Classes for Encodings
 
+[[ats_conformance-class_json]]
 ==== Conformance Class JSON
 
 include::../abstract_tests/ATS_class_json.adoc[]
 
+[[ats_conformance-class_html]]
 ==== Conformance Class HTML
 
 include::../abstract_tests/ATS_class_html.adoc[]
 
+[[ats_conformance-class_openapi]]
 === OpenAPI Conformance Classes
 
+[[ats_conformance-class_openapi-specification]]
 ==== Conformance Class OpenAPI Specification
 
 include::../abstract_tests/ATS_class_oas.adoc[]
 
+[[ats_conformance-class_openapi-3-0]]
 ==== Conformance Class OpenAPI 3.0
 
 include::../abstract_tests/ATS_class_oas30.adoc[]
 
+[[ats_conformance-class_openapi-3-1]]
 ==== Conformance Class OpenAPI 3.1
 
 include::../abstract_tests/ATS_class_oas31.adoc[]
 
+[[ats_conformance-class_job-list]]
 === Conformance Class Job list
 
 include::../abstract_tests/ATS_class_job-list.adoc[]
 
+[[ats_conformance-class_callback]]
 === Conformance Class Callback
 
 include::../abstract_tests/ATS_class_callback.adoc[]
 
+[[ats_conformance-class_dismiss]]
 === Conformance Class Dismiss
 
 include::../abstract_tests/ATS_class_dismiss.adoc[]
 
+[[ats_conformance-class_kvp-encoded-execute]]
 === Conformance Class KVP-encoded Execute
 
 include::../abstract_tests/ATS_class_kvp-execute.adoc[]
 
+[[ats_conformance-class_profile-query-parameter]]
 === Conformance Class Profile query parameter
 
 include::../abstract_tests/ATS_class_query-param-profile.adoc[]

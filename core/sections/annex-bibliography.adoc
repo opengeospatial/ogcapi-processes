@@ -1,5 +1,5 @@
-
 [bibliography]
+[[sc_bibliography]]
 == Bibliography
 
 * [[[OGC_06-121r9]]] OGC 06-121r9, OGC Web Service Common Specification, version 2.0

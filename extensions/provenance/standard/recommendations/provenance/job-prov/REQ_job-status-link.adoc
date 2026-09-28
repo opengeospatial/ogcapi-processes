@@ -21,7 +21,7 @@ and the `type` attribute set to `application/provenance+json` to advertise its a
 
 [.component,class=part]
 --
-If other <<prov-content-negotiation,provenance content-negotiation>> media-types are supported, the job status
+If other <<sc_provenance_content-negotiation,provenance content-negotiation>> media-types are supported, the job status
 SHOULD advertise these different PROV representations with the links of
 corresponding `type` attribute and the same `rel="https://www.w3.org/ns/prov"` relation.
 --

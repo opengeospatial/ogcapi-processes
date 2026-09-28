@@ -1,3 +1,4 @@
+[[per_collection-output_expiry]]
 [permission]
 ====
 [%metadata]

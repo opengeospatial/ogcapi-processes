@@ -1,6 +1,7 @@
-[[section_cwl_workflows]]
+[[clause_cwl-workflows]]
 == Common Workflow Language Definitions Conformance Class
 
+[[sc_cwl-workflows]]
 === Requirement Class _Common Workflow Language Definitions_
 
 The _Common Workflow Language Definitions_ conformance class specifies the use of the
@@ -19,6 +20,7 @@ include::../requirements/requirements_class_cwl-workflows.adoc[]
 
 The following requirements describe the ability of an implementation to execute a CWL workflow in an ad-hoc manner and return its output, without requiring a prior deployment.
 
+[[sc_cwl-workflows_adhoc-execution]]
 ==== Ad-hoc Common Workflow Language Execution
 
 include::../requirements/cwl-workflows/REQ_cwl-workflows_adhoc-cwl-execution.adoc[]

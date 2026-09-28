@@ -1,9 +1,9 @@
-[[ats_collection-output_response-output-grouped]]
+[[ats_collection-output_response-output-many-grouped]]
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/collection-output/response-output-grouped
-target:: /req/collection-output/response-output-grouped
+identifier:: /conf/collection-output/response-output-many-grouped
+target:: /req/collection-output/response-output-many-grouped
 test-purpose:: Validate that the response for multiple <<implicit-explicit-outputs,explicitly or implicitly>> requested outputs combines the outputs into a single <<def_collection-description,collection description>> reference.
 test-method::
 +

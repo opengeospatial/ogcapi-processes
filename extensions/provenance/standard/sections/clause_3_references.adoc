@@ -1,5 +1,6 @@
 
 [bibliography]
+[[clause_references]]
 == References
 
 * [[[OAProc-1,OGC 18-062]]], Pross, B., Vretanos, P.: OGC 18-062, *OGC API - Processes - Part 1: Core*

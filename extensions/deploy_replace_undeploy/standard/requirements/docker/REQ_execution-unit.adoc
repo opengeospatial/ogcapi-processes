@@ -6,12 +6,12 @@ identifier:: /req/docker/execution-unit
 
 [.component,class=part]
 --
-The value of the `type` field of the <<executionUnit-property,`executionUnit` property>> of an <<clause_ogcapppkg,OGC Application Package>> SHALL be `docker`.
+The value of the `type` field of the <<sc_execution-unit-property,`executionUnit` property>> of an <<clause_ogcapppkg,OGC Application Package>> SHALL be `docker`.
 --
 
 [.component,class=part]
 --
-The value of the `image` field of the <<executionUnit-property,`executionUnit` property>> of an <<clause_ogcapppkg,OGC Application Package>> SHALL be a reference to the Docker image that should be executed.
+The value of the `image` field of the <<sc_execution-unit-property,`executionUnit` property>> of an <<clause_ogcapppkg,OGC Application Package>> SHALL be a reference to the Docker image that should be executed.
 --
 
 ====

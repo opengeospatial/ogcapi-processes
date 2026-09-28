@@ -1,16 +1,18 @@
 
+[[clause_encodings]]
 == Requirements classes for encodings
 
+[[sc_overview]]
 === Overview
 
 This clause specifies two pre-defined requirements classes for request and response message encodings to be used by implementations of the Processes API. The two classes are:
 
-* <<sc_requirements_class_json,JSON>>
-* <<sc_requirements_class_html,HTML>>
+* <<sc_requirements-class-json,JSON>>
+* <<sc_requirements-class-html,HTML>>
 
-The <<sc_requirements_class_json,JSON>> requirements class defines the requirements for encoding Processes API request and response messages using https://tools.ietf.org/html/rfc8259[JSON].
+The <<sc_requirements-class-json,JSON>> requirements class defines the requirements for encoding Processes API request and response messages using https://tools.ietf.org/html/rfc8259[JSON].
 
-The <<sc_requirements_class_json,HTML>> requirements class defines the requirements for encoding Processes API request and response messages using https://html.spec.whatwg.org/[HTML].
+The <<sc_requirements-class-json,HTML>> requirements class defines the requirements for encoding Processes API request and response messages using https://html.spec.whatwg.org/[HTML].
 
 NOTE: The encoding of Processes API request and response messages is distinct from the values that are generated when executing a process.  Process output values can be of any type and are not bound by the requirements of the classes defined in this clause.
 
@@ -33,7 +35,7 @@ The <<rc_core,Core>> requirements class includes recommendations to support
 <<rc_html,HTML>> and <<rc_json,JSON>> as encodings, where practical.
 
 
-[[sc_requirements_class_json]]
+[[sc_requirements-class-json]]
 === Requirement Class "JSON"
 
 This section defines the JSON Requirements Class.
@@ -44,7 +46,7 @@ include::../requirements/json/REQ_definition.adoc[]
 
 include::../recommendations/json/PER_media-types.adoc[]
 
-[[sc_requirements_class_html]]
+[[sc_requirements-class-html]]
 === Requirement Class "HTML"
 
 This section defines the HTML Requirements Class.

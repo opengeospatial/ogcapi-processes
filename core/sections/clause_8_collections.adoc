@@ -1,33 +1,38 @@
+[[clause_collections]]
 == Collections
 
-[[sc_collection_input]]
+[[sc_collection-input]]
 === REQUIREMENTS CLASS "COLLECTION INPUT"
 
+[[sc_collection-input_overview]]
 ==== Overview
 
 The _Collection Input_ Requirements Class supports specifying as an input to a process an <<def_collection,OGC API accessible collection>> via using one or more <<def_data-access-mechanism,OGC API data access mechanisms>>.  Specifically, the processing server acts as a client and fetches values from the <<def_collection,OGC API accessible collection>> using one of the available <<def_data-access-mechanism,OGC API data access mechanisms>> and then feeds the fetched values as input values to the process being executed.  The server from which input values are retrieved is referred to as the <<def_value-source-server,_value source server_>>.
 
-Unless an implementation also conforms to the <<sc_remote_collections,_Remote Collections_>> conformance class, only <<def_collection,collections>> that are locally accessible in the current <<def_deployment,OGC API deployment>> are supported.
+Unless an implementation also conforms to the <<sc_remote-collections,_Remote Collections_>> conformance class, only <<def_collection,collections>> that are locally accessible in the current <<def_deployment,OGC API deployment>> are supported.
 
-Unless an implementation also conforms to the <<sc_local_filtering,_Local Filtering_>> conformance class, filtering of values retrieved from an <<def_collection,OGC API accessible collection>> is performed by the <<def_value-source-server,value source server>>.
+Unless an implementation also conforms to the <<sc_local-filtering,_Local Filtering_>> conformance class, filtering of values retrieved from an <<def_collection,OGC API accessible collection>> is performed by the <<def_value-source-server,value source server>>.
 
 include::../requirements/requirements_class_collection-input.adoc[]
 
 The following requirements describe how an <<execute-request-body,execute request>> references an <<def_collection,OGC API accessible collection>> and how an implementation requests data from that collection to use as input to a process.
 
+[[sc_collection-input_referencing]]
 ==== Referencing a collection
 
 include::../requirements/collection-input/REQ_collection-input_referencing.adoc[]
 
+[[sc_collection-input_access]]
 ==== Accessing data from a collection
 
+[[sc_collection-input_access-overview]]
 ===== Overview
 
 The following requirements describe how to access data from an <<def_collection,OGC API accessible collection>> and the ability of an implementation to modify the accessed data by first applying filters, selecting a subset of fields or deriving new fields before providing the data as input to a process.
 
 include::../requirements/collection-input/REQ_collection-input_access.adoc[]
 
-[[sc-collection-filtering]]
+[[sc_collection-input_filtering]]
 ===== Filtering
 
 include::../requirements/collection-input/REQ_collection-input_filtering.adoc[]
@@ -138,7 +143,7 @@ A filter that selects resource properties to be included in a response document.
 
 A dictionary of `aliases` that can be used as values for the `properties` parameter.  Aliases can be alternative names for resource properties or synthetic properties.  Synthetic properties are named expressions that are computed at run-time.  Expressions for synthetic properties are encoded using some expression language and can include references to resource property names or aliases for resource properties.
 
-[[sc-pass-through]]
+[[sc_collection-input_pass-through]]
 ===== Pass through parameters
 
 include::../requirements/collection-input/REQ_collection-input_pass-through.adoc[]
@@ -147,6 +152,7 @@ The `passThroughParameters` property is a dictionary of query parameters that ar
 
 In the case where the OAProc server supports local filtering, the `passThroughParameters` property provides a mechanism to force filtering to occur on the value source server.
 
+[[sc_collection-input_examples]]
 ==== Examples
 
 .An example execute request with collection input
@@ -158,9 +164,10 @@ include::../examples/json/Execute2.json[]
 ====
 
 
-[[sc_remote_collections]]
+[[sc_remote-collections]]
 === REQUIREMENTS CLASS "REMOTE COLLECTIONS"
 
+[[sc_remote-collections_overview]]
 ==== Overview
 
 The _Remote Collections_ Requirements Class allows to reference a remote OGC API accessible collection in addition to any local collections.
@@ -169,29 +176,35 @@ include::../requirements/requirements_class_remote-collections.adoc[]
 
 The following requirements describe how an <<execute-request-body,execute request>> references a <<def_remote-collections,remote OGC API accessible collection>> as a source of input values to a process.
 
+[[sc_remote-collections_referencing]]
 ==== Referencing a remote collection
 
 include::../requirements/remote-collections/REQ_remote-collections_referencing.adoc[]
 
+[[sc_remote-collections_access]]
 ==== Accessing data from a remote collection
 
 include::../requirements/remote-collections/REQ_remote-collections_access.adoc[]
 
+[[sc_remote-collections_filtering]]
 ===== Filtering
 
-See: <<sc-collection-filtering,Filtering>>
+See: <<sc_collection-input_filtering,Filtering>>
 
+[[sc_remote-collections_property-selection]]
 ===== Property selection & derived properties
 
 See: <<sc_collection-filter_property-selection,Property selection & derived properties>>
 
+[[sc_remote-collections_pass-through]]
 ===== Pass through parameters
 
-See: <<sc-pass-through,Pass through parameters>>
+See: <<sc_collection-input_pass-through,Pass through parameters>>
 
-[[sc_collection_output]]
+[[sc_collection-output]]
 === REQUIREMENTS CLASS "COLLECTION OUTPUT"
 
+[[sc_collection-output_overview]]
 ==== Overview
 
 The _Collection Output_ Requirements Class specifies how the execution of a process can be triggered as the result of requesting output data using an <<def_data-access-mechanism,OGC API data access mechanisms>>.
@@ -206,6 +219,7 @@ include::../requirements/requirements_class_collection-output.adoc[]
 
 The following requirements describe an execution mechanism that triggers on-demand processing for particular spatial, temporal and other filtering parameters and results in one or more references to a <<def_collection-description,collection description document>> that provides links to request output data using standard <<def_data-access-mechanism,OGC API data access mechanisms>>.
 
+[[sc_collection-output_response]]
 ==== Parameter `response`
 
 include::../requirements/collection-output/REQ_collection-output_response-def.adoc[]
@@ -222,16 +236,15 @@ include::../requirements/collection-output/REQ_collection-output_response-output
 
 [NOTE]
 =====
-The <<req_collection-output_response-output-many-grouped,/req/collection-output/response-output-many-grouped>> part mentioning aggregation is left up to server implementations to negotiate and resolve as deemed fit. For example, a process generating multiple GeoTiff rasters as separate bands per output and requesting the collection output could either aggregate each band as separate Assets under a _STAC Collection_ and/or _STAC Items_, or could generate an _OGC API - Coverages_ collection by combining bands over corresponding extents. The specific separation of STAC Collection/Items/Assets, Coverage granules, or any other aggregation strategy is out of scope for this standard. However, <<con-neg-by-profile>> would realistically play a role in this process to further distinguish possible combinations and expected outcomes.
+The <<req_collection-output_response-output-many-grouped,/req/collection-output/response-output-many-grouped>> part mentioning aggregation is left up to server implementations to negotiate and resolve as deemed fit. For example, a process generating multiple GeoTiff rasters as separate bands per output and requesting the collection output could either aggregate each band as separate Assets under a _STAC Collection_ and/or _STAC Items_, or could generate an _OGC API - Coverages_ collection by combining bands over corresponding extents. The specific separation of STAC Collection/Items/Assets, Coverage granules, or any other aggregation strategy is out of scope for this standard. However, <<sc_con-neg-by-profile>> would realistically play a role in this process to further distinguish possible combinations and expected outcomes.
 =====
-
-include::../requirements/collection-output/REQ_collection-output_response-output-many-grouped.adoc[]
 
 [[sc_collection-output_error-situations]]
 ==== Error Situations
 
 include::../requirements/collection-output/REQ_collection-output_response-unsupported-format.adoc[]
 
+[[sc_collection-output_data-access-mechanisms]]
 ==== Data Access Mechanisms
 
 include::../requirements/collection-output/REQ_collection-output_data-access-mechanisms.adoc[]
@@ -242,21 +255,24 @@ include::../recommendations/collection-output/PER_collection-output_static.adoc[
 
 include::../recommendations/collection-output/PER_collection-output_dynamic.adoc[]
 
+[[sc_collection-output_expiry]]
 ==== Collection Output expiry
 
 include::../recommendations/collection-output/PER_collection-output_expiry.adoc[]
 
-[[sc_local_filtering]]
+[[sc_local-filtering]]
 === REQUIREMENTS CLASS "LOCAL FILTERING"
 
+[[sc_local-filtering_overview]]
 ==== Overview
 
-As described in <<sc-collection-filtering>>, implementation of this Standard that support <<sc_collection_input,collection input>> rely on the <<def_value-source-server,value source server>> to perform any input data filtering specified in an execution request.
+As described in <<sc_collection-input_filtering>>, implementation of this Standard that support <<sc_collection-input,collection input>> rely on the <<def_value-source-server,value source server>> to perform any input data filtering specified in an execution request.
 
 Servers that implement this Requirements Class, support local filtering in those instances where the <<def_value-source-server,value source server>> does not support the input data filtering requested in the execution request.
 
 include::../requirements/requirements_class_local-filtering.adoc[]
 
+[[sc_local-filtering_filter-parameters]]
 ==== Filter parameters
 
 include::../requirements/local-filtering/REQ_local-filtering.adoc[]
