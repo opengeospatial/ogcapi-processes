@@ -1688,6 +1688,7 @@ include::../examples/json/Result.json[]
 ----
 ====
 
+[[sc_job-results_data-classes]]
 ==== Data Class
 
 include::../recommendations/core/REC_job-results-data-classes.adoc[]
