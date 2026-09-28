@@ -7,7 +7,7 @@ description:: Allow using alternate presentations of equivalent contents.
 
 [.component,class=part]
 --
-For each part of the <<REQ_cwl-workflows_adhoc-cwl-multipart-content,/req/cwl-workflows/adhoc-cwl-multipart-content>>
+For each part of the <<req_cwl-workflows_adhoc-cwl-multipart-content,/req/cwl-workflows/adhoc-cwl-multipart-content>>
 multipart request, the server MAY support alternate presentations of equivalent contents (e.g.: YAML instead of JSON).
 --
 

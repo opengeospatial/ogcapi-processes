@@ -1,3 +1,4 @@
+[[sc_2021-06-ogc-api-processes-workshop]]
 == 2021-06 OGC API Processes Workshop
 
 The OGC API - Processes Standards Working Group (SWG) invites software developers from the OGC Membership to a workshop from Tuesday 8th June 2021 until Thursday 10th June 2021 to validate the latest revision of the draft OGC API - Processes specification through implementation.
@@ -12,20 +13,24 @@ The draft OGC API - Processes specification defines how a client application can
 
 *For further information*, please post the questions to the GitHub Issues board on the OGC API - Processes repository.
 
+[[sc_self-registration]]
 === Self-Registration
 
 Please register for the June 8th - 10th OGC API - Processes Workshop by creating a Pull Request adding your name to https://github.com/opengeospatial/ogcapi-processes/blob/master/workshops/2021_06_Workshop_Registration.adoc
 
+[[sc_gitter-chat]]
 === Gitter Chat
 
 The Workshop will use this Gitter room https://gitter.im/ogc-developer/Sprints
 
+[[sc_agenda]]
 === Agenda
 
 All times on the agenda are in EDT (New York time).
 
 &#10036; means that the session will be in the jitsi room.
 
+[[table_agenda]]
 [cols="3,7",width="75%",options="header",align="center"]
 |===
 |Time (EDT) | Item 

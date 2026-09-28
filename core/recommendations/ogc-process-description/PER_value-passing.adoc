@@ -1,4 +1,4 @@
-[[pre_ogc-process-description_value-passing]]
+[[per_ogc-process-description_value-passing]]
 [permission]
 ====
 [%metadata]

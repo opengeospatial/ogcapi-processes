@@ -1,6 +1,7 @@
+[[clause_research-object]]
 == Requirements Class "Research Object"
 
-[[research-object-overview]]
+[[sc_research-object_overview]]
 === Overview
 
 TODO

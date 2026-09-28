@@ -1,8 +1,10 @@
 
+[[clause_core]]
 == Requirements Class "Core"
 
 The following section describes the Core requirements class.
 
+[[sc_core_overview]]
 === Overview
 
 include::../requirements/requirements_class_core.adoc[]
@@ -42,24 +44,26 @@ The OGC API - Processes Standard utilizes elements of the OGC API-Common Standar
 [cols="2,6"]
 |===
 ^|*API - Processes Section* ^|*API-Common Requirements Class*
-|<<sc_landing_page,API Landing Page>>| https://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
-|<<sc_api_definition,API Definition>>| https://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
-|<<sc_conformance_classes,Declaration of Conformance Classes>>| https://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
+|<<sc_landing-page,API Landing Page>>| https://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
+|<<sc_api-definition,API Definition>>| https://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
+|<<sc_conformance-classes,Declaration of Conformance Classes>>| https://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
 |<<req_oas30_oas-definition,OpenAPI 3.0>>| https://www.opengis.net/spec/ogcapi-common-1/2.0/req/oas30
-|<<sc_requirements_class_html,HTML>>| https://www.opengis.net/spec/ogcapi-common-1/2.0/req/html
+|<<sc_requirements-class-html,HTML>>| https://www.opengis.net/spec/ogcapi-common-1/2.0/req/html
 |===
 
 
-[[sc_landing_page]]
+[[sc_landing-page]]
 === Retrieve the API landing page
 
 The following section defines the requirements to retrieve an API landing page that contains links to Processes API resources but may also contain links to resources that are part of a broader, containing, API.
 
+[[sc_landing-page_operation]]
 ==== Operation
 
 include::../requirements/core/REQ_landingpage-op.adoc[]
 
 
+[[sc_landing-page_response]]
 ==== Response
 
 include::../requirements/core/REQ_landingpage-success.adoc[]
@@ -101,16 +105,18 @@ include::../examples/json/LandingPage.json[]
 ----
 ====
 
+[[sc_landing-page_error-situations]]
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
 
 
-[[sc_api_definition]]
+[[sc_api-definition]]
 === Retrieve an API definition
 
 The following section defines the requirements to retrieve an API definition.  This API may only implement components of the Processes API defined in this Standard but may define the implementation of a broader API deployment into which the Processes API is embedded.
 
+[[sc_api-definition_operation]]
 ==== Operation
 
 Every implementation of OGC API - Processes must provide metadata that describes the functional capabilities of the server instance that the API definition provides access to.  In this document, this is known as the "API definition".  This definition is used by developers to understand the functionality provided by the API endpoint, so software clients can connect to the server, or by development tools to support the implementation of servers and clients.
@@ -122,6 +128,7 @@ include::../recommendations/core/PER_api-definition-uri.adoc[]
 Note that multiple API definition formats can be supported.
 
 
+[[sc_api-definition_response]]
 ==== Response
 
 include::../requirements/core/REQ_api-definition-success.adoc[]
@@ -147,13 +154,15 @@ The API definition document describes the API implementation instance. In other 
 
 The idea is that any implementation of OGC API - Processes can be used by developers that are familiar with the API definition language(s) supported by the server. For example, if an OpenAPI definition is used, it should be possible to create the skeleton of a working client using the OpenAPI definition alone.
 
+[[sc_api-definition_error-situations]]
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
 
-[[sc_conformance_classes]]
+[[sc_conformance-classes]]
 === Declaration of conformance classes
 
+[[sc_conformance-classes_operation]]
 ==== Operation
 
 To support "generic" clients for accessing servers implementing OGC API - Processes in general - and not "just" a specific API / server, the server must declare the requirements classes it implements and conforms to.
@@ -161,6 +170,7 @@ To support "generic" clients for accessing servers implementing OGC API - Proces
 include::../requirements/core/REQ_conformance-op.adoc[]
 
 
+[[sc_conformance-classes_response]]
 ==== Response
 
 include::../requirements/core/REQ_conformance-success.adoc[]
@@ -185,11 +195,13 @@ include::../examples/json/ConfClasses.json[]
 ====
 
 
+[[sc_conformance-classes_error-situations]]
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
 
 
+[[sc_http-1-1]]
 === Use of HTTP 1.1
 
 include::../requirements/core/REQ_http.adoc[]
@@ -204,7 +216,7 @@ include::../recommendations/core/REC_content-length.adoc[]
 
 Servers implementing https://docs.ogc.org/DRAFTS/17-069r4.html#cross_origin[Cross-Origin Resource Sharing (CORS)] will also implement the OPTIONS method.
 
-[[http_status_codes]]
+[[sc_http-1-1_status-codes]]
 ==== HTTP status codes
 
 <<status_codes>> lists the main HTTP status codes that clients should be
@@ -244,6 +256,7 @@ When a server encounters an error in the processing of a request, it may wish to
 
 include::../recommendations/core/REC_problem-details.adoc[]
 
+[[sc_support-for-cross-origin-requests]]
 === Support for cross-origin requests
 
 If the content is located on another host that the webpage ("same-origin policy") access to content from that HTML page is by default prohibited for security reasons.  Cross-origin resource sharing is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. A typical example is a web-application accessing processes and data from multiple servers.
@@ -259,10 +272,10 @@ include::../recommendations/core/REC_access-control-expose-headers.adoc[]
 
 include::../recommendations/core/REC_html.adoc[]
 
-[[con-neg-by-profile]]
+[[sc_con-neg-by-profile]]
 === Content negotiation by profile
 
-The use of generic media types such as `application/json` makes it difficult to request or identify different flavors or profiles of a resource.  For example, the media type `application/json` could be used to describe an <<ogc_process_description,OGC process description document>> as well as an https://documentation.dataspace.copernicus.eu/APIs/openEO/Processes.html[OpenEO process description document].
+The use of generic media types such as `application/json` makes it difficult to request or identify different flavors or profiles of a resource.  For example, the media type `application/json` could be used to describe an <<clause_process-description,OGC process description document>> as well as an https://documentation.dataspace.copernicus.eu/APIs/openEO/Processes.html[OpenEO process description document].
 
 Therefore, a mechanism for requesting a profile of a resource would be useful.  Although there is a new HTTP header, `Accept-Profile`, that is to be defined in an upcoming https://profilenegotiation.github.io/I-D-Profile-Negotiation/I-D-Profile-Negotiation[Internet-Draft], there is currently no standardized way to request a profile of a resource.  Existing standards, however, do provide mechanisms for specifying profile information in HTTP headers.  Specifically (see https://www.w3.org/TR/dx-prof-conneg/#bib-prof-ietf[Content Negotiation by Profile]) profiles of a resource may be requested by:
 
@@ -322,6 +335,7 @@ Clients should not assume that paging is safe against changes to the dataset bei
 This Standard also has recommendations about including a `prev` link at the appropriate resource end points.  Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach, it may be too complex to implement.
 
 
+[[sc_link-headers]]
 === Link headers
 
 include::../recommendations/core/REC_link-header.adoc[]
@@ -333,12 +347,15 @@ The following section defines the requirements to retrieve the available process
 
 It should be noted that the number of processes exposed via the Processes API may be very different from the number of processes offered by a back-end system upon which the Processes API is implemented.
 
+[[sc_process-list_operation]]
 ==== Operation
 
+[[sc_process-list]]
 ===== Process list
 
 include::../requirements/core/REQ_process-list-op.adoc[]
 
+[[sc_process-list_query-parameter-limit]]
 ===== Query parameter `limit`
 
 include::../requirements/core/REQ_process-list-limit-def.adoc[]
@@ -350,7 +367,7 @@ include::../requirements/core/REQ_process-list-limit-response.adoc[]
 include::../recommendations/core/PER_process-list-limit-response.adoc[]
 
 
-[[sc_process_list_response]]
+[[sc_process-list_response]]
 ==== Response
 
 include::../requirements/core/REQ_process-list-success.adoc[]
@@ -421,6 +438,7 @@ include::../examples/json/ProcessList.json[]
 ====
 
 
+[[sc_process-list_error-situations]]
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
@@ -432,11 +450,13 @@ See <<http_status_codes>> for general guidance.
 The following section defines the requirements to retrieve metadata about a process.
 
 
+[[sc_process-description_operation]]
 ==== Operation
 
 include::../requirements/core/REQ_process-description-op.adoc[]
 
 
+[[sc_process-description_response]]
 ==== Response
 
 include::../requirements/core/REQ_process-description-success.adoc[]
@@ -449,6 +469,7 @@ include::../recommendations/core/REC_ogc-process-description.adoc[]
 
 include::../recommendations/core/REC_header-profile-link.adoc[]
 
+[[sc_process-description_error-situations]]
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
@@ -457,20 +478,23 @@ include::../requirements/core/REQ_process-exception-no-such-process.adoc[]
 
 include::../recommendations/core/PER_process-exception-process-gone.adoc[]
 
-[[sc_execute_process]]
+[[sc_process-execute]]
 === Execute a process
 
 This section describes the requirements for executing a process.
 
-Depending on the description of the <<sc_process_description,process>> and the <<sc_execution_mode,negotiated process execution mode>>, process execution may result in the creation of a <<sc_retrieve_job_results,job resource>>.
+Depending on the description of the <<sc_process_description,process>> and the <<sc_execution_mode,negotiated process execution mode>>, process execution may result in the creation of a <<sc_job-results,job resource>>.
 
 
+[[sc_process-execute_operation]]
 ==== Operation
 
 include::../requirements/core/REQ_process-execute-op.adoc[]
 
+[[sc_process-execute_request-body]]
 ==== Request body
 
+[[sc_process-execute_content-schema]]
 ===== Content schema
 
 include::../requirements/core/REQ_process-execute-request.adoc[]
@@ -533,9 +557,10 @@ A client that accompanies an <<execute-request-body,execute request>> with the H
 
 include::../recommendations/core/REC_process-execute-preference-applied.adoc[]
 
-[[sc_process_inputs]]
+[[sc_process-execute_inputs]]
 ===== Process inputs
 
+[[sc_process-execute_inputs-overview]]
 ====== Overview
 
 Each process input is a name/value pair that appears in the `inputs` section of
@@ -543,26 +568,29 @@ an <<execute-request-body,execute request>> as show in the following example:
 
 [source,json]
 ----
-"inputs": {
-   "inputName1": <input value 1>,
-   "inputName2": <input value 2>,
-   etc.
+{
+  "inputs": {
+     "inputName1": <input value 1>,
+     "inputName2": <input value 2>,
+     ...
+  }
 }
 ----
 
 The actual name of each input is its identifier as specified by the input's definition in the <<sc_process_description,process description>>.
 
+[[sc_process-execute_inputs-values]]
 ====== Input values
 
 As shown in https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/inlineOrRefValue.yaml[inlineOrRefValue.yaml], a process input value that is specified in-line in an <<execute-request-body,execute request>> can be:
 
-* a simple literal value,
-* an array,
-* a qualified value,
-* a binary value,
-* or a bounding box.
+* a <<simple-literals,simple literal value>>,
+* an <<arrays,array>>,
+* a <<qualified-value,qualified value>>,
+* a <<binary-value,binary value>>,
+* or a <<bounding-box-value,bounding box>>.
 
-NOTE: See also <<sc_collection_input>>.
+NOTE: See also <<sc_collection-input>>.
 
 [[simple-literals]]
 *_Simple literal values:_*
@@ -583,33 +611,33 @@ NOTE: This schema can also be obtained from https://raw.githubusercontent.com/op
 .Simple literal value examples.
 ====
 A string literal:
-[source]
+[source,json]
 ----
-"stringInput": "String value"
+{"stringInput": "String value"}
 ----
 
 A date string:
-[source]
+[source,json]
 ----
-"dateInput": "2021-05-24T20:40:13-05:00"
+{"dateInput": "2021-05-24T20:40:13-05:00"}
 ----
 
 A number:
-[source]
+[source,json]
 ----
-"numberInput": 3.14159
+{"numberInput": 3.14159}
 ----
 
 An integer:
-[source]
+[source,json]
 ----
-"integerInput": 10
+{"integerInput": 10}
 ----
 
 A Boolean:
-[source]
+[source,json]
 ----
-"booleanInput": true
+{"booleanInput": true}
 ----
 ====
 
@@ -630,49 +658,58 @@ include::../requirements/core/REQ_process-execute-input-array.adoc[]
 .Array value examples.
 ====
 An array of simple values:
-[source]
+[source,json]
 ----
-"arrayOfSimpleValues": [1, 2, 4, 10, 7]
+{
+  "arrayOfSimpleValues": [1, 2, 4, 10, 7]
+}
 ----
 
 An array with a single simple value:
-[source]
+[source,json]
 ----
-"arrayOfSimpleValues": ["a"]
+{
+  "arrayOfSimpleValues": ["a"]
+}
 ----
 
 An array of arrays of simple values:
-[source]
+[source,json]
 ----
-"arrayOfArrays": [[1,2,3,4], ["a","b","c","d"]]
+{
+  "arrayOfArrays": [[1,2,3,4], ["a","b","c","d"]]
+}
 ----
 
 An array of objects values:
-[source]
+[source,json]
 ----
-"arrayOfQualifiedValues": [
-  {
-    "value": {
-      "measurement": 10.3,
-      "uom": "m",
-      "reference": "https://ucum.org/ucum-essence.xml"
-    }
-  },
-  {
-    "value": {
-      "measurement": 10.5,
-      "uom": "m",
-      "reference": "https://ucum.org/ucum-essence.xml"
-    }
-  },
-  {
-    "value": {
-      "measurement": 10.9,
-      "uom": "m",
-      "reference": "https://ucum.org/ucum-essence.xml"
-    }
-  },...
-],
+{
+  "arrayOfQualifiedValues": [
+    {
+      "value": {
+        "measurement": 10.3,
+        "uom": "m",
+        "reference": "https://ucum.org/ucum-essence.xml"
+      }
+    },
+    {
+      "value": {
+        "measurement": 10.5,
+        "uom": "m",
+        "reference": "https://ucum.org/ucum-essence.xml"
+      }
+    },
+    {
+      "value": {
+        "measurement": 10.9,
+        "uom": "m",
+        "reference": "https://ucum.org/ucum-essence.xml"
+      }
+    },
+    ...
+  ]
+}
 ----
 
 NOTE: In an <<execute-request-body,execute request>>, as per requirement <<req_core_process-execute-input-inline-object,/req/core/process-execute-input-inline-object>>, object values must be encoded as <<qualified-value,qualified values>>.
@@ -729,7 +766,7 @@ An example of a complex process input value.
 }
 ----
 
-In this second example, the property `geometryInput` has a cardinality of greater than 1 and value instances can be one of a number of enumerated media types.  The schema of `geometryInput` from the <<ogc_process_description,OGC process description>> for the process might be:
+In this second example, the property `geometryInput` has a cardinality of greater than 1 and value instances can be one of a number of enumerated media types.  The schema of `geometryInput` from the <<clause_process-description,OGC process description>> for the process might be:
 
 [source,json]
 ----
@@ -883,36 +920,38 @@ Process inputs in an <<execute-request-body,execute request>> and the correspond
 
 [%unnumbered]
 ====
-Consider a process input named `complexObjectInput` with the following definition from an <<ogc_process_description,OGC process description>>:
+Consider a process input named `complexObjectInput` with the following definition from an <<clause_process-description,OGC process description>>:
 
 [source,json]
 ----
-"complexObjectInput": {
-  "title": "Complex Object Input Example",
-  "description": "This is an example of a complex object input.",
-  "schema": {
-    "type": "object",
-    "required": [
-      "property1",
-      "property5"
-    ],
-    "properties": {
-      "property1": {
-        "type": "string"
-      },
-      "property2": {
-        "type": "string",
-        "format": "uri"
-      },
-      "property3": {
-        "type": "number"
-      },
-      "property4": {
-        "type": "string",
-        "format": "date-time"
-      },
-      "property5": {
-        "type": "boolean"
+{
+  "complexObjectInput": {
+    "title": "Complex Object Input Example",
+    "description": "This is an example of a complex object input.",
+    "schema": {
+      "type": "object",
+      "required": [
+        "property1",
+        "property5"
+      ],
+      "properties": {
+        "property1": {
+          "type": "string"
+        },
+        "property2": {
+          "type": "string",
+          "format": "uri"
+        },
+        "property3": {
+          "type": "number"
+        },
+        "property4": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "property5": {
+          "type": "boolean"
+        }
       }
     }
   }
@@ -923,26 +962,24 @@ and the following instance in an <<execute-request-body,execute request>>:
 
 [source,json]
 ----
-"inputs": [
-  .
-  .
-  .
-  "complexObjectInput": {
-    "value": {
-      "property1": "value1",
-      "property2": "value2",
-      "property3": "value5"
-    }
-  },
-  .
-  .
-  .
-]
+{
+  "inputs": [
+    ...
+    "complexObjectInput": {
+      "value": {
+        "property1": "value1",
+        "property2": "value2",
+        "property3": "value5"
+      }
+    },
+    ...
+  ]
+}
 ----
 
 The process input value in this <<execute-request-body,execute request>> is an instance of a <<qualified-value,qualified value>>.
 
-For the purposes of validation, the server needs to only validate the component of the <<qualified-value,qualified value>> that is an instance of <<input-value-schema,value.yaml>> against the `schema` fragment from the <<ogc_process_description,OGC process description>>.  Specifically, the validation target is:
+For the purposes of validation, the server needs to only validate the component of the <<qualified-value,qualified value>> that is an instance of <<input-value-schema,value.yaml>> against the `schema` fragment from the <<clause_process-description,OGC process description>>.  Specifically, the validation target is:
 
 [source,json]
 ----
@@ -953,7 +990,7 @@ For the purposes of validation, the server needs to only validate the component 
 }
 ----
 
-NOTE: This example makes use of an <<ogc_process_description,OGC process description>>.  However, any other process description vocabulary may be used and applied, for the purpose of validation, in a similar manner.
+NOTE: This example makes use of an <<clause_process-description,OGC process description>>.  However, any other process description vocabulary may be used and applied, for the purpose of validation, in a similar manner.
 ====
 
 include::../requirements/core/REQ_process-execute-input-validation.adoc[]
@@ -976,7 +1013,7 @@ include::../requirements/core/REQ_process-execute-outputs-empty.adoc[]
 
 *_Output value format:_*
 
-A process output can be defined in the <<sc_process_description,process description>> as being of one or more media types.   In cases where a specific output can be presented in one of a number of media types, the `format` parameter in the <<output-schema,execute request>> can be used to indicate the format that should be used to present the process output value in the server's <<sc_execute_response,response>>.
+A process output can be defined in the <<sc_process_description,process description>> as being of one or more media types.   In cases where a specific output can be presented in one of a number of media types, the `format` parameter in the <<output-schema,execute request>> can be used to indicate the format that should be used to present the process output value in the server's <<sc_process-execute_response,response>>.
 
 [[sc_output_value_size]]
 *_Output value size:_*
@@ -995,6 +1032,7 @@ A client that accompanies an <<execute-request-body,execute request>> with the H
 * or by reference via a hyperlink in the response.
 ====
 
+[[sc_process-execute_example]]
 ==== Example
 
 .An execute request.
@@ -1005,9 +1043,10 @@ include::../examples/json/Execute.json[]
 ----
 ====
 
-[[sc_execute_response]]
+[[sc_process-execute_response]]
 ==== Response
 
+[[sc_process-execute_response-overview]]
 ===== Overview
 
 The way a server responds to <<execute-request-body,execute request>> is determined by the following parameters:
@@ -1086,7 +1125,7 @@ The following table maps the possible responses based on the combinations of the
 |_Location_ to newly created job
 |application/json
 |<<schema-statusInfo,statusInfo.yaml>>
-|See <<async-response,Response for asynchronous process execution>>
+|See <<sc_process-execute_async-response,Response for asynchronous process execution>>
 |===
 
 [NOTE]
@@ -1188,6 +1227,7 @@ include::../../openapi/schemas/processes-core/values.yaml[]
 
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/refs/heads/master/openapi/schemas/processes-core/values.yaml[`values.yaml`].
 
+[[sc_process-execute_output-one]]
 ===== Response requesting a single processing output (maxOccurs=1)
 
 When a process is executed synchronously and a single processing output is generated (whether requested <<implicit-explicit-outputs,implicitly or explicitly>> in the <<execute-request-body,execute request>>) the following requirements and recommendations apply:
@@ -1240,7 +1280,8 @@ Client                                                                Server
 ----
 ====
 
-===== Response requesting a single processing output (`maxOccurs>1`)
+[[sc_proces-execute_output-one-multi-value]]
+===== Response requesting a single processing output with multiple values (`maxOccurs>1`)
 
 In the case where the cardinality of a processing output is defined as being greater than one (i.e. `maxOccurs>1`), possibly resulting in multiple values being generate by the processing server for that output, the following requirements, recommendations and permissions applies:
 
@@ -1256,6 +1297,7 @@ include::../recommendations/core/REC_process-execute-success-sync-one-multi-valu
 
 include::../recommendations/core/PER_process-execute-success-sync-one-multi-valued-other-formats.adoc[]
 
+[[sc_process-execute_output-many]]
 ===== Response requesting multiple processing outputs
 
 When a process is executed synchronously and multiple processing outputs are generated (whether requested implicitly or explicitly in the <<execute-request-body,execute>> request) the following requirements, recommendations and permissions apply:
@@ -1272,6 +1314,7 @@ include::../recommendations/core/REC_process-execute-success-sync-many-json-pref
 
 include::../recommendations/core/PER_process-execute-success-sync-many-other-formats.adoc[]
 
+[[sc_process-execute_output-many-omitted]]
 ===== Response when the "outputs" parameter is omitted
 
 An omitted "outputs" parameter signals to the process to execute its logic and generate all outputs defined in the <<sc_process_description,process description>>.
@@ -1280,6 +1323,7 @@ include::../requirements/core/REQ_process-execute-success-sync-outputs-omitted.a
 
 See also: <<req_core_process-execute-omitted-outputs,/req/core/process-execute-omitted-outputs>>.
 
+[[sc_process-execute_output-many-empty]]
 ===== Response when the "outputs" parameter is empty
 
 An "outputs" parameter whose value is empty (i.e. "outputs": {}) signals to a process to execute its logic but to not generate a response body.
@@ -1288,6 +1332,7 @@ include::../requirements/core/REQ_process-execute-success-sync-outputs-empty.ado
 
 See also: <<req_core_process-execute-omitted-outputs,/req/core/process-execute-omitted-outputs>>.
 
+[[sc_process-execute_sync-job]]
 ===== Job creation on synchronous process execution
 
 This Standard does not mandate that servers create a job as a result of executing a process synchronously.  However, the following permission is given:
@@ -1300,7 +1345,7 @@ include::../requirements/core/REQ_job-results-success-sync.adoc[]
 
 The job reference in the header can then be used to <<req_core_process-execute-success-async,re-fetch the results>> of the original synchronous execution.
 
-[[async-response]]
+[[sc_process-execute_async-response]]
 ===== Response for asynchronous process execution
 
 In the case of asynchronous execution, the following requirement applies:
@@ -1315,6 +1360,7 @@ include::../requirements/core/REQ_process-execute-success-async-outputs-empty.ad
 
 include::../requirements/core/REQ_process-execute-success-async-outputs-omitted.adoc[]
 
+[[sc_process-execute_error-situations]]
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
@@ -1322,17 +1368,18 @@ See <<http_status_codes>> for general guidance.
 If the process with the specified identifier does not exist on the server, see requirement <<req_core_process-exception-no-such-process,/req/core/process-exception/no-such-process>>.
 
 
-[[sc_retrieve_status_info]]
+[[sc_job-status_info]]
 === Retrieve status information about a job
 
 The following section describes the requirements to retrieve information about the status of a job.
 
 
+[[sc_job-status_operation]]
 ==== Operation
 
 include::../requirements/core/REQ_job-op.adoc[]
 
-[[sc_status_info_response]]
+[[sc_job-status_response]]
 ==== Response
 
 include::../requirements/core/REQ_job-success.adoc[]
@@ -1383,6 +1430,7 @@ include::../examples/json/StatusInfo.json[]
 ----
 ====
 
+[[sc_job-status_error-situations]]
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.
@@ -1393,11 +1441,13 @@ include::../requirements/core/REQ_job-exception-no-such-job.adoc[]
 
 include::../recommendations/core/PER_process-exception-job-gone.adoc[]
 
-[[sc_retrieve_job_results]]
+[[sc_job-results]]
 === Retrieve job results
 
+[[sc_job-results_operation]]
 ==== Operation
 
+[[sc_job-results_output-all]]
 ===== All processing results
 
 include::../requirements/core/REQ_job-results-op.adoc[]
@@ -1408,26 +1458,31 @@ include::../requirements/core/REQ_job-results-param-outputs-response.adoc[]
 
 include::../requirements/core/REQ_job-results-profile.adoc[]
 
+[[sc_job-results_output-individual]]
 ===== Individual processing results (maxOccurs=1)
 
 include::../requirements/core/REQ_job-result-op.adoc[]
 
 NOTE: The size of individual processing results may be determined without actually transmitting the entire result by using the <<rec_core_http-head,HTTP HEAD>> method to retrieve the <<rec_core_content-length,`Content-Length`>> header.
 
+[[sc_job-results_output-individual-nth]]
 ===== Individual processing results (maxOccurs>1)
 
 include::../requirements/core/REQ_job-result-op-Nth.adoc[]
 
 NOTE: The size of the value may be determined without actually transmitting the entire result by using the <<rec_core_http-head,HTTP HEAD>> method to retrieve the <<rec_core_content-length,`Content-Length`>> header.
 
+[[sc_job-results_output-individual-0th]]
 ===== The "0-th" result
 
 include::../requirements/core/REQ_job-result-op-0th.adoc[]
 
 In other words, regardless of the defined cardinality of an output, the first result (i.e. at index value 0) is always accessible.  If, however, the cardinality of the output is 1 (i.e. `maxOccurs=1`) then attempting to retrieve an output value using any index value other than _0_ will result in an HTTP 404 exception.  Also, if the cardinality of the output is greater than one (i.e. `maxOccurs>1`) then other non-zero index values may be used to retrieve output values.  However, out-of-bounds index values will results in an HTTP 404 exception (see requirement: <<req_core_process-execute-success-async-outputs-Nth,/req/core/process-execute-success-async-outputs-Nth>>).
 
+[[sc_job-results_response]]
 ==== Response
 
+[[sc_job-results_overview]]
 ===== Overview
 
 The way a server responds when retrieving job results depends on:
@@ -1567,11 +1622,12 @@ The column headers in the following table denote:
 
 The following requirements apply when retrieving the results of a job that was created by executing a process asynchronously OR was created by executing a process synchronously on a server that creates a job even for synchronous execution:
 
-[[sc_retrieve_job_results_one]]
+[[sc_job-results_response-individual]]
 ===== Retrieving results individually (maxOccurs=1)
 
 include::../requirements/core/REQ_job-results-success-async-one.adoc[]
 
+[[sc_job-results_response-individual-nth]]
 ===== Retrieving results individually (maxOccurs>1)
 
 include::../requirements/core/REQ_job-results-success-async-one-Nth.adoc[]
@@ -1586,7 +1642,7 @@ include::../recommendations/core/REC_job-results-success-async-one-multi-valued-
 
 include::../recommendations/core/PER_job-results-success-async-one-multi-valued-other-formats.adoc[]
 
-[[sc_retrieve_job_results_many]]
+[[sc_job-results_response-many]]
 ===== Retrieving multiple results simultaneously
 
 include::../requirements/core/REQ_job-results-success-async-many.adoc[]
@@ -1616,6 +1672,7 @@ include::../examples/json/Result.json[]
 ----
 ====
 
+[[sc_job-results_error-situations]]
 ==== Error situations
 
 See <<http_status_codes>> for general guidance.

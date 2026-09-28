@@ -1,6 +1,7 @@
-[[section_cwl_workflows]]
+[[clause_cwl-workflows]]
 == Common Workflow Language (CWL) Definitions Conformance Class
 
+[[sc_cwl-workflows]]
 === Requirement Class _Common Workflow Language Definitions_
 
 The _Common Workflow Language (CWL) Definitions_ conformance class specifies the use of the
@@ -20,9 +21,9 @@ Instead, the ad-hoc CWL is requested either through the `POST /jobs` endpoint,
 or a as a sub-workflow processing step under _another_ process on `POST /processes/{processId}/execution`.
 
 NOTE: This definition is purposely aligned with
-<<https://docs.ogc.org/DRAFTS/24-051.html#sc_job-management,https://www.opengis.net/spec/ogcapi-processes-4/1.0/conf/job-management>>
+<<https://docs.ogc.org/DRAFTS/24-051.html#clause_job-management,https://www.opengis.net/spec/ogcapi-processes-4/1.0/conf/job-management>>
 (`POST /jobs`) and
-<<https://docs.ogc.org/DRAFTS/20-044.html#_multipart_cwl_request_body,Multipart CWL request body>>
+<<https://docs.ogc.org/DRAFTS/20-044.html#sc_cwl_deploy-multipart-request-body,Multipart CWL request body>>
 of <<OAProc-2>> to make integration seamless for server implementations that support multiple parts.
 However, they are complementary and not strickly prerequisites of each other.
 
@@ -31,7 +32,8 @@ include::../requirements/requirements_class_cwl-workflows.adoc[]
 The following requirements describe the ability of an implementation to execute a CWL workflow in an ad-hoc manner
 and return its output, without requiring a prior deployment.
 
-==== Ad-hoc CWL Execution through a Process
+[[sc_cwl-workflows_adhoc-execution]]
+==== Ad-hoc Common Workflow Language Execution
 
 include::../requirements/cwl-workflows/REQ_cwl-workflows_adhoc-cwl-process-execution.adoc[]
 
@@ -51,6 +53,7 @@ That data (`"Hello, "` string) would then be chained into the `concatenate` proc
 At the same time, other <<OAProc-1>> input definitions remain valid (i.e.: `value`, `href`, `collection`).
 The resulting process would then produce `Hello, John Doe` as the output of the `concatenate` process.
 
+[[example_cwl-workflows_adhoc-nested-process-execution]]
 .Ad-hoc CWL execution chained into a parent Process
 [source,httprequest]
 ----
@@ -99,10 +102,15 @@ chain involving CWL `class: Workflow`, sub-workflows, or any other supported CWL
 chaining rules and syntax across CWL definitions apply normally according to its own specification.
 
 NOTE: One limitation of this approach is that a predefined and single "top-level" OGC API Process is required to receive
-the CWL outputs. If an entire CWL definition is desired, without any parent process, or possibly scattering execution of
-parallel graph operations, the <REQ_cwl-workflows_adhoc-cwl-job-execution,/req/cwl-workflows/adhoc-cwl-job-execution>>
-approach should instead be considered.
+the CWL outputs (i.e., the `{processId}` of the execution endpoint should resolve to a process).
+If an entire self-contained ad-hoc CWL definition is desired without need of chaining to another parent process, or when
+execution of parallel operations are not constrained by a single parent process, the following
+<<sc_cwl-workflows_adhoc-cwl-job-execution,Ad-hoc CWL Execution through a Job>> approach should be considered instead.
+Alternatively, the following permission can be employed to offer the traditional processing execution endpoint.
 
+include::../recommendations/cwl-workflows/PER_cwl-workflows_adhoc-cwl-process-execution-passthrough.adoc[]
+
+[[sc_cwl-workflows_adhoc-cwl-job-execution]]
 ==== Ad-hoc CWL Execution through a Job
 
 include::../requirements/cwl-workflows/REQ_cwl-workflows_adhoc-cwl-job-execution.adoc[]
@@ -118,6 +126,7 @@ Therefore, the `"Hello World!"` string directly goes through the `cwl_message` o
 to pass it through the `cwl_output` via `$(inputs.cwl_message)`. The `cwl_output` is also indicated explicitly
 for output selection in the usual <<OAProc-1>> fashion.
 
+[[example_cwl-workflows_adhoc-cwl-job-execution]]
 .Ad-hoc CWL execution submitted as job
 [source,httprequest]
 ----
@@ -164,6 +173,7 @@ NOTE: Although `inputs`/`outputs` are directly associated by ID, it is left up t
 relevant content-negotiation or data transformation between them as applicable. This standard does not impose any
 strategy to perform these steps.
 
+[[sc_cwl-workflows_adhoc-cwl-multipart-execution]]
 ==== Multipart Contents for Ad-hoc CWL Execution
 
 include::../requirements/cwl-workflows/REQ_cwl-workflows_adhoc-cwl-multipart-content.adoc[]
@@ -175,6 +185,7 @@ include::../recommendations/cwl-workflows/REC_cwl-workflows_adhoc-cwl-multipart-
 For example, the following multipart execution request demonstrates how the additional data files are provided
 with additional parts and referenced by the ad-hoc CWL definition to employ it at runtime.
 
+[[example_cwl-workflows_adhoc-cwl-multipart-execution]]
 .Ad-hoc CWL execution with additional file
 [source,httprequest]
 ----
@@ -217,6 +228,7 @@ Content-Disposition: filename="features.geojson"
 --sep--
 ----
 
+[[sc_cwl-workflows_dru-integration]]
 ==== Integration with Part 2: Deploy, Replace, Undeploy
 
 The capability to deploy a CWL workflow as a process using _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_

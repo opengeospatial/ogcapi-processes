@@ -1,6 +1,6 @@
 [[ats_core_test-process]]
 
-[requirement]
+[abstract_test]
 ====
 [%metadata]
 identifier:: /conf/core

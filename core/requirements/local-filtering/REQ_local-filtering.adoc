@@ -6,7 +6,7 @@ identifier:: /req/local-filtering
 
 [.component,class=description]
 --
-To support the local filtering of data accessed from a <<def_collection,collection>> before providing the data as <<sc_process_inputs,inputs to a process>>:
+To support the local filtering of data accessed from a <<def_collection,collection>> before providing the data as <<sc_process-execute_inputs,inputs to a process>>:
 --
 
 [.component,class=part]

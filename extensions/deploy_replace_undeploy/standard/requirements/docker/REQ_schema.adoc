@@ -6,7 +6,7 @@ identifier:: /req/docker/schema
 
 [.component,class=part]
 --
-The value of the `value` field of the <<executionUnit-property,`executionUnit` property>> of an <<clause_ogcapppkg,OGC Application Package>> SHALL be defined by the following OpenAPI schema fragment:
+The value of the `value` field of the <<sc_execution-unit-property,`executionUnit` property>> of an <<clause_ogcapppkg,OGC Application Package>> SHALL be defined by the following OpenAPI schema fragment:
 
 [source,yaml]
 ----

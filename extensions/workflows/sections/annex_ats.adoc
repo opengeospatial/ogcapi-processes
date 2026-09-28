@@ -1,0 +1,7 @@
+[[ats]]
+[appendix,obligation="normative"]
+[[ats_abstract-test-suite]]
+== Abstract Test Suite
+
+[[ats_introduction]]
+=== Introduction

@@ -6,7 +6,7 @@ identifier:: /req/ogcapppkg/executionUnit-schema
 
 [.component,class=part]
 --
-The value of the <<executionUnit-property,`executionUnit` property>> of an <<rc_ogcapppkg,OGC Application Package>> SHALL be defined by the following OpenAPI schema fragments:
+The value of the <<sc_execution-unit-property,`executionUnit` property>> of an <<rc_ogcapppkg,OGC Application Package>> SHALL be defined by the following OpenAPI schema fragments:
 
 executionUnit.yaml
 [source,yaml]

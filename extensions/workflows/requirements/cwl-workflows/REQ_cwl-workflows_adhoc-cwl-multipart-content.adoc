@@ -1,4 +1,4 @@
-[[REQ_cwl-workflows_adhoc-cwl-multipart-content]]
+[[req_cwl-workflows_adhoc-cwl-multipart-content]]
 [requirement]
 ====
 [%metadata]

@@ -1,3 +1,4 @@
+[[clause_conformance]]
 == Conformance
 This standard defines ten requirements conformance classes.
 
@@ -5,6 +6,7 @@ The standardization targets of all conformance classes are "Web APIs".
 
 The requirements classes are:
 
+[[sc_workflow-execution-requests]]
 === Requirements classes extending _Part 1: Core_ execution requests
 
 *<<rc_nested-processes,Requirements Class "Nested Processes">>* (https://www.opengis.net/spec/ogcapi-processes-3/0.0/req/nested-processes)
@@ -41,6 +43,7 @@ The extended JSON execution request defining the workflow can either be the dire
 or the execution unit of an <https://docs.ogc.org/DRAFTS/20-044.html#rc_ogcapppkg,_OGC Application Package_>>,
 if the implementation supports the associated _Part 2_ conformance class.
 
+[[sc_alternative-ad-hoc-workflow-definitions]]
 === Requirements classes specifying alternative ad-hoc workflow definitions
 
 *<<rc_cwl-workflows,Requirements Class "Common Workflow Language Definitions">>* (https://www.opengis.net/spec/ogcapi-processes-3/0.0/req/cwl-workflows)
@@ -60,6 +63,7 @@ OGC API data access specifications such as _OGC API - Tiles_, _DGGS_, _Coverages
 
 All requirements-classes and conformance-classes described in this document are owned by the standard(s) identified.
 
+[[sc_conformance_declaration]]
 === Declaration of conformance
 
 In order to conform to this OGC® interface standard, a software implementation shall choose to implement any one of the conformance levels specified in Annex A (normative).

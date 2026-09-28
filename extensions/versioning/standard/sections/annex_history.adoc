@@ -1,6 +1,9 @@
 [appendix]
+[[sc_revision-history_annex-history]]
 == Revision History
 
+[[table_revision-history]]
+.Revision history
 [cols="12,18,12,12,46",options="header,unnumbered"]
 |===
 |Date |Release |Editor | Primary clauses modified |Description

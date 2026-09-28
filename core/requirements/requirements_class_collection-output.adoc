@@ -9,8 +9,8 @@ inherit:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
 inherit:: /req/core
 requirement:: /req/collection-output/data-access-mechanisms
 requirement:: /req/collection-output/response-definition
-requirement:: /req/collection-output/response-response-many
-requirement:: /req/collection-output/response-response-one
+requirement:: /req/collection-output/response-output-many
+requirement:: /req/collection-output/response-output-one
 ====
 
 [[cc_collection-output]]

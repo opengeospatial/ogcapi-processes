@@ -6,7 +6,7 @@ identifier:: /req/collection-input/referencing
 
 .component,class=description]
 --
-For referencing a <<def_collection,local collection>> as a source of <<sc_process_inputs,input values to a process>>:
+For referencing a <<def_collection,local collection>> as a source of <<sc_process-execute_inputs,input values to a process>>:
 --
 
 [.component,class=part]
@@ -16,7 +16,7 @@ The server SHALL support inputs in an <<execute-request-body,execute requests>> 
 
 [.component,class=part]
 --
-The value of the `collection` parameter SHALL be URI or Relative-URI identifying a <<def_local-collection,local collection>> from which <<sc_process_inputs,process input values>> are retrieved.
+The value of the `collection` parameter SHALL be URI or Relative-URI identifying a <<def_local-collection,local collection>> from which <<sc_process-execute_inputs,process input values>> are retrieved.
 --
 
 [.component,class=part]

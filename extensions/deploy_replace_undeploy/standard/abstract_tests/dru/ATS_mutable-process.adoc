@@ -1,6 +1,6 @@
 [[ats_dru_mutable-process]]
 
-[requirement]
+[abstract_test]
 ====
 [%metadata]
 identifier:: /req/dru/mutable-process

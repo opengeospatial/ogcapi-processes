@@ -1,4 +1,5 @@
 
+[[clause_conformance]]
 == Conformance
 
 The OGC API - Processes - Part 2 Standard defines the following requirements classes.

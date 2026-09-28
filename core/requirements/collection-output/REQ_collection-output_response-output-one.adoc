@@ -1,8 +1,8 @@
-[[req_collection-output_response-response-one]]
+[[req_collection-output_response-output-one]]
 [requirement]
 ====
 [%metadata]
-identifier:: /req/collection-output/response-response-one
+identifier:: /req/collection-output/response-output-one
 
 [.component,class=conditions]
 --

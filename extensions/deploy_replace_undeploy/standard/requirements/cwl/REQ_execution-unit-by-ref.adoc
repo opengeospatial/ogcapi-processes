@@ -6,7 +6,7 @@ identifier:: /req/cwl/execution-unit-by-ref
 
 [.component,class=part]
 --
-If passed by reference, the value of the <<executionUnit-property,`executionUnit` property>> SHALL be a link pointing to the CWL file describing the execution unit of the process.
+If passed by reference, the value of the <<sc_execution-unit-property,`executionUnit` property>> SHALL be a link pointing to the CWL file describing the execution unit of the process.
 --
 
 [.component,class=part]

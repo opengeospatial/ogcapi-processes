@@ -1,0 +1,19 @@
+[[per_cwl-workflows_adhoc-cwl-deploy]]
+[permission]
+====
+[%metadata]
+identifier:: /per/cwl-workflows/adhoc-cwl-process-execution-passthrough
+description:: Capability for a server to simulate a nested `PassThrough` process for ad-hoc CWL execution request on processes endpoint.
+
+[.component,class=conditions]
+--
+. The server does NOT natively support the <<clause_nested-processes>>.
+. The ad-hoc CWL execution request is submitted on the `/processes/PassThrough/execution` endpoint.
+--
+
+[.component,class=part]
+--
+Although the server does not support _Nested Processes_, it MAY consider a `"https://example.com/ogcapi/processes/PassThrough"` process as a placeholder to simulate the execution of an ad-hoc CWL definition on the `/processes/PassThrough/execution` endpoint, as if it was submitted directly to the `/jobs` endpoint (see <<sc_cwl-workflows_adhoc-cwl-job-execution>>).
+--
+
+====

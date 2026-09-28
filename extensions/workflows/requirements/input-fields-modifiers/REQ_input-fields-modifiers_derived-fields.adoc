@@ -1,3 +1,4 @@
+[[req_input-fields-modifiers_derived-fields]]
 [requirement]
 ====
 [%metadata]

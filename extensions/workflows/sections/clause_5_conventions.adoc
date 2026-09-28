@@ -1,7 +1,9 @@
+[[clause_conventions]]
 == Conventions
 
 This sections provides details and examples for any conventions used in the document. Examples of conventions are symbols, abbreviations, use of XML schema, or special notes regarding how to read the document.
 
+[[sc_conventions_identifiers]]
 === Identifiers
 The normative provisions in this standard are denoted by the URI
 

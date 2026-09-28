@@ -1,4 +1,4 @@
-[[REQ_cwl-workflows_adhoc-cwl-job-execution]]
+[[req_cwl-workflows_adhoc-cwl-job-execution]]
 [requirement]
 ====
 [%metadata]
@@ -25,7 +25,7 @@ CWL definition and its associated execution parameters.
 
 [.component,class=part]
 --
-The multipart contents SHALL follow <<REQ_cwl-workflows_adhoc-cwl-multipart-content,/req/cwl-workflows/adhoc-cwl-multipart-content>>
+The multipart contents SHALL follow <<req_cwl-workflows_adhoc-cwl-multipart-content,/req/cwl-workflows/adhoc-cwl-multipart-content>>
 for the definition of part contents.
 --
 

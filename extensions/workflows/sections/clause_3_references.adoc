@@ -1,4 +1,5 @@
 [bibliography]
+[[clause_references]]
 == References
 
 The following normative documents contain provisions that, through reference in this text, constitute provisions of this document.

@@ -1,9 +1,12 @@
+[[clause_oas]]
 == OpenAPI requirements classes 
 
+[[sc_openapi]]
 === Requirements Class "OpenAPI Specification"
 
 NOTE: The Open API Requirements Class is abstract. Implementations can only conform to the concrete requirements classes <<rc_oas30,OpenAPI Specification 3.0>> or <<rc_oas31,OpenAPI Specification 3.1>>.
 
+[[sc_openapi_basic-requirements]]
 ==== Basic requirements
 
 Servers conforming to this requirements class define their API implementation instance as an OpenAPI Document. Note that this requirements class is not specific to a particular version of the OpenAPI specification. Requirements specific to a particular version are defined in separate, dependent requirements classes.
@@ -19,23 +22,24 @@ OpenAPI definitions can be created using different approaches. A typical example
 
 include::../requirements/oas/REQ_implementation.adoc[]
 
+[[sc_openapi_complete-definition]]
 ==== Complete definition
 
 include::../requirements/oas/REQ_completeness.adoc[]
 
 [NOTE]
 ====
-Servers that, for example, are access-controlled (see <<security,Security>>), support web cache validation, CORS or that use HTTP redirection will make use of additional HTTP status codes beyond regular codes such as `200` for successful GET requests and `400`, `404` or `500` for error situations. See <<http_status_codes>>.
+Servers that, for example, are access-controlled (see <<sc_security,Security>>), support web cache validation, CORS or that use HTTP redirection will make use of additional HTTP status codes beyond regular codes such as `200` for successful GET requests and `400`, `404` or `500` for error situations. See <<sc_http-1-1_status-codes>>.
 
 Clients must be prepared to receive responses not documented in the OpenAPI definition. For example, additional errors can occur in the transport layer outside of the server.
 ====
 
-[[exceptions]]
+[[sc_openapi_exceptions]]
 ==== Exceptions
 
 include::../requirements/oas/REQ_exception-codes.adoc[]
 
-[[example_14]]
+[[example_openapi_exception]]
 .An example exception response object definition
 =================
 [source,YAML]
@@ -51,7 +55,7 @@ content:
 ----
 =================
 
-[[security]]
+[[sc_security]]
 ==== Security
 
 include::../requirements/oas/REQ_security.adoc[]
@@ -66,6 +70,7 @@ The OpenAPI specification currently supports the following link:https://spec.ope
 
 * OpenID Connect Discovery.
 
+[[sc_openapi-3-0]]
 === Requirements Class "OpenAPI Specification 3.0"
 
 Servers conforming to the OpenAPI Specification 3.0 Requirements Class define their API implementation instance as an link:https://spec.openapis.org/oas/v3.0.3#openapi-document[OpenAPI 3.0 Document].
@@ -74,6 +79,7 @@ include::../requirements/requirements_class_oas30.adoc[]
 
 include::../requirements/oas30/REQ_oas-definition.adoc[]
 
+[[sc_openapi-3-1]]
 === Requirements Class "OpenAPI Specification 3.1"
 
 Servers conforming to the OpenAPI Specification 3.2 Requirements Class define their API implementation instance as an link:https://spec.openapis.org/oas/v3.1.0#openapi-document[OpenAPI 3.1 Document].

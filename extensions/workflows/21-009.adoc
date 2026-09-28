@@ -45,6 +45,8 @@ include::sections/clause_6_overview.adoc[]
 
 include::sections/clause_7_nested_processes.adoc[]
 
+include::sections/clause_8_remote_core_process.adoc[]
+
 include::sections/clause_9_input_output_fields_modifiers.adoc[]
 
 include::sections/clause_10_deployable_workflow.adoc[]
@@ -58,14 +60,14 @@ include::sections/clause_14_media_types.adoc[]
 ////
 add or remove annexes after "A" as necessary
 ////
-include::sections/annex-a.adoc[]
+include::sections/annex_ats.adoc[]
 
-include::sections/annex-b-coastal-erosion.adoc[]
+include::sections/annex_example_coastal-erosion.adoc[]
 
 ////
 Revision History should be the last annex before the Bibliography
 Bibliography should be the last annex
 ////
-include::sections/annex-history.adoc[]
+include::sections/annex_history.adoc[]
 
-include::sections/annex-bibliography.adoc[]
+include::sections/annex_bibliography.adoc[]

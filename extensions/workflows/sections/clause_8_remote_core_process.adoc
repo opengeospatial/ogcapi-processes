@@ -1,0 +1,23 @@
+[[clause_remote-core-process]]
+== Remote Core Processes Conformance Class
+
+[[sc_remote-core-process]]
+=== Requirement Class _Remote Core Processes_
+
+The _Remote Core Processes_ conformance class allows to reference and execute an OGC API <<def_remote-process>>
+using the _Core_ conformance class of <<OAProc-1>> in addition to any local process.
+
+include::../requirements/requirements_class_remote-core-processes.adoc[]
+
+The following requirements describe how an execution request references a remote OGC API process
+and how an implementation executes that remote process to use as an input to another process.
+
+[[sc_remote-core-process_referenced-process]]
+==== Referencing a remote process
+
+include::../requirements/remote-core-processes/REQ_remote-core-processes_referenced-process.adoc[]
+
+[[sc_remote-core-process_process-execution]]
+==== Executing a nested remote process
+
+include::../requirements/remote-core-processes/REQ_remote-core-processes_process-execution.adoc[]

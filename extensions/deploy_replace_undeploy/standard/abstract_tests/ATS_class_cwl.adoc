@@ -10,10 +10,12 @@ conformance-test:: /conf/cwl/deploy-body
 conformance-test:: /conf/cwl/replace-body
 ====
 
+[[ats_cwl_deploy-operation]]
 ==== Deploy operation
 
 include::cwl/deploy/ATS_body.adoc[]
 
+[[ats_cwl_replace-operation]]
 ==== Replace operation
 
 include::cwl/replace/ATS_body.adoc[]

@@ -1,6 +1,7 @@
-[[section_nested_processes]]
-== Nested Processes and Remote Processes Conformance Classes
+[[clause_nested-processes]]
+== Nested Processes Conformance Class
 
+[[sc_nested-processes]]
 === Requirement Class _Nested Processes_
 
 The _Nested Processes_ conformance class allows to use the output of a process as an input to another process.
@@ -16,29 +17,12 @@ include::../requirements/requirements_class_nested-processes.adoc[]
 The following requirements describe how an execution request references an OGC API process
 and how an implementation executes that process to use its output as an input to another process.
 
+[[sc_nested-processes_referenced-process]]
 ==== Referencing a process
 
 include::../requirements/nested-processes/REQ_nested-processes_referenced-process.adoc[]
 
+[[sc_nested-processes_process-execution]]
 ==== Executing a nested process
 
 include::../requirements/nested-processes/REQ_nested-processes_process-execution.adoc[]
-
-[[section_remote-core-process]]
-=== Requirement Class _Remote Core Processes_
-
-The _Remote Core Processes_ conformance class allows to reference and execute an OGC API <<def_remote-process>>
-using the _Core_ conformance class of <<OAProc-1>> in addition to any local process.
-
-include::../requirements/requirements_class_remote-core-processes.adoc[]
-
-The following requirements describe how an execution request references a remote OGC API process
-and how an implementation executes that remote process to use as an input to another process.
-
-==== Referencing a remote process
-
-include::../requirements/remote-core-processes/REQ_remote-core-processes_referenced-process.adoc[]
-
-==== Executing a nested remote process
-
-include::../requirements/remote-core-processes/REQ_remote-core-processes_process-execution.adoc[]

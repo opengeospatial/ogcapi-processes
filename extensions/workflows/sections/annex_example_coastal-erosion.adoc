@@ -1,4 +1,5 @@
 [appendix,obligation="informative"]
+[[sc_coastal-erosion-susceptibility-example-workflow]]
 == Coastal Erosion Susceptibility Example Workflow
 
 This annex presents a sample workflow predicting the susceptibility of coastal erosion from four data sources.

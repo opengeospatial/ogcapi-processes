@@ -62,32 +62,38 @@ conformance-test:: /conf/core/job-results-exception_results-not-available
 conformance-test:: /conf/core/job-results-failed
 ====
 
+[[ats_core_testable-process]]
 === Testable process
 
 include::core/ATS_test-process.adoc[]
 
+[[ats_core_api-landing-page]]
 === Retrieve the API landing page
 
 include::core/ATS_landingpage-op.adoc[]
 
 include::core/ATS_landingpage-success.adoc[]
 
+[[ats_core_api-definition]]
 === Retrieve an API definition
 
 include::core/ATS_api-definition-op.adoc[]
 
 include::core/ATS_api-definition-success.adoc[]
 
+[[ats_core_conformance-classes]]
 === Declaration of conformance classes
 
 include::core/ATS_conformance-op.adoc[]
 
 include::core/ATS_conformance-success.adoc[]
 
+[[ats_core_http-1-1]]
 === Use of HTTP 1.1
 
 include::core/ATS_http.adoc[]
 
+[[ats_core_process-list]]
 === Retrieve a process list
 
 include::core/ATS_process-list-op.adoc[]
@@ -102,16 +108,19 @@ include::core/ATS_process-list-links.adoc[]
 
 include::core/ATS_process-summary-links.adoc[]
 
+[[ats_core_process-description]]
 === Retrieve a process description
 
 include::core/ATS_process-description-op.adoc[]
 
 include::core/ATS_process-description-success.adoc[]
 
+[[ats_core_process-exception]]
 === Process exception
 
 include::core/ATS_process-exception-no-such-process.adoc[]
 
+[[ats_core_process-execution]]
 === Process execution /processes/{processID}/execution
 
 include::core/ATS_process-execute-op.adoc[]
@@ -158,8 +167,10 @@ include::core/ATS_process-execute-success-async-outputs-empty.adoc[]
 
 include::core/ATS_process-execute-success-async-outputs-omitted.adoc[]
 
+[[ats_core_jobs]]
 === Jobs
 
+[[ats_core_job-status]]
 ==== Job status /jobs/{jobID}
 
 include::core/ATS_job-op.adoc[]
@@ -168,6 +179,7 @@ include::core/ATS_job-success.adoc[]
 
 include::core/ATS_job-exception-no-such-job.adoc[]
 
+[[ats_core_job-results]]
 ==== Retrieve job results
 
 include::core/ATS_job-results-op.adoc[]

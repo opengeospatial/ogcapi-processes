@@ -1,7 +1,7 @@
-[[sc_job-management]]
+[[clause_job-management]]
 == Requirements Class "Job Management"
 
-[[job-management]]
+[[sc_job-management_overview]]
 === Overview
 
 include::../requirements/requirements_class_job-management.adoc[]
@@ -32,7 +32,7 @@ using the corresponding HTTP GET method on the `/jobs` path to retrieve a list o
 although this is not strictly required. However, the server supporting 'Job List' and 'Job Management'
 conformance classes simultaneously will need to support additional job `status` values that 'Job Management' defines.
 
-[[job-management-http_status_codes]]
+[[sc_http-status-codes]]
 ==== HTTP status codes
 
 Servers implementing the Processes API Part 4 can employ a variety of HTTPS status code.
@@ -77,16 +77,17 @@ Therefore, it is recommended that the API Description Document be limited to des
 operation of the API application logic. Client implementations should be prepared to receive HTTP status codes in addition to those
 described in the API Description Document.
 
-[[cross_origin]]
+[[sc_cross-origin-requests]]
 ==== Cross-origin requests
 
 See <<OAFeat-1,OGC API - Features - Part 1: Core>>, section link:http://www.opengis.net/doc/IS/ogcapi-features-1/1.0#cross_origin[Support for cross-origin requests], about the importance of supporting cross-origin requests, typically via link:https://en.wikipedia.org/wiki/Cross-origin_resource_sharing[Cross-origin resource sharing (CORS)].
 
 
 
-[[job-management-create]]
+[[sc_job-management_create]]
 === Creating a new job
 
+[[sc_job-management_create-sequence-diagram]]
 ==== Sequence diagram
 
 The following diagram illustrates the sequence diagram for deploying
@@ -110,12 +111,15 @@ Client                                                        Server
 =====
 
 
+[[sc_job-management_create-operation]]
 ==== Operation
 
 include::../requirements/job-management/create/REQ_post-op.adoc[]
 
+[[sc_job-management_create-request]]
 ==== Request
 
+[[sc_job-management_create-request-overview]]
 ===== Overview
 
 include::../requirements/job-management/create/REQ_body.adoc[]
@@ -128,15 +132,18 @@ See https://www.rfc-editor.org/rfc/rfc7231#section-3.1.1.5[section 3.1.1.5 of RF
 
 include::../recommendations/job-management/create/PER_content-schema.adoc[]
 
+[[sc_ogc-api-processes-workflow-execute-request_body]]
 ===== OGC API - Processes - Workflow Execute Request body
 
 include::../recommendations/job-management/create/REC_body-ogcapi-processes.adoc[]
 
+[[sc_openeo-process-graph-body]]
 ===== OpenEO Process Graph body
 
 include::../recommendations/job-management/create/REC_body-openeo.adoc[]
 
 
+[[sc_job-management_create-response]]
 ==== Response
 
 include::../requirements/job-management/create/REQ_response-jobid.adoc[]
@@ -153,9 +160,10 @@ include::../recommendations/job-management/create/PER_response-sync.adoc[]
 
 include::../recommendations/job-management/create/REC_response-pending.adoc[]
 
+[[sc_job-management_create-exceptions]]
 ==== Exceptions
 
-See <<job-management-http_status_codes>> for general guidance.
+See <<sc_http-status-codes>> for general guidance.
 
 If the request body's media type is not supported by the server,
 see requirement https://docs.ogc.org/DRAFTS/20-044.html#req_deploy-replace-undeploy_deploy_unsupported-media-type[`/req/deploy-replace-undeploy/deploy/unsupported-media-type`]
@@ -166,9 +174,10 @@ include::../requirements/job-management/create/REQ_unsupported-media-type.adoc[]
 include::../requirements/job-management/create/REQ_unsupported-schema.adoc[]
 
 
-[[job-management-update]]
+[[sc_job-management_update]]
 === Updating an existing job
 
+[[sc_job-management_update-sequence-diagram]]
 ==== Sequence diagram
 
 The following diagram illustrates the sequence diagram for updating a
@@ -192,14 +201,17 @@ Client                                                        Server
 -----
 =====
 
+[[sc_job-management_update-operation]]
 ==== Operation
 
 include::../requirements/job-management/update/REQ_patch-op.adoc[]
 
 include::../recommendations/job-management/update/PER_put-op.adoc[]
 
+[[sc_job-management_update-request]]
 ==== Request
 
+[[sc_job-management_update-request-overview]]
 ===== Overview
 
 include::../requirements/job-management/update/REQ_body.adoc[]
@@ -212,14 +224,17 @@ include::../requirements/job-management/update/REQ_content-type.adoc[]
 
 include::../recommendations/job-management/update/PER_content-schema.adoc[]
 
+[[sc_ogc-api-processes-workflow-execute-request]]
 ===== OGC API - Processes - Workflow Execute Request
 
 include::../recommendations/job-management/update/REC_body-ogcapi-processes.adoc[]
 
+[[sc_job-management_openeo-process-graph]]
 ===== OpenEO Process Graph
 
 include::../recommendations/job-management/update/REC_body-openeo.adoc[]
 
+[[sc_job-management_update-response]]
 ==== Response
 
 include::../requirements/job-management/update/REQ_response.adoc[]
@@ -227,9 +242,10 @@ include::../requirements/job-management/update/REQ_response.adoc[]
 The status code depends on the server. If the server has replaced the job, the response is either `200`
 (if the response includes additional content) or `204` (if the response has no additional content).
 
+[[sc_job-management_update-exceptions]]
 ==== Exceptions
 
-See <<job-management-http_status_codes>> for general guidance.
+See <<sc_http-status-codes>> for general guidance.
 
 If the request body's media type is not supported by the server,
 see requirement https://docs.ogc.org/DRAFTS/20-044.html#req_deploy-replace-undeploy_deploy_unsupported-media-type[`/req/deploy-replace-undeploy/deploy/unsupported-media-type`]
@@ -241,9 +257,10 @@ from <<OAProc-1>>.
 
 include::../requirements/job-management/update/REQ_response-locked.adoc[]
 
-[[job-management-start]]
+[[sc_job-management_start]]
 === Staring a job
 
+[[sc_job-management_start-sequence-diagram]]
 ==== Sequence diagram
 
 The following diagram illustrates the sequence diagram for starting
@@ -264,17 +281,20 @@ Client                                                        Server
 -----
 =====
 
+[[sc_job-management_start-operation]]
 ==== Operation
 
 include::../requirements/job-management/start/REQ_post-op.adoc[]
 
+[[sc_job-management_start-response]]
 ==== Response
 
 include::../requirements/job-management/start/REQ_response.adoc[]
 
+[[sc_job-management_start-exceptions]]
 ==== Exceptions
 
-See <<job-management-http_status_codes,HTTP status codes>> for general guidance.
+See <<sc_http-status-codes,HTTP status codes>> for general guidance.
 
 If the job with the specified identifier does not exist on the server, see requirement
 link:https://docs.ogc.org/DRAFTS/18-062r3.html#req_core_job-exception-no-such-job[`/req/core/job-exception-no-such-job`]
@@ -282,12 +302,13 @@ from <<OAProc-1>>.
 
 If the job with the specified identifier is locked,
 see requirement <<req_job-management_update_response-locked,/req/job-management/update-response-locked>>
-from <<job-management-update>>.
+from <<sc_job-management_update>>.
 
 
-[[job-management-definition]]
+[[sc_job-management_definition]]
 === Job definition
 
+[[sc_job-management_definition-overview]]
 ==== Overview
 
 For every job, it is possible to retrieve its original definition.
@@ -299,12 +320,14 @@ any relevant <<OAProc-3,OGC API - Processes - Part 3: Workflows and Chaining>> e
 depending on supported conformance classes.
 
 Alternate content profiles can be used to retrieve the job definition in a different format.
-See also <<sc_ogcapi-processes-workflow-execute-request>> and <<sc_openeo-process-graph>>.
+See also <<clause_ogcapi-processes-workflow-execute-request>> and <<clause_openeo-process-graph>>.
 
+[[sc_job-management_definition-operation]]
 ==== Operation
 
 include::../requirements/job-management/definition/REQ_get-op.adoc[]
 
+[[sc_job-management_definition-response]]
 ==== Response
 
 include::../requirements/job-management/definition/REQ_response-success.adoc[]
@@ -317,14 +340,16 @@ include::../recommendations/job-management/definition/PER_content-profile.adoc[]
 
 include::../recommendations/job-management/definition/PER_content-schema.adoc[]
 
+[[sc_job-management_definition-exceptions]]
 ==== Exceptions
 
-See <<deploy-replace-undeploy-http_status_codes,HTTP status codes>> for general guidance.
+See <<sc_http-status-codes,HTTP status codes>> for general guidance.
 
 If the job with the specified identifier does not exist on the server, see requirement
 link:https://docs.ogc.org/DRAFTS/18-062r3.html#req_core_job-exception-no-such-job[`/req/core/job-exception-no-such-job`]
 from <<OAProc-1>>.
 
+[[sc_job-management_definition-examples]]
 ==== Examples
 
 Below is an example of the default response body for a job definition request.
@@ -356,14 +381,16 @@ Additional metadata might be included in the response body as well at the discre
 ----
 =====
 
-[[job-management-job-list]]
+[[sc_job-management_job-list]]
 === Job list
 
+[[sc_job-management_job-list-overview]]
 ==== Overview
 
-Jobs that have been created and are still pending execution (see <<job-management-create>>),
+Jobs that have been created and are still pending execution (see <<sc_job-management_create>>),
 that are currently executing, or have completed execution, can be retrieved as a list of jobs.
 
+[[sc_job-management_job-list-response]]
 ==== Response
 
 include::../requirements/job-management/job-list/REQ_response-body.adoc[]

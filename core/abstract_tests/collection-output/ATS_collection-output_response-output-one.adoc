@@ -1,9 +1,9 @@
-[[ats_collection-output_response-response-one]]
+[[ats_collection-output_response-output-one]]
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/collection-output/response-response-one
-target:: /req/collection-output/response-response-one
+identifier:: /conf/collection-output/response-output-one
+target:: /req/collection-output/response-output-one
 test-purpose:: Validate that the collection output for a single explicitly or implicitly requested output is a reference to a <<def_collection-description,collection description document>>.
 test-method::
 +

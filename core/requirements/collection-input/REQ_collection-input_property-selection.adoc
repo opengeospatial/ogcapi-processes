@@ -6,7 +6,7 @@ identifier:: /req/collection-input/property-selection
 
 [.component,class=description]
 --
-The support property and derived property selection from a <<def_collection,collection>> before providing the data as <<sc_process_inputs,inputs to a process>>
+The support property and derived property selection from a <<def_collection,collection>> before providing the data as <<sc_process-execute_inputs,inputs to a process>>
 --
 
 [.component,class=part]

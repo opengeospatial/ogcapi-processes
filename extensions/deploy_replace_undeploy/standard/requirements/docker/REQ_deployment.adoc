@@ -6,7 +6,7 @@ identifier:: /req/docker/deployment
 
 [.component,class=part]
 --
-The `deployment` field of the <<executionUnit-property,`executionUnit` property>> of an <<clause_ogcapppkg,OGC Application Package>> SHALL be used to indicate where the Docker image, containing the executable code of a process, should be executed.
+The `deployment` field of the <<sc_execution-unit-property,`executionUnit` property>> of an <<clause_ogcapppkg,OGC Application Package>> SHALL be used to indicate where the Docker image, containing the executable code of a process, should be executed.
 --
 
 [.component,class=part]

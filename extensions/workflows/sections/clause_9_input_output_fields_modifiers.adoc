@@ -1,6 +1,7 @@
-[[section_fields_modifiers]]
+[[clause_fields-modifiers]]
 == Input/Output Fields Modifiers Conformance Classes
 
+[[sc_input-fields-modifiers]]
 === Requirement Class _Input Fields Modifiers_
 
 The _Input Fields Modifiers_ conformance class specifies how execution requests can modify
@@ -44,18 +45,22 @@ This ability to pass on these modifiers to remote data and processing sources al
 
 The extent to which an implementation support these field modifiers capabilities depends on its stated level of conformance to one or more expression language.
 
+[[sc_input-fields-modifiers_filtering]]
 ==== Filtering
 
 include::../requirements/input-fields-modifiers/REQ_input-fields-modifiers_filtering.adoc[]
 
+[[sc_input-fields-modifiers_derived-fields]]
 ==== Selecting and Deriving Fields
 
 include::../requirements/input-fields-modifiers/REQ_input-fields-modifiers_derived-fields.adoc[]
 
+[[sc_input-fields-modifiers_sorting]]
 ==== Sorting
 
 include::../requirements/input-fields-modifiers/REQ_input-fields-modifiers_sorting.adoc[]
 
+[[sc_output-fields-modifiers]]
 === Requirement Class _Output Fields Modifiers_
 
 The _Output Fields Modifiers_ conformance class specifies how execution requests can modify
@@ -94,14 +99,17 @@ it is preferable to let the remote process handle the modification to lower band
 The extent to which an implementation support these capabilities depends on its
 stated level of conformance to one or more expression language.
 
+[[sc_output-fields-modifiers_filtering]]
 ==== Filtering
 
 include::../requirements/output-fields-modifiers/REQ_output-fields-modifiers_filtering.adoc[]
 
+[[sc_output-fields-modifiers_derived-fields]]
 ==== Selecting and Deriving Fields
 
 include::../requirements/output-fields-modifiers/REQ_output-fields-modifiers_derived-fields.adoc[]
 
+[[sc_output-fields-modifiers_sorting]]
 ==== Sorting
 
 include::../requirements/output-fields-modifiers/REQ_output-fields-modifiers_sorting.adoc[]

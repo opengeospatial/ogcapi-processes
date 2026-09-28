@@ -16,7 +16,7 @@ test-method::
 2. Ensure job has completed successfully, as per <<ats_core_job-success,/conf/core/job-success>>.
 
 3. Issue an HTTP GET request to the URL `/jobs/{jobID}/results`
-   with <<con-neg-by-profile,Content negotiations by profile>> requesting the
+   with <<sc_con-neg-by-profile,Content negotiations by profile>> requesting the
    profile `https://www.opengis.net/def/profile/OGC/0/ogc-results`.
 
 4. Validate that the document was returned with a status code 200.

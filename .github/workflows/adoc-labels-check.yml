@@ -1,0 +1,49 @@
+# Tests all AsciiDoc files to ensure that section labels and normative block labels are consistent and defined.
+# This ensures that rendered Metanorma documents have reusable anchors instead of random UUIDs varying across builds.
+name: AsciiDoc Label Check
+
+on:
+  pull_request:
+    paths:
+      - '**/*.adoc'
+
+jobs:
+  check-adoc-labels:
+    name: Check section and normative block labels
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Determine changed .adoc files
+        id: changed
+        run: |
+          git fetch origin "${{ github.event.pull_request.base.sha }}" --depth=1
+          git diff --name-only --diff-filter=ACMR \
+            "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}" \
+            -- '*.adoc' > changed_adoc_files.txt
+
+          if [ -s changed_adoc_files.txt ]; then
+            echo "has_files=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_files=false" >> "$GITHUB_OUTPUT"
+          fi
+
+          echo "Changed .adoc files:"
+          cat changed_adoc_files.txt
+
+      - name: Validate section and normative block labels
+        if: steps.changed.outputs.has_files == 'true'
+        run: |
+          args=()
+          while IFS= read -r f; do
+            args+=(-f "$f")
+          done < changed_adoc_files.txt
+          python3 .github/scripts/check_adoc_labels.py "${args[@]}"

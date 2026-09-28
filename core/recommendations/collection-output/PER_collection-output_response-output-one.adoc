@@ -1,8 +1,8 @@
-[[pre_collection-output_response-response-one]]
+[[per_collection-output_response-output-one]]
 [permission]
 ====
 [%metadata]
-identifier:: /per/collection-output/response-response-one
+identifier:: /per/collection-output/response-output-one
 
 [.component,class=conditions]
 --
