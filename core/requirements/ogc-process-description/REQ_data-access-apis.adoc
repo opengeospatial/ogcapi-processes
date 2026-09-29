@@ -6,17 +6,17 @@ identifier:: /req/ogc-process-description/data-access-apis
 
 [.component,class=part]
 --
-The list of possible <<def_data-access-mechanism,OGC API data access mechanisms>> that can be used to retrieve process input or output values from an OGC collection shall be indicated by the `dataAccessApi` parameter in the <<clause_process-description,process' description>>.
+The list of possible <<def_data-access-mechanism,OGC API data access mechanisms>> that can be used to retrieve process input or output values from an OGC collection shall be indicated by the `dataAccessApis` parameter in the <<clause_process-description,process' description>>.
 --
 
 [.component,class=part]
 --
-The `dataAccessApi` parameter SHALL list all the OGC standard based APIs that the server can use to retrieve values for the corresponding process input or output.
+The `dataAccessApis` parameter SHALL list all the OGC standard based APIs that the server can use to retrieve values for the corresponding process input or output.
 --
 
 [.component,class=part]
 --
-The non-exhaustive list of values for the `dataAccessApi` parameter SHALL include:
+The non-exhaustive list of values for the `dataAccessApis` parameter SHALL include:
 
 * ogc-api-features
 * ogc-api-coverages
@@ -31,12 +31,12 @@ The non-exhaustive list of values for the `dataAccessApi` parameter SHALL includ
 
 [.component,class=part]
 --
-An empty value for the `dataAccessApi` parameter SHALL indicate that any of the API endpoints that the server claims to support in its <<sc_conformance-classes,conformance document>> can be used to retrieve values for the corresponding process input or output.
+An empty value (i.e., `[]`) for the `dataAccessApis` parameter SHALL indicate that any of the API endpoints that the server claims to support in its <<sc_conformance-classes,conformance document>> can be used to retrieve values for the corresponding process input or output.
 --
 
 [.component,class=part]
 --
-The absence of the `dataAccessApi` parameter SHALL, for the corresponding process input or input, indicate that <<sc_collection-input,collection input>> is not supported.
+The absence of the `dataAccessApis` parameter SHALL, for the corresponding process input or output, indicate that <<sc_collection-input,collection input>> is not supported.
 --
 
 ====

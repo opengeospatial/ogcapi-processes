@@ -37,4 +37,6 @@ As previously mentioned in the <<sc_con-neg-by-profile,"Content negotiations by 
 
 |https://www.opengis.net/def/profile/OGC/0/ogc-results |A JSON document that contains <<sc_process-execute_response,processing results>> (<<schema_results,results.yaml>>).
 
+|https://www.opengis.net/def/profile/OGC/0/ogc-collection |A document representation of the <<rc_collection-output,Collection Output>> resulting from a <<sc_execute_process,Process Execution>>.
+
 |===

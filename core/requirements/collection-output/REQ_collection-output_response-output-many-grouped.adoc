@@ -1,0 +1,37 @@
+[[req_collection-output_response-output-many-grouped]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/collection-output/response-output-many-grouped
+
+[.component,class=conditions]
+--
+. The <<sc_execute_process,Execution request>> includes the `response` parameter by <<req_collection-output_response-definition,query or property>> as appropriate for the HTTP request strategy.
+. The value of the `response` parameter is `collection`.
+. The number of requested outputs (whether <<implicit-explicit-outputs,implicitly or explicitly>>) is more than one.
+. The <<con-neg-by-profile,negotiated profile>> is `https://www.opengis.net/def/profile/OGC/0/ogc-collection` or omitted.
+--
+
+[.component,class=part]
+--
+The server SHALL respond with an HTTP status code of https://datatracker.ietf.org/doc/html/rfc7231#section-6.4.4[303].
+--
+
+[.component,class=part]
+--
+The response SHALL include a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[`Location`] response header redirecting to a <<def_collection-description,collection description document>>.
+--
+
+[.component,class=part]
+--
+The referenced <<def_collection-description,collection description document>> SHALL include all requested outputs
+under the same collection, using any aggregation strategy deemed appropriate for their negotiated contents respectively.
+--
+
+[.component,class=part]
+--
+The <<profile-uris,profile URI>> SHALL be returned in the response
+with HTTP header `Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-collection", rel="profile"`.
+--
+
+====

@@ -12,7 +12,7 @@ for all supported API endpoints including:
 
 * <<sc_landing-page,`/`>>,
 * <<sc_conformance-classes,`/conformance`>>,
-* <<sc_process_list,`/processes`>>,
+* <<sc_process-list,`/processes`>>,
 * <<sc_process_description,`/processes/{processID}`>>,
 * <<sc_job-status_info,`/jobs/{jobID}`>>
 ====

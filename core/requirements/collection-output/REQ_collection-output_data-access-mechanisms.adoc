@@ -15,5 +15,3 @@ The server SHALL support at least one <<def_data-access-mechanism,OGC API data a
 --
 
 ====
-
-

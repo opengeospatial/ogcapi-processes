@@ -1,6 +1,7 @@
 allOf:
   - $ref: 'linkBase.yaml'
   - $ref: 'linkBaseExtended.yaml'
+  - $ref: "dataClasses.yaml"
   - type: object
     required:
       - href

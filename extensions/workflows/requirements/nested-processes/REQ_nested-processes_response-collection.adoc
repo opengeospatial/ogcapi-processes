@@ -1,0 +1,35 @@
+[[req_nested-processes_response-collection]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/nested-processes/response-collection
+description:: For executing workflow definitions with nested processes producing intermediate collections
+
+[.component,class=conditions]
+--
+. A nested process structure is provided by `process` reference as per <<req_nested-processes_referenced-process,/req/nested-processes/referenced-process>>.
+. The server providing the nested process supports <<https://docs.ogc.org/DRAFTS/18-062r3.html#rc_collection-input,https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-output>>.
+. The server providing the parent process receiving the nested output supports <<https://docs.ogc.org/DRAFTS/18-062r3.html#rc_collection-input,https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-input>>.
+--
+
+[.component,class=part]
+--
+The Implementation SHALL support the `response` key with `collection` value in the execution body at any nesting level where a `process` interaction occurs.
+--
+
+[.component,class=part]
+--
+If `response: collection` is provided explicitly, the collection output behaviour SHALL be enforced onto the nested process, and between the servers if a <<section_remote-core-process,Remote Process>> is involved.
+--
+
+[.component,class=part]
+--
+If the `response` parameter is omitted, the interaction SHALL be left up for negotiation by the processing engine of the server receiving the execution request. This includes the option of auto-resolving to using the _collection output_ behaviour (as if provided), or reverting to other Core responses (e.g., returning a single output passed directly, using a "_packaged_" format like ZIP, using the <<schema_results,results.yaml>>, etc.), as deemed more appropriate by the negotiated contents.
+--
+
+[.component,class=part]
+--
+The collection response interactions between nested processes (in case of multiple nesting levels) SHALL be resolved distinctively for each process pair.
+--
+
+====
