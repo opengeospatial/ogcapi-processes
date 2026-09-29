@@ -506,7 +506,7 @@ include::../requirements/core/REQ_process-execute-request.adoc[]
 include::../../openapi/schemas/processes-core/execute.yaml[]
 ----
 
-[[execute-request-body]]
+[[execute-request-body-base]]
 .Schema for execute base parameters
 [source,yaml]
 ----
