@@ -1,4 +1,4 @@
-= OGC API - Processes - Part 5: Provenance
+= OGC API - Processes - Part 5: Provenance and Profiles
 :doctype: standard
 :docsubtype: implementation
 :docnumber: 26-038
@@ -22,27 +22,29 @@
 ////
 Make sure to complete each included document
 ////
-include::sections/clause_0_front_material.adoc[]
+include::sections/clause_00_front_material.adoc[]
 
-include::sections/clause_1_scope.adoc[]
+include::sections/clause_01_scope.adoc[]
 
-include::sections/clause_2_conformance.adoc[]
+include::sections/clause_02_conformance.adoc[]
 
-include::sections/clause_3_references.adoc[]
+include::sections/clause_03_references.adoc[]
 
-include::sections/clause_4_terms_and_definitions.adoc[]
+include::sections/clause_04_terms_and_definitions.adoc[]
 
-include::sections/clause_5_conventions.adoc[]
+include::sections/clause_05_conventions.adoc[]
 
-include::sections/clause_6_provenance.adoc[]
+include::sections/clause_10_provenance.adoc[]
 
-include::sections/clause_7_research_object.adoc[]
+include::sections/clause_11_research_object.adoc[]
 
-include::sections/clause_8_oas.adoc[]
+include::sections/clause_12_metadata_profiles.adoc[]
 
-include::sections/clause_9_media_types.adoc[]
+include::sections/clause_20_oas.adoc[]
 
-include::sections/clause_10_security_considerations.adoc[]
+include::sections/clause_21_media_types.adoc[]
+
+include::sections/clause_22_security_considerations.adoc[]
 
 include::sections/annex_ats.adoc[]
 
