@@ -6010,6 +6010,9 @@
             "$ref": "#/components/schemas/processes-core-format"
           },
           {
+            "$ref": "#/components/schemas/processes-core-dataClasses"
+          },
+          {
             "type": "object",
             "required": [
               "value"
@@ -6464,6 +6467,21 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          "profile": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uri"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            ]
           }
         },
         "title": "linkBaseExtended"
