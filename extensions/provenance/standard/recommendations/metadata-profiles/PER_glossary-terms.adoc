@@ -1,0 +1,15 @@
+[[per_metadata-profiles_glossary-terms]]
+[permission]
+====
+[%metadata]
+identifier:: /per/metadata-profiles/glossary-terms
+
+[.component,class=part]
+--
+The `role` of a <<req_metadata-profiles_profile-link,_Metadata Profile Link_>> MAY be a term of the
+link:https://defs.opengis.net/prez/catalogs/ogc-cat:register/col/ogc:glossary[OGC Glossary]
+as a supplementary concept representation (e.g., `pass:[http://www.opengis.net/def/glossary/term/Raster]`)
+of the kind of profile provided by the `href`.
+--
+
+====

@@ -1,0 +1,8 @@
+# Combination of Part 2 (deploy) and Part 5 (metadata role profiles filter) on '/processes'.
+get:
+   $ref: "operations/oProcessListMetadata.yaml"
+post:
+   $ref: "../processes-dru/operations/oDeploy.yaml"
+# FIXME: enable once the root definition is upgraded to OpenAPI 3.2+ ('query' is not a valid operation in 3.0).
+# query:
+#    $ref: "operations/oProcessListQuery.yaml"

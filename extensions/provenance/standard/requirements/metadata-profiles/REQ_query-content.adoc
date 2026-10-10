@@ -1,0 +1,49 @@
+[[req_metadata-profiles_query-content]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/metadata-profiles/query-content
+
+[.component,class=conditions]
+--
+. The server supports the `QUERY` method on path `/processes` as per
+  <<req_metadata-profiles_query-method,Query Method>>.
+--
+
+[.component,class=part]
+--
+The request content SHALL be of media type `application/json`.
+--
+
+[.component,class=part]
+--
+The request content SHALL validate against the following OpenAPI schema fragments:
+
+[source,yaml]
+----
+include::../../../../../openapi/schemas/processes-provenance/metadata-profiles/processesQuery.yaml[]
+----
+
+[source,yaml]
+----
+include::../../../../../openapi/schemas/processes-provenance/metadata-profiles/metadataProfileQuery.yaml[]
+----
+
+[source,yaml]
+----
+include::../../../../../openapi/schemas/processes-provenance/metadata-profiles/metadataRoleProfiles.yaml[]
+----
+--
+
+[.component,class=part]
+--
+The `process`, `inputs` and `outputs` members are each optional.
+--
+
+[.component,class=part]
+--
+Each `<role>` of the content SHALL map to a list of `<profile>` that are evaluated as per
+<<req_metadata-profiles_query-matching,Query Matching>>.
+--
+
+====

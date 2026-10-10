@@ -1,0 +1,14 @@
+description: |-
+  A metadata role or profile of the filter is not a valid IRI, URN or Safe CURIE.
+content:
+  application/problem+json:
+    schema:
+      allOf:
+        - $ref: '../../../schemas/common-core/exception.yaml'
+        - type: object
+          properties:
+            type:
+              const: "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/invalid-metadata-profile"
+            instance:
+              type: string
+              description: The offending metadata role or profile value, percent-encoded as needed to form a URI reference.

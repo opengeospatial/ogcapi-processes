@@ -1,0 +1,13 @@
+name: metadata
+in: query
+required: false
+description: |-
+  Filters processes by metadata role and profile, using the form
+  `metadata[process][<role>]=<profile>`, `metadata[inputs][<role>]=<profile>` or `metadata[outputs][<role>]=<profile>`.
+  The `<role>` and `<profile>` are IRIs, URNs or Safe CURIEs (which must be percent-encoded in the query string).
+  Multiple profiles for a same role are provided as comma-separated values or as repeated parameters,
+  and all of them must be matched.
+style: deepObject
+explode: true
+schema:
+  $ref: "../../../schemas/processes-provenance/metadata-profiles/metadataProfileQuery.yaml"

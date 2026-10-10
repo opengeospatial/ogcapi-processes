@@ -1,0 +1,16 @@
+[[ats_metadata-profiles_query-curie-matching]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/metadata-profiles/query-curie-matching
+target:: /req/metadata-profiles/query-curie-matching
+test-purpose:: Validate that Safe CURIEs and their expanded URIs are matched as aliases.
+test-method::
++
+--
+1. Issue a filter using a Safe CURIE `<role>`/`<profile>` (query parameter and `QUERY` method), and a filter using the equivalent expanded URIs.
+
+2. Validate that both return the same processes, whether the process description metadata use the Safe CURIE or the URI.
+--
+====

@@ -1,0 +1,18 @@
+[[rec_metadata-profiles_data-type-registers]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/metadata-profiles/data-type-registers
+
+[.component,class=part]
+--
+When the profile of an input or output describes a data type, the `href` SHOULD be selected from common data-type
+registers, such as:
+
+* link:http://www.opengis.net/def/data-type/ogc/1.1/crs-uri[OGC CRS URI data type] for coordinate reference systems
+* link:https://defs.opengis.net/prez/catalogs/ogc-cat:metamodel/col/metamodel:def-type/it1/ogc:dataType[OGC data types]
+* link:https://defs.opengis.net/prez/catalogs/ogc-cat:non-ogc[Non-OGC generic data types] (e.g., ISO)
+* link:https://geolabs.github.io/bblocks-generic-profiles/bblock/generic-profiles.data-type[Extended generic data types]
+--
+
+====

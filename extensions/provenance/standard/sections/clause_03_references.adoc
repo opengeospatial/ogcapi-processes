@@ -11,4 +11,16 @@
 
 * [[[OAProc-4,OGC 24-051]]], Fenoy, G., Charette-Migneault, F.: OGC 24-051, *OGC API - Processes - Part 4: Job Management*
 
+* [[[rfc3986,IETF RFC 3986]]], Berners-Lee, T., Fielding, R., Masinter, L.: IETF RFC 3986, *Uniform Resource Identifier (URI): Generic Syntax*, 2005 https://www.rfc-editor.org/rfc/rfc3986
+
+* [[[rfc3987,IETF RFC 3987]]], Duerst, M., Suignard, M.: IETF RFC 3987, *Internationalized Resource Identifiers (IRIs)*, 2005 https://www.rfc-editor.org/rfc/rfc3987
+
+* [[[rfc8141,IETF RFC 8141]]], Saint-Andre, P., Filament, J.: IETF RFC 8141, *Uniform Resource Names (URNs)*, 2017 https://www.rfc-editor.org/rfc/rfc8141
+
+* [[[rfc9110,IETF RFC 9110]]], Fielding, R., Nottingham, M., Reschke, J.: IETF RFC 9110, *HTTP Semantics*, 2022 https://www.rfc-editor.org/rfc/rfc9110
+
+* [[[rfc10008,IETF RFC 10008]]], *The HTTP QUERY Method*, 2026 https://www.rfc-editor.org/rfc/rfc10008
+
+* [[[rfc9457,IETF RFC 9457]]], Nottingham, M., Wilde, E., Dalal, S.: IETF RFC 9457, *Problem Details for HTTP APIs*, 2023 https://www.rfc-editor.org/rfc/rfc9457
+
 * [[[rfc6902,IETF RFC 6902]]], Bryan, P., Nottingham, M.: IETF RFC 6902, *JavaScript Object Notation (JSON) Patch*, 2013 http://tools.ietf.org/rfc/rfc6902.txt

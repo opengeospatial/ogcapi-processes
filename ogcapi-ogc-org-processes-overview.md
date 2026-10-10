@@ -95,7 +95,7 @@ POST /jobs/{jobID}/results
 
 Trigger execution of an existing job.
 
-## Overview of OGC API - Processes - Part 5: Provenance
+## Overview of OGC API - Processes - Part 5: Provenance and Profiles
 
 ```
 GET /jobs/{jobID}/prov

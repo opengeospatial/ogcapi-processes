@@ -1,0 +1,22 @@
+[[ats_metadata-profiles_query-method]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/metadata-profiles/query-method
+target:: /req/metadata-profiles/query-method
+test-purpose:: Validate that the server either supports the HTTP `QUERY` operation on `/processes`, or reports that it does not.
+test-method::
++
+--
+1. Issue an HTTP `OPTIONS` request on `{root}/processes` (see <<ats_metadata-profiles_query-options>>) and determine whether `QUERY` is advertised.
+
+2. If `QUERY` is advertised, issue a `QUERY` request on `{root}/processes` with `Content-Type: application/json` and a body with a `metadata` field (`process`, `inputs`, `outputs`).
+
+3. Validate that the response status code is 200 (OK) and that the processes are those returned by the equivalent `GET` request using query parameters.
+
+4. Validate that no resource was modified by the request.
+
+5. If `QUERY` is not advertised, issue the same `QUERY` request and validate that the response status code is 405 with an `Allow` header that does not include `QUERY`.
+--
+====

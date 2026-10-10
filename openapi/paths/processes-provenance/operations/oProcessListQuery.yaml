@@ -1,0 +1,26 @@
+# Not wired in the root definition since OpenAPI 3.0 does not define the 'query' operation (OpenAPI 3.2+ only).
+summary: retrieve the list of available processes, filtered by metadata role profiles in the request body
+description: |
+   Safe and idempotent equivalent of the `GET /processes` operation with `metadata[<target>][<role>]=<profile>`
+   query parameters, where the filters are provided in the request body.
+operationId: queryProcessesMetadata
+tags:
+  - Processes
+  - Metadata Profiles
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "../../../schemas/processes-provenance/metadata-profiles/processesQuery.yaml"
+responses:
+   200:
+      $ref: "../../../responses/processes-core/rProcessList.yaml"
+   204:
+      description: No process matches the metadata role profiles.
+   400:
+      $ref: "../../../responses/processes-provenance/metadata-profiles/rInvalidMetadataProfile.yaml"
+   422:
+      $ref: "../../../responses/processes-provenance/metadata-profiles/rInvalidMetadataRole.yaml"
+   500:
+      $ref: "../../../responses/common-core/rServerError.yaml"
