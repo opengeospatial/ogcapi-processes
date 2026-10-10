@@ -1,0 +1,21 @@
+[[ats_metadata-profiles_query-compression]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/metadata-profiles/query-compression
+target:: /req/metadata-profiles/query-compression
+test-purpose:: Validate that the server either supports compressed filters in the `metadata` query parameter, or reports that it does not.
+test-method::
++
+--
+1. Compress (gzip) a valid `QUERY` content, encode it as base64url, and issue a `GET` request on `{root}/processes`
+with the result as the single value of the `metadata` query parameter.
+
+2. If the response status code is 200 or 204, validate that the processes are those returned by the equivalent
+`GET` request using `metadata[<target>][<role>]=<profile>` query parameters.
+
+3. Otherwise, validate that the response status code is 422 and that the response is reported as per
+<<ats_metadata-profiles_unsupported-metadata-encoding>>.
+--
+====

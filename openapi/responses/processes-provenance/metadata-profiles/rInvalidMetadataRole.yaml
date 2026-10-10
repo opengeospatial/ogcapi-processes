@@ -1,5 +1,6 @@
 description: |-
-  A metadata role or profile of the filter is a valid IRI, URN or Safe CURIE, but cannot be interpreted by the server.
+  A metadata role or profile of the filter is a valid IRI, URN or Safe CURIE, but cannot be interpreted by the server,
+  or the filter is provided as a compressed value that the server does not support.
 content:
   application/problem+json:
     schema:
@@ -8,7 +9,9 @@ content:
         - type: object
           properties:
             type:
-              const: "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/unsupported-metadata-profile"
+              enum:
+                - "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/unsupported-metadata-profile"
+                - "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/unsupported-metadata-encoding"
             instance:
               type: string
               description: The offending metadata role or profile value.

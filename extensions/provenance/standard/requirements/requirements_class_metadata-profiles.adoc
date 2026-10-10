@@ -16,6 +16,8 @@ requirement:: /req/metadata-profiles/query-curie-matching
 requirement:: /req/metadata-profiles/query-options
 requirement:: /req/metadata-profiles/query-method
 requirement:: /req/metadata-profiles/query-content
+requirement:: /req/metadata-profiles/query-compression
+requirement:: /req/metadata-profiles/unsupported-metadata-encoding
 requirement:: /req/metadata-profiles/invalid-metadata-profile
 requirement:: /req/metadata-profiles/invalid-role
 ====

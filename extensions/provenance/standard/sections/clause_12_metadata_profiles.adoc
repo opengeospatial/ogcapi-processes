@@ -156,8 +156,37 @@ include::../requirements/metadata-profiles/REQ_query-method.adoc[]
 
 include::../requirements/metadata-profiles/REQ_query-content.adoc[]
 
+[[sc_metadata-profiles_query-compression]]
+==== Long Filters and Compression
+
+Filters provided with the `GET` operation can lead to a URI exceeding the length accepted by the server or
+an intermediary, resulting in a `414` (URI Too Long) status code (<<rfc9110,RFC 9110>>).
+
+NOTE: The preferred approach to provide long filters is the `QUERY` method, whose content is not constrained by
+the length of the URI. See <<req_metadata-profiles_query-method,Query Method>> and
+<<req_metadata-profiles_query-options,Query Options>> to discover its support.
+
+When the `QUERY` method cannot be employed, the filters can be provided as a compressed value directly to the `metadata`
+query parameter instead. The value is the <<req_metadata-profiles_query-content,`QUERY` content>>
+compressed with `gzip` and encoded with `base64url` (<<rfc4648,RFC 4648>>, Section 5).
+A `gzip` stream always starts with the bytes `0x1F 0x8B`, which allows distinguishing it from
+the `metadata[<target>][<role>]` form without any additional parameter. Once `base64url`-encoded,
+such a value starts with `H4sI`.
+
+include::../requirements/metadata-profiles/REQ_query-compression.adoc[]
+
+WARNING: The magic number checks are security features on top of providing detection mechanisms.
+Servers are STRONGLY recommended to perform those checks to avoid processing arbitrary content
+that could be maliciously crafted to exploit vulnerabilities.
+
+include::../recommendations/metadata-profiles/PER_query-compression-limits.adoc[]
+
+include::../recommendations/metadata-profiles/REC_query-compression-limits.adoc[]
+
+include::../requirements/metadata-profiles/REQ_unsupported-metadata-encoding.adoc[]
+
 [[sc_metadata-profiles_matching]]
-==== Matching Semantic
+==== Matching Semantics
 
 The filters defined for matching profiles never refer to the identifiers (`id`) of the process, of its inputs or of
 its outputs. Those identifiers are chosen freely by each process author, so two processes providing equivalent capability,

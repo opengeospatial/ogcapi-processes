@@ -7,7 +7,9 @@ identifier:: /req/metadata-profiles/invalid-metadata-profile
 [.component,class=conditions]
 --
 . A `<role>` or `<profile>` of the filters is not a valid IRI (<<rfc3987,RFC 3987>>), URN (<<rfc8141,RFC 8141>>)
-or Safe CURIE, as required by <<req_metadata-profiles_profile-link,/req/metadata-profiles/profile-link>>.
+or Safe CURIE, as required by <<req_metadata-profiles_profile-link,/req/metadata-profiles/profile-link>>,
+or a <<req_metadata-profiles_query-compression,compressed filter value>> cannot be decoded as per
+<<req_metadata-profiles_query-compression,/req/metadata-profiles/query-compression>>.
 --
 
 [.component,class=part]
@@ -23,7 +25,7 @@ The response SHALL use the media type `application/problem+json` (<<rfc9457,RFC 
 [.component,class=part]
 --
 The `instance` of the response content SHALL be the offending `<role>` or `<profile>` value of the filters,
-percent-encoded as needed to form a URI reference (<<rfc3986,RFC 3986>>).
+percent-encoded as needed to form a URI reference (<<rfc3986,RFC 3986>>), or `metadata` for a compressed filter value.
 --
 
 [.component,class=part]

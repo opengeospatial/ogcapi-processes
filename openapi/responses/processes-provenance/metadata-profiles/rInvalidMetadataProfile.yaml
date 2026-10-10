@@ -1,5 +1,5 @@
 description: |-
-  A metadata role or profile of the filter is not a valid IRI, URN or Safe CURIE.
+  A metadata role or profile of the filter is not a valid IRI, URN or Safe CURIE, or a compressed filter cannot be decoded.
 content:
   application/problem+json:
     schema:
@@ -11,4 +11,6 @@ content:
               const: "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/invalid-metadata-profile"
             instance:
               type: string
-              description: The offending metadata role or profile value, percent-encoded as needed to form a URI reference.
+              description: |-
+                The offending metadata role or profile value, percent-encoded as needed to form a URI reference.
+                Set to `metadata` when the offending value is a compressed filter.

@@ -1,0 +1,19 @@
+[[ats_metadata-profiles_unsupported-metadata-encoding]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/metadata-profiles/unsupported-metadata-encoding
+target:: /req/metadata-profiles/unsupported-metadata-encoding
+test-purpose:: Validate that problems of compressed filters are reported using the expected media type and type.
+test-method::
++
+--
+1. Trigger a problem with a compressed filter as per <<ats_metadata-profiles_query-compression>>.
+
+2. Validate that the media type is `application/problem+json` (<<rfc9457,RFC 9457>>).
+
+3. Validate that the `type` is `https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/unsupported-metadata-encoding`
+and that the `instance` is `metadata`.
+--
+====

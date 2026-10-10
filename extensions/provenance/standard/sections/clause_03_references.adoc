@@ -23,4 +23,8 @@
 
 * [[[rfc9457,IETF RFC 9457]]], Nottingham, M., Wilde, E., Dalal, S.: IETF RFC 9457, *Problem Details for HTTP APIs*, 2023 https://www.rfc-editor.org/rfc/rfc9457
 
+* [[[rfc1952,IETF RFC 1952]]], Deutsch, P.: IETF RFC 1952, *GZIP file format specification version 4.3*, 1996 https://www.rfc-editor.org/rfc/rfc1952
+
+* [[[rfc4648,IETF RFC 4648]]], Josefsson, S.: IETF RFC 4648, *The Base16, Base32, and Base64 Data Encodings*, 2006 https://www.rfc-editor.org/rfc/rfc4648
+
 * [[[rfc6902,IETF RFC 6902]]], Bryan, P., Nottingham, M.: IETF RFC 6902, *JavaScript Object Notation (JSON) Patch*, 2013 http://tools.ietf.org/rfc/rfc6902.txt

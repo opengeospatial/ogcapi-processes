@@ -43,7 +43,7 @@ The `process`, `inputs` and `outputs` members are each optional.
 [.component,class=part]
 --
 Each `<role>` of the content SHALL map to a list of `<profile>` that are evaluated as per
-<<req_metadata-profiles_query-matching,Query Matching>>.
+<<sc_metadata-profiles_matching,Query Matching>>.
 --
 
 ====

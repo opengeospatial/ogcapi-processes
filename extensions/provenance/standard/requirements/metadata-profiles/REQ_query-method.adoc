@@ -20,7 +20,7 @@ as defined by <<req_metadata-profiles_query-options,Query Options>>.
 --
 If the `QUERY` method is supported, the filters provided in the request content, as defined by
 <<req_metadata-profiles_query-content,Query Content>>, SHALL be evaluated using the same semantics as
-<<req_metadata-profiles_query-matching,Query Matching>>.
+<<sc_metadata-profiles_matching,Query Matching>>.
 --
 
 [.component,class=part]

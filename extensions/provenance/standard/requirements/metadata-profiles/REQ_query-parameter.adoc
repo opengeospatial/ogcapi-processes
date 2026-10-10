@@ -64,7 +64,7 @@ Multiple profiles for the same `<role>` SHALL be accepted as repeated parameters
 [.component,class=part]
 --
 The matching of the parameters, when combined with each other or with any other query parameter of the operation,
-SHALL follow <<req_metadata-profiles_query-matching,Query Matching>>.
+SHALL follow <<sc_metadata-profiles_matching,Query Matching>>.
 --
 
 The corresponding OpenAPI definition is provided by the `metadata` query parameter:

@@ -7,7 +7,12 @@ description: |-
   The `<role>` and `<profile>` are IRIs, URNs or Safe CURIEs (which must be percent-encoded in the query string).
   Multiple profiles for a same role are provided as comma-separated values or as repeated parameters,
   and all of them must be matched.
+
+  Alternatively, when supported by the server, a single value (not using the bracket form) can provide the
+  filters as the gzip-compressed and base64url-encoded `QUERY` content, in order to avoid `414` (URI Too Long) errors.
 style: deepObject
 explode: true
 schema:
-  $ref: "../../../schemas/processes-provenance/metadata-profiles/metadataProfileQuery.yaml"
+  oneOf:
+    - $ref: "../../../schemas/processes-provenance/metadata-profiles/metadataProfileQuery.yaml"
+    - $ref: "../../../schemas/processes-provenance/metadata-profiles/metadataCompressedQuery.yaml"
