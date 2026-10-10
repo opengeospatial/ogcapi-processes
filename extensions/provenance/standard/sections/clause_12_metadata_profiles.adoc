@@ -45,8 +45,9 @@ No specific relation or combination of relations is imposed.
 Any relations that provide an equivalent explicit coupling between the concepts can be used.
 The relation to employ depends on the situation. Following is a non exhaustive list of such possible relations:
 
+[[table_metadata-profiles_concept-relations]]
 [cols="2,3",options="header"]
-. Examples of possible relationships indicating coupled profiles and concepts (informative).
+.Examples of possible relationships indicating coupled profiles and concepts (informative)
 |===
 | Relation | Situation
 | `rdfs:subClassOf` | The `href` concept is a more specific class of the `role` concept.

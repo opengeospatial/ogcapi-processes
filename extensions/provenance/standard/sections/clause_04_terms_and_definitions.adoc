@@ -15,11 +15,6 @@ The following additional terms and definitions apply to this document.
 graph-structured representation of concepts, resources and the typed relationships between them, typically expressed
 using RDF statements (subject, predicate, object) such that it can be queried and traversed
 
-[[sc_abbreviated-terms]]
-=== Abbreviated Terms
-
-See <<OAProc-1>>, Clause 4.2.
-
 [[def_metadata-role-parameter]]
 ==== metadata role parameter
 
@@ -35,3 +30,8 @@ the profile link entries in the `metadata` list field of a process, input or out
 a <<def_metadata-role-parameter,metadata role parameter>>.
 It is an IRI, URN or Safe CURIE that identifies the profile to match against the `href` of
 the profile link entries having that `role`
+
+[[sc_abbreviated-terms]]
+=== Abbreviated Terms
+
+See <<OAProc-1>>, Clause 4.2.
