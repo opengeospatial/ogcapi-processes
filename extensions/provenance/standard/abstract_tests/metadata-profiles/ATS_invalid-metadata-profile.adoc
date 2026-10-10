@@ -15,7 +15,7 @@ or `<profile>` is not a valid IRI, URN or Safe CURIE (e.g., contains spaces).
 2. Validate that the response status code is 400 and that the media type is `application/problem+json` (<<rfc9457,RFC 9457>>).
 
 3. Validate that the `type` is `pass:[https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/invalid-metadata-profile]`
-and that the `instance` is the offending `<role>` or `<profile>` value (percent-encoded as needed), or `metadata` for an invalid compressed value.
+and that the `instance` is the offending `<role>` or `<profile>` value, or `metadata` for an invalid compressed value.
 
 4. If the `QUERY` method is supported, repeat the steps with the filter provided in the request content.
 --
