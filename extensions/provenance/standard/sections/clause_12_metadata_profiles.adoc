@@ -66,6 +66,18 @@ include::../recommendations/metadata-profiles/REC_data-type-registers.adoc[]
 
 include::../recommendations/metadata-profiles/PER_safe-curie.adoc[]
 
+NOTE: In a query parameter, the Safe CURIE brackets combine with the brackets of the `deepObject` structure.
+A Safe CURIE `<role>` appears in a parameter name with doubled brackets, such as
+`+++metadata[inputs][[ogc-profile:data-type]]+++`, where the outer brackets delimit the `<role>` key and the inner ones belong
+to the Safe CURIE. A Safe CURIE `<profile>` is a parameter value, and therefore only has its own brackets, such as
+`[ogc-profile:raster]`. A complete filter looks like `+++metadata[inputs][[ogc-profile:data-type]]=[ogc-profile:raster]+++`.
+Brackets are subject to the percent-encoding rules of <<rfc3986,RFC 3986>>, as described below.
+Parsing is defined by <<req_metadata-profiles_query-curie-matching,/req/metadata-profiles/query-curie-matching>>.
+
+include::../recommendations/metadata-profiles/PER_query-literal-brackets.adoc[]
+
+include::../recommendations/metadata-profiles/REC_query-literal-brackets-error.adoc[]
+
 [[sc_metadata-profiles_example]]
 ==== Example
 
