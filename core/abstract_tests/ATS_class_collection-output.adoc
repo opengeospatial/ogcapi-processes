@@ -7,19 +7,21 @@ identifier:: https://www.opengis.net/spec/ogcapi-processes-1/2.0/conf/collection
 subject:: <<rc_collection-output,https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/collection-output>>
 classification:: Target Type:Web API
 conformance-test:: /conf/collection-output/response-definition
-conformance-test:: /conf/collection-output/response-output-many
+conformance-test:: /conf/collection-output/response-output-many-grouped
+conformance-test:: /conf/collection-output/response-output-many-results
 conformance-test:: /conf/collection-output/response-output-one
+conformance-test:: /conf/collection-output/response-unsupported
 conformance-test:: /conf/collection-output/data-access-mechanisms
 ====
 
 include::collection-output/ATS_collection-output_response-def.adoc[]
 
-include::collection-output/ATS_collection-output_response-output-many.adoc[]
+include::collection-output/ATS_collection-output_response-output-many-grouped.adoc[]
+
+include::collection-output/ATS_collection-output_response-output-many-results.adoc[]
 
 include::collection-output/ATS_collection-output_response-output-one.adoc[]
 
+include::collection-output/ATS_collection-output_response-unsupported.adoc[]
+
 include::collection-output/ATS_collection-output_data-access-mechanisms.adoc[]
-
-
-
-

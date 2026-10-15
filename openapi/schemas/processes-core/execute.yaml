@@ -1,14 +1,9 @@
-type: object
-properties:
-  process:
-    type: string
-    format: uri
-    description: The URI to the description of the process that should be executed.
-  inputs:
-    additionalProperties:
-      $ref: "values.yaml"
-  outputs:
-    additionalProperties:
-      $ref: "outputSelection.yaml"
-  subscriber:
-    $ref: "subscriber.yaml"
+allOf:
+  - type: object
+    properties:
+      process:
+        type: string
+        format: uri
+        description: The URI to the description of the process that should be executed.
+  - $ref: "responseCollection.yaml"
+  - $ref: "executeBase.yaml"

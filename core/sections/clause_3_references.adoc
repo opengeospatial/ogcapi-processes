@@ -48,3 +48,5 @@
 * [[[rfc8259]]] IETF RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format. Available from: https://tools.ietf.org/html/rfc8259
 
 * [[[jsonschemavalidation]]] JSON Schema Validation: A Vocabulary for Structural Validation of JSON. https://json-schema.org/draft/2020-12/json-schema-validation.html
+
+* [[[w3cProfile]]] W3C Dataset Exchange Working Group. **The Profiles Vocabulary** (W3C Note). World Wide Web Consortium. [online]. Edited by R. Atkinson, N. J. Car. 2019 [viewed 2026-09-17]. Available at https://www.w3.org/TR/2019/NOTE-dx-prof-20191218/
