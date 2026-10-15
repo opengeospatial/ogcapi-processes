@@ -4,5 +4,19 @@
 [%metadata]
 identifier:: /rec/core/problem-details
 
+[.component,class=part]
+--
 A server SHOULD include a "Problem Details" report in an error response in accordance with https://datatracker.ietf.org/doc/html/rfc9457[RFC 9457].
+--
+
+[.component,class=part]
+--
+A server SHOULD employ the `application/problem+json` media-type by default for the "Problem Details" report in an error response, unless negotiated otherwise.
+--
+
+[.component,class=part]
+--
+A server SHOULD provide additional `detail` to help disambiguate the cause of the problem.
+--
+
 ====

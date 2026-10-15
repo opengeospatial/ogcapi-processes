@@ -1,0 +1,26 @@
+[[req_collection-output_response-profile]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/collection-output/response-profile
+description:: Header indicating the negotiated profile of the response.
+
+[.component,class=conditions]
+--
+. The <<sc_execute_process,Execution request>> was negotiated with a <<req_collection-output_response-definition,response parameter>> of value `collection`.
+. The <<con-neg-by-profile,negotiated profile>> (if any) is **NOT** `https://www.opengis.net/def/profile/OGC/0/ogc-results`.
+--
+
+[.component,class=part]
+--
+The reponse
+
+`https://www.opengis.net/def/profile/OGC/0/ogc-collection`
+--
+
+[.component,class=part]
+--
+The response SHALL include a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[`Location`] response header redirecting to a <<def_collection-description,collection description document>>.
+--
+
+====

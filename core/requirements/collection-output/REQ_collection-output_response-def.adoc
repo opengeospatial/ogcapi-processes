@@ -4,7 +4,12 @@
 [%metadata]
 identifier:: /req/collection-output/response-definition
 
-The server SHALL, at the execution endpoint (path: `/processes/{processId}/execution`), support a parameter `response` with the following characteristics (using an OpenAPI Specification fragment):
+The server SHALL, at the execution endpoint (path: `/processes/{processId}/execution`), support a `response` parameter that controls the selection of a <<rc_collection-output,Collection Output>> response instead of the usual <<sc_process_outputs,Process Output>> representations.
+
+
+[.component,class=part]
+--
+If the request is performed with a <<clause_kvp-execute,KVP-encoded Execute request>> (HTTP GET), the `response` parameter SHALL be a query parameter with the following characteristics (using an OpenAPI Specification fragment):
 
 [source,yaml]
 ----
@@ -15,4 +20,18 @@ schema:
   type: string
   enum: [ collection ]
 ----
+
+--
+
+[.component,class=part]
+--
+If the request is performed with a <<sc_execute_process,Execution Body request>> (HTTP POST), the `response` parameter SHALL be a property in request body with the following characteristics (using an OpenAPI Specification fragment):
+
+[source,yaml]
+----
+include::../../../openapi/schemas/processes-core/responseCollection.yaml[]
+----
+
+--
+
 ====

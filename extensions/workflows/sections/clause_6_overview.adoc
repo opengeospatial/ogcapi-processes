@@ -4,13 +4,12 @@
 As an extension to https://docs.ogc.org/is/18-062r2/18-062r2.html[_OGC API - Processes - Part 1: Core_], this specification defines conformance classes for:
 
 * extending execution requests submitted to `/processes/{processID}/execution`
-   ** referencing local and remote nested processes as inputs (`"process"`) (<<clause_nested-processes,Section 7>>),
-   ** referencing local and remote OGC API collections as inputs (`"collection"`) (<<section_collection_input,Section 8>>),
-   ** modifying data accessed as inputs and returned as outputs (filtering with `"filter"`, selecting and deriving fields with `"properties"`, sorting with `"sortBy"`) (<<clause_fields-modifiers,Section 9>>),
-   ** deploying workflows defined using such execution request as processes using https://github.com/opengeospatial/ogcapi-processes/tree/master/extensions/deploy_replace_undeploy/standard[_OGC API - Processes - Part 2: Deploy, Replace, Undeploy_], with the ability to paremeterize inputs (`"$input"`) and select outputs (`"$output"`) (<<clause_deployable-workflows,Section 10>>),
-* requesting output data from OGC API data collections to trigger processing execution (<<section_collection_output,Section 11>>),
-* ad-hoc execution of workflows defined using the Common Workflow Language (<<clause_cwl-workflows,Section 12>>), and
-* ad-hoc execution of workflows defined using the OpenEO Process Graphs (<<clause_openeo-workflows,Section 13>>).
+   ** referencing nested processes as input (`"process"`) of another process (<<clause_nested-processes,Nested Processes Conformance Class>>),
+   ** referencing to remote processes for execution, either directly or through nested processes (<<clause_remote-core-process,Remote Core Processes Conformance Class>>)
+   ** modifying data accessed as inputs and returned as outputs (filtering with `"filter"`, selecting and deriving fields with `"properties"`, sorting with `"sortBy"`) (<<clause_fields-modifiers,Input/Output Fields Modifiers Conformance Class>>),
+   ** deploying workflows defined using such execution request as processes using https://github.com/opengeospatial/ogcapi-processes/tree/master/extensions/deploy_replace_undeploy/standard[_OGC API - Processes - Part 2: Deploy, Replace, Undeploy_], with the ability to parametrize inputs (`"$input"`) and select outputs (`"$output"`) (<<clause_deployable-workflows,Deployable Workflows Conformance Class>>),
+* ad-hoc execution of workflows defined using the Common Workflow Language (<<clause_cwl-workflows,Common Workflow Language Definitions Conformance Class>>), and
+* ad-hoc execution of workflows defined using the OpenEO Process Graphs (<<clause_openeo-workflows,OpenEO Process Graphs Workflow Conformance Class>>).
 
 [[sc_architecture-diagram]]
 === Architecture Diagram
