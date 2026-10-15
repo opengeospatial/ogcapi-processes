@@ -19,7 +19,7 @@ as defined by the following parts.
 [.component,class=part]
 --
 If compressed filters are supported, the `metadata` query parameter SHALL accept a single value (i.e., not using the
-`metadata[<target>][<role>]` form) that is the `base64url` encoding (<<rfc4648,RFC 4648>>, Section 5) of the `gzip`
+`metadata[<scope>][<role>]` form) that is the `base64url` encoding (<<rfc4648,RFC 4648>>, Section 5) of the `gzip`
 (<<rfc1952,RFC 1952>>) compressed <<req_metadata-profiles_query-content,`QUERY` content>>.
 --
 

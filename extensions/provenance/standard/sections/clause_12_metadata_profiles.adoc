@@ -171,7 +171,7 @@ When the `QUERY` method cannot be employed, the filters can be provided as a com
 query parameter instead. The value is the <<req_metadata-profiles_query-content,`QUERY` content>>
 compressed with `gzip` and encoded with `base64url` (<<rfc4648,RFC 4648>>, Section 5).
 A `gzip` stream always starts with the bytes `0x1F 0x8B`, which allows distinguishing it from
-the `metadata[<target>][<role>]` form without any additional parameter. Once `base64url`-encoded,
+the `metadata[<scope>][<role>]` form without any additional parameter. Once `base64url`-encoded,
 such a value starts with `H4sI`.
 
 include::../requirements/metadata-profiles/REQ_query-compression.adoc[]
@@ -218,6 +218,27 @@ The goal if this feature is only to discover the processes of interest given a f
 include::../requirements/metadata-profiles/REQ_query-matching.adoc[]
 
 include::../requirements/metadata-profiles/REQ_query-curie-matching.adoc[]
+
+[[sc_metadata-profiles_matching-data-classes]]
+===== Profiling with `dataClasses`
+
+The `dataClasses` field of an input or output description (see <<OAProc-1>>) is another way to indicate the supported or
+expected profiles of the data, using plain URIs. Contrary to a `metadata` field entry, it does not explicitly associate
+its `<role>` (i.e., it is not directly indicated in the process description) when listing profiles under `dataClasses`.
+Therefore, a `dataClasses` URI can only be matched with the `<profile>` of a filter, corresponding to the `href` of
+a `metadata` field entry. It represents the concrete profile applied to the input or output, and its `<role>` is
+assumed to be compatible with the reference ontology in which that `<profile>` is defined. Such ontology is expected to
+directly provide the `<role>`/`<profile>` correspondence, through one form of association such as the relations listed in
+<<table_metadata-profiles_concept-relations>> (e.g., `rdfs:subClassOf` or `skos:broader`),
+as required by <<req_metadata-profiles_concept-relations,/req/metadata-profiles/concept-relations>>
+for `metadata` field entries. This nuance is a partial limitation of `dataClasses` in this context in contrast to the
+more verbose `metadata`, and is the reason why the `<role>` cannot be verified when matching them.
+However, correctly formed ontologies should resolve the `<profile>` definitions in a compatible fashion.
+Another limitation is that `dataClasses` are only available at the `<scope>` level of `inputs` and `outputs` definitions
+without any equivalence to globally indicated `process` profiles.
+For consistency between those two profiling capabilities, the following recommendation extends the matching criteria.
+
+include::../recommendations/metadata-profiles/REC_query-matching-data-classes.adoc[]
 
 [[sc_metadata-profiles_matching-independence]]
 ===== Why Roles Are Matched Independently
@@ -304,7 +325,7 @@ ndwi-bands:
 
 In the following examples, the filters are provided with query parameters.
 The equivalent `QUERY` content (see <<req_metadata-profiles_query-content,Query Content>>) is obtained by mapping each
-`metadata[<target>][<role>]=<profile>` to the `<profile>` list of the `<role>` under the `<target>` member.
+`metadata[<scope>][<role>]=<profile>` to the `<profile>` list of the `<role>` under the `<scope>` member.
 
 [[sc_metadata-profiles_example-single-profile]]
 ===== Single Profile

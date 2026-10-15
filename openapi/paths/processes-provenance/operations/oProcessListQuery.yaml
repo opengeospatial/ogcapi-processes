@@ -1,7 +1,7 @@
 # Not wired in the root definition since OpenAPI 3.0 does not define the 'query' operation (OpenAPI 3.2+ only).
 summary: retrieve the list of available processes, filtered by metadata role profiles in the request body
 description: |
-   Safe and idempotent equivalent of the `GET /processes` operation with `metadata[<target>][<role>]=<profile>`
+   Safe and idempotent equivalent of the `GET /processes` operation with `metadata[<scope>][<role>]=<profile>`
    query parameters, where the filters are provided in the request body.
 operationId: queryProcessesMetadata
 tags:

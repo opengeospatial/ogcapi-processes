@@ -19,7 +19,7 @@ using RDF statements (subject, predicate, object) such that it can be queried an
 ==== metadata role parameter
 
 `<role>` placeholder of a filter defined by the _Metadata Profiles_ requirements class, in the form of
-a query parameter `metadata[<target>][<role>]=<profile>` or of a member of the `QUERY` content.
+a query parameter `metadata[<scope>][<role>]=<profile>` or of a member of the `QUERY` content.
 It is an IRI, URN or Safe CURIE that identifies the concept to match against the `role` of
 the profile link entries in the `metadata` list field of a process, input or output
 
