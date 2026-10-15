@@ -4,7 +4,7 @@
 [%metadata]
 identifier:: /conf/collection-output/response-output-one
 target:: /req/collection-output/response-output-one
-test-purpose:: Validate that the collection output for a single explicitly or implicitly requested output is a reference to a <<def_collection-description,collection description document>>.
+test-purpose:: Validate that the collection output for a single <<implicit-explicit-outputs,explicitly or implicitly>> requested output is a reference to a <<def_collection-description,collection description document>>.
 test-method::
 +
 --
@@ -17,5 +17,7 @@ test-method::
 4. Verify that the server responds with an HTTP status code of 303.
 
 5. Verify that the response includes a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[`Location`] response header redirecting to a <<def_collection-description,collection description document>>
+
+6. Verify that the response includes a HTTP header `Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-collection", rel="profile"`.
 --
 ====

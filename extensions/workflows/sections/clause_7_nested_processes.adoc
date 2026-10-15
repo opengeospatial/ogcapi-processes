@@ -26,3 +26,15 @@ include::../requirements/nested-processes/REQ_nested-processes_referenced-proces
 ==== Executing a nested process
 
 include::../requirements/nested-processes/REQ_nested-processes_process-execution.adoc[]
+
+[[sc_nested-processes_response-collections]]
+==== Requesting intermediate collection responses
+
+Due to complex nature of collection interactions between various `dataAccessApis`, `dataClasses`, `format` and media-type content negotiation, coupled to potential remote process interactions with differing conformance capabilities between servers, an optimal data flow through a nested workflow chain might not always be resolvable automatically. Similarly, certain servers might employ different default behaviors permitted by the standards. Therefore, the specification of a hint `response: collection` at a particular nesting level might be necessary in certain situations.
+
+include::../requirements/nested-processes/REQ_nested-processes_response-collection.adoc[]
+
+[[sc_nested-processes_workflow-error]]
+==== Workflow Error
+
+include::../requirements/nested-processes/REQ_nested-processes_response-workflow-errors.adoc[]

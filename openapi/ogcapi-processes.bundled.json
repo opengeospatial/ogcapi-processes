@@ -5484,26 +5484,33 @@
         "title": "inputParameterized"
       },
       "processes-core-format": {
-        "type": "object",
-        "properties": {
-          "mediaType": {
-            "type": "string"
-          },
-          "encoding": {
-            "type": "string"
-          },
-          "schema": {
-            "oneOf": [
-              {
-                "type": "string",
-                "format": "url"
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "mediaType": {
+                "type": "string"
               },
-              {
-                "type": "object"
+              "encoding": {
+                "type": "string"
+              },
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "format": "url"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
               }
-            ]
+            }
+          },
+          {
+            "$ref": "#/components/schemas/processes-core-dataClasses"
           }
-        },
+        ],
         "title": "format"
       },
       "processes-core-schemaAndOccurrences": {
@@ -6309,13 +6316,22 @@
         "title": "apis"
       },
       "processes-core-dataClasses": {
+        "description": "Profiling requirements that the specified value, link, collection reference, selected output, or input/output\ndefinition must meet or adapt to, depending on context, in order to make it adequate for the process execution.\nThese requirements are represented as URIs or safe CURIEs providing resolvable profiles applicable to the context.\nThey directly corresponds to link references that can be employed for *Content Negotiation by Profile*.",
         "type": "object",
         "properties": {
           "dataClasses": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "uri"
+              "anyOf": [
+                {
+                  "description": "URI to a registered profile entity.",
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "$ref": "#/components/schemas/processes-core-safeCurie"
+                }
+              ]
             }
           }
         },
@@ -6407,6 +6423,13 @@
         },
         "title": "linkBaseExtended"
       },
+      "processes-core-safeCurie": {
+        "description": "A safe Compact URI (CURIE) identifying well-known entity.",
+        "example": "[ogc-profile:my-profile]",
+        "type": "string",
+        "pattern": "^\\[[a-zA-Z0-9._-]+:[a-zA-Z0-9._-]+\\]$",
+        "title": "safeCurie"
+      },
       "processes-core-link": {
         "allOf": [
           {
@@ -6414,6 +6437,9 @@
           },
           {
             "$ref": "#/components/schemas/processes-core-linkBaseExtended"
+          },
+          {
+            "$ref": "#/components/schemas/processes-core-dataClasses"
           },
           {
             "type": "object",
@@ -7570,6 +7596,9 @@
             "$ref": "#/components/schemas/processes-core-fieldsModifiers"
           },
           {
+            "$ref": "#/components/schemas/processes-core-responseCollection"
+          },
+          {
             "example": {
               "inputs": {
                 "data": [
@@ -7647,6 +7676,18 @@
           }
         },
         "title": "outputSelection-workflows"
+      },
+      "processes-core-responseCollection": {
+        "type": "object",
+        "properties": {
+          "response": {
+            "type": "string",
+            "enum": [
+              "collection"
+            ]
+          }
+        },
+        "title": "responseCollection"
       },
       "geojson-FeatureCollection": {
         "title": "GeoJSON FeatureCollection",
