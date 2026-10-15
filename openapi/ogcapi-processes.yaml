@@ -36,7 +36,10 @@ paths:
       #$ref: 'paths/processes-core/pProcessList.yaml'
 
       # OGC API - Processes Part 2: Deploy, Replace, Undeploy
-      $ref: 'paths/processes-dru/pProcessListDeploy.yaml'
+      # OGC API - Processes Part 5: Provenance and Profiles (metadata role profiles GET filter)
+      # FIXME: the 'query' operation (paths/processes-provenance/operations/oProcessListQuery.yaml) is
+      #  commented out in 'pProcessListDeployMetadata.yaml' because it requires OpenAPI 3.2+. Enable it after upgrading.
+      $ref: 'paths/processes-provenance/pProcessListDeployMetadata.yaml'
 
    /processes/{processID}:
       # OGC API - Processes Part 1: Core
@@ -83,7 +86,7 @@ paths:
    /jobs/{jobID}/definition:
       $ref: 'paths/processes-job-management/pJobDefinition.yaml'
 
-   # OGC API - Processes - Part 5: Provenance
+   # OGC API - Processes - Part 5: Provenance and Profiles
 
    /jobs/{jobID}/prov:
       $ref: 'paths/processes-job-management/pJobProvenance.yaml'
@@ -573,7 +576,7 @@ components:
       JobDefinition:
          $ref: 'responses/processes-job-management/rJobDefinition.yaml'
 
-      # OGC API - Processes - Part 5: Provenance
+      # OGC API - Processes - Part 5: Provenance and Profiles
       JobProvenance:
          $ref: 'responses/processes-provenance/rJobProvenance.yaml'
       JobProvMissing:

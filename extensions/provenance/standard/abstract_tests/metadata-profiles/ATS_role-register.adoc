@@ -1,0 +1,18 @@
+[[ats_metadata-profiles_role-register]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/metadata-profiles/role-register
+target:: /req/metadata-profiles/role-register
+test-purpose:: Validate that the `role` of profile metadata identifies a concept of a register.
+test-method::
++
+--
+1. Retrieve the `role` URIs of profile metadata from the process descriptions.
+
+2. Dereference each `role` URI (when resolvable) and validate that it resolves to a concept definition.
+
+3. Validate that each `href` identifies a profile.
+--
+====

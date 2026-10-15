@@ -136,9 +136,26 @@
           "Processes",
           "Core"
         ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/metadata"
+          }
+        ],
         "responses": {
           "200": {
             "$ref": "#/components/responses/processes-core-rProcessList"
+          },
+          "204": {
+            "description": "No process matches the metadata role profiles."
+          },
+          "400": {
+            "$ref": "#/components/responses/rInvalidMetadataProfile"
+          },
+          "422": {
+            "$ref": "#/components/responses/rInvalidMetadataRole"
+          },
+          "500": {
+            "$ref": "#/components/responses/common-core-rServerError"
           }
         }
       },
@@ -806,6 +823,50 @@
       },
       "execute-workflow": {
         "$ref": "#/components/schemas/processes-workflows-execute-workflows"
+      },
+      "metadataRoleProfiles": {
+        "description": "Mapping of metadata `role` (IRI, URN or Safe CURIE) to the profile(s) (`href` IRI, URN or Safe CURIE)\nthat a `rel: \"https://www.opengis.net/def/profile\"` metadata link must provide for that role.",
+        "type": "object",
+        "additionalProperties": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "example": {
+          "[ogc-profile:process-type]": [
+            "https://example.com/def/process-type/vegetation-index"
+          ]
+        }
+      },
+      "metadataProfileQuery": {
+        "type": "object",
+        "description": "Metadata role/profile filters. All provided roles (across `process`, `inputs` and `outputs`) must be matched.",
+        "properties": {
+          "process": {
+            "$ref": "#/components/schemas/metadataRoleProfiles"
+          },
+          "inputs": {
+            "$ref": "#/components/schemas/metadataRoleProfiles"
+          },
+          "outputs": {
+            "$ref": "#/components/schemas/metadataRoleProfiles"
+          }
+        }
+      },
+      "metadataCompressedQuery": {
+        "description": "base64url encoding (RFC 4648, Section 5) of the gzip (RFC 1952) compressed JSON content defined by `processesQuery`.\nThe value starts with `H4sI` since a gzip stream starts with the bytes `0x1F 0x8B`.",
+        "type": "string",
+        "pattern": "^H4sI[A-Za-z0-9_-]*={0,2}$",
+        "example": "H4sIAAAAAAACA6tWyk0tSUxJLElUsqpWyswrKC0pBrEySkoKiq309VMrEnMLclL1kvNz9VNS0_SL8nNS9ZMS81KUrKJxKgLJ6zsZmCjF1tbWAgCwJHlnYgAAAA=="
       },
       "pointGeoJSON": {
         "type": "object",
@@ -5956,6 +6017,9 @@
             "$ref": "#/components/schemas/processes-core-format"
           },
           {
+            "$ref": "#/components/schemas/processes-core-dataClasses"
+          },
+          {
             "type": "object",
             "required": [
               "value"
@@ -6419,6 +6483,21 @@
             "additionalProperties": {
               "type": "string"
             }
+          },
+          "profile": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uri"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            ]
           }
         },
         "title": "linkBaseExtended"
@@ -9099,6 +9178,24 @@
       "w": {
         "$ref": "#/components/parameters/processes-dru-w-param"
       },
+      "metadata": {
+        "name": "metadata",
+        "in": "query",
+        "required": false,
+        "description": "Filters processes by metadata role and profile, using the form\n`metadata[process][<role>]=<profile>`, `metadata[inputs][<role>]=<profile>` or `metadata[outputs][<role>]=<profile>`.\nThe `<role>` and `<profile>` are IRIs, URNs or Safe CURIEs (which must be percent-encoded in the query string).\nMultiple profiles for a same role are provided as comma-separated values or as repeated parameters,\nand all of them must be matched.\n\nAlternatively, when supported by the server, a single value (not using the bracket form) can provide the\nfilters as the gzip-compressed and base64url-encoded `QUERY` content, in order to avoid `414` (URI Too Long) errors.",
+        "style": "deepObject",
+        "explode": true,
+        "schema": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/metadataProfileQuery"
+            },
+            {
+              "$ref": "#/components/schemas/metadataCompressedQuery"
+            }
+          ]
+        }
+      },
       "unspecified-f-metadata": {
         "name": "f",
         "in": "query",
@@ -9404,6 +9501,61 @@
       },
       "JobProvUnsupportedFormat": {
         "$ref": "#/components/responses/processes-provenance-rJobProvUnsupportedFormat"
+      },
+      "rInvalidMetadataProfile": {
+        "description": "A metadata role or profile of the filter is not a valid IRI, URN or Safe CURIE, or a compressed filter cannot be decoded.",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/common-core-exception"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "const": "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/invalid-metadata-profile"
+                    },
+                    "instance": {
+                      "type": "string",
+                      "description": "The offending metadata role or profile value, percent-encoded as needed to form a URI reference.\nSet to `metadata` when the offending value is a compressed filter."
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "rInvalidMetadataRole": {
+        "description": "A metadata role or profile of the filter is a valid IRI, URN or Safe CURIE, but cannot be interpreted by the server,\nor the filter is provided as a compressed value that the server does not support.",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/common-core-exception"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "enum": [
+                        "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/unsupported-metadata-profile",
+                        "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/unsupported-metadata-encoding"
+                      ]
+                    },
+                    "instance": {
+                      "type": "string",
+                      "description": "The offending metadata role or profile value."
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
       },
       "common-core-rLandingPage": {
         "description": "The landing page provides links to the API definition (link relation `service-desc`, in this case path `/api`),\nto the Conformance declaration (path `/conformance`, link relation `http://www.opengis.net/def/rel/ogc/1.0/conformance`), and to other resources.",

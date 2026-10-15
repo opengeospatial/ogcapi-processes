@@ -1,0 +1,25 @@
+[[rec_metadata-profiles_profile-granularity]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/metadata-profiles/profile-granularity
+
+[.component,class=part]
+--
+A process, input or output SHOULD provide many profiles of different granularity for a same concept,
+from broader to narrower ones, to allow flexible search patterns.
+--
+
+[.component,class=part]
+--
+Narrower profiles SHOULD be provided such that a client can refine a filter to avoid matching
+unrelated processes, inputs or outputs when combining many roles.
+--
+
+[.component,class=part]
+--
+Broader profiles SHOULD be retained along narrower ones, such that a client can still discover the process using
+a filter with a coarser concept.
+--
+
+====

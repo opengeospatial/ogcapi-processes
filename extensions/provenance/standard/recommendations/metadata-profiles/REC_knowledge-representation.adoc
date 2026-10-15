@@ -1,0 +1,43 @@
+[[rec_metadata-profiles_knowledge-representation]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/metadata-profiles/knowledge-representation
+
+[.component,class=conditions]
+--
+. The server supports the `GET` operation on path `/processes/{processID}` as per <<OAProc-1,OGC API - Processes - Part 1: Core>>
+with content negotiation capabilities.
+--
+
+[.component,class=part]
+--
+The process description operation SHOULD support content negotiation of *Knowledge Representation* formats
+that provide the <<req_metadata-profiles_profile-link,profiled `metadata` field entries>> of the process, its inputs and its outputs
+as a <<def_knowledge-graph,_knowledge graph_>> (RDF), instead of the default JSON representation.
+
+Such formats include, but are not limited to:
+
+* `text/turtle`
+* `application/n-triples`
+* `application/rdf+xml`
+* `application/ld+json`
+--
+
+[.component,class=part]
+--
+The negotiation SHOULD be supported through the HTTP `Accept` header.
+--
+
+[.component,class=part]
+--
+When the representation is negotiated, the response SHOULD include the `Vary` header (<<rfc9110,RFC 9110>>)
+listing the `Accept` header.
+--
+
+[.component,class=part]
+--
+If the requested representation is not supported, the server SHOULD respond with the HTTP status code `406`.
+--
+
+====

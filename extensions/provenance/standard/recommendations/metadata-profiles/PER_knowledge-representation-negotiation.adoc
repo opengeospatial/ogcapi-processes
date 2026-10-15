@@ -1,0 +1,13 @@
+[[per_metadata-profiles_knowledge-representation-negotiation]]
+[permission]
+====
+[%metadata]
+identifier:: /per/metadata-profiles/knowledge-representation-negotiation
+
+[.component,class=part]
+--
+The negotiation of *Knowledge Representation* formats of the process description MAY be supported through the `f`
+query parameter, by profile, or any other mechanism the server deems fit.
+--
+
+====

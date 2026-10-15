@@ -1,0 +1,22 @@
+[[ats_metadata-profiles_invalid-metadata-profile]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/metadata-profiles/invalid-metadata-profile
+target:: /req/metadata-profiles/invalid-metadata-profile
+test-purpose:: Validate that a `<role>` or `<profile>` that is not a valid IRI, URN or Safe CURIE is reported as a bad request.
+test-method::
++
+--
+1. Issue a `GET` request on `{root}/processes` with a `metadata[process][<role>]=<profile>` filter where the `<role>`
+or `<profile>` is not a valid IRI, URN or Safe CURIE (e.g., contains spaces).
+
+2. Validate that the response status code is 400 and that the media type is `application/problem+json` (<<rfc9457,RFC 9457>>).
+
+3. Validate that the `type` is `pass:[https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/invalid-metadata-profile]`
+and that the `instance` is the offending `<role>` or `<profile>` value, or `metadata` for an invalid compressed value.
+
+4. If the `QUERY` method is supported, repeat the steps with the filter provided in the request content.
+--
+====
