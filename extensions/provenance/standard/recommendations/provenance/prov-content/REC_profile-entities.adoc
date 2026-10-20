@@ -1,0 +1,35 @@
+[[rec_provenance_prov-content_profile-entities]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/provenance/prov-content-profile-entities
+
+[.component,class=conditions]
+--
+The server supports the <<rc_metadata-profiles,Metadata Profiles>> requirements class.
+--
+
+[.component,class=part]
+--
+The <<req_provenance_prov-content_process-entity,PROV Process Entity>> SHOULD include a `dct:conformsTo` attribute
+for each profile `href` of the process-level `metadata` field entries defined with the
+`pass:[rel="https://www.opengis.net/def/profile"]` relation.
+--
+
+[.component,class=part]
+--
+Each <<req_provenance_prov-content_input-entity,PROV Job Input>> and
+<<req_provenance_prov-content_result-entity,PROV Job Result>> entity SHOULD include a `dct:conformsTo` attribute
+for each profile `href` of the `metadata` field entries defined with the
+`pass:[rel="https://www.opengis.net/def/profile"]` relation
+for the corresponding input or output in the process description.
+--
+
+[.component,class=part]
+--
+Each profile reported with `dct:conformsTo` SHOULD be represented by a distinct link:https://www.w3.org/TR/prov-o/#Entity[`prov:Entity`]
+identified by the profile URI, that includes a `prov:role` attribute with the expanded role URI under which the profile
+was defined in the `metadata` field entry (see <<def_metadata-role-parameter,metadata role parameter>>).
+--
+
+====

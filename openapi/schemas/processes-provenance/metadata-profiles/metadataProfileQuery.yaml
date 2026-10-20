@@ -1,0 +1,10 @@
+type: object
+description: |-
+  Metadata role/profile filters. All provided roles (across `process`, `inputs` and `outputs`) must be matched.
+properties:
+  process:
+    $ref: "metadataRoleProfiles.yaml"
+  inputs:
+    $ref: "metadataRoleProfiles.yaml"
+  outputs:
+    $ref: "metadataRoleProfiles.yaml"

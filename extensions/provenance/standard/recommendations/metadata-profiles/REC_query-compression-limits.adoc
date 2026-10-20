@@ -1,0 +1,30 @@
+[[rec_metadata-profiles_query-compression-limits]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/metadata-profiles/query-compression-limits
+
+[.component,class=conditions]
+--
+. The server limits the size of compressed filters as permitted by
+<<per_metadata-profiles_query-compression-limits,/per/metadata-profiles/query-compression-limits>>.
+--
+
+[.component,class=part]
+--
+If the compressed value exceeds the limit, the server SHOULD respond with the HTTP status code `414` (URI Too Long).
+--
+
+[.component,class=part]
+--
+If the decompressed content exceeds the limit, the server SHOULD respond with the HTTP status code `413`
+(Content Too Large).
+--
+
+[.component,class=part]
+--
+The response SHOULD be reported as per
+<<req_metadata-profiles_unsupported-metadata-encoding,/req/metadata-profiles/unsupported-metadata-encoding>>.
+--
+
+====
