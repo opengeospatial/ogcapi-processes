@@ -89,6 +89,15 @@ allOf:
         default: true
 ----
 
+[[sc_locking]]
+=== Locking
+
+In an environment where several clients are operating on the same resource, each client’s understanding of a resource’s state may differ from the other’s and from the server. Without some mechanism for synchronizing each client’s understanding of a resource’s state with the server, changes requested by a client that has an out-of-date understanding of the resource’s state may have undesirable effects. 
+
+Optimistic locking resolves such change conflicts by exchanging state information (e.g., ETags or timestamps) between clients and servers using HTTP headers to ensure that a resource’s state has not changed between a read request to fetch a resource and a subsequent request changing the resource. 
+
+This Standard supports concurrent updates of processes via optimistic locking as describe in https://docs.ogc.org/DRAFTS/20-002r2.html#optimistic_locking_clause[OGC API - Features - Part 4 / OGC API - Common - Part 5: Create, Replace, Update and Delete, Requirements Class "Optimistic Locking"].
+
 [[sc_resource-endpoints]]
 === Resource endpoints
 
@@ -101,6 +110,8 @@ include::../requirements/deploy-replace-undeploy/resources/REQ_resource-endpoint
 
 [[sc_deploy_sequence-diagram]]
 ==== Sequence diagram
+
+See: link:https://docs.ogc.org/DRAFTS/20-002r2.html#create[Adding a new resource to a collection (CREATE)]
 
 The following diagram illustrates the sequence diagram for deploying
 a new process to the API:
@@ -123,11 +134,6 @@ Client                                                        Server
   |<------------------------------------------------------------|
 ----
 ====
-
-[[sc_deploy_operation]]
-==== Operation
-
-include::../requirements/deploy-replace-undeploy/deploy/REQ_post-op.adoc[]
 
 [[sc_deploy_request-body]]
 ==== Request body
@@ -158,8 +164,6 @@ include::../recommendations/deploy-replace-undeploy/deploy/REC_body-cwl.adoc[]
 
 include::../requirements/deploy-replace-undeploy/deploy/REQ_response-pid.adoc[]
 
-include::../requirements/deploy-replace-undeploy/deploy/REQ_response-success.adoc[]
-
 include::../requirements/deploy-replace-undeploy/deploy/REQ_response-body.adoc[]
 
 [[sc_deploy_exceptions]]
@@ -173,12 +177,13 @@ include::../requirements/deploy-replace-undeploy/deploy/REQ_response-duplicate.a
 
 include::../requirements/deploy-replace-undeploy/deploy/REQ_response-immutable.adoc[]
 
-
 [[sc_replace]]
 === Replacing an existing processes
 
 [[sc_replace_sequence-diagram]]
 ==== Sequence diagram
+
+See: link:https://docs.ogc.org/DRAFTS/20-002r2.html#replace[Replacing an existing resource (REPLACE)]
 
 The following diagram illustrates the sequence diagram for replacing a
 previously deployed processes.  The identifier of the process does not change.
@@ -203,11 +208,6 @@ Client                                                        Server
   |<------------------------------------------------------------|
 ----
 ====
-
-[[sc_replace_operation]]
-==== Operation
-
-include::../requirements/deploy-replace-undeploy/replace/REQ_put-op.adoc[]
 
 [[sc_replace_request-body]]
 ==== Request body
@@ -261,9 +261,10 @@ If the process exist but is immutable then <<req_deploy-replace-undeploy_deploy_
 [[sc_undeploy_sequence-diagram]]
 ==== Sequence diagram
 
+See: link:https://docs.ogc.org/DRAFTS/20-002r2.html#delete[Removing a resource from a collection (DELETE)]
+
 The following diagram illustrates the sequence diagram for undeploying a
 previously deployed process.
-
 
 .Process undeployment example.
 ====
@@ -278,16 +279,6 @@ Client                                                        Server
   |<------------------------------------------------------------|
 ----
 ====
-
-[[sc_undeploy_operation]]
-==== Operation
-
-include::../requirements/deploy-replace-undeploy/undeploy/REQ_delete-op.adoc[]
-
-[[sc_undeploy_response]]
-==== Response
-
-include::../requirements/deploy-replace-undeploy/undeploy/REQ_response.adoc[]
 
 [[sc_undeploy_exceptions]]
 ==== Exceptions

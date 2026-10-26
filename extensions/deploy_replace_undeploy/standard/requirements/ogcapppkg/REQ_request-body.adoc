@@ -6,7 +6,7 @@ identifier:: /req/ogcapppkg/body
 
 [.component,class=part]
 --
-For the <<deploy-operation,Deploy operation>> and the <<replace-operation,Replace operation>>, the media type `application/ogcapppkg+json` SHALL be used to indicate that the request body contains an <<clause_ogcapppkg,OGC Application Package>>.
+For the <<sc_deploy,Deploy operation>> and the <<sc_replace,Replace operation>>, the media type `application/ogcapppkg+json` SHALL be used to indicate that the request body contains an <<clause_ogcapppkg,OGC Application Package>>.
 --
 
 ====
