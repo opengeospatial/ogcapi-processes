@@ -1,0 +1,35 @@
+[[per_cwl-workflows_adhoc-cwl-deploy]]
+[permission]
+====
+[%metadata]
+identifier:: /per/cwl-workflows/adhoc-cwl-deploy
+description:: Capability for a server to deploy and/or undeploy the CWL resulting from ad-hoc execution request.
+
+[.component,class=conditions]
+--
+. The server declares conformance to <<OAProc-2,OGC API - Processes - Part 2: DRU, Conformance Class 'Deploy, Replace, Undeploy (DRU)'>>.
+. The submitted job defines an ad-hoc CWL definition along the execution request.
+--
+
+[.component,class=part]
+--
+The server MAY deploy the CWL as an intermediate operation of the ad-hoc execution.
+--
+
+[.component,class=part]
+--
+The server MAY decide to reuse a predeployed CWL that matches the provided ad-hoc definition.
+--
+
+[.component,class=part]
+--
+If a deployment resulted from the job submission, the server MAY undeploy the ad-hoc CWL definition following execution completion.
+--
+
+[.component,class=part]
+--
+The server MAY preserve (i.e.: not undeploy) the ad-hoc CWL definition following execution completion
+if it deems it necessary for reuse, reporting and traceability requirements.
+--
+
+====
