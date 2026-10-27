@@ -1,0 +1,77 @@
+[[req_metadata-profiles_query-parameter]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/metadata-profiles/query-parameter
+
+[.component,class=conditions]
+--
+. The server supports the `GET` operation on path `/processes` as per <<OAProc-1,OGC API - Processes - Part 1: Core>>.
+--
+
+[.component,class=part]
+--
+The `GET` operation on path `/processes` SHALL support the query parameter `metadata[process][<role>]=<profile>`
+to filter processes with an entry in their `metadata` list field providing a
+<<req_metadata-profiles_profile-link,_Metadata Profile Link_>> of the given `role` and `href`.
+--
+
+[.component,class=part]
+--
+The `GET` operation on path `/processes` SHALL support the query parameters `metadata[inputs][<role>]=<profile>`
+to filter processes having at least one input
+with an entry in their `metadata` list field providing a
+<<req_metadata-profiles_profile-link,_Metadata Profile Link_>> of the given `role` and `href`.
+--
+
+[.component,class=part]
+--
+The `GET` operation on path `/processes` SHALL support the query parameters `metadata[outputs][<role>]=<profile>`
+to filter processes having at least one output
+with an entry in their `metadata` list field providing a
+<<req_metadata-profiles_profile-link,_Metadata Profile Link_>> of the given `role` and `href`.
+--
+
+[.component,class=part]
+--
+The `<role>` and `<profile>` values SHALL be IRIs or URNs as defined by <<req_metadata-profiles_profile-link,_Metadata Profile Link_>>
+(or Safe CURIEs when allowed by <<per_metadata-profiles_safe-curie,Safe CURIE>>).
+--
+
+[.component,class=part]
+--
+The `<role>` and `<profile>` values SHALL be percent-encoded as required by <<rfc3986,RFC 3986>>.
+--
+
+[.component,class=part]
+--
+The brackets of a Safe CURIE value SHALL be percent-encoded (e.g., `%5Bogc-profile:process-type%5D`)
+to be distinguished from the brackets of the parameter name.
+--
+
+[.component,class=part]
+--
+Multiple profiles for the same `<role>` SHALL be accepted as comma-separated values
+(e.g., `metadata[inputs][<role>]=<profile1>,<profile2>`).
+--
+
+[.component,class=part]
+--
+Multiple profiles for the same `<role>` SHALL be accepted as repeated parameters
+(e.g., `metadata[inputs][<role>]=<profile1>&metadata[inputs][<role>]=<profile2>`).
+--
+
+[.component,class=part]
+--
+The matching of the parameters, when combined with each other or with any other query parameter of the operation,
+SHALL follow <<sc_metadata-profiles_matching,Query Matching>>.
+--
+
+The corresponding OpenAPI definition is provided by the `metadata` query parameter:
+
+[source,yaml]
+----
+include::../../../../../openapi/parameters/processes-provenance/metadata-profiles/metadata.yaml[]
+----
+
+====

@@ -92,6 +92,39 @@ include::../recommendations/provenance/prov-content/REC_prov-user-agent.adoc[]
 
 include::../recommendations/provenance/prov-content/REC_prov-associations.adoc[]
 
+[[sc_provenance_content-profiles]]
+===== Profiles
+
+When the <<rc_metadata-profiles,Metadata Profiles>> requirements class is supported, the profiles annotated
+in the process description (see <<clause_metadata-profiles>>) can be carried over to the provenance of the job.
+Profiles can also be reported without that requirements class, since a job can resolve profiles that are more
+specific than the ones defined by the process (e.g., from the actual data or parameters submitted).
+Such specialized profiles are strongly recommended, because they cannot be obtained otherwise.
+
+include::../recommendations/provenance/prov-content/REC_profile-entities.adoc[]
+
+include::../recommendations/provenance/prov-content/REC_specialized-profiles.adoc[]
+
+include::../recommendations/provenance/prov-content/PER_specialized-profiles.adoc[]
+
+[[sc_provenance_job-results-profiles]]
+==== Job Results Profile
+
+To ensure consistency between the <<OAProc-1>> job results and their provenance,
+servers are encouraged to report the same profiles between them.
+
+include::../recommendations/provenance/job-prov/REC_results-profile.adoc[]
+
+NOTE: The `dataClasses` property of a by-value result can be located under a
+link:++https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/qualifiedValue.yaml[qualifiedValue.yaml]++[`qualifiedValue.yaml`]
+(i.e., at the same level as `value` and `mediaType`) within the representation of the job results response.
+It is not available under other representations.
+
+NOTE: The `profile` property of a by-reference result is employed instead of `dataClasses` for alignment with other
+standards proposing this field. However, because the link is an open object as long as the `href` and `rel` are provided, servers
+could also provide `dataClasses` or even the `headers` fields (replicating the above `Link` header) that are all allowed under the extended form of
+link:++https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/link.yaml[link.yaml]++[`link.yaml`].
+
 [[sc_provenance_job-status]]
 ==== Job Status
 

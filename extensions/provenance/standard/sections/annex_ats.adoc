@@ -16,3 +16,7 @@ The Web API under test can require authorization. Any Executable Test Suite impl
 
 include::../abstract_tests/ATS_class_prov.adoc[]
 
+[[ats_conformance-class_metadata-profiles]]
+=== Conformance Class Metadata Profiles
+
+include::../abstract_tests/ATS_class_metadata-profiles.adoc[]

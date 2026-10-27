@@ -1,0 +1,474 @@
+[[clause_metadata-profiles]]
+== Requirements Class "Metadata Profiles"
+
+[[sc_metadata-profiles_overview]]
+=== Overview
+
+This requirements class defines how processes, and their inputs and outputs, advertise the profiles they conform to
+using the `metadata` field (a list) of
+<<OAProc-1,OGC API - Processes - Part 1: Core>> process descriptions. Each profile
+is qualified by a `role` that points to a concept of a register, which allows clients to search for processes by
+what they do or by the kind of data they handle, rather than by process or input identifiers, or by filtering based
+on restrictive sets of content media-types, encodings and formats in inputs and outputs `schema` fields.
+
+The `metadata` field itself, a list, is already defined by <<OAProc-1>>
+and is not extended by this requirements class.
+This class only constrains the use of its `role`, `href` and `rel` link members, and defines how to filter
+`/processes` using these values. A specific `rel` concept is employed to detect those candidate profile definitions to
+ensure that existing processes that provide `metadata` field entries are unaffected and can continue using them transparently.
+
+include::../requirements/requirements_class_metadata-profiles.adoc[]
+
+[[sc_metadata-profiles_metadata]]
+=== Profile Metadata
+
+include::../requirements/metadata-profiles/REQ_profile-link.adoc[]
+
+include::../requirements/metadata-profiles/REQ_role-register.adoc[]
+
+include::../recommendations/metadata-profiles/REC_role-registers.adoc[]
+
+include::../recommendations/metadata-profiles/PER_derived-registers.adoc[]
+
+NOTE: A `role` concept defined by a register of authority A can be extended by an `href`
+concept defined by a register of authority B, when both are related as per
+<<req_metadata-profiles_concept-relations,/req/metadata-profiles/concept-relations>>. The relation does not have to
+be declared _**directly**_ by authority B toward the concept of authority A. For instance, if both authorities derive
+their concept from a common base class, or if the concept of authority A is an alias (e.g., `owl:sameAs`) or a subclass
+of the base class used by authority B, the `href` concept is still validly related to the `role` concept.
+Only completely unrelated concepts are to be avoided, and for which a server can report the incapability to
+interpret them as per <<req_metadata-profiles_invalid-role,/req/metadata-profiles/invalid-role>>.
+
+include::../requirements/metadata-profiles/REQ_concept-relations.adoc[]
+
+No specific relation or combination of relations is imposed.
+Any relations that provide an equivalent explicit coupling between the concepts can be used.
+The relation to employ depends on the situation. Following is a non exhaustive list of such possible relations:
+
+[[table_metadata-profiles_concept-relations]]
+[cols="2,3",options="header"]
+.Examples of possible relationships indicating coupled profiles and concepts (informative)
+|===
+| Relation | Situation
+| `rdfs:subClassOf` | The `href` concept is a more specific class of the `role` concept.
+| `owl:equivalentClass` | The `href` and `role` concepts are classes with an identical definition.
+| `owl:sameAs` | The `href` and `role` identify the same individual, published under distinct identifiers.
+| `skos:exactMatch` | The concepts from distinct registers can be used interchangeably.
+| `skos:closeMatch` | The concepts from distinct registers are similar, but not necessarily interchangeable.
+| `skos:broader` | The `role` concept is a broader concept than the `href` concept (concepts organized as a thesaurus).
+| `skos:narrower` | The `href` concept is a narrower concept than the `role` concept (inverse of `skos:broader`).
+|===
+
+
+include::../recommendations/metadata-profiles/PER_glossary-terms.adoc[]
+
+include::../recommendations/metadata-profiles/REC_data-type-registers.adoc[]
+
+include::../recommendations/metadata-profiles/PER_safe-curie.adoc[]
+
+NOTE: In a query parameter, the Safe CURIE brackets combine with the brackets of the `deepObject` structure.
+A Safe CURIE `<role>` appears in a parameter name with doubled brackets, such as
+`+++metadata[inputs][[ogc-profile:data-type]]+++`, where the outer brackets delimit the `<role>` key and the inner ones belong
+to the Safe CURIE. A Safe CURIE `<profile>` is a parameter value, and therefore only has its own brackets, such as
+`[ogc-profile:raster]`. A complete filter looks like `+++metadata[inputs][[ogc-profile:data-type]]=[ogc-profile:raster]+++`.
+Brackets are subject to the percent-encoding rules of <<rfc3986,RFC 3986>>, as described below.
+Parsing is defined by <<req_metadata-profiles_query-curie-matching,/req/metadata-profiles/query-curie-matching>>.
+
+include::../recommendations/metadata-profiles/PER_query-literal-brackets.adoc[]
+
+include::../recommendations/metadata-profiles/REC_query-literal-brackets-error.adoc[]
+
+[[sc_metadata-profiles_example]]
+==== Example
+
+The following example shows profile entries of the `metadata` list field at the process level, and on the inputs
+(raster data, CRS and temporal instant data types). The profiles references are complementary and may be interpreted
+in various combinations to provide a more complete (or derived) understanding of the process, its inputs and outputs.
+
+The `datetime` input shows a `role` expressed as a URN, which is allowed alongside IRIs
+(see <<req_metadata-profiles_profile-link,/req/metadata-profiles/profile-link>>),
+while the profile `[ogc-profile:process-type]` applied to the process is expressed as
+Safe CURIE (see <<per_metadata-profiles_safe-curie,/per/metadata-profiles/safe-curie>>).
+
+[source,yaml]
+----
+metadata:
+  - role: "[ogc-profile:process-type]"
+    href: "https://geolabs.github.io/bblocks-process-profiles/def/process-type/algae-bloom/reproject-image"
+    rel: https://www.opengis.net/def/profile
+  - role: "[ogc-profile:generic-profile]"
+    href: "https://geolabs.github.io/bblocks-generic-profiles/def/concept/raster-reprojection"
+    rel: https://www.opengis.net/def/profile
+  - role: https://geolabs.github.io/bblocks-process-profiles/def/phase
+    href: "https://geolabs.github.io/bblocks-process-profiles/def/phase/pre-processing"
+    rel: https://www.opengis.net/def/profile
+inputs:
+  image:
+    schema:
+      contentMediaType: "image/tiff; application=geotiff; profile=cloud-optimized"
+    metadata:
+      - role: http://www.opengis.net/def/glossary/term/Raster
+        href: "https://geolabs.github.io/bblocks-generic-profiles/def/concept/raster"
+        rel: https://www.opengis.net/def/profile
+  crs:
+    schema:
+      type: string
+      format: uri
+    metadata:
+      - role: http://www.opengis.net/def/glossary/term/CRS
+        href: "http://www.opengis.net/def/data-type/ogc/1.1/crs-uri"
+        rel: https://www.opengis.net/def/profile
+  datetime:
+    schema:
+      type: string
+      format: date-time
+    metadata:
+      - role: urn:ogc:def:dataType:ISO-19108:2002:TM_Instant
+        href: "http://www.opengis.net/def/dataType/OGC/1.1/time"
+        rel: https://www.opengis.net/def/profile
+----
+
+[[sc_metadata-profiles_knowledge-representation]]
+==== Knowledge Representation
+
+include::../recommendations/metadata-profiles/REC_knowledge-representation.adoc[]
+
+include::../recommendations/metadata-profiles/PER_knowledge-representation-negotiation.adoc[]
+
+When no negotiation is requested, the default representation of the process description remains the one defined by
+<<OAProc-1>>.
+
+[[sc_metadata-profiles_filtering]]
+=== Process Filtering
+
+[[sc_metadata-profiles_query-parameter]]
+==== Query Parameters
+
+include::../requirements/metadata-profiles/REQ_query-parameter.adoc[]
+
+[[sc_metadata-profiles_query-method]]
+==== Query Method
+
+The `QUERY` method is defined by <<rfc10008,RFC 10008>>. It is optional for servers, but those that support it
+must advertise it.
+
+include::../requirements/metadata-profiles/REQ_query-options.adoc[]
+
+NOTE: The methods listed in the `Allow` header depend on the other conformance classes implemented by the server for
+path `/processes`. For example, a server that also implements <<OAProc-2,OGC API - Processes - Part 2: Deploy, Replace,
+Undeploy>> additionally lists `POST` to deploy a process, along with `GET`, `OPTIONS` and, when supported, `QUERY`.
+Methods such as `HEAD` are listed as well when supported. The advertisement of `QUERY` is independent of these methods,
+and neither implies nor excludes them.
+
+include::../recommendations/metadata-profiles/PER_query-optional.adoc[]
+
+include::../requirements/metadata-profiles/REQ_query-method.adoc[]
+
+[[sc_metadata-profiles_query-content]]
+==== Query Content
+
+include::../requirements/metadata-profiles/REQ_query-content.adoc[]
+
+[[sc_metadata-profiles_query-compression]]
+==== Long Filters and Compression
+
+Filters provided with the `GET` operation can lead to a URI exceeding the length accepted by the server or
+an intermediary, resulting in a `414` (URI Too Long) status code (<<rfc9110,RFC 9110>>).
+
+NOTE: The preferred approach to provide long filters is the `QUERY` method, whose content is not constrained by
+the length of the URI. See <<req_metadata-profiles_query-method,Query Method>> and
+<<req_metadata-profiles_query-options,Query Options>> to discover its support.
+
+When the `QUERY` method cannot be employed, the filters can be provided as a compressed value directly to the `metadata`
+query parameter instead. The value is the <<req_metadata-profiles_query-content,`QUERY` content>>
+compressed with `gzip` and encoded with `base64url` (<<rfc4648,RFC 4648>>, Section 5).
+A `gzip` stream always starts with the bytes `0x1F 0x8B`, which allows distinguishing it from
+the `metadata[<scope>][<role>]` form without any additional parameter. Once `base64url`-encoded,
+such a value starts with `H4sI`.
+
+include::../requirements/metadata-profiles/REQ_query-compression.adoc[]
+
+WARNING: The magic number checks are security features on top of providing detection mechanisms.
+Servers are STRONGLY recommended to perform those checks to avoid processing arbitrary content
+that could be maliciously crafted to exploit vulnerabilities.
+
+include::../recommendations/metadata-profiles/PER_query-compression-limits.adoc[]
+
+include::../recommendations/metadata-profiles/REC_query-compression-limits.adoc[]
+
+include::../requirements/metadata-profiles/REQ_unsupported-metadata-encoding.adoc[]
+
+[[sc_metadata-profiles_matching]]
+==== Matching Semantics
+
+The filters defined for matching profiles never refer to the identifiers (`id`) of the process, of its inputs or of
+its outputs. Those identifiers are chosen freely by each process author, so two processes providing equivalent capability,
+possibly deployed on different servers, could potentially use different identifiers (e.g., `image` vs `raster-input`).
+The design of this matching strategy and the reliance on flexible `<role>` and `<profile>` URI values
+from the <<req_metadata-profiles_query-parameter,/req/metadata-profiles/query-parameter>> (`GET`)
+and the <<req_metadata-profiles_query-content,/req/metadata-profiles/query-content>> (`QUERY`) operations are to ensure
+that a client can find all processes providing the same capability, regardless of how they name those identifiers.
+Otherwise, a filter relying identifiers would only find processes known beforehand, and would still require interpreting
+each of their semantic representations across implementations.
+
+Instead, a filter is expressed with the `role` and `href` of the profiles of interest, which have the same semantic
+meaning on every server regardless of how the process names its inputs and outputs. For example, the filter on the
+`role` representing a "_band_" is matched against any input that declares it, whichever its `id` is.
+
+The same applies to the way a capability is organized. One process can expose it over many inputs (e.g., one input
+per band), whereas another can combine it into a single input (e.g., a multi-band raster). Both provide the same
+capability, and a client searching for its specific processing capabilities can find both indistinguishably. The client
+would then only need to supply the bands in the relevant manner for each process implementation, which can be
+established by further refining search over such concepts, or simply parsing their process description since their
+discovery was already resolved.
+
+NOTE: The specific interpretability of a given profile, the concept(s) it represents, and its semantic definition, into
+a functional invocation of that process, is out of scope for this requirement. Such operation would entirely depend on the
+granularity of the applied and provided profiles, the specifics of the process description, and desired processing outcomes.
+The goal if this feature is only to discover the processes of interest given a flexible set of profile constraints.
+
+include::../requirements/metadata-profiles/REQ_query-matching.adoc[]
+
+include::../requirements/metadata-profiles/REQ_query-curie-matching.adoc[]
+
+[[sc_metadata-profiles_matching-data-classes]]
+===== Profiling with `dataClasses`
+
+The `dataClasses` field of an input or output description (see <<OAProc-1>>) is another way to indicate the supported or
+expected profiles of the data, using plain URIs. Contrary to a `metadata` field entry, it does not explicitly associate
+its `<role>` (i.e., it is not directly indicated in the process description) when listing profiles under `dataClasses`.
+Therefore, a `dataClasses` URI can only be matched with the `<profile>` of a filter, corresponding to the `href` of
+a `metadata` field entry. It represents the concrete profile applied to the input or output, and its `<role>` is
+assumed to be compatible with the reference ontology in which that `<profile>` is defined. Such ontology is expected to
+directly provide the `<role>`/`<profile>` correspondence, through one form of association such as the relations listed in
+<<table_metadata-profiles_concept-relations>> (e.g., `rdfs:subClassOf` or `skos:broader`),
+as required by <<req_metadata-profiles_concept-relations,/req/metadata-profiles/concept-relations>>
+for `metadata` field entries. This nuance is a partial limitation of `dataClasses` in this context in contrast to the
+more verbose `metadata`, and is the reason why the `<role>` cannot be verified when matching them.
+However, correctly formed ontologies should resolve the `<profile>` definitions in a compatible fashion.
+Another limitation is that `dataClasses` are only available at the `<scope>` level of `inputs` and `outputs` definitions
+without any equivalence to globally indicated `process` profiles.
+For consistency between those two profiling capabilities, the following recommendation extends the matching criteria.
+
+include::../recommendations/metadata-profiles/REC_query-matching-data-classes.adoc[]
+
+[[sc_metadata-profiles_matching-independence]]
+===== Why Roles Are Matched Independently
+
+Matching all roles on the same input (respectively output) would prevent the discovery of common processes:
+
+* A process can describe the data on distinct inputs, each with its own role. For instance, an `image` input with
+  the role of a raster _data type_ and a `crs` input with the role of a _CRS_ (see the <<sc_metadata-profiles_example,example>>).
+  A filter combining a raster and a CRS could never match, as no single input provides both roles.
+* A process can spread the profiles of a same role over distinct inputs. For instance, `ndvi-bands` provides bands `B04`
+  and `B08` through the `red` and `nir` inputs. Requiring them in a single input would only match `ndvi-multiband`,
+  although both processes provide the same capability.
+
+WARNING: Since profiles associated to particular `role` are matched independently (no inter-`role` matching),
+a filter combining many roles can match a process whose inputs (and respectively outputs) satisfy each role separately,
+although they are unrelated to each other.
+For example, band `B04` could be provided by one input and the `sentinel-2` sensor could be applied to another input
+that is not the same source of that band. This is a potential drawback of profiles that are too broadly defined on a process.
+However, matched processes can be further analyzed semantically by the client (e.g., consider that `B04` is part of the
+same `sentinel-2` sensor by following its <<def_knowledge-graph,_knowledge graph_>>, so it is not needed explicitly)
+to refine and validate the desired logic, or combine many search results using multiple profile combinations to narrow
+down relevant processes. This limitation can typically be avoided using profiles of finer granularity as recommended by
+<<rec_metadata-profiles_profile-granularity,/rec/metadata-profiles/profile-granularity>>.
+
+include::../recommendations/metadata-profiles/REC_profile-granularity.adoc[]
+
+[[sc_metadata-profiles_matching-examples]]
+==== Matching Examples
+
+Consider three processes computing a spectral index from Sentinel-2 bands. Processes `ndvi-bands` and `ndvi-multiband`
+compute the Normalized Difference Vegetation Index (NDVI) from the red (B04) and near-infrared (B08) bands.
+Process `ndwi-bands` computes the Normalized Difference Water Index (NDWI) from the green (B03) and
+near-infrared (B08) bands. Processes `ndvi-bands` and `ndwi-bands` take each band as a distinct input, whereas
+`ndvi-multiband` takes a single multi-band raster input. All of them are band math operations applied on rasters,
+and therefore also share a generic profile for that operation. Their respective metadata could be represented
+as follows, using `process-type`, `generic-profile`, `band` and `index` as `<role>`.
+
+[source,yaml]
+----
+ndvi-bands:
+  metadata:
+    - {role: "https://example.com/def/role/process-type", href: "https://example.com/def/process-type/ndvi", rel: https://www.opengis.net/def/profile}
+    - {role: "https://example.com/def/role/generic-profile", href: "https://example.com/def/profile/raster-band-math", rel: https://www.opengis.net/def/profile}
+  inputs:
+    red:
+      metadata:
+        - {role: "https://example.com/def/role/band", href: "https://example.com/def/band/B04", rel: https://www.opengis.net/def/profile}
+    nir:
+      metadata:
+        - {role: "https://example.com/def/role/band", href: "https://example.com/def/band/B08", rel: https://www.opengis.net/def/profile}
+  outputs:
+    index:
+      metadata:
+        - {role: "https://example.com/def/role/index", href: "https://example.com/def/index/NDVI", rel: https://www.opengis.net/def/profile}
+ndvi-multiband:
+  metadata:
+    - {role: "https://example.com/def/role/process-type", href: "https://example.com/def/process-type/ndvi", rel: https://www.opengis.net/def/profile}
+    - {role: "https://example.com/def/role/generic-profile", href: "https://example.com/def/profile/raster-band-math", rel: https://www.opengis.net/def/profile}
+  inputs:
+    image:
+      metadata:
+        - {role: "https://example.com/def/role/band", href: "https://example.com/def/band/B04", rel: https://www.opengis.net/def/profile}
+        - {role: "https://example.com/def/role/band", href: "https://example.com/def/band/B08", rel: https://www.opengis.net/def/profile}
+  outputs:
+    index:
+      metadata:
+        - {role: "https://example.com/def/role/index", href: "https://example.com/def/index/NDVI", rel: https://www.opengis.net/def/profile}
+ndwi-bands:
+  metadata:
+    - {role: "https://example.com/def/role/process-type", href: "https://example.com/def/process-type/ndwi", rel: https://www.opengis.net/def/profile}
+    - {role: "https://example.com/def/role/generic-profile", href: "https://example.com/def/profile/raster-band-math", rel: https://www.opengis.net/def/profile}
+  inputs:
+    green:
+      metadata:
+        - {role: "https://example.com/def/role/band", href: "https://example.com/def/band/B03", rel: https://www.opengis.net/def/profile}
+    nir:
+      metadata:
+        - {role: "https://example.com/def/role/band", href: "https://example.com/def/band/B08", rel: https://www.opengis.net/def/profile}
+  outputs:
+    index:
+      metadata:
+        - {role: "https://example.com/def/role/index", href: "https://example.com/def/index/NDWI", rel: https://www.opengis.net/def/profile}
+----
+
+In the following examples, the filters are provided with query parameters.
+The equivalent `QUERY` content (see <<req_metadata-profiles_query-content,Query Content>>) is obtained by mapping each
+`metadata[<scope>][<role>]=<profile>` to the `<profile>` list of the `<role>` under the `<scope>` member.
+
+[[sc_metadata-profiles_example-single-profile]]
+===== Single Profile
+
+The filter `pass:[metadata[inputs\][https://example.com/def/role/band\]=https://example.com/def/band/B08]`
+matches all processes, since at least one input of each of them provides band `B08`.
+The filter `pass:[metadata[inputs\][https://example.com/def/role/band\]=https://example.com/def/band/B04]`
+matches `ndvi-bands` and `ndvi-multiband`, but not `ndwi-bands`, which does not provide band `B04`.
+
+[[sc_metadata-profiles_example-many-profiles]]
+===== Many Profiles of the Same Role
+
+The filter
+`pass:[metadata[inputs\][https://example.com/def/role/band\]=https://example.com/def/band/B04,https://example.com/def/band/B08]`
+matches `ndvi-bands` and `ndvi-multiband`. All listed profiles must be matched _simultaneously_ (no partial match),
+but those matches can be spread out across inputs. In this example, `ndvi-bands` provides them through distinct inputs
+whereas `ndvi-multiband` provides them through a single one. Process `ndwi-bands` is not returned, since it does not
+provide band `B04` in any input.
+
+The filter
+`pass:[metadata[inputs\][https://example.com/def/role/band\]=https://example.com/def/band/B03,https://example.com/def/band/B08]`
+matches only `ndwi-bands`.
+
+[[sc_metadata-profiles_example-process-level]]
+===== Process-Level Profiles
+
+The following filters apply on the profiles of the process itself, irrespective of its inputs and outputs.
+
+* `pass:[metadata[process\][https://example.com/def/role/generic-profile\]=https://example.com/def/profile/raster-band-math]`
+  matches all processes, since they all are raster band math operations.
+* `pass:[metadata[process\][https://example.com/def/role/process-type\]=https://example.com/def/process-type/ndvi]`
+  matches `ndvi-bands` and `ndvi-multiband`.
+
+[[sc_metadata-profiles_example-combined-levels]]
+===== Process-Level and Input-Level Profiles Combined
+
+Filters at the `process`, `inputs` and `outputs` levels are different `<role>` constraints evaluated separately,
+and all of them must be matched. Using the broad `raster-band-math` generic profile of the process, input profiles
+narrow the result:
+
+* `process` generic profile `raster-band-math` and `inputs` band `B03`
+  matches only `ndwi-bands`, since it is the only band math process with an input providing `B03`.
+* `process` generic profile `raster-band-math` and `inputs` bands `B04` and `B08`
+  matches `ndvi-bands` and `ndvi-multiband`.
+* `process` type `ndvi` and `inputs` band `B08` matches `ndvi-bands` and `ndvi-multiband`.
+  `ndwi-bands` is not returned although it provides `B08`, because it is not an `ndvi` process.
+* `process` type `ndvi` and `inputs` band `B03` matches no process.
+  Each constraint is matched by some process, but none matches both.
+* `outputs` index `NDWI` matches only `ndwi-bands`, and `outputs` index `NDWI` with `inputs` band `B04`
+  matches no process.
+
+For instance, the second case can be expressed with the following `QUERY` content:
+
+[source,json]
+----
+{
+  "metadata": {
+    "process": {"https://example.com/def/role/generic-profile": ["https://example.com/def/profile/raster-band-math"]},
+    "inputs": {"https://example.com/def/role/band": ["https://example.com/def/band/B04", "https://example.com/def/band/B08"]}
+  }
+}
+----
+
+[[sc_metadata-profiles_example-many-roles]]
+===== Many Roles
+
+Roles are evaluated separately, and each of them must be matched by the process. Since each `<role>` only requires
+a match by _some_ input (respectively output), the inputs matching distinct roles are not required to be the same.
+
+Consider processes `ndvi-bands` and `ndvi-multiband`, where the inputs additionally declare the `sensor` role for
+the source of the data, as well as another process `ndvi-generic` that does not provide any `sensor` profile.
+The `process` and `outputs` metadata are omitted for brevity.
+
+[source,yaml]
+----
+ndvi-bands:
+  inputs:
+    red:
+      metadata:
+        - {role: "https://example.com/def/role/band", href: "https://example.com/def/band/B04", rel: https://www.opengis.net/def/profile}
+        - {role: "https://example.com/def/role/sensor", href: "https://example.com/def/sensor/sentinel-2", rel: https://www.opengis.net/def/profile}
+    nir:
+      metadata:
+        - {role: "https://example.com/def/role/band", href: "https://example.com/def/band/B08", rel: https://www.opengis.net/def/profile}
+ndvi-multiband:
+  inputs:
+    image:
+      metadata:
+        - {role: "https://example.com/def/role/band", href: "https://example.com/def/band/B04", rel: https://www.opengis.net/def/profile}
+        - {role: "https://example.com/def/role/band", href: "https://example.com/def/band/B08", rel: https://www.opengis.net/def/profile}
+        - {role: "https://example.com/def/role/sensor", href: "https://example.com/def/sensor/sentinel-2", rel: https://www.opengis.net/def/profile}
+ndvi-generic:
+  inputs:
+    image:
+      metadata:
+        - {role: "https://example.com/def/role/band", href: "https://example.com/def/band/B04", rel: https://www.opengis.net/def/profile}
+        - {role: "https://example.com/def/role/band", href: "https://example.com/def/band/B08", rel: https://www.opengis.net/def/profile}
+----
+
+The following filter requires bands `B04` and `B08` (role `band`) and the `sentinel-2` sensor (role `sensor`):
+
+`pass:[metadata[inputs\][https://example.com/def/role/band\]=https://example.com/def/band/B04,https://example.com/def/band/B08&metadata[inputs\][https://example.com/def/role/sensor\]=https://example.com/def/sensor/sentinel-2]`
+
+or equivalently with the `QUERY` method:
+
+[source,json]
+----
+{
+  "metadata": {
+    "inputs": {
+      "https://example.com/def/role/band": [
+        "https://example.com/def/band/B04",
+        "https://example.com/def/band/B08"
+      ],
+      "https://example.com/def/role/sensor": ["https://example.com/def/sensor/sentinel-2"]
+    }
+  }
+}
+----
+
+* `ndvi-multiband` is returned. A single input (`image`) matches both the `band` and `sensor` roles.
+* `ndvi-bands` is returned. The `band` role is matched through distinct inputs (`red` and `nir`),
+  whereas the `sensor` role is matched by the `red` input alone. The `nir` input does not need to declare the `sensor`.
+* `ndvi-generic` is not returned. The `band` role is matched, but the `sensor` role is not matched by any input.
+  A process matching only a subset of the requested roles is never returned.
+
+[[sc_metadata-profiles_empty-and-errors]]
+==== Empty Results and Errors
+
+include::../recommendations/metadata-profiles/PER_empty-result.adoc[]
+
+include::../requirements/metadata-profiles/REQ_invalid-metadata-profile.adoc[]
+
+include::../requirements/metadata-profiles/REQ_invalid-role.adoc[]

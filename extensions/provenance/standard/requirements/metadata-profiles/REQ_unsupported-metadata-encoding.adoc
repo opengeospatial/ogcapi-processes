@@ -1,0 +1,30 @@
+[[req_metadata-profiles_unsupported-metadata-encoding]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/metadata-profiles/unsupported-metadata-encoding
+
+[.component,class=conditions]
+--
+. A request using a compressed filter value of the `metadata` query parameter is reported as a problem as per
+<<req_metadata-profiles_query-compression,/req/metadata-profiles/query-compression>> or
+<<rec_metadata-profiles_query-compression-limits,/rec/metadata-profiles/query-compression-limits>>.
+--
+
+[.component,class=part]
+--
+The response SHALL use the media type `application/problem+json` (<<rfc9457,RFC 9457>>).
+--
+
+[.component,class=part]
+--
+The `type` of the response content SHALL be
+`pass:["https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/unsupported-metadata-encoding"]`.
+--
+
+[.component,class=part]
+--
+The `instance` of the response content SHALL be `metadata`.
+--
+
+====

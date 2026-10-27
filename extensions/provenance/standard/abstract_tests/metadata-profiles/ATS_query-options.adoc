@@ -1,0 +1,20 @@
+[[ats_metadata-profiles_query-options]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/metadata-profiles/query-options
+target:: /req/metadata-profiles/query-options
+test-purpose:: Validate that the server advertises the supported methods, including `QUERY` when supported, on `/processes`.
+test-method::
++
+--
+1. Issue an HTTP `OPTIONS` request on `{root}/processes`.
+
+2. Validate that the `Allow` header lists the supported methods of the path.
+
+3. If the `QUERY` method is supported (see <<ats_metadata-profiles_query-method>>), validate that `Allow` includes `QUERY`, and that the `Accept-Query` header lists the supported media types (including `application/json`).
+
+4. If the `QUERY` method is not supported, validate that `Allow` does not include `QUERY`, and skip the `QUERY` tests.
+--
+====

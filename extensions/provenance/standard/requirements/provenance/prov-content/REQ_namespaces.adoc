@@ -15,7 +15,7 @@ The PROV metadata SHALL minimally include the namespace references to following 
 
 [.component,class=part]
 --
-All properties across the PROV document SHALL reserve the `prov:` prefix for the `http://www.w3.org/ns/prov#` namespace
+All properties across the PROV document SHALL reserve the `prov:` prefix for the `pass:[http://www.w3.org/ns/prov#]` namespace
 and refer to corresponding definitions in the link:https://www.w3.org/TR/prov-o/[PROV-O] RDF ontology.
 --
 

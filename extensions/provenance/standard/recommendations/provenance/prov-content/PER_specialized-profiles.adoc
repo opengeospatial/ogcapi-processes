@@ -1,0 +1,13 @@
+[[per_provenance_prov-content_specialized-profiles]]
+[permission]
+====
+[%metadata]
+identifier:: /per/provenance/prov-content-specialized-profiles
+
+[.component,class=part]
+--
+The job status, the job results and its provenance MAY report specialized profiles that were not originally annotated
+in the process description, whether or not the <<rc_metadata-profiles,Metadata Profiles>> requirements class is supported.
+--
+
+====

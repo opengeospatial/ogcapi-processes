@@ -1,0 +1,35 @@
+
+[abstract]
+[[sc_abstract]]
+== Abstract
+
+OGC API Standards define modular API building blocks to spatially enable Web APIs in a consistent way. The https://spec.openapis.org/oas/[OpenAPI specification] is used to define the API building blocks.
+
+The OGC API Processes Standard (aka Processes API) defines API building blocks to describe, execute, monitor and retrieve results of Web-accessible processes. OGC API Processes is comprised of multiple parts, each of them is a separate OGC Standard.
+
+The _OGC API - Processes - Part 2: Deploy, Replace, Undeploy_ draft specification extends the core capabilities specified in OGC API - Processes - Part 1: Core [<<OAProc-1>>] with the ability to dynamically add, modify and/or delete individual processes using an implementation (endpoint) of the OGC API - Processes Standard.
+
+The _OGC API - Processes - Part 3: Workflows and Chaining_ draft specification extends the core capabilities specified in OGC API - Processes - Part 1: Core [<<OAProc-1>>] with process execution using nested processes and alternate ad-hoc workflow representations that can chain processing operations. These are subj
+
+The _OGC API - Processes - Part 4: Job Management_ draft specification extends the core capabilities specified in OGC API - Processes - Part 1: Core [<<OAProc-1>>] with the ability to create, manage and monitor jobs that are associated with processes execution.
+
+The _OGC API - Processes - Part 5: Provenance and Profiles_ draft specification (this document) extends the core capabilities specified in OGC API - Processes - Part 1: Core [<<OAProc-1>>] with provenance and profiling information associated with processes execution through associated jobs as well as retrieval of processes using metadata profiles.
+
+All of the Standards are complementary and can extend each other, such as process replacement (Part 2) allowing updates of metadata profiles (Part 5) later queried from a process description, provenance details (Part 5) being capatured across workflow steps (Part 3), or submitting and managing jobs (Part 4) from a common subset of resources containing its job provenance details (Part 5). 
+
+CAUTION: This is a DRAFT version of the 5th part of the OGC API - Processes standards. This draft is not complete and there are open issues that are still under discussion.
+
+[[sc_submitters]]
+== Submitters
+
+All questions regarding this submission should be directed to the editors or the submitters:
+
+[[table_submitters]]
+.Submitters
+[cols="2",options="header,unnumbered"]
+|===
+| Name | Affiliation
+| Francis Charette-Migneault _(editor)_ | Technologies Luqia, Centre de Recherche Informatique de Montréal (CRIM)
+| Gérald Fenoy _(editor)_ | GeoLabs
+| Panagiotis (Peter) A. Vretanos | CubeWerx Inc.
+|===

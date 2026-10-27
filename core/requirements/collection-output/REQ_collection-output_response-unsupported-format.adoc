@@ -1,0 +1,34 @@
+[[req_collection-output_response-unsupported]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/collection-output/response-unsupported
+description:: Error response when the Collection Output request cannot be interpreted.
+
+[.component,class=condition]
+--
+. The server is unable to interpret the requested contents, either due to invalid combinations of media-types per requested output, from their aggregation strategy as a whole, or from incompatible formats leaving it incapable of representing the expected outcome as <<def_collection,collection>> output.
+. Alternatively or simultaneously, the requested outputs contain any output indicated as not supporting the collection output as per <<req_ogc-process-description_data-access-apis>> (i.e., omitted `dataAccessApis`).
+--
+
+[.component,class=part]
+--
+The code of the response SHALL be `400 Bad Request`.
+--
+
+[.component,class=part]
+--
+The content of that response SHALL validate against the following OpenAPI schema fragment:
+
+[source,yaml]
+----
+include::../../../openapi/schemas/common-core/exception.yaml[]
+----
+--
+
+[.component,class=part]
+--
+The `type` of the exception SHALL be `pass:["https://www.opengis.net/def/exceptions/ogcapi-processes-1/2.0/collection-output-unsupported"]`.
+--
+
+====

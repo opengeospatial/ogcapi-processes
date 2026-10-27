@@ -28,7 +28,7 @@ The following resources can be retrieved using the safe HTTP GET operation and c
 
 Requirements class "Core":
 
-* <<sc_process_list,Process list>>
+* <<sc_process-list,Process list>>
 * <<sc_process_description,Process description>>
 * <<sc_job-status_info,Job status info>>
 * <<sc_job-results,Job results>>

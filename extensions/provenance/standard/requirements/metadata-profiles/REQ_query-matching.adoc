@@ -1,0 +1,63 @@
+[[req_metadata-profiles_query-matching]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/metadata-profiles/query-matching
+
+[.component,class=part]
+--
+A `<role>` SHALL be matched against the `role` of `metadata` field entries irrespective of the identifiers (`id`)
+of the process, inputs or outputs where they are defined.
+--
+
+[.component,class=part]
+--
+When many `<profile>` are provided for a same `<role>`, the process SHALL match ALL of them (logical AND).
+--
+
+[.component,class=part]
+--
+Each `<profile>` SHALL be matched against the `href` of a
+<<req_metadata-profiles_profile-link,_Metadata Profile Link_>> with that `role`.
+--
+
+[.component,class=part]
+--
+For `inputs` and `outputs`, each `<profile>` of a given `<role>` SHALL be matched by at least one input
+(respectively output) of the process.
+--
+
+[.component,class=part]
+--
+For `inputs` and `outputs`, a match SHALL NOT require the profiles of a same `<role>` to be provided by the same input
+(respectively output).
+--
+
+[.component,class=part]
+--
+When multiple `<role>` are provided, each `<role>` SHALL be evaluated separately.
+--
+
+[.component,class=part]
+--
+For `inputs` and `outputs`, a match SHALL NOT require distinct `<role>` to be provided by the same input
+(respectively output).
+--
+
+[.component,class=part]
+--
+When multiple `<role>` are provided, the process SHALL match ALL of them to be returned.
+--
+
+[.component,class=part]
+--
+A process matching only a subset of the requested roles SHALL NOT be returned.
+--
+
+[.component,class=part]
+--
+A server SHALL NOT ignore a supplied `<role>`.
+The filter is evaluated as a whole, and results in a match or not.
+--
+
+====

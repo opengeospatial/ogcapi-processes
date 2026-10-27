@@ -1,0 +1,29 @@
+[[req_metadata-profiles_profile-link]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/metadata-profiles/profile-link
+
+[.component,class=conditions]
+--
+. In a process description, the `metadata` list field of the process, or a nested input or output, is defined as per <<OAProc-1,OGC API - Processes - Part 1: Core>> (schema `metadata.yaml`), using the variant with a `role` and a link (`href` and `rel`).
+--
+
+[.component,class=part]
+--
+A `metadata` field entry that describes a profile SHALL use the link relation `pass:[rel: "https://www.opengis.net/def/profile"]`.
+--
+
+[.component,class=part]
+--
+The `role` and `href` of such a `metadata` field entry SHALL each be an
+IRI (<<rfc3987,RFC 3987>>), a URN (<<rfc8141,RFC 8141>>)
+or a Safe CURIE (see <<per_metadata-profiles_safe-curie,/per/metadata-profiles/safe-curie>>).
+--
+
+[.component,class=part]
+--
+Other identifier forms (e.g., plain labels or relative references) SHALL NOT be used.
+--
+
+====

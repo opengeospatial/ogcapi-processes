@@ -1,0 +1,19 @@
+[[ats_metadata-profiles_concept-relations]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/metadata-profiles/concept-relations
+target:: /req/metadata-profiles/concept-relations
+test-purpose:: Validate that the `href` concept of a profile is explicitly related to the `role` concept.
+test-method::
++
+--
+1. Retrieve the `role` and `href` URIs of profile metadata entries from the process descriptions.
+
+2. Dereference the `href` concept, the `role` concept, and any intermediate related concept (when resolvable).
+
+3. Validate that a chain of explicit semantic relations (e.g., `rdfs:subClassOf`, `owl:equivalentClass`, `owl:sameAs`,
+`skos:exactMatch`, `skos:closeMatch`, `skos:broader`, `skos:narrower`) leads from the `href` concept to the `role` concept.
+--
+====

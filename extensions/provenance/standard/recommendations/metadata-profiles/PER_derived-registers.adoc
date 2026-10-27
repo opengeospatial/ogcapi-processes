@@ -1,0 +1,16 @@
+[[per_metadata-profiles_derived-registers]]
+[permission]
+====
+[%metadata]
+identifier:: /per/metadata-profiles/derived-registers
+
+[.component,class=part]
+--
+The `href` of a <<req_metadata-profiles_profile-link,profile link>> MAY identify a concept defined externally from
+the register of the `role` concept, in order to extend a base profile with concepts of other registers, while still
+being related to the `role` concept as required by
+<<req_metadata-profiles_role-register,/req/metadata-profiles/role-register>>
+and as described by <<req_metadata-profiles_concept-relations,/req/metadata-profiles/concept-relations>>.
+--
+
+====
