@@ -87,10 +87,9 @@
     <foaf:name>crim-ca/weaver</foaf:name>
     <schema:name>crim-ca/weaver</schema:name>
   </prov:organization>
-  <prov:entity prov:id="id:53f5a04e-b531-466d-81be-62c34a1431ba">
-    <prov:label>Job Information</prov:label>
+  <prov:entity prov:id="id:219b625d-0146-4443-b54d-e0978b09022e">
+    <prov:label>Job Status</prov:label>
     <prov:location xsi:type="xsd:string">https://hirondelle.crim.ca/weaver/processes/EchoProcess/jobs/53f5a04e-b531-466d-81be-62c34a1431ba</prov:location>
-    <prov:type xsi:type="xsd:QName">wfdesc:ProcessRun</prov:type>
   </prov:entity>
   <prov:entity prov:id="data:4e5feeeb8209de47c8dfb7c3f50a893e505af067:EchoProcess">
     <prov:label>Process Description</prov:label>
@@ -123,21 +122,21 @@
   </prov:wasStartedBy>
   <prov:wasStartedBy>
     <prov:activity prov:ref="id:d57aaff6-a93f-4927-a2d8-112beb358d4d"/>
-    <prov:trigger prov:ref="id:53f5a04e-b531-466d-81be-62c34a1431ba"/>
+    <prov:trigger prov:ref="id:219b625d-0146-4443-b54d-e0978b09022e"/>
     <prov:time>2026-01-15T16:45:56.964000+00:00</prov:time>
   </prov:wasStartedBy>
   <prov:specializationOf>
     <prov:specificEntity prov:ref="id:d57aaff6-a93f-4927-a2d8-112beb358d4d"/>
-    <prov:generalEntity prov:ref="id:53f5a04e-b531-466d-81be-62c34a1431ba"/>
+    <prov:generalEntity prov:ref="id:219b625d-0146-4443-b54d-e0978b09022e"/>
   </prov:specializationOf>
   <prov:alternateOf>
     <prov:alternate1 prov:ref="id:d57aaff6-a93f-4927-a2d8-112beb358d4d"/>
-    <prov:alternate2 prov:ref="id:53f5a04e-b531-466d-81be-62c34a1431ba"/>
+    <prov:alternate2 prov:ref="id:219b625d-0146-4443-b54d-e0978b09022e"/>
   </prov:alternateOf>
-  <prov:wasGeneratedBy>
-    <prov:entity prov:ref="id:53f5a04e-b531-466d-81be-62c34a1431ba"/>
-    <prov:activity prov:ref="data:4e5feeeb8209de47c8dfb7c3f50a893e505af067:EchoProcess"/>
-  </prov:wasGeneratedBy>
+  <prov:wasInfluencedBy>
+    <prov:influencee prov:ref="id:219b625d-0146-4443-b54d-e0978b09022e"/>
+    <prov:influencer prov:ref="id:53f5a04e-b531-466d-81be-62c34a1431ba"/>
+  </prov:wasInfluencedBy>
   <prov:wasDerivedFrom>
     <prov:generatedEntity prov:ref="data:838cdfa4bbf09d1aedd26d79b46bfa8778ede2e0"/>
     <prov:usedEntity prov:ref="data:4e5feeeb8209de47c8dfb7c3f50a893e505af067"/>

@@ -18,6 +18,14 @@ for each profile `href` of the process-level `metadata` field entries defined wi
 
 [.component,class=part]
 --
+The <<req_provenance_job-prov_relation-job-entity,PROV Job Status Entity>> SHOULD include a `dct:conformsTo` attribute
+for each profile the job status conforms to, such as the
+link:https://schemas.opengis.net/ogcapi/processes/part1/2.0/openapi/schemas/statusInfo.yaml[statusInfo.yaml] schema
+of <<OAProc-1>>.
+--
+
+[.component,class=part]
+--
 Each <<req_provenance_prov-content_input-entity,PROV Job Input>> and
 <<req_provenance_prov-content_result-entity,PROV Job Result>> entity SHOULD include a `dct:conformsTo` attribute
 for each profile `href` of the `metadata` field entries defined with the
