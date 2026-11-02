@@ -1,0 +1,19 @@
+[[per_provenance_prov-content_generated-time]]
+[permission]
+====
+[%metadata]
+identifier:: /per/provenance/prov-content-generated-time
+
+[.component,class=part]
+--
+The <<req_provenance_job-prov_relation-job-entity,PROV Job Status Entity>> MAY provide the
+link:https://www.w3.org/TR/prov-o/#generatedAtTime[`prov:generatedAtTime`] property, set to the time at which
+the request to generate the provenance document was resolved, when a server wants to be more specific about
+the moment at which the job status information was reflected in the provenance.
+--
+
+NOTE: Since the provenance is only available for a `successful` job
+(see <<req_provenance_job-prov_missing,Job Provenance Missing>>),
+the job status reflected by the PROV Job Status Entity is always the final one.
+
+====

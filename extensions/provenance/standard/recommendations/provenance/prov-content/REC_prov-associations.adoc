@@ -8,7 +8,7 @@ identifier:: /rec/provenance/prov-content-associations
 --
 Distinct link:https://www.w3.org/TR/prov-o/#Agent[`prov:Agent`] definitions SHOULD be employed to associate
 interactions between various entities involved (i.e., <<req_provenance_prov-content_input-entity,Job Inputs>>,
-<<req_provenance_prov-content_result-entity,Job Results>>, <<req_provenance_job-prov_relation-job-entity, Job Information>>,
+<<req_provenance_prov-content_result-entity,Job Results>>, <<req_provenance_job-prov_relation-job-entity, Job Status>>,
 <<req_provenance_prov-content_process-entity, Process Description>>, etc.) when they represent different actors in
 the processing steps (e.g., the workflow engine, the server instance, the user submitting the job, etc.).
 --

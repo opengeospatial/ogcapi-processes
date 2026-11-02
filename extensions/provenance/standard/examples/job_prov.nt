@@ -135,7 +135,7 @@ _:Nc9caf63850954cec884076b45b9ed0c2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <urn:uuid:6e5f8b71-eb5c-45d8-a497-7f6df55e1990> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/SoftwareApplication> .
 <urn:uuid:541c0738-ac5c-4a35-b592-a3cbc87246f1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wfprov#Artifact> .
 <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/2000/01/rdf-schema#label> "Run of workflow/packed.cwl#main"^^<http://www.w3.org/2001/XMLSchema#string> .
-<urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/ns/prov#atLocation> "https://hirondelle.crim.ca/weaver/processes/EchoProcess/jobs/53f5a04e-b531-466d-81be-62c34a1431ba"^^<http://www.w3.org/2001/XMLSchema#string> .
+<urn:uuid:219b625d-0146-4443-b54d-e0978b09022e> <http://www.w3.org/ns/prov#atLocation> "https://hirondelle.crim.ca/weaver/processes/EchoProcess/jobs/53f5a04e-b531-466d-81be-62c34a1431ba"^^<http://www.w3.org/2001/XMLSchema#string> .
 <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/ns/prov#qualifiedUsage> _:Ndeaf18c982314f369dc761c8aeeeb0b9 .
 <urn:uuid:6815d3c5-fa14-4153-befe-a5fddc285b06> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wf4ever#File> .
 <urn:hash::sha1:3f88b16b3b80316d30a93bc4035da306170884e2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wfprov#Artifact> .
@@ -216,7 +216,7 @@ _:Nac81415608f34010b200913a98983ec4 <http://www.w3.org/ns/prov#entity> <urn:hash
 <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wfprov#WorkflowRun> .
 <urn:hash::sha1:4e5feeeb8209de47c8dfb7c3f50a893e505af067> <http://www.w3.org/ns/prov#specializationOf> <urn:uuid:dc49c9ee-a913-4e5c-b89a-2201af36af9c> .
 <urn:uuid:9c60ce13-37d4-4dd2-98f5-d1c3bea1f304> <http://www.w3.org/ns/prov#specializationOf> <urn:hash::sha1:82f6bd8f98adc472eb9e350df9d64c102da0bcb5> .
-<urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:hash::sha1:4e5feeeb8209de47c8dfb7c3f50a893e505af067:EchoProcess> .
+<urn:uuid:219b625d-0146-4443-b54d-e0978b09022e> <http://www.w3.org/ns/prov#wasInfluencedBy> <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> .
 _:N4a9853bcd9ca44dfbfbcceecf6d578e5 <http://www.w3.org/ns/prov#hadActivity> <urn:uuid:dc49c9ee-a913-4e5c-b89a-2201af36af9c> .
 <urn:uuid:109d6043-7fad-428f-a563-a99a4ebd6dda> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wf4ever#File> .
 <urn:uuid:ef9384d4-880f-4398-9e10-1bce1d54e51e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wf4ever#File> .
@@ -255,7 +255,7 @@ _:Nce1bcee00507495ea63af443ed516ae6 <http://www.w3.org/ns/prov#atTime> "2026-01-
 _:Ndeaf18c982314f369dc761c8aeeeb0b9 <http://www.w3.org/ns/prov#hadRole> <arcp://uuid,53f5a04e-b531-466d-81be-62c34a1431ba/workflow/packed.cwl#main/stringInput> .
 <urn:uuid:5f78096f-fce2-49b1-aa6d-941927d15dcc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wfprov#Artifact> .
 _:N3819ffacc3114edcacc0e43d60a5c773 <http://www.w3.org/ns/prov#activity> <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> .
-<urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
+<urn:uuid:219b625d-0146-4443-b54d-e0978b09022e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
 _:Nd532a7567bfa466eb6a5df0dda00b195 <http://www.w3.org/ns/prov#atTime> "2026-01-15T16:46:11.100961"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 <urn:uuid:a45ad975-3387-4b7c-ac1c-a268c65927d1> <http://www.w3.org/ns/prov#value> "3"^^<http://www.w3.org/2001/XMLSchema#int> .
 <urn:uuid:a45ad975-3387-4b7c-ac1c-a268c65927d1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
@@ -272,7 +272,7 @@ _:N756aaaa4b660468ea0750c8175b96985 <http://www.w3.org/ns/prov#atTime> "2026-01-
 _:Nd80bca147141491da8187a017409f073 <http://www.w3.org/ns/prov#hadRole> <arcp://uuid,53f5a04e-b531-466d-81be-62c34a1431ba/workflow/packed.cwl#main/boundingBoxInput> .
 _:N9803e38c278c43e0bef9a99408e6480d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Usage> .
 <urn:uuid:e66cf62a-753e-459e-b2f4-06f99396ca08> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wfprov#Artifact> .
-<urn:uuid:d57aaff6-a93f-4927-a2d8-112beb358d4d> <http://www.w3.org/ns/prov#specializationOf> <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> .
+<urn:uuid:d57aaff6-a93f-4927-a2d8-112beb358d4d> <http://www.w3.org/ns/prov#specializationOf> <urn:uuid:219b625d-0146-4443-b54d-e0978b09022e> .
 <urn:uuid:c68b1b94-7f88-4cda-87da-f5e68beabe42> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wfprov#Artifact> .
 _:Nd80bca147141491da8187a017409f073 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Usage> .
 _:N1fcd3c60485045d8a4dab7e583a16db1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Start> .
@@ -326,7 +326,7 @@ _:Nd532a7567bfa466eb6a5df0dda00b195 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <urn:uuid:e66cf62a-753e-459e-b2f4-06f99396ca08> <https://w3id.org/cwl/prov#basename> "stdout.log"^^<http://www.w3.org/2001/XMLSchema#string> .
 <urn:uuid:f01a7e80-f451-4047-93c0-587666a9847a> <http://www.w3.org/ns/prov#value> "3.14159"^^<http://www.w3.org/2001/XMLSchema#double> .
 <urn:uuid:c790f3f7-ac11-4d13-9c71-4d68c73ed040> <http://www.w3.org/ns/prov#specializationOf> <urn:hash::sha1:ec3fe43f2db3829507e574b5b9b1b84547d48f19> .
-<urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/2000/01/rdf-schema#label> "Job Information"^^<http://www.w3.org/2001/XMLSchema#string> .
+<urn:uuid:219b625d-0146-4443-b54d-e0978b09022e> <http://www.w3.org/2000/01/rdf-schema#label> "Job Status"^^<http://www.w3.org/2001/XMLSchema#string> .
 <urn:uuid:160a1cd9-6384-4828-b627-a02e478365fb> <https://w3id.org/cwl/prov#nameroot> "input__cdpaqkt"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:N2cf6b7900f65462cb11fdd18a56f8a68 <http://www.w3.org/ns/prov#hadRole> <arcp://uuid,53f5a04e-b531-466d-81be-62c34a1431ba/workflow/packed.cwl#main/primary/boundingBoxOutput> .
 <urn:uuid:6815d3c5-fa14-4153-befe-a5fddc285b06> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wfprov#Artifact> .
@@ -369,7 +369,7 @@ _:Nb4d24b611f674a07ac78a0e0a6afdefe <http://www.w3.org/ns/prov#hadRole> <arcp://
 <urn:uuid:88e9a099-e5d4-45f9-8402-c8082168a6f0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Collection> .
 <urn:uuid:cb4c5d07-5b7e-435f-882c-afe14e061f4b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
 <urn:uuid:fc017dcf-09ec-4cbf-81ac-741b5a61b482> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/ns/prov#alternateOf> <urn:uuid:d57aaff6-a93f-4927-a2d8-112beb358d4d> .
+<urn:uuid:219b625d-0146-4443-b54d-e0978b09022e> <http://www.w3.org/ns/prov#alternateOf> <urn:uuid:d57aaff6-a93f-4927-a2d8-112beb358d4d> .
 <urn:hash::sha1:1ed7ac15d56fc9b6257234caebf4bed6e559b53c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
 _:Nf36709ec1aa5455aa80e633e7075442d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Usage> .
 <urn:uuid:a9b3da73-190e-4a3a-affb-a12396f0eac3> <http://www.w3.org/ns/prov#qualifiedGeneration> _:N02201cab0d814cca929ecfce57f54641 .
@@ -398,7 +398,7 @@ _:Nb4d24b611f674a07ac78a0e0a6afdefe <http://www.w3.org/ns/prov#activity> <urn:uu
 _:Nd7e35375efbb4e479cebc06a135a2c43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Usage> .
 _:Nac81415608f34010b200913a98983ec4 <http://www.w3.org/ns/prov#hadRole> <arcp://uuid,53f5a04e-b531-466d-81be-62c34a1431ba/workflow/packed.cwl#main/EchoProcess/stringInput> .
 <urn:uuid:160a1cd9-6384-4828-b627-a02e478365fb> <http://www.w3.org/ns/prov#qualifiedGeneration> _:N2cf6b7900f65462cb11fdd18a56f8a68 .
-_:N38a01cecfece4576877482c7bf18a9dd <http://www.w3.org/ns/prov#entity> <urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> .
+_:N38a01cecfece4576877482c7bf18a9dd <http://www.w3.org/ns/prov#entity> <urn:uuid:219b625d-0146-4443-b54d-e0978b09022e> .
 _:N02201cab0d814cca929ecfce57f54641 <http://www.w3.org/ns/prov#atTime> "2026-01-15T16:46:11.414795"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 <urn:hash::sha1:4e5feeeb8209de47c8dfb7c3f50a893e505af067:EchoProcess> <http://www.w3.org/2000/01/rdf-schema#label> "Process Description"^^<http://www.w3.org/2001/XMLSchema#string> .
 <urn:uuid:541c0738-ac5c-4a35-b592-a3cbc87246f1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Collection> .
@@ -439,7 +439,6 @@ _:Nf513b957acdd4845a25967d8b23139c2 <http://www.w3.org/ns/prov#entity> <urn:uuid
 _:N3c79e61070c7402db3ee57157540b96a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#PrimarySource> .
 <urn:uuid:9c60ce13-37d4-4dd2-98f5-d1c3bea1f304> <https://w3id.org/cwl/prov#nameext> ""^^<http://www.w3.org/2001/XMLSchema#string> .
 <urn:uuid:0aebe062-805e-4853-9d80-dbc5107a8bdb> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<urn:uuid:53f5a04e-b531-466d-81be-62c34a1431ba> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/wf4ever/wfdesc#ProcessRun> .
 <urn:uuid:5ec5c130-692c-48d5-9cef-be41cec00d11> <https://w3id.org/cwl/prov#nameroot> "input_9i61gfqe"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:N1fcd3c60485045d8a4dab7e583a16db1 <http://www.w3.org/ns/prov#atTime> "2026-01-15T16:46:10.775984"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
 <urn:hash::sha1:0cf60d40470fde378076afacf5812f961208a018> <http://www.w3.org/ns/prov#qualifiedGeneration> _:Ne3499c3e61194710b9d2d70e0c7dafa6 .

@@ -14,7 +14,7 @@ which include the start and end timestamps of the job execution.
 --
 When job timing information is provided in PROV metadata, it SHOULD be related to appropriate
 link:https://www.w3.org/TR/prov-o/#Activity[`prov:Activity`] definitions that are associated to the
-link:https://www.w3.org/TR/prov-o/#Entity[`prov:Entity`] representing the job.
+link:https://www.w3.org/TR/prov-o/#Entity[`prov:Entity`] representing the job status.
 --
 
 [.component,class=part]

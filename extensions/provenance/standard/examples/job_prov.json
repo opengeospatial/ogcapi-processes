@@ -110,7 +110,7 @@
     },
     "_:id11": {
       "prov:activity": "id:d57aaff6-a93f-4927-a2d8-112beb358d4d",
-      "prov:trigger": "id:53f5a04e-b531-466d-81be-62c34a1431ba",
+      "prov:trigger": "id:219b625d-0146-4443-b54d-e0978b09022e",
       "prov:time": "2026-01-15T16:45:56.964000+00:00"
     }
   },
@@ -158,13 +158,9 @@
       },
       "prov:label": "Server Provider"
     },
-    "id:53f5a04e-b531-466d-81be-62c34a1431ba": {
-      "prov:type": {
-        "$": "wfdesc:ProcessRun",
-        "type": "prov:QUALIFIED_NAME"
-      },
+    "id:219b625d-0146-4443-b54d-e0978b09022e": {
       "prov:location": "https://hirondelle.crim.ca/weaver/processes/EchoProcess/jobs/53f5a04e-b531-466d-81be-62c34a1431ba",
-      "prov:label": "Job Information"
+      "prov:label": "Job Status"
     },
     "data:4e5feeeb8209de47c8dfb7c3f50a893e505af067:EchoProcess": {
       "prov:type": {
@@ -840,7 +836,7 @@
     },
     "_:id12": {
       "prov:specificEntity": "id:d57aaff6-a93f-4927-a2d8-112beb358d4d",
-      "prov:generalEntity": "id:53f5a04e-b531-466d-81be-62c34a1431ba"
+      "prov:generalEntity": "id:219b625d-0146-4443-b54d-e0978b09022e"
     },
     "_:id28": {
       "prov:specificEntity": "id:5f78096f-fce2-49b1-aa6d-941927d15dcc",
@@ -920,14 +916,16 @@
   "alternateOf": {
     "_:id13": {
       "prov:alternate1": "id:d57aaff6-a93f-4927-a2d8-112beb358d4d",
-      "prov:alternate2": "id:53f5a04e-b531-466d-81be-62c34a1431ba"
+      "prov:alternate2": "id:219b625d-0146-4443-b54d-e0978b09022e"
+    }
+  },
+  "wasInfluencedBy": {
+    "_:id14": {
+      "prov:influencee": "id:219b625d-0146-4443-b54d-e0978b09022e",
+      "prov:influencer": "id:53f5a04e-b531-466d-81be-62c34a1431ba"
     }
   },
   "wasGeneratedBy": {
-    "_:id14": {
-      "prov:entity": "id:53f5a04e-b531-466d-81be-62c34a1431ba",
-      "prov:activity": "data:4e5feeeb8209de47c8dfb7c3f50a893e505af067:EchoProcess"
-    },
     "_:id71": {
       "prov:entity": "data:0cf60d40470fde378076afacf5812f961208a018",
       "prov:activity": "id:53f5a04e-b531-466d-81be-62c34a1431ba",

@@ -86,6 +86,8 @@ include::../recommendations/provenance/prov-content/REC_data-entity.adoc[]
 
 include::../recommendations/provenance/prov-content/REC_timing.adoc[]
 
+include::../recommendations/provenance/prov-content/PER_generated-time.adoc[]
+
 include::../recommendations/provenance/prov-content/REC_software-agent.adoc[]
 
 include::../recommendations/provenance/prov-content/REC_prov-user-agent.adoc[]
