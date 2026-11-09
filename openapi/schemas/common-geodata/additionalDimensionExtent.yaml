@@ -17,6 +17,7 @@ properties:
        to access the first item (a pair of lower and upper bound values).
      type: array
      minItems: 1
+     example: [ [ '2011-11-11T12:22:11Z', null ], [ 32.7, 40.2 ] ]
      items:
        description: |-
          Lower and upper bound values of the interval. The values
@@ -27,7 +28,7 @@ properties:
        items:
          oneOf:
            - type: string
-             example: '2011-11-11T12:22:11Z' #, '2011-11-11T08:22:11-04:00', null
+             example: '2011-11-11T12:22:11Z'
            - enum: [null]
            - type: number
              example: 32.7
