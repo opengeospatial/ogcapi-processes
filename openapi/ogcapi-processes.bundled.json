@@ -9416,7 +9416,9 @@
                   "type": "object",
                   "properties": {
                     "type": {
-                      "const": "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/invalid-metadata-profile"
+                      "enum": [
+                        "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/invalid-metadata-profile"
+                      ]
                     },
                     "instance": {
                       "type": "string",
