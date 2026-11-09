@@ -7,8 +7,13 @@ identifier:: https://www.opengis.net/spec/ogcapi-processes-2/1.0/req/deploy-repl
 obligation:: requirement
 subject:: Web API
 inherit:: <<OAProc-1,OGC API - Processes - Part 1: Core, Conformance Class 'core'>>
-inherit:: <<OAFeat-4,OGC API - Features - Part 4: Create, Replace, Update and Delete, Conformance Class "Create/Replace/Delete">>
+inherit:: <<OAComm-5,OGC API - Features - Part 4 / OGC API - Common - Part 5: Create, Replace, Update and Delete, Requirements Class "Create/Replace/Delete">>
+inherit:: <<OAComm-5,OGC API - Features - Part 4 / OGC API - Common - Part 5: Create, Replace, Update, Delete, Requirements Class "Optimistic Locking Using Timestamps">>
+inherit:: <<OAComm-5,OGC API - Features - Part 4/OGC API Common - Part 5: Create, Replace, Update, Delete, Requirements Class "Optimistic Locking Using ETags">>
+inherit:: <<OAComm-5,OGC API - Features - Part 4/OGC API Common - Part 5: Create, Replace, Update, Delete, Requirements Class "Handling Preference">>
 inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
+inherit:: <<rfc6906,RFC 6906 (The 'profile' Link Relation Type)>>
+
 requirement:: /req/deploy-replace-undeploy/resource-endpoints
 requirement:: /req/deploy-replace-undeploy/resource-endpoint
 requirement:: /req/deploy-replace-undeploy/deploy-unsupported-media-type
@@ -17,18 +22,15 @@ requirement:: /req/deploy-replace-undeploy/deploy-response-pid
 requirement:: /req/deploy-replace-undeploy/deploy-response-immutable
 requirement:: /req/deploy-replace-undeploy/deploy-response-success
 requirement:: /req/deploy-replace-undeploy/deploy-response-duplicate
-requirement:: /req/deploy-replace-undeploy/deploy-post-op
 requirement:: /req/deploy-replace-undeploy/deploy-response-body
 requirement:: /req/deploy-replace-undeploy/deploy-body
 requirement:: /req/deploy-replace-undeploy/static-indicator
 requirement:: /req/deploy-replace-undeploy/package-response-success
 requirement:: /req/deploy-replace-undeploy/package-get-op
 requirement:: /req/deploy-replace-undeploy/package-response-body
-requirement:: /req/deploy-replace-undeploy/replace-put-op
 requirement:: /req/deploy-replace-undeploy/replace-content-type
 requirement:: /req/deploy-replace-undeploy/replace-response
 requirement:: /req/deploy-replace-undeploy/replace-response-body
 requirement:: /req/deploy-replace-undeploy/replace-body
 requirement:: /req/deploy-replace-undeploy/undeploy-response
-requirement:: /req/deploy-replace-undeploy/undeploy-delete-op
 ====

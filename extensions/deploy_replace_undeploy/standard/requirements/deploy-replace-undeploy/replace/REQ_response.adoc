@@ -11,10 +11,7 @@ A successful execution of the operation SHALL be reported as a response with a H
 
 [.component,class=part]
 --
-If the operation results in the immediate creation of a distinct process definition (rather than a literal replacement)
-which can be distinguished from the originally referenced `{processID}` by some versioning mechanism, the response SHALL
-have a HTTP status code `201` to hint clients about this separate resource.
-The `{processID}` SHALL then reference the newly created process definition used as replacement.
+If the operation results in the creation of a new process definition (rather than replacing an existing process) the response SHALL have a HTTP status code `201` (see: <<sc_deploy_response,Response when creating a new process>>).
 --
 
 [.component,class=part]
