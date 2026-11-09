@@ -1,14 +1,11 @@
 name: API linting
 
+# Branch pushes are covered by 'pull_request'. Running on both would duplicate the work for PR branches.
 on:
-  - pull_request
-  - push
-
-# Pushes to a PR branch trigger both 'push' and 'pull_request' runs doing the same work.
-# 'head_ref' (PR) and 'ref_name' (push) resolve to the same branch name, so only the latest run is kept.
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
-  cancel-in-progress: true
+  pull_request:
+  push:
+    branches:
+      - master
 
 jobs:
   lint-check-openapi:
