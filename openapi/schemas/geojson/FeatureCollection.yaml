@@ -27,14 +27,15 @@ properties:
           - type: number
           - type: string
         properties:
-          type: object
-          nullable: true
+          oneOf:
+          - type: object
+          - enum: [null]
         geometry:
           oneOf:
           # NOTE: Removed GeometryCollection to avoid cirular references
+          - enum: [null]
           - title: GeoJSON Point
             type: object
-            nullable: true
             required:
             - type
             - coordinates

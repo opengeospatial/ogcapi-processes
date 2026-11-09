@@ -1,0 +1,19 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-jsonld/schema.json, see 'schema.yaml' in this directory for adaptation details.
+oneOf:
+- $ref: prov-Entity.yaml
+- $ref: prov-Activity.yaml
+- $ref: prov-Agent.yaml
+- $ref: prov-Usage.yaml
+- $ref: prov-Generation.yaml
+- $ref: prov-Attribution.yaml
+- $ref: prov-Association.yaml
+- $ref: prov-Delegation.yaml
+- $ref: prov-Invalidation.yaml
+- $ref: prov-Start.yaml
+- $ref: prov-End.yaml
+- $ref: prov-Derivation.yaml
+- $ref: prov-Alternate.yaml
+- $ref: prov-Specialization.yaml
+- $ref: prov-Membership.yaml
+- $ref: prov-Influence.yaml
+- $ref: prov-Communication.yaml

@@ -1,0 +1,18 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-json/schema, see 'schema.yaml' in this directory for adaptation details.
+type: object
+title: delegation
+properties:
+  prov:delegate:
+    type: string
+    format: uri
+  prov:responsible:
+    type: string
+    format: uri
+  prov:activity:
+    type: string
+    format: uri
+required:
+- prov:delegate
+- prov:responsible
+additionalProperties:
+  $ref: attributeValues.yaml

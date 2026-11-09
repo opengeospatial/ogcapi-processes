@@ -1,0 +1,27 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-jsonld/schema.json, see 'schema.yaml' in this directory for adaptation details.
+type: object
+required:
+- '@type'
+properties:
+  '@type':
+    pattern: Start
+  '@id':
+    $ref: QualifiedName.yaml
+  activity:
+    $ref: QualifiedName.yaml
+  starter:
+    $ref: QualifiedName.yaml
+  trigger:
+    $ref: QualifiedName.yaml
+  time:
+    $ref: DateTime.yaml
+  type:
+    $ref: ArrayOfValues.yaml
+  role:
+    $ref: ArrayOfValues.yaml
+  location:
+    $ref: ArrayOfValues.yaml
+  label:
+    $ref: ArrayOfLabelValues.yaml
+additionalProperties:
+  $ref: ArrayOfValues.yaml

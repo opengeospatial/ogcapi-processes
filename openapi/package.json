@@ -1,0 +1,17 @@
+{
+  "name": "ogcapi-processes-openapi",
+  "private": true,
+  "description": "Tooling to bundle and validate the OGC API - Processes OpenAPI definitions (3.0, 3.1, 3.2).",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "update": "sh update.sh",
+    "validate": "node validate.mjs"
+  },
+  "devDependencies": {
+    "@redocly/cli": "^2.60.0",
+    "@seriousme/openapi-schema-validator": "^2.11.0"
+  }
+}

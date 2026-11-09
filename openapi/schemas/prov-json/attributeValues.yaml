@@ -1,0 +1,7 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-json/schema, see 'schema.yaml' in this directory for adaptation details.
+anyOf:
+- $ref: stringLiteral.yaml
+- $ref: numberLiteral.yaml
+- $ref: booleanLiteral.yaml
+- $ref: typedLiteral.yaml
+- $ref: literalArray.yaml

@@ -4,9 +4,17 @@
 # and which results in incorrectly formatted contents (it still publishes the failed results).
 name: Metanorma build checks
 
+# Branch pushes are covered by 'pull_request'. Running on both would duplicate the work for PR branches.
 on:
-  - pull_request
-  - push
+  pull_request:
+  push:
+    branches:
+      - master
+
+# Cancel superseded runs of the same PR. Runs on 'master' are never cancelled.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
   METANORMA_DOCKER_IMAGE: metanorma/metanorma

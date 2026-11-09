@@ -2,4 +2,4 @@ oneOf:
   - $ref: "executionUnitBase.yaml"
   - type: array
     items:
-      - $ref: "executionUnitBase.yaml"
+      $ref: "executionUnitBase.yaml"

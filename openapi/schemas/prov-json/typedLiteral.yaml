@@ -1,0 +1,14 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-json/schema, see 'schema.yaml' in this directory for adaptation details.
+title: PROV-JSON Typed Literal
+type: object
+properties:
+  $:
+    type: string
+  type:
+    type: string
+    format: uri
+  lang:
+    type: string
+required:
+- $
+additionalProperties: false

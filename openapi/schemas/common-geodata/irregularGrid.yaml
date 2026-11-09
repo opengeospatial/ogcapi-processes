@@ -13,10 +13,10 @@ properties:
     items:
       oneOf:
         - type: string
-          nullable: true
           example: "2020-11-12T12:15:00Z"
         - type: number
           example: 12.3
+        - enum: [null]
     example: [2, 10, 80, 100]
   boundsCoordinates:
     title: Bounds coordinates
@@ -31,6 +31,6 @@ properties:
        items:
          oneOf:
            - type: string
-             nullable: true
            - type: number
+           - enum: [null]
     example: [ [ -180, -179 ], [ -179, -178 ] ]

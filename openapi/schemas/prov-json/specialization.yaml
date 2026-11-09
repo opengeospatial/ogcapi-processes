@@ -1,0 +1,15 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-json/schema, see 'schema.yaml' in this directory for adaptation details.
+type: object
+title: specialization
+properties:
+  prov:generalEntity:
+    type: string
+    format: uri
+  prov:specificEntity:
+    type: string
+    format: uri
+required:
+- prov:generalEntity
+- prov:specificEntity
+additionalProperties:
+  $ref: attributeValues.yaml

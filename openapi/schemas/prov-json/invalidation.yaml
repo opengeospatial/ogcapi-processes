@@ -1,0 +1,17 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-json/schema, see 'schema.yaml' in this directory for adaptation details.
+type: object
+title: invalidation
+properties:
+  prov:entity:
+    type: string
+    format: uri
+  prov:time:
+    type: string
+    format: date-time
+  prov:activity:
+    type: string
+    format: uri
+required:
+- prov:entity
+additionalProperties:
+  $ref: attributeValues.yaml

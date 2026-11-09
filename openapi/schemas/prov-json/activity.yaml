@@ -1,0 +1,12 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-json/schema, see 'schema.yaml' in this directory for adaptation details.
+type: object
+title: activity
+properties:
+  prov:startTime:
+    type: string
+    format: date-time
+  prov:endTime:
+    type: string
+    format: date-time
+additionalProperties:
+  $ref: attributeValues.yaml

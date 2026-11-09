@@ -2,13 +2,13 @@ description: Provenance details of a completed job.
 content:
    application/json:
       schema:
-         $ref: 'https://www.w3.org/submissions/prov-json/schema'
+         $ref: '../../schemas/prov-json/schema.yaml'
    application/provenance+json:
       schema:
-         $ref: 'https://www.w3.org/submissions/prov-json/schema'
+         $ref: '../../schemas/prov-json/schema.yaml'
    application/ld+json:
       schema:
-         $ref: 'https://www.w3.org/submissions/prov-jsonld/schema.json'
+         $ref: '../../schemas/prov-jsonld/schema.yaml'
    application/provenance+xml:
       schema:
          # https://www.w3.org/ns/prov.xsd

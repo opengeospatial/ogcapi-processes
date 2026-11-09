@@ -2,6 +2,11 @@
 
 cd "$(dirname "$0")" || exit 1
 
+# Generate the per-version variants from the 'ogcapi-processes.yaml' source (only the 'openapi' version differs)
+for variant in "oas30:3.0.3" "oas31:3.1.0" "oas32:3.2.0"; do
+  sed "s/^openapi:.*/openapi: ${variant#*:}/" ogcapi-processes.yaml > "${variant%%:*}-ogcapi-processes.yaml"
+done
+
 # Bundle (redocly or swagger-cli)
 # Default below assumes global install (e.g.: npm install -g @redocly/cli)
 # If using a local install, set BUNDLE_TOOL='npx @redocly/cli' or 'npx @apidevtools/swagger-cli'

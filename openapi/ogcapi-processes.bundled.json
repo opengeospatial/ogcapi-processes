@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.0",
+  "openapi": "3.0.3",
   "info": {
     "version": "2.0rc1",
     "title": "OGC API - Processes",
@@ -653,8 +653,16 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "nullable": true
+                "oneOf": [
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "enum": [
+                      null
+                    ]
+                  }
+                ]
               }
             }
           }
@@ -1076,1682 +1084,6 @@
             }
           }
         }
-      },
-      "schema-2": "{\r\n    \"id\": \"http://provenance.ecs.soton.ac.uk/prov-json/schema#\",\r\n    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\r\n    \"description\": \"Schema for a PROV-JSON document\",\r\n    \"type\": \"object\",\r\n    \"additionalProperties\": false,\r\n    \"properties\": {\r\n        \"prefix\": {\r\n            \"type\": \"object\",\r\n            \"patternProperties\": {\r\n                        \"^[a-zA-Z0-9_\\\\-]+$\": { \"type\" : \"string\", \"format\": \"uri\" }\r\n            }\r\n        },\r\n        \"entity\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/entity\" }\r\n        },\r\n        \"activity\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/activity\" }\r\n        },\r\n        \"agent\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/agent\" }\r\n        },\r\n        \"wasGeneratedBy\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/generation\" }\r\n        },\r\n        \"used\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/usage\" }\r\n        },\r\n        \"wasInformedBy\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/communication\" }\r\n        },\r\n        \"wasStartedBy\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/start\" }\r\n        },\r\n        \"wasEndedby\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/end\" }\r\n        },\r\n        \"wasInvalidatedBy\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/invalidation\" }\r\n        },\r\n        \"wasDerivedFrom\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/derivation\" }\r\n        },\r\n        \"wasAttributedTo\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/attribution\" }\r\n        },\r\n        \"wasAssociatedWith\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/association\" }\r\n        },\r\n        \"actedOnBehalfOf\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/delegation\" }\r\n        },\r\n        \"wasInfluencedBy\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/influence\" }\r\n        },\r\n        \"specializationOf\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/specialization\" }\r\n        },\r\n        \"alternateOf\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/alternate\" }\r\n        },\r\n        \"hadMember\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/membership\" }\r\n        },\r\n        \"bundle\": {\r\n            \"type\": \"object\",\r\n            \"additionalProperties\": { \"$ref\":\"#/definitions/bundle\" }\r\n        }\r\n    },\r\n    \"definitions\": {\r\n        \"typedLiteral\": {\r\n            \"title\": \"PROV-JSON Typed Literal\",\r\n            \"type\": \"object\",\r\n            \"properties\": {\r\n                \"$\": { \"type\": \"string\" },\r\n                \"type\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"lang\": { \"type\": \"string\" }\r\n            },\r\n            \"required\": [\"$\"],\r\n            \"additionalProperties\": false\r\n        },\r\n        \"stringLiteral\": {\"type\": \"string\"},\r\n        \"numberLiteral\": {\"type\": \"number\"},\r\n        \"booleanLiteral\": {\"type\": \"boolean\"},\r\n        \"literalArray\": {\r\n            \"type\": \"array\",\r\n            \"minItems\": 1,\r\n            \"items\": {\r\n                \"anyOf\": [\r\n                    { \"$ref\": \"#/definitions/stringLiteral\" },\r\n                    { \"$ref\": \"#/definitions/numberLiteral\" },\r\n                    { \"$ref\": \"#/definitions/booleanLiteral\" },\r\n                    { \"$ref\": \"#/definitions/typedLiteral\" }\r\n                ]\r\n            }\r\n        },\r\n        \"attributeValues\": {\r\n            \"anyOf\": [\r\n                { \"$ref\": \"#/definitions/stringLiteral\" },\r\n                { \"$ref\": \"#/definitions/numberLiteral\" },\r\n                { \"$ref\": \"#/definitions/booleanLiteral\" },\r\n                { \"$ref\": \"#/definitions/typedLiteral\" },\r\n                { \"$ref\": \"#/definitions/literalArray\" }\r\n            ]\r\n        },\r\n        \"entity\": {\r\n            \"type\": \"object\",\r\n            \"title\": \"entity\",\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"agent\": { \"$ref\": \"#/definitions/entity\" },\r\n        \"activity\": {\r\n            \"type\": \"object\",\r\n            \"title\": \"activity\",\r\n            \"prov:startTime\": { \"type\": \"string\", \"format\": \"date-time\" },\r\n            \"prov:endTime\": { \"type\": \"string\", \"format\": \"date-time\" },\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"generation\": {\r\n            \"type\": \"object\",\r\n            \"title\": \"generation/usage\",\r\n            \"properties\": {\r\n                \"prov:entity\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:activity\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:time\": { \"type\": \"string\", \"format\": \"date-time\" }\r\n            },\r\n            \"required\": [\"prov:entity\"],\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"usage\": {\"$ref\":\"#/definitions/generation\"},\r\n        \"communication\":{\r\n            \"type\": \"object\",\r\n            \"title\": \"communication\",\r\n            \"properties\": {\r\n                \"prov:informant\": {\"type\": \"string\", \"format\": \"uri\"},\r\n                \"prov:informed\": {\"type\": \"string\", \"format\": \"uri\"}\r\n            },\r\n            \"required\": [\"prov:informant\", \"prov:informed\"],\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"start\":{\r\n            \"type\": \"object\",\r\n            \"title\": \"start/end\",\r\n            \"properties\": {\r\n                \"prov:activity\": {\"type\": \"string\", \"format\": \"uri\"},\r\n                \"prov:time\": {\"type\": \"string\", \"format\": \"date-time\"},\r\n                \"prov:trigger\": {\"type\": \"string\", \"format\": \"uri\"}\r\n            },\r\n            \"required\": [\"prov:activity\"],\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"end\": {\"$ref\":\"#/definitions/start\"},\r\n        \"invalidation\":{\r\n            \"type\": \"object\",\r\n            \"title\": \"invalidation\",\r\n            \"properties\": {\r\n                \"prov:entity\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:time\": { \"type\": \"string\", \"format\": \"date-time\" },\r\n                \"prov:activity\": { \"type\": \"string\", \"format\": \"uri\" }\r\n            },\r\n            \"required\": [\"prov:entity\"],\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"derivation\":{\r\n            \"type\": \"object\",\r\n            \"title\": \"derivation\",\r\n            \"properties\": {\r\n                \"prov:generatedEntity\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:usedEntity\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:activity\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:generation\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:usage\": { \"type\": \"string\", \"format\": \"uri\" }\r\n            },\r\n            \"required\": [\"prov:generatedEntity\", \"prov:usedEntity\"],\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"attribution\":{\r\n            \"type\": \"object\",\r\n            \"title\": \"attribution\",\r\n            \"properties\": {\r\n                \"prov:entity\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:agent\": { \"type\": \"string\", \"format\": \"uri\" }\r\n            },\r\n            \"required\": [\"prov:entity\", \"prov:agent\"],\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"association\": {\r\n            \"type\": \"object\",\r\n            \"title\": \"association\",\r\n            \"properties\": {\r\n                \"prov:activity\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:agent\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:plan\": { \"type\": \"string\", \"format\": \"uri\" }\r\n            },\r\n            \"required\": [\"prov:activity\"],\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"delegation\": {\r\n            \"type\": \"object\",\r\n            \"title\": \"delegation\",\r\n            \"properties\": {\r\n                \"prov:delegate\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:responsible\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:activity\": { \"type\": \"string\", \"format\": \"uri\" }\r\n            },\r\n            \"required\": [\"prov:delegate\", \"prov:responsible\"],\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"influence\": {\r\n            \"type\": \"object\",\r\n            \"title\": \"\",\r\n            \"properties\": {\r\n                \"prov:influencer\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:influencee\": { \"type\": \"string\", \"format\": \"uri\" }\r\n            },\r\n            \"required\": [\"prov:influencer\", \"prov:influencee\"],\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"specialization\": {\r\n            \"type\": \"object\",\r\n            \"title\": \"specialization\",\r\n            \"properties\": {\r\n                \"prov:generalEntity\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:specificEntity\": { \"type\": \"string\", \"format\": \"uri\" }\r\n            },\r\n            \"required\": [\"prov:generalEntity\", \"prov:specificEntity\"],\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"alternate\": {\r\n            \"type\": \"object\",\r\n            \"title\": \"alternate\",\r\n            \"properties\": {\r\n                \"prov:alternate1\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:alternate2\": { \"type\": \"string\", \"format\": \"uri\" }\r\n            },\r\n            \"required\": [\"prov:alternate1\", \"prov:alternate2\"],\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"membership\": {\r\n            \"type\": \"object\",\r\n            \"title\": \"membership\",\r\n            \"properties\": {\r\n                \"prov:collection\": { \"type\": \"string\", \"format\": \"uri\" },\r\n                \"prov:entity\": { \"type\": \"string\", \"format\": \"uri\" }\r\n            },\r\n            \"required\": [\"prov:collection\", \"prov:entity\"],\r\n            \"additionalProperties\": { \"$ref\": \"#/definitions/attributeValues\" }\r\n        },\r\n        \"bundle\": {\r\n            \"type\": \"object\",\r\n            \"title\": \"bundle\",\r\n            \"properties\":{\r\n                \"prefix\": {\r\n                    \"type\": \"object\",\r\n                    \"patternProperties\": {\r\n                        \"^[a-zA-Z0-9_\\\\-]+$\": { \"type\" : \"string\", \"format\": \"uri\" }\r\n                    }\r\n                },\r\n                \"entity\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/entity\" }\r\n                },\r\n                \"activity\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/activity\" }\r\n                },\r\n                \"agent\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/agent\" }\r\n                },\r\n                \"wasGeneratedBy\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/generation\" }\r\n                },\r\n                \"used\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/usage\" }\r\n                },\r\n                \"wasInformedBy\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/communication\" }\r\n                },\r\n                \"wasStartedBy\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/start\" }\r\n                },\r\n                \"wasEndedby\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/end\" }\r\n                },\r\n                \"wasInvalidatedBy\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/invalidation\" }\r\n                },\r\n                \"wasDerivedFrom\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/derivation\" }\r\n                },\r\n                \"wasAttributedTo\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/attribution\" }\r\n                },\r\n                \"wasAssociatedWith\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/association\" }\r\n                },\r\n                \"actedOnBehalfOf\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/delegation\" }\r\n                },\r\n                \"wasInfluencedBy\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/influence\" }\r\n                },\r\n                \"specializationOf\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/specialization\" }\r\n                },\r\n                \"alternateOf\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/alternate\" }\r\n                },\r\n                \"hadMember\": {\r\n                    \"type\": \"object\",\r\n                    \"additionalProperties\": { \"$ref\":\"#/definitions/membership\" }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
-      "Context": {
-        "$id": "#/definitions/Context",
-        "type": "array",
-        "title": "The @context Schema",
-        "items": {
-          "oneOf": [
-            {
-              "type": "string",
-              "format": "uri"
-            },
-            {
-              "type": "object",
-              "title": "The Items Schema",
-              "additionalProperties": {
-                "type": "string"
-              }
-            }
-          ]
-        }
-      },
-      "QualifiedName": {
-        "$id": "#/definitions/QualifiedName",
-        "type": "string",
-        "title": "The QualifiedName Schema",
-        "default": "",
-        "pattern": "(^[A-Za-z0-9_]+:)?(.*)$"
-      },
-      "typed_value": {
-        "type": "object",
-        "required": [
-          "@value",
-          "@type"
-        ],
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@type": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "lang_string": {
-        "type": "object",
-        "required": [
-          "@value"
-        ],
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ArrayOfValues": {
-        "$id": "#/definitions/ArrayOfValues",
-        "type": "array",
-        "items": {
-          "anyOf": [
-            {
-              "$ref": "#/components/schemas/QualifiedName"
-            },
-            {
-              "$ref": "#/components/schemas/typed_value"
-            },
-            {
-              "$ref": "#/components/schemas/lang_string"
-            }
-          ]
-        }
-      },
-      "ArrayOfLabelValues": {
-        "$id": "#/definitions/ArrayOfLabelValues",
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/lang_string"
-        }
-      },
-      "prov:Entity": {
-        "type": "object",
-        "required": [
-          "@type",
-          "@id"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Entity"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "value": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "location": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "DateTime": {
-        "$id": "#/definitions/DateTime",
-        "type": "string",
-        "format": "date-time"
-      },
-      "prov:Activity": {
-        "type": "object",
-        "required": [
-          "@type",
-          "@id"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Activity"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "startTime": {
-            "$ref": "#/components/schemas/DateTime"
-          },
-          "endTime": {
-            "$ref": "#/components/schemas/DateTime"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "location": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Agent": {
-        "type": "object",
-        "required": [
-          "@type",
-          "@id"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Agent"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "location": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Usage": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Usage"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "entity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "activity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "time": {
-            "$ref": "#/components/schemas/DateTime"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "role": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "location": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Generation": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Generation"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "entity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "activity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "time": {
-            "$ref": "#/components/schemas/DateTime"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "role": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "location": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Attribution": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Attribution"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "entity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "agent": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Association": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Association"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "activity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "agent": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "plan": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "role": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Delegation": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Delegation"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "delegate": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "responsible": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "activity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Invalidation": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Invalidation"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "entity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "activity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "time": {
-            "$ref": "#/components/schemas/DateTime"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "role": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "location": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Start": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Start"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "activity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "starter": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "trigger": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "time": {
-            "$ref": "#/components/schemas/DateTime"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "role": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "location": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:End": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "End"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "activity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "ender": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "trigger": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "time": {
-            "$ref": "#/components/schemas/DateTime"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "role": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "location": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Derivation": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Derivation"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "activity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "generation": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "usage": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "generatedEntity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "usedEntity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Alternate": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Alternate"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "alternate1": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "alternate2": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Specialization": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Specialization"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "generalEntity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "specificEntity": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "QualifiedName+": {
-        "$id": "#/definitions/QualifiedName+",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/QualifiedName"
-            }
-          }
-        ]
-      },
-      "prov:Membership": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Membership"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "entity": {
-            "$ref": "#/components/schemas/QualifiedName+"
-          },
-          "collection": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Influence": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Influence"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "influencer": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "influencee": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Communication": {
-        "type": "object",
-        "required": [
-          "@type"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Communication"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "informant": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "informed": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ArrayOfValues"
-          },
-          "label": {
-            "$ref": "#/components/schemas/ArrayOfLabelValues"
-          }
-        },
-        "patternProperties": {
-          "^[A-Za-z0-9_]+:(.*)$": {
-            "$ref": "#/definitions/ArrayOfValues"
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:Statement": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/prov:Entity"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Activity"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Agent"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Usage"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Generation"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Attribution"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Association"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Delegation"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Invalidation"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Start"
-          },
-          {
-            "$ref": "#/components/schemas/prov:End"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Derivation"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Alternate"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Specialization"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Membership"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Influence"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Communication"
-          }
-        ]
-      },
-      "prov:Bundle": {
-        "type": "object",
-        "required": [
-          "@type",
-          "@id",
-          "@graph",
-          "@context"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Bundle"
-          },
-          "@id": {
-            "$ref": "#/components/schemas/QualifiedName"
-          },
-          "@context": {
-            "$ref": "#/components/schemas/Context"
-          },
-          "@graph": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/prov:Statement"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
-      "prov:StatementOrBundle": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/prov:Statement"
-          },
-          {
-            "$ref": "#/components/schemas/prov:Bundle"
-          }
-        ]
-      },
-      "prov:Document": {
-        "type": "object",
-        "required": [
-          "@context",
-          "@graph"
-        ],
-        "properties": {
-          "@type": {
-            "pattern": "Document"
-          },
-          "@context": {
-            "$ref": "#/components/schemas/Context"
-          },
-          "@graph": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/prov:StatementOrBundle"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
-      "schema-3": {
-        "definitions": {
-          "DateTime": {
-            "$id": "#/definitions/DateTime",
-            "type": "string",
-            "format": "date-time"
-          },
-          "QualifiedName": {
-            "$id": "#/definitions/QualifiedName",
-            "type": "string",
-            "title": "The QualifiedName Schema",
-            "default": "",
-            "pattern": "(^[A-Za-z0-9_]+:)?(.*)$"
-          },
-          "QualifiedName+": {
-            "$id": "#/definitions/QualifiedName+",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/QualifiedName"
-                }
-              }
-            ]
-          },
-          "non_prov_properties": {
-            "$id": "#/definitions/non_prov_properties",
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {}
-            }
-          },
-          "typed_value": {
-            "type": "object",
-            "required": [
-              "@value",
-              "@type"
-            ],
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@type": {
-                "type": "string"
-              }
-            },
-            "additionalProperties": false
-          },
-          "lang_string": {
-            "type": "object",
-            "required": [
-              "@value"
-            ],
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string"
-              }
-            },
-            "additionalProperties": false
-          },
-          "ArrayOfValues": {
-            "$id": "#/definitions/ArrayOfValues",
-            "type": "array",
-            "items": {
-              "anyOf": [
-                {
-                  "$ref": "#/components/schemas/QualifiedName"
-                },
-                {
-                  "$ref": "#/components/schemas/typed_value"
-                },
-                {
-                  "$ref": "#/components/schemas/lang_string"
-                }
-              ]
-            }
-          },
-          "ArrayOfLabelValues": {
-            "$id": "#/definitions/ArrayOfLabelValues",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/lang_string"
-            }
-          },
-          "Context": {
-            "$id": "#/definitions/Context",
-            "type": "array",
-            "title": "The @context Schema",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "string",
-                  "format": "uri"
-                },
-                {
-                  "type": "object",
-                  "title": "The Items Schema",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
-                }
-              ]
-            }
-          },
-          "prov:StatementOrBundle": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/prov:Statement"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Bundle"
-              }
-            ]
-          },
-          "prov:Statement": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/prov:Entity"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Activity"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Agent"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Usage"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Generation"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Attribution"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Association"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Delegation"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Invalidation"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Start"
-              },
-              {
-                "$ref": "#/components/schemas/prov:End"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Derivation"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Alternate"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Specialization"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Membership"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Influence"
-              },
-              {
-                "$ref": "#/components/schemas/prov:Communication"
-              }
-            ]
-          },
-          "prov:Entity": {
-            "type": "object",
-            "required": [
-              "@type",
-              "@id"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Entity"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "value": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "location": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Agent": {
-            "type": "object",
-            "required": [
-              "@type",
-              "@id"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Agent"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "location": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Activity": {
-            "type": "object",
-            "required": [
-              "@type",
-              "@id"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Activity"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "startTime": {
-                "$ref": "#/components/schemas/DateTime"
-              },
-              "endTime": {
-                "$ref": "#/components/schemas/DateTime"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "location": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Usage": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Usage"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "entity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "activity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "time": {
-                "$ref": "#/components/schemas/DateTime"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "role": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "location": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Generation": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Generation"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "entity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "activity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "time": {
-                "$ref": "#/components/schemas/DateTime"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "role": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "location": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Invalidation": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Invalidation"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "entity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "activity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "time": {
-                "$ref": "#/components/schemas/DateTime"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "role": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "location": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Start": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Start"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "activity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "starter": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "trigger": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "time": {
-                "$ref": "#/components/schemas/DateTime"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "role": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "location": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:End": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "End"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "activity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "ender": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "trigger": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "time": {
-                "$ref": "#/components/schemas/DateTime"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "role": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "location": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Attribution": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Attribution"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "entity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "agent": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Association": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Association"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "activity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "agent": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "plan": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "role": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Delegation": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Delegation"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "delegate": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "responsible": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "activity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Derivation": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Derivation"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "activity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "generation": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "usage": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "generatedEntity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "usedEntity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Alternate": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Alternate"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "alternate1": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "alternate2": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Specialization": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Specialization"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "generalEntity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "specificEntity": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Membership": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Membership"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "entity": {
-                "$ref": "#/components/schemas/QualifiedName+"
-              },
-              "collection": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Influence": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Influence"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "influencer": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "influencee": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Communication": {
-            "type": "object",
-            "required": [
-              "@type"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Communication"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "informant": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "informed": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "type": {
-                "$ref": "#/components/schemas/ArrayOfValues"
-              },
-              "label": {
-                "$ref": "#/components/schemas/ArrayOfLabelValues"
-              }
-            },
-            "patternProperties": {
-              "^[A-Za-z0-9_]+:(.*)$": {
-                "$ref": "#/definitions/ArrayOfValues"
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Bundle": {
-            "type": "object",
-            "required": [
-              "@type",
-              "@id",
-              "@graph",
-              "@context"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Bundle"
-              },
-              "@id": {
-                "$ref": "#/components/schemas/QualifiedName"
-              },
-              "@context": {
-                "$ref": "#/components/schemas/Context"
-              },
-              "@graph": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/prov:Statement"
-                }
-              }
-            },
-            "additionalProperties": false
-          },
-          "prov:Document": {
-            "type": "object",
-            "required": [
-              "@context",
-              "@graph"
-            ],
-            "properties": {
-              "@type": {
-                "pattern": "Document"
-              },
-              "@context": {
-                "$ref": "#/components/schemas/Context"
-              },
-              "@graph": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/prov:StatementOrBundle"
-                }
-              }
-            },
-            "additionalProperties": false
-          }
-        },
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "$id": "https://openprovenance.org/prov-jsonld/schema.json",
-        "$ref": "#/components/schemas/prov:Document"
       },
       "common-core-confClasses": {
         "type": "object",
@@ -3307,9 +1639,8 @@
       },
       "cwl-ResourceQuantityOrFractional": {
         "title": "An item quantity that can also represent a proportion of use by resources.",
-        "description": "Technically should be minimum=1, but fractional for scheduling algorithms are allowed.\nThere is no way to distinguish between float/long simultaneously in JSON schema (multi-match oneOf).\nTherefore, only validate that it is greater than zero.\n",
+        "description": "Technically should be minimum=1, but fractional for scheduling algorithms are allowed.\nThere is no way to distinguish between float/long simultaneously in JSON schema (multi-match oneOf).\nTherefore, only validate that it is not negative.\nThe strictly-positive constraint ('exclusiveMinimum') is omitted since its form differs between OpenAPI 3.0 and 3.1+.\n",
         "type": "number",
-        "exclusiveMinimum": true,
         "minimum": 0,
         "default": 1
       },
@@ -3330,7 +1661,6 @@
             "items": {
               "oneOf": [
                 {
-                  "nullable": true,
                   "enum": [
                     null
                   ]
@@ -4356,7 +2686,6 @@
                 ]
               },
               "default": {
-                "nullable": true,
                 "enum": [
                   null
                 ]
@@ -4377,8 +2706,16 @@
                 ]
               },
               "default": {
-                "type": "string",
-                "nullable": true
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "enum": [
+                      null
+                    ]
+                  }
+                ]
               }
             },
             "required": [
@@ -4396,8 +2733,16 @@
                 ]
               },
               "default": {
-                "type": "boolean",
-                "nullable": true
+                "oneOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "enum": [
+                      null
+                    ]
+                  }
+                ]
               }
             },
             "required": [
@@ -4423,8 +2768,16 @@
                 ]
               },
               "default": {
-                "type": "number",
-                "nullable": true
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      null
+                    ]
+                  }
+                ]
               }
             },
             "required": [
@@ -4449,7 +2802,6 @@
                     "$ref": "#/components/schemas/cwl-CWLDefaultLocation"
                   },
                   {
-                    "nullable": true,
                     "enum": [
                       null
                     ]
@@ -4520,8 +2872,16 @@
                 }
               },
               "default": {
-                "type": "string",
-                "nullable": true
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "enum": [
+                      null
+                    ]
+                  }
+                ]
               }
             },
             "required": [
@@ -6081,6 +4441,18 @@
             "additionalProperties": {
               "type": "object",
               "properties": {
+                "$schema": {
+                  "title": "JSON Schema version",
+                  "description": "URI identifying the JSON Schema dialect used by this definition\n(e.g.: `https://json-schema.org/draft/2020-12/schema`).\nAllows clarifying variants such as the `exclusiveMinimum` and `exclusiveMaximum` (boolean or numeric)\nor nullable representations (`nullable`, `type: [X, \"null\"]` or `enum: [null]`).\nMust be an absolute URI (`format: uri`).",
+                  "type": "string",
+                  "format": "uri"
+                },
+                "$id": {
+                  "title": "Schema identifier",
+                  "description": "Identifier of this schema definition.\nCan be an absolute URI or a relative URI reference (`format: uri-reference`), such as `#/definitions/id`.",
+                  "type": "string",
+                  "format": "uri-reference"
+                },
                 "title": {
                   "type": "string"
                 },
@@ -6088,16 +4460,42 @@
                   "type": "string"
                 },
                 "type": {
-                  "type": "string",
-                  "enum": [
-                    "array",
-                    "boolean",
-                    "integer",
-                    "null",
-                    "number",
-                    "object",
-                    "string"
+                  "description": "Single type (OpenAPI 3.0 / JSON Schema draft-04) or list of types (OpenAPI 3.1+ / JSON Schema 2020-12).\nA list allows nullable values using `type: [X, \"null\"]`.",
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "null",
+                        "number",
+                        "object",
+                        "string"
+                      ]
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "array",
+                          "boolean",
+                          "integer",
+                          "null",
+                          "number",
+                          "object",
+                          "string"
+                        ]
+                      }
+                    }
                   ]
+                },
+                "nullable": {
+                  "description": "Nullable values in OpenAPI 3.0 / JSON Schema draft-04, removed in OpenAPI 3.1+.\nNull-only values can be represented with `enum: [null]`.",
+                  "type": "boolean"
                 },
                 "enum": {
                   "type": "array",
@@ -6115,13 +4513,29 @@
                   "type": "number"
                 },
                 "exclusiveMaximum": {
-                  "type": "number"
+                  "description": "Boolean in OpenAPI 3.0 / JSON Schema draft-04, numeric in OpenAPI 3.1+ / JSON Schema 2020-12.",
+                  "oneOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
                 },
                 "minimum": {
                   "type": "number"
                 },
                 "exclusiveMinimum": {
-                  "type": "number"
+                  "description": "Boolean in OpenAPI 3.0 / JSON Schema draft-04, numeric in OpenAPI 3.1+ / JSON Schema 2020-12.",
+                  "oneOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
                 },
                 "pattern": {
                   "type": "string",
@@ -6154,7 +4568,6 @@
       },
       "processes-core-statusCode": {
         "type": "string",
-        "nullable": false,
         "enum": [
           "accepted",
           "running",
@@ -6712,7 +5125,9 @@
       },
       "processes-dru-executionUnitContainer": {
         "type": "object",
-        "required": "image",
+        "required": [
+          "image"
+        ],
         "properties": {
           "image": {
             "description": "Container image reference for the execution unit.",
@@ -7637,11 +6052,9 @@
           },
           {
             "type": "array",
-            "items": [
-              {
-                "$ref": "#/components/schemas/processes-dru-executionUnitBase"
-              }
-            ]
+            "items": {
+              "$ref": "#/components/schemas/processes-dru-executionUnitBase"
+            }
           }
         ],
         "title": "executionUnit"
@@ -7810,15 +6223,27 @@
                   ]
                 },
                 "properties": {
-                  "type": "object",
-                  "nullable": true
+                  "oneOf": [
+                    {
+                      "type": "object"
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
+                    }
+                  ]
                 },
                 "geometry": {
                   "oneOf": [
                     {
+                      "enum": [
+                        null
+                      ]
+                    },
+                    {
                       "title": "GeoJSON Point",
                       "type": "object",
-                      "nullable": true,
                       "required": [
                         "type",
                         "coordinates"
@@ -8068,8 +6493,16 @@
         "description": "Mapping of included or resolved HTTP headers names and values relevant for the job submission request.",
         "type": "object",
         "additionalProperties": {
-          "type": "string",
-          "nullable": true
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "enum": [
+                null
+              ]
+            }
+          ]
         },
         "title": "headers"
       },
@@ -8147,6 +6580,1422 @@
         },
         "additionalProperties": true,
         "title": "jobDefinition"
+      },
+      "prov-json-stringLiteral": {
+        "type": "string",
+        "title": "stringLiteral"
+      },
+      "prov-json-numberLiteral": {
+        "type": "number",
+        "title": "numberLiteral"
+      },
+      "prov-json-booleanLiteral": {
+        "type": "boolean",
+        "title": "booleanLiteral"
+      },
+      "prov-json-typedLiteral": {
+        "title": "PROV-JSON Typed Literal",
+        "type": "object",
+        "properties": {
+          "$": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "format": "uri"
+          },
+          "lang": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "$"
+        ],
+        "additionalProperties": false
+      },
+      "prov-json-literalArray": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/prov-json-stringLiteral"
+            },
+            {
+              "$ref": "#/components/schemas/prov-json-numberLiteral"
+            },
+            {
+              "$ref": "#/components/schemas/prov-json-booleanLiteral"
+            },
+            {
+              "$ref": "#/components/schemas/prov-json-typedLiteral"
+            }
+          ]
+        },
+        "title": "literalArray"
+      },
+      "prov-json-attributeValues": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/prov-json-stringLiteral"
+          },
+          {
+            "$ref": "#/components/schemas/prov-json-numberLiteral"
+          },
+          {
+            "$ref": "#/components/schemas/prov-json-booleanLiteral"
+          },
+          {
+            "$ref": "#/components/schemas/prov-json-typedLiteral"
+          },
+          {
+            "$ref": "#/components/schemas/prov-json-literalArray"
+          }
+        ],
+        "title": "attributeValues"
+      },
+      "prov-json-entity": {
+        "type": "object",
+        "title": "entity",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-activity": {
+        "type": "object",
+        "title": "activity",
+        "properties": {
+          "prov:startTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "prov:endTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-generation": {
+        "type": "object",
+        "title": "generation/usage",
+        "properties": {
+          "prov:entity": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:activity": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:time": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "prov:entity"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-communication": {
+        "type": "object",
+        "title": "communication",
+        "properties": {
+          "prov:informant": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:informed": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "prov:informant",
+          "prov:informed"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-start": {
+        "type": "object",
+        "title": "start/end",
+        "properties": {
+          "prov:activity": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "prov:trigger": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "prov:activity"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-invalidation": {
+        "type": "object",
+        "title": "invalidation",
+        "properties": {
+          "prov:entity": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "prov:activity": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "prov:entity"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-derivation": {
+        "type": "object",
+        "title": "derivation",
+        "properties": {
+          "prov:generatedEntity": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:usedEntity": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:activity": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:generation": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:usage": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "prov:generatedEntity",
+          "prov:usedEntity"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-attribution": {
+        "type": "object",
+        "title": "attribution",
+        "properties": {
+          "prov:entity": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:agent": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "prov:entity",
+          "prov:agent"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-association": {
+        "type": "object",
+        "title": "association",
+        "properties": {
+          "prov:activity": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:agent": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:plan": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "prov:activity"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-delegation": {
+        "type": "object",
+        "title": "delegation",
+        "properties": {
+          "prov:delegate": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:responsible": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:activity": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "prov:delegate",
+          "prov:responsible"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-influence": {
+        "type": "object",
+        "title": "",
+        "properties": {
+          "prov:influencer": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:influencee": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "prov:influencer",
+          "prov:influencee"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-specialization": {
+        "type": "object",
+        "title": "specialization",
+        "properties": {
+          "prov:generalEntity": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:specificEntity": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "prov:generalEntity",
+          "prov:specificEntity"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-alternate": {
+        "type": "object",
+        "title": "alternate",
+        "properties": {
+          "prov:alternate1": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:alternate2": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "prov:alternate1",
+          "prov:alternate2"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-membership": {
+        "type": "object",
+        "title": "membership",
+        "properties": {
+          "prov:collection": {
+            "type": "string",
+            "format": "uri"
+          },
+          "prov:entity": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "prov:collection",
+          "prov:entity"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-json-attributeValues"
+        }
+      },
+      "prov-json-bundle": {
+        "type": "object",
+        "title": "bundle",
+        "properties": {
+          "prefix": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "entity": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-entity"
+            }
+          },
+          "activity": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-activity"
+            }
+          },
+          "agent": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-entity"
+            }
+          },
+          "wasGeneratedBy": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-generation"
+            }
+          },
+          "used": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-generation"
+            }
+          },
+          "wasInformedBy": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-communication"
+            }
+          },
+          "wasStartedBy": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-start"
+            }
+          },
+          "wasEndedby": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-start"
+            }
+          },
+          "wasInvalidatedBy": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-invalidation"
+            }
+          },
+          "wasDerivedFrom": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-derivation"
+            }
+          },
+          "wasAttributedTo": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-attribution"
+            }
+          },
+          "wasAssociatedWith": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-association"
+            }
+          },
+          "actedOnBehalfOf": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-delegation"
+            }
+          },
+          "wasInfluencedBy": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-influence"
+            }
+          },
+          "specializationOf": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-specialization"
+            }
+          },
+          "alternateOf": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-alternate"
+            }
+          },
+          "hadMember": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-membership"
+            }
+          }
+        }
+      },
+      "prov-json-schema": {
+        "description": "Schema for a PROV-JSON document",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "prefix": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "entity": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-entity"
+            }
+          },
+          "activity": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-activity"
+            }
+          },
+          "agent": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-entity"
+            }
+          },
+          "wasGeneratedBy": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-generation"
+            }
+          },
+          "used": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-generation"
+            }
+          },
+          "wasInformedBy": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-communication"
+            }
+          },
+          "wasStartedBy": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-start"
+            }
+          },
+          "wasEndedby": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-start"
+            }
+          },
+          "wasInvalidatedBy": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-invalidation"
+            }
+          },
+          "wasDerivedFrom": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-derivation"
+            }
+          },
+          "wasAttributedTo": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-attribution"
+            }
+          },
+          "wasAssociatedWith": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-association"
+            }
+          },
+          "actedOnBehalfOf": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-delegation"
+            }
+          },
+          "wasInfluencedBy": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-influence"
+            }
+          },
+          "specializationOf": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-specialization"
+            }
+          },
+          "alternateOf": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-alternate"
+            }
+          },
+          "hadMember": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-membership"
+            }
+          },
+          "bundle": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/prov-json-bundle"
+            }
+          }
+        },
+        "title": "schema"
+      },
+      "prov-jsonld-Context": {
+        "type": "array",
+        "title": "The @context Schema",
+        "items": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "object",
+              "title": "The Items Schema",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      "prov-jsonld-QualifiedName": {
+        "type": "string",
+        "title": "The QualifiedName Schema",
+        "default": "",
+        "pattern": "(^[A-Za-z0-9_]+:)?(.*)$"
+      },
+      "prov-jsonld-typed_value": {
+        "type": "object",
+        "required": [
+          "@value",
+          "@type"
+        ],
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "title": "typed_value"
+      },
+      "prov-jsonld-lang_string": {
+        "type": "object",
+        "required": [
+          "@value"
+        ],
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "title": "lang_string"
+      },
+      "prov-jsonld-ArrayOfValues": {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+            },
+            {
+              "$ref": "#/components/schemas/prov-jsonld-typed_value"
+            },
+            {
+              "$ref": "#/components/schemas/prov-jsonld-lang_string"
+            }
+          ]
+        },
+        "title": "ArrayOfValues"
+      },
+      "prov-jsonld-ArrayOfLabelValues": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/prov-jsonld-lang_string"
+        },
+        "title": "ArrayOfLabelValues"
+      },
+      "prov-jsonld-prov-Entity": {
+        "type": "object",
+        "required": [
+          "@type",
+          "@id"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Entity"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "value": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "location": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Entity"
+      },
+      "prov-jsonld-DateTime": {
+        "type": "string",
+        "format": "date-time",
+        "title": "DateTime"
+      },
+      "prov-jsonld-prov-Activity": {
+        "type": "object",
+        "required": [
+          "@type",
+          "@id"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Activity"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "startTime": {
+            "$ref": "#/components/schemas/prov-jsonld-DateTime"
+          },
+          "endTime": {
+            "$ref": "#/components/schemas/prov-jsonld-DateTime"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "location": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Activity"
+      },
+      "prov-jsonld-prov-Agent": {
+        "type": "object",
+        "required": [
+          "@type",
+          "@id"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Agent"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "location": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Agent"
+      },
+      "prov-jsonld-prov-Usage": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Usage"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "entity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "activity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "time": {
+            "$ref": "#/components/schemas/prov-jsonld-DateTime"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "role": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "location": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Usage"
+      },
+      "prov-jsonld-prov-Generation": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Generation"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "entity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "activity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "time": {
+            "$ref": "#/components/schemas/prov-jsonld-DateTime"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "role": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "location": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Generation"
+      },
+      "prov-jsonld-prov-Attribution": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Attribution"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "entity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "agent": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Attribution"
+      },
+      "prov-jsonld-prov-Association": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Association"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "activity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "agent": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "role": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Association"
+      },
+      "prov-jsonld-prov-Delegation": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Delegation"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "delegate": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "responsible": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "activity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Delegation"
+      },
+      "prov-jsonld-prov-Invalidation": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Invalidation"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "entity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "activity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "time": {
+            "$ref": "#/components/schemas/prov-jsonld-DateTime"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "role": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "location": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Invalidation"
+      },
+      "prov-jsonld-prov-Start": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Start"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "activity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "starter": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "trigger": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "time": {
+            "$ref": "#/components/schemas/prov-jsonld-DateTime"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "role": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "location": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Start"
+      },
+      "prov-jsonld-prov-End": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "End"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "activity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "ender": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "trigger": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "time": {
+            "$ref": "#/components/schemas/prov-jsonld-DateTime"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "role": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "location": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-End"
+      },
+      "prov-jsonld-prov-Derivation": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Derivation"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "activity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "generation": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "usage": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "generatedEntity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "usedEntity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Derivation"
+      },
+      "prov-jsonld-prov-Alternate": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Alternate"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "alternate1": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "alternate2": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Alternate"
+      },
+      "prov-jsonld-prov-Specialization": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Specialization"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "generalEntity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "specificEntity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Specialization"
+      },
+      "prov-jsonld-QualifiedNameOrArray": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+            }
+          }
+        ],
+        "title": "QualifiedNameOrArray"
+      },
+      "prov-jsonld-prov-Membership": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Membership"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "entity": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedNameOrArray"
+          },
+          "collection": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Membership"
+      },
+      "prov-jsonld-prov-Influence": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Influence"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "influencer": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "influencee": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Influence"
+      },
+      "prov-jsonld-prov-Communication": {
+        "type": "object",
+        "required": [
+          "@type"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Communication"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "informant": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "informed": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "type": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+          },
+          "label": {
+            "$ref": "#/components/schemas/prov-jsonld-ArrayOfLabelValues"
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/prov-jsonld-ArrayOfValues"
+        },
+        "title": "prov-Communication"
+      },
+      "prov-jsonld-prov-Statement": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Entity"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Activity"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Agent"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Usage"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Generation"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Attribution"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Association"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Delegation"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Invalidation"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Start"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-End"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Derivation"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Alternate"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Specialization"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Membership"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Influence"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Communication"
+          }
+        ],
+        "title": "prov-Statement"
+      },
+      "prov-jsonld-prov-Bundle": {
+        "type": "object",
+        "required": [
+          "@type",
+          "@id",
+          "@graph",
+          "@context"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Bundle"
+          },
+          "@id": {
+            "$ref": "#/components/schemas/prov-jsonld-QualifiedName"
+          },
+          "@context": {
+            "$ref": "#/components/schemas/prov-jsonld-Context"
+          },
+          "@graph": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/prov-jsonld-prov-Statement"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "prov-Bundle"
+      },
+      "prov-jsonld-prov-StatementOrBundle": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Statement"
+          },
+          {
+            "$ref": "#/components/schemas/prov-jsonld-prov-Bundle"
+          }
+        ],
+        "title": "prov-StatementOrBundle"
+      },
+      "prov-jsonld-prov-Document": {
+        "type": "object",
+        "required": [
+          "@context",
+          "@graph"
+        ],
+        "properties": {
+          "@type": {
+            "pattern": "Document"
+          },
+          "@context": {
+            "$ref": "#/components/schemas/prov-jsonld-Context"
+          },
+          "@graph": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/prov-jsonld-prov-StatementOrBundle"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "prov-Document"
       },
       "records-core-roles": {
         "title": "Types or roles",
@@ -8757,12 +8606,16 @@
             "oneOf": [
               {
                 "type": "string",
-                "nullable": true,
                 "example": "PT1H"
               },
               {
                 "type": "number",
                 "example": 0.0006866455078
+              },
+              {
+                "enum": [
+                  null
+                ]
               }
             ]
           },
@@ -8773,11 +8626,15 @@
             "items": {
               "oneOf": [
                 {
-                  "type": "string",
-                  "nullable": true
+                  "type": "string"
                 },
                 {
                   "type": "number"
+                },
+                {
+                  "enum": [
+                    null
+                  ]
                 }
               ]
             },
@@ -8792,11 +8649,15 @@
             "description": "First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step.",
             "oneOf": [
               {
-                "type": "string",
-                "nullable": true
+                "type": "string"
               },
               {
                 "type": "number"
+              },
+              {
+                "enum": [
+                  null
+                ]
               }
             ],
             "example": -180
@@ -8810,11 +8671,15 @@
             "items": {
               "oneOf": [
                 {
-                  "type": "string",
-                  "nullable": true
+                  "type": "string"
                 },
                 {
                   "type": "number"
+                },
+                {
+                  "enum": [
+                    null
+                  ]
                 }
               ]
             },
@@ -8842,12 +8707,16 @@
               "oneOf": [
                 {
                   "type": "string",
-                  "nullable": true,
                   "example": "2020-11-12T12:15:00Z"
                 },
                 {
                   "type": "number",
                   "example": 12.3
+                },
+                {
+                  "enum": [
+                    null
+                  ]
                 }
               ]
             },
@@ -8870,11 +8739,15 @@
               "items": {
                 "oneOf": [
                   {
-                    "type": "string",
-                    "nullable": true
+                    "type": "string"
                   },
                   {
                     "type": "number"
+                  },
+                  {
+                    "enum": [
+                      null
+                    ]
                   }
                 ]
               }
@@ -9028,16 +8901,30 @@
             "description": "One or more time intervals that describe the temporal extent of the dataset.\n\nThe first time interval describes the overall\ntemporal extent of the data. All subsequent time intervals describe\nmore precise time intervals, e.g., to identify clusters of data.\nClients only interested in the overall extent will only need\nto access the first item in each array.",
             "type": "array",
             "minItems": 1,
+            "example": [
+              [
+                "2011-11-11T12:22:11Z",
+                null
+              ]
+            ],
             "items": {
               "description": "Begin and end times of the time interval. The timestamps are in the\ntemporal coordinate reference system specified in `trs`. By default\nthis is the Gregorian calendar, expressed using RFC 3339 section 5.6.\nNote that these times may be specified using time zone offsets to UTC time other than zero.\n\nThe value `null` for start or end time is supported and indicates a half-bounded time interval.",
               "type": "array",
               "minItems": 2,
               "maxItems": 2,
               "items": {
-                "type": "string",
-                "format": "date-time",
-                "nullable": true,
-                "example": "2011-11-11T12:22:11Z"
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2011-11-11T12:22:11Z"
+                  },
+                  {
+                    "enum": [
+                      null
+                    ]
+                  }
+                ]
               }
             }
           },
@@ -9095,6 +8982,16 @@
             "description": "One or more intervals that describe the extent for this dimension of the dataset.\nThe value `null` is supported and indicates an unbounded or half-bounded interval.\nThe first interval describes the overall extent of the data for this dimension.\nAll subsequent intervals describe more precise intervals, e.g., to identify clusters of data.\nClients only interested in the overall extent will only need\nto access the first item (a pair of lower and upper bound values).",
             "type": "array",
             "minItems": 1,
+            "example": [
+              [
+                "2011-11-11T12:22:11Z",
+                null
+              ],
+              [
+                32.7,
+                40.2
+              ]
+            ],
             "items": {
               "description": "Lower and upper bound values of the interval. The values\nare in the coordinate reference system specified in `crs`, `trs` or `vrs`.",
               "type": "array",
@@ -9104,8 +9001,12 @@
                 "oneOf": [
                   {
                     "type": "string",
-                    "nullable": true,
                     "example": "2011-11-11T12:22:11Z"
+                  },
+                  {
+                    "enum": [
+                      null
+                    ]
                   },
                   {
                     "type": "number",
@@ -9515,7 +9416,9 @@
                   "type": "object",
                   "properties": {
                     "type": {
-                      "const": "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/invalid-metadata-profile"
+                      "enum": [
+                        "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/invalid-metadata-profile"
+                      ]
                     },
                     "instance": {
                       "type": "string",
@@ -9768,7 +9671,7 @@
             "schema": {
               "anyOf": [
                 {
-                  "oneOf": [
+                  "anyOf": [
                     {
                       "type": "string"
                     },
@@ -9779,8 +9682,12 @@
                       "type": "integer"
                     },
                     {
-                      "type": "object",
-                      "nullable": true
+                      "type": "object"
+                    },
+                    {
+                      "enum": [
+                        null
+                      ]
                     },
                     {
                       "type": "array",
@@ -9933,17 +9840,17 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/schema-2"
+              "$ref": "#/components/schemas/prov-json-schema"
             }
           },
           "application/provenance+json": {
             "schema": {
-              "$ref": "#/components/schemas/schema-2"
+              "$ref": "#/components/schemas/prov-json-schema"
             }
           },
           "application/ld+json": {
             "schema": {
-              "$ref": "#/components/schemas/schema-3"
+              "$ref": "#/components/schemas/prov-jsonld-prov-Document"
             }
           },
           "application/provenance+xml": {
@@ -9996,7 +9903,9 @@
                   "type": "object",
                   "properties": {
                     "type": {
-                      "const": "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/prov-missing"
+                      "enum": [
+                        "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/prov-missing"
+                      ]
                     }
                   }
                 }
@@ -10023,7 +9932,9 @@
                   "type": "object",
                   "properties": {
                     "type": {
-                      "const": "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/prov-unsupported-format"
+                      "enum": [
+                        "https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/prov-unsupported-format"
+                      ]
                     }
                   }
                 }
@@ -10126,14 +10037,6 @@
           }
         }
       }
-    }
-  },
-  "definitions": {
-    "Context": {
-      "$ref": "https://www.w3.org/submissions/prov-jsonld/schema.json#definitions/Context"
-    },
-    "ArrayOfValues": {
-      "$ref": "https://www.w3.org/submissions/prov-jsonld/schema.json#definitions/ArrayOfValues"
     }
   }
 }

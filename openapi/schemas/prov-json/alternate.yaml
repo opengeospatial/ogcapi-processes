@@ -1,0 +1,15 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-json/schema, see 'schema.yaml' in this directory for adaptation details.
+type: object
+title: alternate
+properties:
+  prov:alternate1:
+    type: string
+    format: uri
+  prov:alternate2:
+    type: string
+    format: uri
+required:
+- prov:alternate1
+- prov:alternate2
+additionalProperties:
+  $ref: attributeValues.yaml
