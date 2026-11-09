@@ -4,9 +4,12 @@
 # and which results in incorrectly formatted contents (it still publishes the failed results).
 name: Metanorma build checks
 
+# Branch pushes are covered by 'pull_request'. Running on both would duplicate the work for PR branches.
 on:
-  - pull_request
-  - push
+  pull_request:
+  push:
+    branches:
+      - master
 
 env:
   METANORMA_DOCKER_IMAGE: metanorma/metanorma
