@@ -8,3 +8,11 @@ properties:
     type: object
     additionalProperties:
       type: string
+  profile:
+    anyOf:
+      - type: string
+        format: uri
+      - type: array
+        items:
+          type: string
+          format: uri

@@ -1,0 +1,46 @@
+{
+  "mask": {
+    "value": {
+      "stac_version": "1.0.0",
+      "stac_extensions": ["https://stac-extensions.github.io/classification/v2.0.0/schema.json"],
+      "type": "Feature",
+      "id": "lake-ontario-coverage",
+      "bbox": [-79.963824, 43.099691, -76.047618, 44.256908],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-79.963824, 43.099691], [-76.047618, 43.099691], [-76.047618, 44.256908], [-79.963824, 44.256908], [-79.963824, 43.099691]]]
+      },
+      "properties": {
+        "name": "Lake Ontario",
+        "category": {
+          "@type": "https://schema.org",
+          "name": "Lake",
+          "codeValue": "LakeBodyOfWater",
+          "inCodeSet": {
+            "@type": "https://schema.orgSet",
+            "name": "Schema.org Intentional Type Taxonomy",
+            "url": "https://schema.org"
+          }
+        },
+        "classification:classes": [
+          {"name": "water", "value": 1},
+          {"name": "background", "value": 0}
+        ]
+      },
+      "assets": {
+        "data": {
+          "href": "https://example.com/raster.tif",
+          "type": "image/tiff; application=geotiff"
+        }
+      }
+    },
+    "format": {
+      "mediaType": "application/geo+json",
+      "dataClasses": [
+        "https://example.com/namedEntity",
+        "https://schema.org/category",
+        "bblocks://ogc.contrib.stac.extensions.classification"
+      ]
+    }
+  }
+}

@@ -1,5 +1,6 @@
 allOf:
   - $ref: "format.yaml"
+  - $ref: "dataClasses.yaml"
   - type: object
     required:
       - value

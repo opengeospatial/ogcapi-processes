@@ -1,0 +1,40 @@
+[[rec_metadata-profiles_query-matching-data-classes]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/metadata-profiles/query-matching-data-classes
+
+[.component,class=part]
+--
+For the `inputs` and `outputs` scopes, each `<profile>` SHOULD also be matched against the `dataClasses` URIs of
+the process input and output descriptions respectively.
+--
+
+[.component,class=part]
+--
+A `<profile>` matched against `dataClasses` SHOULD be considered satisfied for its `<role>` when the input
+or output of the process respectively provides that URI in `dataClasses`, as an alternative to a
+<<req_metadata-profiles_profile-link,_Metadata Profile Link_>> `href`.
+--
+
+[.component,class=part]
+--
+The `<role>` SHOULD NOT be compared against `dataClasses` URIs, since they do not define the concrete and applicable profiles.
+--
+
+[.component,class=part]
+--
+The matching rules of <<req_metadata-profiles_query-matching,/req/metadata-profiles/query-matching>>
+(i.e., the AND logic of multiple profiles URIs and the independence between each input and output identifiers)
+SHOULD apply identically to profiles matched through `dataClasses`.
+--
+
+[.component,class=part]
+--
+The `GET` query parameters (<<req_metadata-profiles_query-parameter,/req/metadata-profiles/query-parameter>>)
+and, if supported (see <<per_metadata-profiles_query-optional,/per/metadata-profiles/query-optional>>),
+the `QUERY` method (<<req_metadata-profiles_query-method,/req/metadata-profiles/query-method>>)
+SHOULD support this matching equally.
+--
+
+====

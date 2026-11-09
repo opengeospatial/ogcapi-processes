@@ -9,4 +9,8 @@ inherit:: <<https://docs.ogc.org/DRAFTS/18-062r3.html#rc_collection-input,https:
 inherit:: <<https://docs.ogc.org/DRAFTS/18-062r3.html#rc_remote-collections,https://www.opengis.net/spec/ogcapi-processes-1/2.0/req/remote-collections>> (optional)
 inherit:: <<rc_input-fields-modifiers,https://www.opengis.net/spec/ogcapi-processes-3/0.0/req/input-fields-modifiers>> (optional)
 inherit:: <<rc_output-fields-modifiers,https://www.opengis.net/spec/ogcapi-processes-3/0.0/req/output-fields-modifiers>> (optional)
+requirement:: <<req_nested-processes_process-execution,/req/nested-processes/process-execution>>
+requirement:: <<req_nested-processes_referenced-process,/req/nested-processes/referenced-process>>
+requirement:: <<req_nested-processes_response-collection,/req/nested-processes/response-collection>>
+requirement:: <<req_nested-processes_response-workflow-errors,/req/nested-processes/response-workflow-errors>>
 ====

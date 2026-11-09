@@ -1,0 +1,6 @@
+description: |-
+  base64url encoding (RFC 4648, Section 5) of the gzip (RFC 1952) compressed JSON content defined by `processesQuery`.
+  The value starts with `H4sI` since a gzip stream starts with the bytes `0x1F 0x8B`.
+type: string
+pattern: '^H4sI[A-Za-z0-9_-]*={0,2}$'
+example: "H4sIAAAAAAACA6tWyk0tSUxJLElUsqpWyswrKC0pBrEySkoKiq309VMrEnMLclL1kvNz9VNS0_SL8nNS9ZMS81KUrKJxKgLJ6zsZmCjF1tbWAgCwJHlnYgAAAA=="

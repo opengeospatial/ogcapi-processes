@@ -1,0 +1,23 @@
+[[req_metadata-profiles_role-register]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/metadata-profiles/role-register
+
+[.component,class=part]
+--
+The `role` URI of a profile `metadata` field entry SHALL identify a concept of a register, vocabulary or glossary
+that defines the kind of profile (e.g., process type, processing phase, data type) provided by the `href`.
+--
+
+[.component,class=part]
+--
+The `href` URI SHALL identify the applicable profile itself.
+--
+
+[.component,class=part]
+--
+The `href` URI SHALL be consistent with the `role` URI (i.e., an associated subclass, a specialization, or a member part of the same collection of concepts).
+--
+
+====

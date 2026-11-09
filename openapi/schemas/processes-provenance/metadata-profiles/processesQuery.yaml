@@ -1,0 +1,21 @@
+type: object
+description: |-
+  Request content of the `QUERY /processes` operation (OGC API - Processes - Part 5: Provenance and Profiles).
+  Equivalent to the `metadata[process|inputs|outputs][<role>]=<profile>` query parameters of `GET /processes`.
+required:
+  - metadata
+properties:
+  metadata:
+    $ref: "metadataProfileQuery.yaml"
+example:
+  metadata:
+    process:
+      "[ogc-profile:process-type]":
+        - "https://example.com/def/process-type/vegetation-index"
+    inputs:
+      "https://example.com/def/role/band":
+        - "https://example.com/def/band/B04"
+        - "https://example.com/def/band/B08"
+    outputs:
+      "https://example.com/def/role/index":
+        - "https://example.com/def/index/NDVI"

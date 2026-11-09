@@ -1,7 +1,15 @@
+description: |-
+  Profiling requirements that the specified value, link, collection reference, selected output, or input/output
+  definition must meet or adapt to, depending on context, in order to make it adequate for the process execution.
+  These requirements are represented as URIs or safe CURIEs providing resolvable profiles applicable to the context.
+  They directly corresponds to link references that can be employed for *Content Negotiation by Profile*.
 type: object
 properties:
-   dataClasses:
-     type: array
-     items:
-       type: string
-       format: uri
+  dataClasses:
+    type: array
+    items:
+      anyOf:
+        - description: "URI to a registered profile entity."
+          type: string
+          format: uri
+        - $ref: "safeCurie.yaml"

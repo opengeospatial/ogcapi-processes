@@ -1,0 +1,13 @@
+[[per_metadata-profiles_empty-result]]
+[permission]
+====
+[%metadata]
+identifier:: /per/metadata-profiles/empty-result
+
+[.component,class=part]
+--
+When no process matches the <<req_metadata-profiles_query-matching,metadata filters>>, the server MAY respond with
+the `204` status code (No Content) instead of a `200` response containing an empty list of processes.
+--
+
+====

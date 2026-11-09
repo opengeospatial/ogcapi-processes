@@ -1,0 +1,19 @@
+[[req_metadata-profiles_concept-relations]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/metadata-profiles/concept-relations
+
+[.component,class=part]
+--
+The concept of the `href` SHALL be related to the concept of the `role` by at least one explicit semantic relation,
+rather than by loosely coupled definitions.
+--
+
+[.component,class=part]
+--
+The semantic relation SHALL be resolvable by dereferencing the `href` concept, the `role` concept, or any concept
+of a chain of related concepts leading from one to the other.
+--
+
+====

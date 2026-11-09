@@ -1,0 +1,43 @@
+[[req_metadata-profiles_query-options]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/metadata-profiles/query-options
+
+[.component,class=conditions]
+--
+. The server supports the `OPTIONS` operation (<<rfc9110,RFC 9110>>) on path `/processes`.
+--
+
+[.component,class=part]
+--
+The response of the `OPTIONS` operation on path `/processes` SHALL list in the `Allow` header all the HTTP methods
+supported on that path.
+--
+
+[.component,class=part]
+--
+A server that supports the `QUERY` method (<<rfc10008,RFC 10008>>) on path `/processes` SHALL include `QUERY` in
+the `Allow` header of the `OPTIONS` response.
+--
+
+[.component,class=part]
+--
+A server that supports the `QUERY` method on path `/processes` SHALL include in the `OPTIONS` response the
+`Accept-Query` header (<<rfc10008,RFC 10008>>) listing the supported request content media types
+(e.g., `Accept-Query: application/json`).
+--
+
+[.component,class=part]
+--
+A server that does not support the `QUERY` method on path `/processes` SHALL NOT include `QUERY` in the `Allow` header
+of the `OPTIONS` response.
+--
+
+[.component,class=part]
+--
+A server that does not support the `QUERY` method on path `/processes` SHALL NOT include the `Accept-Query` header
+in the `OPTIONS` response.
+--
+
+====

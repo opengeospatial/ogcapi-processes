@@ -1,0 +1,58 @@
+[[req_metadata-profiles_query-method]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/metadata-profiles/query-method
+
+[.component,class=part]
+--
+The server SHALL either support the HTTP `QUERY` method (<<rfc10008,RFC 10008>>) on path `/processes`,
+or report that it does not, as defined by the following parts.
+--
+
+[.component,class=part]
+--
+The support or lack thereof of the `QUERY` method SHALL be advertised by the `OPTIONS` operation
+as defined by <<req_metadata-profiles_query-options,Query Options>>.
+--
+
+[.component,class=part]
+--
+If the `QUERY` method is supported, the filters provided in the request content, as defined by
+<<req_metadata-profiles_query-content,Query Content>>, SHALL be evaluated using the same semantics as
+<<sc_metadata-profiles_matching,Query Matching>>.
+--
+
+[.component,class=part]
+--
+If the `QUERY` method is supported, the response SHALL be equivalent to the `GET` operation on the same path
+using the equivalent <<req_metadata-profiles_query-parameter,query parameters>>.
+--
+
+[.component,class=part]
+--
+If the `QUERY` method is supported, the operation SHALL be safe and idempotent as defined by
+<<rfc10008,RFC 10008>>.
+--
+
+[.component,class=part]
+--
+If the `QUERY` method is not supported, the server SHALL respond to a `QUERY` request on path `/processes`
+with the HTTP status code `405` (Method Not Allowed).
+--
+
+[.component,class=part]
+--
+If the `QUERY` method is not supported, the `405` response SHALL include an `Allow` header listing the methods
+supported on path `/processes`, consistently with <<req_metadata-profiles_query-options,Query Options>>.
+--
+
+When supported, the following OpenAPI fragment describes the operation. OpenAPI 3.0 does not define the `query` operation,
+therefore this definition is not part of the root OpenAPI definition:
+
+[source,yaml]
+----
+include::../../../../../openapi/paths/processes-provenance/operations/oProcessListQuery.yaml[]
+----
+
+====

@@ -300,7 +300,7 @@ NOTE: A set of profile URIs for JSON content defined in this Standard can be fou
 [[sc_limit_parameter]]
 === Limit query parameter
 
-Several resources defined in this Standard (see <<sc_process_list,Retrieve a process list>>, <<sc_job_list,Retrieve a job list>>) use the `limit` query parameter to control the maximum number of results that are presented in a response page.
+Several resources defined in this Standard (see <<sc_process-list,Retrieve a process list>>, <<sc_job-list,Retrieve a job list>>) use the `limit` query parameter to control the maximum number of results that are presented in a response page.
 
 * The client can request a limit it is interested in.
 
@@ -340,7 +340,7 @@ This Standard also has recommendations about including a `prev` link at the appr
 
 include::../recommendations/core/REC_link-header.adoc[]
 
-[[sc_process_list]]
+[[sc_process-list]]
 === Retrieve a process list
 
 The following section defines the requirements to retrieve the available processes offered by an implementation of the Processes API.
@@ -350,7 +350,7 @@ It should be noted that the number of processes exposed via the Processes API ma
 [[sc_process-list_operation]]
 ==== Operation
 
-[[sc_process-list]]
+[[sc_process-list_endpoint]]
 ===== Process list
 
 include::../requirements/core/REQ_process-list-op.adoc[]
@@ -506,6 +506,13 @@ include::../requirements/core/REQ_process-execute-request.adoc[]
 include::../../openapi/schemas/processes-core/execute.yaml[]
 ----
 
+[[execute-request-body-base]]
+.Schema for execute base parameters
+[source,yaml]
+----
+include::../../openapi/schemas/processes-core/executeBase.yaml[]
+----
+
 NOTE: This schema can also be obtained from https://raw.githubusercontent.com/opengeospatial/ogcapi-processes/master/openapi/schemas/processes-core/execute.yaml[`execute.yaml`].
 
 [[inline-or-ref-value]]
@@ -570,8 +577,8 @@ an <<execute-request-body,execute request>> as show in the following example:
 ----
 {
   "inputs": {
-     "inputName1": <input value 1>,
-     "inputName2": <input value 2>,
+     "inputName1": "<input value 1>",
+     "inputName2": "<input value 2>",
      ...
   }
 }
@@ -770,52 +777,55 @@ In this second example, the property `geometryInput` has a cardinality of greate
 
 [source,json]
 ----
-"geometryInput": {
-  "title": "Geometry input",
-  "description": "This is an example of a geometry input.  In this case the geometry can be expressed as a GML or GeoJSON geometry.",
-  "minOccurs": 2,
-  "maxOccurs": 5,
-  "schema": {
-    "oneOf": [
-      {
-        "type": "string",
-        "contentMediaType": "application/gml+xml; version=3.2",
-        "contentSchema": "https://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
-      },
-      {
-        "$ref": "https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
-      }
-    ]
+{
+  "geometryInput": {
+    "title": "Geometry input",
+    "description": "This is an example of a geometry input.  In this case the geometry can be expressed as a GML or GeoJSON geometry.",
+    "minOccurs": 2,
+    "maxOccurs": 5,
+    "schema": {
+      "oneOf": [
+        {
+          "type": "string",
+          "contentMediaType": "application/gml+xml; version=3.2",
+          "contentSchema": "https://schemas.opengis.net/gml/3.2.1/geometryBasic2d.xsd"
+        },
+        {
+          "$ref": "https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/schemas/geometryGeoJSON.json"
+        }
+      ]
+    }
   }
-},
+}
 ----
 
 and an instance of this process input in an <<execute-request-body,execute request>> might be:
 
-[source]
+[source,json]
 ----
-
-"geometryInputs": [
-  {
-    "value": "<gml:Polygon gml:id=\"GID1\" srsName=\"urn:ogc:def:crs:OGC::CRS84\"><gml:exterior><gml:LinearRing><gml:posList>-77.024519 38.810529 -77.024635 38.810973 -77.024704 38.810962 -77.024776 38.811239 -77.024957 38.81121 -77.024905 38.811012 -77.024905 38.811012 -77.024865 38.810857 -77.025024 38.810832 -77.025071 38.811012 -77.025203 38.810992 -77.02506 38.810444 -77.024519 38.810529</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>",
-    "mediaType": "application/gml+xml; version=3.2"
-  },
-  {
-    "value": {
-      "type": "Polygon",
-      "coordinates": [[[ -176.5814819, -44.10896301 ],
-                       [ -176.5818024, -44.10964584 ],
-                       [ -176.5844116, -44.11236572 ],
-                       [ -176.5935974, -44.11021805 ],
-                       [ -176.5973511, -44.10743332 ],
-                       [ -176.5950928, -44.10562134 ],
-                       [ -176.5858459, -44.1043396  ],
-                       [ -176.5811157, -44.10667801 ],
-                       [ -176.5814819, -44.10896301 ]]]
+{
+  "geometryInputs": [
+    {
+      "value": "<gml:Polygon gml:id=\"GID1\" srsName=\"urn:ogc:def:crs:OGC::CRS84\"><gml:exterior><gml:LinearRing><gml:posList>-77.024519 38.810529 -77.024635 38.810973 -77.024704 38.810962 -77.024776 38.811239 -77.024957 38.81121 -77.024905 38.811012 -77.024905 38.811012 -77.024865 38.810857 -77.025024 38.810832 -77.025071 38.811012 -77.025203 38.810992 -77.02506 38.810444 -77.024519 38.810529</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>",
+      "mediaType": "application/gml+xml; version=3.2"
     },
-    "mediaType": "application/geo+json"
-  }
-]
+    {
+      "value": {
+        "type": "Polygon",
+        "coordinates": [[[ -176.5814819, -44.10896301 ],
+                         [ -176.5818024, -44.10964584 ],
+                         [ -176.5844116, -44.11236572 ],
+                         [ -176.5935974, -44.11021805 ],
+                         [ -176.5973511, -44.10743332 ],
+                         [ -176.5950928, -44.10562134 ],
+                         [ -176.5858459, -44.1043396  ],
+                         [ -176.5811157, -44.10667801 ],
+                         [ -176.5814819, -44.10896301 ]]]
+      },
+      "mediaType": "application/geo+json"
+    }
+  ]
+}
 ----
 
 In this case, the `mediaType` parameter is used to indicate the specific type of geometry being passed as input in each case: GML Polygon for the first element of the array and GeoJSON Polygon for the second element.
@@ -845,10 +855,12 @@ Below is an example of an image process input whose media type is defined in the
 
 [source,json]
 ----
-"schema": {
-  "type": "string",
-  "contentEncoding": "binary",
-  "contentMediaType": "image/tiff; application=geotiff"
+{
+  "schema": {
+    "type": "string",
+    "contentEncoding": "binary",
+    "contentMediaType": "image/tiff; application=geotiff"
+  }
 }
 ----
 
@@ -856,7 +868,9 @@ and an example instance value in an <<execute-request-body,execute request>> mig
 
 [source,json]
 ----
-"imageInput": "R0lGODdhNAHCAfcAAAcHDD+Gs4sLDQpDaqGFdaHE54dJPEoECUlGRteKgcdITgokG4hoVkpY\ngNzHwKKkqOLm7RRjlEgpHU9iZ44lHQYqVdmki6doVmhHOMOIeJG20HiDjCcKBglIeadISrso\nJGooFNbN2d2qr8aljyklHwQJQkdvkWaKxIdrb442LidLeGhMTp6LkeP1+Kh3aiUuVAoUHmlu\ngkcwNYdZRmkJDYGcsDFokElVYyk1NsWWhLEPDtmQldrUyoyFhrjo+Nna5d+4tMGstspoXgc4\n...qgu7sSu7qbtCs2u7t6u6rLsrp4u7veu76eO6vyu8w0u8xWu8x4u8yau8shu8y+u8zwu90Su9\n00u91Wu914u92au928u9whsQADs="
+{
+  "imageInput": "R0lGODdhNAHCAfcAAAcHDD+Gs4sLDQpDaqGFdaHE54dJPEoECUlGRteKgcdITgokG4hoVkpY\ngNzHwKKkqOLm7RRjlEgpHU9iZ44lHQYqVdmki6doVmhHOMOIeJG20HiDjCcKBglIeadISrso\nJGooFNbN2d2qr8aljyklHwQJQkdvkWaKxIdrb442LidLeGhMTp6LkeP1+Kh3aiUuVAoUHmlu\ngkcwNYdZRmkJDYGcsDFokElVYyk1NsWWhLEPDtmQldrUyoyFhrjo+Nna5d+4tMGstspoXgc4\n...qgu7sSu7qbtCs2u7t6u6rLsrp4u7veu76eO6vyu8w0u8xWu8x4u8yau8shu8y+u8zwu90Su9\n00u91Wu914u92au928u9whsQADs="
+}
 ----
 
 NOTE: Even though the schema indicates that the input type is `binary`, when the input value is encoded in-line in an <<execute-request-body,execute request>>, as per requirement <<req_core_process-execute-input-inline-binary,/req/core/process-execute-input-inline-binary>>, the binary value is encoded as base64-encoded string.
@@ -865,19 +879,21 @@ In this second example, the image input can be one of a number of value types de
 
 [source,json]
 ----
-"schema": {
-  "oneOf": [
-    {
-      "type": "string",
-      "contentEncoding": "binary",
-      "contentMediaType": "image/tiff; application=geotiff"
-    },
-    {
-      "type": "string",
-      "contentEncoding": "binary",
-      "contentMediaType": "image/jp2"
-    }
-  ]
+{
+  "schema": {
+    "oneOf": [
+      {
+        "type": "string",
+        "contentEncoding": "binary",
+        "contentMediaType": "image/tiff; application=geotiff"
+      },
+      {
+        "type": "string",
+        "contentEncoding": "binary",
+        "contentMediaType": "image/jp2"
+      }
+    ]
+  }
 }
 ----
 
@@ -1669,6 +1685,33 @@ Host: processing.example.org
 [source,json]
 ----
 include::../examples/json/Result.json[]
+----
+====
+
+[[sc_job-results_data-classes]]
+==== Data Class
+
+include::../recommendations/core/REC_job-results-data-classes.adoc[]
+
+Using `dataClasses` when providing results with known semantic profiling definitions can help further constrain the data or simply help machine-readable interpretation of expected data contents.
+
+In the below example, a STAC Item indicates the `dataClasses` to assert that it provides a named entity, classified pixel coverage and categorical details. Obviously, STAC itself is already verbose and this detail could seem redundant. However, if the raster was directly requested through content negotiation, the corresponding semantic details would be encoded in the file, or maybe missing entirely. Interpreting the results would require opening the file, parsing metadata or guessing the values based on limited context. The `dataClasses` allows reflecting that these properties are available regardless of format.
+
+.Example of a profiled result with data classes by value
+====
+[source,json]
+----
+include::../examples/json/ResultDataClasses.json[]
+----
+====
+
+Similarly, a link reference can employ `dataClasses` such that the remote contents can already be partially interpreted without accessing and parsing it.
+
+.Example of a profiled result with data classes by reference
+====
+[source,json]
+----
+include::../examples/json/ResultDataClassesLink.json[]
 ----
 ====
 

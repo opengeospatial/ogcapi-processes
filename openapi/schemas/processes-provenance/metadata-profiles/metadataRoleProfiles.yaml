@@ -1,0 +1,14 @@
+description: |-
+  Mapping of metadata `role` (IRI, URN or Safe CURIE) to the profile(s) (`href` IRI, URN or Safe CURIE)
+  that a `rel: "https://www.opengis.net/def/profile"` metadata link must provide for that role.
+type: object
+additionalProperties:
+  oneOf:
+    - type: string
+    - type: array
+      minItems: 1
+      items:
+        type: string
+example:
+  "[ogc-profile:process-type]":
+    - "https://example.com/def/process-type/vegetation-index"

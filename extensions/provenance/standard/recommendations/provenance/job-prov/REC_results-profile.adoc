@@ -1,0 +1,38 @@
+[[rec_provenance_job-prov_results-profile]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/provenance/prov-results-profile
+
+[.component,class=part]
+--
+Each job result value (path: `/jobs/{jobID}/results`, using `qualifiedValue.yaml` for by-value result)
+SHOULD provide the profiles that apply to it as an array of URIs in the `dataClasses` field.
+--
+
+[.component,class=part]
+--
+Each job result value (path: `/jobs/{jobID}/results`, using `link.yaml` for by-reference result)
+SHOULD provide the profiles that apply to it as an array of URIs in the `profile` field.
+--
+
+[.component,class=part]
+--
+Each job result value accessed individually (paths: `/jobs/{jobId}/results/{outputID}` and `/jobs/{jobId}/results/{outputID}/{N}`)
+SHOULD provide one or more `Link` response header with `pass:[rel="https://www.opengis.net/def/profile"]` for each URI that applies to
+its corresponding `dataClasses` field.
+--
+
+[.component,class=part]
+--
+Specialized profiles resolved by the processing engine during the job execution SHOULD be provided
+following the same rules as <<rec_provenance_prov-content_specialized-profiles,PROV Specialized Profiles>>.
+--
+
+[.component,class=part]
+--
+The profile URIs reported in `dataClasses` and `Link` according to the results path SHOULD be the same as those reported
+by the corresponding <<req_provenance_prov-content_result-entity,PROV Job Result>> entity.
+--
+
+====

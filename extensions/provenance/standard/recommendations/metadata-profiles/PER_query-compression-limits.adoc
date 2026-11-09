@@ -1,0 +1,13 @@
+[[per_metadata-profiles_query-compression-limits]]
+[permission]
+====
+[%metadata]
+identifier:: /per/metadata-profiles/query-compression-limits
+
+[.component,class=part]
+--
+A server that supports <<req_metadata-profiles_query-compression,compressed filters>> MAY limit the size of
+the compressed value or of the decompressed content, in order to protect itself against excessive resource usage.
+--
+
+====

@@ -1,0 +1,26 @@
+[[per_metadata-profiles_query-literal-brackets]]
+[permission]
+====
+[%metadata]
+identifier:: /per/metadata-profiles/query-literal-brackets
+
+[.component,class=part]
+--
+A lenient server MAY accept the literal characters `[` and `]` in the name or value of the `metadata` query parameters,
+although they are not allowed in the query component by <<rfc3986,RFC 3986>>, Section 3.4.
+--
+
+[.component,class=part]
+--
+A strict server MAY refuse the literal characters `[` and `]` in the name or value of the `metadata` query parameters,
+and instead only accept their percent-encoded form (i.e., `%5B` and `%5D`).
+--
+
+[.component,class=part]
+--
+A server MAY support the `Prefer` request header with the `handling=lenient` or `handling=strict` preference
+(<<rfc7240,RFC 7240>>, Section 4.4) to let the client request the lenient or strict handling of literal brackets,
+and indicate the applied handling with the `Preference-Applied` response header.
+--
+
+====

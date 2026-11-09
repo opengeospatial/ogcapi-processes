@@ -1,0 +1,11 @@
+{
+  "mask": {
+    "href": "https://example.com/collections/water-bodies/items/lake-ontario-coverage",
+    "type": "application/geo+json",
+    "dataClasses": [
+      "https://example.com/namedEntity",
+      "https://schema.org/category",
+      "bblocks://ogc.contrib.stac.extensions.classification"
+    ]
+  }
+}

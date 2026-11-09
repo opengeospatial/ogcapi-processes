@@ -6,8 +6,8 @@ identifier:: /req/collection-output/response-output-one
 
 [.component,class=conditions]
 --
-. The execution request includes the `response` query parameter.
-. The value of the `response` query parameter is `collection`.
+. The <<sc_process-execute,Execution request>> includes the `response` parameter by <<req_collection-output_response-definition,query or property>> as appropriate for the HTTP request strategy.
+. The value of the `response` parameter is `collection`.
 . The number of implicitly or explicitly requested outputs is 1.
 --
 
@@ -19,6 +19,12 @@ The server SHALL respond with an HTTP status code of https://datatracker.ietf.or
 [.component,class=part]
 --
 The response SHALL include a https://datatracker.ietf.org/doc/html/rfc7231#section-7.1.2[`Location`] response header redirecting to a <<def_collection-description,collection description document>>.
+--
+
+[.component,class=part]
+--
+The <<profile-uris,profile URI>> SHALL be returned in the response
+with HTTP header `Link: href="https://www.opengis.net/def/profile/OGC/0/ogc-collection", rel="profile"`.
 --
 
 ====

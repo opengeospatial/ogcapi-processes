@@ -407,17 +407,18 @@ id:d57aaff6-a93f-4927-a2d8-112beb358d4d a wfprov:WorkflowEngine,
             prov:hadActivity id:dc49c9ee-a913-4e5c-b89a-2201af36af9c ],
         [ a prov:Start ;
             prov:atTime "2026-01-15T16:45:56.964000+00:00"^^xsd:dateTime ;
-            prov:entity id:53f5a04e-b531-466d-81be-62c34a1431ba ] ;
-    prov:specializationOf id:53f5a04e-b531-466d-81be-62c34a1431ba .
+            prov:entity id:219b625d-0146-4443-b54d-e0978b09022e ] ;
+    prov:specializationOf id:219b625d-0146-4443-b54d-e0978b09022e .
 
-id:53f5a04e-b531-466d-81be-62c34a1431ba a wfdesc:ProcessRun,
-        wfprov:WorkflowRun,
-        prov:Activity,
-        prov:Entity ;
-    rdfs:label "Job Information"^^xsd:string,
-        "Run of workflow/packed.cwl#main"^^xsd:string ;
+id:219b625d-0146-4443-b54d-e0978b09022e a prov:Entity ;
+    rdfs:label "Job Status"^^xsd:string ;
     prov:alternateOf id:d57aaff6-a93f-4927-a2d8-112beb358d4d ;
     prov:atLocation "https://hirondelle.crim.ca/weaver/processes/EchoProcess/jobs/53f5a04e-b531-466d-81be-62c34a1431ba"^^xsd:string ;
+    prov:wasInfluencedBy id:53f5a04e-b531-466d-81be-62c34a1431ba .
+
+id:53f5a04e-b531-466d-81be-62c34a1431ba a wfprov:WorkflowRun,
+        prov:Activity ;
+    rdfs:label "Run of workflow/packed.cwl#main"^^xsd:string ;
     prov:qualifiedAssociation [ a prov:Association ;
             prov:hadPlan wf:main ] ;
     prov:qualifiedEnd [ a prov:End ;
@@ -508,6 +509,5 @@ id:53f5a04e-b531-466d-81be-62c34a1431ba a wfdesc:ProcessRun,
             prov:hadRole <arcp://uuid,53f5a04e-b531-466d-81be-62c34a1431ba/workflow/packed.cwl#main/doubleInput> ] ;
     prov:startedAtTime "2026-01-15T16:46:10.775907"^^xsd:dateTime ;
     prov:wasAssociatedWith id:d57aaff6-a93f-4927-a2d8-112beb358d4d ;
-    prov:wasGeneratedBy <urn:hash::sha1:4e5feeeb8209de47c8dfb7c3f50a893e505af067:EchoProcess> ;
     prov:wasStartedBy data:4e5feeeb8209de47c8dfb7c3f50a893e505af067 .
 

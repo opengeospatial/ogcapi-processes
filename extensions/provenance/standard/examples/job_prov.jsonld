@@ -163,7 +163,7 @@
     {
       "@type": "Start",
       "activity": "id:d57aaff6-a93f-4927-a2d8-112beb358d4d",
-      "trigger": "id:53f5a04e-b531-466d-81be-62c34a1431ba",
+      "trigger": "id:219b625d-0146-4443-b54d-e0978b09022e",
       "time": "2026-01-15T16:45:56.964000+00:00"
     },
     {
@@ -248,10 +248,7 @@
     },
     {
       "@type": "Entity",
-      "@id": "id:53f5a04e-b531-466d-81be-62c34a1431ba",
-      "type": [
-        "wfdesc:ProcessRun"
-      ],
+      "@id": "id:219b625d-0146-4443-b54d-e0978b09022e",
       "location": [
         {
           "@value": "https://hirondelle.crim.ca/weaver/processes/EchoProcess/jobs/53f5a04e-b531-466d-81be-62c34a1431ba"
@@ -259,7 +256,7 @@
       ],
       "label": [
         {
-          "@value": "Job Information"
+          "@value": "Job Status"
         }
       ]
     },
@@ -1078,7 +1075,7 @@
     {
       "@type": "Specialization",
       "specificEntity": "id:d57aaff6-a93f-4927-a2d8-112beb358d4d",
-      "generalEntity": "id:53f5a04e-b531-466d-81be-62c34a1431ba"
+      "generalEntity": "id:219b625d-0146-4443-b54d-e0978b09022e"
     },
     {
       "@type": "Specialization",
@@ -1171,14 +1168,14 @@
       "agent": "data:4e5feeeb8209de47c8dfb7c3f50a893e505af067"
     },
     {
-      "@type": "Alternate",
-      "alternate1": "id:d57aaff6-a93f-4927-a2d8-112beb358d4d",
-      "alternate2": "id:53f5a04e-b531-466d-81be-62c34a1431ba"
+      "@type": "Influence",
+      "influencee": "id:219b625d-0146-4443-b54d-e0978b09022e",
+      "influencer": "id:53f5a04e-b531-466d-81be-62c34a1431ba"
     },
     {
-      "@type": "Generation",
-      "entity": "id:53f5a04e-b531-466d-81be-62c34a1431ba",
-      "activity": "data:4e5feeeb8209de47c8dfb7c3f50a893e505af067:EchoProcess"
+      "@type": "Alternate",
+      "alternate1": "id:d57aaff6-a93f-4927-a2d8-112beb358d4d",
+      "alternate2": "id:219b625d-0146-4443-b54d-e0978b09022e"
     },
     {
       "@type": "Generation",

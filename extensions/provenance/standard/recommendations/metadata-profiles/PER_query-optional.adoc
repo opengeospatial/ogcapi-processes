@@ -1,0 +1,15 @@
+[[per_metadata-profiles_query-optional]]
+[permission]
+====
+[%metadata]
+identifier:: /per/metadata-profiles/query-optional
+
+[.component,class=part]
+--
+A server MAY ignore support of the `QUERY` method on path `/processes`, and rely solely on the
+<<req_metadata-profiles_query-parameter,query parameters>> of the `GET` operation to filter processes by metadata
+role profiles, provided it reports the lack of support as defined by
+<<req_metadata-profiles_query-method,Query Method>>.
+--
+
+====

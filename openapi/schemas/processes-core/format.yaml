@@ -1,11 +1,14 @@
-type: object
-properties:
-  mediaType:
-    type: string
-  encoding:
-    type: string
-  schema:
-    oneOf:
-      - type: string
-        format: url
-      - type: object
+# anything included here is automatically inherited by the qualified value, collection and output selection 'format'
+allOf:
+  - type: object
+    properties:
+      mediaType:
+        type: string
+      encoding:
+        type: string
+      schema:
+        oneOf:
+          - type: string
+            format: url
+          - type: object
+  - $ref: "dataClasses.yaml"

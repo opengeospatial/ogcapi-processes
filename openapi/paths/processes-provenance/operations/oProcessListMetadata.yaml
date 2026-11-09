@@ -1,0 +1,24 @@
+# Same as 'processes-core/operations/oProcessList.yaml' with the additional Part 5 query parameter and responses.
+# Core summary, description, operationId and tags are preserved to avoid overriding the main listing details.
+summary: retrieve the list of available processes
+description: |
+   The list of processes contains a summary of each process the OGC API - Processes offers, including the link to a more detailed description of the process.
+
+   For more information, see [Section 7.7]https://docs.ogc.org/is/18-062r2/18-062r2.html#sc_process_list).
+operationId: getProcesses
+tags:
+  - Processes
+  - Core
+parameters:
+  - $ref: "../../../parameters/processes-provenance/metadata-profiles/metadata.yaml"
+responses:
+   200:
+      $ref: "../../../responses/processes-core/rProcessList.yaml"
+   204:
+      description: No process matches the metadata role profiles.
+   400:
+      $ref: "../../../responses/processes-provenance/metadata-profiles/rInvalidMetadataProfile.yaml"
+   422:
+      $ref: "../../../responses/processes-provenance/metadata-profiles/rInvalidMetadataRole.yaml"
+   500:
+      $ref: "../../../responses/common-core/rServerError.yaml"

@@ -1,0 +1,18 @@
+[[ats_metadata-profiles_profile-link]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/metadata-profiles/profile-link
+target:: /req/metadata-profiles/profile-link
+test-purpose:: Validate that profile metadata use the `pass:[rel: "https://www.opengis.net/def/profile"]` with URI `role` and `href`.
+test-method::
++
+--
+1. Retrieve the process descriptions (path: `{root}/processes/{processID}`) advertising profile metadata.
+
+2. For every `metadata` field entry (of the process, inputs and outputs) describing a profile, validate that `rel` is `pass:[https://www.opengis.net/def/profile]`.
+
+3. Validate that `role` and `href` are IRIs (RFC 3987) or URNs (RFC 8141) (or Safe CURIEs if supported).
+--
+====

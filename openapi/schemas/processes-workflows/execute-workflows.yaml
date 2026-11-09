@@ -25,6 +25,7 @@ allOf:
       subscriber:
         $ref: "../processes-core/subscriber.yaml"
   - $ref: "../processes-core/fieldsModifiers.yaml"
+  - $ref: "../processes-core/responseCollection.yaml"
   - example:
       inputs:
         data:

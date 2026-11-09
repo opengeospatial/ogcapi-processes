@@ -1,0 +1,23 @@
+[[ats_collection-output_response-unsupported]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collection-output/response-unsupported
+target:: /req/collection-output/response-unsupported
+test-purpose:: Validate that the collection output responds with the proper error message for unsupported format or data access combinations.
+test-method::
++
+--
+1. Obtain a process description for one or more processes offered by the server as per test <<ats_core_process-description-op,/conf/core/process-description-op>>.
+
+2. Inspect the description of the outputs of each process and identify outputs that do not support collection output (i.e., `dataAccessApis` omitted).
+
+3. Compose an execute request (see: <<ats_core_process-execute-op,/conf/core/process-execute-op>>) for each identified process and request outputs containing at least one identified output in Step 2.  Ensure that the execution endpoint (i.e. `/processes/{processID}/execution`) includes the `response=collection` query parameter.
+
+4. Verify that the server responds with an HTTP status code of 400.
+
+5. Verify that the response a `type` asserting `pass:["https://www.opengis.net/def/exceptions/ogcapi-processes-1/2.0/collection-output-unsupported"]`.
+
+6. If provided, verify that the indicated `detail` describes an error that corresponds to a problem related to an unsupported collection format or data access mechanism.
+--
+====

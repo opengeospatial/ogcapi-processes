@@ -1,0 +1,38 @@
+[[req_metadata-profiles_query-curie-matching]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/metadata-profiles/query-curie-matching
+
+[.component,class=conditions]
+--
+. The server supports <<per_metadata-profiles_safe-curie,Safe CURIEs>>.
+--
+
+[.component,class=part]
+--
+A Safe CURIE and the URI it expands to SHALL be considered equivalent aliases for the matching of `<role>` and
+`<profile>`, whether the value is provided in the `metadata` list field of the process description or in the filters of the
+<<req_metadata-profiles_query-parameter,query parameters>> or the <<req_metadata-profiles_query-method,`QUERY` method>>.
+--
+
+[.component,class=part]
+--
+A Safe CURIE that cannot be expanded to a URI SHALL be reported as per
+<<req_metadata-profiles_invalid-role,/req/metadata-profiles/invalid-role>>.
+--
+
+[.component,class=part]
+--
+A Safe CURIE `<role>` provided as a query parameter name SHALL be parsed from the form `+++metadata[<scope>][[<curie>]]+++`,
+where the outermost brackets delimit the `<role>` key of the `deepObject` structure and the inner brackets are part of
+the Safe CURIE, such that the `<role>` is `[<curie>]`.
+--
+
+[.component,class=part]
+--
+A Safe CURIE `<profile>` provided as a query parameter value SHALL be parsed from the form `[<curie>]`,
+since the value is not nested in any `deepObject` structure.
+--
+
+====

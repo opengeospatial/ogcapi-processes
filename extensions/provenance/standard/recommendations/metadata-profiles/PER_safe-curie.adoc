@@ -1,0 +1,20 @@
+[[per_metadata-profiles_safe-curie]]
+[permission]
+====
+[%metadata]
+identifier:: /per/metadata-profiles/safe-curie
+
+[.component,class=part]
+--
+The `role` and `href` of a <<req_metadata-profiles_profile-link,_Metadata Profile Link_>>, as well as the `<role>` and `<profile>`
+of the filters, MAY be represented by a link:https://www.w3.org/TR/curie/#s_safe_curies[Safe CURIE]
+(e.g., `[ogc-profile:process-type]`) as an alias of the registered URI it expands to.
+--
+
+[.component,class=part]
+--
+The server MAY define the prefix-to-namespace mappings (e.g., `ogc-profile`) it supports, as long as each Safe CURIE
+unambiguously expands to a URI.
+--
+
+====

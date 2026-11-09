@@ -1,0 +1,8 @@
+[[rec_core_job-results_data-classes]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/core/job-results-data-classes
+
+Servers SHOULD use the `dataClasses` key with applicable profile references within respective `{outputID}` results obtained from an <<sc_execute_process,execution>> or <<sc_retrieve_job_results,job results>> response for data contents asserting certain conformance requirements.
+====

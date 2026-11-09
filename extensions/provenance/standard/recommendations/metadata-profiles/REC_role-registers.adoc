@@ -1,0 +1,30 @@
+[[rec_metadata-profiles_role-registers]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/metadata-profiles/role-registers
+
+[.component,class=part]
+--
+The `role` URI SHOULD be selected from the definitions of the
+link:https://defs.opengis.net/prez/catalogs/ogc-cat:register/col/registers:bblocks[OGC Building Blocks registers]
+or of the link:https://www.opengis.net/def/profile[OGC profiles register].
+--
+
+[.component,class=part]
+--
+The `role` URI SHOULD be dereferenceable to a registered definition of its concept.
+--
+
+[.component,class=part]
+--
+The `href` URI SHOULD be a concept registered under the register referred to by the `role`.
+--
+
+====
+
+NOTE: Dereferencing of URIs is not a requirement for security reasons. It is also allowed for ontologies still being
+worked on that are not fully published and validated by their owning authorities. Servers can resolve those URIs as
+plain string matching as deemed fit. However, valid links are still recommended even if not accessed by the server
+to help discoverability of their concepts by other entities that might have access to external networks, and to
+facilitate interpretation and exploration of its <<def_knowledge-graph,_knowledge graph_>> concept relationships.

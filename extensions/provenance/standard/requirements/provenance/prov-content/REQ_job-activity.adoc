@@ -7,8 +7,9 @@ identifier:: /req/provenance/prov-content-job-activity
 [.component,class=part]
 --
 The PROV metadata SHALL minimally include one link:https://www.w3.org/TR/prov-o/#Activity[`prov:Activity`]
-that associates the <<req_provenance_job-prov_relation-job-entity,PROV Job Entity>> with its
-<<req_provenance_prov-content_process-entity,PROV Process Entity>>.
+that represents the execution of the job.
+The <<req_provenance_job-prov_relation-job-entity,PROV Job Status Entity>> is related to this activity,
+which is associated with its <<req_provenance_prov-content_process-entity,PROV Process Entity>>.
 --
 
 [.component,class=part]
@@ -18,6 +19,11 @@ The PROV job activity SHALL indicate a `prov:type` of relevant value to represen
 --
 
 ====
+
+NOTE: When a type from the Wf4Ever ontologies is employed, `wfprov:WorkflowRun` and `wfprov:ProcessRun`
+refer to the link:http://purl.org/wf4ever/wfprov[wfprov] ontology.
+The described process they execute is defined by the link:http://purl.org/wf4ever/wfdesc[wfdesc] ontology.
+The specific `prov:type` value is not enforced to allow alternate implementations and profiles.
 
 NOTE: Multiple activities might be associated between each other (`wasInformedBy`) or might
 be related through intermediate agents (e.g., <<rec_provenance_prov-content_software-agent,PROV Software Agent>>)

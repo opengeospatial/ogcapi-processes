@@ -1,0 +1,56 @@
+[[req_metadata-profiles_query-compression]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/metadata-profiles/query-compression
+
+[.component,class=conditions]
+--
+. The server supports the `GET` operation on path `/processes` with the
+<<req_metadata-profiles_query-parameter,`metadata` query parameter>>.
+--
+
+[.component,class=part]
+--
+The server SHALL either support compressed filters in the `metadata` query parameter, or report that it does not,
+as defined by the following parts.
+--
+
+[.component,class=part]
+--
+If compressed filters are supported, the `metadata` query parameter SHALL accept a single value (i.e., not using the
+`metadata[<scope>][<role>]` form) that is the `base64url` encoding (<<rfc4648,RFC 4648>>, Section 5) of the `gzip`
+(<<rfc1952,RFC 1952>>) compressed <<req_metadata-profiles_query-content,`QUERY` content>>.
+--
+
+[.component,class=part]
+--
+If compressed filters are supported, the server SHALL detect the compressed value by the `gzip` magic number
+(bytes `0x1F 0x8B`) at the start of the `base64url`-decoded value.
+--
+
+[.component,class=part]
+--
+If compressed filters are supported, the decompressed content SHALL be evaluated using the same semantics as
+<<sc_metadata-profiles_matching,Query Matching>>.
+--
+
+[.component,class=part]
+--
+If compressed filters are supported, a value that cannot be decoded, decompressed or parsed as `QUERY` content
+SHALL be reported as per <<req_metadata-profiles_invalid-metadata-profile,/req/metadata-profiles/invalid-metadata-profile>>.
+--
+
+[.component,class=part]
+--
+If compressed filters are not supported, the server SHALL respond to a `GET` request on path `/processes` using
+a single value of the `metadata` query parameter with the HTTP status code `422` (Unprocessable Content).
+--
+
+[.component,class=part]
+--
+If compressed filters are not supported, the response SHALL be reported as per
+<<req_metadata-profiles_unsupported-metadata-encoding,/req/metadata-profiles/unsupported-metadata-encoding>>.
+--
+
+====

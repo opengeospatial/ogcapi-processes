@@ -1,0 +1,18 @@
+[[ats_metadata-profiles_query-content]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/metadata-profiles/query-content
+target:: /req/metadata-profiles/query-content
+test-purpose:: Validate the request content of the `QUERY` operation on `/processes`, when the method is supported.
+test-method::
++
+--
+1. Validate that `OPTIONS` on `{root}/processes` advertises `QUERY` (see <<ats_metadata-profiles_query-options>>). Otherwise, skip this test.
+
+2. Issue `QUERY` requests with `application/json` content that validates against the `processesQuery` schema, using each of `process`, `inputs` and `outputs` alone, and validate that each is accepted (status code 200 or 204).
+
+3. Issue a `QUERY` request with content that does not validate against the schema (e.g., `metadata` field missing, or a role mapped to a number), and validate that the request is rejected with a `4xx` status code.
+--
+====

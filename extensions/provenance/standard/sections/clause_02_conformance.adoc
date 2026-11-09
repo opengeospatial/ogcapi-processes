@@ -7,6 +7,7 @@ The OGC API - Processes - Part 5 Standard defines the following requirements cla
 The main requirements class is:
 
 * <<rc_provenance,Provenance>>.
+* <<rc_metadata-profiles,Metadata Profiles>>.
 
 This class specifies requirements that any Web API implementing Processes Part 5 must conform with.
 

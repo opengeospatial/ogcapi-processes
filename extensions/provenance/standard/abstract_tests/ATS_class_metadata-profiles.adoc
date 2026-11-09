@@ -1,0 +1,54 @@
+[[ats_metadata-profiles]]
+[conformance_class]
+.Metadata Profiles
+=====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-processes-5/1.0/conf/metadata-profiles
+subject:: <<rc_metadata-profiles,https://www.opengis.net/spec/ogcapi-processes-5/1.0/req/metadata-profiles>>
+classification:: Target Type:Web API
+conformance-test:: /conf/metadata-profiles/profile-link
+conformance-test:: /conf/metadata-profiles/role-register
+conformance-test:: /conf/metadata-profiles/concept-relations
+conformance-test:: /conf/metadata-profiles/query-parameter
+conformance-test:: /conf/metadata-profiles/query-matching
+conformance-test:: /conf/metadata-profiles/query-curie-matching
+conformance-test:: /conf/metadata-profiles/query-options
+conformance-test:: /conf/metadata-profiles/query-method
+conformance-test:: /conf/metadata-profiles/query-content
+conformance-test:: /conf/metadata-profiles/query-compression
+conformance-test:: /conf/metadata-profiles/unsupported-metadata-encoding
+conformance-test:: /conf/metadata-profiles/invalid-metadata-profile
+conformance-test:: /conf/metadata-profiles/invalid-role
+=====
+
+[[ats_metadata-profiles_profile-link-section]]
+==== Profile metadata
+
+include::metadata-profiles/ATS_profile-link.adoc[]
+
+include::metadata-profiles/ATS_role-register.adoc[]
+
+include::metadata-profiles/ATS_concept-relations.adoc[]
+
+[[ats_metadata-profiles_query-section]]
+==== Process filtering
+
+include::metadata-profiles/ATS_query-parameter.adoc[]
+
+include::metadata-profiles/ATS_query-matching.adoc[]
+
+include::metadata-profiles/ATS_query-curie-matching.adoc[]
+
+include::metadata-profiles/ATS_query-options.adoc[]
+
+include::metadata-profiles/ATS_query-method.adoc[]
+
+include::metadata-profiles/ATS_query-content.adoc[]
+
+include::metadata-profiles/ATS_query-compression.adoc[]
+
+include::metadata-profiles/ATS_unsupported-metadata-encoding.adoc[]
+
+include::metadata-profiles/ATS_invalid-metadata-profile.adoc[]
+
+include::metadata-profiles/ATS_invalid-role.adoc[]

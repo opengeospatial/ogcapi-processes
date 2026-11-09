@@ -1,0 +1,43 @@
+[[req_nested-processes_response-workflow-errors]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/nested-processes/response-workflow-errors
+description:: Response for workflow error situations.
+
+[.component,class=part]
+--
+If the definition of a workflow structure cannot be parsed, either from plain schema validation error or from logical ambiguities (e.g., an unresolved ID from `$input` reference with <<sc_deployable-workflows,Deployable Workflows>>), the error response SHALL use HTTP `422 Unprocessable Content`.
+--
+
+[.component,class=part]
+--
+If a workflow definition is correctly formed (valid schema), but it cannot fulfill the execution request due to mismatching conformance between nested processes, from incompatible data access mechanisms, from unresolvable content negotiation, or any other invalid chaining combination, the error response SHALL use HTTP `424 Failed Dependency`.
+--
+
+[.component,class=part]
+--
+The error SHALL use the "Problem Details" report in an error response in accordance with https://datatracker.ietf.org/doc/html/rfc9457[RFC 9457].
+--
+
+[.component,class=part]
+--
+The error SHALL use the `application/problem+json` media-type by default in the error response, unless negotiated otherwise.
+--
+
+[.component,class=part]
+--
+The `type` of the exception SHALL be `pass:["https://www.opengis.net/def/exceptions/ogcapi-processes-3/0.0/workflow-error"]`.
+--
+
+[.component,class=part]
+--
+The error `detail` SHALL provide contextual details to interpret the cause of the problem in the workflow.
+--
+
+====
+
+[NOTE]
+=====
+Distinct status codes from broad `400` or `406` respectively used to reflect a bad request and not acceptable media-type are purposely avoided to distinguish them from errors happening "within" the workflow at an intermediate step. Specifically, the execution request could include content negotiation (i.e., `Accept` header) for the "final result" from the top-most `process` in the nested workflow chain. If the server needs to report that this request format is invalid before even attempting the workflow execution, it can do so safely. Reusing a `406` for an invalid intermediate step would make error parsing ambiguous for clients trying to resolve alternate responses for the entire execution request.
+=====

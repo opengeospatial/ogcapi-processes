@@ -1,0 +1,34 @@
+[[rec_provenance_prov-content_specialized-profiles]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/provenance/prov-content-specialized-profiles
+
+[.component,class=part]
+--
+If the job execution resulted in profiles more specific than the generic ones defined in the process description
+for the process, an input or an output, the corresponding PROV entity SHOULD also include
+those specialized profiles, using the same representation as in
+<<rec_provenance_prov-content_profile-entities,PROV Profile Entities>>.
+--
+
+[.component,class=part]
+--
+Specialized profiles that can only be resolved by the processing engine from the actual data or parameters of the job
+(i.e., that cannot be known from the process description alone) SHOULD be reported,
+since the job provenance is the only place where they can be obtained.
+--
+
+[.component,class=part]
+--
+Each specialized profile entity SHOULD be linked with a `prov:specializationOf` relation
+to the profile entity of the more generic profile it refines.
+--
+
+[.component,class=part]
+--
+Where a `prov:specializationOf` relation cannot be used, an equivalent relation between profiles
+(e.g., `prof:isProfileOf`, `skos:broader`) SHOULD be used instead, in the same direction of refinement.
+--
+
+====

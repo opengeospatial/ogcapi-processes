@@ -1,0 +1,21 @@
+[[rec_metadata-profiles_query-literal-brackets-error]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/metadata-profiles/query-literal-brackets-error
+
+[.component,class=part]
+--
+A server refusing literal brackets (see <<per_metadata-profiles_query-literal-brackets,/per/metadata-profiles/query-literal-brackets>>)
+SHOULD respond with the HTTP status code `400` (Bad Request), using the same error as for other invalid filters
+defined by <<req_metadata-profiles_invalid-metadata-profile,/req/metadata-profiles/invalid-metadata-profile>>.
+--
+
+[.component,class=part]
+--
+When the parsing preference is `lenient` (default), a server SHOULD parse the percent-encoded brackets (i.e., `%5B` and `%5D`)
+equivalently to the literal brackets that it accepts, and a `strict` server SHOULD accept only the percent-encoded form for
+all bracket occurrences.
+--
+
+====

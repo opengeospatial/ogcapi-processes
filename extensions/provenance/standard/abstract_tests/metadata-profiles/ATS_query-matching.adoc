@@ -1,0 +1,20 @@
+[[ats_metadata-profiles_query-matching]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/metadata-profiles/query-matching
+target:: /req/metadata-profiles/query-matching
+test-purpose:: Validate the matching semantics of metadata role profile filters.
+test-method::
++
+--
+1. Issue a filter for a role/profile present on a process under an arbitrary input `id`, and validate that the process is returned irrespective of that `id`.
+
+2. Issue a filter with many profiles for a same role, and validate that only processes whose inputs (or outputs) provide all of them, either through distinct inputs or through a single one, are returned (each profile matched by at least one input or output).
+
+3. Issue a filter with many roles, and validate that processes are returned only if every role is matched, whether by distinct inputs or by a single one.
+
+4. Issue a filter with a role matching a process and another role matching none, and validate that the process is not returned.
+--
+====

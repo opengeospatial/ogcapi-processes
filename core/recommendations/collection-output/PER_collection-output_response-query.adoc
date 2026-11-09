@@ -1,0 +1,13 @@
+[[per_collection-output_response-query]]
+[permission]
+====
+[%metadata]
+identifier:: /per/collection-output/response-query
+description:: Collection output can be requested by query on HTTP POST request
+
+[.component,class=part]
+--
+The server MAY support using the `?response=collection` query parameter representation of the <<req_collection-output_response-definition,Collection Output Response Definition>> even when the request is performed as HTTP POST in combination with any necessary <<sc_execute_process,Execution Body>>.
+--
+
+====

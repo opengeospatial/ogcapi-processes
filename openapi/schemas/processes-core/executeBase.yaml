@@ -1,0 +1,10 @@
+type: object
+properties:
+  inputs:
+    additionalProperties:
+      $ref: "values.yaml"
+  outputs:
+    additionalProperties:
+      $ref: "outputSelection.yaml"
+  subscriber:
+    $ref: "subscriber.yaml"

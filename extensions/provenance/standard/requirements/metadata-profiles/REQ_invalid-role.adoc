@@ -1,0 +1,32 @@
+[[req_metadata-profiles_invalid-role]]
+[requirement]
+====
+[%metadata]
+identifier:: /req/metadata-profiles/invalid-role
+
+[.component,class=conditions]
+--
+. A `<role>` or `<profile>` of the filters is a valid IRI, URN or Safe CURIE, but cannot be interpreted by the server.
+--
+
+[.component,class=part]
+--
+The server SHALL respond with the HTTP status code `422` (Unprocessable Content).
+--
+
+[.component,class=part]
+--
+The response SHALL use the media type `application/problem+json` (<<rfc9457,RFC 9457>>).
+--
+
+[.component,class=part]
+--
+The `instance` of the response content SHALL be the offending `<role>` or `<profile>` value of the filters.
+--
+
+[.component,class=part]
+--
+The `type` of the response content SHALL be `pass:["https://www.opengis.net/def/exceptions/ogcapi-processes-5/1.0/unsupported-metadata-profile"]`.
+--
+
+====
