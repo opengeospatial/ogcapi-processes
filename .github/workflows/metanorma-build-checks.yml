@@ -11,6 +11,11 @@ on:
     branches:
       - master
 
+# Cancel superseded runs of the same PR. Runs on 'master' are never cancelled.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 env:
   METANORMA_DOCKER_IMAGE: metanorma/metanorma
   METANORMA_EXPORT_FORMATS: html,xml

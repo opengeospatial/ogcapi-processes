@@ -7,6 +7,11 @@ on:
     branches:
       - master
 
+# Cancel superseded runs of the same PR. Runs on 'master' are never cancelled.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   lint-check-openapi:
     runs-on: ubuntu-latest
