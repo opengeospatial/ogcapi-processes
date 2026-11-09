@@ -1,0 +1,7 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-jsonld/schema.json, see 'schema.yaml' in this directory for adaptation details.
+type: array
+items:
+  anyOf:
+  - $ref: QualifiedName.yaml
+  - $ref: typed_value.yaml
+  - $ref: lang_string.yaml

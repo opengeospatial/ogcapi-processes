@@ -1,0 +1,15 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-json/schema, see 'schema.yaml' in this directory for adaptation details.
+type: object
+title: communication
+properties:
+  prov:informant:
+    type: string
+    format: uri
+  prov:informed:
+    type: string
+    format: uri
+required:
+- prov:informant
+- prov:informed
+additionalProperties:
+  $ref: attributeValues.yaml

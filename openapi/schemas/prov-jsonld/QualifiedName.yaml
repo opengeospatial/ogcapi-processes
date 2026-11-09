@@ -1,0 +1,5 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-jsonld/schema.json, see 'schema.yaml' in this directory for adaptation details.
+type: string
+title: The QualifiedName Schema
+default: ''
+pattern: (^[A-Za-z0-9_]+:)?(.*)$

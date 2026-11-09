@@ -26,10 +26,11 @@ properties:
        minItems: 2
        maxItems: 2
        items:
-         type: string
-         format: date-time
-         nullable: true
-         example: '2011-11-11T12:22:11Z' #, '2011-11-11T08:22:11-04:00', null
+         oneOf:
+           - type: string
+             format: date-time
+             example: '2011-11-11T12:22:11Z' #, '2011-11-11T08:22:11-04:00', null
+           - enum: [null]
    trs:
      title: Temporal Coordinate Reference System
      description: |-

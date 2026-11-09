@@ -27,8 +27,8 @@ properties:
        items:
          oneOf:
            - type: string
-             nullable: true
              example: '2011-11-11T12:22:11Z' #, '2011-11-11T08:22:11-04:00', null
+           - enum: [null]
            - type: number
              example: 32.7
    trs:

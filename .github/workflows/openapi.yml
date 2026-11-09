@@ -19,20 +19,29 @@ jobs:
 
       - name: Set up node
         uses: actions/setup-node@v6
-      - name: Install Redocly CLI
-        run: npm install -g @redocly/cli@latest
-      - name: Bundle OpenAPI
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: openapi/package-lock.json
+      - name: Install OpenAPI tooling
+        run: npm ci --prefix openapi
+      - name: Generate OpenAPI variants and bundle
         run: openapi/update.sh
+        env:
+          BUNDLE_TOOL: npx --no-install redocly
+      - name: Validate OpenAPI variants (3.0, 3.1, 3.2)
+        run: npm run validate --prefix openapi
       - name: Run linting
         run: |
-          redocly lint \
+          cd openapi
+          npx --no-install redocly lint \
             --format github-actions \
-            --config .github/redocly/config.yaml \
-            openapi/ogcapi-processes.bundled.json
+            --config ../.github/redocly/config.yaml \
+            ogcapi-processes.bundled.json
 
-      - name: Commit updated OpenAPI bundle
+      - name: Commit updated OpenAPI bundle and variants
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: Auto-update OpenAPI bundle
-          file_pattern: 'openapi/ogcapi-processes.bundled.json'
+          file_pattern: 'openapi/ogcapi-processes.bundled.json openapi/oas3*-ogcapi-processes.yaml'
           branch: ${{ github.head_ref }}

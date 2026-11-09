@@ -19,20 +19,59 @@ properties:
      additionalProperties:
        type: object
        properties:
+         $schema:
+           title: JSON Schema version
+           description: |-
+             URI identifying the JSON Schema dialect used by this definition
+             (e.g.: `https://json-schema.org/draft/2020-12/schema`).
+             Allows clarifying variants such as the `exclusiveMinimum` and `exclusiveMaximum` (boolean or numeric)
+             or nullable representations (`nullable`, `type: [X, "null"]` or `enum: [null]`).
+             Must be an absolute URI (`format: uri`).
+           type: string
+           format: uri
+         $id:
+           title: Schema identifier
+           description: |-
+             Identifier of this schema definition.
+             Can be an absolute URI or a relative URI reference (`format: uri-reference`), such as `#/definitions/id`.
+           type: string
+           format: uri-reference
          title:
            type: string
          description:
            type: string
          type:
-           type: string
-           enum:
-           - array
-           - boolean
-           - integer
-           - 'null'
-           - number
-           - object
-           - string
+           description: |-
+             Single type (OpenAPI 3.0 / JSON Schema draft-04) or list of types (OpenAPI 3.1+ / JSON Schema 2020-12).
+             A list allows nullable values using `type: [X, "null"]`.
+           oneOf:
+             - type: string
+               enum:
+               - array
+               - boolean
+               - integer
+               - 'null'
+               - number
+               - object
+               - string
+             - type: array
+               minItems: 1
+               uniqueItems: true
+               items:
+                 type: string
+                 enum:
+                 - array
+                 - boolean
+                 - integer
+                 - 'null'
+                 - number
+                 - object
+                 - string
+         nullable:
+           description: |-
+             Nullable values in OpenAPI 3.0 / JSON Schema draft-04, removed in OpenAPI 3.1+.
+             Null-only values can be represented with `enum: [null]`.
+           type: boolean
          enum:
            type: array
            minItems: 1
@@ -45,11 +84,19 @@ properties:
          maximum:
            type: number
          exclusiveMaximum:
-           type: number
+           description: |-
+             Boolean in OpenAPI 3.0 / JSON Schema draft-04, numeric in OpenAPI 3.1+ / JSON Schema 2020-12.
+           oneOf:
+             - type: boolean
+             - type: number
          minimum:
            type: number
          exclusiveMinimum:
-           type: number
+           description: |-
+             Boolean in OpenAPI 3.0 / JSON Schema draft-04, numeric in OpenAPI 3.1+ / JSON Schema 2020-12.
+           oneOf:
+             - type: boolean
+             - type: number
          pattern:
            type: string
            format: regex

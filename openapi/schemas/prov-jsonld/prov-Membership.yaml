@@ -1,0 +1,19 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-jsonld/schema.json, see 'schema.yaml' in this directory for adaptation details.
+type: object
+required:
+- '@type'
+properties:
+  '@type':
+    pattern: Membership
+  '@id':
+    $ref: QualifiedName.yaml
+  entity:
+    $ref: QualifiedNameOrArray.yaml
+  collection:
+    $ref: QualifiedName.yaml
+  type:
+    $ref: ArrayOfValues.yaml
+  label:
+    $ref: ArrayOfLabelValues.yaml
+additionalProperties:
+  $ref: ArrayOfValues.yaml

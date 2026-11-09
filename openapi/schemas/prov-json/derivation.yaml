@@ -1,0 +1,24 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-json/schema, see 'schema.yaml' in this directory for adaptation details.
+type: object
+title: derivation
+properties:
+  prov:generatedEntity:
+    type: string
+    format: uri
+  prov:usedEntity:
+    type: string
+    format: uri
+  prov:activity:
+    type: string
+    format: uri
+  prov:generation:
+    type: string
+    format: uri
+  prov:usage:
+    type: string
+    format: uri
+required:
+- prov:generatedEntity
+- prov:usedEntity
+additionalProperties:
+  $ref: attributeValues.yaml

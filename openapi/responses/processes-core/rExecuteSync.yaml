@@ -3,28 +3,39 @@ content:
   application/json:
     schema:
       anyOf:
-        - oneOf:
+        # Using 'anyOf' instead of 'oneOf' because 'number' and 'integer' will both match an integer,
+        # causing impossible schema resolution. We use this to remain explicit about "float" vs "integer" support.
+        - anyOf:
           - type: string
           - type: number
           - type: integer
           - type: object
-            nullable: true
+          - enum: [null]
           - type: array
             items: { }
           - type: boolean
+          # 'format: binary' is the OpenAPI 3.0 convention and is only informative in 3.1+.
+          # In 3.1+, 'contentMediaType: application/octet-stream' should be used instead.
+          # For base64-encoded text, 'contentEncoding: base64' is the 3.1+ equivalent of 'format: byte'.
           - type: string
             format: binary
         - $ref: "../../schemas/processes-core/results.yaml"
   image/png:
     schema:
+      # OpenAPI 3.0: 'format: binary'.
+      # OpenAPI 3.1+ equivalent: 'contentMediaType: image/png' (no 'format') for raw binary content.
       type: string
       format: binary
   image/jpeg:
     schema:
+      # OpenAPI 3.0: 'format: binary'.
+      # OpenAPI 3.1+ equivalent: 'contentMediaType: image/jpeg' (no 'format') for raw binary content.
       type: string
       format: binary
   image/tiff; application=geotiff:
     schema:
+      # OpenAPI 3.0: 'format: binary'.
+      # OpenAPI 3.1+ equivalent: 'contentMediaType: image/tiff; application=geotiff' (no 'format') for raw binary content.
       type: string
       format: binary
   application/geo+json:

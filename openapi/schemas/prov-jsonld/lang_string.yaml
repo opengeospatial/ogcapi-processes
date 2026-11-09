@@ -1,0 +1,10 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-jsonld/schema.json, see 'schema.yaml' in this directory for adaptation details.
+type: object
+required:
+- '@value'
+properties:
+  '@value':
+    type: string
+  '@language':
+    type: string
+additionalProperties: false

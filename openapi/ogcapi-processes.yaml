@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
    version: '2.0rc1'
    title: "OGC API - Processes"
@@ -582,9 +582,3 @@ components:
          $ref: 'responses/processes-provenance/rJobProvUnsupportedFormat.yaml'
 
 
-# patches for above 'JobProvenance', which includes a JSON-LD schema context that doesn't resolve definitions otherwise
-definitions:
-  Context:
-     $ref: 'https://www.w3.org/submissions/prov-jsonld/schema.json#definitions/Context'
-  ArrayOfValues:
-     $ref: 'https://www.w3.org/submissions/prov-jsonld/schema.json#definitions/ArrayOfValues'

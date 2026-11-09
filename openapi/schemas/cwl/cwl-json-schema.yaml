@@ -160,8 +160,7 @@ $defs:
         title: InitialWorkDirListingItems
         items:
           oneOf:
-            - nullable: true
-              #type: string
+            - #type: string
               enum: [null]
             - $ref: '#/$defs/CWLExpression'
             - $ref: '#/$defs/DirectoryListingDirent'
@@ -330,9 +329,9 @@ $defs:
     description: |
       Technically should be minimum=1, but fractional for scheduling algorithms are allowed.
       There is no way to distinguish between float/long simultaneously in JSON schema (multi-match oneOf).
-      Therefore, only validate that it is greater than zero.
+      Therefore, only validate that it is not negative.
+      The strictly-positive constraint ('exclusiveMinimum') is omitted since its form differs between OpenAPI 3.0 and 3.1+.
     type: number
-    exclusiveMinimum: true
     minimum: 0
     default: 1
   ResourceCoresMinimum:
@@ -1431,7 +1430,6 @@ $defs:
             enum: ['null']
           default:
             #type: string
-            nullable: true
             enum: [null]
         required: [type]
 
@@ -1442,8 +1440,9 @@ $defs:
             type: string
             enum: [string, 'string?']
           default:
-            type: string
-            nullable: true
+            oneOf:
+              - type: string
+              - enum: [null]
         required: [type]
 
       # 3. Booleans
@@ -1453,8 +1452,9 @@ $defs:
             type: string
             enum: [boolean, 'boolean?']
           default:
-            type: boolean
-            nullable: true
+            oneOf:
+              - type: boolean
+              - enum: [null]
         required: [type]
 
       # 4. Numeric Types (Int, Long, Float, Double)
@@ -1464,8 +1464,9 @@ $defs:
             type: string
             enum: [int, 'int?', long, 'long?', float, 'float?', double, 'double?', integer, 'integer?']
           default:
-            type: number
-            nullable: true
+            oneOf:
+              - type: number
+              - enum: [null]
         required: [type]
 
       # 5. File & Directory (Special CWL Objects)
@@ -1477,8 +1478,7 @@ $defs:
           default:
             oneOf:
               - $ref: '#/$defs/CWLDefaultLocation'
-              - nullable: true
-                enum: [null]
+              - enum: [null]
                 #type: string
         required: [type]
 
@@ -1519,8 +1519,9 @@ $defs:
             items:
               type: string
           default:
-            type: string
-            nullable: true
+            oneOf:
+              - type: string
+              - enum: [null]
         required: [type, symbols]
 
       # 9. Global Fallback (Any)

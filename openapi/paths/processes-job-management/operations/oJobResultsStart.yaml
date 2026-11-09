@@ -8,8 +8,9 @@ requestBody:
   content:
     application/json:
       schema:
-        type: object
-        nullable: true
+        oneOf:
+          - type: object
+          - enum: [null]
 tags:
   - Jobs Management
 parameters:

@@ -1,0 +1,584 @@
+openapi: 3.1.0
+info:
+   version: '2.0rc1'
+   title: "OGC API - Processes"
+   description: |-
+      Example API Definition for OGC API - Processes
+   contact:
+      name: Open Geospatial Consortium
+      email: info@ogc.org
+   license:
+      name: OGC License
+      url: http://www.opengeospatial.org/legal/
+servers:
+  - description: |-
+       Example Server 1 (GNOSIS, supporting Part 1: Core /Sync and Part 3: Workflows)
+    url: https://maps.gnosis.earth/ogcapi
+  - description: |-
+       Example Server 2 (CRIM Hirondelle, supporting Parts 1, 2, 3, 4)
+    url: https://hirondelle.crim.ca/ogcapi/processes
+paths:
+   # OGC API - Common - Part 1: Core
+   /:
+      $ref: 'paths/common-core/pLandingPage.yaml'
+   /conformance:
+      $ref: 'paths/common-core/pConformance.yaml'
+   /api:
+      $ref: 'paths/common-core/pAPI.yaml'
+
+   # Dynamic enumeration of resources specific to this implementation
+   /api/processes-list:
+      $ref: 'paths/dynamic/pAllProcesses.yaml'
+
+   # OGC API - Processes - Part 1: Core
+   /processes:
+      # If OGC API - Part 1 only uncomment the line below
+      #$ref: 'paths/processes-core/pProcessList.yaml'
+
+      # OGC API - Processes Part 2: Deploy, Replace, Undeploy
+      $ref: 'paths/processes-dru/pProcessListDeploy.yaml'
+
+   /processes/{processID}:
+      # OGC API - Processes Part 1: Core
+      #$ref: 'paths/processes-core/pProcessDescription.yaml'
+
+      # OGC API - Processes Part 2: Deploy, Replace, Undeploy
+      $ref: 'paths/processes-dru/pProcessDescriptionReplaceUndeploy.yaml'
+
+   /processes/{processID}/package:
+      # OGC API - Processes Part 2: Deploy, Replace, Undeploy
+      $ref: 'paths/processes-dru/pPackage.yaml'
+
+   /processes/{processID}/execution:
+      $ref: 'paths/processes-workflows/pExecution-workflows.yaml'
+
+   # OGC API - Processes - Part 1: Core (Jobs, required for ASync execution)
+   /jobs:
+      # OGC API - Processes - Part 1: Core
+      get:
+         $ref: 'paths/processes-core/operations/oProcessList.yaml'
+      # OGC API - Processes - Part 4: Job Management
+      post:
+         $ref: 'paths/processes-job-management/operations/oJobCreate.yaml'
+
+   /jobs/{jobID}:
+      $ref: 'paths/processes-core/pJob.yaml'
+
+   /jobs/{jobID}/results:
+      # OGC API - Processes - Part 1: Core
+      get:
+         $ref: 'paths/processes-core/operations/oJobResults.yaml'
+      # OGC API - Processes - Part 4: Job Management
+      post:
+         $ref: 'paths/processes-job-management/operations/oJobResultsStart.yaml'
+
+   /jobs/{jobID}/results/{outputID}:
+      $ref: 'paths/processes-core/pResultOutput.yaml'
+
+   /jobs/{jobID}/results/{outputID}/{N}:
+      $ref: 'paths/processes-core/pResultOutputValue.yaml'
+
+   # OGC API - Processes - Part 4: Job Management
+
+   /jobs/{jobID}/definition:
+      $ref: 'paths/processes-job-management/pJobDefinition.yaml'
+
+   # OGC API - Processes - Part 5: Provenance
+
+   /jobs/{jobID}/prov:
+      $ref: 'paths/processes-job-management/pJobProvenance.yaml'
+
+components:
+   schemas:
+      # $ref: './schemas/index.yaml' # Not supported?
+      # https://davidgarcia.dev/posts/how-to-split-open-api-spec-into-multiple-files/ vs.
+      # https://stackoverflow.com/questions/64940379/ref-ing-multiple-files-at-the-components-schemas-top-level-in-openapi-3
+
+      # Common - Core
+      confClasses:
+         $ref: 'schemas/common-core/confClasses.yaml'
+      link:
+         $ref: 'schemas/common-core/link.yaml'
+      landingPage:
+         $ref: 'schemas/common-core/landingPage.yaml'
+      exception:
+         $ref: 'schemas/common-core/exception.yaml'
+
+      # Common - Geospatial Data
+      collections:
+         $ref: 'schemas/common-geodata/collections.yaml'
+      collectionDesc:
+         $ref: 'schemas/common-geodata/collectionDesc.yaml'
+      extent:
+         $ref: 'schemas/common-geodata/extent.yaml'
+      extent-UAD:
+         $ref: 'schemas/common-geodata/extent-UAD.yaml'
+      crs:
+         $ref: 'schemas/crs/crs.yaml'
+      dataType:
+         $ref: 'schemas/common-geodata/dataType.yaml'
+      timeStamp:
+         $ref: 'schemas/common-geodata/timeStamp.yaml'
+      # projJSON:
+      #   $ref: 'schemas/crs/projJSON.yaml'
+      numberReturned:
+         $ref: 'schemas/common-geodata/numberReturned.yaml'
+      numberMatched:
+         $ref: 'schemas/common-geodata/numberMatched.yaml'
+
+      # Common Workflow Language
+      CWL:
+         #$ref: 'https://w3id.org/cwl/v1.2/cwl-json-schema.yaml'
+         #$ref: 'schemas/cwl/cwl.yaml'  # alias, can use either one interchangeably
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWL'
+      cwltool_CUDARequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/cwltool_CUDARequirement'
+
+      CWLAtomic:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLAtomic'
+      CWLAtomicNested:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLAtomicNested'
+      CWLGraph:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLGraph'
+      CWLWorkflow:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflow'
+      CWLWorkflowClass:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowClass'
+      CWLWorkflowBase:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowBase'
+      CWLWorkflowSteps:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowSteps'
+      CWLInputsDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputsDefinition'
+      CWLOutputsDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputsDefinition'
+      CWLWorkflowStepMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepMap'
+      CWLWorkflowStepList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepList'
+      CWLInputList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputList'
+      CWLInputMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputMap'
+      ResourceQuantityOrFractional:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/ResourceQuantityOrFractional'
+      CWLExpression:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLExpression'
+      InitialWorkDirListing:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/InitialWorkDirListing'
+      CWLRequirementsMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLRequirementsMap'
+      CWLRequirements:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLRequirements'
+      CWLCommand:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLCommand'
+      InputBinding:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/InputBinding'
+      CWLInputItem:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputItem'
+      DirectoryListingDirent:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/DirectoryListingDirent'
+      DirectoryListingFileOrDirectory:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/DirectoryListingFileOrDirectory'
+      SoftwareRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/SoftwareRequirement'
+      DockerRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/DockerRequirement'
+      ShellCommandRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/ShellCommandRequirement'
+      EnvVarRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/EnvVarRequirement'
+      SchemaDefRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/SchemaDefRequirement'
+      InitialWorkDirRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/InitialWorkDirRequirement'
+      InlineJavascriptRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/InlineJavascriptRequirement'
+      InplaceUpdateRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/InplaceUpdateRequirement'
+      LoadListingRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/LoadListingRequirement'
+      NetworkAccessRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/NetworkAccessRequirement'
+      ResourceRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/ResourceRequirement'
+      ScatterFeatureRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/ScatterFeatureRequirement'
+      WorkReuseRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/WorkReuseRequirement'
+      ToolTimeLimitRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/ToolTimeLimitRequirement'
+      MultipleInputFeatureRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/MultipleInputFeatureRequirement'
+      StepInputExpressionRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/StepInputExpressionRequirement'
+      SubworkflowFeatureRequirement:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/SubworkflowFeatureRequirement'
+
+      CWLHints:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLHints'
+      CWLWorkflowStepDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepDefinition'
+      CWLWorkflowStepScatter:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepScatter'
+      CWLWorkflowStepId:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepId'
+      CWLHintsMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLHintsMap'
+      CWLHintsList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLHintsList'
+      CWLWorkflowStepIn:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepIn'
+      CWLWorkflowStepRun:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepRun'
+      CWLWorkflowStepWhen:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepWhen'
+      CWLWorkflowStepOut:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepOut'
+      CWLWorkflowStepInMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInMap'
+      CWLWorkflowStepInList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInList'
+      CWLWorkflowStepInItem:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInItem'
+      CWLWorkflowStepInputId:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInputId'
+      CWLWorkflowStepInputBase:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInputBase'
+      CWLWorkflowStepInputDefault:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepInputDefault'
+
+      NetworkAccess:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/NetworkAccess'
+      EnvironmentDef:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/EnvironmentDef'
+
+      CWLType:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLType'
+      CWLOutputObject:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputObject'
+      CWLOutputStdOut:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputStdOut'
+      CWLOutputStdErr:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputStdErr'
+      CWLTypeEnum:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeEnum'
+      CWLTypeRecordSchema:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordSchema'
+      CWLTypeRecordArray:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordArray'
+      CWLDefaultTypedConditional:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLDefaultTypedConditional'
+      CWLTypeBase:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeBase'
+      CWLTypeList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeList'
+      AnyType:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/AnyType'
+      CWLTypeDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeDefinition'
+      CWLTypeArray:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeArray'
+      CWLTypeRecordRef:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordRef'
+      CWLTypeRecordFieldsMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordFieldsMap'
+      CWLTypeRecordFieldsList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordFieldsList'
+      CWLTypeRecordFieldDefBase:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordFieldDefBase'
+      CWLFileOnlyParametersConditional:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLFileOnlyParametersConditional'
+      CWLDirectoryOnlyParametersConditional:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLDirectoryOnlyParametersConditional'
+      CWLFileOnlyParameters:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLFileOnlyParameters'
+      CWLTypeRecordSecondaryFiles:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordSecondaryFiles'
+      CWLTypeRecordSecondaryFileSchema:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordSecondaryFileSchema'
+      CWLRequirementsList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLRequirementsList'
+      CWLRequirementsItem:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLRequirementsItem'
+
+      CWLOutputStdOutDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputStdOutDefinition'
+      CWLOutputStdOutObjectType:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputStdOutObjectType'
+      CWLOutputStdErrDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputStdErrDefinition'
+      CWLOutputStdErrObjectType:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputStdErrObjectType'
+      CWLTypeRecordFieldDef:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordFieldDef'
+
+      CWLDefault:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLDefault'
+      AnyLiteralType:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/AnyLiteralType'
+      AnyLiteralList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/AnyLiteralList'
+      CWLDefaultLocation:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLDefaultLocation'
+      CWLDefaultObject:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLDefaultObject'
+
+      CWLTypeRecordFields:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLTypeRecordFields'
+
+      CWLImport:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLImport'
+
+      CWLVersion:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLVersion'
+      CWLMetadata:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLMetadata'
+      CWLDocumentation:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLDocumentation'
+      CWLAtomicBase:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLAtomicBase'
+      CWLOutputList:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputList'
+      CWLOutputMap:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputMap'
+      CWLOutputItem:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLOutputItem'
+      CWLWorkflowStepObject:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLWorkflowStepObject'
+      CWLInputStdInDefinition:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputStdInDefinition'
+      CWLInputStdInObjectType:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputStdInObjectType'
+      CWLInputStdIn:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLInputStdIn'
+      CWLArguments:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/CWLArguments'
+
+      SoftwarePackage:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/SoftwarePackage'
+      SoftwarePackageSpecs:
+         $ref: 'schemas/cwl/cwl-json-schema.yaml#/$defs/SoftwarePackageSpecs'
+
+      # Common Query Language
+      CQL2:
+         $ref: 'schemas/cql2/cql2.yaml'
+
+      # Dynamic (or implementation-specific)
+      enumeration:
+         $ref: 'schemas/dynamic/enumeration.yaml'
+      processes-list:
+         $ref: 'schemas/dynamic/processes-list.yaml'
+
+      # Processes - Core
+      processSummary:
+         $ref: 'schemas/processes-core/processSummary.yaml'
+      process:
+         $ref: 'schemas/processes-core/process.yaml'
+      processList:
+         $ref: 'schemas/processes-core/processList.yaml'
+      jobList:
+         $ref: 'schemas/processes-core/jobList.yaml'
+      bbox-processes:
+         $ref: 'schemas/processes-core/bbox.yaml'
+      descriptionType:
+         $ref: 'schemas/processes-core/descriptionType.yaml'
+      binaryValue:
+         $ref: 'schemas/processes-core/binaryValue.yaml'
+      #execute:
+      #   $ref: 'schemas/processes-core/execute.yaml'
+      execute-workflow:
+         $ref: 'schemas/processes-workflows/execute-workflows.yaml'
+      inputParameterized:
+         $ref: 'schemas/processes-workflows/inputParameterized.yaml'
+      format:
+         $ref: 'schemas/processes-core/format.yaml'
+      schemaAndOccurrences:
+         $ref: 'schemas/processes-core/schemaAndOccurrences.yaml'
+      inputDescription:
+         $ref: 'schemas/processes-core/inputDescription.yaml'
+      value:
+         $ref: 'schemas/processes-core/value.yaml'
+      collectionValue:
+         $ref: 'schemas/processes-core/collectionValue.yaml'
+      valueNoObject:
+         $ref: 'schemas/processes-core/valueNoObject.yaml'
+      valueNoObject-workflows:
+         $ref: 'schemas/processes-workflows/valueNoObject-workflows.yaml'
+      jobControlOptions:
+         $ref: 'schemas/processes-core/jobControlOptions.yaml'
+      metadata:
+         $ref: 'schemas/processes-core/metadata.yaml'
+      values:
+         $ref: 'schemas/processes-core/values.yaml'
+      values-workflows:
+         $ref: 'schemas/processes-workflows/values-workflows.yaml'
+      outputSelection:
+         $ref: 'schemas/processes-core/outputSelection.yaml'
+      outputDescription:
+         $ref: 'schemas/processes-core/outputDescription.yaml'
+      qualifiedValue:
+         $ref: 'schemas/processes-core/qualifiedValue.yaml'
+      reference:
+         $ref: 'schemas/processes-core/reference.yaml'
+      results:
+         $ref: 'schemas/processes-core/results.yaml'
+      schema:
+         $ref: 'schemas/processes-core/schema.yaml'
+      statusCode:
+         $ref: 'schemas/processes-core/statusCode.yaml'
+      subscriber:
+         $ref: 'schemas/processes-core/subscriber.yaml'
+      inlineOrRefValue:
+         $ref: 'schemas/processes-core/inlineOrRefValue.yaml'
+      inlineOrRefValue-workflows:
+         $ref: 'schemas/processes-workflows/inlineOrRefValue-workflows.yaml'
+      fieldsModifiers:
+         $ref: 'schemas/processes-core/fieldsModifiers.yaml'
+      statusInfo:
+         $ref: 'schemas/processes-core/statusInfo.yaml'
+      dataAccessAPIs:
+         $ref: 'schemas/processes-core/dataAccessAPIs.yaml'
+      apis:
+         $ref: 'schemas/processes-core/apis.yaml'
+      dataClasses:
+         $ref: 'schemas/processes-core/dataClasses.yaml'
+
+      # OGC API - Common - Part 2: Deploy, Replace, Undeploy
+      ogcapppkg:
+         $ref: 'schemas/processes-dru/ogcapppkg.yaml'
+      staticIndicator:
+         $ref: 'schemas/processes-dru/staticIndicator.yaml'
+
+   parameters:
+      # Common - Core
+      f-metadata:
+         $ref: 'parameters/unspecified/f-metadata.yaml'
+
+      # Common - Geospatial data
+      datetime:
+         $ref: 'parameters/common-geodata/datetime.yaml'
+
+      # Common - CRS
+      crs:
+         $ref: 'parameters/common-crs/crs.yaml'
+      subset-crs:
+         $ref: 'parameters/common-crs/subset-crs.yaml'
+
+      # Processes - Core
+      processID-path:
+         $ref: 'parameters/processes-core/processID-path.yaml'
+      # Processes - Core (2.0)
+      outputID:
+         $ref: 'parameters/processes-core/outputID.yaml'
+      # Processes - Core (2.0)
+      N:
+         $ref: 'parameters/processes-core/N.yaml'
+      # Prefer: return
+      prefer-header-return:
+         $ref: 'parameters/processes-core/prefer-header-return.yaml'
+
+      # Processes - Core (Jobs)
+      jobID:
+         $ref: 'parameters/processes-core/jobID.yaml'
+
+      # Processes - Core (Querying Jobs)
+      processID-query:
+         $ref: 'parameters/processes-core/processID-query.yaml'
+      output:
+         $ref: 'parameters/processes-core/output.yaml'
+      limit:
+         $ref: 'parameters/processes-core/limit.yaml'
+      type:
+         $ref: 'parameters/processes-core/type.yaml'
+      status:
+         $ref: 'parameters/processes-core/status.yaml'
+      minDuration:
+         $ref: 'parameters/processes-core/minDuration.yaml'
+      maxDuration:
+         $ref: 'parameters/processes-core/maxDuration.yaml'
+
+      # OGC API - Common - Part 2: Deploy, Replace, Undeploy
+      w:
+         $ref: 'parameters/processes-dru/w-param.yaml'
+
+   responses:
+      # Generic Errors
+      NotFound:
+         $ref: 'responses/common-core/rNotFound.yaml'
+      NotAcceptable:
+         $ref: 'responses/common-core/rNotAcceptable.yaml'
+      ServerError:
+         $ref: 'responses/common-core/rServerError.yaml'
+      InvalidParameter:
+         $ref: 'responses/common-core/rInvalidParameter.yaml'
+      NotAllowed:
+         $ref: 'responses/common-core/rNotAllowed.yaml'
+      Exception:
+         $ref: 'responses/common-core/rException.yaml'
+
+      # Common - Core
+      LandingPage:
+         $ref: 'responses/common-core/rLandingPage.yaml'
+      Conformance:
+         $ref: 'responses/common-core/rConformance.yaml'
+      API:
+         $ref: 'responses/common-core/rAPI.yaml'
+
+      # Dynamic enumeration of resources specific to this implementation
+      Enumeration:
+         $ref: 'responses/dynamic/rEnumeration.yaml'
+
+      # OGC API - Processes - Part 1: Core
+      ProcessList:
+         $ref: 'responses/processes-core/rProcessList.yaml'
+
+      ProcessDescription:
+         $ref: 'responses/processes-core/rProcessDescription.yaml'
+
+      Results:
+         $ref: 'responses/processes-core/rResults.yaml'
+      Output:
+         $ref: 'responses/processes-core/rOutput.yaml'
+      OutputValue:
+         $ref: 'responses/processes-core/rOutputValue.yaml'
+      Status:
+         $ref: 'responses/processes-core/rStatus.yaml'
+      JobList:
+         $ref: 'responses/processes-core/rJobList.yaml'
+      ExecuteAsync:
+         $ref: 'responses/processes-core/rExecuteAsync.yaml'
+      ExecuteSync:
+         $ref: 'responses/processes-core/rExecuteSync.yaml'
+      ExecuteSyncRawRef:
+         $ref: 'responses/processes-core/rExecuteSyncRawRef.yaml'
+      EmptyResponse:
+         $ref: 'responses/processes-core/rEmpty.yaml'
+
+      # OGC API - Processes - Part 2: Deploy, Replace, Undeploy
+      DeployProcess:
+         $ref: 'responses/processes-dru/rDeployProcess.yaml'
+      ProcessSummary:
+         $ref: 'responses/processes-dru/rProcessSummary.yaml'
+      # Part 2 additional exceptions
+      DuplicateProcess:
+         $ref: 'responses/processes-dru/rDuplicateProcess.yaml'
+      ImmutableProcess:
+         $ref: 'responses/processes-dru/rImmutableProcess.yaml'
+
+      # OGC API - Processes - Part 3: Workflows and Chaining
+      # (pre injected elsewhere as applicable - no extra endpoints)
+
+      # OGC API - Processes - Part 4: Job Management
+      JobDefinition:
+         $ref: 'responses/processes-job-management/rJobDefinition.yaml'
+
+      # OGC API - Processes - Part 5: Provenance
+      JobProvenance:
+         $ref: 'responses/processes-provenance/rJobProvenance.yaml'
+      JobProvMissing:
+         $ref: 'responses/processes-provenance/rJobProvMissing.yaml'
+      JobProvUnsupportedFormat:
+         $ref: 'responses/processes-provenance/rJobProvUnsupportedFormat.yaml'
+
+

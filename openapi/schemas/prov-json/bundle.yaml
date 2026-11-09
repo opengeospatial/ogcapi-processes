@@ -1,0 +1,77 @@
+# Part of the schema vendored from https://www.w3.org/submissions/prov-json/schema, see 'schema.yaml' in this directory for adaptation details.
+type: object
+title: bundle
+properties:
+  prefix:
+    type: object
+    additionalProperties:
+      type: string
+      format: uri
+  entity:
+    type: object
+    additionalProperties:
+      $ref: entity.yaml
+  activity:
+    type: object
+    additionalProperties:
+      $ref: activity.yaml
+  agent:
+    type: object
+    additionalProperties:
+      $ref: agent.yaml
+  wasGeneratedBy:
+    type: object
+    additionalProperties:
+      $ref: generation.yaml
+  used:
+    type: object
+    additionalProperties:
+      $ref: usage.yaml
+  wasInformedBy:
+    type: object
+    additionalProperties:
+      $ref: communication.yaml
+  wasStartedBy:
+    type: object
+    additionalProperties:
+      $ref: start.yaml
+  wasEndedby:
+    type: object
+    additionalProperties:
+      $ref: end.yaml
+  wasInvalidatedBy:
+    type: object
+    additionalProperties:
+      $ref: invalidation.yaml
+  wasDerivedFrom:
+    type: object
+    additionalProperties:
+      $ref: derivation.yaml
+  wasAttributedTo:
+    type: object
+    additionalProperties:
+      $ref: attribution.yaml
+  wasAssociatedWith:
+    type: object
+    additionalProperties:
+      $ref: association.yaml
+  actedOnBehalfOf:
+    type: object
+    additionalProperties:
+      $ref: delegation.yaml
+  wasInfluencedBy:
+    type: object
+    additionalProperties:
+      $ref: influence.yaml
+  specializationOf:
+    type: object
+    additionalProperties:
+      $ref: specialization.yaml
+  alternateOf:
+    type: object
+    additionalProperties:
+      $ref: alternate.yaml
+  hadMember:
+    type: object
+    additionalProperties:
+      $ref: membership.yaml

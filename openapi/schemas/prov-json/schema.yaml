@@ -1,0 +1,89 @@
+# Vendored from https://www.w3.org/submissions/prov-json/schema
+# Original authors and license: see the W3C Member Submission at the URL above.
+# Adapted to be valid in OpenAPI 3.0, 3.1 and 3.2 Schema Objects (all files in this directory):
+#   - removed '$schema', '$id' and 'id' (unsupported in OpenAPI 3.0 Schema Objects)
+#   - split 'definitions' into one file per definition, referenced by relative '$ref'
+#   - replaced 'patternProperties' by 'additionalProperties' with the same schema, which therefore
+#     no longer restricts the key names of those properties (unsupported in OpenAPI 3.0)
+#   - activity: moved the misplaced 'prov:startTime' and 'prov:endTime' keywords under 'properties'
+description: Schema for a PROV-JSON document
+type: object
+additionalProperties: false
+properties:
+  prefix:
+    type: object
+    additionalProperties:
+      type: string
+      format: uri
+  entity:
+    type: object
+    additionalProperties:
+      $ref: entity.yaml
+  activity:
+    type: object
+    additionalProperties:
+      $ref: activity.yaml
+  agent:
+    type: object
+    additionalProperties:
+      $ref: agent.yaml
+  wasGeneratedBy:
+    type: object
+    additionalProperties:
+      $ref: generation.yaml
+  used:
+    type: object
+    additionalProperties:
+      $ref: usage.yaml
+  wasInformedBy:
+    type: object
+    additionalProperties:
+      $ref: communication.yaml
+  wasStartedBy:
+    type: object
+    additionalProperties:
+      $ref: start.yaml
+  wasEndedby:
+    type: object
+    additionalProperties:
+      $ref: end.yaml
+  wasInvalidatedBy:
+    type: object
+    additionalProperties:
+      $ref: invalidation.yaml
+  wasDerivedFrom:
+    type: object
+    additionalProperties:
+      $ref: derivation.yaml
+  wasAttributedTo:
+    type: object
+    additionalProperties:
+      $ref: attribution.yaml
+  wasAssociatedWith:
+    type: object
+    additionalProperties:
+      $ref: association.yaml
+  actedOnBehalfOf:
+    type: object
+    additionalProperties:
+      $ref: delegation.yaml
+  wasInfluencedBy:
+    type: object
+    additionalProperties:
+      $ref: influence.yaml
+  specializationOf:
+    type: object
+    additionalProperties:
+      $ref: specialization.yaml
+  alternateOf:
+    type: object
+    additionalProperties:
+      $ref: alternate.yaml
+  hadMember:
+    type: object
+    additionalProperties:
+      $ref: membership.yaml
+  bundle:
+    type: object
+    additionalProperties:
+      $ref: bundle.yaml

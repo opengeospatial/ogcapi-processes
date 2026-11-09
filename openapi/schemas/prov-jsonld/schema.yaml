@@ -1,0 +1,9 @@
+# Vendored from https://www.w3.org/submissions/prov-jsonld/schema.json
+# Original authors and license: see the W3C Member Submission at the URL above.
+# Adapted to be valid in OpenAPI 3.0, 3.1 and 3.2 Schema Objects (all files in this directory):
+#   - removed '$schema', '$id' and 'id' (unsupported in OpenAPI 3.0 Schema Objects)
+#   - split 'definitions' into one file per definition, referenced by relative '$ref'
+#   - replaced 'patternProperties' by 'additionalProperties' with the same schema, which therefore
+#     no longer restricts the key names of those properties (unsupported in OpenAPI 3.0)
+#   - renamed definitions with ':' and '+' characters (invalid in component names)
+$ref: prov-Document.yaml
